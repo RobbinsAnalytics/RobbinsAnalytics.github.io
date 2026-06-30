@@ -32,28 +32,28 @@
     "href": "projects/cascadia-pharmacy.html#data-sources",
     "title": "Cascadia Pharmacy",
     "section": "Data Sources",
-    "text": "Data Sources\n\n\n\n\n\n\n\n\n\nSource\nType\nRows\nNotes\n\n\n\n\nCMS Medicare Part D Spending by Drug\nFederal (CMS)\n14,536 raw → 339 filtered\nWide-format CSV, 2020–2024 annual columns; filtered to antidiabetic/obesity drug classes\n\n\nCDC FluVaxView\nFederal (CDC / Socrata)\n100K raw → 24,596 filtered\nAdult flu vaccination coverage by state × age × season\n\n\nCDC RSVVaxView\nFederal (CDC)\nTBD\nAdult RSV coverage — manual download pending\n\n\nCDC COVIDVaxView\nFederal (CDC)\nTBD\nAdult COVID coverage — correct dataset endpoint pending\n\n\n\nAttribution: - CMS Part D data: Centers for Medicare & Medicaid Services — public domain federal data. - CDC VaxView: Centers for Disease Control and Prevention — public domain federal data."
+    "text": "Data Sources\n\n\n\n\n\n\n\n\n\nSource\nType\nRows\nNotes\n\n\n\n\nCMS Medicare Part D Spending by Drug\nFederal (CMS)\n14,536 raw → 339 filtered\nWide-format CSV, 2020–2024 annual columns; filtered to antidiabetic/obesity drug classes\n\n\nCDC FluVaxView\nFederal (CDC / Socrata)\n100K raw → 24,596 filtered\nAdult flu vaccination coverage by state × age × season\n\n\nCDC RSVVaxView\nFederal (CDC)\nTBD\nAdult RSV coverage — in progress (Phase 2)\n\n\nCDC COVIDVaxView\nFederal (CDC)\nTBD\nAdult COVID coverage — in progress (Phase 2)\n\n\n\nAttribution: - CMS Part D data: Centers for Medicare & Medicaid Services — public domain federal data. - CDC VaxView: Centers for Disease Control and Prevention — public domain federal data."
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#headline-skill-cleaning-messy-incomplete-data",
     "href": "projects/cascadia-pharmacy.html#headline-skill-cleaning-messy-incomplete-data",
     "title": "Cascadia Pharmacy",
     "section": "Headline Skill: Cleaning Messy & Incomplete Data",
-    "text": "Headline Skill: Cleaning Messy & Incomplete Data\nReal government data isn’t clean: CMS suppresses small-cell counts (blanks/asterisks), spend arrives as currency strings, drug names vary in casing, and CDC suppresses or flags unstable estimates for small samples. The pipeline preserves that reality and handles it honestly — suppressed values are flagged, never silently zero-filled — and the report surfaces a “suppressed records” counter so the audience understands why a national total doesn’t equal the sum of states.\n\nKey Findings\n\nGLP-1 medications are the standout growth story in Medicare Part D: [VERIFY: class spend grew from ~$X to ~$Y over Z years], led by [VERIFY: Ozempic / Mounjaro figures]. Both volume (beneficiaries) and cost-per-beneficiary are rising — not just price.\nAdult immunization coverage varies widely by state — [VERIFY: ~N-point spread top to bottom] — which maps directly to a pharmacy-access growth opportunity.\n\n\n[VERIFY] figures to be confirmed against the built Power BI report before publishing."
+    "text": "Headline Skill: Cleaning Messy & Incomplete Data\nReal government data isn’t clean: CMS suppresses small-cell counts (blanks/asterisks), spend arrives as currency strings, drug names vary in casing, and CDC suppresses or flags unstable estimates for small samples. The pipeline preserves that reality and handles it honestly — suppressed values are flagged, never silently zero-filled — and the report surfaces a “suppressed records” counter so the audience understands why a national total doesn’t equal the sum of states.\n\nKey Findings\nDetailed GLP-1 spend figures and immunization coverage gaps publish with the Phase 2 Power BI report."
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#the-report",
     "href": "projects/cascadia-pharmacy.html#the-report",
     "title": "Cascadia Pharmacy",
     "section": "The Report",
-    "text": "The Report\n[TODO: screenshots] → [TODO: walkthrough video] → [TODO: live embed or “view report” button]"
+    "text": "The Report\nScreenshots and a walkthrough are coming with Phase 2."
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#tech-stack",
     "href": "projects/cascadia-pharmacy.html#tech-stack",
     "title": "Cascadia Pharmacy",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nSQL Server 2019 T-SQL Python CMS Part D Data CDC VaxView Microsoft Fabric PySpark Power BI DAX PowerShell"
+    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Python CMS Part D Data CDC VaxView Microsoft Fabric PySpark Power BI DAX PowerShell"
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#links",
@@ -102,7 +102,7 @@
     "href": "cascadia.html#tech-stack",
     "title": "The Cascadia Family",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nSQL Server 2019 T-SQL Microsoft Fabric PySpark Power BI DAX Python PowerShell GitHub Actions"
+    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Microsoft Fabric PySpark Power BI DAX Python PowerShell GitHub Actions"
   },
   {
     "objectID": "about.html",
@@ -193,14 +193,14 @@
     "href": "projects/cascadia-medical-devices.html#the-report",
     "title": "Cascadia Medical Devices",
     "section": "The Report",
-    "text": "The Report\n[TODO: screenshots] → [TODO: walkthrough video] → [TODO: live embed or “view report” button]"
+    "text": "The Report\nScreenshots and a walkthrough are coming with Phase 2."
   },
   {
     "objectID": "projects/cascadia-medical-devices.html#tech-stack",
     "href": "projects/cascadia-medical-devices.html#tech-stack",
     "title": "Cascadia Medical Devices",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nSQL Server 2019 T-SQL Python (simdata) Microsoft Fabric PySpark Power BI DAX PowerShell"
+    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Python (simdata) Microsoft Fabric PySpark Power BI DAX PowerShell"
   },
   {
     "objectID": "projects/cascadia-medical-devices.html#links",
