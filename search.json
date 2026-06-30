@@ -53,7 +53,7 @@
     "href": "projects/cascadia-pharmacy.html#tech-stack",
     "title": "Cascadia Pharmacy",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\n::: {.chip}SQL Server 2019::: ::: {.chip}T-SQL::: ::: {.chip}Python::: ::: {.chip}CMS Part D Data::: ::: {.chip}CDC VaxView::: ::: {.chip}Microsoft Fabric::: ::: {.chip}PySpark::: ::: {.chip}Power BI::: ::: {.chip}DAX::: ::: {.chip}PowerShell:::"
+    "text": "Tech Stack\n\nSQL Server 2019 T-SQL Python CMS Part D Data CDC VaxView Microsoft Fabric PySpark Power BI DAX PowerShell"
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#links",
@@ -116,7 +116,7 @@
     "href": "cascadia.html#tech-stack",
     "title": "The Cascadia Family",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\n::: {.chip}SQL Server 2019::: ::: {.chip}T-SQL::: ::: {.chip}Microsoft Fabric::: ::: {.chip}PySpark::: ::: {.chip}Power BI::: ::: {.chip}DAX::: ::: {.chip}Python::: ::: {.chip}PowerShell::: ::: {.chip}GitHub Actions:::\n\n\n\nTODO (Cowork — Cascadia story): Optional: add a “how it started” narrative paragraph — the origin of the Cascadia concept, the decision to use a fictional Pacific Northwest brand family, and the strategic intent (one architecture brief for multiple CVS-angle conversations: pharmacy data + supply chain + retail)."
+    "text": "Tech Stack\n\nSQL Server 2019 T-SQL Microsoft Fabric PySpark Power BI DAX Python PowerShell GitHub Actions\n\n\n\nTODO (Cowork — Cascadia story): Optional: add a “how it started” narrative paragraph — the origin of the Cascadia concept, the decision to use a fictional Pacific Northwest brand family, and the strategic intent (one architecture brief for multiple CVS-angle conversations: pharmacy data + supply chain + retail)."
   },
   {
     "objectID": "about.html",
@@ -228,7 +228,7 @@
     "href": "projects/cascadia-medical-devices.html#tech-stack",
     "title": "Cascadia Medical Devices",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\n::: {.chip}SQL Server 2019::: ::: {.chip}T-SQL::: ::: {.chip}Python (simdata)::: ::: {.chip}Microsoft Fabric::: ::: {.chip}PySpark::: ::: {.chip}Power BI::: ::: {.chip}DAX::: ::: {.chip}PowerShell:::"
+    "text": "Tech Stack\n\nSQL Server 2019 T-SQL Python (simdata) Microsoft Fabric PySpark Power BI DAX PowerShell"
   },
   {
     "objectID": "projects/cascadia-medical-devices.html#links",
