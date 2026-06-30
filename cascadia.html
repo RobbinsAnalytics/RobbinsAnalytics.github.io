@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Robbins Analytics</title>
+<title>The Cascadia Family – Robbins Analytics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,15 +73,17 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<meta property="og:title" content="– Robbins Analytics">
-<meta property="og:description" content="Business Intelligence &amp; Analytics portfolio — Aaron Robbins">
+<meta property="og:title" content="The Cascadia Family – Robbins Analytics">
+<meta property="og:description" content="One architecture. Three domains. Production-grade analytics from source to report.">
+<meta property="og:image" content="https://robbinsanalytics.github.io/assets/cascadia_analytics_tech_stack.svg">
 <meta property="og:site_name" content="Robbins Analytics">
-<meta name="twitter:title" content="– Robbins Analytics">
-<meta name="twitter:description" content="Business Intelligence &amp; Analytics portfolio — Aaron Robbins">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Cascadia Family – Robbins Analytics">
+<meta name="twitter:description" content="One architecture. Three domains. Production-grade analytics from source to report.">
+<meta name="twitter:image" content="https://robbinsanalytics.github.io/assets/cascadia_analytics_tech_stack.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -99,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -107,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cascadia.html"> 
+    <a class="nav-link active" href="./cascadia.html" aria-current="page"> 
 <span class="menu-text">Cascadia</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -144,94 +146,113 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
 
-
-
-
-<section id="aaron-robbins" class="level1 hero-banner">
-<h1>Aaron Robbins</h1>
-<div class="hero-subtitle">
-<p>Business Intelligence &amp; Analytics Leader</p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Cascadia Family</h1>
+<p class="subtitle lead">One architecture. Three domains. Production-grade analytics from source to report.</p>
 </div>
-<div class="hero-tagline">
-<p>12+ years building BI and analytics platforms across healthcare, e-commerce, and manufacturing. SQL · Microsoft Fabric · Power BI · Python · Azure</p>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- TODO (Cowork): Intro paragraph on the Cascadia concept. -->
+<div class="todo-block">
+<p><strong>TODO (Cowork — Cascadia intro):</strong> 2–3 paragraphs explaining the Cascadia portfolio concept: the motivation for building one reusable end-to-end architecture across manufacturing, pharmacy, and retail; how the shared pattern (SQL Server star schema → Microsoft Fabric medallion → Power BI semantic model) proves architectural generality; and why real/public data sources were chosen.</p>
 </div>
-<div class="hero-ctas">
-<!-- TODO (Cowork): add resume PDF link when ready -->
-<p><a href="#cascadia-portfolio" class="btn btn-primary">View Work</a> <a href="#" class="btn btn-outline-light">Resume</a> <a href="https://www.linkedin.com/in/aaronrobbins" class="btn btn-outline-light">LinkedIn</a> <a href="https://github.com/RobbinsAnalytics" class="btn btn-outline-light">GitHub</a></p>
+<hr>
+<section id="shared-architecture" class="level2">
+<h2 data-anchor-id="shared-architecture">Shared Architecture</h2>
+<p>Every Cascadia domain runs the same end-to-end stack:</p>
+<p><strong>SQL Server (local)</strong> → <strong>Microsoft Fabric Gateway</strong> → <strong>Fabric Lakehouse (Bronze / Silver / Gold)</strong> → <strong>Power BI Semantic Model</strong> → <strong>Power BI Report</strong></p>
+<div class="arch-container">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/cascadia_analytics_tech_stack.svg" class="img-fluid figure-img"></p>
+<figcaption>Cascadia end-to-end data platform</figcaption>
+</figure>
 </div>
+</div>
+<hr>
 </section>
+<section id="the-three-domains" class="level2">
+<h2 data-anchor-id="the-three-domains">The Three Domains</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Domain</th>
+<th>Status</th>
+<th>Data</th>
+<th>Headline Skill</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="./projects/cascadia-medical-devices.html">Cascadia Medical Devices</a></td>
+<td>Live</td>
+<td>Simulated MES + NASA C-MAPSS</td>
+<td>Predictive maintenance / OEE</td>
+</tr>
+<tr class="even">
+<td><a href="./projects/cascadia-pharmacy.html">Cascadia Pharmacy</a></td>
+<td>In Build</td>
+<td>CMS Part D + CDC VaxView (real)</td>
+<td>Messy-data cleaning / GLP-1 growth</td>
+</tr>
+<tr class="odd">
+<td><a href="./projects/cascadia-clothing.html">Cascadia Clothing</a></td>
+<td>Planned</td>
+<td>TBD e-commerce data</td>
+<td>Customer segmentation</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<!-- TODO (Cowork): Replace placeholder bio paragraphs below with final approved copy. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — index hero copy):</strong> Replace the one-liner positioning above and this section with the final “Aaron Robbins” hero narrative (2–4 sentences positioning statement, highlighting 12+ yrs experience, CVS/healthcare angle, and Cascadia portfolio concept).</p>
-</div>
-<section id="cascadia-portfolio" class="level2">
-<h2 data-anchor-id="cascadia-portfolio">The Cascadia Portfolio</h2>
-<!-- TODO (Cowork): 2–3 sentences on the Cascadia family concept. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — Cascadia intro):</strong> 2–3 sentences explaining the Cascadia family concept — one production-grade analytics architecture (SQL Server → Microsoft Fabric medallion → Power BI) applied across different industry domains to prove it generalizes. Emphasize real public data, repeatable patterns, and interview-ready depth.</p>
-</div>
-<hr>
-<section id="featured-case-studies" class="level3">
-<h3 data-anchor-id="featured-case-studies">Featured Case Studies</h3>
+</section>
+<section id="design-principles" class="level2">
+<h2 data-anchor-id="design-principles">Design Principles</h2>
 <div class="grid">
-<div class="g-col-12 g-col-md-4">
-<div class="project-card">
-<div class="card-label">
-<p>Manufacturing</p>
+<div class="g-col-12 g-col-md-6">
+<p><strong>Production patterns only</strong> Every table, index, and pipeline uses the same conventions you’d enforce on a real production system — surrogate keys, computed <code>date_key</code> columns, idempotent DDL, row-count validation scripts.</p>
 </div>
-<section id="cascadia-medical-devices" class="level3">
-<h3 data-anchor-id="cascadia-medical-devices">Cascadia Medical Devices</h3>
-<p><span class="badge-status">Live</span></p>
-<p>Predictive maintenance and OEE analytics on a 6M-row simulated MES dataset, built on SQL Server star schema → Microsoft Fabric → Power BI.</p>
-<p><a href="./projects/cascadia-medical-devices.html" class="btn btn-primary btn-sm">View Case Study</a> <a href="https://github.com/RobbinsAnalytics/manufacturing-analytics" class="btn btn-outline-secondary btn-sm">GitHub</a></p>
-</section>
+<div class="g-col-12 g-col-md-6">
+<p><strong>Real data where it matters</strong> CMS Medicare Part D spending and CDC VaxView immunization data are live federal public-domain datasets. Fabricated data is limited to the manufacturing simulation layer (volume, anonymity).</p>
 </div>
+<div class="g-col-12 g-col-md-6">
+<p><strong>Repeatable builds</strong> Each domain ships a <code>run_phaseN.ps1</code> script that rebuilds the SQL Server database from scratch — useful for demos, onboarding, and validating migrations.</p>
 </div>
-<div class="g-col-12 g-col-md-4">
-<div class="project-card">
-<div class="card-label">
-<p>Healthcare / Pharmacy</p>
-</div>
-<section id="cascadia-pharmacy" class="level3">
-<h3 data-anchor-id="cascadia-pharmacy">Cascadia Pharmacy</h3>
-<p><span class="badge-status">In Build</span></p>
-<p>GLP-1 drug spend growth and immunization coverage analytics on real CMS Medicare Part D + CDC VaxView public data. Messy-data cleaning showcase.</p>
-<p><a href="./projects/cascadia-pharmacy.html" class="btn btn-primary btn-sm">View Case Study</a> <a href="https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics" class="btn btn-outline-secondary btn-sm">GitHub</a></p>
-</section>
-</div>
-</div>
-<div class="g-col-12 g-col-md-4">
-<div class="project-card">
-<div class="card-label">
-<p>Retail</p>
-</div>
-<section id="cascadia-clothing" class="level3">
-<h3 data-anchor-id="cascadia-clothing">Cascadia Clothing</h3>
-<p><span class="badge-status coming-soon">Coming Soon</span></p>
-<p>Customer segmentation and inventory analytics — the third domain in the Cascadia family, planned for Q3 2026.</p>
-<p><a href="./projects/cascadia-clothing.html" class="btn btn-outline-secondary btn-sm">Preview</a></p>
-</section>
-</div>
+<div class="g-col-12 g-col-md-6">
+<p><strong>Clean handoff documentation</strong> Every domain has an <code>explainer/</code> doc describing schema decisions, data-cleaning choices, and interview talking points, so a reviewer can follow the reasoning without reading the code.</p>
 </div>
 </div>
 <hr>
 </section>
-</section>
-<section id="why-cascadia" class="level2">
-<h2 data-anchor-id="why-cascadia">Why Cascadia?</h2>
-<!-- TODO (Cowork): 1–2 short paragraphs on the "why" behind the multi-domain portfolio strategy. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — “Why Cascadia?” section):</strong> 1–2 paragraphs explaining the strategic decision to build one reusable architecture across three industry verticals — showing that the engineering skill transfers, not just domain knowledge. Optional: add a quote or pull-stat (e.g., “6M+ rows processed, 3 domains, 1 architecture”).</p>
+<section id="tech-stack" class="level2">
+<h2 data-anchor-id="tech-stack">Tech Stack</h2>
+<div class="tech-chips">
+<p>::: {.chip}SQL Server 2019::: ::: {.chip}T-SQL::: ::: {.chip}Microsoft Fabric::: ::: {.chip}PySpark::: ::: {.chip}Power BI::: ::: {.chip}DAX::: ::: {.chip}Python::: ::: {.chip}PowerShell::: ::: {.chip}GitHub Actions:::</p>
 </div>
-<p><a href="./cascadia.html">Learn about the Cascadia architecture →</a></p>
+<hr>
+<div class="todo-block">
+<p><strong>TODO (Cowork — Cascadia story):</strong> Optional: add a “how it started” narrative paragraph — the origin of the Cascadia concept, the decision to use a fictional Pacific Northwest brand family, and the strategic intent (one architecture brief for multiple CVS-angle conversations: pharmacy data + supply chain + retail).</p>
+</div>
 
 
 </section>

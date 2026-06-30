@@ -1,0 +1,240 @@
+[
+  {
+    "objectID": "projects/cascadia-pharmacy.html",
+    "href": "projects/cascadia-pharmacy.html",
+    "title": "Cascadia Pharmacy",
+    "section": "",
+    "text": "Healthcare / Pharmacy Analytics\n\n\n\n\nTurning messy federal public data — CMS Part D suppressed cells, CDC VaxView age-band mismatches — into a clean star schema and an interview-ready GLP-1 growth story."
+  },
+  {
+    "objectID": "projects/cascadia-pharmacy.html#overview",
+    "href": "projects/cascadia-pharmacy.html#overview",
+    "title": "Cascadia Pharmacy",
+    "section": "Overview",
+    "text": "Overview\n\n\nTODO (Cowork — Overview): 2–3 sentences: pharmacy analytics domain (CVS-relevant), the business question (GLP-1 cost trajectory + immunization access disparities), and the headline skill (messy public-data cleaning + SQL Server star schema applied to real CMS/CDC data)."
+  },
+  {
+    "objectID": "projects/cascadia-pharmacy.html#business-problem",
+    "href": "projects/cascadia-pharmacy.html#business-problem",
+    "title": "Cascadia Pharmacy",
+    "section": "Business Problem",
+    "text": "Business Problem\n\n\nTODO (Cowork — Business Problem): Frame through a CVS lens: Medicare Part D drug spend trends (especially GLP-1s / obesity drugs) and adult immunization coverage gaps matter directly to a pharmacy chain’s formulary strategy and immunization programs. What would a CVS analytics leader want to answer from this data? (E.g., “Which drugs drove the largest spend increases? Which states have the lowest flu vaccination rates?”)"
+  },
+  {
+    "objectID": "projects/cascadia-pharmacy.html#architecture",
+    "href": "projects/cascadia-pharmacy.html#architecture",
+    "title": "Cascadia Pharmacy",
+    "section": "Architecture",
+    "text": "Architecture\n\n\n\n\nCascadia end-to-end data platform\n\n\n\nSource layer: CascadiaRx SQL Server star schema — 5 dimension tables + 2 fact tables.\n\nfact_partd_drug_spend (339 rows, grain: drug × year 2020–2024, CMS Part D data)\nfact_immunization_coverage (24,596 rows, grain: vaccine × geography × demographic × season, CDC VaxView)\n\nMedallion pipeline: Bronze → Silver → Gold notebooks in Microsoft Fabric Lakehouse (Phase 2, in build).\nSemantic model + report: Power BI — GLP-1 Growth Story page + Immunization Coverage & Access page (Phase 2, in build)."
+  },
+  {
+    "objectID": "projects/cascadia-pharmacy.html#data-sources",
+    "href": "projects/cascadia-pharmacy.html#data-sources",
+    "title": "Cascadia Pharmacy",
+    "section": "Data Sources",
+    "text": "Data Sources\n\n\n\n\n\n\n\n\n\nSource\nType\nRows\nNotes\n\n\n\n\nCMS Medicare Part D Spending by Drug\nFederal (CMS)\n14,536 raw → 339 filtered\nWide-format CSV, 2020–2024 annual columns; filtered to antidiabetic/obesity drug classes\n\n\nCDC FluVaxView\nFederal (CDC / Socrata)\n100K raw → 24,596 filtered\nAdult flu vaccination coverage by state × age × season\n\n\nCDC RSVVaxView\nFederal (CDC)\nTBD\nAdult RSV coverage — manual download pending\n\n\nCDC COVIDVaxView\nFederal (CDC)\nTBD\nAdult COVID coverage — correct dataset endpoint pending\n\n\n\nAttribution: - CMS Part D data: Centers for Medicare & Medicaid Services — public domain federal data. - CDC VaxView: Centers for Disease Control and Prevention — public domain federal data."
+  },
+  {
+    "objectID": "projects/cascadia-pharmacy.html#headline-skill-messy-public-data-cleaning",
+    "href": "projects/cascadia-pharmacy.html#headline-skill-messy-public-data-cleaning",
+    "title": "Cascadia Pharmacy",
+    "section": "Headline Skill: Messy Public-Data Cleaning",
+    "text": "Headline Skill: Messy Public-Data Cleaning\n\n\nTODO (Cowork — Headline Skill): This is the CVS-interview-ready centerpiece. Draft 2–3 paragraphs covering: 1. CMS suppression handling — blank cells in the wide-format CSV mean “suppressed” (beneficiary count &lt; 11), not zero. Explain how the pipeline preserves suppressed_flag=1 rather than zero-filling, and why this matters for accurate trend analysis. 2. Wide-to-long pivot — CMS data arrives with year columns (Tot_Spndng_2020 through Tot_Spndng_2024) on a single row per drug. Explain the pivot logic and drug classification approach. 3. CDC column mismatch + age-band normalization — FluVaxView uses non-standard column names and “NR †” for not-reportable cells. How the pipeline handles these without silently defaulting suppressed estimates to zero. Make it interview-conversational: “Here’s the dirt I found, here’s why it matters, here’s what I did.”\n\n\nGLP-1 Headline Numbers\n\n\n\nDrug\n2020 Part D Spend\n2024 Part D Spend\nGrowth\n\n\n\n\nOzempic (semaglutide)\n$1.46B\n$12.97B\n+788%\n\n\nMounjaro (tirzepatide)\n—\n$5.57B\nNew 2022\n\n\nWegovy (semaglutide)\n—\n$2.27B\nNew 2021\n\n\n\nSource: CMS Medicare Part D Spending by Drug (public domain federal data). All figures are real CMS-reported values; no fabrication."
+  },
+  {
+    "objectID": "projects/cascadia-pharmacy.html#the-report",
+    "href": "projects/cascadia-pharmacy.html#the-report",
+    "title": "Cascadia Pharmacy",
+    "section": "The Report",
+    "text": "The Report\n\n\nTODO (Aaron — Report screenshots, Phase 2): Once the Power BI report is built, add screenshots to assets/img/pharmacy-report-*.png. Suggested: - pharmacy-report-glp1-growth.png — GLP-1 spend trend chart (2020–2024) - pharmacy-report-imm-coverage.png — Immunization coverage map by state\nThen replace this block:\n![GLP-1 Spend Growth](../assets/img/pharmacy-report-glp1-growth.png)\n![Immunization Coverage](../assets/img/pharmacy-report-imm-coverage.png)\nOptionally add a Loom walkthrough video and/or Power BI embedded “View live report” button."
+  },
+  {
+    "objectID": "projects/cascadia-pharmacy.html#tech-stack",
+    "href": "projects/cascadia-pharmacy.html#tech-stack",
+    "title": "Cascadia Pharmacy",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\n::: {.chip}SQL Server 2019::: ::: {.chip}T-SQL::: ::: {.chip}Python::: ::: {.chip}CMS Part D Data::: ::: {.chip}CDC VaxView::: ::: {.chip}Microsoft Fabric::: ::: {.chip}PySpark::: ::: {.chip}Power BI::: ::: {.chip}DAX::: ::: {.chip}PowerShell:::"
+  },
+  {
+    "objectID": "projects/cascadia-pharmacy.html#links",
+    "href": "projects/cascadia-pharmacy.html#links",
+    "title": "Cascadia Pharmacy",
+    "section": "Links",
+    "text": "Links\n\nBuild Repository — SQL DDL, Python acquisition/staging scripts, run_phase1.ps1\nDomain Explainer — schema decisions, messy-data showcase table, interview talking points\nCascadia Architecture Overview"
+  },
+  {
+    "objectID": "projects/cascadia-clothing.html",
+    "href": "projects/cascadia-clothing.html",
+    "title": "Cascadia Clothing",
+    "section": "",
+    "text": "Retail Analytics\n\n\n\n\nThe third domain in the Cascadia family — applying the same production-grade analytics architecture to retail customer and inventory data."
+  },
+  {
+    "objectID": "projects/cascadia-clothing.html#planned-scope",
+    "href": "projects/cascadia-clothing.html#planned-scope",
+    "title": "Cascadia Clothing",
+    "section": "Planned Scope",
+    "text": "Planned Scope\n\nDomain: Retail fashion (direct-to-consumer e-commerce)\nBusiness questions: RFM customer segmentation, inventory turnover by SKU, return rate analysis\nData: TBD — either synthetic or a suitable public e-commerce dataset\nHeadline skill: Customer lifetime value modeling / cohort analysis\nArchitecture: Same SQL Server → Fabric → Power BI pattern as Medical Devices and Pharmacy"
+  },
+  {
+    "objectID": "projects/cascadia-clothing.html#why-three-domains",
+    "href": "projects/cascadia-clothing.html#why-three-domains",
+    "title": "Cascadia Clothing",
+    "section": "Why Three Domains?",
+    "text": "Why Three Domains?\nThe Cascadia portfolio is designed to demonstrate that the engineering skill — star schema design, medallion pipeline patterns, DAX semantic modeling — transfers across industries. Adding a retail domain alongside manufacturing and healthcare makes the case that this is architectural thinking, not just domain familiarity.\nSee the full Cascadia architecture →"
+  },
+  {
+    "objectID": "cascadia.html",
+    "href": "cascadia.html",
+    "title": "The Cascadia Family",
+    "section": "",
+    "text": "TODO (Cowork — Cascadia intro): 2–3 paragraphs explaining the Cascadia portfolio concept: the motivation for building one reusable end-to-end architecture across manufacturing, pharmacy, and retail; how the shared pattern (SQL Server star schema → Microsoft Fabric medallion → Power BI semantic model) proves architectural generality; and why real/public data sources were chosen."
+  },
+  {
+    "objectID": "cascadia.html#shared-architecture",
+    "href": "cascadia.html#shared-architecture",
+    "title": "The Cascadia Family",
+    "section": "Shared Architecture",
+    "text": "Shared Architecture\nEvery Cascadia domain runs the same end-to-end stack:\nSQL Server (local) → Microsoft Fabric Gateway → Fabric Lakehouse (Bronze / Silver / Gold) → Power BI Semantic Model → Power BI Report\n\n\n\n\nCascadia end-to-end data platform"
+  },
+  {
+    "objectID": "cascadia.html#the-three-domains",
+    "href": "cascadia.html#the-three-domains",
+    "title": "The Cascadia Family",
+    "section": "The Three Domains",
+    "text": "The Three Domains\n\n\n\nDomain\nStatus\nData\nHeadline Skill\n\n\n\n\nCascadia Medical Devices\nLive\nSimulated MES + NASA C-MAPSS\nPredictive maintenance / OEE\n\n\nCascadia Pharmacy\nIn Build\nCMS Part D + CDC VaxView (real)\nMessy-data cleaning / GLP-1 growth\n\n\nCascadia Clothing\nPlanned\nTBD e-commerce data\nCustomer segmentation"
+  },
+  {
+    "objectID": "cascadia.html#design-principles",
+    "href": "cascadia.html#design-principles",
+    "title": "The Cascadia Family",
+    "section": "Design Principles",
+    "text": "Design Principles\n\n\nProduction patterns only Every table, index, and pipeline uses the same conventions you’d enforce on a real production system — surrogate keys, computed date_key columns, idempotent DDL, row-count validation scripts.\n\n\nReal data where it matters CMS Medicare Part D spending and CDC VaxView immunization data are live federal public-domain datasets. Fabricated data is limited to the manufacturing simulation layer (volume, anonymity).\n\n\nRepeatable builds Each domain ships a run_phaseN.ps1 script that rebuilds the SQL Server database from scratch — useful for demos, onboarding, and validating migrations.\n\n\nClean handoff documentation Every domain has an explainer/ doc describing schema decisions, data-cleaning choices, and interview talking points, so a reviewer can follow the reasoning without reading the code."
+  },
+  {
+    "objectID": "cascadia.html#tech-stack",
+    "href": "cascadia.html#tech-stack",
+    "title": "The Cascadia Family",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\n::: {.chip}SQL Server 2019::: ::: {.chip}T-SQL::: ::: {.chip}Microsoft Fabric::: ::: {.chip}PySpark::: ::: {.chip}Power BI::: ::: {.chip}DAX::: ::: {.chip}Python::: ::: {.chip}PowerShell::: ::: {.chip}GitHub Actions:::\n\n\n\nTODO (Cowork — Cascadia story): Optional: add a “how it started” narrative paragraph — the origin of the Cascadia concept, the decision to use a fictional Pacific Northwest brand family, and the strategic intent (one architecture brief for multiple CVS-angle conversations: pharmacy data + supply chain + retail)."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Aaron Robbins",
+    "section": "",
+    "text": "TODO (Cowork — About page): Draft the full “About Aaron” content including: (1) professional bio paragraph, (2) career highlights / key roles, (3) skills & tools section, (4) resume download link, (5) contact info (email, LinkedIn, GitHub). Suggested structure follows below."
+  },
+  {
+    "objectID": "about.html#bio",
+    "href": "about.html#bio",
+    "title": "About Aaron Robbins",
+    "section": "Bio",
+    "text": "Bio\n\nPlaceholder — Cowork to draft."
+  },
+  {
+    "objectID": "about.html#skills-tools",
+    "href": "about.html#skills-tools",
+    "title": "About Aaron Robbins",
+    "section": "Skills & Tools",
+    "text": "Skills & Tools\n\n\n\nCategory\nTools\n\n\n\n\nData Platforms\nSQL Server, Microsoft Fabric, Azure Synapse\n\n\nVisualization\nPower BI, DAX\n\n\nLanguages\nSQL, Python, T-SQL\n\n\nPipeline\nPySpark, Notebook orchestration\n\n\nSource Control\nGit, GitHub"
+  },
+  {
+    "objectID": "about.html#experience-highlights",
+    "href": "about.html#experience-highlights",
+    "title": "About Aaron Robbins",
+    "section": "Experience Highlights",
+    "text": "Experience Highlights\n\n\nTODO (Cowork — Experience): 3–4 bullets: roles, industries, scale (rows processed, reports deployed, teams led, etc.). Frame for a CVS interview audience — healthcare data familiarity is a plus."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Aaron Robbins",
+    "section": "Contact",
+    "text": "Contact\n\n\nGitHub github.com/RobbinsAnalytics\n\n\nLinkedIn  linkedin.com/in/aaronrobbins\n\n\nResume  Download PDF"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Aaron Robbins",
+    "section": "",
+    "text": "Business Intelligence & Analytics Leader\n\n\n12+ years building BI and analytics platforms across healthcare, e-commerce, and manufacturing. SQL · Microsoft Fabric · Power BI · Python · Azure\n\n\n\nView Work Resume LinkedIn GitHub"
+  },
+  {
+    "objectID": "index.html#cascadia-portfolio",
+    "href": "index.html#cascadia-portfolio",
+    "title": "Aaron Robbins",
+    "section": "The Cascadia Portfolio",
+    "text": "The Cascadia Portfolio\n\n\nTODO (Cowork — Cascadia intro): 2–3 sentences explaining the Cascadia family concept — one production-grade analytics architecture (SQL Server → Microsoft Fabric medallion → Power BI) applied across different industry domains to prove it generalizes. Emphasize real public data, repeatable patterns, and interview-ready depth.\n\n\n\nFeatured Case Studies\n\n\n\n\nManufacturing\n\n\nCascadia Medical Devices\nLive\nPredictive maintenance and OEE analytics on a 6M-row simulated MES dataset, built on SQL Server star schema → Microsoft Fabric → Power BI.\nView Case Study GitHub\n\n\n\n\n\n\nHealthcare / Pharmacy\n\n\nCascadia Pharmacy\nIn Build\nGLP-1 drug spend growth and immunization coverage analytics on real CMS Medicare Part D + CDC VaxView public data. Messy-data cleaning showcase.\nView Case Study GitHub\n\n\n\n\n\n\nRetail\n\n\nCascadia Clothing\nComing Soon\nCustomer segmentation and inventory analytics — the third domain in the Cascadia family, planned for Q3 2026.\nPreview"
+  },
+  {
+    "objectID": "index.html#why-cascadia",
+    "href": "index.html#why-cascadia",
+    "title": "Aaron Robbins",
+    "section": "Why Cascadia?",
+    "text": "Why Cascadia?\n\n\nTODO (Cowork — “Why Cascadia?” section): 1–2 paragraphs explaining the strategic decision to build one reusable architecture across three industry verticals — showing that the engineering skill transfers, not just domain knowledge. Optional: add a quote or pull-stat (e.g., “6M+ rows processed, 3 domains, 1 architecture”).\n\nLearn about the Cascadia architecture →"
+  },
+  {
+    "objectID": "projects/cascadia-medical-devices.html",
+    "href": "projects/cascadia-medical-devices.html",
+    "title": "Cascadia Medical Devices",
+    "section": "",
+    "text": "Manufacturing Analytics\n\n\n\n\nProving that a production-grade BI architecture scales from raw sensor data to boardroom OEE dashboards — in a single, reproducible build."
+  },
+  {
+    "objectID": "projects/cascadia-medical-devices.html#overview",
+    "href": "projects/cascadia-medical-devices.html#overview",
+    "title": "Cascadia Medical Devices",
+    "section": "Overview",
+    "text": "Overview\n\n\nTODO (Cowork — Overview): 2–3 sentences: medical device manufacturing domain, the core business question (OEE / downtime / predictive maintenance), and the headline skill demonstrated (SQL Server star schema design + Microsoft Fabric medallion pipeline)."
+  },
+  {
+    "objectID": "projects/cascadia-medical-devices.html#business-problem",
+    "href": "projects/cascadia-medical-devices.html#business-problem",
+    "title": "Cascadia Medical Devices",
+    "section": "Business Problem",
+    "text": "Business Problem\n\n\nTODO (Cowork — Business Problem): Frame the problem: a medical device contract manufacturer needs real-time visibility into equipment downtime, quality defect rates, and production throughput. What decisions does the Power BI report enable? What would a BI leader at a manufacturing company actually care about?"
+  },
+  {
+    "objectID": "projects/cascadia-medical-devices.html#architecture",
+    "href": "projects/cascadia-medical-devices.html#architecture",
+    "title": "Cascadia Medical Devices",
+    "section": "Architecture",
+    "text": "Architecture\nEvery Cascadia domain uses the same end-to-end stack:\n\n\n\n\nCascadia end-to-end data platform\n\n\n\nSource layer: CascadiaMES SQL Server star schema — 7 dimension tables + 3 fact tables (fact_production_event 5.93M rows, fact_downtime_event 6.5K rows, fact_quality_qn 41K rows, fact_order_fulfillment). Simulated MES data + NASA C-MAPSS engine sensor dataset (265K rows) for predictive maintenance.\nMedallion pipeline: Bronze → Silver → Gold notebooks in Microsoft Fabric Lakehouse, implemented in PySpark.\nSemantic model + report: Power BI dataset with DAX measures for OEE, MTBF, defect rate, and on-time delivery."
+  },
+  {
+    "objectID": "projects/cascadia-medical-devices.html#data-sources",
+    "href": "projects/cascadia-medical-devices.html#data-sources",
+    "title": "Cascadia Medical Devices",
+    "section": "Data Sources",
+    "text": "Data Sources\n\n\n\n\n\n\n\n\n\nSource\nType\nRows\nNotes\n\n\n\n\nCascadiaMES (simulated)\nSQL Server\n~6M\n7 dims + 3 facts, star schema\n\n\nNASA C-MAPSS\nPublic (NASA)\n265K engine cycles\nTurbofan engine sensor data for RUL prediction"
+  },
+  {
+    "objectID": "projects/cascadia-medical-devices.html#headline-skill-sql-server-star-schema-design",
+    "href": "projects/cascadia-medical-devices.html#headline-skill-sql-server-star-schema-design",
+    "title": "Cascadia Medical Devices",
+    "section": "Headline Skill: SQL Server Star Schema Design",
+    "text": "Headline Skill: SQL Server Star Schema Design\n\n\nTODO (Cowork — Headline Skill): 1–2 paragraphs explaining the key schema decisions: surrogate key strategy, date_key computed column pattern (why post-load ALTER TABLE?), why FKs are omitted on facts (enforced at semantic model layer), and how the 3-fact design separates production events from quality events for clean DAX measures. Make it interview-conversational — “here’s what I decided and why.”"
+  },
+  {
+    "objectID": "projects/cascadia-medical-devices.html#the-report",
+    "href": "projects/cascadia-medical-devices.html#the-report",
+    "title": "Cascadia Medical Devices",
+    "section": "The Report",
+    "text": "The Report\n\n\nTODO (Aaron — Report screenshots): Add 1–3 screenshots of the Power BI report to assets/img/med-devices-report-*.png. Then replace this block with:\n![OEE Dashboard](../assets/img/med-devices-report-oee.png)\n![Downtime Analysis](../assets/img/med-devices-report-downtime.png)\nOptionally embed a walkthrough video (Loom/YouTube) and/or a “View live report” button once Power BI embedded link is available."
+  },
+  {
+    "objectID": "projects/cascadia-medical-devices.html#tech-stack",
+    "href": "projects/cascadia-medical-devices.html#tech-stack",
+    "title": "Cascadia Medical Devices",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\n::: {.chip}SQL Server 2019::: ::: {.chip}T-SQL::: ::: {.chip}Python (simdata)::: ::: {.chip}Microsoft Fabric::: ::: {.chip}PySpark::: ::: {.chip}Power BI::: ::: {.chip}DAX::: ::: {.chip}PowerShell:::"
+  },
+  {
+    "objectID": "projects/cascadia-medical-devices.html#links",
+    "href": "projects/cascadia-medical-devices.html#links",
+    "title": "Cascadia Medical Devices",
+    "section": "Links",
+    "text": "Links\n\nBuild Repository — SQL DDL, data generation scripts, medallion notebooks\nArchitecture Explainer — schema design decisions and data dictionary\nCascadia Architecture Overview"
+  }
+]
