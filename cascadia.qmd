@@ -1,0 +1,77 @@
+---
+title: "The Cascadia Family"
+subtitle: "One architecture. Three domains. Production-grade analytics from source to report."
+---
+
+<!-- TODO (Cowork): Intro paragraph on the Cascadia concept. -->
+
+::: {.todo-block}
+**TODO (Cowork — Cascadia intro):** 2–3 paragraphs explaining the Cascadia portfolio concept: the motivation for building one reusable end-to-end architecture across manufacturing, pharmacy, and retail; how the shared pattern (SQL Server star schema → Microsoft Fabric medallion → Power BI semantic model) proves architectural generality; and why real/public data sources were chosen.
+:::
+
+---
+
+## Shared Architecture
+
+Every Cascadia domain runs the same end-to-end stack:
+
+**SQL Server (local)** → **Microsoft Fabric Gateway** → **Fabric Lakehouse (Bronze / Silver / Gold)** → **Power BI Semantic Model** → **Power BI Report**
+
+::: {.arch-container}
+![Cascadia end-to-end data platform](assets/cascadia_analytics_tech_stack.svg)
+:::
+
+---
+
+## The Three Domains
+
+| Domain | Status | Data | Headline Skill |
+|---|---|---|---|
+| [Cascadia Medical Devices](projects/cascadia-medical-devices.qmd) | Live | Simulated MES + NASA C-MAPSS | Predictive maintenance / OEE |
+| [Cascadia Pharmacy](projects/cascadia-pharmacy.qmd) | In Build | CMS Part D + CDC VaxView (real) | Messy-data cleaning / GLP-1 growth |
+| [Cascadia Clothing](projects/cascadia-clothing.qmd) | Planned | TBD e-commerce data | Customer segmentation |
+
+---
+
+## Design Principles
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+**Production patterns only**
+Every table, index, and pipeline uses the same conventions you'd enforce on a real production system — surrogate keys, computed `date_key` columns, idempotent DDL, row-count validation scripts.
+:::
+::: {.g-col-12 .g-col-md-6}
+**Real data where it matters**
+CMS Medicare Part D spending and CDC VaxView immunization data are live federal public-domain datasets. Fabricated data is limited to the manufacturing simulation layer (volume, anonymity).
+:::
+::: {.g-col-12 .g-col-md-6}
+**Repeatable builds**
+Each domain ships a `run_phaseN.ps1` script that rebuilds the SQL Server database from scratch — useful for demos, onboarding, and validating migrations.
+:::
+::: {.g-col-12 .g-col-md-6}
+**Clean handoff documentation**
+Every domain has an `explainer/` doc describing schema decisions, data-cleaning choices, and interview talking points, so a reviewer can follow the reasoning without reading the code.
+:::
+:::
+
+---
+
+## Tech Stack
+
+::: {.tech-chips}
+::: {.chip}SQL Server 2019:::
+::: {.chip}T-SQL:::
+::: {.chip}Microsoft Fabric:::
+::: {.chip}PySpark:::
+::: {.chip}Power BI:::
+::: {.chip}DAX:::
+::: {.chip}Python:::
+::: {.chip}PowerShell:::
+::: {.chip}GitHub Actions:::
+:::
+
+---
+
+::: {.todo-block}
+**TODO (Cowork — Cascadia story):** Optional: add a "how it started" narrative paragraph — the origin of the Cascadia concept, the decision to use a fictional Pacific Northwest brand family, and the strategic intent (one architecture brief for multiple CVS-angle conversations: pharmacy data + supply chain + retail).
+:::

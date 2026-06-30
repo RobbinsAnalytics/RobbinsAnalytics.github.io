@@ -1,0 +1,103 @@
+---
+title: "Cascadia Medical Devices"
+subtitle: "Predictive maintenance and OEE analytics on a 6M-row manufacturing dataset."
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+Manufacturing Analytics
+:::
+# Cascadia Medical Devices
+::: {.cs-hook}
+Proving that a production-grade BI architecture scales from raw sensor data to boardroom OEE dashboards — in a single, reproducible build.
+:::
+:::
+
+---
+
+## Overview
+
+<!-- TODO (Cowork): 2–3 sentence overview. -->
+::: {.todo-block}
+**TODO (Cowork — Overview):** 2–3 sentences: medical device manufacturing domain, the core business question (OEE / downtime / predictive maintenance), and the headline skill demonstrated (SQL Server star schema design + Microsoft Fabric medallion pipeline).
+:::
+
+---
+
+## Business Problem
+
+<!-- TODO (Cowork): Framing the manufacturing analytics problem. -->
+::: {.todo-block}
+**TODO (Cowork — Business Problem):** Frame the problem: a medical device contract manufacturer needs real-time visibility into equipment downtime, quality defect rates, and production throughput. What decisions does the Power BI report enable? What would a BI leader at a manufacturing company actually care about?
+:::
+
+---
+
+## Architecture
+
+Every Cascadia domain uses the same end-to-end stack:
+
+::: {.arch-container}
+![Cascadia end-to-end data platform](../assets/cascadia_analytics_tech_stack.svg)
+:::
+
+**Source layer:** CascadiaMES SQL Server star schema — 7 dimension tables + 3 fact tables (fact_production_event 5.93M rows, fact_downtime_event 6.5K rows, fact_quality_qn 41K rows, fact_order_fulfillment). Simulated MES data + NASA C-MAPSS engine sensor dataset (265K rows) for predictive maintenance.
+
+**Medallion pipeline:** Bronze → Silver → Gold notebooks in Microsoft Fabric Lakehouse, implemented in PySpark.
+
+**Semantic model + report:** Power BI dataset with DAX measures for OEE, MTBF, defect rate, and on-time delivery.
+
+---
+
+## Data Sources
+
+| Source | Type | Rows | Notes |
+|---|---|---|---|
+| CascadiaMES (simulated) | SQL Server | ~6M | 7 dims + 3 facts, star schema |
+| NASA C-MAPSS | Public (NASA) | 265K engine cycles | Turbofan engine sensor data for RUL prediction |
+
+---
+
+## Headline Skill: SQL Server Star Schema Design
+
+<!-- TODO (Cowork): 1–2 paragraphs on the schema design decisions. -->
+::: {.todo-block}
+**TODO (Cowork — Headline Skill):** 1–2 paragraphs explaining the key schema decisions: surrogate key strategy, date_key computed column pattern (why post-load ALTER TABLE?), why FKs are omitted on facts (enforced at semantic model layer), and how the 3-fact design separates production events from quality events for clean DAX measures. Make it interview-conversational — "here's what I decided and why."
+:::
+
+---
+
+## The Report
+
+<!-- TODO (Cowork + Aaron): Screenshots of the Power BI report go here. -->
+::: {.todo-block}
+**TODO (Aaron — Report screenshots):** Add 1–3 screenshots of the Power BI report to `assets/img/med-devices-report-*.png`. Then replace this block with:
+```markdown
+![OEE Dashboard](../assets/img/med-devices-report-oee.png)
+![Downtime Analysis](../assets/img/med-devices-report-downtime.png)
+```
+Optionally embed a walkthrough video (Loom/YouTube) and/or a "View live report" button once Power BI embedded link is available.
+:::
+
+---
+
+## Tech Stack
+
+::: {.tech-chips}
+::: {.chip}SQL Server 2019:::
+::: {.chip}T-SQL:::
+::: {.chip}Python (simdata):::
+::: {.chip}Microsoft Fabric:::
+::: {.chip}PySpark:::
+::: {.chip}Power BI:::
+::: {.chip}DAX:::
+::: {.chip}PowerShell:::
+:::
+
+---
+
+## Links
+
+- [Build Repository](https://github.com/RobbinsAnalytics/manufacturing-analytics) — SQL DDL, data generation scripts, medallion notebooks
+- [Architecture Explainer](https://github.com/RobbinsAnalytics/manufacturing-analytics/blob/main/docs/explainers/02_source_sql_layer.md) — schema design decisions and data dictionary
+- [Cascadia Architecture Overview](../cascadia.qmd)

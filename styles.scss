@@ -1,0 +1,183 @@
+/*-- Cascadia Analytics palette ------------------------------------------
+   Derived from cascadia_analytics_tech_stack.svg
+   Dark card:   #1e2330   Card border: #3b4a6b
+   Accent blue: #60a5fa   Icon blue:   #60a5fa
+   Text light:  #e2e8f0   Muted:       #94a3b8
+------------------------------------------------------------------------*/
+
+// Boost Sass version compatibility
+$enable-gradients: false;
+
+// ---------- Brand tokens ----------
+$cascadia-navy:      #1e2330;
+$cascadia-steel:     #3b4a6b;
+$cascadia-blue:      #2563eb;   // accessible contrast on white
+$cascadia-blue-lt:   #60a5fa;
+$cascadia-teal:      #0ea5e9;
+$cascadia-muted:     #94a3b8;
+
+// ---------- Cosmo overrides ----------
+$primary:          $cascadia-blue;
+$link-color:       $cascadia-blue;
+$navbar-bg:        $cascadia-navy;
+$navbar-fg:        #e2e8f0;
+$navbar-hover-color: $cascadia-blue-lt;
+$footer-bg:        $cascadia-navy;
+
+// ---------- Custom styles ----------
+
+// Hero banner on landing page
+.hero-banner {
+  background: linear-gradient(135deg, $cascadia-navy 0%, #0f172a 100%);
+  color: #e2e8f0;
+  padding: 4rem 2rem;
+  margin-bottom: 2.5rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: $cascadia-blue-lt;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-tagline {
+    color: $cascadia-muted;
+    font-size: 0.95rem;
+    max-width: 560px;
+  }
+
+  .hero-ctas .btn {
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
+// Case-study / project cards
+.project-card {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+
+  &:hover {
+    box-shadow: 0 4px 18px rgba($cascadia-steel, 0.18);
+    border-color: $cascadia-blue;
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $cascadia-muted;
+    margin-bottom: 0.35rem;
+  }
+
+  h3 {
+    margin-top: 0;
+    color: $cascadia-navy;
+  }
+
+  .badge-status {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2em 0.65em;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: $cascadia-blue;
+  }
+
+  .badge-status.coming-soon {
+    background: #f1f5f9;
+    color: $cascadia-muted;
+  }
+}
+
+// Tech chip list
+.tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+
+  .chip {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2em 0.7em;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: $cascadia-blue;
+    border: 1px solid #bfdbfe;
+  }
+}
+
+// TODO callout blocks (Cowork placeholders)
+.todo-block {
+  border-left: 4px solid #f59e0b;
+  background: #fffbeb;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.85rem;
+  color: #92400e;
+}
+
+// Section divider
+.section-rule {
+  border: none;
+  border-top: 2px solid #e2e8f0;
+  margin: 2.5rem 0;
+}
+
+// Cascadia architecture section
+.arch-container {
+  background: $cascadia-navy;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+
+  img, svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// Page header for case studies
+.case-study-header {
+  border-left: 5px solid $cascadia-blue;
+  padding-left: 1.25rem;
+  margin-bottom: 2rem;
+
+  .cs-domain {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $cascadia-muted;
+    margin-bottom: 0.25rem;
+  }
+
+  h1 {
+    margin-top: 0;
+    color: $cascadia-navy;
+  }
+
+  .cs-hook {
+    font-size: 1.1rem;
+    color: #475569;
+  }
+}
+
+// Footer tweak
+.nav-footer {
+  background: $cascadia-navy;
+  color: $cascadia-muted;
+  font-size: 0.82rem;
+}

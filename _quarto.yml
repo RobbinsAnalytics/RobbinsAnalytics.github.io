@@ -1,0 +1,52 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Robbins Analytics"
+  description: "Business Intelligence & Analytics portfolio — Aaron Robbins"
+  site-url: "https://robbinsanalytics.github.io"
+  favicon: assets/img/favicon.ico
+  open-graph: true
+  twitter-card: true
+
+  navbar:
+    background: dark
+    foreground: light
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Cascadia"
+        href: cascadia.qmd
+      - text: "Projects"
+        menu:
+          - text: "Cascadia Medical Devices"
+            href: projects/cascadia-medical-devices.qmd
+          - text: "Cascadia Pharmacy"
+            href: projects/cascadia-pharmacy.qmd
+          - text: "Cascadia Clothing (Coming Soon)"
+            href: projects/cascadia-clothing.qmd
+    right:
+      - icon: github
+        href: https://github.com/RobbinsAnalytics
+        aria-label: GitHub
+
+  page-footer:
+    left: "© 2026 Aaron Robbins"
+    right:
+      - icon: github
+        href: https://github.com/RobbinsAnalytics
+      - icon: linkedin
+        href: https://www.linkedin.com/in/aaronrobbins
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles.scss
+    toc: false
+    anchor-sections: false
+    smooth-scroll: true
+    link-external-newwindow: true

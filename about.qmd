@@ -1,0 +1,58 @@
+---
+title: "About Aaron Robbins"
+---
+
+<!-- TODO (Cowork): Full bio + resume section. Outline below is a placeholder. -->
+
+::: {.todo-block}
+**TODO (Cowork — About page):** Draft the full "About Aaron" content including: (1) professional bio paragraph, (2) career highlights / key roles, (3) skills & tools section, (4) resume download link, (5) contact info (email, LinkedIn, GitHub). Suggested structure follows below.
+:::
+
+## Bio
+
+<!-- TODO (Cowork): 3–4 sentence professional bio. -->
+
+*Placeholder — Cowork to draft.*
+
+---
+
+## Skills & Tools
+
+| Category | Tools |
+|---|---|
+| Data Platforms | SQL Server, Microsoft Fabric, Azure Synapse |
+| Visualization | Power BI, DAX |
+| Languages | SQL, Python, T-SQL |
+| Pipeline | PySpark, Notebook orchestration |
+| Source Control | Git, GitHub |
+
+---
+
+## Experience Highlights
+
+<!-- TODO (Cowork): 3–4 bullet-point career highlights, emphasizing analytics leadership, healthcare/e-commerce domains, and scale of work. -->
+
+::: {.todo-block}
+**TODO (Cowork — Experience):** 3–4 bullets: roles, industries, scale (rows processed, reports deployed, teams led, etc.). Frame for a CVS interview audience — healthcare data familiarity is a plus.
+:::
+
+---
+
+## Contact
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+**GitHub**
+[github.com/RobbinsAnalytics](https://github.com/RobbinsAnalytics)
+:::
+::: {.g-col-12 .g-col-md-4}
+**LinkedIn**
+<!-- TODO (Cowork): Add LinkedIn URL -->
+[linkedin.com/in/aaronrobbins](#)
+:::
+::: {.g-col-12 .g-col-md-4}
+**Resume**
+<!-- TODO (Cowork): Upload PDF to assets/ and link here -->
+[Download PDF](#){.btn .btn-primary .btn-sm}
+:::
+:::

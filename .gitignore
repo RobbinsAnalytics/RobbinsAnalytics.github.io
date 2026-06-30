@@ -1,0 +1,11 @@
+/.quarto/
+/_site/
+__pycache__/
+.DS_Store
+*.Rproj.user
+.Rhistory
+.RData
+Thumbs.db
+
+# Don't commit rendered output — published via gh-pages branch
+# (see README for publish workflow)

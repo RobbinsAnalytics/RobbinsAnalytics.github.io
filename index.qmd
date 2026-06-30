@@ -1,0 +1,106 @@
+---
+title: ""
+page-layout: full
+toc: false
+---
+
+::: {.hero-banner}
+# Aaron Robbins
+
+::: {.hero-subtitle}
+Business Intelligence & Analytics Leader
+:::
+
+::: {.hero-tagline}
+12+ years building BI and analytics platforms across healthcare, e-commerce, and manufacturing.
+SQL · Microsoft Fabric · Power BI · Python · Azure
+:::
+
+::: {.hero-ctas}
+<!-- TODO (Cowork): add resume PDF link when ready -->
+[View Work](#cascadia-portfolio){.btn .btn-primary}
+[Resume](#){.btn .btn-outline-light}
+[LinkedIn](https://www.linkedin.com/in/aaronrobbins){.btn .btn-outline-light}
+[GitHub](https://github.com/RobbinsAnalytics){.btn .btn-outline-light}
+:::
+:::
+
+---
+
+<!-- TODO (Cowork): Replace placeholder bio paragraphs below with final approved copy. -->
+
+::: {.todo-block}
+**TODO (Cowork — index hero copy):** Replace the one-liner positioning above and this section with the final "Aaron Robbins" hero narrative (2–4 sentences positioning statement, highlighting 12+ yrs experience, CVS/healthcare angle, and Cascadia portfolio concept).
+:::
+
+## The Cascadia Portfolio {#cascadia-portfolio}
+
+<!-- TODO (Cowork): 2–3 sentences on the Cascadia family concept. -->
+
+::: {.todo-block}
+**TODO (Cowork — Cascadia intro):** 2–3 sentences explaining the Cascadia family concept — one production-grade analytics architecture (SQL Server → Microsoft Fabric medallion → Power BI) applied across different industry domains to prove it generalizes. Emphasize real public data, repeatable patterns, and interview-ready depth.
+:::
+
+---
+
+### Featured Case Studies
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
+Manufacturing
+:::
+### Cascadia Medical Devices
+<span class="badge-status">Live</span>
+
+Predictive maintenance and OEE analytics on a 6M-row simulated MES dataset, built on SQL Server star schema → Microsoft Fabric → Power BI.
+
+[View Case Study](projects/cascadia-medical-devices.qmd){.btn .btn-primary .btn-sm}
+[GitHub](https://github.com/RobbinsAnalytics/manufacturing-analytics){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
+Healthcare / Pharmacy
+:::
+### Cascadia Pharmacy
+<span class="badge-status">In Build</span>
+
+GLP-1 drug spend growth and immunization coverage analytics on real CMS Medicare Part D + CDC VaxView public data. Messy-data cleaning showcase.
+
+[View Case Study](projects/cascadia-pharmacy.qmd){.btn .btn-primary .btn-sm}
+[GitHub](https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
+Retail
+:::
+### Cascadia Clothing
+<span class="badge-status coming-soon">Coming Soon</span>
+
+Customer segmentation and inventory analytics — the third domain in the Cascadia family, planned for Q3 2026.
+
+[Preview](projects/cascadia-clothing.qmd){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+:::
+
+---
+
+## Why Cascadia?
+
+<!-- TODO (Cowork): 1–2 short paragraphs on the "why" behind the multi-domain portfolio strategy. -->
+
+::: {.todo-block}
+**TODO (Cowork — "Why Cascadia?" section):** 1–2 paragraphs explaining the strategic decision to build one reusable architecture across three industry verticals — showing that the engineering skill transfers, not just domain knowledge. Optional: add a quote or pull-stat (e.g., "6M+ rows processed, 3 domains, 1 architecture").
+:::
+
+[Learn about the Cascadia architecture →](cascadia.qmd)
