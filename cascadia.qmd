@@ -61,7 +61,7 @@ Every domain has an `explainer/` doc describing schema decisions, data-cleaning 
 ## Tech Stack
 
 <div class="tech-chips">
-<span class="chip">SQL Server 2019</span>
+<span class="chip">SQL Server 2025</span>
 <span class="chip">T-SQL</span>
 <span class="chip">Microsoft Fabric</span>
 <span class="chip">PySpark</span>

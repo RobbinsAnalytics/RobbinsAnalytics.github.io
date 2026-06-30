@@ -50,8 +50,8 @@ Two of the biggest growth areas in retail pharmacy are GLP-1 medications and imm
 |---|---|---|---|
 | CMS Medicare Part D Spending by Drug | Federal (CMS) | 14,536 raw → 339 filtered | Wide-format CSV, 2020–2024 annual columns; filtered to antidiabetic/obesity drug classes |
 | CDC FluVaxView | Federal (CDC / Socrata) | 100K raw → 24,596 filtered | Adult flu vaccination coverage by state × age × season |
-| CDC RSVVaxView | Federal (CDC) | TBD | Adult RSV coverage — manual download pending |
-| CDC COVIDVaxView | Federal (CDC) | TBD | Adult COVID coverage — correct dataset endpoint pending |
+| CDC RSVVaxView | Federal (CDC) | TBD | Adult RSV coverage — in progress (Phase 2) |
+| CDC COVIDVaxView | Federal (CDC) | TBD | Adult COVID coverage — in progress (Phase 2) |
 
 **Attribution:**
 - CMS Part D data: [Centers for Medicare & Medicaid Services](https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-medicaid-spending-by-drug/medicare-part-d-spending-by-drug) — public domain federal data.
@@ -65,23 +65,20 @@ Real government data isn't clean: CMS suppresses small-cell counts (blanks/aster
 
 ### Key Findings
 
-- GLP-1 medications are the standout growth story in Medicare Part D: `[VERIFY: class spend grew from ~$X to ~$Y over Z years]`, led by `[VERIFY: Ozempic / Mounjaro figures]`. Both volume (beneficiaries) and cost-per-beneficiary are rising — not just price.
-- Adult immunization coverage varies widely by state — `[VERIFY: ~N-point spread top to bottom]` — which maps directly to a pharmacy-access growth opportunity.
-
-> `[VERIFY]` figures to be confirmed against the built Power BI report before publishing.
+Detailed GLP-1 spend figures and immunization coverage gaps publish with the Phase 2 Power BI report.
 
 ---
 
 ## The Report
 
-*[TODO: screenshots]* → *[TODO: walkthrough video]* → *[TODO: live embed or "view report" button]*
+Screenshots and a walkthrough are coming with Phase 2.
 
 ---
 
 ## Tech Stack
 
 <div class="tech-chips">
-<span class="chip">SQL Server 2019</span>
+<span class="chip">SQL Server 2025</span>
 <span class="chip">T-SQL</span>
 <span class="chip">Python</span>
 <span class="chip">CMS Part D Data</span>

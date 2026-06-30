@@ -62,14 +62,14 @@ The NASA C-MAPSS layer adds a parallel story: remaining useful life (RUL) modeli
 
 ## The Report
 
-*[TODO: screenshots]* → *[TODO: walkthrough video]* → *[TODO: live embed or "view report" button]*
+Screenshots and a walkthrough are coming with Phase 2.
 
 ---
 
 ## Tech Stack
 
 <div class="tech-chips">
-<span class="chip">SQL Server 2019</span>
+<span class="chip">SQL Server 2025</span>
 <span class="chip">T-SQL</span>
 <span class="chip">Python (simdata)</span>
 <span class="chip">Microsoft Fabric</span>
