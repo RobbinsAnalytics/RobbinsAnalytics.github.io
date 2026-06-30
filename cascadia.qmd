@@ -58,17 +58,17 @@ Every domain has an `explainer/` doc describing schema decisions, data-cleaning 
 
 ## Tech Stack
 
-::: {.tech-chips}
-::: {.chip}SQL Server 2019:::
-::: {.chip}T-SQL:::
-::: {.chip}Microsoft Fabric:::
-::: {.chip}PySpark:::
-::: {.chip}Power BI:::
-::: {.chip}DAX:::
-::: {.chip}Python:::
-::: {.chip}PowerShell:::
-::: {.chip}GitHub Actions:::
-:::
+<div class="tech-chips">
+<span class="chip">SQL Server 2019</span>
+<span class="chip">T-SQL</span>
+<span class="chip">Microsoft Fabric</span>
+<span class="chip">PySpark</span>
+<span class="chip">Power BI</span>
+<span class="chip">DAX</span>
+<span class="chip">Python</span>
+<span class="chip">PowerShell</span>
+<span class="chip">GitHub Actions</span>
+</div>
 
 ---
 

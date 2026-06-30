@@ -83,16 +83,16 @@ Optionally embed a walkthrough video (Loom/YouTube) and/or a "View live report" 
 
 ## Tech Stack
 
-::: {.tech-chips}
-::: {.chip}SQL Server 2019:::
-::: {.chip}T-SQL:::
-::: {.chip}Python (simdata):::
-::: {.chip}Microsoft Fabric:::
-::: {.chip}PySpark:::
-::: {.chip}Power BI:::
-::: {.chip}DAX:::
-::: {.chip}PowerShell:::
-:::
+<div class="tech-chips">
+<span class="chip">SQL Server 2019</span>
+<span class="chip">T-SQL</span>
+<span class="chip">Python (simdata)</span>
+<span class="chip">Microsoft Fabric</span>
+<span class="chip">PySpark</span>
+<span class="chip">Power BI</span>
+<span class="chip">DAX</span>
+<span class="chip">PowerShell</span>
+</div>
 
 ---
 

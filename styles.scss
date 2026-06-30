@@ -1,28 +1,26 @@
-/*-- Cascadia Analytics palette ------------------------------------------
-   Derived from cascadia_analytics_tech_stack.svg
-   Dark card:   #1e2330   Card border: #3b4a6b
-   Accent blue: #60a5fa   Icon blue:   #60a5fa
-   Text light:  #e2e8f0   Muted:       #94a3b8
-------------------------------------------------------------------------*/
-
-// Boost Sass version compatibility
-$enable-gradients: false;
+/*-- scss:defaults --*/
+/*
+   Cascadia Analytics palette — derived from cascadia_analytics_tech_stack.svg
+   Dark card: #1e2330  |  Card border: #3b4a6b
+   Accent:    #60a5fa  |  Muted:       #94a3b8
+*/
 
 // ---------- Brand tokens ----------
-$cascadia-navy:      #1e2330;
-$cascadia-steel:     #3b4a6b;
-$cascadia-blue:      #2563eb;   // accessible contrast on white
-$cascadia-blue-lt:   #60a5fa;
-$cascadia-teal:      #0ea5e9;
-$cascadia-muted:     #94a3b8;
+$cascadia-navy:    #1e2330;
+$cascadia-steel:   #3b4a6b;
+$cascadia-blue:    #2563eb;
+$cascadia-blue-lt: #60a5fa;
+$cascadia-muted:   #94a3b8;
 
-// ---------- Cosmo overrides ----------
-$primary:          $cascadia-blue;
-$link-color:       $cascadia-blue;
-$navbar-bg:        $cascadia-navy;
-$navbar-fg:        #e2e8f0;
+// ---------- Cosmo / Bootstrap variable overrides ----------
+$primary:            $cascadia-blue;
+$link-color:         $cascadia-blue;
+$navbar-bg:          $cascadia-navy;
+$navbar-fg:          #e2e8f0;
 $navbar-hover-color: $cascadia-blue-lt;
-$footer-bg:        $cascadia-navy;
+$footer-bg:          $cascadia-navy;
+
+/*-- scss:rules --*/
 
 // ---------- Custom styles ----------
 

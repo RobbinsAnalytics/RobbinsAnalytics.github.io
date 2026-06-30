@@ -108,18 +108,18 @@ Optionally add a Loom walkthrough video and/or Power BI embedded "View live repo
 
 ## Tech Stack
 
-::: {.tech-chips}
-::: {.chip}SQL Server 2019:::
-::: {.chip}T-SQL:::
-::: {.chip}Python:::
-::: {.chip}CMS Part D Data:::
-::: {.chip}CDC VaxView:::
-::: {.chip}Microsoft Fabric:::
-::: {.chip}PySpark:::
-::: {.chip}Power BI:::
-::: {.chip}DAX:::
-::: {.chip}PowerShell:::
-:::
+<div class="tech-chips">
+<span class="chip">SQL Server 2019</span>
+<span class="chip">T-SQL</span>
+<span class="chip">Python</span>
+<span class="chip">CMS Part D Data</span>
+<span class="chip">CDC VaxView</span>
+<span class="chip">Microsoft Fabric</span>
+<span class="chip">PySpark</span>
+<span class="chip">Power BI</span>
+<span class="chip">DAX</span>
+<span class="chip">PowerShell</span>
+</div>
 
 ---
 
