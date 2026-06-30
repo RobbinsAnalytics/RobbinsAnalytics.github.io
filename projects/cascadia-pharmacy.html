@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -222,18 +187,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="overview" class="level2">
 <h2 data-anchor-id="overview">Overview</h2>
-<!-- TODO (Cowork): 2–3 sentence overview. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — Overview):</strong> 2–3 sentences: pharmacy analytics domain (CVS-relevant), the business question (GLP-1 cost trajectory + immunization access disparities), and the headline skill (messy public-data cleaning + SQL Server star schema applied to real CMS/CDC data).</p>
-</div>
+<p>A pharmacy-growth analytics stack built on real public data — CMS Medicare Part D drug spending and CDC adult immunization coverage — applying the Cascadia architecture to healthcare. It’s also a deliberate showcase of cleaning messy, incomplete real-world data.</p>
 <hr>
 </section>
 <section id="business-problem" class="level2">
 <h2 data-anchor-id="business-problem">Business Problem</h2>
-<!-- TODO (Cowork): CVS-framed business problem. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — Business Problem):</strong> Frame through a CVS lens: Medicare Part D drug spend trends (especially GLP-1s / obesity drugs) and adult immunization coverage gaps matter directly to a pharmacy chain’s formulary strategy and immunization programs. What would a CVS analytics leader want to answer from this data? (E.g., “Which drugs drove the largest spend increases? Which states have the lowest flu vaccination rates?”)</p>
-</div>
+<p>Two of the biggest growth areas in retail pharmacy are GLP-1 medications and immunization services. Both questions — where is GLP-1 spend going, and where are the immunization coverage gaps — live in public datasets that are real, valuable, and genuinely messy.</p>
 <hr>
 </section>
 <section id="architecture" class="level2">
@@ -302,58 +261,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Attribution:</strong> - CMS Part D data: <a href="https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-medicaid-spending-by-drug/medicare-part-d-spending-by-drug">Centers for Medicare &amp; Medicaid Services</a> — public domain federal data. - CDC VaxView: <a href="https://www.cdc.gov/vaccines/imz-managers/coverage/adultvaxview/index.html">Centers for Disease Control and Prevention</a> — public domain federal data.</p>
 <hr>
 </section>
-<section id="headline-skill-messy-public-data-cleaning" class="level2">
-<h2 data-anchor-id="headline-skill-messy-public-data-cleaning">Headline Skill: Messy Public-Data Cleaning</h2>
-<!-- TODO (Cowork): 2–3 paragraphs on the data-cleaning showcase. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — Headline Skill):</strong> This is the CVS-interview-ready centerpiece. Draft 2–3 paragraphs covering: 1. <strong>CMS suppression handling</strong> — blank cells in the wide-format CSV mean “suppressed” (beneficiary count &lt; 11), not zero. Explain how the pipeline preserves suppressed_flag=1 rather than zero-filling, and why this matters for accurate trend analysis. 2. <strong>Wide-to-long pivot</strong> — CMS data arrives with year columns (Tot_Spndng_2020 through Tot_Spndng_2024) on a single row per drug. Explain the pivot logic and drug classification approach. 3. <strong>CDC column mismatch + age-band normalization</strong> — FluVaxView uses non-standard column names and “NR †” for not-reportable cells. How the pipeline handles these without silently defaulting suppressed estimates to zero. Make it interview-conversational: “Here’s the dirt I found, here’s why it matters, here’s what I did.”</p>
-</div>
-<section id="glp-1-headline-numbers" class="level3">
-<h3 data-anchor-id="glp-1-headline-numbers">GLP-1 Headline Numbers</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Drug</th>
-<th>2020 Part D Spend</th>
-<th>2024 Part D Spend</th>
-<th>Growth</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ozempic (semaglutide)</td>
-<td>$1.46B</td>
-<td>$12.97B</td>
-<td>+788%</td>
-</tr>
-<tr class="even">
-<td>Mounjaro (tirzepatide)</td>
-<td>—</td>
-<td>$5.57B</td>
-<td>New 2022</td>
-</tr>
-<tr class="odd">
-<td>Wegovy (semaglutide)</td>
-<td>—</td>
-<td>$2.27B</td>
-<td>New 2021</td>
-</tr>
-</tbody>
-</table>
-<p><em>Source: CMS Medicare Part D Spending by Drug (public domain federal data). All figures are real CMS-reported values; no fabrication.</em></p>
+<section id="headline-skill-cleaning-messy-incomplete-data" class="level2">
+<h2 data-anchor-id="headline-skill-cleaning-messy-incomplete-data">Headline Skill: Cleaning Messy &amp; Incomplete Data</h2>
+<p>Real government data isn’t clean: CMS suppresses small-cell counts (blanks/asterisks), spend arrives as currency strings, drug names vary in casing, and CDC suppresses or flags unstable estimates for small samples. The pipeline preserves that reality and handles it honestly — suppressed values are flagged, never silently zero-filled — and the report surfaces a “suppressed records” counter so the audience understands why a national total doesn’t equal the sum of states.</p>
+<section id="key-findings" class="level3">
+<h3 data-anchor-id="key-findings">Key Findings</h3>
+<ul>
+<li>GLP-1 medications are the standout growth story in Medicare Part D: <code>[VERIFY: class spend grew from ~$X to ~$Y over Z years]</code>, led by <code>[VERIFY: Ozempic / Mounjaro figures]</code>. Both volume (beneficiaries) and cost-per-beneficiary are rising — not just price.</li>
+<li>Adult immunization coverage varies widely by state — <code>[VERIFY: ~N-point spread top to bottom]</code> — which maps directly to a pharmacy-access growth opportunity.</li>
+</ul>
+<blockquote class="blockquote">
+<p><code>[VERIFY]</code> figures to be confirmed against the built Power BI report before publishing.</p>
+</blockquote>
 <hr>
 </section>
 </section>
 <section id="the-report" class="level2">
 <h2 data-anchor-id="the-report">The Report</h2>
-<!-- TODO (Aaron + Cowork): Screenshots of the Power BI report go here once built. -->
-<div class="todo-block">
-<p><strong>TODO (Aaron — Report screenshots, Phase 2):</strong> Once the Power BI report is built, add screenshots to <code>assets/img/pharmacy-report-*.png</code>. Suggested: - <code>pharmacy-report-glp1-growth.png</code> — GLP-1 spend trend chart (2020–2024) - <code>pharmacy-report-imm-coverage.png</code> — Immunization coverage map by state</p>
-<p>Then replace this block:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="al">![GLP-1 Spend Growth](../assets/img/pharmacy-report-glp1-growth.png)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="al">![Immunization Coverage](../assets/img/pharmacy-report-imm-coverage.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Optionally add a Loom walkthrough video and/or Power BI embedded “View live report” button.</p>
-</div>
+<p><em>[TODO: screenshots]</em> → <em>[TODO: walkthrough video]</em> → <em>[TODO: live embed or “view report” button]</em></p>
 <hr>
 </section>
 <section id="tech-stack" class="level2">

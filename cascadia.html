@@ -173,10 +173,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- TODO (Cowork): Intro paragraph on the Cascadia concept. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — Cascadia intro):</strong> 2–3 paragraphs explaining the Cascadia portfolio concept: the motivation for building one reusable end-to-end architecture across manufacturing, pharmacy, and retail; how the shared pattern (SQL Server star schema → Microsoft Fabric medallion → Power BI semantic model) proves architectural generality; and why real/public data sources were chosen.</p>
-</div>
+<p>Every Cascadia build runs on the same modern Microsoft data stack, end to end:</p>
+<ol type="1">
+<li><strong>Source (SQL Server).</strong> A relational, star-schema-ready operational database — the system of record. Dimensions and facts, a date dimension, surrogate keys, loaded reproducibly from source files.</li>
+<li><strong>Pipeline (Microsoft Fabric medallion lakehouse).</strong> Bronze (raw) → Silver (cleaned/conformed) → Gold (modeled) layers, so the path from raw data to trustworthy tables is explicit and auditable.</li>
+<li><strong>Semantic model &amp; reporting (Power BI).</strong> A governed semantic model with a dedicated measures layer and clean relationships, surfaced in focused reports designed for non-technical audiences.</li>
+</ol>
+<p>The value of doing it as a family is repeatability: once the pattern is proven on one domain, standing up the next is fast and consistent. Cascadia Medical Devices proved the pattern on manufacturing; Cascadia Pharmacy applies it to real public healthcare data; Cascadia Clothing extends it to retail.</p>
 <hr>
 <section id="shared-architecture" class="level2">
 <h2 data-anchor-id="shared-architecture">Shared Architecture</h2>
@@ -248,10 +251,6 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="tech-stack">Tech Stack</h2>
 <div class="tech-chips">
 <p><span class="chip">SQL Server 2019</span> <span class="chip">T-SQL</span> <span class="chip">Microsoft Fabric</span> <span class="chip">PySpark</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">Python</span> <span class="chip">PowerShell</span> <span class="chip">GitHub Actions</span></p>
-</div>
-<hr>
-<div class="todo-block">
-<p><strong>TODO (Cowork — Cascadia story):</strong> Optional: add a “how it started” narrative paragraph — the origin of the Cascadia concept, the decision to use a fictional Pacific Northwest brand family, and the strategic intent (one architecture brief for multiple CVS-angle conversations: pharmacy data + supply chain + retail).</p>
 </div>
 
 

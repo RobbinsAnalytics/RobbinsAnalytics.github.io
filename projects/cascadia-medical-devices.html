@@ -23,41 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -109,11 +74,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <meta property="og:title" content="Cascadia Medical Devices – Robbins Analytics">
-<meta property="og:description" content="Predictive maintenance and OEE analytics on a 6M-row manufacturing dataset.">
+<meta property="og:description" content="Predictive maintenance and OEE analytics on a 5.9M-row manufacturing dataset.">
 <meta property="og:image" content="https://robbinsanalytics.github.io/assets/cascadia_analytics_tech_stack.svg">
 <meta property="og:site_name" content="Robbins Analytics">
 <meta name="twitter:title" content="Cascadia Medical Devices – Robbins Analytics">
-<meta name="twitter:description" content="Predictive maintenance and OEE analytics on a 6M-row manufacturing dataset.">
+<meta name="twitter:description" content="Predictive maintenance and OEE analytics on a 5.9M-row manufacturing dataset.">
 <meta name="twitter:image" content="https://robbinsanalytics.github.io/assets/cascadia_analytics_tech_stack.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -191,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Cascadia Medical Devices</h1>
-<p class="subtitle lead">Predictive maintenance and OEE analytics on a 6M-row manufacturing dataset.</p>
+<p class="subtitle lead">Predictive maintenance and OEE analytics on a 5.9M-row manufacturing dataset.</p>
 </div>
 
 
@@ -222,18 +187,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="overview" class="level2">
 <h2 data-anchor-id="overview">Overview</h2>
-<!-- TODO (Cowork): 2–3 sentence overview. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — Overview):</strong> 2–3 sentences: medical device manufacturing domain, the core business question (OEE / downtime / predictive maintenance), and the headline skill demonstrated (SQL Server star schema design + Microsoft Fabric medallion pipeline).</p>
-</div>
+<p>A full analytics stack for a fictional 3-line medical-device manufacturer, built on ~5.9M synthetic production events across 29 months, paired with real NASA C-MAPSS turbofan run-to-failure sensor data for predictive maintenance. It demonstrates dimensional modeling at scale, a medallion pipeline, and root-cause operational analytics.</p>
 <hr>
 </section>
 <section id="business-problem" class="level2">
 <h2 data-anchor-id="business-problem">Business Problem</h2>
-<!-- TODO (Cowork): Framing the manufacturing analytics problem. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — Business Problem):</strong> Frame the problem: a medical device contract manufacturer needs real-time visibility into equipment downtime, quality defect rates, and production throughput. What decisions does the Power BI report enable? What would a BI leader at a manufacturing company actually care about?</p>
-</div>
+<p>Manufacturing leaders couldn’t see why on-time delivery was slipping on certain product lines. The data existed but was fragmented across systems with no single, trusted view.</p>
 <hr>
 </section>
 <section id="architecture" class="level2">
@@ -247,9 +206,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<p><strong>Source layer:</strong> CascadiaMES SQL Server star schema — 7 dimension tables + 3 fact tables (fact_production_event 5.93M rows, fact_downtime_event 6.5K rows, fact_quality_qn 41K rows, fact_order_fulfillment). Simulated MES data + NASA C-MAPSS engine sensor dataset (265K rows) for predictive maintenance.</p>
-<p><strong>Medallion pipeline:</strong> Bronze → Silver → Gold notebooks in Microsoft Fabric Lakehouse, implemented in PySpark.</p>
-<p><strong>Semantic model + report:</strong> Power BI dataset with DAX measures for OEE, MTBF, defect rate, and on-time delivery.</p>
+<p><strong>Source (SQL Server):</strong> CascadiaMES — star schema with 4 fact tables, 8 dimensions, <code>dim_date</code>, ~5.9M rows, plus a separate schema for NASA C-MAPSS sensor data. Loaded reproducibly via PowerShell; DP-600-aligned.</p>
+<p><strong>Pipeline (Microsoft Fabric):</strong> Bronze → Silver → Gold medallion lakehouse, implemented in PySpark notebooks.</p>
+<p><strong>Semantic model + report (Power BI):</strong> Direct Lake connection; DAX measures for OEE, MTBF, defect rate, and on-time-in-full delivery.</p>
 <hr>
 </section>
 <section id="data-sources" class="level2">
@@ -273,36 +232,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>CascadiaMES (simulated)</td>
 <td>SQL Server</td>
-<td>~6M</td>
-<td>7 dims + 3 facts, star schema</td>
+<td>~5.9M</td>
+<td>Seed-controlled deterministic generator; 4 fact tables, 8 dimensions</td>
 </tr>
 <tr class="even">
 <td>NASA C-MAPSS</td>
 <td>Public (NASA)</td>
-<td>265K engine cycles</td>
-<td>Turbofan engine sensor data for RUL prediction</td>
+<td>265K cycles</td>
+<td>Turbofan Engine Degradation dataset (FD001–FD004); cited and disclosed</td>
 </tr>
 </tbody>
 </table>
 <hr>
 </section>
-<section id="headline-skill-sql-server-star-schema-design" class="level2">
-<h2 data-anchor-id="headline-skill-sql-server-star-schema-design">Headline Skill: SQL Server Star Schema Design</h2>
-<!-- TODO (Cowork): 1–2 paragraphs on the schema design decisions. -->
-<div class="todo-block">
-<p><strong>TODO (Cowork — Headline Skill):</strong> 1–2 paragraphs explaining the key schema decisions: surrogate key strategy, date_key computed column pattern (why post-load ALTER TABLE?), why FKs are omitted on facts (enforced at semantic model layer), and how the 3-fact design separates production events from quality events for clean DAX measures. Make it interview-conversational — “here’s what I decided and why.”</p>
-</div>
+<section id="headline-skill-root-cause-analytics-predictive-maintenance" class="level2">
+<h2 data-anchor-id="headline-skill-root-cause-analytics-predictive-maintenance">Headline Skill: Root-Cause Analytics &amp; Predictive Maintenance</h2>
+<p>The dataset carries an engineered, discoverable story: a single station’s cycle time drifts up (≈58→69s), dragging First Pass Yield down on one line (≈95.5%→90.2%) and on-time-in-full delivery down on the affected product (≈92%→69%) — while control lines stay flat. The reporting isolates the root cause rather than just showing the symptom.</p>
+<p>The NASA C-MAPSS layer adds a parallel story: remaining useful life (RUL) modeling on turbofan engine sensor data, surfaced as a reliability/maintenance planning view in the same report.</p>
 <hr>
 </section>
 <section id="the-report" class="level2">
 <h2 data-anchor-id="the-report">The Report</h2>
-<!-- TODO (Cowork + Aaron): Screenshots of the Power BI report go here. -->
-<div class="todo-block">
-<p><strong>TODO (Aaron — Report screenshots):</strong> Add 1–3 screenshots of the Power BI report to <code>assets/img/med-devices-report-*.png</code>. Then replace this block with:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="al">![OEE Dashboard](../assets/img/med-devices-report-oee.png)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="al">![Downtime Analysis](../assets/img/med-devices-report-downtime.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Optionally embed a walkthrough video (Loom/YouTube) and/or a “View live report” button once Power BI embedded link is available.</p>
-</div>
+<p><em>[TODO: screenshots]</em> → <em>[TODO: walkthrough video]</em> → <em>[TODO: live embed or “view report” button]</em></p>
 <hr>
 </section>
 <section id="tech-stack" class="level2">
