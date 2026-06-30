@@ -17,19 +17,13 @@ Turning messy federal public data — CMS Part D suppressed cells, CDC VaxView a
 
 ## Overview
 
-<!-- TODO (Cowork): 2–3 sentence overview. -->
-::: {.todo-block}
-**TODO (Cowork — Overview):** 2–3 sentences: pharmacy analytics domain (CVS-relevant), the business question (GLP-1 cost trajectory + immunization access disparities), and the headline skill (messy public-data cleaning + SQL Server star schema applied to real CMS/CDC data).
-:::
+A pharmacy-growth analytics stack built on real public data — CMS Medicare Part D drug spending and CDC adult immunization coverage — applying the Cascadia architecture to healthcare. It's also a deliberate showcase of cleaning messy, incomplete real-world data.
 
 ---
 
 ## Business Problem
 
-<!-- TODO (Cowork): CVS-framed business problem. -->
-::: {.todo-block}
-**TODO (Cowork — Business Problem):** Frame through a CVS lens: Medicare Part D drug spend trends (especially GLP-1s / obesity drugs) and adult immunization coverage gaps matter directly to a pharmacy chain's formulary strategy and immunization programs. What would a CVS analytics leader want to answer from this data? (E.g., "Which drugs drove the largest spend increases? Which states have the lowest flu vaccination rates?")
-:::
+Two of the biggest growth areas in retail pharmacy are GLP-1 medications and immunization services. Both questions — where is GLP-1 spend going, and where are the immunization coverage gaps — live in public datasets that are real, valuable, and genuinely messy.
 
 ---
 
@@ -65,44 +59,22 @@ Turning messy federal public data — CMS Part D suppressed cells, CDC VaxView a
 
 ---
 
-## Headline Skill: Messy Public-Data Cleaning
+## Headline Skill: Cleaning Messy & Incomplete Data
 
-<!-- TODO (Cowork): 2–3 paragraphs on the data-cleaning showcase. -->
-::: {.todo-block}
-**TODO (Cowork — Headline Skill):** This is the CVS-interview-ready centerpiece. Draft 2–3 paragraphs covering:
-1. **CMS suppression handling** — blank cells in the wide-format CSV mean "suppressed" (beneficiary count < 11), not zero. Explain how the pipeline preserves suppressed_flag=1 rather than zero-filling, and why this matters for accurate trend analysis.
-2. **Wide-to-long pivot** — CMS data arrives with year columns (Tot_Spndng_2020 through Tot_Spndng_2024) on a single row per drug. Explain the pivot logic and drug classification approach.
-3. **CDC column mismatch + age-band normalization** — FluVaxView uses non-standard column names and "NR †" for not-reportable cells. How the pipeline handles these without silently defaulting suppressed estimates to zero.
-Make it interview-conversational: "Here's the dirt I found, here's why it matters, here's what I did."
-:::
+Real government data isn't clean: CMS suppresses small-cell counts (blanks/asterisks), spend arrives as currency strings, drug names vary in casing, and CDC suppresses or flags unstable estimates for small samples. The pipeline preserves that reality and handles it honestly — suppressed values are flagged, never silently zero-filled — and the report surfaces a "suppressed records" counter so the audience understands why a national total doesn't equal the sum of states.
 
-### GLP-1 Headline Numbers
+### Key Findings
 
-| Drug | 2020 Part D Spend | 2024 Part D Spend | Growth |
-|---|---|---|---|
-| Ozempic (semaglutide) | $1.46B | $12.97B | +788% |
-| Mounjaro (tirzepatide) | — | $5.57B | New 2022 |
-| Wegovy (semaglutide) | — | $2.27B | New 2021 |
+- GLP-1 medications are the standout growth story in Medicare Part D: `[VERIFY: class spend grew from ~$X to ~$Y over Z years]`, led by `[VERIFY: Ozempic / Mounjaro figures]`. Both volume (beneficiaries) and cost-per-beneficiary are rising — not just price.
+- Adult immunization coverage varies widely by state — `[VERIFY: ~N-point spread top to bottom]` — which maps directly to a pharmacy-access growth opportunity.
 
-*Source: CMS Medicare Part D Spending by Drug (public domain federal data). All figures are real CMS-reported values; no fabrication.*
+> `[VERIFY]` figures to be confirmed against the built Power BI report before publishing.
 
 ---
 
 ## The Report
 
-<!-- TODO (Aaron + Cowork): Screenshots of the Power BI report go here once built. -->
-::: {.todo-block}
-**TODO (Aaron — Report screenshots, Phase 2):** Once the Power BI report is built, add screenshots to `assets/img/pharmacy-report-*.png`. Suggested:
-- `pharmacy-report-glp1-growth.png` — GLP-1 spend trend chart (2020–2024)
-- `pharmacy-report-imm-coverage.png` — Immunization coverage map by state
-
-Then replace this block:
-```markdown
-![GLP-1 Spend Growth](../assets/img/pharmacy-report-glp1-growth.png)
-![Immunization Coverage](../assets/img/pharmacy-report-imm-coverage.png)
-```
-Optionally add a Loom walkthrough video and/or Power BI embedded "View live report" button.
-:::
+*[TODO: screenshots]* → *[TODO: walkthrough video]* → *[TODO: live embed or "view report" button]*
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Cascadia Clothing"
-subtitle: "Coming soon — customer segmentation and inventory analytics for a retail brand."
+subtitle: "Coming soon — retail and ecommerce analytics for an apparel scenario."
 ---
 
 ::: {.case-study-header}
@@ -9,30 +9,10 @@ Retail Analytics
 :::
 # Cascadia Clothing
 ::: {.cs-hook}
-The third domain in the Cascadia family — applying the same production-grade analytics architecture to retail customer and inventory data.
+The next Cascadia build — retail and ecommerce analytics on the same SQL Server → Fabric → Power BI stack.
 :::
 :::
 
 ---
 
-::: {.callout-note}
-**This project is planned for Q3 2026.** The Cascadia architecture and build patterns are established; this page will be updated when the retail domain build begins.
-:::
-
----
-
-## Planned Scope
-
-- **Domain:** Retail fashion (direct-to-consumer e-commerce)
-- **Business questions:** RFM customer segmentation, inventory turnover by SKU, return rate analysis
-- **Data:** TBD — either synthetic or a suitable public e-commerce dataset
-- **Headline skill:** Customer lifetime value modeling / cohort analysis
-- **Architecture:** Same SQL Server → Fabric → Power BI pattern as Medical Devices and Pharmacy
-
----
-
-## Why Three Domains?
-
-The Cascadia portfolio is designed to demonstrate that the engineering skill — star schema design, medallion pipeline patterns, DAX semantic modeling — transfers across industries. Adding a retail domain alongside manufacturing and healthcare makes the case that this is architectural thinking, not just domain familiarity.
-
-[See the full Cascadia architecture →](../cascadia.qmd)
+The next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF — on the same SQL Server → Fabric → Power BI stack. Drawing on my ecommerce BI background, it will extend the Cascadia pattern into retail. Check back, or follow along on [GitHub](https://github.com/RobbinsAnalytics).
