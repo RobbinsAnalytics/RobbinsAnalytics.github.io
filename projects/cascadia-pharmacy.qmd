@@ -65,7 +65,9 @@ Real government data isn't clean: CMS suppresses small-cell counts (blanks/aster
 
 ### Key Findings
 
-Detailed GLP-1 spend figures and immunization coverage gaps publish with the Phase 2 Power BI report.
+- GLP-1 medications are the standout growth story in Medicare Part D: class spend roughly **tripled from ~$7B (2020) to $22B+ (2023)**, led by Trulicity and Ozempic.
+- The growth is driven by **both volume and cost** — more beneficiaries *and* rising cost per beneficiary, not just price increases.
+- Immunization coverage gap analysis publishes with the Phase 2 Power BI report.
 
 ---
 
