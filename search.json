@@ -39,14 +39,14 @@
     "href": "projects/cascadia-pharmacy.html#headline-skill-cleaning-messy-incomplete-data",
     "title": "Cascadia Pharmacy",
     "section": "Headline Skill: Cleaning Messy & Incomplete Data",
-    "text": "Headline Skill: Cleaning Messy & Incomplete Data\nReal government data isn’t clean: CMS suppresses small-cell counts (blanks/asterisks), spend arrives as currency strings, drug names vary in casing, and CDC suppresses or flags unstable estimates for small samples. The pipeline preserves that reality and handles it honestly — suppressed values are flagged, never silently zero-filled — and the report surfaces a “suppressed records” counter so the audience understands why a national total doesn’t equal the sum of states.\n\nKey Findings\n\nGLP-1 medications are the standout growth story in Medicare Part D: class spend roughly tripled from ~$7B (2020) to $22B+ (2023), led by Trulicity and Ozempic.\nThe growth is driven by both volume and cost — more beneficiaries and rising cost per beneficiary, not just price increases.\nImmunization coverage gap analysis publishes with the Phase 2 Power BI report."
+    "text": "Headline Skill: Cleaning Messy & Incomplete Data\nReal government data isn’t clean: CMS suppresses small-cell counts (blanks/asterisks), spend arrives as currency strings, drug names vary in casing, and CDC suppresses or flags unstable estimates for small samples. The pipeline preserves that reality and handles it honestly — suppressed values are flagged, never silently zero-filled — and the report surfaces a “suppressed records” counter so the audience understands why a national total doesn’t equal the sum of states.\n\nKey Findings\n\nGLP-1 medications are the standout growth story in Medicare Part D: class spend roughly tripled from ~$7B (2020) to $22B+ (2023) — about $54B cumulative over 2020–2023, with the latest year up ~70% YoY.\nThe growth is driven by both volume and cost — more beneficiaries and rising cost per beneficiary, not just price increases. Trulicity and Ozempic lead the class.\nImmunization coverage gap analysis publishes with the Phase 2 Power BI report."
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#the-report",
     "href": "projects/cascadia-pharmacy.html#the-report",
     "title": "Cascadia Pharmacy",
     "section": "The Report",
-    "text": "The Report\nScreenshots and a walkthrough are coming with Phase 2."
+    "text": "The Report\n\n\n\nGLP-1 Growth page — Power BI. KPI cards for cumulative spend, YoY growth, beneficiaries, and cost per beneficiary; spend trend 2020–2023; brand-level breakdown; and a suppressed-data disclosure so totals stay honest.\n\n\nWalkthrough video coming soon. The Immunization Coverage & Access page publishes with Phase 2."
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#tech-stack",
