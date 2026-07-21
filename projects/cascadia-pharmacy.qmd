@@ -17,7 +17,7 @@ Turning messy federal public data — CMS Part D suppressed cells, CDC VaxView a
 
 ## Overview
 
-A pharmacy-growth analytics stack built on real public data — CMS Medicare Part D drug spending and CDC adult immunization coverage — applying the Cascadia architecture to healthcare. It's also a deliberate showcase of cleaning messy, incomplete real-world data.
+A pharmacy-growth analytics stack built on real public data — CMS Medicare Part D drug spending and CDC adult immunization coverage — applying the Cascadia approach to healthcare. It's also a deliberate showcase of cleaning messy, incomplete real-world data.
 
 ---
 
@@ -29,16 +29,14 @@ Two of the biggest growth areas in retail pharmacy are GLP-1 medications and imm
 
 ## Architecture
 
-::: {.arch-container}
-![Cascadia end-to-end data platform](../assets/cascadia_analytics_tech_stack.svg)
-:::
+**Local SQL Server star schema → Power BI** — a personal-scale build on public data, with no cloud lakehouse in the loop.
 
 **Source layer:** CascadiaRx SQL Server star schema — 5 dimension tables + 2 fact tables.
 
 - `fact_partd_drug_spend` (339 rows, grain: drug × year 2020–2024, CMS Part D data)
 - `fact_immunization_coverage` (24,596 rows, grain: vaccine × geography × demographic × season, CDC VaxView)
 
-**Medallion pipeline:** Bronze → Silver → Gold notebooks in Microsoft Fabric Lakehouse (Phase 2, in build).
+**Staging:** a Python `raw → clean` layer — currency-string parsing, drug-name normalization, and suppression handling; suppressed values are flagged, never zero-filled.
 
 **Semantic model + report:** Power BI — GLP-1 Growth Story page + Immunization Coverage & Access page (Phase 2, in build).
 
@@ -87,8 +85,6 @@ Real government data isn't clean: CMS suppresses small-cell counts (blanks/aster
 <span class="chip">Python</span>
 <span class="chip">CMS Part D Data</span>
 <span class="chip">CDC VaxView</span>
-<span class="chip">Microsoft Fabric</span>
-<span class="chip">PySpark</span>
 <span class="chip">Power BI</span>
 <span class="chip">DAX</span>
 <span class="chip">PowerShell</span>

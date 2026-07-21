@@ -12,7 +12,7 @@ Business Intelligence & Analytics Leader
 :::
 
 ::: {.hero-tagline}
-12+ years turning messy data into decisions leaders trust — across healthcare and ecommerce. I design the full stack: SQL data models, Microsoft Fabric pipelines, and Power BI reporting that non-technical teams actually use.
+12+ years turning messy data into decisions leaders trust — across healthcare, manufacturing, and financial analytics. I build across the modern analytics stack: SQL data models, cloud and local pipelines, financial analytics on public filings, and reporting non-technical teams actually use.
 :::
 
 ::: {.hero-ctas}
@@ -26,7 +26,7 @@ Business Intelligence & Analytics Leader
 
 ## The Cascadia Portfolio {#cascadia-portfolio}
 
-Cascadia is a family of end-to-end analytics builds that share one production-grade architecture — SQL Server → Microsoft Fabric medallion lakehouse → Power BI — applied across different industries. The point: a strong data platform pattern generalizes. Same rigor, different domain.
+Cascadia is a family of end-to-end analytics builds, each matching the right tools and methods to the problem — from a governed SQL Server → Microsoft Fabric → Power BI enterprise stack, to pragmatic local SQL Server + Power BI, to lightweight Python and static-web analytics on public SEC and federal data. The through-line isn't one architecture; it's the craft: rigorous modeling, honest data governance, and decisions leaders can trust.
 
 ---
 
@@ -52,6 +52,22 @@ A dimensional model over 5.9M production events plus real NASA turbofan sensor d
 ::: {.g-col-12 .g-col-md-4}
 ::: {.project-card}
 ::: {.card-label}
+Financial Analytics
+:::
+### Cascadia Semiconductors
+<span class="badge-status">Live</span>
+
+FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.
+
+[View Case Study](projects/cascadia-semiconductors.qmd){.btn .btn-primary .btn-sm}
+[Live Module](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-outline-secondary .btn-sm}
+[GitHub](https://github.com/RobbinsAnalytics/cascadia-semiconductors){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
 Healthcare / Pharmacy
 :::
 ### Cascadia Pharmacy
@@ -61,6 +77,21 @@ GLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC
 
 [View Case Study](projects/cascadia-pharmacy.qmd){.btn .btn-primary .btn-sm}
 [GitHub](https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
+Healthcare / Staffing Marketplace
+:::
+### Cascadia Staffing
+<span class="badge-status">In Build</span>
+
+Contingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.
+
+[View Case Study](projects/cascadia-staffing.qmd){.btn .btn-primary .btn-sm}
+[GitHub](https://github.com/RobbinsAnalytics/cascadia-staffing-analytics){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 

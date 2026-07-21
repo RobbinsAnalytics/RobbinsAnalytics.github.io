@@ -1,0 +1,105 @@
+---
+title: "Cascadia Semiconductors"
+subtitle: "FormFactor's GAAP financials from SEC EDGAR XBRL — an executive close pack built in Python, SQLite, and static ECharts."
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+Financial Analytics
+:::
+# Cascadia Semiconductors
+::: {.cs-hook}
+Public SEC filings turned into an executive close pack for FormFactor (NASDAQ: FORM) — headline → driver → variance, the way a finance director reads numbers. GAAP quarterly, FY2018 → Q1 FY2026, rebuilt offline from a frozen snapshot so the numbers never drift.
+:::
+:::
+
+[View Live Module](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-primary}
+[Build Repository](https://github.com/RobbinsAnalytics/cascadia-semiconductors){.btn .btn-outline-secondary}
+
+---
+
+## Overview
+
+A financial-analytics module on real SEC filing data. It models FormFactor's public **GAAP** financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, built to extend into margin-driver and peer-benchmark views.
+
+Deliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages.
+
+---
+
+## Why This Stack
+
+This module exists for a financial-analytics role, and the tooling is a deliberate "right tool for the job" choice rather than a scaled-down enterprise stack. It has to be **screen-shareable** in an interview, **hostable for free and forever**, and **transparent enough to walk through line by line**. A few hundred lines of well-commented Python plus a static ECharts page does all three — and the Python ingestion layer is itself part of the story: analytics built to spec, in the open, with the data governance made explicit on every page.
+
+---
+
+## Architecture
+
+**SEC EDGAR XBRL (frozen JSON) → Python (requests + pandas) → SQLite star schema → static ECharts pages.**
+
+- **Ingest.** Pulls FormFactor (CIK `0001039399`) financial concepts from the SEC EDGAR XBRL APIs — SEC-compliant User-Agent, throttled well under rate limits — and commits the **raw JSON snapshots** to the repo.
+- **Conform.** Tidy CSVs, one row per company × metric × fiscal quarter, with QoQ and YoY variances precomputed and `derived` / `restated` / `missing` flags.
+- **Model.** A SQLite star schema — `dim_company`, `dim_metric`, `dim_date`, `fact_financials_quarterly`.
+- **Present.** A static `index.html` rendered with Apache ECharts: KPI headline cards with QoQ/YoY variance chips, revenue and gross-margin trends, the opex-ratio trend, an EPS trend, and a "Data & method" footnotes section.
+
+---
+
+## Headline Skill: Financial-Data Governance
+
+Getting the governance right *is* the credibility play for a finance audience:
+
+- **Frozen snapshot.** The data was pulled once and committed; every page carries an "as of SEC filings retrieved 2026-07-21" stamp, and the build rebuilds **offline** from those snapshots so the dataset cannot silently drift (FormFactor reports its next quarter July 29, mid-process). Refreshing is a deliberate manual action, never a side effect.
+- **GAAP vs non-GAAP.** XBRL facts are GAAP and will *not* match a company's non-GAAP press-release headlines — FormFactor's headline gross margin is a record ~49% *non-GAAP* quarter, while the GAAP margin from the filings is lower and moved differently. Every metric is labeled **GAAP** explicitly, and the GAAP and non-GAAP framings are shown side by side rather than blurred.
+- **Derived Q4s.** 10-Ks file the full year rather than a discrete Q4, so `Q4 = FY − (Q1+Q2+Q3)` is derived where needed, flagged as `derived`, and reconciled in validation.
+- **Tag mapping & restatements.** XBRL tags change over time and filings get restated; a tag-mapping table handles the drift and the latest-filed value wins.
+- **Missing data is flagged, never filled.** No interpolation, no zero-fill — "not disclosed" is a first-class value.
+
+---
+
+## Validation
+
+`validate.py` reconciles the derived quarters (four quarters sum to the full year within rounding) and spot-checks revenue and gross profit against figures verifiable in FormFactor's press releases, writing the results to `governance/validation_report.md`. Every headline number on the page traces back to a filed, checkable source.
+
+---
+
+## The Module
+
+The Phase A executive pack is **live now** — an interactive, mobile-friendly page you can open on a phone or share on a screen.
+
+[Open the Live Executive Pack →](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-primary}
+
+---
+
+## Roadmap
+
+- **Phase A — Executive Financial Pack (live).** FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.
+- **Phase B — Margin Drivers (planned).** Gross-margin walk and Probe Cards vs Systems segment disclosures, where XBRL tags allow.
+- **Phase C — Peer Benchmark + Governance (planned).** The same certified GAAP metrics across a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT, and KLAC as a process-control north star), with the XBRL tag-mapping table rendered on the page.
+
+---
+
+## Tech Stack
+
+<div class="tech-chips">
+<span class="chip">Python</span>
+<span class="chip">pandas</span>
+<span class="chip">SEC EDGAR XBRL</span>
+<span class="chip">SQLite</span>
+<span class="chip">Apache ECharts</span>
+<span class="chip">Static HTML / JS</span>
+<span class="chip">GitHub Pages</span>
+<span class="chip">Git</span>
+</div>
+
+---
+
+## Disclosure
+
+Built from public SEC filings (EDGAR XBRL APIs), as of 2026-07-21. Independent portfolio project — not affiliated with, endorsed by, or based on any non-public information from FormFactor or any company shown. Not investment advice.
+
+---
+
+## Links
+
+- [View Live Module](https://robbinsanalytics.github.io/cascadia-semiconductors/) — the hosted Phase A executive pack
+- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-semiconductors) — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report
+- [Cascadia Architecture Overview](../cascadia.qmd)

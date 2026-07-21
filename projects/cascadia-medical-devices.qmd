@@ -29,7 +29,7 @@ Manufacturing leaders couldn't see why on-time delivery was slipping on certain 
 
 ## Architecture
 
-Every Cascadia domain uses the same end-to-end stack:
+This build is the portfolio's full enterprise-BI stack — the one Cascadia domain that runs end to end on Microsoft Fabric:
 
 ::: {.arch-container}
 ![Cascadia end-to-end data platform](../assets/cascadia_analytics_tech_stack.svg)

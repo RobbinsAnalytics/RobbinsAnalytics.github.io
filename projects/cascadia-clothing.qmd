@@ -9,10 +9,10 @@ Retail Analytics
 :::
 # Cascadia Clothing
 ::: {.cs-hook}
-The next Cascadia build — retail and ecommerce analytics on the same SQL Server → Fabric → Power BI stack.
+The next Cascadia build — retail and ecommerce analytics, with the stack matched to the problem once the data is chosen.
 :::
 :::
 
 ---
 
-The next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF — on the same SQL Server → Fabric → Power BI stack. Drawing on my ecommerce BI background, it will extend the Cascadia pattern into retail. Check back, or follow along on [GitHub](https://github.com/RobbinsAnalytics).
+The next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF. Drawing on my ecommerce BI background, it will extend the Cascadia approach into retail, with the tooling chosen to fit the data and scale. Check back, or follow along on [GitHub](https://github.com/RobbinsAnalytics).
