@@ -26,7 +26,7 @@ Business Intelligence & Analytics Leader
 
 ## The Cascadia Portfolio {#cascadia-portfolio}
 
-Cascadia is a family of end-to-end analytics builds, each matching the right tools and methods to the problem — from a governed SQL Server → Microsoft Fabric → Power BI enterprise stack, to pragmatic local SQL Server + Power BI, to lightweight Python and static-web analytics on public SEC and federal data. The through-line isn't one architecture; it's the craft: rigorous modeling, honest data governance, and decisions leaders can trust.
+Cascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. Each piece matches the right tools to the problem: a governed SQL Server → Microsoft Fabric → Power BI enterprise stack, pragmatic local SQL Server + Power BI, lightweight Python and static-web analytics on public SEC and federal data, and the program side of BI — platform migration and metric governance. The through-line isn't one architecture; it's the craft: rigorous modeling, honest data governance, and decisions leaders can trust.
 
 ---
 
@@ -37,24 +37,9 @@ Cascadia is a family of end-to-end analytics builds, each matching the right too
 ::: {.g-col-12 .g-col-md-4}
 ::: {.project-card}
 ::: {.card-label}
-Manufacturing
-:::
-### Cascadia Medical Devices
-<span class="badge-status">Live</span>
-
-A dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.
-
-[View Case Study](projects/cascadia-medical-devices.qmd){.btn .btn-primary .btn-sm}
-[GitHub](https://github.com/RobbinsAnalytics/manufacturing-analytics){.btn .btn-outline-secondary .btn-sm}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
 Financial Analytics
 :::
-### Cascadia Semiconductors
+### Cascadia Finance
 <span class="badge-status">Live</span>
 
 FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.
@@ -68,10 +53,39 @@ FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive c
 ::: {.g-col-12 .g-col-md-4}
 ::: {.project-card}
 ::: {.card-label}
+BI Leadership / Governance
+:::
+### Cascadia BI Migration
+<span class="badge-status">Playbook</span>
+
+A 24-week program to migrate an organization off legacy BI onto a governed, AI-assisted platform — certified metric layer first, parity QA as the deliverable, wave-by-wave sunset. An illustrative program design.
+
+[View Case Study](projects/cascadia-bi-migration.qmd){.btn .btn-primary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
+Healthcare / Staffing Marketplace
+:::
+### Cascadia Staffing
+<span class="badge-status">Complete</span>
+
+Contingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.
+
+[View Case Study](projects/cascadia-staffing.qmd){.btn .btn-primary .btn-sm}
+[GitHub](https://github.com/RobbinsAnalytics/cascadia-staffing-analytics){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
 Healthcare / Pharmacy
 :::
 ### Cascadia Pharmacy
-<span class="badge-status">In Build</span>
+<span class="badge-status">Complete</span>
 
 GLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.
 
@@ -83,15 +97,15 @@ GLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC
 ::: {.g-col-12 .g-col-md-4}
 ::: {.project-card}
 ::: {.card-label}
-Healthcare / Staffing Marketplace
+Manufacturing
 :::
-### Cascadia Staffing
-<span class="badge-status">In Build</span>
+### Cascadia Medical Devices
+<span class="badge-status">Complete</span>
 
-Contingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.
+A dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.
 
-[View Case Study](projects/cascadia-staffing.qmd){.btn .btn-primary .btn-sm}
-[GitHub](https://github.com/RobbinsAnalytics/cascadia-staffing-analytics){.btn .btn-outline-secondary .btn-sm}
+[View Case Study](projects/cascadia-medical-devices.qmd){.btn .btn-primary .btn-sm}
+[GitHub](https://github.com/RobbinsAnalytics/manufacturing-analytics){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 

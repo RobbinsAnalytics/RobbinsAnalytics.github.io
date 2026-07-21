@@ -1,5 +1,5 @@
 ---
-title: "Cascadia Semiconductors"
+title: "Cascadia Finance"
 subtitle: "FormFactor's GAAP financials from SEC EDGAR XBRL — an executive close pack built in Python, SQLite, and static ECharts."
 ---
 
@@ -7,7 +7,7 @@ subtitle: "FormFactor's GAAP financials from SEC EDGAR XBRL — an executive clo
 ::: {.cs-domain}
 Financial Analytics
 :::
-# Cascadia Semiconductors
+# Cascadia Finance
 ::: {.cs-hook}
 Public SEC filings turned into an executive close pack for FormFactor (NASDAQ: FORM) — headline → driver → variance, the way a finance director reads numbers. GAAP quarterly, FY2018 → Q1 FY2026, rebuilt offline from a frozen snapshot so the numbers never drift.
 :::

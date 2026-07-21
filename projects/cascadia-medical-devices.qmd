@@ -62,7 +62,14 @@ The NASA C-MAPSS layer adds a parallel story: remaining useful life (RUL) modeli
 
 ## The Report
 
-Screenshots and a walkthrough are coming with Phase 2.
+The Power BI report surfaces the OEE and root-cause yield story alongside the NASA C-MAPSS reliability / remaining-useful-life view.
+
+---
+
+## Opportunities for Future Enhancements
+
+- Report screenshots and a recorded 3-minute walkthrough of the root-cause story.
+- A Direct Lake performance writeup on the 5.9M-row model.
 
 ---
 

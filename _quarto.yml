@@ -22,14 +22,16 @@ website:
         href: cascadia.qmd
       - text: "Projects"
         menu:
-          - text: "Cascadia Medical Devices"
-            href: projects/cascadia-medical-devices.qmd
-          - text: "Cascadia Semiconductors"
+          - text: "Cascadia Finance"
             href: projects/cascadia-semiconductors.qmd
-          - text: "Cascadia Pharmacy"
-            href: projects/cascadia-pharmacy.qmd
+          - text: "Cascadia BI Migration"
+            href: projects/cascadia-bi-migration.qmd
           - text: "Cascadia Staffing"
             href: projects/cascadia-staffing.qmd
+          - text: "Cascadia Pharmacy"
+            href: projects/cascadia-pharmacy.qmd
+          - text: "Cascadia Medical Devices"
+            href: projects/cascadia-medical-devices.qmd
           - text: "Cascadia Clothing (Coming Soon)"
             href: projects/cascadia-clothing.qmd
     right:

@@ -1,0 +1,152 @@
+---
+title: "Cascadia BI Migration"
+subtitle: "A 24-week program to move an organization off legacy BI and onto a governed, AI-assisted platform — with a certified metric layer at the center."
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+BI Leadership / Metric Governance
+:::
+# Cascadia BI Migration
+::: {.cs-hook}
+How I'd run a Tableau → AI-native BI migration: retire self-serve reporting for the general population, migrate the dashboards that actually matter, and stand up a certified metric layer so the numbers the business runs on have one owned definition. An illustrative program design — company-agnostic, no confidential information.
+:::
+:::
+
+---
+
+## The Scenario
+
+A high-growth company runs ~500 dashboards on a legacy BI tool — but fewer than 100 are actually used, and only ~20–25 are heavily used. A license renewal is the forcing function: renew for the whole population at full cost, or migrate the reporting that matters onto a modern, AI-assisted BI platform (sitting on the existing cloud data warehouse) and renew lean for a handful of admins.
+
+The trap in a migration like this is treating it as a copy job. Rebuilding 500 dashboards on uncertified metrics just moves the technical debt to a new tool. The program below does the opposite: **certify the numbers first, migrate only what's used, and make parity QA — proving the new number equals the trusted old number — the actual deliverable.**
+
+---
+
+## Guiding Principles
+
+- **Certified layer first, dashboards second.** A migrated dashboard built on an undefined metric just relocates the problem. Define the number, then build on it.
+- **Migrate what's used; retire the rest on a published date.** Most of the ~500 dashboards should be retired, not moved.
+- **Two tiers, always labeled.** *Certified* metrics for decisions; *exploratory* clearly marked as not-yet-locked.
+- **Parity QA is the deliverable.** With AI-assisted, prompt-driven rebuilds, construction is cheap — the value is proving the new number matches the trusted old one, or is *correctly* different and documented why.
+- **No big-bang.** Wave-by-wave cutover, each with hypercare.
+- **Partner, don't turf-war.** BI owns definitions, the context layer, and QA; platform engineering owns the warehouse and pipelines; data science owns the AI-platform depth.
+- **Governance, not gatekeeping.** Enable self-service on a trusted base rather than becoming the bottleneck everyone routes around.
+
+---
+
+## The Plan
+
+::: {.bmg-scroll}
+<div id="bmg-gantt">
+<style>
+#bmg-gantt { --bmg: #2f5b9c; min-width: 860px; font-size: 13px; color:#1a2230; }
+#bmg-gantt .bmg-goal { background:#f2f6fc; border-left:4px solid var(--bmg); padding:8px 14px; font-size:12.5px; color:#24405e; margin:0 0 18px; border-radius:0 4px 4px 0; }
+#bmg-gantt .bmg-months { position:relative; height:24px; margin-left:210px; border-bottom:2px solid #cdd8ea; }
+#bmg-gantt .bmg-months .m { position:absolute; top:0; height:24px; width:16.6667%; text-align:center; font-size:11.5px; font-weight:600; color:#33475b; line-height:24px; border-left:1px solid #e4e9f1; }
+#bmg-gantt .bmg-row { position:relative; height:36px; display:flex; align-items:center; }
+#bmg-gantt .bmg-row .lab { width:210px; padding-right:12px; font-size:12px; font-weight:600; color:#2a3441; text-align:right; }
+#bmg-gantt .bmg-row .lab .wk { display:block; font-weight:400; font-size:10px; color:#8792a3; }
+#bmg-gantt .bmg-track { position:absolute; left:210px; right:0; top:0; height:36px; background-image:repeating-linear-gradient(to right, transparent 0, transparent calc(16.6667% - 1px), #eef1f6 calc(16.6667% - 1px), #eef1f6 16.6667%); }
+#bmg-gantt .bmg-bar { position:absolute; top:7px; height:22px; border-radius:5px; color:#fff; font-size:10.5px; font-weight:600; line-height:22px; padding:0 9px; white-space:nowrap; overflow:visible; box-shadow:0 1px 2px rgba(20,40,70,.18); }
+#bmg-gantt .bmg-bar.cont { top:9px; height:18px; }
+#bmg-gantt .bmg-stripe { background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.28) 0, rgba(255,255,255,.28) 5px, transparent 5px, transparent 11px); }
+#bmg-gantt .bmg-msrow { position:relative; height:44px; margin-left:210px; margin-top:4px; border-top:1px dashed #cbd4e2; }
+#bmg-gantt .bmg-ms { position:absolute; top:8px; transform:translateX(-50%); text-align:center; }
+#bmg-gantt .bmg-ms .dia { width:14px; height:14px; background:#e08a1e; margin:0 auto; transform:rotate(45deg); border-radius:2px; box-shadow:0 1px 2px rgba(120,70,0,.3); }
+#bmg-gantt .bmg-ms .tx { font-size:9.5px; color:#7a5a1a; font-weight:700; margin-top:7px; white-space:nowrap; }
+#bmg-gantt .bmg-ms .tx small { display:block; color:#98692a; font-weight:500; font-size:8.5px; }
+#bmg-gantt .bmg-legend { display:flex; flex-wrap:wrap; gap:10px 20px; margin:18px 0 0; font-size:11px; color:#3a4552; align-items:center; }
+#bmg-gantt .bmg-legend .k { display:flex; align-items:center; gap:6px; }
+#bmg-gantt .bmg-legend .sw { width:16px; height:12px; border-radius:3px; display:inline-block; }
+#bmg-gantt .bmg-legend .dia2 { width:11px; height:11px; background:#e08a1e; transform:rotate(45deg); border-radius:2px; }
+</style>
+
+<div class="bmg-goal"><b>North Star:</b> by the renewal deadline, legacy-BI reporting is retired for the general population (~150 → ~5 licenses); the ~20–25 heavily-used dashboards are migrated <b>and certified</b> on a trusted metric layer in the new platform.</div>
+
+<div class="bmg-months">
+  <div class="m" style="left:0%">MO 1</div>
+  <div class="m" style="left:16.6667%">MO 2</div>
+  <div class="m" style="left:33.3333%">MO 3</div>
+  <div class="m" style="left:50%">MO 4</div>
+  <div class="m" style="left:66.6667%">MO 5</div>
+  <div class="m" style="left:83.3333%">MO 6</div>
+</div>
+
+<div class="bmg-row"><div class="lab">0 · Mobilize &amp; Align<span class="wk">Wk 1–2</span></div><div class="bmg-track"><div class="bmg-bar" style="left:0%; width:8.33%; background:#163a5f">Mobilize</div></div></div>
+<div class="bmg-row"><div class="lab">1 · Discover &amp; Inventory<span class="wk">Wk 2–5</span></div><div class="bmg-track"><div class="bmg-bar" style="left:4.17%; width:16.67%; background:#245a9a">Discover &amp; Inventory</div></div></div>
+<div class="bmg-row"><div class="lab">2 · Govern &amp; Certify<span class="wk">Wk 4–8</span></div><div class="bmg-track"><div class="bmg-bar" style="left:12.5%; width:20.83%; background:#2f72b8">Govern &amp; Certify</div></div></div>
+<div class="bmg-row"><div class="lab">3 · Pilot<span class="wk">Wk 7–10</span></div><div class="bmg-track"><div class="bmg-bar" style="left:25%; width:16.67%; background:#0f8a8f">Pilot</div></div></div>
+<div class="bmg-row"><div class="lab">4 · Wave Migration<span class="wk">Wk 9–20</span></div><div class="bmg-track"><div class="bmg-bar" style="left:33.33%; width:50%; background:#2c6fb0">Wave Migration (by department / value)</div></div></div>
+<div class="bmg-row"><div class="lab">5 · Sunset &amp; Renewal<span class="wk">Wk 18–24</span></div><div class="bmg-track"><div class="bmg-bar" style="left:70.83%; width:29.17%; background:#1c4e86">Sunset &amp; Renew (~5 licenses)</div></div></div>
+<div class="bmg-row"><div class="lab">Governance &amp; QA<span class="wk">continuous</span></div><div class="bmg-track"><div class="bmg-bar cont bmg-stripe" style="left:20.83%; width:79.17%; background:#6b7a90">certified layer · parity QA (ongoing)</div></div></div>
+<div class="bmg-row"><div class="lab">Hypercare<span class="wk">rolling</span></div><div class="bmg-track"><div class="bmg-bar cont bmg-stripe" style="left:29.17%; width:70.83%; background:#93a1b4">2–4 wks after each wave</div></div></div>
+
+<div class="bmg-msrow">
+  <div class="bmg-ms" style="left:8.33%"><div class="dia"></div><div class="tx">G0<small>mandate + seam</small></div></div>
+  <div class="bmg-ms" style="left:20.83%"><div class="dia"></div><div class="tx">G1<small>backlog + retire list</small></div></div>
+  <div class="bmg-ms" style="left:33.33%"><div class="dia"></div><div class="tx">G2<small>catalog v1</small></div></div>
+  <div class="bmg-ms" style="left:41.67%"><div class="dia"></div><div class="tx">G3<small>pilot adopted</small></div></div>
+  <div class="bmg-ms" style="left:75%"><div class="dia"></div><div class="tx">G4<small>ready to sunset</small></div></div>
+  <div class="bmg-ms" style="left:100%; transform:translateX(-80%)"><div class="dia"></div><div class="tx">G5<small>renewal</small></div></div>
+</div>
+
+<div class="bmg-legend">
+  <span class="k"><span class="sw" style="background:#245a9a"></span> Sequential phase (has an exit gate)</span>
+  <span class="k"><span class="sw" style="background:#0f8a8f"></span> Pilot (proof of the motion)</span>
+  <span class="k"><span class="sw bmg-stripe" style="background:#6b7a90"></span> Continuous track</span>
+  <span class="k"><span class="dia2"></span> Decision gate (go/no-go)</span>
+</div>
+</div>
+:::
+
+*Front-loaded discovery and governance; migration waves through the middle; sunset lands on the renewal deadline. Governance and QA run continuously once stood up, and bars overlap by design.*
+
+---
+
+## Phases & Exit Gates
+
+| Phase | Weeks | Objective | Exit gate |
+|---|---|---|---|
+| **0 · Mobilize & Align** | 1–2 | Confirm scope, mandate, and the real state of the platform + warehouse | Charter signed; BI / platform-eng / data-science seam agreed in writing |
+| **1 · Discover & Inventory** | 2–5 | Know what exists, what's used, and what the business actually runs on | Prioritized backlog + retire list approved; top-15 metric shortlist |
+| **2 · Govern & Certify** | 4–8 | Stand up the trusted metric layer the platform consumes | Certified Metric Catalog v1; parity-QA process ratified |
+| **3 · Pilot** | 7–10 | Prove the motion end-to-end with a friendly, high-value area | Pilot adopted; parity signed off; per-dashboard runbook validated |
+| **4 · Wave Migration** | 9–20 | Migrate the used dashboards in prioritized waves | All *used* dashboards migrated & certified; only long-tail remains |
+| **5 · Sunset & Renewal** | 18–24 | Turn legacy BI off for the general population; renew lean | General population off legacy BI; ~5-license renewal executed |
+
+---
+
+## Risk Register
+
+| Risk | Impact | Mitigation |
+|---|---|---|
+| **Stakeholder outreach never gets prioritized** | High — discovery stalls the whole plan | Make it the Phase-1 headline; short structured interviews; executive air cover to secure time |
+| **"Same number, different answer"** after rebuild | High — kills trust in the new platform | Certify the metric *before* rebuild; parity QA every dashboard; label board-vs-operating differences explicitly |
+| **Refresh-lag surprises** users expecting real-time | Medium | Set as-of expectations in the semantic layer; match cadence to the decision; escalate true real-time needs to engineering |
+| **AI skeptics / "the tool is wrong"** | Medium | Most "wrong" is an undefined metric — show the certified definition + parity, and win skeptics one number at a time |
+| **Turf friction** over the context layer | Medium | Agree the seam explicitly at G0; co-own the context layer — BI brings business definitions, data science brings platform depth |
+| **Hidden legacy tech debt** ("nobody knows how it was built") | Medium | Treat undocumented dashboards as retire-candidates unless a user defends them; don't faithfully reproduce debt |
+| **Scope creep** (migrate all 500 / gold-plate) | Medium | Retire-by-default; migrate only *used*; keep exploratory cheap and clearly labeled |
+
+---
+
+## Success Metrics
+
+- **License reduction:** ~150 → ~5 by renewal (the headline).
+- **Dashboards:** # migrated & certified vs. # retired vs. # remaining (target: 100% of *used* migrated).
+- **Certified metrics:** count in the catalog, each with a definition, source, and owner.
+- **Adoption:** active users on the new versions; legacy usage trending to zero for the general population.
+- **Trust:** definitional disputes raised vs. resolved; parity pass-rate at cutover.
+- **Cost:** license spend avoided; warehouse-refresh savings from governance.
+- **Cycle:** time-to-migrate per dashboard, trending down as the runbook matures.
+
+---
+
+## Skills Demonstrated
+
+BI program leadership and delivery · metric governance and certification (one definition, source, and owner per number) · stakeholder management and change enablement across non-technical teams (sales, clinical ops, finance, RevOps) · parity QA for AI-generated queries · cross-functional partnership with platform engineering and data science · phased delivery with explicit go/no-go gates.
+
+---
+
+*An illustrative program design demonstrating how I approach a BI platform migration and metric-governance program. Tools referenced are generic; no proprietary or confidential information is included.*

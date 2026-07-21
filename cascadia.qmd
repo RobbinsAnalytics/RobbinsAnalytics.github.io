@@ -3,7 +3,7 @@ title: "The Cascadia Family"
 subtitle: "Different tools for different problems — one standard of rigor, governance, and honesty about data."
 ---
 
-Cascadia is a family of end-to-end analytics builds. They don't share one architecture — they share a standard. Each build uses the tools that fit its problem and its scale, from a full enterprise Microsoft BI stack to a few hundred lines of Python. What stays constant across all of them: dimensional modeling done properly, data governance that is honest about what the source does and doesn't say, and reporting a non-technical audience can actually act on.
+Cascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. The pieces don't share one architecture; they share a standard. Each uses the tools that fit its problem and its scale, from a full enterprise Microsoft BI stack to a few hundred lines of Python to a BI-platform migration program. What stays constant: dimensional modeling done properly, data governance that is honest about what the source does and doesn't say, and reporting a non-technical audience can actually act on.
 
 ---
 
@@ -11,15 +11,23 @@ Cascadia is a family of end-to-end analytics builds. They don't share one archit
 
 | Domain | Status | Stack | Data | Headline Skill |
 |---|---|---|---|---|
-| [Cascadia Medical Devices](projects/cascadia-medical-devices.qmd) | Live | SQL Server → Microsoft Fabric → Power BI | Simulated MES + NASA C-MAPSS | Predictive maintenance / OEE |
-| [Cascadia Semiconductors](projects/cascadia-semiconductors.qmd) | Live | Python → SQLite → static ECharts (SEC EDGAR XBRL) | FormFactor SEC filings (real) | Financial analytics / XBRL governance |
-| [Cascadia Pharmacy](projects/cascadia-pharmacy.qmd) | In Build | Local SQL Server → Power BI | CMS Part D + CDC VaxView (real) | Messy-data cleaning / GLP-1 growth |
-| [Cascadia Staffing](projects/cascadia-staffing.qmd) | In Build | Local SQL Server → Power BI | CMS PBJ Daily Nurse Staffing (real) | Marketplace labor KPIs / metric governance |
+| [Cascadia Finance](projects/cascadia-semiconductors.qmd) | Live | Python → SQLite → static ECharts (SEC EDGAR XBRL) | FormFactor SEC filings (real) | Financial analytics / XBRL governance |
+| [Cascadia Staffing](projects/cascadia-staffing.qmd) | Complete | Local SQL Server → Power BI | CMS PBJ Daily Nurse Staffing (real) | Marketplace labor KPIs / metric governance |
+| [Cascadia Pharmacy](projects/cascadia-pharmacy.qmd) | Complete | Local SQL Server → Power BI | CMS Part D + CDC VaxView (real) | Messy-data cleaning / GLP-1 growth |
+| [Cascadia Medical Devices](projects/cascadia-medical-devices.qmd) | Complete | SQL Server → Microsoft Fabric → Power BI | Simulated MES + NASA C-MAPSS | Predictive maintenance / OEE |
 | [Cascadia Clothing](projects/cascadia-clothing.qmd) | Planned | TBD | TBD e-commerce data | Customer segmentation |
+
+> **Beyond the builds:** [Cascadia BI Migration](projects/cascadia-bi-migration.qmd) — a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. Analytics leadership, not just a data build.
 
 ---
 
 ## Three Patterns, One Standard
+
+**Lightweight analytical stack — Cascadia Finance.**
+A financial-analytics module that needs neither SQL Server nor Power BI: Python (requests + pandas) pulls and freezes SEC EDGAR XBRL filings, conforms them into a SQLite star schema, and renders a static, hostable executive pack with Apache ECharts. It runs forever, offline, for free — and every figure is labeled GAAP vs non-GAAP.
+
+**Pragmatic local stack — Cascadia Pharmacy & Staffing.**
+For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python `raw → clean` staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.
 
 **Enterprise-BI stack — Cascadia Medical Devices.**
 The full production pattern: a SQL Server star schema feeding a Microsoft Fabric medallion lakehouse (Bronze → Silver → Gold), surfaced through a Power BI Direct Lake semantic model. This is the pattern for when the data volume and the organization justify a governed cloud platform.
@@ -27,12 +35,6 @@ The full production pattern: a SQL Server star schema feeding a Microsoft Fabric
 ::: {.arch-container}
 ![The enterprise-BI pattern — SQL Server → Microsoft Fabric medallion lakehouse → Power BI. Used in full by Cascadia Medical Devices.](assets/cascadia_analytics_tech_stack.svg)
 :::
-
-**Pragmatic local stack — Cascadia Pharmacy & Staffing.**
-For personal-scale builds on public data, a full Fabric lakehouse is overkill. These run a local SQL Server star schema with a Python `raw → clean` staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.
-
-**Lightweight analytical stack — Cascadia Semiconductors.**
-A financial-analytics module that needs neither SQL Server nor Power BI: Python (requests + pandas) pulls and freezes SEC EDGAR XBRL filings, conforms them into a SQLite star schema, and renders a static, hostable executive pack with Apache ECharts. It runs forever, offline, for free — and every figure is labeled GAAP vs non-GAAP.
 
 ---
 
@@ -49,7 +51,7 @@ CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated dat
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Repeatable builds**
-Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the semiconductors module — useful for demos, onboarding, and validating changes.
+Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the Cascadia Finance module — useful for demos, onboarding, and validating changes.
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Honest about limits**
@@ -62,16 +64,16 @@ Suppressed or missing data is flagged, never silently filled. GAAP is labeled di
 ## Tech Stack
 
 <div class="tech-chips">
-<span class="chip">SQL Server 2025</span>
-<span class="chip">T-SQL</span>
-<span class="chip">Microsoft Fabric</span>
-<span class="chip">PySpark</span>
-<span class="chip">Power BI</span>
-<span class="chip">DAX</span>
 <span class="chip">Python (pandas)</span>
 <span class="chip">SQLite</span>
 <span class="chip">Apache ECharts</span>
 <span class="chip">SEC EDGAR XBRL</span>
+<span class="chip">SQL Server 2025</span>
+<span class="chip">T-SQL</span>
+<span class="chip">Power BI</span>
+<span class="chip">DAX</span>
+<span class="chip">Microsoft Fabric</span>
+<span class="chip">PySpark</span>
 <span class="chip">Static HTML / JS</span>
 <span class="chip">GitHub Pages</span>
 <span class="chip">PowerShell</span>
