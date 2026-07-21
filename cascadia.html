@@ -74,11 +74,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="The Cascadia Family – Robbins Analytics">
-<meta property="og:description" content="One architecture. Three domains. Production-grade analytics from source to report.">
+<meta property="og:description" content="Different tools for different problems — one standard of rigor, governance, and honesty about data.">
 <meta property="og:image" content="https://robbinsanalytics.github.io/assets/cascadia_analytics_tech_stack.svg">
 <meta property="og:site_name" content="Robbins Analytics">
 <meta name="twitter:title" content="The Cascadia Family – Robbins Analytics">
-<meta name="twitter:description" content="One architecture. Three domains. Production-grade analytics from source to report.">
+<meta name="twitter:description" content="Different tools for different problems — one standard of rigor, governance, and honesty about data.">
 <meta name="twitter:image" content="https://robbinsanalytics.github.io/assets/cascadia_analytics_tech_stack.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -118,12 +118,20 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="./projects/cascadia-medical-devices.html">
- <span class="dropdown-text">Cascadia Medical Devices</span></a>
+    <a class="dropdown-item" href="./projects/cascadia-semiconductors.html">
+ <span class="dropdown-text">Cascadia Finance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-staffing.html">
+ <span class="dropdown-text">Cascadia Staffing</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./projects/cascadia-pharmacy.html">
  <span class="dropdown-text">Cascadia Pharmacy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-medical-devices.html">
+ <span class="dropdown-text">Cascadia Medical Devices</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./projects/cascadia-clothing.html">
@@ -156,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">The Cascadia Family</h1>
-<p class="subtitle lead">One architecture. Three domains. Production-grade analytics from source to report.</p>
+<p class="subtitle lead">Different tools for different problems — one standard of rigor, governance, and honesty about data.</p>
 </div>
 
 
@@ -173,55 +181,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Every Cascadia build runs on the same modern Microsoft data stack, end to end:</p>
-<ol type="1">
-<li><strong>Source (SQL Server).</strong> A relational, star-schema-ready operational database — the system of record. Dimensions and facts, a date dimension, surrogate keys, loaded reproducibly from source files.</li>
-<li><strong>Pipeline (Microsoft Fabric medallion lakehouse).</strong> Bronze (raw) → Silver (cleaned/conformed) → Gold (modeled) layers, so the path from raw data to trustworthy tables is explicit and auditable.</li>
-<li><strong>Semantic model &amp; reporting (Power BI).</strong> A governed semantic model with a dedicated measures layer and clean relationships, surfaced in focused reports designed for non-technical audiences.</li>
-</ol>
-<p>The value of doing it as a family is repeatability: once the pattern is proven on one domain, standing up the next is fast and consistent. Cascadia Medical Devices proved the pattern on manufacturing; Cascadia Pharmacy applies it to real public healthcare data; Cascadia Clothing extends it to retail.</p>
+<p>Cascadia is a family of end-to-end analytics builds. They don’t share one architecture — they share a standard. Each build uses the tools that fit its problem and its scale, from a full enterprise Microsoft BI stack to a few hundred lines of Python. What stays constant across all of them: dimensional modeling done properly, data governance that is honest about what the source does and doesn’t say, and reporting a non-technical audience can actually act on.</p>
 <hr>
-<section id="shared-architecture" class="level2">
-<h2 data-anchor-id="shared-architecture">Shared Architecture</h2>
-<p>Every Cascadia domain runs the same end-to-end stack:</p>
-<p><strong>SQL Server (local)</strong> → <strong>Microsoft Fabric Gateway</strong> → <strong>Fabric Lakehouse (Bronze / Silver / Gold)</strong> → <strong>Power BI Semantic Model</strong> → <strong>Power BI Report</strong></p>
-<div class="arch-container">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/cascadia_analytics_tech_stack.svg" class="img-fluid figure-img"></p>
-<figcaption>Cascadia end-to-end data platform</figcaption>
-</figure>
-</div>
-</div>
-<hr>
-</section>
-<section id="the-three-domains" class="level2">
-<h2 data-anchor-id="the-three-domains">The Three Domains</h2>
+<section id="the-builds-their-stacks" class="level2">
+<h2 data-anchor-id="the-builds-their-stacks">The Builds &amp; Their Stacks</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Domain</th>
 <th>Status</th>
+<th>Stack</th>
 <th>Data</th>
 <th>Headline Skill</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="./projects/cascadia-medical-devices.html">Cascadia Medical Devices</a></td>
+<td><a href="./projects/cascadia-semiconductors.html">Cascadia Finance</a></td>
 <td>Live</td>
-<td>Simulated MES + NASA C-MAPSS</td>
-<td>Predictive maintenance / OEE</td>
+<td>Python → SQLite → static ECharts (SEC EDGAR XBRL)</td>
+<td>FormFactor SEC filings (real)</td>
+<td>Financial analytics / XBRL governance</td>
 </tr>
 <tr class="even">
+<td><a href="./projects/cascadia-staffing.html">Cascadia Staffing</a></td>
+<td>In Build</td>
+<td>Local SQL Server → Power BI</td>
+<td>CMS PBJ Daily Nurse Staffing (real)</td>
+<td>Marketplace labor KPIs / metric governance</td>
+</tr>
+<tr class="odd">
 <td><a href="./projects/cascadia-pharmacy.html">Cascadia Pharmacy</a></td>
 <td>In Build</td>
+<td>Local SQL Server → Power BI</td>
 <td>CMS Part D + CDC VaxView (real)</td>
 <td>Messy-data cleaning / GLP-1 growth</td>
+</tr>
+<tr class="even">
+<td><a href="./projects/cascadia-medical-devices.html">Cascadia Medical Devices</a></td>
+<td>Live</td>
+<td>SQL Server → Microsoft Fabric → Power BI</td>
+<td>Simulated MES + NASA C-MAPSS</td>
+<td>Predictive maintenance / OEE</td>
 </tr>
 <tr class="odd">
 <td><a href="./projects/cascadia-clothing.html">Cascadia Clothing</a></td>
 <td>Planned</td>
+<td>TBD</td>
 <td>TBD e-commerce data</td>
 <td>Customer segmentation</td>
 </tr>
@@ -229,20 +235,35 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <hr>
 </section>
+<section id="three-patterns-one-standard" class="level2">
+<h2 data-anchor-id="three-patterns-one-standard">Three Patterns, One Standard</h2>
+<p><strong>Lightweight analytical stack — Cascadia Finance.</strong> A financial-analytics module that needs neither SQL Server nor Power BI: Python (requests + pandas) pulls and freezes SEC EDGAR XBRL filings, conforms them into a SQLite star schema, and renders a static, hostable executive pack with Apache ECharts. It runs forever, offline, for free — and every figure is labeled GAAP vs non-GAAP.</p>
+<p><strong>Pragmatic local stack — Cascadia Pharmacy &amp; Staffing.</strong> For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python <code>raw → clean</code> staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.</p>
+<p><strong>Enterprise-BI stack — Cascadia Medical Devices.</strong> The full production pattern: a SQL Server star schema feeding a Microsoft Fabric medallion lakehouse (Bronze → Silver → Gold), surfaced through a Power BI Direct Lake semantic model. This is the pattern for when the data volume and the organization justify a governed cloud platform.</p>
+<div class="arch-container">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/cascadia_analytics_tech_stack.svg" class="img-fluid figure-img"></p>
+<figcaption>The enterprise-BI pattern — SQL Server → Microsoft Fabric medallion lakehouse → Power BI. Used in full by Cascadia Medical Devices.</figcaption>
+</figure>
+</div>
+</div>
+<hr>
+</section>
 <section id="design-principles" class="level2">
 <h2 data-anchor-id="design-principles">Design Principles</h2>
 <div class="grid">
 <div class="g-col-12 g-col-md-6">
-<p><strong>Production patterns only</strong> Every table, index, and pipeline uses the same conventions you’d enforce on a real production system — surrogate keys, computed <code>date_key</code> columns, idempotent DDL, row-count validation scripts.</p>
+<p><strong>Production patterns only</strong> Every table, index, and pipeline uses conventions you would enforce on a real production system — surrogate keys, computed <code>date_key</code> columns, idempotent builds, and row-count validation scripts.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Real data where it matters</strong> CMS Medicare Part D spending and CDC VaxView immunization data are live federal public-domain datasets. Fabricated data is limited to the manufacturing simulation layer (volume, anonymity).</p>
+<p><strong>Real data where it matters</strong> CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is limited to the manufacturing simulation layer, purely for volume and anonymity.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Repeatable builds</strong> Each domain ships a <code>run_phaseN.ps1</code> script that rebuilds the SQL Server database from scratch — useful for demos, onboarding, and validating migrations.</p>
+<p><strong>Repeatable builds</strong> Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the semiconductors module — useful for demos, onboarding, and validating changes.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Clean handoff documentation</strong> Every domain has an <code>explainer/</code> doc describing schema decisions, data-cleaning choices, and interview talking points, so a reviewer can follow the reasoning without reading the code.</p>
+<p><strong>Honest about limits</strong> Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values (like reconstructed fiscal quarters) are marked as derived.</p>
 </div>
 </div>
 <hr>
@@ -250,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="tech-stack" class="level2">
 <h2 data-anchor-id="tech-stack">Tech Stack</h2>
 <div class="tech-chips">
-<p><span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Microsoft Fabric</span> <span class="chip">PySpark</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">Python</span> <span class="chip">PowerShell</span> <span class="chip">GitHub Actions</span></p>
+<p><span class="chip">Python (pandas)</span> <span class="chip">SQLite</span> <span class="chip">Apache ECharts</span> <span class="chip">SEC EDGAR XBRL</span> <span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">Microsoft Fabric</span> <span class="chip">PySpark</span> <span class="chip">Static HTML / JS</span> <span class="chip">GitHub Pages</span> <span class="chip">PowerShell</span> <span class="chip">Git</span></p>
 </div>
 
 

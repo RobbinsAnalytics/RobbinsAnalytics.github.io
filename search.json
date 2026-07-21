@@ -1,5 +1,68 @@
 [
   {
+    "objectID": "projects/cascadia-staffing.html",
+    "href": "projects/cascadia-staffing.html",
+    "title": "Cascadia Staffing",
+    "section": "",
+    "text": "Healthcare / Staffing Marketplace Analytics\n\n\n\n\n21 million daily staffing records across 14,362 U.S. nursing facilities — contract vs. employee hours by role, per facility, per day — answering how big the contingent-labor market is, where it concentrates, and why demand is unplannable."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#overview",
+    "href": "projects/cascadia-staffing.html#overview",
+    "title": "Cascadia Staffing",
+    "section": "Overview",
+    "text": "Overview\nA marketplace-labor analytics stack built on the CMS Payroll-Based Journal (PBJ) Daily Nurse Staffing dataset — the auditable, payroll-derived record of every U.S. skilled nursing facility’s daily staffing. It applies the Cascadia approach to workforce economics: the employee-vs-contract labor mix, staffing volatility, and coverage shortfall against a published federal benchmark. It is also the portfolio’s most explicit KPI governance showcase: one certified definition per metric, and every headline number validated twice."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#business-problem",
+    "href": "projects/cascadia-staffing.html#business-problem",
+    "title": "Cascadia Staffing",
+    "section": "Business Problem",
+    "text": "Business Problem\nHealthcare staffing marketplaces exist because facilities can’t fully staff with employees: demand swings day to day, weekends run structurally short, and the gap gets filled with expensive agency labor. Those are measurable claims — PBJ records contract and employee hours separately, by role, for every facility-day. This build quantifies the market a staffing marketplace actually serves: how much labor is contingent, where reliance concentrates, how volatile daily demand is, and how often facilities run below expected staffing."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#architecture",
+    "href": "projects/cascadia-staffing.html#architecture",
+    "title": "Cascadia Staffing",
+    "section": "Architecture",
+    "text": "Architecture\nLocal SQL Server star schema → Power BI import model — no cloud lakehouse; the modeling and governance discipline lives in the schema and the certified-measures layer.\nSource layer: CascadiaStaffing SQL Server star schema — 4 dimension tables + 2 fact tables.\n\nfact_staffing_day_role (21,140,864 rows, grain: facility × day × role × labor type, CY2025 Q4)\nfact_facility_day (1.32M rows, grain: facility × day) — added deliberately so census counts once per facility-day, making a 16× double-counting error structurally impossible rather than relying on measure authors to avoid it\n\nStaging: a Python raw → clean layer — Windows-1252 → UTF-8 decoding, UNPIVOT of the employee/contract hour pairs into a labor-type dimension, dedup on provnum × workdate, and suppression flags; suppressed hours stay NULL and are never zero-filled.\nSemantic model + report: Power BI import mode — a dedicated certified-measures layer where every KPI has exactly one definition, written into the measure itself. Page 1 (“The Contingent-Labor Market”) is built, validated, and shown below."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#data-sources",
+    "href": "projects/cascadia-staffing.html#data-sources",
+    "title": "Cascadia Staffing",
+    "section": "Data Sources",
+    "text": "Data Sources\n\n\n\n\n\n\n\n\n\nSource\nType\nRows\nNotes\n\n\n\n\nCMS PBJ Daily Nurse Staffing\nFederal (CMS)\n1.32M raw facility-days → 21.1M modeled\nCY2025 Q4 · 14,362 facilities × 92 days · employee/contract hours unpivoted into a labor-type dimension across 8 nursing roles\n\n\n\nAttribution: CMS Payroll-Based Journal Daily Nurse Staffing — public domain federal data, derived from facility payroll submissions."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#headline-skill-kpi-governance-on-real-data",
+    "href": "projects/cascadia-staffing.html#headline-skill-kpi-governance-on-real-data",
+    "title": "Cascadia Staffing",
+    "section": "Headline Skill: KPI Governance on Real Data",
+    "text": "Headline Skill: KPI Governance on Real Data\nPBJ has honest traps, and the build models them instead of papering over them:\n\nA null is not a zero. Suppressed/unreported hours stay NULL and are never zero-filled; 65% of fact rows are real reported zeros, and merging the two would silently corrupt the contract-labor ratio.\nUndefined means undefined. 351 facility-days report zero residents; hours-per-resident-day is excluded there — with an on-page exclusion counter — rather than divided into a fake zero.\nKill the trap structurally. Daily census arrives denormalized across 16 rows per facility-day; naive summation overstates resident-days by exactly 16× and still looks plausible on a chart. A facility-day grain table removes the mistake by design.\nOne definition per number. Every KPI card traces to a single certified measure with its definition stated on the page and embedded in the model.\nValidate twice. Every headline number was cross-checked against independent T-SQL run directly on the warehouse — and the state-level results reproduce independently published research (Vermont’s contract share matches LTCCC’s Q1 2025 figure to within a tenth of a point).\n\n\nKey Findings (CY2025 Q4)\n\n5.25% of all direct-care hours are contract labor — roughly double the ~3% pre-pandemic baseline, but well down from the ~11% peak of 2022: facilities are actively unwinding expensive agency contracts.\nThe average is not the market. State-level contingent reliance spans ~1% (Alabama) to ~24% (Vermont) — a marketplace’s demand lives in that tail, not the mean.\nLicensed-nurse scarcity shows up in the mix: contingent share is 5.98% for nurse roles vs 4.78% for aide roles.\nDaily demand is unplannable: the median facility’s total care hours swing ±10% day to day (coefficient of variation of daily hours).\n36.4% of facility-days run below the CMS ~3.48 total-nurse HPRD reference — even though the national average (3.76) clears it. Average adequate, distribution broken.\nA structural weekend cliff: staffing drops from 3.93 to 3.34 hours per resident-day every weekend — a recurring 15% shortfall."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#the-report",
+    "href": "projects/cascadia-staffing.html#the-report",
+    "title": "Cascadia Staffing",
+    "section": "The Report",
+    "text": "The Report\n\n\n\nThe Contingent-Labor Market page — Power BI. Certified KPI cards for contingent penetration, staffing volatility, facility-days below expected staffing, and total nurse HPRD; contingent penetration by state; the weekend coverage cliff; and a data-quality footnote stating each metric’s certified definition.\n\n\nFacility Explorer page publishes with Phase 2."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#tech-stack",
+    "href": "projects/cascadia-staffing.html#tech-stack",
+    "title": "Cascadia Staffing",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Python CMS PBJ Data Power BI DAX Semantic Model (PBIP) PowerShell"
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#links",
+    "href": "projects/cascadia-staffing.html#links",
+    "title": "Cascadia Staffing",
+    "section": "Links",
+    "text": "Links\n\nBuild Repository — SQL DDL, Python acquisition/staging, one-command reproducible build (run_build.ps1), KPI validation scripts\nPower BI Handoff Doc — schema, validated row counts, and the data traps documented for the semantic-model layer\nCascadia Architecture Overview"
+  },
+  {
     "objectID": "projects/cascadia-pharmacy.html",
     "href": "projects/cascadia-pharmacy.html",
     "title": "Cascadia Pharmacy",
@@ -11,7 +74,7 @@
     "href": "projects/cascadia-pharmacy.html#overview",
     "title": "Cascadia Pharmacy",
     "section": "Overview",
-    "text": "Overview\nA pharmacy-growth analytics stack built on real public data — CMS Medicare Part D drug spending and CDC adult immunization coverage — applying the Cascadia architecture to healthcare. It’s also a deliberate showcase of cleaning messy, incomplete real-world data."
+    "text": "Overview\nA pharmacy-growth analytics stack built on real public data — CMS Medicare Part D drug spending and CDC adult immunization coverage — applying the Cascadia approach to healthcare. It’s also a deliberate showcase of cleaning messy, incomplete real-world data."
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#business-problem",
@@ -25,7 +88,7 @@
     "href": "projects/cascadia-pharmacy.html#architecture",
     "title": "Cascadia Pharmacy",
     "section": "Architecture",
-    "text": "Architecture\n\n\n\n\nCascadia end-to-end data platform\n\n\n\nSource layer: CascadiaRx SQL Server star schema — 5 dimension tables + 2 fact tables.\n\nfact_partd_drug_spend (339 rows, grain: drug × year 2020–2024, CMS Part D data)\nfact_immunization_coverage (24,596 rows, grain: vaccine × geography × demographic × season, CDC VaxView)\n\nMedallion pipeline: Bronze → Silver → Gold notebooks in Microsoft Fabric Lakehouse (Phase 2, in build).\nSemantic model + report: Power BI — GLP-1 Growth Story page + Immunization Coverage & Access page (Phase 2, in build)."
+    "text": "Architecture\nLocal SQL Server star schema → Power BI — a personal-scale build on public data, with no cloud lakehouse in the loop.\nSource layer: CascadiaRx SQL Server star schema — 5 dimension tables + 2 fact tables.\n\nfact_partd_drug_spend (339 rows, grain: drug × year 2020–2024, CMS Part D data)\nfact_immunization_coverage (24,596 rows, grain: vaccine × geography × demographic × season, CDC VaxView)\n\nStaging: a Python raw → clean layer — currency-string parsing, drug-name normalization, and suppression handling; suppressed values are flagged, never zero-filled.\nSemantic model + report: Power BI — GLP-1 Growth Story page + Immunization Coverage & Access page (Phase 2, in build)."
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#data-sources",
@@ -53,7 +116,7 @@
     "href": "projects/cascadia-pharmacy.html#tech-stack",
     "title": "Cascadia Pharmacy",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Python CMS Part D Data CDC VaxView Microsoft Fabric PySpark Power BI DAX PowerShell"
+    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Python CMS Part D Data CDC VaxView Power BI DAX PowerShell"
   },
   {
     "objectID": "projects/cascadia-pharmacy.html#links",
@@ -67,42 +130,42 @@
     "href": "projects/cascadia-clothing.html",
     "title": "Cascadia Clothing",
     "section": "",
-    "text": "Retail Analytics\n\n\nCascadia Clothing\n\nThe next Cascadia build — retail and ecommerce analytics on the same SQL Server → Fabric → Power BI stack.\n\n\n\n\nThe next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF — on the same SQL Server → Fabric → Power BI stack. Drawing on my ecommerce BI background, it will extend the Cascadia pattern into retail. Check back, or follow along on GitHub."
+    "text": "Retail Analytics\n\n\nCascadia Clothing\n\nThe next Cascadia build — retail and ecommerce analytics, with the stack matched to the problem once the data is chosen.\n\n\n\n\nThe next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF. Drawing on my ecommerce BI background, it will extend the Cascadia approach into retail, with the tooling chosen to fit the data and scale. Check back, or follow along on GitHub."
   },
   {
     "objectID": "cascadia.html",
     "href": "cascadia.html",
     "title": "The Cascadia Family",
     "section": "",
-    "text": "Every Cascadia build runs on the same modern Microsoft data stack, end to end:\nThe value of doing it as a family is repeatability: once the pattern is proven on one domain, standing up the next is fast and consistent. Cascadia Medical Devices proved the pattern on manufacturing; Cascadia Pharmacy applies it to real public healthcare data; Cascadia Clothing extends it to retail."
+    "text": "Cascadia is a family of end-to-end analytics builds. They don’t share one architecture — they share a standard. Each build uses the tools that fit its problem and its scale, from a full enterprise Microsoft BI stack to a few hundred lines of Python. What stays constant across all of them: dimensional modeling done properly, data governance that is honest about what the source does and doesn’t say, and reporting a non-technical audience can actually act on."
   },
   {
-    "objectID": "cascadia.html#shared-architecture",
-    "href": "cascadia.html#shared-architecture",
+    "objectID": "cascadia.html#the-builds-their-stacks",
+    "href": "cascadia.html#the-builds-their-stacks",
     "title": "The Cascadia Family",
-    "section": "Shared Architecture",
-    "text": "Shared Architecture\nEvery Cascadia domain runs the same end-to-end stack:\nSQL Server (local) → Microsoft Fabric Gateway → Fabric Lakehouse (Bronze / Silver / Gold) → Power BI Semantic Model → Power BI Report\n\n\n\n\nCascadia end-to-end data platform"
+    "section": "The Builds & Their Stacks",
+    "text": "The Builds & Their Stacks\n\n\n\nDomain\nStatus\nStack\nData\nHeadline Skill\n\n\n\n\nCascadia Finance\nLive\nPython → SQLite → static ECharts (SEC EDGAR XBRL)\nFormFactor SEC filings (real)\nFinancial analytics / XBRL governance\n\n\nCascadia Staffing\nIn Build\nLocal SQL Server → Power BI\nCMS PBJ Daily Nurse Staffing (real)\nMarketplace labor KPIs / metric governance\n\n\nCascadia Pharmacy\nIn Build\nLocal SQL Server → Power BI\nCMS Part D + CDC VaxView (real)\nMessy-data cleaning / GLP-1 growth\n\n\nCascadia Medical Devices\nLive\nSQL Server → Microsoft Fabric → Power BI\nSimulated MES + NASA C-MAPSS\nPredictive maintenance / OEE\n\n\nCascadia Clothing\nPlanned\nTBD\nTBD e-commerce data\nCustomer segmentation"
   },
   {
-    "objectID": "cascadia.html#the-three-domains",
-    "href": "cascadia.html#the-three-domains",
+    "objectID": "cascadia.html#three-patterns-one-standard",
+    "href": "cascadia.html#three-patterns-one-standard",
     "title": "The Cascadia Family",
-    "section": "The Three Domains",
-    "text": "The Three Domains\n\n\n\nDomain\nStatus\nData\nHeadline Skill\n\n\n\n\nCascadia Medical Devices\nLive\nSimulated MES + NASA C-MAPSS\nPredictive maintenance / OEE\n\n\nCascadia Pharmacy\nIn Build\nCMS Part D + CDC VaxView (real)\nMessy-data cleaning / GLP-1 growth\n\n\nCascadia Clothing\nPlanned\nTBD e-commerce data\nCustomer segmentation"
+    "section": "Three Patterns, One Standard",
+    "text": "Three Patterns, One Standard\nLightweight analytical stack — Cascadia Finance. A financial-analytics module that needs neither SQL Server nor Power BI: Python (requests + pandas) pulls and freezes SEC EDGAR XBRL filings, conforms them into a SQLite star schema, and renders a static, hostable executive pack with Apache ECharts. It runs forever, offline, for free — and every figure is labeled GAAP vs non-GAAP.\nPragmatic local stack — Cascadia Pharmacy & Staffing. For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python raw → clean staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.\nEnterprise-BI stack — Cascadia Medical Devices. The full production pattern: a SQL Server star schema feeding a Microsoft Fabric medallion lakehouse (Bronze → Silver → Gold), surfaced through a Power BI Direct Lake semantic model. This is the pattern for when the data volume and the organization justify a governed cloud platform.\n\n\n\n\nThe enterprise-BI pattern — SQL Server → Microsoft Fabric medallion lakehouse → Power BI. Used in full by Cascadia Medical Devices."
   },
   {
     "objectID": "cascadia.html#design-principles",
     "href": "cascadia.html#design-principles",
     "title": "The Cascadia Family",
     "section": "Design Principles",
-    "text": "Design Principles\n\n\nProduction patterns only Every table, index, and pipeline uses the same conventions you’d enforce on a real production system — surrogate keys, computed date_key columns, idempotent DDL, row-count validation scripts.\n\n\nReal data where it matters CMS Medicare Part D spending and CDC VaxView immunization data are live federal public-domain datasets. Fabricated data is limited to the manufacturing simulation layer (volume, anonymity).\n\n\nRepeatable builds Each domain ships a run_phaseN.ps1 script that rebuilds the SQL Server database from scratch — useful for demos, onboarding, and validating migrations.\n\n\nClean handoff documentation Every domain has an explainer/ doc describing schema decisions, data-cleaning choices, and interview talking points, so a reviewer can follow the reasoning without reading the code."
+    "text": "Design Principles\n\n\nProduction patterns only Every table, index, and pipeline uses conventions you would enforce on a real production system — surrogate keys, computed date_key columns, idempotent builds, and row-count validation scripts.\n\n\nReal data where it matters CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is limited to the manufacturing simulation layer, purely for volume and anonymity.\n\n\nRepeatable builds Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the semiconductors module — useful for demos, onboarding, and validating changes.\n\n\nHonest about limits Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values (like reconstructed fiscal quarters) are marked as derived."
   },
   {
     "objectID": "cascadia.html#tech-stack",
     "href": "cascadia.html#tech-stack",
     "title": "The Cascadia Family",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Microsoft Fabric PySpark Power BI DAX Python PowerShell GitHub Actions"
+    "text": "Tech Stack\n\nPython (pandas) SQLite Apache ECharts SEC EDGAR XBRL SQL Server 2025 T-SQL Power BI DAX Microsoft Fabric PySpark Static HTML / JS GitHub Pages PowerShell Git"
   },
   {
     "objectID": "about.html",
@@ -137,14 +200,14 @@
     "href": "index.html",
     "title": "Aaron Robbins",
     "section": "",
-    "text": "Business Intelligence & Analytics Leader\n\n\n12+ years turning messy data into decisions leaders trust — across healthcare and ecommerce. I design the full stack: SQL data models, Microsoft Fabric pipelines, and Power BI reporting that non-technical teams actually use.\n\n\nView Work LinkedIn GitHub"
+    "text": "Business Intelligence & Analytics Leader\n\n\n12+ years turning messy data into decisions leaders trust — across healthcare, manufacturing, and financial analytics. I build across the modern analytics stack: SQL data models, cloud and local pipelines, financial analytics on public filings, and reporting non-technical teams actually use.\n\n\nView Work LinkedIn GitHub"
   },
   {
     "objectID": "index.html#cascadia-portfolio",
     "href": "index.html#cascadia-portfolio",
     "title": "Aaron Robbins",
     "section": "The Cascadia Portfolio",
-    "text": "The Cascadia Portfolio\nCascadia is a family of end-to-end analytics builds that share one production-grade architecture — SQL Server → Microsoft Fabric medallion lakehouse → Power BI — applied across different industries. The point: a strong data platform pattern generalizes. Same rigor, different domain.\n\n\nFeatured Case Studies\n\n\n\n\nManufacturing\n\n\nCascadia Medical Devices\nLive\nA dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.\nView Case Study GitHub\n\n\n\n\n\n\nHealthcare / Pharmacy\n\n\nCascadia Pharmacy\nIn Build\nGLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.\nView Case Study GitHub\n\n\n\n\n\n\nRetail\n\n\nCascadia Clothing\nComing Soon\nDemand, merchandising, and fulfillment analytics for a retail apparel scenario.\nPreview\n\n\n\n\n\nLearn about the Cascadia architecture →"
+    "text": "The Cascadia Portfolio\nCascadia is a family of end-to-end analytics builds, each matching the right tools and methods to the problem — from a governed SQL Server → Microsoft Fabric → Power BI enterprise stack, to pragmatic local SQL Server + Power BI, to lightweight Python and static-web analytics on public SEC and federal data. The through-line isn’t one architecture; it’s the craft: rigorous modeling, honest data governance, and decisions leaders can trust.\n\n\nFeatured Case Studies\n\n\n\n\nFinancial Analytics\n\n\nCascadia Finance\nLive\nFormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.\nView Case Study Live Module GitHub\n\n\n\n\n\n\nHealthcare / Staffing Marketplace\n\n\nCascadia Staffing\nIn Build\nContingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.\nView Case Study GitHub\n\n\n\n\n\n\nHealthcare / Pharmacy\n\n\nCascadia Pharmacy\nIn Build\nGLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.\nView Case Study GitHub\n\n\n\n\n\n\nManufacturing\n\n\nCascadia Medical Devices\nLive\nA dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.\nView Case Study GitHub\n\n\n\n\n\n\nRetail\n\n\nCascadia Clothing\nComing Soon\nDemand, merchandising, and fulfillment analytics for a retail apparel scenario.\nPreview\n\n\n\n\n\nLearn about the Cascadia architecture →"
   },
   {
     "objectID": "projects/cascadia-medical-devices.html",
@@ -172,7 +235,7 @@
     "href": "projects/cascadia-medical-devices.html#architecture",
     "title": "Cascadia Medical Devices",
     "section": "Architecture",
-    "text": "Architecture\nEvery Cascadia domain uses the same end-to-end stack:\n\n\n\n\nCascadia end-to-end data platform\n\n\n\nSource (SQL Server): CascadiaMES — star schema with 4 fact tables, 8 dimensions, dim_date, ~5.9M rows, plus a separate schema for NASA C-MAPSS sensor data. Loaded reproducibly via PowerShell; DP-600-aligned.\nPipeline (Microsoft Fabric): Bronze → Silver → Gold medallion lakehouse, implemented in PySpark notebooks.\nSemantic model + report (Power BI): Direct Lake connection; DAX measures for OEE, MTBF, defect rate, and on-time-in-full delivery."
+    "text": "Architecture\nThis build is the portfolio’s full enterprise-BI stack — the one Cascadia domain that runs end to end on Microsoft Fabric:\n\n\n\n\nCascadia end-to-end data platform\n\n\n\nSource (SQL Server): CascadiaMES — star schema with 4 fact tables, 8 dimensions, dim_date, ~5.9M rows, plus a separate schema for NASA C-MAPSS sensor data. Loaded reproducibly via PowerShell; DP-600-aligned.\nPipeline (Microsoft Fabric): Bronze → Silver → Gold medallion lakehouse, implemented in PySpark notebooks.\nSemantic model + report (Power BI): Direct Lake connection; DAX measures for OEE, MTBF, defect rate, and on-time-in-full delivery."
   },
   {
     "objectID": "projects/cascadia-medical-devices.html#data-sources",
@@ -208,5 +271,82 @@
     "title": "Cascadia Medical Devices",
     "section": "Links",
     "text": "Links\n\nBuild Repository — SQL DDL, data generation scripts, medallion notebooks\nArchitecture Explainer — schema design decisions and data dictionary\nCascadia Architecture Overview"
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html",
+    "href": "projects/cascadia-semiconductors.html",
+    "title": "Cascadia Finance",
+    "section": "",
+    "text": "Financial Analytics\n\n\n\n\nPublic SEC filings turned into an executive close pack for FormFactor (NASDAQ: FORM) — headline → driver → variance, the way a finance director reads numbers. GAAP quarterly, FY2018 → Q1 FY2026, rebuilt offline from a frozen snapshot so the numbers never drift.\nView Live Module Build Repository"
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#overview",
+    "href": "projects/cascadia-semiconductors.html#overview",
+    "title": "Cascadia Finance",
+    "section": "Overview",
+    "text": "Overview\nA financial-analytics module on real SEC filing data. It models FormFactor’s public GAAP financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, built to extend into margin-driver and peer-benchmark views.\nDeliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages."
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#why-this-stack",
+    "href": "projects/cascadia-semiconductors.html#why-this-stack",
+    "title": "Cascadia Finance",
+    "section": "Why This Stack",
+    "text": "Why This Stack\nThis module exists for a financial-analytics role, and the tooling is a deliberate “right tool for the job” choice rather than a scaled-down enterprise stack. It has to be screen-shareable in an interview, hostable for free and forever, and transparent enough to walk through line by line. A few hundred lines of well-commented Python plus a static ECharts page does all three — and the Python ingestion layer is itself part of the story: analytics built to spec, in the open, with the data governance made explicit on every page."
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#architecture",
+    "href": "projects/cascadia-semiconductors.html#architecture",
+    "title": "Cascadia Finance",
+    "section": "Architecture",
+    "text": "Architecture\nSEC EDGAR XBRL (frozen JSON) → Python (requests + pandas) → SQLite star schema → static ECharts pages.\n\nIngest. Pulls FormFactor (CIK 0001039399) financial concepts from the SEC EDGAR XBRL APIs — SEC-compliant User-Agent, throttled well under rate limits — and commits the raw JSON snapshots to the repo.\nConform. Tidy CSVs, one row per company × metric × fiscal quarter, with QoQ and YoY variances precomputed and derived / restated / missing flags.\nModel. A SQLite star schema — dim_company, dim_metric, dim_date, fact_financials_quarterly.\nPresent. A static index.html rendered with Apache ECharts: KPI headline cards with QoQ/YoY variance chips, revenue and gross-margin trends, the opex-ratio trend, an EPS trend, and a “Data & method” footnotes section."
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#headline-skill-financial-data-governance",
+    "href": "projects/cascadia-semiconductors.html#headline-skill-financial-data-governance",
+    "title": "Cascadia Finance",
+    "section": "Headline Skill: Financial-Data Governance",
+    "text": "Headline Skill: Financial-Data Governance\nGetting the governance right is the credibility play for a finance audience:\n\nFrozen snapshot. The data was pulled once and committed; every page carries an “as of SEC filings retrieved 2026-07-21” stamp, and the build rebuilds offline from those snapshots so the dataset cannot silently drift (FormFactor reports its next quarter July 29, mid-process). Refreshing is a deliberate manual action, never a side effect.\nGAAP vs non-GAAP. XBRL facts are GAAP and will not match a company’s non-GAAP press-release headlines — FormFactor’s headline gross margin is a record ~49% non-GAAP quarter, while the GAAP margin from the filings is lower and moved differently. Every metric is labeled GAAP explicitly, and the GAAP and non-GAAP framings are shown side by side rather than blurred.\nDerived Q4s. 10-Ks file the full year rather than a discrete Q4, so Q4 = FY − (Q1+Q2+Q3) is derived where needed, flagged as derived, and reconciled in validation.\nTag mapping & restatements. XBRL tags change over time and filings get restated; a tag-mapping table handles the drift and the latest-filed value wins.\nMissing data is flagged, never filled. No interpolation, no zero-fill — “not disclosed” is a first-class value."
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#validation",
+    "href": "projects/cascadia-semiconductors.html#validation",
+    "title": "Cascadia Finance",
+    "section": "Validation",
+    "text": "Validation\nvalidate.py reconciles the derived quarters (four quarters sum to the full year within rounding) and spot-checks revenue and gross profit against figures verifiable in FormFactor’s press releases, writing the results to governance/validation_report.md. Every headline number on the page traces back to a filed, checkable source."
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#the-module",
+    "href": "projects/cascadia-semiconductors.html#the-module",
+    "title": "Cascadia Finance",
+    "section": "The Module",
+    "text": "The Module\nThe Phase A executive pack is live now — an interactive, mobile-friendly page you can open on a phone or share on a screen.\nOpen the Live Executive Pack →"
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#roadmap",
+    "href": "projects/cascadia-semiconductors.html#roadmap",
+    "title": "Cascadia Finance",
+    "section": "Roadmap",
+    "text": "Roadmap\n\nPhase A — Executive Financial Pack (live). FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.\nPhase B — Margin Drivers (planned). Gross-margin walk and Probe Cards vs Systems segment disclosures, where XBRL tags allow.\nPhase C — Peer Benchmark + Governance (planned). The same certified GAAP metrics across a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT, and KLAC as a process-control north star), with the XBRL tag-mapping table rendered on the page."
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#tech-stack",
+    "href": "projects/cascadia-semiconductors.html#tech-stack",
+    "title": "Cascadia Finance",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nPython pandas SEC EDGAR XBRL SQLite Apache ECharts Static HTML / JS GitHub Pages Git"
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#disclosure",
+    "href": "projects/cascadia-semiconductors.html#disclosure",
+    "title": "Cascadia Finance",
+    "section": "Disclosure",
+    "text": "Disclosure\nBuilt from public SEC filings (EDGAR XBRL APIs), as of 2026-07-21. Independent portfolio project — not affiliated with, endorsed by, or based on any non-public information from FormFactor or any company shown. Not investment advice."
+  },
+  {
+    "objectID": "projects/cascadia-semiconductors.html#links",
+    "href": "projects/cascadia-semiconductors.html#links",
+    "title": "Cascadia Finance",
+    "section": "Links",
+    "text": "Links\n\nView Live Module — the hosted Phase A executive pack\nBuild Repository — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report\nCascadia Architecture Overview"
   }
 ]

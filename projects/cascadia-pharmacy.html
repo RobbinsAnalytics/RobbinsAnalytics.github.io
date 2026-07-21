@@ -75,11 +75,15 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Cascadia Pharmacy – Robbins Analytics">
 <meta property="og:description" content="GLP-1 drug spend growth and immunization coverage analytics on real CMS + CDC public data.">
-<meta property="og:image" content="https://robbinsanalytics.github.io/assets/cascadia_analytics_tech_stack.svg">
+<meta property="og:image" content="https://robbinsanalytics.github.io/assets/cascadia-pharmacy-glp1.png">
 <meta property="og:site_name" content="Robbins Analytics">
+<meta property="og:image:height" content="757">
+<meta property="og:image:width" content="1190">
 <meta name="twitter:title" content="Cascadia Pharmacy – Robbins Analytics">
 <meta name="twitter:description" content="GLP-1 drug spend growth and immunization coverage analytics on real CMS + CDC public data.">
-<meta name="twitter:image" content="https://robbinsanalytics.github.io/assets/cascadia_analytics_tech_stack.svg">
+<meta name="twitter:image" content="https://robbinsanalytics.github.io/assets/cascadia-pharmacy-glp1.png">
+<meta name="twitter:image-height" content="757">
+<meta name="twitter:image-width" content="1190">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -118,12 +122,20 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="../projects/cascadia-medical-devices.html">
- <span class="dropdown-text">Cascadia Medical Devices</span></a>
+    <a class="dropdown-item" href="../projects/cascadia-semiconductors.html">
+ <span class="dropdown-text">Cascadia Finance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../projects/cascadia-staffing.html">
+ <span class="dropdown-text">Cascadia Staffing</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../projects/cascadia-pharmacy.html">
  <span class="dropdown-text">Cascadia Pharmacy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../projects/cascadia-medical-devices.html">
+ <span class="dropdown-text">Cascadia Medical Devices</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../projects/cascadia-clothing.html">
@@ -187,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="overview" class="level2">
 <h2 data-anchor-id="overview">Overview</h2>
-<p>A pharmacy-growth analytics stack built on real public data — CMS Medicare Part D drug spending and CDC adult immunization coverage — applying the Cascadia architecture to healthcare. It’s also a deliberate showcase of cleaning messy, incomplete real-world data.</p>
+<p>A pharmacy-growth analytics stack built on real public data — CMS Medicare Part D drug spending and CDC adult immunization coverage — applying the Cascadia approach to healthcare. It’s also a deliberate showcase of cleaning messy, incomplete real-world data.</p>
 <hr>
 </section>
 <section id="business-problem" class="level2">
@@ -197,20 +209,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="architecture" class="level2">
 <h2 data-anchor-id="architecture">Architecture</h2>
-<div class="arch-container">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../assets/cascadia_analytics_tech_stack.svg" class="img-fluid figure-img"></p>
-<figcaption>Cascadia end-to-end data platform</figcaption>
-</figure>
-</div>
-</div>
+<p><strong>Local SQL Server star schema → Power BI</strong> — a personal-scale build on public data, with no cloud lakehouse in the loop.</p>
 <p><strong>Source layer:</strong> CascadiaRx SQL Server star schema — 5 dimension tables + 2 fact tables.</p>
 <ul>
 <li><code>fact_partd_drug_spend</code> (339 rows, grain: drug × year 2020–2024, CMS Part D data)</li>
 <li><code>fact_immunization_coverage</code> (24,596 rows, grain: vaccine × geography × demographic × season, CDC VaxView)</li>
 </ul>
-<p><strong>Medallion pipeline:</strong> Bronze → Silver → Gold notebooks in Microsoft Fabric Lakehouse (Phase 2, in build).</p>
+<p><strong>Staging:</strong> a Python <code>raw → clean</code> layer — currency-string parsing, drug-name normalization, and suppression handling; suppressed values are flagged, never zero-filled.</p>
 <p><strong>Semantic model + report:</strong> Power BI — GLP-1 Growth Story page + Immunization Coverage &amp; Access page (Phase 2, in build).</p>
 <hr>
 </section>
@@ -288,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="tech-stack" class="level2">
 <h2 data-anchor-id="tech-stack">Tech Stack</h2>
 <div class="tech-chips">
-<p><span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Python</span> <span class="chip">CMS Part D Data</span> <span class="chip">CDC VaxView</span> <span class="chip">Microsoft Fabric</span> <span class="chip">PySpark</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">PowerShell</span></p>
+<p><span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Python</span> <span class="chip">CMS Part D Data</span> <span class="chip">CDC VaxView</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">PowerShell</span></p>
 </div>
 <hr>
 </section>
