@@ -126,6 +126,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Cascadia Finance</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../projects/cascadia-bi-migration.html">
+ <span class="dropdown-text">Cascadia BI Migration</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../projects/cascadia-staffing.html">
  <span class="dropdown-text">Cascadia Staffing</span></a>
   </li>  
@@ -216,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
 <li><code>fact_immunization_coverage</code> (24,596 rows, grain: vaccine × geography × demographic × season, CDC VaxView)</li>
 </ul>
 <p><strong>Staging:</strong> a Python <code>raw → clean</code> layer — currency-string parsing, drug-name normalization, and suppression handling; suppressed values are flagged, never zero-filled.</p>
-<p><strong>Semantic model + report:</strong> Power BI — GLP-1 Growth Story page + Immunization Coverage &amp; Access page (Phase 2, in build).</p>
+<p><strong>Semantic model + report:</strong> Power BI — the GLP-1 Growth Story page. An Immunization Coverage &amp; Access page is a planned enhancement.</p>
 <hr>
 </section>
 <section id="data-sources" class="level2">
@@ -253,13 +257,13 @@ ul.task-list li input[type="checkbox"] {
 <td>CDC RSVVaxView</td>
 <td>Federal (CDC)</td>
 <td>TBD</td>
-<td>Adult RSV coverage — in progress (Phase 2)</td>
+<td>Adult RSV coverage — planned enhancement</td>
 </tr>
 <tr class="even">
 <td>CDC COVIDVaxView</td>
 <td>Federal (CDC)</td>
 <td>TBD</td>
-<td>Adult COVID coverage — in progress (Phase 2)</td>
+<td>Adult COVID coverage — planned enhancement</td>
 </tr>
 </tbody>
 </table>
@@ -274,7 +278,6 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>GLP-1 medications are the standout growth story in Medicare Part D: class spend roughly <strong>tripled from ~$7B (2020) to $22B+ (2023)</strong> — about <strong>$54B cumulative</strong> over 2020–2023, with the latest year up <strong>~70% YoY</strong>.</li>
 <li>The growth is driven by <strong>both volume and cost</strong> — more beneficiaries <em>and</em> rising cost per beneficiary, not just price increases. Trulicity and Ozempic lead the class.</li>
-<li>Immunization coverage gap analysis publishes with the Phase 2 Power BI report.</li>
 </ul>
 <hr>
 </section>
@@ -287,7 +290,15 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>GLP-1 Growth page — Power BI. KPI cards for cumulative spend, YoY growth, beneficiaries, and cost per beneficiary; spend trend 2020–2023; brand-level breakdown; and a suppressed-data disclosure so totals stay honest.</figcaption>
 </figure>
 </div>
-<p><em>Walkthrough video coming soon. The Immunization Coverage &amp; Access page publishes with Phase 2.</em></p>
+<p><em>A recorded walkthrough is a planned enhancement.</em></p>
+<hr>
+</section>
+<section id="opportunities-for-future-enhancements" class="level2">
+<h2 data-anchor-id="opportunities-for-future-enhancements">Opportunities for Future Enhancements</h2>
+<ul>
+<li>An Immunization Coverage &amp; Access page (CDC VaxView) covering flu, RSV, and COVID adult coverage by state.</li>
+<li>A recorded walkthrough of the GLP-1 growth story.</li>
+</ul>
 <hr>
 </section>
 <section id="tech-stack" class="level2">

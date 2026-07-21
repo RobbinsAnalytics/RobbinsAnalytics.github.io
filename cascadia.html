@@ -122,6 +122,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Cascadia Finance</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./projects/cascadia-bi-migration.html">
+ <span class="dropdown-text">Cascadia BI Migration</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./projects/cascadia-staffing.html">
  <span class="dropdown-text">Cascadia Staffing</span></a>
   </li>  
@@ -181,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Cascadia is a family of end-to-end analytics builds. They don’t share one architecture — they share a standard. Each build uses the tools that fit its problem and its scale, from a full enterprise Microsoft BI stack to a few hundred lines of Python. What stays constant across all of them: dimensional modeling done properly, data governance that is honest about what the source does and doesn’t say, and reporting a non-technical audience can actually act on.</p>
+<p>Cascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. The pieces don’t share one architecture; they share a standard. Each uses the tools that fit its problem and its scale, from a full enterprise Microsoft BI stack to a few hundred lines of Python to a BI-platform migration program. What stays constant: dimensional modeling done properly, data governance that is honest about what the source does and doesn’t say, and reporting a non-technical audience can actually act on.</p>
 <hr>
 <section id="the-builds-their-stacks" class="level2">
 <h2 data-anchor-id="the-builds-their-stacks">The Builds &amp; Their Stacks</h2>
@@ -205,21 +209,21 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><a href="./projects/cascadia-staffing.html">Cascadia Staffing</a></td>
-<td>In Build</td>
+<td>Complete</td>
 <td>Local SQL Server → Power BI</td>
 <td>CMS PBJ Daily Nurse Staffing (real)</td>
 <td>Marketplace labor KPIs / metric governance</td>
 </tr>
 <tr class="odd">
 <td><a href="./projects/cascadia-pharmacy.html">Cascadia Pharmacy</a></td>
-<td>In Build</td>
+<td>Complete</td>
 <td>Local SQL Server → Power BI</td>
 <td>CMS Part D + CDC VaxView (real)</td>
 <td>Messy-data cleaning / GLP-1 growth</td>
 </tr>
 <tr class="even">
 <td><a href="./projects/cascadia-medical-devices.html">Cascadia Medical Devices</a></td>
-<td>Live</td>
+<td>Complete</td>
 <td>SQL Server → Microsoft Fabric → Power BI</td>
 <td>Simulated MES + NASA C-MAPSS</td>
 <td>Predictive maintenance / OEE</td>
@@ -233,6 +237,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<blockquote class="blockquote">
+<p><strong>Beyond the builds:</strong> <a href="./projects/cascadia-bi-migration.html">Cascadia BI Migration</a> — a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. Analytics leadership, not just a data build.</p>
+</blockquote>
 <hr>
 </section>
 <section id="three-patterns-one-standard" class="level2">
@@ -260,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Real data where it matters</strong> CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is limited to the manufacturing simulation layer, purely for volume and anonymity.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Repeatable builds</strong> Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the semiconductors module — useful for demos, onboarding, and validating changes.</p>
+<p><strong>Repeatable builds</strong> Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the Cascadia Finance module — useful for demos, onboarding, and validating changes.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
 <p><strong>Honest about limits</strong> Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values (like reconstructed fiscal quarters) are marked as derived.</p>
