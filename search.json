@@ -361,7 +361,7 @@
     "href": "projects/cascadia-semiconductors.html#overview",
     "title": "Cascadia Finance",
     "section": "Overview",
-    "text": "Overview\nA financial-analytics module on real SEC filing data. It models FormFactor’s public GAAP financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, now extended with a margin-driver view (Phase B, live) and a planned peer benchmark (Phase C).\nDeliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages."
+    "text": "Overview\nA financial-analytics module on real SEC filing data. It models FormFactor’s public GAAP financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, now extended with a margin-driver view (Phase 2, live) and a planned peer benchmark (Phase 3).\nDeliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages."
   },
   {
     "objectID": "projects/cascadia-semiconductors.html#why-this-stack",
@@ -396,14 +396,14 @@
     "href": "projects/cascadia-semiconductors.html#the-module",
     "title": "Cascadia Finance",
     "section": "The Module",
-    "text": "The Module\nThe Phase A executive pack is live now — an interactive, mobile-friendly page you can open on a phone or share on a screen.\nOpen the Live Executive Pack →\nPhase B — the gross-margin walk & segments — is live too. The QoQ margin bridge (revenue effect vs margin effect), the Q1 FY2026 GM inflection with its filed drivers, and the Probe Cards vs Systems segment view, with segment revenue reconciled to consolidated GAAP.\nOpen the Margin Walk & Segments →"
+    "text": "The Module\nThe Phase 1 executive pack is live now — an interactive, mobile-friendly page you can open on a phone or share on a screen.\nOpen the Live Executive Pack →\nPhase 2 — the gross-margin walk & segments — is live too. The QoQ margin bridge (revenue effect vs margin effect), the Q1 FY2026 GM inflection with its filed drivers, and the Probe Cards vs Systems segment view, with segment revenue reconciled to consolidated GAAP.\nOpen the Margin Walk & Segments →"
   },
   {
     "objectID": "projects/cascadia-semiconductors.html#roadmap",
     "href": "projects/cascadia-semiconductors.html#roadmap",
     "title": "Cascadia Finance",
     "section": "Roadmap",
-    "text": "Roadmap\n\nPhase A — Executive Financial Pack (live). FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.\nPhase B — Margin Drivers (live). A GAAP gross-margin walk (revenue-vs-margin bridge) and the Probe Cards vs Systems segment view — segment revenue reconciled to consolidated GAAP, and segment margin shown only where it ties exactly (FY2024+).\nPhase C — Peer Benchmark + Governance (planned). The same certified GAAP metrics across a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT, and KLAC as a process-control north star), with the XBRL tag-mapping table rendered on the page."
+    "text": "Roadmap\n\nPhase 1 — Executive Financial Pack (live). FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.\nPhase 2 — Margin Drivers (live). A GAAP gross-margin walk (revenue-vs-margin bridge) and the Probe Cards vs Systems segment view — segment revenue reconciled to consolidated GAAP, and segment margin shown only where it ties exactly (FY2024+).\nPhase 3 — Peer Benchmark + Governance (planned). The same certified GAAP metrics across a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT, and KLAC as a process-control north star), with the XBRL tag-mapping table rendered on the page."
   },
   {
     "objectID": "projects/cascadia-semiconductors.html#tech-stack",
@@ -424,6 +424,6 @@
     "href": "projects/cascadia-semiconductors.html#links",
     "title": "Cascadia Finance",
     "section": "Links",
-    "text": "Links\n\nView Live Module — the hosted Phase A executive pack\nMargin Walk & Segments — the Phase B gross-margin walk and Probe Cards vs Systems view\nBuild Repository — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report\nCascadia Architecture Overview"
+    "text": "Links\n\nView Live Module — the hosted Phase 1 executive pack\nMargin Walk & Segments — the Phase 2 gross-margin walk and Probe Cards vs Systems view\nBuild Repository — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report\nCascadia Architecture Overview"
   }
 ]
