@@ -13,9 +13,8 @@ Public SEC filings turned into an executive close pack for FormFactor (NASDAQ: F
 :::
 :::
 
-[View Live Module](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-primary}
-[Margin Walk & Segments](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-outline-secondary}
-[Build Repository](https://github.com/RobbinsAnalytics/cascadia-semiconductors){.btn .btn-outline-secondary}
+[Executive Pack](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-primary}
+[Margin Walk & Segments](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-primary}
 
 ---
 
