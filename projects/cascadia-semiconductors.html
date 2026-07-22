@@ -194,11 +194,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </div>
-<p><a href="https://robbinsanalytics.github.io/cascadia-semiconductors/" class="btn btn-primary">View Live Module</a> <a href="https://github.com/RobbinsAnalytics/cascadia-semiconductors" class="btn btn-outline-secondary">Build Repository</a></p>
+<p><a href="https://robbinsanalytics.github.io/cascadia-semiconductors/" class="btn btn-primary">View Live Module</a> <a href="https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html" class="btn btn-outline-secondary">Margin Walk &amp; Segments</a> <a href="https://github.com/RobbinsAnalytics/cascadia-semiconductors" class="btn btn-outline-secondary">Build Repository</a></p>
 <hr>
 <section id="overview" class="level2">
 <h2 data-anchor-id="overview">Overview</h2>
-<p>A financial-analytics module on real SEC filing data. It models FormFactor’s public <strong>GAAP</strong> financials — revenue, gross profit and margin, R&amp;D and SG&amp;A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, built to extend into margin-driver and peer-benchmark views.</p>
+<p>A financial-analytics module on real SEC filing data. It models FormFactor’s public <strong>GAAP</strong> financials — revenue, gross profit and margin, R&amp;D and SG&amp;A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, now extended with a <strong>margin-driver view</strong> (Phase B, live) and a planned peer benchmark (Phase C).</p>
 <p>Deliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages.</p>
 <hr>
 </section>
@@ -214,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Ingest.</strong> Pulls FormFactor (CIK <code>0001039399</code>) financial concepts from the SEC EDGAR XBRL APIs — SEC-compliant User-Agent, throttled well under rate limits — and commits the <strong>raw JSON snapshots</strong> to the repo.</li>
 <li><strong>Conform.</strong> Tidy CSVs, one row per company × metric × fiscal quarter, with QoQ and YoY variances precomputed and <code>derived</code> / <code>restated</code> / <code>missing</code> flags.</li>
 <li><strong>Model.</strong> A SQLite star schema — <code>dim_company</code>, <code>dim_metric</code>, <code>dim_date</code>, <code>fact_financials_quarterly</code>.</li>
-<li><strong>Present.</strong> A static <code>index.html</code> rendered with Apache ECharts: KPI headline cards with QoQ/YoY variance chips, revenue and gross-margin trends, the opex-ratio trend, an EPS trend, and a “Data &amp; method” footnotes section.</li>
+<li><strong>Present.</strong> Static, hostable ECharts pages — <code>index.html</code> (the executive pack) and <code>margins.html</code> (the gross-margin walk &amp; segment view) — each with KPI headline cards, QoQ/YoY variance chips, labeled charts, and a “Data &amp; method” footnotes section.</li>
 </ul>
 <hr>
 </section>
@@ -239,13 +239,15 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="the-module">The Module</h2>
 <p>The Phase A executive pack is <strong>live now</strong> — an interactive, mobile-friendly page you can open on a phone or share on a screen.</p>
 <p><a href="https://robbinsanalytics.github.io/cascadia-semiconductors/" class="btn btn-primary">Open the Live Executive Pack →</a></p>
+<p><strong>Phase B — the gross-margin walk &amp; segments — is live too.</strong> The QoQ margin bridge (revenue effect vs margin effect), the Q1 FY2026 GM inflection with its filed drivers, and the Probe Cards vs Systems segment view, with segment revenue reconciled to consolidated GAAP.</p>
+<p><a href="https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html" class="btn btn-primary">Open the Margin Walk &amp; Segments →</a></p>
 <hr>
 </section>
 <section id="roadmap" class="level2">
 <h2 data-anchor-id="roadmap">Roadmap</h2>
 <ul>
 <li><strong>Phase A — Executive Financial Pack (live).</strong> FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.</li>
-<li><strong>Phase B — Margin Drivers (planned).</strong> Gross-margin walk and Probe Cards vs Systems segment disclosures, where XBRL tags allow.</li>
+<li><strong>Phase B — Margin Drivers (<a href="https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html">live</a>).</strong> A GAAP gross-margin walk (revenue-vs-margin bridge) and the Probe Cards vs Systems segment view — segment revenue reconciled to consolidated GAAP, and segment margin shown only where it ties exactly (FY2024+).</li>
 <li><strong>Phase C — Peer Benchmark + Governance (planned).</strong> The same certified GAAP metrics across a US-listed test &amp; measurement peer set (TER, ONTO, CAMT, COHU, INTT, and KLAC as a process-control north star), with the XBRL tag-mapping table rendered on the page.</li>
 </ul>
 <hr>
@@ -266,6 +268,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="links">Links</h2>
 <ul>
 <li><a href="https://robbinsanalytics.github.io/cascadia-semiconductors/">View Live Module</a> — the hosted Phase A executive pack</li>
+<li><a href="https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html">Margin Walk &amp; Segments</a> — the Phase B gross-margin walk and Probe Cards vs Systems view</li>
 <li><a href="https://github.com/RobbinsAnalytics/cascadia-semiconductors">Build Repository</a> — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report</li>
 <li><a href="../cascadia.html">Cascadia Architecture Overview</a></li>
 </ul>
