@@ -14,10 +14,11 @@ This site is where I build in the open. The Cascadia projects are real, reproduc
 
 ## Skills
 
-- **BI & visualization:** Power BI (data modeling, DAX, Power Query/M), Tableau, advanced Excel
-- **Data & modeling:** SQL Server, dimensional/star-schema modeling, data governance, Microsoft Fabric (medallion lakehouse, semantic models)
-- **Domains:** healthcare (manufacturing, quality, pharmacy/public-health data), ecommerce & retail
-- **Ways of working:** stakeholder management, turning complex data into simple insights, self-service enablement
+- **BI & visualization:** Power BI (data modeling, DAX, Power Query/M), Tableau, Qlik, SAP BusinessObjects, Adobe Analytics, advanced Excel
+- **Data & modeling:** SQL Server, SAP HANA, Python, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality, Microsoft Fabric, Databricks, Azure data platforms
+- **KPI & frameworks:** KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization
+- **Domains:** healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics
+- **Ways of working:** BI program leadership, Agile (Scrumban) / Scrum Master, Lean / Six Sigma, stakeholder management, data storytelling, self-service enablement
 
 ---
 
