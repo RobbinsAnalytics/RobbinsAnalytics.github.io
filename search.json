@@ -326,14 +326,14 @@
     "href": "projects/cascadia-medical-devices.html#the-report",
     "title": "Cascadia Medical Devices",
     "section": "The Report",
-    "text": "The Report\nThe Power BI report surfaces the OEE and root-cause yield story alongside the NASA C-MAPSS reliability / remaining-useful-life view."
+    "text": "The Report\n\n\n\nThe manufacturing analytics report — Power BI. OEE, FPY, and OTIF headline cards; availability / performance / OEE by production line; FPY by month and station (the declining station drives the root-cause story); a downtime Pareto by reason code; and OTIF by customer.\n\n\nThe Power BI report surfaces the OEE and root-cause yield story alongside the NASA C-MAPSS reliability / remaining-useful-life view."
   },
   {
     "objectID": "projects/cascadia-medical-devices.html#opportunities-for-future-enhancements",
     "href": "projects/cascadia-medical-devices.html#opportunities-for-future-enhancements",
     "title": "Cascadia Medical Devices",
     "section": "Opportunities for Future Enhancements",
-    "text": "Opportunities for Future Enhancements\n\nReport screenshots and a recorded 3-minute walkthrough of the root-cause story.\nA Direct Lake performance writeup on the 5.9M-row model."
+    "text": "Opportunities for Future Enhancements\n\nA recorded 3-minute walkthrough of the root-cause story.\nA Direct Lake performance writeup on the 5.9M-row model."
   },
   {
     "objectID": "projects/cascadia-medical-devices.html#tech-stack",
