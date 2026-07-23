@@ -48,6 +48,7 @@ FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive c
 [View Case Study](projects/cascadia-semiconductors.qmd){.btn .btn-primary .btn-sm}
 [Exec Pack](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-outline-secondary .btn-sm}
 [Margin Walk](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-outline-secondary .btn-sm}
+[Peers](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 
