@@ -48,7 +48,6 @@ FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive c
 [View Case Study](projects/cascadia-semiconductors.qmd){.btn .btn-primary .btn-sm}
 [Exec Pack](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-outline-secondary .btn-sm}
 [Margin Walk](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-outline-secondary .btn-sm}
-[GitHub](https://github.com/RobbinsAnalytics/cascadia-semiconductors){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 
@@ -77,7 +76,6 @@ Healthcare / Staffing Marketplace
 Contingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.
 
 [View Case Study](projects/cascadia-staffing.qmd){.btn .btn-primary .btn-sm}
-[GitHub](https://github.com/RobbinsAnalytics/cascadia-staffing-analytics){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 
@@ -92,7 +90,6 @@ Healthcare / Pharmacy
 GLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.
 
 [View Case Study](projects/cascadia-pharmacy.qmd){.btn .btn-primary .btn-sm}
-[GitHub](https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 
@@ -107,7 +104,6 @@ Manufacturing
 A dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.
 
 [View Case Study](projects/cascadia-medical-devices.qmd){.btn .btn-primary .btn-sm}
-[GitHub](https://github.com/RobbinsAnalytics/manufacturing-analytics){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 
