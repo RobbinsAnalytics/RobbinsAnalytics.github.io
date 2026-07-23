@@ -15,12 +15,13 @@ Public SEC filings turned into an executive close pack for FormFactor (NASDAQ: F
 
 [Executive Pack](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-primary}
 [Margin Walk & Segments](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-primary}
+[Peer Benchmark](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html){.btn .btn-primary}
 
 ---
 
 ## Overview
 
-A financial-analytics module on real SEC filing data. It models FormFactor's public **GAAP** financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, now extended with a **margin-driver view** (Phase 2, live) and a planned peer benchmark (Phase 3).
+A financial-analytics module on real SEC filing data. It models FormFactor's public **GAAP** financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, now extended with a **margin-driver view** (Phase 2) and a **peer benchmark** (Phase 3) — all three phases live.
 
 Deliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages.
 
@@ -39,7 +40,7 @@ This module exists for a financial-analytics role, and the tooling is a delibera
 - **Ingest.** Pulls FormFactor (CIK `0001039399`) financial concepts from the SEC EDGAR XBRL APIs — SEC-compliant User-Agent, throttled well under rate limits — and commits the **raw JSON snapshots** to the repo.
 - **Conform.** Tidy CSVs, one row per company × metric × fiscal quarter, with QoQ and YoY variances precomputed and `derived` / `restated` / `missing` flags.
 - **Model.** A SQLite star schema — `dim_company`, `dim_metric`, `dim_date`, `fact_financials_quarterly`.
-- **Present.** Static, hostable ECharts pages — `index.html` (the executive pack) and `margins.html` (the gross-margin walk & segment view) — each with KPI headline cards, QoQ/YoY variance chips, labeled charts, and a "Data & method" footnotes section.
+- **Present.** Static, hostable ECharts pages — `index.html` (the executive pack), `margins.html` (the gross-margin walk & segment view), and `peers.html` (the US-listed T&M peer benchmark) — each with KPI headline cards, QoQ/YoY variance chips, labeled charts, and a "Data & method" footnotes section.
 
 ---
 
@@ -71,13 +72,17 @@ The Phase 1 executive pack is **live now** — an interactive, mobile-friendly p
 
 [Open the Margin Walk & Segments →](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-primary}
 
+**Phase 3 — the peer benchmark & governance showcase — is live too.** FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and every not-comparable metric flagged, never estimated.
+
+[Open the Peer Benchmark →](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html){.btn .btn-primary}
+
 ---
 
 ## Roadmap
 
 - **Phase 1 — Executive Financial Pack (live).** FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.
 - **Phase 2 — Margin Drivers (live).** A GAAP gross-margin walk (revenue-vs-margin bridge) and the Probe Cards vs Systems segment view — segment revenue reconciled to consolidated GAAP, and segment margin shown only where it ties exactly (FY2024+).
-- **Phase 3 — Peer Benchmark + Governance (planned).** The same certified GAAP metrics across a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT, and KLAC as a process-control north star), with the XBRL tag-mapping table rendered on the page.
+- **Phase 3 — Peer Benchmark + Governance (live).** FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and honest not-comparable flags — nothing estimated.
 
 ---
 
@@ -106,5 +111,6 @@ Built from public SEC filings (EDGAR XBRL APIs), as of 2026-07-21. Independent p
 
 - [View Live Module](https://robbinsanalytics.github.io/cascadia-semiconductors/) — the hosted Phase 1 executive pack
 - [Margin Walk & Segments](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html) — the Phase 2 gross-margin walk and Probe Cards vs Systems view
+- [Peer Benchmark & Governance](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html) — the Phase 3 US-listed T&M peer comparison + XBRL tag-mapping table
 - [Build Repository](https://github.com/RobbinsAnalytics/cascadia-semiconductors) — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report
 - [Cascadia Architecture Overview](../cascadia.qmd)
