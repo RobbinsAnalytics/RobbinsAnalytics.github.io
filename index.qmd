@@ -46,7 +46,8 @@ Financial Analytics
 FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.
 
 [View Case Study](projects/cascadia-semiconductors.qmd){.btn .btn-primary .btn-sm}
-[Live Module](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-outline-secondary .btn-sm}
+[Exec Pack](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-outline-secondary .btn-sm}
+[Margin Walk](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-outline-secondary .btn-sm}
 [GitHub](https://github.com/RobbinsAnalytics/cascadia-semiconductors){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
