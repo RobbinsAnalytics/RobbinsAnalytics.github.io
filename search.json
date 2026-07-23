@@ -354,14 +354,14 @@
     "href": "projects/cascadia-semiconductors.html",
     "title": "Cascadia Finance",
     "section": "",
-    "text": "Financial Analytics\n\n\n\n\nPublic SEC filings turned into an executive close pack for FormFactor (NASDAQ: FORM) — headline → driver → variance, the way a finance director reads numbers. GAAP quarterly, FY2018 → Q1 FY2026, rebuilt offline from a frozen snapshot so the numbers never drift.\nExecutive Pack Margin Walk & Segments"
+    "text": "Financial Analytics\n\n\n\n\nPublic SEC filings turned into an executive close pack for FormFactor (NASDAQ: FORM) — headline → driver → variance, the way a finance director reads numbers. GAAP quarterly, FY2018 → Q1 FY2026, rebuilt offline from a frozen snapshot so the numbers never drift.\nExecutive Pack Margin Walk & Segments Peer Benchmark"
   },
   {
     "objectID": "projects/cascadia-semiconductors.html#overview",
     "href": "projects/cascadia-semiconductors.html#overview",
     "title": "Cascadia Finance",
     "section": "Overview",
-    "text": "Overview\nA financial-analytics module on real SEC filing data. It models FormFactor’s public GAAP financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, now extended with a margin-driver view (Phase 2, live) and a planned peer benchmark (Phase 3).\nDeliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages."
+    "text": "Overview\nA financial-analytics module on real SEC filing data. It models FormFactor’s public GAAP financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, now extended with a margin-driver view (Phase 2) and a peer benchmark (Phase 3) — all three phases live.\nDeliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages."
   },
   {
     "objectID": "projects/cascadia-semiconductors.html#why-this-stack",
@@ -375,7 +375,7 @@
     "href": "projects/cascadia-semiconductors.html#architecture",
     "title": "Cascadia Finance",
     "section": "Architecture",
-    "text": "Architecture\nSEC EDGAR XBRL (frozen JSON) → Python (requests + pandas) → SQLite star schema → static ECharts pages.\n\nIngest. Pulls FormFactor (CIK 0001039399) financial concepts from the SEC EDGAR XBRL APIs — SEC-compliant User-Agent, throttled well under rate limits — and commits the raw JSON snapshots to the repo.\nConform. Tidy CSVs, one row per company × metric × fiscal quarter, with QoQ and YoY variances precomputed and derived / restated / missing flags.\nModel. A SQLite star schema — dim_company, dim_metric, dim_date, fact_financials_quarterly.\nPresent. Static, hostable ECharts pages — index.html (the executive pack) and margins.html (the gross-margin walk & segment view) — each with KPI headline cards, QoQ/YoY variance chips, labeled charts, and a “Data & method” footnotes section."
+    "text": "Architecture\nSEC EDGAR XBRL (frozen JSON) → Python (requests + pandas) → SQLite star schema → static ECharts pages.\n\nIngest. Pulls FormFactor (CIK 0001039399) financial concepts from the SEC EDGAR XBRL APIs — SEC-compliant User-Agent, throttled well under rate limits — and commits the raw JSON snapshots to the repo.\nConform. Tidy CSVs, one row per company × metric × fiscal quarter, with QoQ and YoY variances precomputed and derived / restated / missing flags.\nModel. A SQLite star schema — dim_company, dim_metric, dim_date, fact_financials_quarterly.\nPresent. Static, hostable ECharts pages — index.html (the executive pack), margins.html (the gross-margin walk & segment view), and peers.html (the US-listed T&M peer benchmark) — each with KPI headline cards, QoQ/YoY variance chips, labeled charts, and a “Data & method” footnotes section."
   },
   {
     "objectID": "projects/cascadia-semiconductors.html#headline-skill-financial-data-governance",
@@ -396,14 +396,14 @@
     "href": "projects/cascadia-semiconductors.html#the-module",
     "title": "Cascadia Finance",
     "section": "The Module",
-    "text": "The Module\nThe Phase 1 executive pack is live now — an interactive, mobile-friendly page you can open on a phone or share on a screen.\nOpen the Live Executive Pack →\nPhase 2 — the gross-margin walk & segments — is live too. The QoQ margin bridge (revenue effect vs margin effect), the Q1 FY2026 GM inflection with its filed drivers, and the Probe Cards vs Systems segment view, with segment revenue reconciled to consolidated GAAP.\nOpen the Margin Walk & Segments →"
+    "text": "The Module\nThe Phase 1 executive pack is live now — an interactive, mobile-friendly page you can open on a phone or share on a screen.\nOpen the Live Executive Pack →\nPhase 2 — the gross-margin walk & segments — is live too. The QoQ margin bridge (revenue effect vs margin effect), the Q1 FY2026 GM inflection with its filed drivers, and the Probe Cards vs Systems segment view, with segment revenue reconciled to consolidated GAAP.\nOpen the Margin Walk & Segments →\nPhase 3 — the peer benchmark & governance showcase — is live too. FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and every not-comparable metric flagged, never estimated.\nOpen the Peer Benchmark →"
   },
   {
     "objectID": "projects/cascadia-semiconductors.html#roadmap",
     "href": "projects/cascadia-semiconductors.html#roadmap",
     "title": "Cascadia Finance",
     "section": "Roadmap",
-    "text": "Roadmap\n\nPhase 1 — Executive Financial Pack (live). FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.\nPhase 2 — Margin Drivers (live). A GAAP gross-margin walk (revenue-vs-margin bridge) and the Probe Cards vs Systems segment view — segment revenue reconciled to consolidated GAAP, and segment margin shown only where it ties exactly (FY2024+).\nPhase 3 — Peer Benchmark + Governance (planned). The same certified GAAP metrics across a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT, and KLAC as a process-control north star), with the XBRL tag-mapping table rendered on the page."
+    "text": "Roadmap\n\nPhase 1 — Executive Financial Pack (live). FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.\nPhase 2 — Margin Drivers (live). A GAAP gross-margin walk (revenue-vs-margin bridge) and the Probe Cards vs Systems segment view — segment revenue reconciled to consolidated GAAP, and segment margin shown only where it ties exactly (FY2024+).\nPhase 3 — Peer Benchmark + Governance (live). FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and honest not-comparable flags — nothing estimated."
   },
   {
     "objectID": "projects/cascadia-semiconductors.html#tech-stack",
@@ -424,6 +424,6 @@
     "href": "projects/cascadia-semiconductors.html#links",
     "title": "Cascadia Finance",
     "section": "Links",
-    "text": "Links\n\nView Live Module — the hosted Phase 1 executive pack\nMargin Walk & Segments — the Phase 2 gross-margin walk and Probe Cards vs Systems view\nBuild Repository — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report\nCascadia Architecture Overview"
+    "text": "Links\n\nView Live Module — the hosted Phase 1 executive pack\nMargin Walk & Segments — the Phase 2 gross-margin walk and Probe Cards vs Systems view\nPeer Benchmark & Governance — the Phase 3 US-listed T&M peer comparison + XBRL tag-mapping table\nBuild Repository — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report\nCascadia Architecture Overview"
   }
 ]
