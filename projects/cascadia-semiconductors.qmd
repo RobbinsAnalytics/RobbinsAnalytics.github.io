@@ -76,6 +76,10 @@ The Phase 1 executive pack is **live now** — an interactive, mobile-friendly p
 
 [Open the Peer Benchmark →](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html){.btn .btn-primary}
 
+**Beyond the frozen phases — a Q2 FY2026 read-through.** When FormFactor announced Q2 on July 29, 2026, I applied the same margin-walk method to the announced figures; because those come from an 8-K press-release exhibit and aren’t XBRL-tagged, the page sits deliberately outside the frozen dataset and labels every figure as *filed* or *announced* until the 10-Q lands.
+
+[Open the Q2 Read-Through →](https://robbinsanalytics.github.io/cascadia-semiconductors/q2-readthrough.html){.btn .btn-primary}
+
 ---
 
 ## Roadmap
@@ -112,5 +116,6 @@ Built from public SEC filings (EDGAR XBRL APIs), as of 2026-07-21. Independent p
 - [View Live Module](https://robbinsanalytics.github.io/cascadia-semiconductors/) — the hosted Phase 1 executive pack
 - [Margin Walk & Segments](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html) — the Phase 2 gross-margin walk and Probe Cards vs Systems view
 - [Peer Benchmark & Governance](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html) — the Phase 3 US-listed T&M peer comparison + XBRL tag-mapping table
+- [Q2 FY2026 Read-Through](https://robbinsanalytics.github.io/cascadia-semiconductors/q2-readthrough.html) — the July 29 earnings run through the Phase 2 margin walk, outside the frozen dataset (press-release tier, not yet XBRL)
 - [Build Repository](https://github.com/RobbinsAnalytics/cascadia-semiconductors) — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report
 - [Cascadia Architecture Overview](../cascadia.qmd)
