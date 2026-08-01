@@ -25,10 +25,10 @@ website:
         href: cascadia.qmd
       - text: "Projects"
         menu:
-          - text: "Cascadia Finance"
-            href: projects/cascadia-semiconductors.qmd
           - text: "Cascadia Deal Desk"
             href: projects/cascadia-dealdesk.qmd
+          - text: "Cascadia Finance"
+            href: projects/cascadia-semiconductors.qmd
           - text: "Cascadia BI Migration"
             href: projects/cascadia-bi-migration.qmd
           - text: "Cascadia Staffing"
@@ -54,6 +54,11 @@ website:
 
 format:
   html:
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
     theme:
       - cosmo
       - styles.scss

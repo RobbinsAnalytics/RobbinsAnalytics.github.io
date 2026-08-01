@@ -1,53 +1,107 @@
 /*-- scss:defaults --*/
 /*
-   Cascadia Analytics palette — derived from cascadia_analytics_tech_stack.svg
-   Dark card: #1e2330  |  Card border: #3b4a6b
-   Accent:    #60a5fa  |  Muted:       #94a3b8
+   Robbins Analytics — Cascadia design system v2.1 (August 2026).
+
+   This replaces the navy/blue brand the site carried through July 2026. Tokens
+   below come from VIZ-PRINCIPLES.md, so the site and the charts inside it now
+   speak the same language.
+
+   Spruce  #16241D  site chrome only, never a chart background
+   Paper   #FCFCFA  surface        Basalt     #232B27  text ink
+   Mist    #E4E7E3  rules          Slate moss #5B6660  secondary ink
+   Evergreen #1E7A4C accent / slot 1   Glacier #4C8BC0 slot 2
+   Madrona   #C05A2E slot 3, alert     Lichen  #9C7A20 slot 5
+   Rain      #9AA6A0 de-emphasis, only ever with a direct label
+
+   Serif carries the voice, sans carries the data. Source Serif 4 on the web,
+   falling back to Georgia — the universally-installed floor, so the voice
+   survives even if the webfont does not load.
+
+   NOTE: the module packs (Cascadia Finance, Staffing, Pharmacy, Medical
+   Devices) still carry the old palette. Their retrofit is queued separately.
+   Cascadia Deal Desk is already native to this system.
 */
 
 // ---------- Brand tokens ----------
-$cascadia-navy:    #1e2330;
-$cascadia-steel:   #3b4a6b;
-$cascadia-blue:    #2563eb;
-$cascadia-blue-lt: #60a5fa;
-$cascadia-muted:   #94a3b8;
+$cascadia-spruce:    #16241D;  // chrome
+$cascadia-basalt:    #232B27;  // ink
+$cascadia-slate:     #5B6660;  // secondary ink
+$cascadia-mist:      #E4E7E3;  // rules
+$cascadia-paper:     #FCFCFA;  // surface
+$cascadia-evergreen: #1E7A4C;  // accent, slot 1
+$cascadia-glacier:   #4C8BC0;  // slot 2
+$cascadia-madrona:   #C05A2E;  // slot 3, alert
+$cascadia-lichen:    #9C7A20;  // slot 5
+$cascadia-rain:      #9AA6A0;  // de-emphasis
+$cascadia-ever-lt:   #8FBA9F;  // sequential ramp light end — for use ON Spruce
 
-// ---------- Cosmo / Bootstrap variable overrides ----------
-$primary:            $cascadia-blue;
-$link-color:         $cascadia-blue;
-$navbar-bg:          $cascadia-navy;
-$navbar-fg:          #e2e8f0;
-$navbar-hover-color: $cascadia-blue-lt;
-$footer-bg:          $cascadia-navy;
+// legacy aliases, kept so any page still referencing them keeps working
+$cascadia-navy:      $cascadia-spruce;
+$cascadia-steel:     $cascadia-slate;
+$cascadia-blue:      $cascadia-evergreen;
+$cascadia-blue-lt:   $cascadia-ever-lt;
+$cascadia-muted:     $cascadia-slate;
+
+// ---------- Type ----------
+$cascadia-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+$cascadia-sans:  "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+$font-family-sans-serif: $cascadia-sans;
+$headings-font-family:   $cascadia-serif;
+$headings-font-weight:   600;
+
+// ---------- Cosmo / Bootstrap overrides ----------
+$primary:            $cascadia-evergreen;
+$link-color:         $cascadia-evergreen;
+$link-hover-color:   darken($cascadia-evergreen, 8%);
+$body-color:         $cascadia-basalt;
+$body-bg:            $cascadia-paper;
+$navbar-bg:          $cascadia-spruce;
+$navbar-fg:          $cascadia-mist;
+$navbar-hover-color: $cascadia-ever-lt;
+$footer-bg:          $cascadia-spruce;
+$border-color:       $cascadia-mist;
 
 /*-- scss:rules --*/
 
 // ---------- Custom styles ----------
 
+body { font-family: $cascadia-sans; }
+h1, h2, h3, h4, h5, .hero-banner h1 { font-family: $cascadia-serif; letter-spacing: -0.01em; }
+
+// Rule 5.3 / adopted AAA 2.4.13 — a visible focus ring that is never clipped.
+a:focus-visible, button:focus-visible, .btn:focus-visible {
+  outline: 2px solid $cascadia-evergreen;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 // Hero banner on landing page
 .hero-banner {
-  background: linear-gradient(135deg, $cascadia-navy 0%, #0f172a 100%);
-  color: #e2e8f0;
+  background: linear-gradient(135deg, $cascadia-spruce 0%, #0C1712 100%);
+  color: $cascadia-mist;
   padding: 4rem 2rem;
   margin-bottom: 2.5rem;
 
   h1 {
+    font-family: $cascadia-serif;
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #ffffff;
     margin-bottom: 0.5rem;
   }
 
   .hero-subtitle {
+    font-family: $cascadia-serif;
     font-size: 1.15rem;
-    color: $cascadia-blue-lt;
+    color: $cascadia-ever-lt;   // 7.4:1 on Spruce
     margin-bottom: 1.25rem;
   }
 
   .hero-tagline {
-    color: $cascadia-muted;
+    color: $cascadia-rain;      // 6.4:1 on Spruce
     font-size: 0.95rem;
-    max-width: 560px;
+    max-width: 620px;
   }
 
   .hero-ctas .btn {
@@ -58,15 +112,16 @@ $footer-bg:          $cascadia-navy;
 
 // Case-study / project cards
 .project-card {
-  border: 1.5px solid #e2e8f0;
-  border-radius: 10px;
+  background: $cascadia-paper;
+  border: 1px solid $cascadia-mist;
+  border-radius: 4px;               // Rule 2.5: restraint, not pillowing
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   transition: box-shadow 0.18s ease, border-color 0.18s ease;
 
   &:hover {
-    box-shadow: 0 4px 18px rgba($cascadia-steel, 0.18);
-    border-color: $cascadia-blue;
+    box-shadow: 0 3px 14px rgba($cascadia-slate, 0.16);
+    border-color: $cascadia-evergreen;
   }
 
   .card-label {
@@ -74,27 +129,37 @@ $footer-bg:          $cascadia-navy;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: $cascadia-muted;
+    color: $cascadia-slate;
     margin-bottom: 0.35rem;
   }
 
   h3 {
+    font-family: $cascadia-serif;
     margin-top: 0;
-    color: $cascadia-navy;
+    color: $cascadia-basalt;
   }
 
+  // Status pills. Emphasis carries "new", not a second hue — one saturated
+  // pill among quiet ones, which is Rule 3.3 applied to page furniture.
   .badge-status {
+    display: inline-block;
     font-size: 0.7rem;
     font-weight: 600;
     padding: 0.2em 0.65em;
     border-radius: 999px;
-    background: #dbeafe;
-    color: $cascadia-blue;
+    background: #E9F1EC;
+    color: $cascadia-evergreen;      // 4.6:1
+    margin-right: 0.3rem;
+  }
+
+  .badge-status.new {
+    background: $cascadia-evergreen;
+    color: $cascadia-paper;          // 5.2:1
   }
 
   .badge-status.coming-soon {
-    background: #f1f5f9;
-    color: $cascadia-muted;
+    background: #EFF1EE;
+    color: $cascadia-slate;          // 5.3:1
   }
 }
 
@@ -110,34 +175,34 @@ $footer-bg:          $cascadia-navy;
     font-weight: 600;
     padding: 0.2em 0.7em;
     border-radius: 999px;
-    background: #eff6ff;
-    color: $cascadia-blue;
-    border: 1px solid #bfdbfe;
+    background: #F1F6F2;
+    color: $cascadia-evergreen;
+    border: 1px solid #D6E5DB;
   }
 }
 
-// TODO callout blocks (Cowork placeholders)
+// Callout / placeholder blocks
 .todo-block {
-  border-left: 4px solid #f59e0b;
-  background: #fffbeb;
+  border-left: 4px solid $cascadia-madrona;
+  background: #FBF0EA;
   padding: 0.75rem 1rem;
   margin: 1rem 0;
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 3px 3px 0;
   font-size: 0.85rem;
-  color: #92400e;
+  color: #8A3D1B;
 }
 
 // Section divider
 .section-rule {
   border: none;
-  border-top: 2px solid #e2e8f0;
+  border-top: 2px solid $cascadia-mist;
   margin: 2.5rem 0;
 }
 
 // Cascadia architecture section
 .arch-container {
-  background: $cascadia-navy;
-  border-radius: 10px;
+  background: $cascadia-spruce;
+  border-radius: 4px;
   padding: 1rem;
   margin: 1.5rem 0;
 
@@ -149,7 +214,7 @@ $footer-bg:          $cascadia-navy;
 
 // Page header for case studies
 .case-study-header {
-  border-left: 5px solid $cascadia-blue;
+  border-left: 4px solid $cascadia-evergreen;   // the Rule 14 tick, page-scale
   padding-left: 1.25rem;
   margin-bottom: 2rem;
 
@@ -158,24 +223,38 @@ $footer-bg:          $cascadia-navy;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: $cascadia-muted;
+    color: $cascadia-slate;
     margin-bottom: 0.25rem;
   }
 
   h1 {
+    font-family: $cascadia-serif;
     margin-top: 0;
-    color: $cascadia-navy;
+    color: $cascadia-basalt;
   }
 
   .cs-hook {
+    font-family: $cascadia-serif;
     font-size: 1.1rem;
-    color: #475569;
+    color: $cascadia-slate;
   }
 }
 
-// Footer tweak
+// Footer
 .nav-footer {
-  background: $cascadia-navy;
-  color: $cascadia-muted;
+  background: $cascadia-spruce;
+  color: $cascadia-rain;
   font-size: 0.82rem;
+
+  a { color: $cascadia-ever-lt; }
+}
+
+// Rule 5.6 — nothing moves for a reader who asked for that.
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
