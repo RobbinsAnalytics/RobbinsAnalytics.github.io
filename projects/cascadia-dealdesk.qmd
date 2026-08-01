@@ -1,0 +1,139 @@
+---
+title: "Cascadia Deal Desk"
+subtitle: "Pricing governance and margin leakage analytics — a governed agreement register, a documented matching rule, and an exception report you calibrate before you automate."
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+Pricing Governance / Financial Analytics
+:::
+# Cascadia Deal Desk
+::: {.cs-hook}
+A supplier signs multi-quarter pricing agreements at a premium, and then quotes the customer's old price anyway. This module makes the agreement a queryable dataset, matches every quote line against it, prices the gap in dollars, and shows what is still recoverable. Built entirely on synthetic data.
+:::
+:::
+
+[Agreement vs. Quoted Price](https://robbinsanalytics.github.io/cascadia-dealdesk/){.btn .btn-primary}
+[Customer Pricing & Margin](https://robbinsanalytics.github.io/cascadia-dealdesk/customer.html){.btn .btn-primary}
+
+---
+
+::: {.callout-important title="Synthetic data"}
+Every customer, part number, price, agreement and person in this module was invented by a seeded generator. There is no real pricing data in this project and there never will be. It demonstrates a design; it measures nothing real.
+:::
+
+## Overview
+
+A deal desk is the function that reviews a quote against the agreed commercial terms *before* it goes to the customer. This module builds the analytics that make that review possible.
+
+The problem it models is specific to capacity-constrained supply, and semiconductor test is a good example of it. A customer commits volume, the supplier commits capacity, and the price is locked for several quarters, frequently at a premium above what that customer previously paid. Four things then go wrong:
+
+- **The agreement is not a dataset.** Terms are negotiated in spreadsheets and end life as a signed PDF. Nothing downstream can query them.
+- **Quoting is disconnected from the agreement.** Sales quotes in a CRM that has no link to the register, so reps quote the customer's *previous* price and the negotiated premium is never collected.
+- **Controls only catch catastrophes.** Deviations route to finance for approval only when they fall far below target, so moderate leakage passes silently.
+- **Verification is manual and therefore infrequent.** An analyst reconciles a pricing spreadsheet against bookings weekly or monthly, which means leakage surfaces long after the quote went out.
+
+And a fifth thing, separate from the leak: understanding how one customer's pricing and margin have behaved over a period should not be an ad-hoc analysis every time. The same model answers it, with no separate build.
+
+---
+
+## Why This Stack
+
+**Python (pandas) → SQLite star schema → static HTML + Apache ECharts → GitHub Pages.**
+
+Power BI was considered and rejected, deliberately. The deliverable has to be a link that circulates inside an organization with nothing to install, no license, and no tenant. A `.pbix` fails that test. ECharts is vendored into the repository rather than loaded from a CDN, and the dataset is inlined at build time, so the pages make no network call at all and work offline, from a file path, and behind a corporate proxy.
+
+The Python is written as a teaching artifact, readable top to bottom by a non-engineer, because the code is part of the argument rather than an implementation detail.
+
+---
+
+## Architecture
+
+- **Generate.** A seeded, fully reproducible generator produces 24 months of activity: 40 customers, 120 parts across six families, 12 sales reps, 461 agreements and 3,003 quote lines. Same seed, identical database hash.
+- **Model.** A SQLite star schema with the agreement register as a first-class dimension: customer, part or family scope, agreed price, effective window, committed units, approval reference, status, and a supersession pointer.
+- **Conform.** The matching rule runs and every derived field is materialized: match status, price variance in dollars and percent, margin at quoted and at agreed, margin impact, exposure state. Nothing is computed in the browser.
+- **Validate.** Twelve PASS/FAIL checks, including a realism audit that fails the build if the generated leakage is not concentrated and directional.
+- **Present.** Two static ECharts pages with client-side filtering over inlined JSON.
+
+---
+
+## Headline Skill: The Matching Rule and Exception Calibration
+
+The charts are not the skill here. These two things are.
+
+**The matching rule is documented as a deliverable in its own right.** Every quote line joins to the register on customer and part where the quote date falls inside an effective window, and three tiebreaks resolve the rest, in order: an agreement already expired or superseded **as of the quote date** is excluded; a part-scope agreement beats a family-scope one; and where two equally specific agreements both cover the date, the later effective start wins. If a tie survives all three, the run **fails rather than guessing**, because that is a data-quality defect and not a judgment call. `governance/matching_rules.md` states the rule in plain English with a worked example of each case, including the overlap and the expiry a naive join gets wrong.
+
+**Quantify, do not flag.** Every off-agreement line carries a dollar figure. And the arithmetic gets said first rather than waiting to be asked: margin impact is exactly the negative of price variance, because standard cost cancels out of the subtraction. **Every dollar of price variance is a dollar of margin, one for one.** There is no volume offset and no cost recovery. A finance reader checks that in thirty seconds, so the page states it up front and an automated check reconciles it on every matched line.
+
+**Exception report first, trigger second.** The materiality threshold is a control the reader operates, not a number I chose. Move it and watch the exception count collapse far faster than the dollars do. That gap is the whole argument for calibrating a rule before automating an alert on it: alerting on a threshold nobody trusts yet only teaches people to dismiss the alert. Approved exceptions are retained in the data and excluded from the totals, so the threshold can be calibrated *against* the false positives rather than around them.
+
+**Two failures that look identical in a margin report.** Leakage is a control failure: the agreement existed and the quote did not use it. Erosion is not a failure at all: every line was priced exactly to agreement and margin still fell, because standard cost steps quarterly while the agreed price is locked for the life of the agreement. One is fixed at the quote, the other at renewal. A report that says only "margin is down" cannot tell you which conversation to have. The customer page keeps them apart.
+
+---
+
+## Validation
+
+`validate.py` writes `governance/validation_report.md`. All twelve checks pass:
+
+- Every quote line resolves to exactly one match status; none null, none ambiguous.
+- No quote matches an agreement that was superseded or expired as of its own date.
+- Variance and margin identities reconcile on every matched line, including margin impact against the negative of price variance.
+- Referential integrity across all dimensions, including bookings back to their quote lines.
+- Exception counts are monotonic as the threshold rises.
+- Coverage audit reports lines with **no governing agreement** explicitly, broken out by cause, rather than dropping them.
+- A realism audit that checks the leakage is concentrated and directional, and fails loudly if the generator has produced uniform noise instead of a pattern.
+
+---
+
+## Governance in the Open
+
+Three artifacts ship with the module, and they are the point rather than the paperwork:
+
+- **`matching_rules.md`** — the rule, the tiebreaks, the tie-failure behavior, worked examples, and an honest limits section.
+- **`generator_assumptions.md`** — every tunable assumption and the realized mix against target.
+- **`chart-review.md`** — a scored pass/fail review of all eleven charts against my published visualization design system, including the checks that failed on the first pass and what changed. Several titles claimed figures a reader could not verify from the plot, and those charts were rebuilt rather than re-worded.
+
+---
+
+## The Module
+
+**Agreement vs. quoted price.** The exception page. An unfiltered overview establishes the whole book first, then a customer selector, a date range and a materiality threshold filter it. Chart titles recompute from the filtered data, and the provenance strip under every chart names the active filter state, so a screenshot of a filtered view cannot claim to describe the full dataset.
+
+[Open the Exception Page →](https://robbinsanalytics.github.io/cascadia-dealdesk/){.btn .btn-primary}
+
+**Customer pricing and margin.** The same model, answering the ad-hoc question. A small-multiples grid on shared scales shows the whole landscape before any selector appears, because "who should I look at" is the question that precedes "show me this customer." Then price against agreement, margin against margin-at-agreed, product mix, and an agreement timeline showing renewals and supersessions.
+
+[Open the Customer Page →](https://robbinsanalytics.github.io/cascadia-dealdesk/customer.html){.btn .btn-primary}
+
+Both pages are keyboard navigable chart by chart, carry a real data table for every chart, and hold to WCAG 2.2 AA.
+
+---
+
+## Tech Stack
+
+<div class="tech-chips">
+<span class="chip">Python</span>
+<span class="chip">pandas</span>
+<span class="chip">SQLite</span>
+<span class="chip">Star Schema</span>
+<span class="chip">Apache ECharts</span>
+<span class="chip">Static HTML / JS</span>
+<span class="chip">WCAG 2.2 AA</span>
+<span class="chip">GitHub Pages</span>
+<span class="chip">Git</span>
+</div>
+
+---
+
+## Disclosure
+
+All data in this module is synthetic, generated by a seeded script committed to the repository. No real company, customer, product, price, agreement or person appears anywhere in it. Independent portfolio project, not affiliated with or endorsed by any company, and not based on any non-public information. It illustrates a pricing-governance design on invented data only.
+
+---
+
+## Links
+
+- [Agreement vs. Quoted Price](https://robbinsanalytics.github.io/cascadia-dealdesk/) — the exception report, with the materiality threshold control
+- [Customer Pricing & Margin](https://robbinsanalytics.github.io/cascadia-dealdesk/customer.html) — one customer over a period, and the agreement timeline
+- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-dealdesk) — generator, matching rule, validation, and the governance documents
+- [Cascadia Architecture Overview](../cascadia.qmd)

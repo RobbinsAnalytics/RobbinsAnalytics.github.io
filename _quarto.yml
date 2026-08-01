@@ -27,6 +27,8 @@ website:
         menu:
           - text: "Cascadia Finance"
             href: projects/cascadia-semiconductors.qmd
+          - text: "Cascadia Deal Desk"
+            href: projects/cascadia-dealdesk.qmd
           - text: "Cascadia BI Migration"
             href: projects/cascadia-bi-migration.qmd
           - text: "Cascadia Staffing"

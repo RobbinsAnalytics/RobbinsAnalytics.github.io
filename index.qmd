@@ -55,6 +55,22 @@ FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive c
 ::: {.g-col-12 .g-col-md-4}
 ::: {.project-card}
 ::: {.card-label}
+Pricing Governance / Financial Analytics
+:::
+### Cascadia Deal Desk
+<span class="badge-status">Live</span>
+
+Multi-quarter pricing agreements as a governed dataset rather than a signed PDF — every quote line matched to the agreement in force on its own date, the gap priced in dollars, and a materiality threshold you calibrate before you automate an alert. Synthetic data throughout.
+
+[View Case Study](projects/cascadia-dealdesk.qmd){.btn .btn-primary .btn-sm}
+[Exception Report](https://robbinsanalytics.github.io/cascadia-dealdesk/){.btn .btn-outline-secondary .btn-sm}
+[Customer Margin](https://robbinsanalytics.github.io/cascadia-dealdesk/customer.html){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
 BI Leadership / Governance
 :::
 ### Cascadia BI Migration
