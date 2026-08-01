@@ -140,88 +140,81 @@
     "text": "Links\n\nBuild Repository — SQL DDL, Python acquisition/staging scripts, run_phase1.ps1\nDomain Explainer — schema decisions, messy-data showcase table, interview talking points\nCascadia Architecture Overview"
   },
   {
-    "objectID": "projects/cascadia-clothing.html",
-    "href": "projects/cascadia-clothing.html",
-    "title": "Cascadia Clothing",
+    "objectID": "projects/cascadia-dealdesk.html",
+    "href": "projects/cascadia-dealdesk.html",
+    "title": "Cascadia Deal Desk",
     "section": "",
-    "text": "Retail Analytics\n\n\nCascadia Clothing\n\nThe next Cascadia build — retail and ecommerce analytics, with the stack matched to the problem once the data is chosen.\n\n\n\n\nThe next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF. Drawing on my ecommerce BI background, it will extend the Cascadia approach into retail, with the tooling chosen to fit the data and scale. Check back, or follow along on GitHub."
+    "text": "Pricing Governance / Financial Analytics\n\n\n\n\nA supplier signs multi-quarter pricing agreements at a premium, and then quotes the customer’s old price anyway. This module makes the agreement a queryable dataset, matches every quote line against it, prices the gap in dollars, and shows what is still recoverable. Built entirely on synthetic data.\nAgreement vs. Quoted Price Customer Pricing & Margin"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Aaron Robbins",
-    "section": "",
-    "text": "Business Intelligence & Analytics Leader\n\n\n12+ years turning messy data into decisions leaders trust — across healthcare, manufacturing, and financial analytics. I build across the modern analytics stack: SQL data models, cloud and local pipelines, financial analytics on public filings, and reporting non-technical teams actually use.\n\n\nView Work LinkedIn GitHub"
+    "objectID": "projects/cascadia-dealdesk.html#overview",
+    "href": "projects/cascadia-dealdesk.html#overview",
+    "title": "Cascadia Deal Desk",
+    "section": "Overview",
+    "text": "Overview\nA deal desk is the function that reviews a quote against the agreed commercial terms before it goes to the customer. This module builds the analytics that make that review possible.\nThe problem it models is specific to capacity-constrained supply, and semiconductor test is a good example of it. A customer commits volume, the supplier commits capacity, and the price is locked for several quarters, frequently at a premium above what that customer previously paid. Four things then go wrong:\n\nThe agreement is not a dataset. Terms are negotiated in spreadsheets and end life as a signed PDF. Nothing downstream can query them.\nQuoting is disconnected from the agreement. Sales quotes in a CRM that has no link to the register, so reps quote the customer’s previous price and the negotiated premium is never collected.\nControls only catch catastrophes. Deviations route to finance for approval only when they fall far below target, so moderate leakage passes silently.\nVerification is manual and therefore infrequent. An analyst reconciles a pricing spreadsheet against bookings weekly or monthly, which means leakage surfaces long after the quote went out.\n\nAnd a fifth thing, separate from the leak: understanding how one customer’s pricing and margin have behaved over a period should not be an ad-hoc analysis every time. The same model answers it, with no separate build."
   },
   {
-    "objectID": "index.html#cascadia-portfolio",
-    "href": "index.html#cascadia-portfolio",
-    "title": "Aaron Robbins",
-    "section": "The Cascadia Portfolio",
-    "text": "The Cascadia Portfolio\nCascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. Each piece matches the right tools to the problem: a governed SQL Server → Microsoft Fabric → Power BI enterprise stack, pragmatic local SQL Server + Power BI, lightweight Python and static-web analytics on public SEC and federal data, and the program side of BI — platform migration and metric governance. The through-line isn’t one architecture; it’s the craft: rigorous modeling, honest data governance, and decisions leaders can trust.\n\n\nFeatured Case Studies\n\n\n\n\nFinancial Analytics\n\n\nCascadia Finance\nLive\nFormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.\nView Case Study Exec Pack Margin Walk Peers\n\n\n\n\n\n\nBI Leadership / Governance\n\n\nCascadia BI Migration\nPlaybook\nA 24-week program to migrate an organization off legacy BI onto a governed, AI-assisted platform — certified metric layer first, parity QA as the deliverable, wave-by-wave sunset. An illustrative program design.\nView Case Study\n\n\n\n\n\n\nHealthcare / Staffing Marketplace\n\n\nCascadia Staffing\nComplete\nContingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.\nView Case Study\n\n\n\n\n\n\nHealthcare / Pharmacy\n\n\nCascadia Pharmacy\nComplete\nGLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.\nView Case Study\n\n\n\n\n\n\nManufacturing\n\n\nCascadia Medical Devices\nComplete\nA dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.\nView Case Study\n\n\n\n\n\n\nRetail\n\n\nCascadia Clothing\nComing Soon\nDemand, merchandising, and fulfillment analytics for a retail apparel scenario.\nPreview\n\n\n\n\n\nLearn about the Cascadia architecture →"
+    "objectID": "projects/cascadia-dealdesk.html#why-this-stack",
+    "href": "projects/cascadia-dealdesk.html#why-this-stack",
+    "title": "Cascadia Deal Desk",
+    "section": "Why This Stack",
+    "text": "Why This Stack\nPython (pandas) → SQLite star schema → static HTML + Apache ECharts → GitHub Pages.\nPower BI was considered and rejected, deliberately. The deliverable has to be a link that circulates inside an organization with nothing to install, no license, and no tenant. A .pbix fails that test. ECharts is vendored into the repository rather than loaded from a CDN, and the dataset is inlined at build time, so the pages make no network call at all and work offline, from a file path, and behind a corporate proxy.\nThe Python is written as a teaching artifact, readable top to bottom by a non-engineer, because the code is part of the argument rather than an implementation detail."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Aaron Robbins",
-    "section": "",
-    "text": "I’m a business intelligence and analytics leader with 12+ years building the systems that turn raw, messy data into decisions teams trust. Most recently I led BI and analytics programs at Philips Healthcare, where I built the single source of truth and self-service Power BI reporting across a global manufacturing operation — ten factories on three continents. Before that I led business intelligence for Lowe’s ecommerce arm, working high-volume commercial and operational data.\nMy core strength is the full analytics stack: modeling data in SQL, moving it through governed pipelines, and delivering it in Power BI in a way non-technical stakeholders can act on. I care as much about data governance and trustworthiness as I do about the final dashboard — a report is only as good as the data behind it.\nThis site is where I build in the open. The Cascadia projects are real, reproducible analytics stacks I’ve built end to end, with the code public on GitHub."
+    "objectID": "projects/cascadia-dealdesk.html#architecture",
+    "href": "projects/cascadia-dealdesk.html#architecture",
+    "title": "Cascadia Deal Desk",
+    "section": "Architecture",
+    "text": "Architecture\n\nGenerate. A seeded, fully reproducible generator produces 24 months of activity: 40 customers, 120 parts across six families, 12 sales reps, 461 agreements and 3,003 quote lines. Same seed, identical database hash.\nModel. A SQLite star schema with the agreement register as a first-class dimension: customer, part or family scope, agreed price, effective window, committed units, approval reference, status, and a supersession pointer.\nConform. The matching rule runs and every derived field is materialized: match status, price variance in dollars and percent, margin at quoted and at agreed, margin impact, exposure state. Nothing is computed in the browser.\nValidate. Twelve PASS/FAIL checks, including a realism audit that fails the build if the generated leakage is not concentrated and directional.\nPresent. Two static ECharts pages with client-side filtering over inlined JSON."
   },
   {
-    "objectID": "about.html#bio",
-    "href": "about.html#bio",
-    "title": "About Aaron Robbins",
-    "section": "",
-    "text": "I’m a business intelligence and analytics leader with 12+ years building the systems that turn raw, messy data into decisions teams trust. Most recently I led BI and analytics programs at Philips Healthcare, where I built the single source of truth and self-service Power BI reporting across a global manufacturing operation — ten factories on three continents. Before that I led business intelligence for Lowe’s ecommerce arm, working high-volume commercial and operational data.\nMy core strength is the full analytics stack: modeling data in SQL, moving it through governed pipelines, and delivering it in Power BI in a way non-technical stakeholders can act on. I care as much about data governance and trustworthiness as I do about the final dashboard — a report is only as good as the data behind it.\nThis site is where I build in the open. The Cascadia projects are real, reproducible analytics stacks I’ve built end to end, with the code public on GitHub."
+    "objectID": "projects/cascadia-dealdesk.html#headline-skill-the-matching-rule-and-exception-calibration",
+    "href": "projects/cascadia-dealdesk.html#headline-skill-the-matching-rule-and-exception-calibration",
+    "title": "Cascadia Deal Desk",
+    "section": "Headline Skill: The Matching Rule and Exception Calibration",
+    "text": "Headline Skill: The Matching Rule and Exception Calibration\nThe charts are not the skill here. These two things are.\nThe matching rule is documented as a deliverable in its own right. Every quote line joins to the register on customer and part where the quote date falls inside an effective window, and three tiebreaks resolve the rest, in order: an agreement already expired or superseded as of the quote date is excluded; a part-scope agreement beats a family-scope one; and where two equally specific agreements both cover the date, the later effective start wins. If a tie survives all three, the run fails rather than guessing, because that is a data-quality defect and not a judgment call. governance/matching_rules.md states the rule in plain English with a worked example of each case, including the overlap and the expiry a naive join gets wrong.\nQuantify, do not flag. Every off-agreement line carries a dollar figure. And the arithmetic gets said first rather than waiting to be asked: margin impact is exactly the negative of price variance, because standard cost cancels out of the subtraction. Every dollar of price variance is a dollar of margin, one for one. There is no volume offset and no cost recovery. A finance reader checks that in thirty seconds, so the page states it up front and an automated check reconciles it on every matched line.\nException report first, trigger second. The materiality threshold is a control the reader operates, not a number I chose. Move it and watch the exception count collapse far faster than the dollars do. That gap is the whole argument for calibrating a rule before automating an alert on it: alerting on a threshold nobody trusts yet only teaches people to dismiss the alert. Approved exceptions are retained in the data and excluded from the totals, so the threshold can be calibrated against the false positives rather than around them.\nTwo failures that look identical in a margin report. Leakage is a control failure: the agreement existed and the quote did not use it. Erosion is not a failure at all: every line was priced exactly to agreement and margin still fell, because standard cost steps quarterly while the agreed price is locked for the life of the agreement. One is fixed at the quote, the other at renewal. A report that says only “margin is down” cannot tell you which conversation to have. The customer page keeps them apart."
   },
   {
-    "objectID": "about.html#skills",
-    "href": "about.html#skills",
-    "title": "About Aaron Robbins",
-    "section": "Skills",
-    "text": "Skills\n\nBI & visualization: Power BI (data modeling, DAX, Power Query/M), Tableau, Qlik, SAP BusinessObjects, Adobe Analytics, advanced Excel\nData & modeling: SQL Server, SAP HANA, Python, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality, Microsoft Fabric, Databricks, Azure data platforms\nKPI & frameworks: KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization\nDomains: healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics\nWays of working: BI program leadership, Agile (Scrumban) / Scrum Master, Lean / Six Sigma, stakeholder management, data storytelling, self-service enablement"
+    "objectID": "projects/cascadia-dealdesk.html#validation",
+    "href": "projects/cascadia-dealdesk.html#validation",
+    "title": "Cascadia Deal Desk",
+    "section": "Validation",
+    "text": "Validation\nvalidate.py writes governance/validation_report.md. All twelve checks pass:\n\nEvery quote line resolves to exactly one match status; none null, none ambiguous.\nNo quote matches an agreement that was superseded or expired as of its own date.\nVariance and margin identities reconcile on every matched line, including margin impact against the negative of price variance.\nReferential integrity across all dimensions, including bookings back to their quote lines.\nException counts are monotonic as the threshold rises.\nCoverage audit reports lines with no governing agreement explicitly, broken out by cause, rather than dropping them.\nA realism audit that checks the leakage is concentrated and directional, and fails loudly if the generator has produced uniform noise instead of a pattern."
   },
   {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "About Aaron Robbins",
-    "section": "Contact",
-    "text": "Contact\n\n\nLinkedIn linkedin.com/in/aaron-robbins-6b25a2136\n\n\nGitHub github.com/RobbinsAnalytics"
+    "objectID": "projects/cascadia-dealdesk.html#governance-in-the-open",
+    "href": "projects/cascadia-dealdesk.html#governance-in-the-open",
+    "title": "Cascadia Deal Desk",
+    "section": "Governance in the Open",
+    "text": "Governance in the Open\nThree artifacts ship with the module, and they are the point rather than the paperwork:\n\nmatching_rules.md — the rule, the tiebreaks, the tie-failure behavior, worked examples, and an honest limits section.\ngenerator_assumptions.md — every tunable assumption and the realized mix against target.\nchart-review.md — a scored pass/fail review of all eleven charts against my published visualization design system, including the checks that failed on the first pass and what changed. Several titles claimed figures a reader could not verify from the plot, and those charts were rebuilt rather than re-worded."
   },
   {
-    "objectID": "cascadia.html",
-    "href": "cascadia.html",
-    "title": "The Cascadia Family",
-    "section": "",
-    "text": "Cascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. The pieces don’t share one architecture; they share a standard. Each uses the tools that fit its problem and its scale, from a full enterprise Microsoft BI stack to a few hundred lines of Python to a BI-platform migration program. What stays constant: dimensional modeling done properly, data governance that is honest about what the source does and doesn’t say, and reporting a non-technical audience can actually act on."
+    "objectID": "projects/cascadia-dealdesk.html#the-module",
+    "href": "projects/cascadia-dealdesk.html#the-module",
+    "title": "Cascadia Deal Desk",
+    "section": "The Module",
+    "text": "The Module\nAgreement vs. quoted price. The exception page. An unfiltered overview establishes the whole book first, then a customer selector, a date range and a materiality threshold filter it. Chart titles recompute from the filtered data, and the provenance strip under every chart names the active filter state, so a screenshot of a filtered view cannot claim to describe the full dataset.\nOpen the Exception Page →\nCustomer pricing and margin. The same model, answering the ad-hoc question. A small-multiples grid on shared scales shows the whole landscape before any selector appears, because “who should I look at” is the question that precedes “show me this customer.” Then price against agreement, margin against margin-at-agreed, product mix, and an agreement timeline showing renewals and supersessions.\nOpen the Customer Page →\nBoth pages are keyboard navigable chart by chart, carry a real data table for every chart, and hold to WCAG 2.2 AA."
   },
   {
-    "objectID": "cascadia.html#the-builds-their-stacks",
-    "href": "cascadia.html#the-builds-their-stacks",
-    "title": "The Cascadia Family",
-    "section": "The Builds & Their Stacks",
-    "text": "The Builds & Their Stacks\n\n\n\nDomain\nStatus\nStack\nData\nHeadline Skill\n\n\n\n\nCascadia Finance\nLive\nPython → SQLite → static ECharts (SEC EDGAR XBRL)\nFormFactor SEC filings (real)\nFinancial analytics / XBRL governance\n\n\nCascadia Staffing\nComplete\nLocal SQL Server → Power BI\nCMS PBJ Daily Nurse Staffing (real)\nMarketplace labor KPIs / metric governance\n\n\nCascadia Pharmacy\nComplete\nLocal SQL Server → Power BI\nCMS Part D + CDC VaxView (real)\nMessy-data cleaning / GLP-1 growth\n\n\nCascadia Medical Devices\nComplete\nSQL Server → Microsoft Fabric → Power BI\nSimulated MES + NASA C-MAPSS\nPredictive maintenance / OEE\n\n\nCascadia Clothing\nPlanned\nTBD\nTBD e-commerce data\nCustomer segmentation\n\n\n\n\nBeyond the builds: Cascadia BI Migration — a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. Analytics leadership, not just a data build."
-  },
-  {
-    "objectID": "cascadia.html#three-patterns-one-standard",
-    "href": "cascadia.html#three-patterns-one-standard",
-    "title": "The Cascadia Family",
-    "section": "Three Patterns, One Standard",
-    "text": "Three Patterns, One Standard\nLightweight analytical stack — Cascadia Finance. A financial-analytics module that needs neither SQL Server nor Power BI: Python (requests + pandas) pulls and freezes SEC EDGAR XBRL filings, conforms them into a SQLite star schema, and renders a static, hostable executive pack with Apache ECharts. It runs forever, offline, for free — and every figure is labeled GAAP vs non-GAAP.\nPragmatic local stack — Cascadia Pharmacy & Staffing. For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python raw → clean staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.\nEnterprise-BI stack — Cascadia Medical Devices. The full production pattern: a SQL Server star schema feeding a Microsoft Fabric medallion lakehouse (Bronze → Silver → Gold), surfaced through a Power BI Direct Lake semantic model. This is the pattern for when the data volume and the organization justify a governed cloud platform.\n\n\n\n\nThe enterprise-BI pattern — SQL Server → Microsoft Fabric medallion lakehouse → Power BI. Used in full by Cascadia Medical Devices."
-  },
-  {
-    "objectID": "cascadia.html#design-principles",
-    "href": "cascadia.html#design-principles",
-    "title": "The Cascadia Family",
-    "section": "Design Principles",
-    "text": "Design Principles\n\n\nProduction patterns only Every table, index, and pipeline uses conventions you would enforce on a real production system — surrogate keys, computed date_key columns, idempotent builds, and row-count validation scripts.\n\n\nReal data where it matters CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is limited to the manufacturing simulation layer, purely for volume and anonymity.\n\n\nRepeatable builds Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the Cascadia Finance module — useful for demos, onboarding, and validating changes.\n\n\nHonest about limits Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values (like reconstructed fiscal quarters) are marked as derived."
-  },
-  {
-    "objectID": "cascadia.html#tech-stack",
-    "href": "cascadia.html#tech-stack",
-    "title": "The Cascadia Family",
+    "objectID": "projects/cascadia-dealdesk.html#tech-stack",
+    "href": "projects/cascadia-dealdesk.html#tech-stack",
+    "title": "Cascadia Deal Desk",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nPython (pandas) SQLite Apache ECharts SEC EDGAR XBRL SQL Server 2025 T-SQL Power BI DAX Microsoft Fabric PySpark Static HTML / JS GitHub Pages PowerShell Git"
+    "text": "Tech Stack\n\nPython pandas SQLite Star Schema Apache ECharts Static HTML / JS WCAG 2.2 AA GitHub Pages Git"
+  },
+  {
+    "objectID": "projects/cascadia-dealdesk.html#disclosure",
+    "href": "projects/cascadia-dealdesk.html#disclosure",
+    "title": "Cascadia Deal Desk",
+    "section": "Disclosure",
+    "text": "Disclosure\nAll data in this module is synthetic, generated by a seeded script committed to the repository. No real company, customer, product, price, agreement or person appears anywhere in it. Independent portfolio project, not affiliated with or endorsed by any company, and not based on any non-public information. It illustrates a pricing-governance design on invented data only."
+  },
+  {
+    "objectID": "projects/cascadia-dealdesk.html#links",
+    "href": "projects/cascadia-dealdesk.html#links",
+    "title": "Cascadia Deal Desk",
+    "section": "Links",
+    "text": "Links\n\nAgreement vs. Quoted Price — the exception report, with the materiality threshold control\nCustomer Pricing & Margin — one customer over a period, and the agreement timeline\nBuild Repository — generator, matching rule, validation, and the governance documents\nCascadia Architecture Overview"
   },
   {
     "objectID": "projects/cascadia-bi-migration.html",
@@ -278,6 +271,90 @@
     "title": "Cascadia BI Migration",
     "section": "Skills Demonstrated",
     "text": "Skills Demonstrated\nBI program leadership and delivery · metric governance and certification (one definition, source, and owner per number) · stakeholder management and change enablement across non-technical teams (sales, clinical ops, finance, RevOps) · parity QA for AI-generated queries · cross-functional partnership with platform engineering and data science · phased delivery with explicit go/no-go gates.\n\nAn illustrative program design demonstrating how I approach a BI platform migration and metric-governance program. Tools referenced are generic; no proprietary or confidential information is included."
+  },
+  {
+    "objectID": "cascadia.html",
+    "href": "cascadia.html",
+    "title": "The Cascadia Family",
+    "section": "",
+    "text": "Cascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. The pieces don’t share one architecture; they share a standard. Each uses the tools that fit its problem and its scale, from a full enterprise Microsoft BI stack to a few hundred lines of Python to a BI-platform migration program. What stays constant: dimensional modeling done properly, data governance that is honest about what the source does and doesn’t say, and reporting a non-technical audience can actually act on."
+  },
+  {
+    "objectID": "cascadia.html#the-builds-their-stacks",
+    "href": "cascadia.html#the-builds-their-stacks",
+    "title": "The Cascadia Family",
+    "section": "The Builds & Their Stacks",
+    "text": "The Builds & Their Stacks\n\n\n\nDomain\nStatus\nStack\nData\nHeadline Skill\n\n\n\n\nCascadia Finance\nLive\nPython → SQLite → static ECharts (SEC EDGAR XBRL)\nFormFactor SEC filings (real)\nFinancial analytics / XBRL governance\n\n\nCascadia Staffing\nComplete\nLocal SQL Server → Power BI\nCMS PBJ Daily Nurse Staffing (real)\nMarketplace labor KPIs / metric governance\n\n\nCascadia Pharmacy\nComplete\nLocal SQL Server → Power BI\nCMS Part D + CDC VaxView (real)\nMessy-data cleaning / GLP-1 growth\n\n\nCascadia Medical Devices\nComplete\nSQL Server → Microsoft Fabric → Power BI\nSimulated MES + NASA C-MAPSS\nPredictive maintenance / OEE\n\n\nCascadia Clothing\nPlanned\nTBD\nTBD e-commerce data\nCustomer segmentation\n\n\n\n\nBeyond the builds: Cascadia BI Migration — a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. Analytics leadership, not just a data build."
+  },
+  {
+    "objectID": "cascadia.html#three-patterns-one-standard",
+    "href": "cascadia.html#three-patterns-one-standard",
+    "title": "The Cascadia Family",
+    "section": "Three Patterns, One Standard",
+    "text": "Three Patterns, One Standard\nLightweight analytical stack — Cascadia Finance. A financial-analytics module that needs neither SQL Server nor Power BI: Python (requests + pandas) pulls and freezes SEC EDGAR XBRL filings, conforms them into a SQLite star schema, and renders a static, hostable executive pack with Apache ECharts. It runs forever, offline, for free — and every figure is labeled GAAP vs non-GAAP.\nPragmatic local stack — Cascadia Pharmacy & Staffing. For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python raw → clean staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.\nEnterprise-BI stack — Cascadia Medical Devices. The full production pattern: a SQL Server star schema feeding a Microsoft Fabric medallion lakehouse (Bronze → Silver → Gold), surfaced through a Power BI Direct Lake semantic model. This is the pattern for when the data volume and the organization justify a governed cloud platform.\n\n\n\n\nThe enterprise-BI pattern — SQL Server → Microsoft Fabric medallion lakehouse → Power BI. Used in full by Cascadia Medical Devices."
+  },
+  {
+    "objectID": "cascadia.html#design-principles",
+    "href": "cascadia.html#design-principles",
+    "title": "The Cascadia Family",
+    "section": "Design Principles",
+    "text": "Design Principles\n\n\nProduction patterns only Every table, index, and pipeline uses conventions you would enforce on a real production system — surrogate keys, computed date_key columns, idempotent builds, and row-count validation scripts.\n\n\nReal data where it matters CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is limited to the manufacturing simulation layer, purely for volume and anonymity.\n\n\nRepeatable builds Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the Cascadia Finance module — useful for demos, onboarding, and validating changes.\n\n\nHonest about limits Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values (like reconstructed fiscal quarters) are marked as derived."
+  },
+  {
+    "objectID": "cascadia.html#tech-stack",
+    "href": "cascadia.html#tech-stack",
+    "title": "The Cascadia Family",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nPython (pandas) SQLite Apache ECharts SEC EDGAR XBRL SQL Server 2025 T-SQL Power BI DAX Microsoft Fabric PySpark Static HTML / JS GitHub Pages PowerShell Git"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Aaron Robbins",
+    "section": "",
+    "text": "I’m a business intelligence and analytics leader with 12+ years building the systems that turn raw, messy data into decisions teams trust. Most recently I led BI and analytics programs at Philips Healthcare, where I built the single source of truth and self-service Power BI reporting across a global manufacturing operation — ten factories on three continents. Before that I led business intelligence for Lowe’s ecommerce arm, working high-volume commercial and operational data.\nMy core strength is the full analytics stack: modeling data in SQL, moving it through governed pipelines, and delivering it in Power BI in a way non-technical stakeholders can act on. I care as much about data governance and trustworthiness as I do about the final dashboard — a report is only as good as the data behind it.\nThis site is where I build in the open. The Cascadia projects are real, reproducible analytics stacks I’ve built end to end, with the code public on GitHub."
+  },
+  {
+    "objectID": "about.html#bio",
+    "href": "about.html#bio",
+    "title": "About Aaron Robbins",
+    "section": "",
+    "text": "I’m a business intelligence and analytics leader with 12+ years building the systems that turn raw, messy data into decisions teams trust. Most recently I led BI and analytics programs at Philips Healthcare, where I built the single source of truth and self-service Power BI reporting across a global manufacturing operation — ten factories on three continents. Before that I led business intelligence for Lowe’s ecommerce arm, working high-volume commercial and operational data.\nMy core strength is the full analytics stack: modeling data in SQL, moving it through governed pipelines, and delivering it in Power BI in a way non-technical stakeholders can act on. I care as much about data governance and trustworthiness as I do about the final dashboard — a report is only as good as the data behind it.\nThis site is where I build in the open. The Cascadia projects are real, reproducible analytics stacks I’ve built end to end, with the code public on GitHub."
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About Aaron Robbins",
+    "section": "Skills",
+    "text": "Skills\n\nBI & visualization: Power BI (data modeling, DAX, Power Query/M), Tableau, Qlik, SAP BusinessObjects, Adobe Analytics, advanced Excel\nData & modeling: SQL Server, SAP HANA, Python, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality, Microsoft Fabric, Databricks, Azure data platforms\nKPI & frameworks: KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization\nDomains: healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics\nWays of working: BI program leadership, Agile (Scrumban) / Scrum Master, Lean / Six Sigma, stakeholder management, data storytelling, self-service enablement"
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Aaron Robbins",
+    "section": "Contact",
+    "text": "Contact\n\n\nLinkedIn linkedin.com/in/aaron-robbins-6b25a2136\n\n\nGitHub github.com/RobbinsAnalytics"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Aaron Robbins",
+    "section": "",
+    "text": "Business Intelligence & Analytics Leader\n\n\n12+ years turning messy data into decisions leaders trust — across healthcare, manufacturing, and financial analytics. I build across the modern analytics stack: SQL data models, cloud and local pipelines, financial analytics on public filings, and reporting non-technical teams actually use.\n\n\nView Work LinkedIn GitHub"
+  },
+  {
+    "objectID": "index.html#cascadia-portfolio",
+    "href": "index.html#cascadia-portfolio",
+    "title": "Aaron Robbins",
+    "section": "The Cascadia Portfolio",
+    "text": "The Cascadia Portfolio\nCascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. Each piece matches the right tools to the problem: a governed SQL Server → Microsoft Fabric → Power BI enterprise stack, pragmatic local SQL Server + Power BI, lightweight Python and static-web analytics on public SEC and federal data, and the program side of BI — platform migration and metric governance. The through-line isn’t one architecture; it’s the craft: rigorous modeling, honest data governance, and decisions leaders can trust.\n\n\nFeatured Case Studies\n\n\n\n\nFinancial Analytics\n\n\nCascadia Finance\nLive\nFormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.\nView Case Study Exec Pack Margin Walk Peers\n\n\n\n\n\n\nPricing Governance / Financial Analytics\n\n\nCascadia Deal Desk\nLive\nMulti-quarter pricing agreements as a governed dataset rather than a signed PDF — every quote line matched to the agreement in force on its own date, the gap priced in dollars, and a materiality threshold you calibrate before you automate an alert. Synthetic data throughout.\nView Case Study Exception Report Customer Margin\n\n\n\n\n\n\nBI Leadership / Governance\n\n\nCascadia BI Migration\nPlaybook\nA 24-week program to migrate an organization off legacy BI onto a governed, AI-assisted platform — certified metric layer first, parity QA as the deliverable, wave-by-wave sunset. An illustrative program design.\nView Case Study\n\n\n\n\n\n\nHealthcare / Staffing Marketplace\n\n\nCascadia Staffing\nComplete\nContingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.\nView Case Study\n\n\n\n\n\n\nHealthcare / Pharmacy\n\n\nCascadia Pharmacy\nComplete\nGLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.\nView Case Study\n\n\n\n\n\n\nManufacturing\n\n\nCascadia Medical Devices\nComplete\nA dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.\nView Case Study\n\n\n\n\n\n\nRetail\n\n\nCascadia Clothing\nComing Soon\nDemand, merchandising, and fulfillment analytics for a retail apparel scenario.\nPreview\n\n\n\n\n\nLearn about the Cascadia architecture →"
+  },
+  {
+    "objectID": "projects/cascadia-clothing.html",
+    "href": "projects/cascadia-clothing.html",
+    "title": "Cascadia Clothing",
+    "section": "",
+    "text": "Retail Analytics\n\n\nCascadia Clothing\n\nThe next Cascadia build — retail and ecommerce analytics, with the stack matched to the problem once the data is chosen.\n\n\n\n\nThe next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF. Drawing on my ecommerce BI background, it will extend the Cascadia approach into retail, with the tooling chosen to fit the data and scale. Check back, or follow along on GitHub."
   },
   {
     "objectID": "projects/cascadia-medical-devices.html",

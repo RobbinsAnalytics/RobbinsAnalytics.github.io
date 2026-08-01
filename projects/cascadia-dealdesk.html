@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cascadia Pharmacy – Robbins Analytics</title>
+<title>Cascadia Deal Desk – Robbins Analytics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,18 +73,12 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<meta property="og:title" content="Cascadia Pharmacy – Robbins Analytics">
-<meta property="og:description" content="GLP-1 drug spend growth and immunization coverage analytics on real CMS + CDC public data.">
-<meta property="og:image" content="https://robbinsanalytics.github.io/assets/cascadia-pharmacy-glp1.png">
+<meta property="og:title" content="Cascadia Deal Desk – Robbins Analytics">
+<meta property="og:description" content="Pricing governance and margin leakage analytics — a governed agreement register, a documented matching rule, and an exception report you calibrate before you automate.">
 <meta property="og:site_name" content="Robbins Analytics">
-<meta property="og:image:height" content="757">
-<meta property="og:image:width" content="1190">
-<meta name="twitter:title" content="Cascadia Pharmacy – Robbins Analytics">
-<meta name="twitter:description" content="GLP-1 drug spend growth and immunization coverage analytics on real CMS + CDC public data.">
-<meta name="twitter:image" content="https://robbinsanalytics.github.io/assets/cascadia-pharmacy-glp1.png">
-<meta name="twitter:image-height" content="757">
-<meta name="twitter:image-width" content="1190">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cascadia Deal Desk – Robbins Analytics">
+<meta name="twitter:description" content="Pricing governance and margin leakage analytics — a governed agreement register, a documented matching rule, and an exception report you calibrate before you automate.">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -175,8 +169,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cascadia Pharmacy</h1>
-<p class="subtitle lead">GLP-1 drug spend growth and immunization coverage analytics on real CMS + CDC public data.</p>
+<h1 class="title">Cascadia Deal Desk</h1>
+<p class="subtitle lead">Pricing governance and margin leakage analytics — a governed agreement register, a documented matching rule, and an exception report you calibrate before you automate.</p>
 </div>
 
 
@@ -195,128 +189,121 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="case-study-header">
 <div class="cs-domain">
-<p>Healthcare / Pharmacy Analytics</p>
+<p>Pricing Governance / Financial Analytics</p>
 </div>
-<section id="cascadia-pharmacy" class="level1">
-<h1>Cascadia Pharmacy</h1>
+<section id="cascadia-deal-desk" class="level1">
+<h1>Cascadia Deal Desk</h1>
 <div class="cs-hook">
-<p>Turning messy federal public data — CMS Part D suppressed cells, CDC VaxView age-band mismatches — into a clean star schema and an interview-ready GLP-1 growth story.</p>
+<p>A supplier signs multi-quarter pricing agreements at a premium, and then quotes the customer’s old price anyway. This module makes the agreement a queryable dataset, matches every quote line against it, prices the gap in dollars, and shows what is still recoverable. Built entirely on synthetic data.</p>
 </div>
 </section>
 </div>
+<p><a href="https://robbinsanalytics.github.io/cascadia-dealdesk/" class="btn btn-primary">Agreement vs.&nbsp;Quoted Price</a> <a href="https://robbinsanalytics.github.io/cascadia-dealdesk/customer.html" class="btn btn-primary">Customer Pricing &amp; Margin</a></p>
 <hr>
+<div class="callout callout-style-default callout-important callout-titled" title="Synthetic data">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Synthetic data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every customer, part number, price, agreement and person in this module was invented by a seeded generator. There is no real pricing data in this project and there never will be. It demonstrates a design; it measures nothing real.</p>
+</div>
+</div>
 <section id="overview" class="level2">
 <h2 data-anchor-id="overview">Overview</h2>
-<p>A pharmacy-growth analytics stack built on real public data — CMS Medicare Part D drug spending and CDC adult immunization coverage — applying the Cascadia approach to healthcare. It’s also a deliberate showcase of cleaning messy, incomplete real-world data.</p>
+<p>A deal desk is the function that reviews a quote against the agreed commercial terms <em>before</em> it goes to the customer. This module builds the analytics that make that review possible.</p>
+<p>The problem it models is specific to capacity-constrained supply, and semiconductor test is a good example of it. A customer commits volume, the supplier commits capacity, and the price is locked for several quarters, frequently at a premium above what that customer previously paid. Four things then go wrong:</p>
+<ul>
+<li><strong>The agreement is not a dataset.</strong> Terms are negotiated in spreadsheets and end life as a signed PDF. Nothing downstream can query them.</li>
+<li><strong>Quoting is disconnected from the agreement.</strong> Sales quotes in a CRM that has no link to the register, so reps quote the customer’s <em>previous</em> price and the negotiated premium is never collected.</li>
+<li><strong>Controls only catch catastrophes.</strong> Deviations route to finance for approval only when they fall far below target, so moderate leakage passes silently.</li>
+<li><strong>Verification is manual and therefore infrequent.</strong> An analyst reconciles a pricing spreadsheet against bookings weekly or monthly, which means leakage surfaces long after the quote went out.</li>
+</ul>
+<p>And a fifth thing, separate from the leak: understanding how one customer’s pricing and margin have behaved over a period should not be an ad-hoc analysis every time. The same model answers it, with no separate build.</p>
 <hr>
 </section>
-<section id="business-problem" class="level2">
-<h2 data-anchor-id="business-problem">Business Problem</h2>
-<p>Two of the biggest growth areas in retail pharmacy are GLP-1 medications and immunization services. Both questions — where is GLP-1 spend going, and where are the immunization coverage gaps — live in public datasets that are real, valuable, and genuinely messy.</p>
+<section id="why-this-stack" class="level2">
+<h2 data-anchor-id="why-this-stack">Why This Stack</h2>
+<p><strong>Python (pandas) → SQLite star schema → static HTML + Apache ECharts → GitHub Pages.</strong></p>
+<p>Power BI was considered and rejected, deliberately. The deliverable has to be a link that circulates inside an organization with nothing to install, no license, and no tenant. A <code>.pbix</code> fails that test. ECharts is vendored into the repository rather than loaded from a CDN, and the dataset is inlined at build time, so the pages make no network call at all and work offline, from a file path, and behind a corporate proxy.</p>
+<p>The Python is written as a teaching artifact, readable top to bottom by a non-engineer, because the code is part of the argument rather than an implementation detail.</p>
 <hr>
 </section>
 <section id="architecture" class="level2">
 <h2 data-anchor-id="architecture">Architecture</h2>
-<p><strong>Local SQL Server star schema → Power BI</strong> — a personal-scale build on public data, with no cloud lakehouse in the loop.</p>
-<p><strong>Source layer:</strong> CascadiaRx SQL Server star schema — 5 dimension tables + 2 fact tables.</p>
 <ul>
-<li><code>fact_partd_drug_spend</code> (339 rows, grain: drug × year 2020–2024, CMS Part D data)</li>
-<li><code>fact_immunization_coverage</code> (24,596 rows, grain: vaccine × geography × demographic × season, CDC VaxView)</li>
-</ul>
-<p><strong>Staging:</strong> a Python <code>raw → clean</code> layer — currency-string parsing, drug-name normalization, and suppression handling; suppressed values are flagged, never zero-filled.</p>
-<p><strong>Semantic model + report:</strong> Power BI — the GLP-1 Growth Story page. An Immunization Coverage &amp; Access page is a planned enhancement.</p>
-<hr>
-</section>
-<section id="data-sources" class="level2">
-<h2 data-anchor-id="data-sources">Data Sources</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Source</th>
-<th>Type</th>
-<th>Rows</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CMS Medicare Part D Spending by Drug</td>
-<td>Federal (CMS)</td>
-<td>14,536 raw → 339 filtered</td>
-<td>Wide-format CSV, 2020–2024 annual columns; filtered to antidiabetic/obesity drug classes</td>
-</tr>
-<tr class="even">
-<td>CDC FluVaxView</td>
-<td>Federal (CDC / Socrata)</td>
-<td>100K raw → 24,596 filtered</td>
-<td>Adult flu vaccination coverage by state × age × season</td>
-</tr>
-<tr class="odd">
-<td>CDC RSVVaxView</td>
-<td>Federal (CDC)</td>
-<td>TBD</td>
-<td>Adult RSV coverage — planned enhancement</td>
-</tr>
-<tr class="even">
-<td>CDC COVIDVaxView</td>
-<td>Federal (CDC)</td>
-<td>TBD</td>
-<td>Adult COVID coverage — planned enhancement</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Attribution:</strong> - CMS Part D data: <a href="https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-medicaid-spending-by-drug/medicare-part-d-spending-by-drug">Centers for Medicare &amp; Medicaid Services</a> — public domain federal data. - CDC VaxView: <a href="https://www.cdc.gov/vaccines/imz-managers/coverage/adultvaxview/index.html">Centers for Disease Control and Prevention</a> — public domain federal data.</p>
-<hr>
-</section>
-<section id="headline-skill-cleaning-messy-incomplete-data" class="level2">
-<h2 data-anchor-id="headline-skill-cleaning-messy-incomplete-data">Headline Skill: Cleaning Messy &amp; Incomplete Data</h2>
-<p>Real government data isn’t clean: CMS suppresses small-cell counts (blanks/asterisks), spend arrives as currency strings, drug names vary in casing, and CDC suppresses or flags unstable estimates for small samples. The pipeline preserves that reality and handles it honestly — suppressed values are flagged, never silently zero-filled — and the report surfaces a “suppressed records” counter so the audience understands why a national total doesn’t equal the sum of states.</p>
-<section id="key-findings" class="level3">
-<h3 data-anchor-id="key-findings">Key Findings</h3>
-<ul>
-<li>GLP-1 medications are the standout growth story in Medicare Part D: class spend roughly <strong>tripled from ~$7B (2020) to $22B+ (2023)</strong> — about <strong>$54B cumulative</strong> over 2020–2023, with the latest year up <strong>~70% YoY</strong>.</li>
-<li>The growth is driven by <strong>both volume and cost</strong> — more beneficiaries <em>and</em> rising cost per beneficiary, not just price increases. Trulicity and Ozempic lead the class.</li>
+<li><strong>Generate.</strong> A seeded, fully reproducible generator produces 24 months of activity: 40 customers, 120 parts across six families, 12 sales reps, 461 agreements and 3,003 quote lines. Same seed, identical database hash.</li>
+<li><strong>Model.</strong> A SQLite star schema with the agreement register as a first-class dimension: customer, part or family scope, agreed price, effective window, committed units, approval reference, status, and a supersession pointer.</li>
+<li><strong>Conform.</strong> The matching rule runs and every derived field is materialized: match status, price variance in dollars and percent, margin at quoted and at agreed, margin impact, exposure state. Nothing is computed in the browser.</li>
+<li><strong>Validate.</strong> Twelve PASS/FAIL checks, including a realism audit that fails the build if the generated leakage is not concentrated and directional.</li>
+<li><strong>Present.</strong> Two static ECharts pages with client-side filtering over inlined JSON.</li>
 </ul>
 <hr>
 </section>
-</section>
-<section id="the-report" class="level2">
-<h2 data-anchor-id="the-report">The Report</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../assets/cascadia-pharmacy-glp1.png" class="img-fluid figure-img"></p>
-<figcaption>GLP-1 Growth page — Power BI. KPI cards for cumulative spend, YoY growth, beneficiaries, and cost per beneficiary; spend trend 2020–2023; brand-level breakdown; and a suppressed-data disclosure so totals stay honest.</figcaption>
-</figure>
-</div>
-<p><em>A recorded walkthrough is a planned enhancement.</em></p>
+<section id="headline-skill-the-matching-rule-and-exception-calibration" class="level2">
+<h2 data-anchor-id="headline-skill-the-matching-rule-and-exception-calibration">Headline Skill: The Matching Rule and Exception Calibration</h2>
+<p>The charts are not the skill here. These two things are.</p>
+<p><strong>The matching rule is documented as a deliverable in its own right.</strong> Every quote line joins to the register on customer and part where the quote date falls inside an effective window, and three tiebreaks resolve the rest, in order: an agreement already expired or superseded <strong>as of the quote date</strong> is excluded; a part-scope agreement beats a family-scope one; and where two equally specific agreements both cover the date, the later effective start wins. If a tie survives all three, the run <strong>fails rather than guessing</strong>, because that is a data-quality defect and not a judgment call. <code>governance/matching_rules.md</code> states the rule in plain English with a worked example of each case, including the overlap and the expiry a naive join gets wrong.</p>
+<p><strong>Quantify, do not flag.</strong> Every off-agreement line carries a dollar figure. And the arithmetic gets said first rather than waiting to be asked: margin impact is exactly the negative of price variance, because standard cost cancels out of the subtraction. <strong>Every dollar of price variance is a dollar of margin, one for one.</strong> There is no volume offset and no cost recovery. A finance reader checks that in thirty seconds, so the page states it up front and an automated check reconciles it on every matched line.</p>
+<p><strong>Exception report first, trigger second.</strong> The materiality threshold is a control the reader operates, not a number I chose. Move it and watch the exception count collapse far faster than the dollars do. That gap is the whole argument for calibrating a rule before automating an alert on it: alerting on a threshold nobody trusts yet only teaches people to dismiss the alert. Approved exceptions are retained in the data and excluded from the totals, so the threshold can be calibrated <em>against</em> the false positives rather than around them.</p>
+<p><strong>Two failures that look identical in a margin report.</strong> Leakage is a control failure: the agreement existed and the quote did not use it. Erosion is not a failure at all: every line was priced exactly to agreement and margin still fell, because standard cost steps quarterly while the agreed price is locked for the life of the agreement. One is fixed at the quote, the other at renewal. A report that says only “margin is down” cannot tell you which conversation to have. The customer page keeps them apart.</p>
 <hr>
 </section>
-<section id="opportunities-for-future-enhancements" class="level2">
-<h2 data-anchor-id="opportunities-for-future-enhancements">Opportunities for Future Enhancements</h2>
+<section id="validation" class="level2">
+<h2 data-anchor-id="validation">Validation</h2>
+<p><code>validate.py</code> writes <code>governance/validation_report.md</code>. All twelve checks pass:</p>
 <ul>
-<li>An Immunization Coverage &amp; Access page (CDC VaxView) covering flu, RSV, and COVID adult coverage by state.</li>
-<li>A recorded walkthrough of the GLP-1 growth story.</li>
+<li>Every quote line resolves to exactly one match status; none null, none ambiguous.</li>
+<li>No quote matches an agreement that was superseded or expired as of its own date.</li>
+<li>Variance and margin identities reconcile on every matched line, including margin impact against the negative of price variance.</li>
+<li>Referential integrity across all dimensions, including bookings back to their quote lines.</li>
+<li>Exception counts are monotonic as the threshold rises.</li>
+<li>Coverage audit reports lines with <strong>no governing agreement</strong> explicitly, broken out by cause, rather than dropping them.</li>
+<li>A realism audit that checks the leakage is concentrated and directional, and fails loudly if the generator has produced uniform noise instead of a pattern.</li>
 </ul>
+<hr>
+</section>
+<section id="governance-in-the-open" class="level2">
+<h2 data-anchor-id="governance-in-the-open">Governance in the Open</h2>
+<p>Three artifacts ship with the module, and they are the point rather than the paperwork:</p>
+<ul>
+<li><strong><code>matching_rules.md</code></strong> — the rule, the tiebreaks, the tie-failure behavior, worked examples, and an honest limits section.</li>
+<li><strong><code>generator_assumptions.md</code></strong> — every tunable assumption and the realized mix against target.</li>
+<li><strong><code>chart-review.md</code></strong> — a scored pass/fail review of all eleven charts against my published visualization design system, including the checks that failed on the first pass and what changed. Several titles claimed figures a reader could not verify from the plot, and those charts were rebuilt rather than re-worded.</li>
+</ul>
+<hr>
+</section>
+<section id="the-module" class="level2">
+<h2 data-anchor-id="the-module">The Module</h2>
+<p><strong>Agreement vs.&nbsp;quoted price.</strong> The exception page. An unfiltered overview establishes the whole book first, then a customer selector, a date range and a materiality threshold filter it. Chart titles recompute from the filtered data, and the provenance strip under every chart names the active filter state, so a screenshot of a filtered view cannot claim to describe the full dataset.</p>
+<p><a href="https://robbinsanalytics.github.io/cascadia-dealdesk/" class="btn btn-primary">Open the Exception Page →</a></p>
+<p><strong>Customer pricing and margin.</strong> The same model, answering the ad-hoc question. A small-multiples grid on shared scales shows the whole landscape before any selector appears, because “who should I look at” is the question that precedes “show me this customer.” Then price against agreement, margin against margin-at-agreed, product mix, and an agreement timeline showing renewals and supersessions.</p>
+<p><a href="https://robbinsanalytics.github.io/cascadia-dealdesk/customer.html" class="btn btn-primary">Open the Customer Page →</a></p>
+<p>Both pages are keyboard navigable chart by chart, carry a real data table for every chart, and hold to WCAG 2.2 AA.</p>
 <hr>
 </section>
 <section id="tech-stack" class="level2">
 <h2 data-anchor-id="tech-stack">Tech Stack</h2>
 <div class="tech-chips">
-<p><span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Python</span> <span class="chip">CMS Part D Data</span> <span class="chip">CDC VaxView</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">PowerShell</span></p>
+<p><span class="chip">Python</span> <span class="chip">pandas</span> <span class="chip">SQLite</span> <span class="chip">Star Schema</span> <span class="chip">Apache ECharts</span> <span class="chip">Static HTML / JS</span> <span class="chip">WCAG 2.2 AA</span> <span class="chip">GitHub Pages</span> <span class="chip">Git</span></p>
 </div>
+<hr>
+</section>
+<section id="disclosure" class="level2">
+<h2 data-anchor-id="disclosure">Disclosure</h2>
+<p>All data in this module is synthetic, generated by a seeded script committed to the repository. No real company, customer, product, price, agreement or person appears anywhere in it. Independent portfolio project, not affiliated with or endorsed by any company, and not based on any non-public information. It illustrates a pricing-governance design on invented data only.</p>
 <hr>
 </section>
 <section id="links" class="level2">
 <h2 data-anchor-id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics">Build Repository</a> — SQL DDL, Python acquisition/staging scripts, run_phase1.ps1</li>
-<li><a href="https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics/blob/main/docs/explainers/03_cascadia_pharmacy_domain.md">Domain Explainer</a> — schema decisions, messy-data showcase table, interview talking points</li>
+<li><a href="https://robbinsanalytics.github.io/cascadia-dealdesk/">Agreement vs.&nbsp;Quoted Price</a> — the exception report, with the materiality threshold control</li>
+<li><a href="https://robbinsanalytics.github.io/cascadia-dealdesk/customer.html">Customer Pricing &amp; Margin</a> — one customer over a period, and the agreement timeline</li>
+<li><a href="https://github.com/RobbinsAnalytics/cascadia-dealdesk">Build Repository</a> — generator, matching rule, validation, and the governance documents</li>
 <li><a href="../cascadia.html">Cascadia Architecture Overview</a></li>
 </ul>
 
