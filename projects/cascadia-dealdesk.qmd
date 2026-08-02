@@ -59,7 +59,7 @@ The Python is written as a teaching artifact, readable top to bottom by a non-en
 
 ## Headline Skill: The Matching Rule and Exception Calibration
 
-The charts are not the skill here. These two things are.
+The charts are not the skill here. These four things are:
 
 **The matching rule is documented as a deliverable in its own right.** Every quote line joins to the register on customer and part where the quote date falls inside an effective window, and three tiebreaks resolve the rest, in order: an agreement already expired or superseded **as of the quote date** is excluded; a part-scope agreement beats a family-scope one; and where two equally specific agreements both cover the date, the later effective start wins. If a tie survives all three, the run **fails rather than guessing**, because that is a data-quality defect and not a judgment call. `governance/matching_rules.md` states the rule in plain English with a worked example of each case, including the overlap and the expiry a naive join gets wrong.
 

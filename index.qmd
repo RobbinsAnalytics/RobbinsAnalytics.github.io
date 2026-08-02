@@ -6,20 +6,20 @@ toc: false
 ---
 
 ::: {.hero-banner}
+::: {.hero-inner}
+
+::: {.hero-lede}
 # Aaron Robbins
 
 ::: {.hero-subtitle}
 Business Intelligence & Analytics Leader
+:::
 :::
 
 ::: {.hero-tagline}
 12+ years turning messy data into decisions leaders trust — across healthcare, manufacturing, and financial analytics. I build across the modern analytics stack: SQL data models, cloud and local pipelines, financial analytics on public filings, and reporting non-technical teams actually use.
 :::
 
-::: {.hero-ctas}
-[View Work](#cascadia-portfolio){.btn .btn-primary}
-[LinkedIn](https://www.linkedin.com/in/aaron-robbins-6b25a2136/){.btn .btn-outline-light}
-[GitHub](https://github.com/RobbinsAnalytics){.btn .btn-outline-light}
 :::
 :::
 
