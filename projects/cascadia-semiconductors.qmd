@@ -1,6 +1,8 @@
 ---
 title: "Cascadia Finance"
 subtitle: "FormFactor's GAAP financials from SEC EDGAR XBRL — an executive close pack built in Python, SQLite, and static ECharts."
+image: https://robbinsanalytics.github.io/assets/thumb-finance.png
+image-alt: "Cascadia module card — title, one-line summary, and the data source."
 ---
 
 ::: {.case-study-header}

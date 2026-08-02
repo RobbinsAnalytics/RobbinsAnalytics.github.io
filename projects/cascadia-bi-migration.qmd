@@ -1,6 +1,8 @@
 ---
 title: "Cascadia BI Migration"
 subtitle: "A 24-week program to move an organization off legacy BI and onto a governed, AI-assisted platform — with a certified metric layer at the center."
+image: https://robbinsanalytics.github.io/assets/thumb-bi-migration.png
+image-alt: "Cascadia module card — title, one-line summary, and the data source."
 ---
 
 ::: {.case-study-header}

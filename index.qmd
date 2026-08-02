@@ -3,6 +3,7 @@ title: ""
 image: https://robbinsanalytics.github.io/assets/thumb-portfolio.png
 page-layout: full
 toc: false
+image-alt: "Cascadia module card — title, one-line summary, and the data source."
 ---
 
 ::: {.hero-banner}
