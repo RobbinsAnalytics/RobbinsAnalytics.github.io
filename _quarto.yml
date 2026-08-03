@@ -2,8 +2,7 @@ project:
   type: website
   output-dir: _site
   resources:
-    - assets/thumb-portfolio.png
-    - assets/thumb-staffing.png
+    - assets/
 
 website:
   title: "Robbins Analytics"
