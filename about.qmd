@@ -4,21 +4,34 @@ title: "About Aaron Robbins"
 
 ## Bio
 
-I'm a business intelligence and analytics leader with 12+ years building the systems that turn raw, messy data into decisions teams trust. Most recently I led BI and analytics programs at Philips Healthcare, where I built the single source of truth and self-service Power BI reporting across a global manufacturing operation — ten factories on three continents. Before that I led business intelligence for Lowe's ecommerce arm, working high-volume commercial and operational data.
+I'm a business intelligence and analytics leader. I build the systems that make numbers trustworthy at scale — the metric definitions, the data models, and the governance underneath them, not just the dashboard sitting on top. A report is only as good as the data behind it, and that layer is the work.
 
-My core strength is the full analytics stack: modeling data in SQL, moving it through governed pipelines, and delivering it in Power BI in a way non-technical stakeholders can act on. I care as much about data governance and trustworthiness as I do about the final dashboard — a report is only as good as the data behind it.
+Over 12+ years I've done this from both chairs. At Lowe's ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six through building the data warehouse and the reporting stack that supported $10M+ in revenue. At Philips Healthcare I led BI and analytics programs across a global manufacturing operation — ten factories, three continents, 200+ stakeholders in eight countries — standardizing 200+ Critical Data Elements into a common data model, harmonizing KPI frameworks across fifteen factories, and taking $80K a year out of the reporting estate through rationalization. That was leadership through influence rather than reporting lines, which is the harder version of the job.
 
-This site is where I build in the open. The Cascadia projects are real, reproducible analytics stacks I've built end to end, with the code public on GitHub.
+The craft is current, not something I delegated away. Every module in the Cascadia portfolio was built in 2026, end to end, with the code public on GitHub: governed data models, matching rules documented as deliverables in their own right, and validation suites that fail the build rather than ship a number I can't defend.
+
+So I'm comfortable as the person building it or as the person who stands up the function and hires the team. The standard doesn't change either way.
+
+---
+
+## Selected outcomes
+
+- **Founded a BI function.** Proposed the department at Lowe's/ATG Stores, hired the foundational team, and managed six analysts and developers through the build of the data warehouse, KPI definitions, and stewardship model.
+- **Governed data at enterprise scale.** Standardized 200+ Critical Data Elements and common data model definitions across a global manufacturing platform, enforcing semantic consistency across systems that had none.
+- **Harmonized metrics across fifteen factories.** Replaced site-by-site KPI variants with one trusted framework — 17 automated KPIs and 21 new T4 KPIs — so leadership could compare plants on definitions that actually matched.
+- **Took $80K a year out of the reporting estate.** BI rationalization governing refresh rates, usage, ownership, and access, removing duplicate and abandoned reporting.
+- **Eliminated 100+ hours a week of manual reporting**, moving disconnected spreadsheets and point-in-time extracts into automated, governed dashboards.
+- **Zero audit findings** in a regulated medical-device data environment, with access-controlled handling of sensitive data.
 
 ---
 
 ## Skills
 
-- **BI & visualization:** Power BI (data modeling, DAX, Power Query/M), Tableau, Qlik, SAP BusinessObjects, Adobe Analytics, advanced Excel
+- **BI & visualization:** Power BI (data modeling, DAX, Power Query/M), Tableau, Qlik, SAP BusinessObjects, advanced Excel
 - **Data & modeling:** SQL Server, SAP HANA, Python, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality, Microsoft Fabric, Databricks, Azure data platforms
 - **KPI & frameworks:** KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization
 - **Domains:** healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics
-- **Ways of working:** BI program leadership, Agile (Scrumban) / Scrum Master, Lean / Six Sigma, stakeholder management, data storytelling, self-service enablement
+- **Leading work:** BI function ownership, analytics program & portfolio management, Agile (Scrumban) / Scrum Master, stakeholder management across eight countries, self-service enablement, mentoring analysts
 
 ---
 
