@@ -1,0 +1,33 @@
+# Line endings: normalized to LF in the repository and on checkout.
+#
+# Windows tooling on this machine rewrites files with CRLF, which produced
+# whole-file phantom diffs on LICENSE, .gitignore, styles.scss, README.md,
+# index.qmd, every projects/*.qmd, the publish workflow and the tech stack
+# SVG — hundreds of lines of noise that buried the real change in every diff
+# and had to be classified by hand before each commit.
+#
+# Every blob in HEAD is already LF, so this is a policy declaration and not a
+# rewrite: git normalizes on the way into the index, and the phantom diffs
+# stop appearing. No renormalization commit is needed.
+#
+# LF rather than CRLF because the site renders and deploys on ubuntu runners,
+# and because a CNAME carrying a trailing CR silently breaks custom-domain
+# parsing on GitHub Pages — the failure mode is a site that quietly falls back
+# to the github.io address.
+
+* text=auto eol=lf
+
+# Binaries: never examined for line endings, never normalized.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.woff binary
+*.woff2 binary
+*.ttf  binary
+*.otf  binary
+*.zip  binary
+*.db   binary
+*.sqlite binary
