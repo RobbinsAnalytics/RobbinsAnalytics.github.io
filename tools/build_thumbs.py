@@ -152,7 +152,11 @@ def main():
     ap.add_argument("--strict", action="store_true",
                     help="fail if Source Serif 4 did not load, instead of warning")
     args = ap.parse_args()
-    OUT = Path(args.out)
+    # resolve(): as_uri() below requires an absolute path, and a relative --out
+    # (e.g. `--out assets` from a CI working directory) would otherwise fail
+    # deep in the render loop with "relative path can't be expressed as a file
+    # URI" rather than at the point the argument was supplied.
+    OUT = Path(args.out).resolve()
     OUT.mkdir(parents=True, exist_ok=True)
 
     from playwright.sync_api import sync_playwright
