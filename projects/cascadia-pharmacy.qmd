@@ -1,7 +1,7 @@
 ---
 title: "Cascadia Pharmacy"
 subtitle: "GLP-1 drug spend growth and immunization coverage analytics on real CMS + CDC public data."
-image: https://robbinsanalytics.github.io/assets/thumb-pharmacy.png
+image: https://www.robbinsanalytics.com/assets/thumb-pharmacy.png
 image-alt: "Cascadia module card — title, one-line summary, and the data source."
 ---
 

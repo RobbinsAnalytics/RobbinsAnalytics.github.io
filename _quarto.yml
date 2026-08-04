@@ -1,13 +1,25 @@
 project:
   type: website
   output-dir: _site
+  # Copy the whole assets folder. Listing individual files silently drops any
+  # new one: the OG images are referenced as absolute URLs in each page's front
+  # matter, so Quarto never sees them as project references and will not copy
+  # them on its own. Six of eight thumbnails 404'd on the live site until this
+  # changed, 2026-08-02.
   resources:
     - assets/
+    # CNAME must be copied into _site on every build. The publish workflow runs
+    # `quarto publish gh-pages`, which rebuilds the gh-pages branch from _site
+    # and force-pushes it — so any CNAME file GitHub wrote to that branch is
+    # destroyed on the next deploy, the custom domain setting clears, and the
+    # site silently falls back to the github.io address. Shipping it as a
+    # resource is what makes the custom domain survive a rebuild.
+    - CNAME
 
 website:
   title: "Robbins Analytics"
   description: "Business Intelligence & Analytics portfolio — Aaron Robbins"
-  site-url: "https://robbinsanalytics.github.io"
+  site-url: "https://www.robbinsanalytics.com"
   favicon: assets/img/favicon.ico
   open-graph: true
   twitter-card: true

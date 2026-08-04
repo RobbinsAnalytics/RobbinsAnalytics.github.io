@@ -1,7 +1,7 @@
 ---
 title: "Cascadia Finance"
 subtitle: "FormFactor's GAAP financials from SEC EDGAR XBRL — an executive close pack built in Python, SQLite, and static ECharts."
-image: https://robbinsanalytics.github.io/assets/thumb-finance.png
+image: https://www.robbinsanalytics.com/assets/thumb-finance.png
 image-alt: "Cascadia module card — title, one-line summary, and the data source."
 ---
 
@@ -15,9 +15,9 @@ Public SEC filings turned into an executive close pack for FormFactor (NASDAQ: F
 :::
 :::
 
-[Executive Pack](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-primary}
-[Margin Walk & Segments](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-primary}
-[Peer Benchmark](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html){.btn .btn-primary}
+[Executive Pack](https://www.robbinsanalytics.com/cascadia-semiconductors/){.btn .btn-primary}
+[Margin Walk & Segments](https://www.robbinsanalytics.com/cascadia-semiconductors/margins.html){.btn .btn-primary}
+[Peer Benchmark](https://www.robbinsanalytics.com/cascadia-semiconductors/peers.html){.btn .btn-primary}
 
 ---
 
@@ -68,19 +68,19 @@ Getting the governance right *is* the credibility play for a finance audience:
 
 The Phase 1 executive pack is **live now** — an interactive, mobile-friendly page you can open on a phone or share on a screen.
 
-[Open the Live Executive Pack →](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-primary}
+[Open the Live Executive Pack →](https://www.robbinsanalytics.com/cascadia-semiconductors/){.btn .btn-primary}
 
 **Phase 2 — the gross-margin walk & segments — is live too.** The QoQ margin bridge (revenue effect vs margin effect), the Q1 FY2026 GM inflection with its filed drivers, and the Probe Cards vs Systems segment view, with segment revenue reconciled to consolidated GAAP.
 
-[Open the Margin Walk & Segments →](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-primary}
+[Open the Margin Walk & Segments →](https://www.robbinsanalytics.com/cascadia-semiconductors/margins.html){.btn .btn-primary}
 
 **Phase 3 — the peer benchmark & governance showcase — is live too.** FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and every not-comparable metric flagged, never estimated.
 
-[Open the Peer Benchmark →](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html){.btn .btn-primary}
+[Open the Peer Benchmark →](https://www.robbinsanalytics.com/cascadia-semiconductors/peers.html){.btn .btn-primary}
 
 **Beyond the frozen phases — a Q2 FY2026 read-through.** When FormFactor announced Q2 on July 29, 2026, I applied the same margin-walk method to the announced figures; because those come from an 8-K press-release exhibit and aren’t XBRL-tagged, the page sits deliberately outside the frozen dataset and labels every figure as *filed* or *announced* until the 10-Q lands.
 
-[Open the Q2 Read-Through →](https://robbinsanalytics.github.io/cascadia-semiconductors/q2-readthrough.html){.btn .btn-primary}
+[Open the Q2 Read-Through →](https://www.robbinsanalytics.com/cascadia-semiconductors/q2-readthrough.html){.btn .btn-primary}
 
 ---
 
@@ -115,9 +115,9 @@ Built from public SEC filings (EDGAR XBRL APIs), as of 2026-07-21. Independent p
 
 ## Links
 
-- [View Live Module](https://robbinsanalytics.github.io/cascadia-semiconductors/) — the hosted Phase 1 executive pack
-- [Margin Walk & Segments](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html) — the Phase 2 gross-margin walk and Probe Cards vs Systems view
-- [Peer Benchmark & Governance](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html) — the Phase 3 US-listed T&M peer comparison + XBRL tag-mapping table
-- [Q2 FY2026 Read-Through](https://robbinsanalytics.github.io/cascadia-semiconductors/q2-readthrough.html) — the July 29 earnings run through the Phase 2 margin walk, outside the frozen dataset (press-release tier, not yet XBRL)
+- [View Live Module](https://www.robbinsanalytics.com/cascadia-semiconductors/) — the hosted Phase 1 executive pack
+- [Margin Walk & Segments](https://www.robbinsanalytics.com/cascadia-semiconductors/margins.html) — the Phase 2 gross-margin walk and Probe Cards vs Systems view
+- [Peer Benchmark & Governance](https://www.robbinsanalytics.com/cascadia-semiconductors/peers.html) — the Phase 3 US-listed T&M peer comparison + XBRL tag-mapping table
+- [Q2 FY2026 Read-Through](https://www.robbinsanalytics.com/cascadia-semiconductors/q2-readthrough.html) — the July 29 earnings run through the Phase 2 margin walk, outside the frozen dataset (press-release tier, not yet XBRL)
 - [Build Repository](https://github.com/RobbinsAnalytics/cascadia-semiconductors) — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report
 - [Cascadia Architecture Overview](../cascadia.qmd)

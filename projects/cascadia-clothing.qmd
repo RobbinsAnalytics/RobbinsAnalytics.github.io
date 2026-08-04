@@ -1,7 +1,7 @@
 ---
 title: "Cascadia Clothing"
 subtitle: "Coming soon — retail and ecommerce analytics for an apparel scenario."
-image: https://robbinsanalytics.github.io/assets/thumb-clothing.png
+image: https://www.robbinsanalytics.com/assets/thumb-clothing.png
 image-alt: "Cascadia module card — title, one-line summary, and the data source."
 ---
 

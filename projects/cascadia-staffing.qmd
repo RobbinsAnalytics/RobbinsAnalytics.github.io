@@ -1,7 +1,7 @@
 ---
 title: "Cascadia Staffing"
 subtitle: "Contingent-labor economics for U.S. nursing facilities on real CMS payroll data — with a certified-metric governance layer."
-image: https://robbinsanalytics.github.io/assets/thumb-staffing.png
+image: https://www.robbinsanalytics.com/assets/thumb-staffing.png
 image-alt: "Cascadia module card — title, one-line summary, and the data source."
 ---
 

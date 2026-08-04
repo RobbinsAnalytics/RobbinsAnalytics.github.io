@@ -1,6 +1,6 @@
 ---
 title: ""
-image: https://robbinsanalytics.github.io/assets/thumb-portfolio.png
+image: https://www.robbinsanalytics.com/assets/thumb-portfolio.png
 page-layout: full
 toc: false
 image-alt: "Cascadia module card — title, one-line summary, and the data source."
@@ -47,8 +47,8 @@ Pricing Governance / Financial Analytics
 Multi-quarter pricing agreements as a governed dataset rather than a signed PDF — every quote line matched to the agreement in force on its own date, the gap priced in dollars, and a materiality threshold you calibrate before you automate an alert. Synthetic data throughout.
 
 [View Case Study](projects/cascadia-dealdesk.qmd){.btn .btn-primary .btn-sm}
-[Exception Report](https://robbinsanalytics.github.io/cascadia-dealdesk/){.btn .btn-outline-secondary .btn-sm}
-[Customer Margin](https://robbinsanalytics.github.io/cascadia-dealdesk/customer.html){.btn .btn-outline-secondary .btn-sm}
+[Exception Report](https://www.robbinsanalytics.com/cascadia-dealdesk/){.btn .btn-outline-secondary .btn-sm}
+[Customer Margin](https://www.robbinsanalytics.com/cascadia-dealdesk/customer.html){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 
@@ -63,9 +63,9 @@ Financial Analytics
 FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.
 
 [View Case Study](projects/cascadia-semiconductors.qmd){.btn .btn-primary .btn-sm}
-[Exec Pack](https://robbinsanalytics.github.io/cascadia-semiconductors/){.btn .btn-outline-secondary .btn-sm}
-[Margin Walk](https://robbinsanalytics.github.io/cascadia-semiconductors/margins.html){.btn .btn-outline-secondary .btn-sm}
-[Peers](https://robbinsanalytics.github.io/cascadia-semiconductors/peers.html){.btn .btn-outline-secondary .btn-sm}
+[Exec Pack](https://www.robbinsanalytics.com/cascadia-semiconductors/){.btn .btn-outline-secondary .btn-sm}
+[Margin Walk](https://www.robbinsanalytics.com/cascadia-semiconductors/margins.html){.btn .btn-outline-secondary .btn-sm}
+[Peers](https://www.robbinsanalytics.com/cascadia-semiconductors/peers.html){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 

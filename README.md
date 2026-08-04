@@ -2,7 +2,7 @@
 
 Aaron Robbins — Business Intelligence & Analytics portfolio site.
 
-**Live URL:** <https://robbinsanalytics.github.io>
+**Live URL:** <https://www.robbinsanalytics.com>
 
 Built with [Quarto](https://quarto.org/) and published to GitHub Pages.
 
