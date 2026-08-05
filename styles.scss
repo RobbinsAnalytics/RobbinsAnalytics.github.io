@@ -147,7 +147,15 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
   border: 1px solid $cascadia-mist;
   border-radius: 4px;               // Rule 2.5: restraint, not pillowing
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+
+  // Fill the grid cell so every card in a row ends at the same baseline. The
+  // cards carry different amounts of content — one summary runs longer, one
+  // module has five report buttons and another has one — and without this they
+  // rendered at 622 / 528 / 475px across a single row, which read as three
+  // different components rather than one set. Spacing between rows comes from
+  // the grid's own row-gap, so no bottom margin here; adding one would push
+  // each card past its cell and reintroduce the ragged edge.
+  height: 100%;
   transition: box-shadow 0.18s ease, border-color 0.18s ease;
 
   &:hover {
