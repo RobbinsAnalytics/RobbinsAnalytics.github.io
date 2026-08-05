@@ -9,25 +9,34 @@
       "Bash(git fetch*)",
       "Bash(git rev-parse*)",
       "Bash(git rev-list*)",
-      "Bash(git add*)",
+      "Bash(git branch*)",
       "Bash(git restore*)",
+      "Bash(git add*)",
       "Bash(git commit*)",
-      "Bash(git push origin main)",
       "Bash(quarto render*)",
       "Bash(gh run*)",
+      "Bash(gh api repos/*/pages*)",
       "Bash(curl -sSI*)",
-      "Bash(curl -sS https://www.robbinsanalytics.com*)"
+      "Bash(curl -sS https://www.robbinsanalytics.com*)",
+      "Bash(curl -sSI https://www.robbinsanalytics.com*)",
+      "Bash(curl -sS https://robbinsanalytics.com*)",
+      "Bash(curl -sS https://robbinsanalytics.github.io*)"
     ],
     "ask": [
-      "Bash(git push*--force*)",
+      "Bash(git push*)",
       "Bash(git reset --hard*)",
       "Bash(git rebase*)",
       "Bash(quarto publish*)"
     ],
     "deny": [
-      "Bash(git push*--force*origin main)"
+      "Bash(git push*--force*)",
+      "Bash(git push*-f *)",
+      "Bash(git add -A*)",
+      "Bash(git add .)",
+      "Bash(git add . *)"
     ]
   },
+  "defaultMode": "acceptEdits",
   "hooks": {
     "PreToolUse": [
       {

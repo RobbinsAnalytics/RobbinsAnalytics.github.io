@@ -1,6 +1,6 @@
 # robbinsanalytics.com — what an agent needs to know
 
-Quarto site, published to GitHub Pages. Seven facts that are not inferable from
+Quarto site, published to GitHub Pages. Eight facts that are not inferable from
 the code, each of which caused a real failure. Everything else, read the repo.
 
 ## Publishing
@@ -17,6 +17,16 @@ site falls back to the `github.io` address. `_quarto.yml` lists `CNAME` under
 `resources:` for exactly this reason. Do not remove it.
 
 **`_site/` is build output and is gitignored.** Never commit it.
+
+**`build.txt` is the deploy's receipt, and CI overwrites it.** The committed
+value is the placeholder `local`; the workflow writes the pushed commit SHA
+into it before rendering, then polls
+`https://www.robbinsanalytics.com/build.txt` until the edge returns that same
+SHA. This exists because verifying from a local shell could pass against a
+stale CDN edge — the Action went green while the site served the previous build
+for another two minutes. Like `CNAME`, it is listed under `resources:` in
+`_quarto.yml` so Quarto copies it into `_site`. Do not remove either, and do
+not commit a real SHA into it.
 
 ## Committing
 
@@ -45,5 +55,13 @@ edited images are overwritten.
 ## How to publish
 
 Use `/publish`. It fetches first, refuses to proceed if the branch is behind,
-classifies whitespace noise, commits, pushes, waits for the Action, and verifies
-the live site over HTTP. Do not improvise a shorter version of this.
+classifies whitespace noise, stages by name, commits, and pushes. **The push is
+the deploy and the single approval** — `git push` is on `ask` in
+`.claude/settings.json` while the read-only preflight calls are on `allow`, so
+going live is always one deliberate yes.
+
+**Verification lives in the Action, not in a local shell.** After deploying,
+the workflow asserts the Pages `cname`, polls `build.txt` until the edge serves
+the pushed SHA, and checks the core pages and redirects. Any miss fails the run
+and emails Aaron. Do not re-add a local verification loop — that is the thing
+that produced false passes. Do not improvise a shorter version of `/publish`.

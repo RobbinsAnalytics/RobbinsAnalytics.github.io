@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  pages: read
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -20,8 +21,90 @@ jobs:
           python -m pip install --quiet playwright
           python -m playwright install --with-deps chromium
           python tools/build_thumbs.py --out assets --strict
+
+      # Stamp this deploy so the verification steps below can tell the live
+      # site apart from whatever the CDN was serving a minute ago. Must run
+      # before the publish step — Quarto copies build.txt into _site as a
+      # resource (see _quarto.yml).
+      - name: Stamp the build
+        run: echo "${{ github.sha }}" > build.txt
+
       - uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ---------------------------------------------------------------------
+      # Self-verification. Everything below runs after deployment and fails the
+      # Action on any miss, which is the only notification that has ever
+      # actually worked: a red run emails Aaron. Verification used to happen in
+      # a local shell right after the push, where it could pass against a stale
+      # edge — the Action was green while the CDN served the previous build for
+      # another two minutes.
+      # ---------------------------------------------------------------------
+
+      # Checked first because it is instant and it explains the most likely
+      # failure of the next step. `quarto publish gh-pages` force-pushes the
+      # branch, so a missing CNAME in _site silently clears the custom domain —
+      # after which www stops resolving to the site at all and the edge poll
+      # would just time out with no clue why.
+      - name: Assert the custom domain survived the force-push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          cname="$(gh api "repos/${{ github.repository }}/pages" --jq '.cname // ""')"
+          if [ "$cname" != "www.robbinsanalytics.com" ]; then
+            echo "::error::GitHub Pages cname is '${cname:-<empty>}', expected www.robbinsanalytics.com."
+            echo "CNAME did not survive the gh-pages force-push. Check that _quarto.yml still lists CNAME under resources:."
+            exit 1
+          fi
+          echo "Pages cname = $cname"
+
+      - name: Wait for the edge to serve this commit
+        run: |
+          set -uo pipefail
+          expected="${{ github.sha }}"
+          for attempt in $(seq 1 40); do
+            actual="$(curl -sS --max-time 20 \
+              "https://www.robbinsanalytics.com/build.txt?cb=${expected}-${attempt}" \
+              | tr -d '[:space:]' || true)"
+            if [ "$actual" = "$expected" ]; then
+              echo "Edge is serving $expected (after $(( (attempt - 1) * 15 ))s)."
+              exit 0
+            fi
+            echo "attempt ${attempt}/40: edge has '${actual:-<none>}', want '${expected}'"
+            sleep 15
+          done
+          echo "::error::https://www.robbinsanalytics.com/build.txt never returned ${expected} within 10 minutes."
+          echo "The Action deployed, but the live site is not serving this build. Do not report this deploy as successful."
+          exit 1
+
+      # Only runs once the edge is known to be on this commit, so a 404 here is
+      # a real broken page and not propagation lag.
+      - name: Verify the live pages
+        run: |
+          set -uo pipefail
+          sha="${{ github.sha }}"
+          fail=0
+          check() {  # check <expected-code> <url>
+            code="$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "$2" || echo 000)"
+            if [ "$code" = "$1" ]; then
+              echo "  ok   $1  $2"
+            else
+              echo "::error::expected $1, got $code — $2"
+              fail=1
+            fi
+          }
+          for path in / /about.html /cascadia.html \
+                      /projects/cascadia-semiconductors.html \
+                      /projects/cascadia-dealdesk.html \
+                      /assets/thumb-finance.png; do
+            check 200 "https://www.robbinsanalytics.com${path}?cb=${sha}"
+          done
+          # The apex and github.io addresses must keep redirecting; old links
+          # and previously shared social cards point at both.
+          check 301 "https://robbinsanalytics.com/?cb=${sha}"
+          check 301 "https://robbinsanalytics.github.io/?cb=${sha}"
+          exit $fail

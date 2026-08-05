@@ -15,6 +15,13 @@ project:
     # site silently falls back to the github.io address. Shipping it as a
     # resource is what makes the custom domain survive a rebuild.
     - CNAME
+    # The deploy's own receipt. CI overwrites this with the pushed commit SHA
+    # before rendering, then polls https://www.robbinsanalytics.com/build.txt
+    # until the edge returns that same SHA. Verifying from a local shell could
+    # pass against a stale CDN edge while the Action was already green; this
+    # makes "the live site is actually serving this commit" the Action's own
+    # pass/fail. The committed value is the placeholder `local`.
+    - build.txt
 
 website:
   title: "Robbins Analytics"
