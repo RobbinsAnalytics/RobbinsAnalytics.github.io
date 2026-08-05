@@ -11,6 +11,7 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 | Domain | Status | Stack | Data | Headline Skill |
 |---|---|---|---|---|
+| [Cascadia Deal Desk](projects/cascadia-dealdesk.qmd) | Live | Python → SQLite → static ECharts | Synthetic (seeded generator) | Pricing governance / exception calibration |
 | [Cascadia Finance](projects/cascadia-semiconductors.qmd) | Live | Python → SQLite → static ECharts (SEC EDGAR XBRL) | FormFactor SEC filings (real) | Financial analytics / XBRL governance |
 | [Cascadia Staffing](projects/cascadia-staffing.qmd) | Complete | Local SQL Server → Power BI | CMS PBJ Daily Nurse Staffing (real) | Marketplace labor KPIs / metric governance |
 | [Cascadia Pharmacy](projects/cascadia-pharmacy.qmd) | Complete | Local SQL Server → Power BI | CMS Part D + CDC VaxView (real) | Messy-data cleaning / GLP-1 growth |
@@ -23,8 +24,8 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 ## Three Patterns, One Standard
 
-**Lightweight analytical stack — Cascadia Finance.**
-A financial-analytics module that needs neither SQL Server nor Power BI: Python (requests + pandas) pulls and freezes SEC EDGAR XBRL filings, conforms them into a SQLite star schema, and renders a static, hostable executive pack with Apache ECharts. It runs forever, offline, for free — and every figure is labeled GAAP vs non-GAAP.
+**Lightweight analytical stack — Cascadia Deal Desk & Finance.**
+Two modules that need neither SQL Server nor Power BI: Python (pandas) conforms the data into a SQLite star schema and renders a static, hostable page with Apache ECharts, with the dataset inlined at build time so the pages make no network call at all. Finance pulls and freezes SEC EDGAR XBRL filings and labels every figure GAAP vs non-GAAP; Deal Desk matches quote lines against a governed agreement register and prices the gap in dollars. Both run forever, offline, for free — and circulate as a link with nothing to install.
 
 **Pragmatic local stack — Cascadia Pharmacy & Staffing.**
 For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python `raw → clean` staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.
@@ -57,6 +58,14 @@ Each domain rebuilds from scratch with one command — PowerShell for the SQL Se
 **Honest about limits**
 Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values (like reconstructed fiscal quarters) are marked as derived.
 :::
+::: {.g-col-12 .g-col-md-6}
+**Ambiguity fails the build**
+Where a rule cannot resolve a case, the run stops rather than guessing. Cascadia Deal Desk's matching rule settles contested quote lines with three documented tiebreaks; if a tie survives all three, the build fails — an unresolvable tie is a data-quality defect, not a judgment call.
+:::
+::: {.g-col-12 .g-col-md-6}
+**Charts reviewed against a standard**
+Every chart is scored pass/fail against my visualization design system before it ships, including a blind panel of readers who see only the rendered chart. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded.
+:::
 :::
 
 ---
@@ -75,6 +84,7 @@ Suppressed or missing data is flagged, never silently filled. GAAP is labeled di
 <span class="chip">Microsoft Fabric</span>
 <span class="chip">PySpark</span>
 <span class="chip">Static HTML / JS</span>
+<span class="chip">WCAG 2.2 AA</span>
 <span class="chip">GitHub Pages</span>
 <span class="chip">PowerShell</span>
 <span class="chip">Git</span>

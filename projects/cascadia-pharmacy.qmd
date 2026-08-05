@@ -102,6 +102,4 @@ Real government data isn't clean: CMS suppresses small-cell counts (blanks/aster
 
 ## Links
 
-- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics) — SQL DDL, Python acquisition/staging scripts, run_phase1.ps1
-- [Domain Explainer](https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics/blob/main/docs/explainers/03_cascadia_pharmacy_domain.md) — schema decisions, messy-data showcase table, interview talking points
 - [Cascadia Architecture Overview](../cascadia.qmd)

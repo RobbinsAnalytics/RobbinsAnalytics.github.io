@@ -93,7 +93,7 @@ Three artifacts ship with the module, and they are the point rather than the pap
 
 - **`matching_rules.md`** — the rule, the tiebreaks, the tie-failure behavior, worked examples, and an honest limits section.
 - **`generator_assumptions.md`** — every tunable assumption and the realized mix against target.
-- **`chart-review.md`** — a scored pass/fail review of all eleven charts against my published visualization design system, including the checks that failed on the first pass and what changed. Several titles claimed figures a reader could not verify from the plot, and those charts were rebuilt rather than re-worded.
+- **`chart-review.md`** — a scored pass/fail review of all eleven charts against my visualization design system, including the checks that failed on the first pass and what changed. Several titles claimed figures a reader could not verify from the plot, and those charts were rebuilt rather than re-worded.
 
 ---
 
