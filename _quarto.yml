@@ -27,13 +27,24 @@ website:
   title: "Robbins Analytics"
   description: "Business Intelligence & Analytics portfolio — Aaron Robbins"
   site-url: "https://www.robbinsanalytics.com"
-  favicon: assets/img/favicon.ico
+  favicon: assets/brand/favicon.svg
   open-graph: true
   twitter-card: true
 
   navbar:
     background: dark
     foreground: light
+    # The navbar is Spruce ($navbar-bg in styles.scss), which is exactly the
+    # surface LOGO.md 1.1 sends to the reversed cut — so this is the reversed
+    # mark, not the light one. They are separate cuts, not recolours (3.3), and
+    # the light mark's Rain #828E88 context bars measure 1.15:1 against dark
+    # Evergreen on Spruce, which would merge the bars into one shape.
+    #
+    # The mark only, beside the existing text title — not the primary lockup.
+    # At navbar height the lockup runs near the 12px floor of Rule 5.3 and the
+    # ligature has not been proofed there.
+    logo: assets/brand/robbins-mark-reversed.svg
+    logo-alt: "Robbins Analytics"
     left:
       - text: "Home"
         href: index.qmd
@@ -77,6 +88,14 @@ format:
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+          <!-- LOGO.md 4.2. SVG first so it wins wherever it is supported and
+               the mark can swap palettes with the browser chrome; the 32px PNG
+               is for Safari, which renders SVG favicons but ignores the
+               embedded prefers-color-scheme block. Quarto's own favicon: key
+               emits the SVG link; these are the ones it cannot express. -->
+          <link rel="icon" href="/assets/brand/favicon-32.png" sizes="32x32">
+          <link rel="icon" href="/assets/brand/favicon-16.png" sizes="16x16">
+          <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
     theme:
       - cosmo
       - styles.scss

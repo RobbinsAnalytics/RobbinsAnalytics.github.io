@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" role="img" aria-labelledby="m-title">
+  <title id="m-title">Robbins Analytics — editable master</title>
+  <!-- LOGO.md 1.5: this file keeps live text and is the editable
+       original. The shipped lockup is the outlined derivative built
+       by build_lockups.py. Do not link this file from the site.
+       Ligature: the bb offset cannot be expressed in live text; it
+       is applied by the build. -->
+  <text x="152.00" y="200.00" fill="#232B27"
+        font-family="Source Serif 4" font-size="149.25">Robbins</text>
+  <text x="152.00" y="267.00" fill="#5B6660"
+        font-family="Segoe UI" font-size="59.98"
+        letter-spacing="5.969">ANALYTICS</text>
+</svg>

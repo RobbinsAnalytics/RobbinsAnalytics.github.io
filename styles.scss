@@ -69,6 +69,26 @@ $border-color:       $cascadia-mist;
 body { font-family: $cascadia-sans; }
 h1, h2, h3, h4, h5, .hero-banner h1 { font-family: $cascadia-serif; letter-spacing: -0.01em; }
 
+// Navbar mark. LOGO.md 2.1 — the mark is drawn on a 16-unit grid and may only
+// be scaled by integer factors, so this is 32px (2x) and not a size that "looks
+// about right". The size is set here rather than on the SVG because the three
+// mark files are final and carry no width/height; without an intrinsic size
+// Bootstrap collapses the <img> to 4x0 and the mark silently disappears.
+//
+// Clear space: 15px above and below from the navbar's own padding, 16px to the
+// title. LOGO.md 1.2 states clear space as 1 C, the wordmark cap height, which
+// a mark-only placement does not have — see Open Item 19. Measured, not assumed.
+// max-height is the one that matters: Quarto ships `.navbar-logo { max-height:
+// 24px }`, which silently squashed the square mark to 32x24 — a non-uniform
+// scale, and every edge off the grid. Setting width and height alone does not
+// beat it.
+.navbar-logo {
+  width: 32px;
+  height: 32px;
+  max-height: 32px;
+  margin-right: 16px;
+}
+
 // Rule 5.3 / adopted AAA 2.4.13 — a visible focus ring that is never clipped.
 a:focus-visible, button:focus-visible, .btn:focus-visible {
   outline: 2px solid $cascadia-evergreen;

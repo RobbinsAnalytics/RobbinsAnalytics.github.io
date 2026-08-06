@@ -22,6 +22,13 @@ jobs:
           python -m playwright install --with-deps chromium
           python tools/build_thumbs.py --out assets --strict
 
+      # Same reason the thumbnails are regenerated rather than committed by
+      # hand: the icons are derived from assets/brand/robbins-mark*.svg, and a
+      # hand-edited PNG that drifts from the mark is exactly the failure this
+      # prevents. Cheap — it is the Chromium that is already installed above.
+      - name: Regenerate the icon set
+        run: python tools/build_icons.py --out assets/brand
+
       # Stamp this deploy so the verification steps below can tell the live
       # site apart from whatever the CDN was serving a minute ago. Must run
       # before the publish step — Quarto copies build.txt into _site as a

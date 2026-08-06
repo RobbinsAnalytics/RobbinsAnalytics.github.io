@@ -22,6 +22,14 @@ from pathlib import Path
 _DEFAULT_OUT = Path(__file__).resolve().parent.parent / "assets"
 OUT = _DEFAULT_OUT
 
+# The identity mark, read from the one file that defines it rather than copied
+# here — LOGO.md 2.1's coordinates must never exist in two places. Rendered at
+# 48 px, an integer 3x of the 16-unit grid (LOGO.md 2.1), in the top-right of
+# the card where it is nowhere near the motif: the motif is a real chart form,
+# and LOGO.md 4.1 keeps the mark off the canvas.
+_MARK_SVG = (Path(__file__).resolve().parent.parent
+             / "assets" / "brand" / "robbins-mark.svg")
+
 C = {
     "evergreen": "#1E7A4C", "glacier": "#4C8BC0", "madrona": "#C05A2E",
     "lupine": "#7B68AE", "lichen": "#9C7A20", "rain": "#9AA6A0",
@@ -106,11 +114,17 @@ def page(m):
     font-family: "Segoe UI", -apple-system, "Helvetica Neue", Liberation Sans, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   }}
+  .head {{ display: flex; align-items: center; justify-content: space-between }}
   .kicker {{
     display: flex; align-items: center; gap: 14px;
     font-size: 19px; letter-spacing: .13em; text-transform: uppercase;
     color: {C['slate']}; font-weight: 600;
   }}
+  /* LOGO.md 1.2 asks for 1 C of clear space on all four sides. The card's own
+     68px/76px padding already exceeds it at this size, so the mark needs no
+     margin of its own — but it must not be enlarged without re-checking that. */
+  .brand {{ width: 48px; height: 48px; flex: none }}
+  .brand svg {{ width: 48px; height: 48px; display: block }}
   .tick {{ display:block; width: 5px; height: 24px; background: {accent}; flex: none }}
   h1 {{
     font-family: "Source Serif 4", Georgia, Liberation Serif, "Times New Roman", serif;
@@ -132,7 +146,10 @@ def page(m):
   }}
   .strip .tick {{ height: 17px; background: {C['evergreen']} }}
 </style></head><body>
-  <div class="kicker"><span class="tick"></span>{m['kicker']}</div>
+  <div class="head">
+    <div class="kicker"><span class="tick"></span>{m['kicker']}</div>
+    <div class="brand">{_MARK_SVG.read_text(encoding="utf-8")}</div>
+  </div>
   <div class="mid">
     <h1>{m['title']}</h1>
     <div class="line">{m['line']}</div>
