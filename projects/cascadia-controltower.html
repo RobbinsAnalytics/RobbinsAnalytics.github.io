@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cascadia Medical Devices – Robbins Analytics</title>
+<title>Cascadia Control Tower – Robbins Analytics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,14 +87,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
 
 
-<meta property="og:title" content="Cascadia Medical Devices – Robbins Analytics">
-<meta property="og:description" content="Predictive maintenance and OEE analytics on a 5.9M-row manufacturing dataset.">
-<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-medical-devices.png">
+<meta property="og:title" content="Cascadia Control Tower – Robbins Analytics">
+<meta property="og:description" content="Distribution-centre governance — three fill rates computed from one dataset, why they disagree, and the split-shipment cost that none of them measures.">
+<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-controltower.png">
 <meta property="og:site_name" content="Robbins Analytics">
 <meta property="og:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
-<meta name="twitter:title" content="Cascadia Medical Devices – Robbins Analytics">
-<meta name="twitter:description" content="Predictive maintenance and OEE analytics on a 5.9M-row manufacturing dataset.">
-<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-medical-devices.png">
+<meta name="twitter:title" content="Cascadia Control Tower – Robbins Analytics">
+<meta name="twitter:description" content="Distribution-centre governance — three fill rates computed from one dataset, why they disagree, and the split-shipment cost that none of them measures.">
+<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-controltower.png">
 <meta name="twitter:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -195,8 +195,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cascadia Medical Devices</h1>
-<p class="subtitle lead">Predictive maintenance and OEE analytics on a 5.9M-row manufacturing dataset.</p>
+<h1 class="title">Cascadia Control Tower</h1>
+<p class="subtitle lead">Distribution-centre governance — three fill rates computed from one dataset, why they disagree, and the split-shipment cost that none of them measures.</p>
 </div>
 
 
@@ -215,44 +215,34 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="case-study-header">
 <div class="cs-domain">
-<p>Manufacturing Analytics</p>
+<p>Supply Chain / Distribution-Centre Governance</p>
 </div>
-<section id="cascadia-medical-devices" class="level1">
-<h1>Cascadia Medical Devices</h1>
+<section id="cascadia-control-tower" class="level1">
+<h1>Cascadia Control Tower</h1>
 <div class="cs-hook">
-<p>Proving that a production-grade BI architecture scales from raw sensor data to boardroom OEE dashboards — in a single, reproducible build.</p>
+<p>A distribution centre reports 94% fill rate to Operations, 92% to the merchant team and 87% to Finance. Three numbers, three teams, all arithmetically correct, none reconciled. Meanwhile the thing actually costing money is invisible in all three — an order split across two nodes still counts as filled. This module certifies one definition, prices the leak, and shows why no single split threshold works across two banners.</p>
 </div>
 </section>
 </div>
+<p><a href="https://www.robbinsanalytics.com/cascadia-controltower/" class="btn btn-primary">Open the module</a></p>
 <hr>
-<section id="overview" class="level2">
-<h2 data-anchor-id="overview">Overview</h2>
-<p>A full analytics stack for a fictional 3-line medical-device manufacturer, built on ~5.9M synthetic production events across 29 months, paired with real NASA C-MAPSS turbofan run-to-failure sensor data for predictive maintenance. It demonstrates dimensional modeling at scale, a medallion pipeline, and root-cause operational analytics.</p>
-<hr>
-</section>
-<section id="business-problem" class="level2">
-<h2 data-anchor-id="business-problem">Business Problem</h2>
-<p>Manufacturing leaders couldn’t see why on-time delivery was slipping on certain product lines. The data existed but was fragmented across systems with no single, trusted view.</p>
-<hr>
-</section>
-<section id="architecture" class="level2">
-<h2 data-anchor-id="architecture">Architecture</h2>
-<p>This build is the portfolio’s full enterprise-BI stack — the one Cascadia domain that runs end to end on Microsoft Fabric:</p>
-<div class="arch-container">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../assets/cascadia_analytics_tech_stack.svg" class="img-fluid figure-img"></p>
-<figcaption>Cascadia end-to-end data platform</figcaption>
-</figure>
+<div class="callout callout-style-default callout-important callout-titled" title="Synthetic data">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Synthetic data
 </div>
 </div>
-<p><strong>Source (SQL Server):</strong> CascadiaMES — star schema with 4 fact tables, 8 dimensions, <code>dim_date</code>, ~5.9M rows, plus a separate schema for NASA C-MAPSS sensor data. Loaded reproducibly via PowerShell; DP-600-aligned.</p>
-<p><strong>Pipeline (Microsoft Fabric):</strong> Bronze → Silver → Gold medallion lakehouse, implemented in PySpark notebooks.</p>
-<p><strong>Semantic model + report (Power BI):</strong> Direct Lake connection; DAX measures for OEE, MTBF, defect rate, and on-time-in-full delivery.</p>
-<hr>
-</section>
-<section id="data-sources" class="level2">
-<h2 data-anchor-id="data-sources">Data Sources</h2>
+<div class="callout-body-container callout-body">
+<p>Every order, style, size, shipment, labor hour and dollar in this module was invented by a seeded generator. <strong>Alder &amp; Vance</strong> and <strong>Off-Main</strong> are invented banners and no real company is the subject of this analysis. It demonstrates a design; it measures nothing real. Three real public datasets — BLS wage data, Census retail inventories, and the SEC filings of Macy’s, Kohl’s and Dillard’s — constrain what the generator is allowed to produce, and are named wherever they are used.</p>
+</div>
+</div>
+<section id="the-problem" class="level2">
+<h2 data-anchor-id="the-problem">The problem</h2>
+<p>Fill rate sounds like one number. It is at least three, and the supply-chain discipline has never settled which one it means — published guidance says plainly that there is no agreed OTIF formula, because the calculation depends on which point of view you are measuring and the level at which the data is stored.</p>
+<p>So three teams compute three different things from one dataset and each is right:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -262,66 +252,203 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>Source</th>
-<th>Type</th>
-<th>Rows</th>
-<th>Notes</th>
+<th>Metric</th>
+<th>Value</th>
+<th>Read by</th>
+<th>The question it answers</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>CascadiaMES (simulated)</td>
-<td>SQL Server</td>
-<td>~5.9M</td>
-<td>Seed-controlled deterministic generator; 4 fact tables, 8 dimensions</td>
+<td>Unit fill</td>
+<td><strong>94.3%</strong></td>
+<td>Operations</td>
+<td>How much of the demand did we move?</td>
 </tr>
 <tr class="even">
-<td>NASA C-MAPSS</td>
-<td>Public (NASA)</td>
-<td>265K cycles</td>
-<td>Turbofan Engine Degradation dataset (FD001–FD004); cited and disclosed</td>
+<td>Line fill</td>
+<td><strong>91.6%</strong></td>
+<td>Merchandising</td>
+<td>How much of the assortment could we serve?</td>
+</tr>
+<tr class="odd">
+<td>Order fill</td>
+<td><strong>87.2%</strong></td>
+<td>Finance</td>
+<td>Did the customer get what they asked for?</td>
 </tr>
 </tbody>
 </table>
-<hr>
+<p>Order fill is arithmetically the lowest of the three in every period, because an order counts as filled only if every line in it is. The gap between the most forgiving definition and the strictest is <strong>7.0 points</strong> — wide enough that Operations can report service improving while Finance reports it flat, both correctly, and the meeting resolves nothing.</p>
+<p><strong>The second problem is worse, because nothing on that list measures it.</strong> An order split across two fulfilment nodes still counts as filled on all three definitions. It is 100% filled, on time, in full — and it costs roughly a second parcel to ship.</p>
 </section>
-<section id="headline-skill-root-cause-analytics-predictive-maintenance" class="level2">
-<h2 data-anchor-id="headline-skill-root-cause-analytics-predictive-maintenance">Headline Skill: Root-Cause Analytics &amp; Predictive Maintenance</h2>
-<p>The dataset carries an engineered, discoverable story: a single station’s cycle time drifts up (≈58→69s), dragging First Pass Yield down on one line (≈95.5%→90.2%) and on-time-in-full delivery down on the affected product (≈92%→69%) — while control lines stay flat. The reporting isolates the root cause rather than just showing the symptom.</p>
-<p>The NASA C-MAPSS layer adds a parallel story: remaining useful life (RUL) modeling on turbofan engine sensor data, surfaced as a reliability/maintenance planning view in the same report.</p>
-<hr>
-</section>
-<section id="the-report" class="level2">
-<h2 data-anchor-id="the-report">The Report</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../assets/cascadia-medical-devices-page1.png" class="img-fluid figure-img"></p>
-<figcaption>The manufacturing analytics report — Power BI. OEE, FPY, and OTIF headline cards; availability / performance / OEE by production line; FPY by month and station (the declining station drives the root-cause story); a downtime Pareto by reason code; and OTIF by customer.</figcaption>
-</figure>
-</div>
-<p>The Power BI report surfaces the OEE and root-cause yield story alongside the NASA C-MAPSS reliability / remaining-useful-life view.</p>
-<hr>
-</section>
-<section id="opportunities-for-future-enhancements" class="level2">
-<h2 data-anchor-id="opportunities-for-future-enhancements">Opportunities for Future Enhancements</h2>
+<section id="the-analytical-payload" class="level2">
+<h2 data-anchor-id="the-analytical-payload">The analytical payload</h2>
+<p><strong>The definitional gap and the economic leak are the same phenomenon.</strong> Fill rate looks healthiest exactly where splitting is worst, because splitting is <em>how</em> the network achieves fill.</p>
+<p>That is easy to assert and hard to prove, so the simulation records, for every order, what the same order against the same inventory position would have shipped if splitting were forbidden — the best any single node could have done, evaluated <em>before</em> the real allocation commits. <strong>Splitting buys 2.65 points of unit fill.</strong> Without that counterfactual the claim is rhetoric; with it, the governance decision has a price.</p>
+<p>Shortfall and splitting turn out to be two symptoms of one condition — inventory fragmented relative to what customers put in a basket. Slow-moving styles are ranged at two nodes rather than six, so a basket containing one either reaches for a second node or goes short:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>SKU velocity band</th>
+<th>Ships short</th>
+<th>Uses more than one node</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A · fast</td>
+<td>4.4%</td>
+<td>4.2%</td>
+</tr>
+<tr class="even">
+<td>B · mid</td>
+<td>8.4%</td>
+<td>10.2%</td>
+</tr>
+<tr class="odd">
+<td><strong>C · slow</strong></td>
+<td><strong>9.5%</strong></td>
+<td><strong>17.1%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>And the same rule produces different economics by banner.</strong> The dollar cost of a split barely differs — $5.64 in the off-price banner, $5.18 in the premium one. Its consequence differs by more than three times, because it is charged against a margin that differs by more than three times:</p>
 <ul>
-<li>A recorded 3-minute walkthrough of the root-cause story.</li>
-<li>A Direct Lake performance writeup on the 5.9M-row model.</li>
+<li><strong>Off-Main (off-price): 12.1% of the gross margin on the order</strong></li>
+<li><strong>Alder &amp; Vance (premium): 3.6%</strong></li>
+</ul>
+<p>There is therefore <strong>no single correct split threshold</strong>. Any network-wide rule is simultaneously too aggressive for one banner and too permissive for the other. That is a governance finding, not a modelling inconvenience.</p>
+</section>
+<section id="the-resolution" class="level2">
+<h2 data-anchor-id="the-resolution">The resolution</h2>
+<p>Certify <strong>order fill</strong> as the service number. Retain line and unit fill as explicitly exploratory, with the reason stated. Add <strong>split rate</strong> to the same register, so the cost of achieving fill sits next to the fill.</p>
+<p>Certification is not a ranking. An exploratory metric is not a bad metric; it is one the business has agreed not to run on. Retaining the other two definitions and labelling them <em>is</em> the governance act — deleting them would move the disagreement rather than resolve it.</p>
+<p>The register carries eleven metrics, eight certified. <strong>It is generated from the <code>meta</code> blocks on the dbt models that compute the metrics</strong> — the same file that defines their tests. Nothing is typed twice, and a <code>--check</code> mode fails the build if a definition drifts from the model behind it. A hand-typed register is documentation; a generated one is engineering.</p>
+</section>
+<section id="what-was-built" class="level2">
+<h2 data-anchor-id="what-was-built">What was built</h2>
+<p>Python generator → DuckDB star schema → <strong>dbt Core</strong> → static ECharts page.</p>
+<ul>
+<li><strong>A seeded generator</strong>, 24 months, 379,979 orders across 621,942 lines and six nodes. Same seed, same content hash — re-checked on every validation run.</li>
+<li><strong>Inventory held at style <em>and size</em></strong>, which is what lets the three fill rates differ at all. Size brokenness is the commonest reason a real retail line ships incomplete; model stock at style level and every line becomes all-or-nothing.</li>
+<li><strong>No order is ever labelled “split.”</strong> An order splits when the allocator cannot satisfy every line from one node and reaches for a second. The classification is an observed consequence of a documented rule, and the validation suite re-derives it from the shipments alone.</li>
+<li><strong>dbt Core on DuckDB</strong> — 6 staging views, 9 marts, <strong>69 data tests</strong>.</li>
+<li><strong>A static page</strong> with ECharts vendored and the dataset inlined. No build step and no part of the page makes a network call. It is the durable artifact and survives the warehouse being switched off.</li>
+</ul>
+</section>
+<section id="three-real-anchors-and-what-they-can-honestly-claim" class="level2">
+<h2 data-anchor-id="three-real-anchors-and-what-they-can-honestly-claim">Three real anchors, and what they can honestly claim</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anchor</th>
+<th>Source</th>
+<th>What it constrains</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Labor</td>
+<td><strong>BLS OEWS</strong> May 2025, SOC 53-7062, Seattle-Tacoma-Bellevue</td>
+<td>Every labor dollar costed at a real published wage — $22.95/hr median — across the percentile spread, not a median alone</td>
+</tr>
+<tr class="even">
+<td>Inventory</td>
+<td><strong>US Census MRTS</strong>, department stores, 1992–2026</td>
+<td>The network runs at 0.97 months of stock against a sector band of 2.03–3.64</td>
+</tr>
+<tr class="odd">
+<td>P&amp;L</td>
+<td><strong>SEC EDGAR XBRL</strong> — Macy’s, Kohl’s, Dillard’s</td>
+<td>DC operating cost at 6.83% of shipped sales against a peer SG&amp;A range of 23.7–39.0%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Two of the three audits bound the model rather than matching it, and the page says so.</strong> Census inventories cover entire department stores, most of whose stock sits on selling floors this module never simulates — so sitting below the band is the correct answer, not a miss. Fulfilment cost is not separately disclosed by any public department store; it sits inside SG&amp;A alongside stores, marketing and corporate. Both are weaker claims than a match, and stating that is the point.</p>
+<p><strong>An audit that cannot fail is not an audit.</strong> Each is a pure function of measured numbers, so the suite hands each one deliberately wrong values and confirms it trips — inventory inflated past the sector band, seasonality flattened, cost inflated past peer SG&amp;A, cost cut to a rounding error, splits made uniform, concentration reversed. All six trip, and that result is recorded next to the real one.</p>
+</section>
+<section id="validation-a-blind-reading-panel" class="level2">
+<h2 data-anchor-id="validation-a-blind-reading-panel">Validation: a blind reading panel</h2>
+<p>The portfolio’s visualization standard requires that charts be read by people who do not know the finding before they ship. <strong>A four-seat panel ran blind against this module.</strong> The seats saw seven rendered chart images by absolute path and were told those files were the only thing they could open — no brief, no build notes, no source data, no surrounding prose, and no statement of the intended finding. They ran in parallel and could not see each other’s returns.</p>
+<p>The roster is cast from the decision the module serves, not from a template:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Seat</th>
+<th>Why this seat exists</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Director of DC Operations, 16 yrs</td>
+<td>Owns the service number the decision would certify, and whether what drags it down is inside his four walls or upstream in inventory placement</td>
+</tr>
+<tr class="even">
+<td>Director of Supply Chain Finance, 11 yrs</td>
+<td>Owns the margin the service costs and sets the threshold. Tests every cost for whether it is incremental cash</td>
+</tr>
+<tr class="odd">
+<td>VP Merchandise Planning, off-price banner, 19 yrs</td>
+<td>The banner the threshold lands hardest on — and deliberately the room’s least analytics-literate real reader</td>
+</tr>
+<tr class="even">
+<td>Visualization reader</td>
+<td>Canvas only. No tables, no arithmetic. Judges whether the picture carries the claim</td>
+</tr>
+</tbody>
+</table>
+<p>Each returned four fixed items per chart: what they would say about it an hour later, one number they would quote <strong>and where on the canvas they got it</strong>, the question they would ask, and what they went looking for and could not find.</p>
+<p><strong>They returned 25 findings. 20 were dispositioned as defects, 13 fixed, 7 accepted with reasons recorded, 5 rejected as preferences.</strong> These charts had already been corrected once — and <strong>four in five of the panel’s defects were still uncaught</strong>.</p>
+<p>Three of them invalidated a headline, and none was visible to any automated check:</p>
+<ul>
+<li><strong>A title claimed “the same $5.46 second parcel.”</strong> It is not the same: $5.64 and $5.18 are, and $5.46 is the blend of them. All three domain seats independently distrusted the figure — the merchant seat said she had <em>“been handed the bad end of an average.”</em> She was right, and the title now names both.</li>
+<li><strong>A chart’s headline turned on which of two fulfilment centres was “primary,” and the chart never said.</strong> Against one the claim was true; against the other it was false. The truth of the headline rested on a fact the picture withheld.</li>
+<li><strong>A “dips in the same season” claim compared against a series that was never drawn.</strong> The real month-of-year comparison was already in the data and already being tested against — it just was not on the canvas. It is now.</li>
+</ul>
+<p>The strongest signal was convergence rather than eloquence. <strong>All three domain seats independently refused to repeat one chart’s finding</strong> until someone told them whether one fulfilment network against whole department-store companies was like-for-like. The page already answered them, clearly and correctly — in the prose, not on the chart. The disclosure existed; the chart was silent about something the page knew.</p>
+<p>That is the value of the exercise, and it is why the panel is worth its cost: <strong>nothing about the analysis was wrong.</strong> What was wrong was what a reader could see.</p>
+</section>
+<section id="honest-limits" class="level2">
+<h2 data-anchor-id="honest-limits">Honest limits</h2>
+<ul>
+<li><strong>The operational data is invented.</strong> Every fill rate, split rate and dollar describes a simulation. The generator is not evidence about the world.</li>
+<li><strong>Two of the three realism audits bound rather than match</strong>, for scope reasons stated above and on the page.</li>
+<li><strong>The counterfactual is modelled, not measured.</strong> It is registered as exploratory and must never be reported as achieved service.</li>
+<li><strong>The calibration source is not named, and that costs reproducibility.</strong> Scale and mix parameters draw on one real department-store operator’s published filings; that filer is never named, so this one input is attested rather than reproducible. The three realism audits deliberately do not depend on it.</li>
+<li><strong>Returns and reverse logistics are excluded on purpose</strong> — the largest documented cost in the research, and the natural Phase 2.</li>
+<li><strong>A calibration target was missed and is reported missed</strong>, with the three ways of forcing it that were tried and rejected.</li>
+<li><strong>The shipping render has not itself been panelled.</strong> The panel read the previous version; the thirteen fixes made in response are author work, unread by anyone blind.</li>
+<li><strong>There is no live BigQuery or Looker Studio view.</strong> The warehouse ships as DuckDB. Said plainly rather than implied by omission.</li>
 </ul>
 <hr>
 </section>
 <section id="tech-stack" class="level2">
 <h2 data-anchor-id="tech-stack">Tech Stack</h2>
 <div class="tech-chips">
-<p><span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Python (simdata)</span> <span class="chip">Microsoft Fabric</span> <span class="chip">PySpark</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">PowerShell</span></p>
+<p><span class="chip">Python</span> <span class="chip">pandas</span> <span class="chip">DuckDB</span> <span class="chip">dbt Core</span> <span class="chip">Star Schema</span> <span class="chip">Apache ECharts</span> <span class="chip">Static HTML / JS</span> <span class="chip">WCAG 2.2 AA</span> <span class="chip">GitHub Pages</span> <span class="chip">Git</span></p>
 </div>
+<hr>
+</section>
+<section id="disclosure" class="level2">
+<h2 data-anchor-id="disclosure">Disclosure</h2>
+<p>Every order, style, size, shipment, labor hour and dollar in this module is synthetic, produced by a seeded generator committed to the repository. <strong>Alder &amp; Vance</strong> and <strong>Off-Main</strong> are invented banners of an invented operator, and no real company is the subject of this analysis. The three public datasets that constrain the generator — BLS OEWS wages, US Census MRTS retail inventories, and the SEC EDGAR XBRL filings of Macy’s, Kohl’s and Dillard’s — are real, and are named wherever they are used; they serve as external benchmarks, not as subjects. Independent portfolio project, not affiliated with or endorsed by any company, and not based on any non-public information. It illustrates a distribution-centre governance design on invented operational data only.</p>
 <hr>
 </section>
 <section id="links" class="level2">
 <h2 data-anchor-id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/RobbinsAnalytics/manufacturing-analytics">Build Repository</a> — SQL DDL, data generation scripts, medallion notebooks</li>
-<li><a href="https://github.com/RobbinsAnalytics/manufacturing-analytics/blob/main/docs/explainers/02_source_sql_layer.md">Architecture Explainer</a> — schema design decisions and data dictionary</li>
+<li><a href="https://www.robbinsanalytics.com/cascadia-controltower/">Open the module</a> — seven charts, the certified metric register, and the realism audits</li>
+<li><a href="https://github.com/RobbinsAnalytics/cascadia-controltower">Build Repository</a> — generator, dbt project, validation suite, and the governance documents</li>
 <li><a href="../cascadia.html">Cascadia Architecture Overview</a></li>
 </ul>
 

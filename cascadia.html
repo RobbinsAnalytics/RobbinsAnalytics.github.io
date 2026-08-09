@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-432888e158976ed2e6dbaf989db7f397.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1f820cd99b9bef444c775aeceefd3714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -136,6 +136,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
+    <a class="dropdown-item" href="./projects/cascadia-controltower.html">
+ <span class="dropdown-text">Cascadia Control Tower</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./projects/cascadia-dealdesk.html">
  <span class="dropdown-text">Cascadia Deal Desk</span></a>
   </li>  
@@ -223,41 +227,48 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
+<td><a href="./projects/cascadia-controltower.html">Cascadia Control Tower</a></td>
+<td>Live</td>
+<td>Python → DuckDB → dbt Core → static ECharts</td>
+<td>Synthetic (seeded generator), anchored to BLS, Census and SEC XBRL</td>
+<td>Metric certification / counterfactual costing</td>
+</tr>
+<tr class="even">
 <td><a href="./projects/cascadia-dealdesk.html">Cascadia Deal Desk</a></td>
 <td>Live</td>
 <td>Python → SQLite → static ECharts</td>
 <td>Synthetic (seeded generator)</td>
 <td>Pricing governance / exception calibration</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="./projects/cascadia-semiconductors.html">Cascadia Finance</a></td>
 <td>Live</td>
 <td>Python → SQLite → static ECharts (SEC EDGAR XBRL)</td>
 <td>FormFactor SEC filings (real)</td>
 <td>Financial analytics / XBRL governance</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="./projects/cascadia-staffing.html">Cascadia Staffing</a></td>
 <td>Complete</td>
 <td>Local SQL Server → Power BI</td>
 <td>CMS PBJ Daily Nurse Staffing (real)</td>
 <td>Marketplace labor KPIs / metric governance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="./projects/cascadia-pharmacy.html">Cascadia Pharmacy</a></td>
 <td>Complete</td>
 <td>Local SQL Server → Power BI</td>
 <td>CMS Part D + CDC VaxView (real)</td>
 <td>Messy-data cleaning / GLP-1 growth</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="./projects/cascadia-medical-devices.html">Cascadia Medical Devices</a></td>
 <td>Complete</td>
 <td>SQL Server → Microsoft Fabric → Power BI</td>
 <td>Simulated MES + NASA C-MAPSS</td>
 <td>Predictive maintenance / OEE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="./projects/cascadia-clothing.html">Cascadia Clothing</a></td>
 <td>Planned</td>
 <td>TBD</td>
@@ -273,7 +284,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="three-patterns-one-standard" class="level2">
 <h2 data-anchor-id="three-patterns-one-standard">Three Patterns, One Standard</h2>
-<p><strong>Lightweight analytical stack — Cascadia Deal Desk &amp; Finance.</strong> Two modules that need neither SQL Server nor Power BI: Python (pandas) conforms the data into a SQLite star schema and renders a static, hostable page with Apache ECharts, with the dataset inlined at build time so the pages make no network call at all. Finance pulls and freezes SEC EDGAR XBRL filings and labels every figure GAAP vs non-GAAP; Deal Desk matches quote lines against a governed agreement register and prices the gap in dollars. Both run forever, offline, for free — and circulate as a link with nothing to install.</p>
+<p><strong>Lightweight analytical stack — Cascadia Deal Desk, Finance &amp; Control Tower.</strong> Three modules that need neither SQL Server nor Power BI: Python (pandas) conforms the data into a local star schema and renders a static, hostable page with Apache ECharts, with the dataset inlined at build time so the pages make no network call at all. Finance pulls and freezes SEC EDGAR XBRL filings and labels every figure GAAP vs non-GAAP; Deal Desk matches quote lines against a governed agreement register and prices the gap in dollars; Control Tower certifies one of three competing fill-rate definitions and prices the split-shipment cost that none of them measures. They all run forever, offline, for free — and circulate as a link with nothing to install.</p>
+<p>Control Tower is the pattern’s larger variant: the warehouse is <strong>DuckDB</strong> rather than SQLite, and the transformation layer is <strong>dbt Core</strong> — 6 staging views, 9 marts and 69 data tests — because at 621,942 order lines the modeling is worth a real transformation framework and the tests are worth running on every build. The output is the same durable static page, which survives the warehouse being switched off.</p>
 <p><strong>Pragmatic local stack — Cascadia Pharmacy &amp; Staffing.</strong> For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python <code>raw → clean</code> staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.</p>
 <p><strong>Enterprise-BI stack — Cascadia Medical Devices.</strong> The full production pattern: a SQL Server star schema feeding a Microsoft Fabric medallion lakehouse (Bronze → Silver → Gold), surfaced through a Power BI Direct Lake semantic model. This is the pattern for when the data volume and the organization justify a governed cloud platform.</p>
 <div class="arch-container">
@@ -305,6 +317,12 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Ambiguity fails the build</strong> Where a rule cannot resolve a case, the run stops rather than guessing. Cascadia Deal Desk’s matching rule settles contested quote lines with three documented tiebreaks; if a tie survives all three, the build fails — an unresolvable tie is a data-quality defect, not a judgment call.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
+<p><strong>Definitions live with the code that computes them</strong> A metric register that is typed by hand is documentation; one generated from the models is engineering. Cascadia Control Tower’s eleven-metric register is built from the <code>meta</code> blocks on the dbt models themselves — the same file that defines their tests — and a <code>--check</code> mode fails the build if a published definition drifts from the model behind it.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<p><strong>An audit that cannot fail is not an audit</strong> A realism check that has only ever seen good data has not been tested. Control Tower’s audits are pure functions of measured numbers, so the suite feeds each one deliberately wrong values — inventory inflated past the sector band, cost cut to a rounding error, splits made uniform — and confirms it trips. All six negative controls trip, and that result is published next to the real one.</p>
+</div>
+<div class="g-col-12 g-col-md-6">
 <p><strong>Charts reviewed against a standard</strong> Every chart is scored pass/fail against my visualization design system before it ships, including a blind panel of readers who see only the rendered chart. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded.</p>
 </div>
 </div>
@@ -313,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="tech-stack" class="level2">
 <h2 data-anchor-id="tech-stack">Tech Stack</h2>
 <div class="tech-chips">
-<p><span class="chip">Python (pandas)</span> <span class="chip">SQLite</span> <span class="chip">Apache ECharts</span> <span class="chip">SEC EDGAR XBRL</span> <span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">Microsoft Fabric</span> <span class="chip">PySpark</span> <span class="chip">Static HTML / JS</span> <span class="chip">WCAG 2.2 AA</span> <span class="chip">GitHub Pages</span> <span class="chip">PowerShell</span> <span class="chip">Git</span></p>
+<p><span class="chip">Python (pandas)</span> <span class="chip">SQLite</span> <span class="chip">DuckDB</span> <span class="chip">dbt Core</span> <span class="chip">Apache ECharts</span> <span class="chip">SEC EDGAR XBRL</span> <span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">Microsoft Fabric</span> <span class="chip">PySpark</span> <span class="chip">Static HTML / JS</span> <span class="chip">WCAG 2.2 AA</span> <span class="chip">GitHub Pages</span> <span class="chip">PowerShell</span> <span class="chip">Git</span></p>
 </div>
 
 
