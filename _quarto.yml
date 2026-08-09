@@ -54,6 +54,8 @@ website:
         href: cascadia.qmd
       - text: "Projects"
         menu:
+          - text: "Cascadia Control Tower"
+            href: projects/cascadia-controltower.qmd
           - text: "Cascadia Deal Desk"
             href: projects/cascadia-dealdesk.qmd
           - text: "Cascadia Finance"

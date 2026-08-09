@@ -39,6 +39,21 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 ::: {.g-col-12 .g-col-md-4}
 ::: {.project-card}
 ::: {.card-label}
+Supply Chain / Distribution-Centre Governance
+:::
+### Cascadia Control Tower
+<span class="badge-status new">New</span><span class="badge-status">Live</span>
+
+Three fill rates computed from one dataset, all arithmetically correct and 7.0 points apart — and a split-shipment cost that none of them measures. Certifies one definition, prices the leak against a modelled no-split counterfactual, and shows why no single split threshold works across two banners. Synthetic operations, anchored to BLS, Census and SEC data.
+
+[View Case Study](projects/cascadia-controltower.qmd){.btn .btn-primary .btn-sm}
+[Open the Module](https://www.robbinsanalytics.com/cascadia-controltower/){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
 Pricing Governance / Financial Analytics
 :::
 ### Cascadia Deal Desk

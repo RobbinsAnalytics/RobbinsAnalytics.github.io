@@ -1,0 +1,160 @@
+---
+title: "Cascadia Control Tower"
+subtitle: "Distribution-centre governance — three fill rates computed from one dataset, why they disagree, and the split-shipment cost that none of them measures."
+image: https://www.robbinsanalytics.com/assets/thumb-controltower.png
+image-alt: "Cascadia module card — title, one-line summary, and the data source."
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+Supply Chain / Distribution-Centre Governance
+:::
+# Cascadia Control Tower
+::: {.cs-hook}
+A distribution centre reports 94% fill rate to Operations, 92% to the merchant team and 87% to Finance. Three numbers, three teams, all arithmetically correct, none reconciled. Meanwhile the thing actually costing money is invisible in all three — an order split across two nodes still counts as filled. This module certifies one definition, prices the leak, and shows why no single split threshold works across two banners.
+:::
+:::
+
+[Open the module](https://www.robbinsanalytics.com/cascadia-controltower/){.btn .btn-primary}
+
+---
+
+::: {.callout-important title="Synthetic data"}
+Every order, style, size, shipment, labor hour and dollar in this module was invented by a seeded generator. **Alder & Vance** and **Off-Main** are invented banners and no real company is the subject of this analysis. It demonstrates a design; it measures nothing real. Three real public datasets — BLS wage data, Census retail inventories, and the SEC filings of Macy's, Kohl's and Dillard's — constrain what the generator is allowed to produce, and are named wherever they are used.
+:::
+
+## The problem
+
+Fill rate sounds like one number. It is at least three, and the supply-chain discipline has never settled which one it means — published guidance says plainly that there is no agreed OTIF formula, because the calculation depends on which point of view you are measuring and the level at which the data is stored.
+
+So three teams compute three different things from one dataset and each is right:
+
+| Metric | Value | Read by | The question it answers |
+|---|---|---|---|
+| Unit fill | **94.3%** | Operations | How much of the demand did we move? |
+| Line fill | **91.6%** | Merchandising | How much of the assortment could we serve? |
+| Order fill | **87.2%** | Finance | Did the customer get what they asked for? |
+
+Order fill is arithmetically the lowest of the three in every period, because an order counts as filled only if every line in it is. The gap between the most forgiving definition and the strictest is **7.0 points** — wide enough that Operations can report service improving while Finance reports it flat, both correctly, and the meeting resolves nothing.
+
+**The second problem is worse, because nothing on that list measures it.** An order split across two fulfilment nodes still counts as filled on all three definitions. It is 100% filled, on time, in full — and it costs roughly a second parcel to ship.
+
+## The analytical payload
+
+**The definitional gap and the economic leak are the same phenomenon.** Fill rate looks healthiest exactly where splitting is worst, because splitting is *how* the network achieves fill.
+
+That is easy to assert and hard to prove, so the simulation records, for every order, what the same order against the same inventory position would have shipped if splitting were forbidden — the best any single node could have done, evaluated *before* the real allocation commits. **Splitting buys 2.65 points of unit fill.** Without that counterfactual the claim is rhetoric; with it, the governance decision has a price.
+
+Shortfall and splitting turn out to be two symptoms of one condition — inventory fragmented relative to what customers put in a basket. Slow-moving styles are ranged at two nodes rather than six, so a basket containing one either reaches for a second node or goes short:
+
+| SKU velocity band | Ships short | Uses more than one node |
+|---|---|---|
+| A · fast | 4.4% | 4.2% |
+| B · mid | 8.4% | 10.2% |
+| **C · slow** | **9.5%** | **17.1%** |
+
+**And the same rule produces different economics by banner.** The dollar cost of a split barely differs — $5.64 in the off-price banner, $5.18 in the premium one. Its consequence differs by more than three times, because it is charged against a margin that differs by more than three times:
+
+- **Off-Main (off-price): 12.1% of the gross margin on the order**
+- **Alder & Vance (premium): 3.6%**
+
+There is therefore **no single correct split threshold**. Any network-wide rule is simultaneously too aggressive for one banner and too permissive for the other. That is a governance finding, not a modelling inconvenience.
+
+## The resolution
+
+Certify **order fill** as the service number. Retain line and unit fill as explicitly exploratory, with the reason stated. Add **split rate** to the same register, so the cost of achieving fill sits next to the fill.
+
+Certification is not a ranking. An exploratory metric is not a bad metric; it is one the business has agreed not to run on. Retaining the other two definitions and labelling them *is* the governance act — deleting them would move the disagreement rather than resolve it.
+
+The register carries eleven metrics, eight certified. **It is generated from the `meta` blocks on the dbt models that compute the metrics** — the same file that defines their tests. Nothing is typed twice, and a `--check` mode fails the build if a definition drifts from the model behind it. A hand-typed register is documentation; a generated one is engineering.
+
+## What was built
+
+Python generator → DuckDB star schema → **dbt Core** → static ECharts page.
+
+- **A seeded generator**, 24 months, 379,979 orders across 621,942 lines and six nodes. Same seed, same content hash — re-checked on every validation run.
+- **Inventory held at style *and size***, which is what lets the three fill rates differ at all. Size brokenness is the commonest reason a real retail line ships incomplete; model stock at style level and every line becomes all-or-nothing.
+- **No order is ever labelled "split."** An order splits when the allocator cannot satisfy every line from one node and reaches for a second. The classification is an observed consequence of a documented rule, and the validation suite re-derives it from the shipments alone.
+- **dbt Core on DuckDB** — 6 staging views, 9 marts, **69 data tests**.
+- **A static page** with ECharts vendored and the dataset inlined. No build step and no part of the page makes a network call. It is the durable artifact and survives the warehouse being switched off.
+
+## Three real anchors, and what they can honestly claim
+
+| Anchor | Source | What it constrains |
+|---|---|---|
+| Labor | **BLS OEWS** May 2025, SOC 53-7062, Seattle-Tacoma-Bellevue | Every labor dollar costed at a real published wage — $22.95/hr median — across the percentile spread, not a median alone |
+| Inventory | **US Census MRTS**, department stores, 1992–2026 | The network runs at 0.97 months of stock against a sector band of 2.03–3.64 |
+| P&L | **SEC EDGAR XBRL** — Macy's, Kohl's, Dillard's | DC operating cost at 6.83% of shipped sales against a peer SG&A range of 23.7–39.0% |
+
+**Two of the three audits bound the model rather than matching it, and the page says so.** Census inventories cover entire department stores, most of whose stock sits on selling floors this module never simulates — so sitting below the band is the correct answer, not a miss. Fulfilment cost is not separately disclosed by any public department store; it sits inside SG&A alongside stores, marketing and corporate. Both are weaker claims than a match, and stating that is the point.
+
+**An audit that cannot fail is not an audit.** Each is a pure function of measured numbers, so the suite hands each one deliberately wrong values and confirms it trips — inventory inflated past the sector band, seasonality flattened, cost inflated past peer SG&A, cost cut to a rounding error, splits made uniform, concentration reversed. All six trip, and that result is recorded next to the real one.
+
+## Validation: a blind reading panel
+
+The portfolio's visualization standard requires that charts be read by people who do not know the finding before they ship. **A four-seat panel ran blind against this module.** The seats saw seven rendered chart images by absolute path and were told those files were the only thing they could open — no brief, no build notes, no source data, no surrounding prose, and no statement of the intended finding. They ran in parallel and could not see each other's returns.
+
+The roster is cast from the decision the module serves, not from a template:
+
+| Seat | Why this seat exists |
+|---|---|
+| Director of DC Operations, 16 yrs | Owns the service number the decision would certify, and whether what drags it down is inside his four walls or upstream in inventory placement |
+| Director of Supply Chain Finance, 11 yrs | Owns the margin the service costs and sets the threshold. Tests every cost for whether it is incremental cash |
+| VP Merchandise Planning, off-price banner, 19 yrs | The banner the threshold lands hardest on — and deliberately the room's least analytics-literate real reader |
+| Visualization reader | Canvas only. No tables, no arithmetic. Judges whether the picture carries the claim |
+
+Each returned four fixed items per chart: what they would say about it an hour later, one number they would quote **and where on the canvas they got it**, the question they would ask, and what they went looking for and could not find.
+
+**They returned 25 findings. 20 were dispositioned as defects, 13 fixed, 7 accepted with reasons recorded, 5 rejected as preferences.** These charts had already been corrected once — and **four in five of the panel's defects were still uncaught**.
+
+Three of them invalidated a headline, and none was visible to any automated check:
+
+- **A title claimed "the same $5.46 second parcel."** It is not the same: $5.64 and $5.18 are, and $5.46 is the blend of them. All three domain seats independently distrusted the figure — the merchant seat said she had *"been handed the bad end of an average."* She was right, and the title now names both.
+- **A chart's headline turned on which of two fulfilment centres was "primary," and the chart never said.** Against one the claim was true; against the other it was false. The truth of the headline rested on a fact the picture withheld.
+- **A "dips in the same season" claim compared against a series that was never drawn.** The real month-of-year comparison was already in the data and already being tested against — it just was not on the canvas. It is now.
+
+The strongest signal was convergence rather than eloquence. **All three domain seats independently refused to repeat one chart's finding** until someone told them whether one fulfilment network against whole department-store companies was like-for-like. The page already answered them, clearly and correctly — in the prose, not on the chart. The disclosure existed; the chart was silent about something the page knew.
+
+That is the value of the exercise, and it is why the panel is worth its cost: **nothing about the analysis was wrong.** What was wrong was what a reader could see.
+
+## Honest limits
+
+- **The operational data is invented.** Every fill rate, split rate and dollar describes a simulation. The generator is not evidence about the world.
+- **Two of the three realism audits bound rather than match**, for scope reasons stated above and on the page.
+- **The counterfactual is modelled, not measured.** It is registered as exploratory and must never be reported as achieved service.
+- **The calibration source is not named, and that costs reproducibility.** Scale and mix parameters draw on one real department-store operator's published filings; that filer is never named, so this one input is attested rather than reproducible. The three realism audits deliberately do not depend on it.
+- **Returns and reverse logistics are excluded on purpose** — the largest documented cost in the research, and the natural Phase 2.
+- **A calibration target was missed and is reported missed**, with the three ways of forcing it that were tried and rejected.
+- **The shipping render has not itself been panelled.** The panel read the previous version; the thirteen fixes made in response are author work, unread by anyone blind.
+- **There is no live BigQuery or Looker Studio view.** The warehouse ships as DuckDB. Said plainly rather than implied by omission.
+
+---
+
+## Tech Stack
+
+<div class="tech-chips">
+<span class="chip">Python</span>
+<span class="chip">pandas</span>
+<span class="chip">DuckDB</span>
+<span class="chip">dbt Core</span>
+<span class="chip">Star Schema</span>
+<span class="chip">Apache ECharts</span>
+<span class="chip">Static HTML / JS</span>
+<span class="chip">WCAG 2.2 AA</span>
+<span class="chip">GitHub Pages</span>
+<span class="chip">Git</span>
+</div>
+
+---
+
+## Disclosure
+
+Every order, style, size, shipment, labor hour and dollar in this module is synthetic, produced by a seeded generator committed to the repository. **Alder & Vance** and **Off-Main** are invented banners of an invented operator, and no real company is the subject of this analysis. The three public datasets that constrain the generator — BLS OEWS wages, US Census MRTS retail inventories, and the SEC EDGAR XBRL filings of Macy's, Kohl's and Dillard's — are real, and are named wherever they are used; they serve as external benchmarks, not as subjects. Independent portfolio project, not affiliated with or endorsed by any company, and not based on any non-public information. It illustrates a distribution-centre governance design on invented operational data only.
+
+---
+
+## Links
+
+- [Open the module](https://www.robbinsanalytics.com/cascadia-controltower/) — seven charts, the certified metric register, and the realism audits
+- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-controltower) — generator, dbt project, validation suite, and the governance documents
+- [Cascadia Architecture Overview](../cascadia.qmd)

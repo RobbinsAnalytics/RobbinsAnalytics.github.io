@@ -39,9 +39,15 @@ C = {
 
 # Rule 2.3.1 — fixed slots, never re-dealt. A module keeps its hue everywhere.
 MODULES = [
-    dict(slug="portfolio", data="seven modules · real and synthetic sources, labelled per module", kicker="Robbins Analytics", title="Analytics that shows its work",
-         line="Seven governed BI modules — the data layer, the metric layer, and the review that let them ship.",
+    dict(slug="portfolio", data="eight modules · real and synthetic sources, labelled per module", kicker="Robbins Analytics", title="Analytics that shows its work",
+         line="Eight governed BI modules — the data layer, the metric layer, and the review that let them ship.",
          accent="evergreen", motif="bars", landing=True),
+    # Slot 3 (madrona, the alert hue) — the module's finding is a cost the
+    # service metrics do not measure. Staffing is the slot's only co-tenant and
+    # the two cards never appear adjacent.
+    dict(slug="controltower", data="synthetic (seeded) · BLS, Census, SEC XBRL anchors", kicker="Cascadia Control Tower", title="Fill-rate governance and the split-shipment leak",
+         line="Three fill rates from one dataset, why they disagree, and the split cost none of them measures.",
+         accent="madrona", motif="bars"),
     dict(slug="dealdesk", data="synthetic data, seeded generator", kicker="Cascadia Deal Desk", title="Pricing governance and margin leakage",
          line="A governed agreement register, a documented matching rule, and an exception report you calibrate before you automate.",
          accent="evergreen", motif="decay"),
