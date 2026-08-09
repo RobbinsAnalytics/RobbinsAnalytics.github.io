@@ -47,7 +47,7 @@ Supply Chain / Distribution-Centre Governance
 Three fill rates computed from one dataset, all arithmetically correct and 7.0 points apart — and a split-shipment cost that none of them measures. Certifies one definition, prices the leak against a modelled no-split counterfactual, and shows why no single split threshold works across two banners. Synthetic operations, anchored to BLS, Census and SEC data.
 
 [View Case Study](projects/cascadia-controltower.qmd){.btn .btn-primary .btn-sm}
-[Open the Module](https://www.robbinsanalytics.com/cascadia-controltower/){.btn .btn-outline-secondary .btn-sm}
+[Fill Rate & Split Cost](https://www.robbinsanalytics.com/cascadia-controltower/){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 
