@@ -105,11 +105,27 @@ jobs:
             fi
           }
           for path in / /about.html /cascadia.html \
-                      /projects/cascadia-semiconductors.html \
+                      /projects/cascadia-finance.html \
                       /projects/cascadia-dealdesk.html \
-                      /assets/thumb-finance.png; do
+                      /assets/thumb-finance.png \
+                      /projects/cascadia-semiconductors.html \
+                      /cascadia-semiconductors/ \
+                      /cascadia-semiconductors/margins.html \
+                      /cascadia-semiconductors/peers.html \
+                      /cascadia-semiconductors/q2-filed.html \
+                      /cascadia-semiconductors/q2-readthrough.html \
+                      /cascadia-semiconductors/assets/og-finance.png; do
             check 200 "https://www.robbinsanalytics.com${path}?cb=${sha}"
           done
+          # Everything from /projects/cascadia-semiconductors.html down is an
+          # OLD Cascadia Finance URL that must keep returning 200 forever.
+          # The case-study path is served by Quarto's `aliases:` redirect; the
+          # /cascadia-semiconductors/* paths are served by the project repo
+          # today and by the redirect stubs in that directory once the repo
+          # rename frees the path. GitHub does not redirect project Pages URLs
+          # on a repo rename, so nothing else guards these. The og-finance.png
+          # is checked too: every social card already shared points at it, and
+          # a meta-refresh page cannot serve an image.
           # The apex and github.io addresses must keep redirecting; old links
           # and previously shared social cards point at both.
           check 301 "https://robbinsanalytics.com/?cb=${sha}"

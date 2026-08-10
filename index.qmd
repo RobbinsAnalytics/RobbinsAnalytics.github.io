@@ -77,11 +77,11 @@ Financial Analytics
 
 FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.
 
-[View Case Study](projects/cascadia-semiconductors.qmd){.btn .btn-primary .btn-sm}
-[Exec Pack](https://www.robbinsanalytics.com/cascadia-semiconductors/){.btn .btn-outline-secondary .btn-sm}
-[Margin Walk](https://www.robbinsanalytics.com/cascadia-semiconductors/margins.html){.btn .btn-outline-secondary .btn-sm}
-[Peers](https://www.robbinsanalytics.com/cascadia-semiconductors/peers.html){.btn .btn-outline-secondary .btn-sm}
-[2026 Q2 10-Q](https://www.robbinsanalytics.com/cascadia-semiconductors/q2-filed.html){.btn .btn-outline-secondary .btn-sm}
+[View Case Study](projects/cascadia-finance.qmd){.btn .btn-primary .btn-sm}
+[Exec Pack](https://www.robbinsanalytics.com/cascadia-finance/){.btn .btn-outline-secondary .btn-sm}
+[Margin Walk](https://www.robbinsanalytics.com/cascadia-finance/margins.html){.btn .btn-outline-secondary .btn-sm}
+[Peers](https://www.robbinsanalytics.com/cascadia-finance/peers.html){.btn .btn-outline-secondary .btn-sm}
+[2026 Q2 10-Q](https://www.robbinsanalytics.com/cascadia-finance/q2-filed.html){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 

@@ -13,7 +13,7 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 |---|---|---|---|---|
 | [Cascadia Control Tower](projects/cascadia-controltower.qmd) | Live | Python → DuckDB → dbt Core → static ECharts | Synthetic (seeded generator), anchored to BLS, Census and SEC XBRL | Metric certification / counterfactual costing |
 | [Cascadia Deal Desk](projects/cascadia-dealdesk.qmd) | Live | Python → SQLite → static ECharts | Synthetic (seeded generator) | Pricing governance / exception calibration |
-| [Cascadia Finance](projects/cascadia-semiconductors.qmd) | Live | Python → SQLite → static ECharts (SEC EDGAR XBRL) | FormFactor SEC filings (real) | Financial analytics / XBRL governance |
+| [Cascadia Finance](projects/cascadia-finance.qmd) | Live | Python → SQLite → static ECharts (SEC EDGAR XBRL) | FormFactor SEC filings (real) | Financial analytics / XBRL governance |
 | [Cascadia Staffing](projects/cascadia-staffing.qmd) | Complete | Local SQL Server → Power BI | CMS PBJ Daily Nurse Staffing (real) | Marketplace labor KPIs / metric governance |
 | [Cascadia Pharmacy](projects/cascadia-pharmacy.qmd) | Complete | Local SQL Server → Power BI | CMS Part D + CDC VaxView (real) | Messy-data cleaning / GLP-1 growth |
 | [Cascadia Medical Devices](projects/cascadia-medical-devices.qmd) | Complete | SQL Server → Microsoft Fabric → Power BI | Simulated MES + NASA C-MAPSS | Predictive maintenance / OEE |

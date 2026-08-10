@@ -3,6 +3,11 @@ title: "Cascadia Finance"
 subtitle: "FormFactor's GAAP financials from SEC EDGAR XBRL — an executive close pack built in Python, SQLite, and static ECharts."
 image: https://www.robbinsanalytics.com/assets/thumb-finance.png
 image-alt: "Cascadia module card — title, one-line summary, and the data source."
+# The page moved from cascadia-semiconductors.qmd when the module's URLs were
+# renamed to match its narrowed Finance scope. Quarto renders a real redirect
+# document at the old path, so previously shared links keep working.
+aliases:
+  - /projects/cascadia-semiconductors.html
 ---
 
 ::: {.case-study-header}
@@ -15,9 +20,9 @@ Public SEC filings turned into an executive close pack for FormFactor (NASDAQ: F
 :::
 :::
 
-[Executive Pack](https://www.robbinsanalytics.com/cascadia-semiconductors/){.btn .btn-primary}
-[Margin Walk & Segments](https://www.robbinsanalytics.com/cascadia-semiconductors/margins.html){.btn .btn-primary}
-[Peer Benchmark](https://www.robbinsanalytics.com/cascadia-semiconductors/peers.html){.btn .btn-primary}
+[Executive Pack](https://www.robbinsanalytics.com/cascadia-finance/){.btn .btn-primary}
+[Margin Walk & Segments](https://www.robbinsanalytics.com/cascadia-finance/margins.html){.btn .btn-primary}
+[Peer Benchmark](https://www.robbinsanalytics.com/cascadia-finance/peers.html){.btn .btn-primary}
 
 ---
 
@@ -68,20 +73,20 @@ Getting the governance right *is* the credibility play for a finance audience:
 
 The Phase 1 executive pack is **live now** — an interactive, mobile-friendly page you can open on a phone or share on a screen.
 
-[Open the Live Executive Pack →](https://www.robbinsanalytics.com/cascadia-semiconductors/){.btn .btn-primary}
+[Open the Live Executive Pack →](https://www.robbinsanalytics.com/cascadia-finance/){.btn .btn-primary}
 
 **Phase 2 — the gross-margin walk & segments — is live too.** The QoQ margin bridge (revenue effect vs margin effect), the Q1 FY2026 GM inflection with its filed drivers, and the Probe Cards vs Systems segment view, with segment revenue reconciled to consolidated GAAP.
 
-[Open the Margin Walk & Segments →](https://www.robbinsanalytics.com/cascadia-semiconductors/margins.html){.btn .btn-primary}
+[Open the Margin Walk & Segments →](https://www.robbinsanalytics.com/cascadia-finance/margins.html){.btn .btn-primary}
 
 **Phase 3 — the peer benchmark & governance showcase — is live too.** FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and every not-comparable metric flagged, never estimated.
 
-[Open the Peer Benchmark →](https://www.robbinsanalytics.com/cascadia-semiconductors/peers.html){.btn .btn-primary}
+[Open the Peer Benchmark →](https://www.robbinsanalytics.com/cascadia-finance/peers.html){.btn .btn-primary}
 
 **Beyond the frozen phases — a Q2 FY2026 announced-to-filed story.** When FormFactor announced Q2 on July 29, 2026, I ran the press-release figures through the same margin-walk method — deliberately outside the frozen dataset, every figure labelled *announced*. When the 10-Q filed on August 4, I reconciled those estimates against the filed XBRL line by line: all eleven GAAP lines tied to the dollar, and the non-GAAP gross margin (which has no XBRL counterpart) is flagged *not comparable* rather than forced. Both pages ship as freeze extensions — Phases 1–3 stay exactly as they were.
 
-[Open Q2 Filed vs Announced →](https://www.robbinsanalytics.com/cascadia-semiconductors/q2-filed.html){.btn .btn-primary}
-[Q2 Read-Through (announced) →](https://www.robbinsanalytics.com/cascadia-semiconductors/q2-readthrough.html){.btn .btn-secondary}
+[Open Q2 Filed vs Announced →](https://www.robbinsanalytics.com/cascadia-finance/q2-filed.html){.btn .btn-primary}
+[Q2 Read-Through (announced) →](https://www.robbinsanalytics.com/cascadia-finance/q2-readthrough.html){.btn .btn-secondary}
 
 ---
 
@@ -116,10 +121,10 @@ Built from public SEC filings (EDGAR XBRL APIs), as of 2026-07-21. Independent p
 
 ## Links
 
-- [View Live Module](https://www.robbinsanalytics.com/cascadia-semiconductors/) — the hosted Phase 1 executive pack
-- [Margin Walk & Segments](https://www.robbinsanalytics.com/cascadia-semiconductors/margins.html) — the Phase 2 gross-margin walk and Probe Cards vs Systems view
-- [Peer Benchmark & Governance](https://www.robbinsanalytics.com/cascadia-semiconductors/peers.html) — the Phase 3 US-listed T&M peer comparison + XBRL tag-mapping table
-- [Q2 FY2026 Filed vs Announced](https://www.robbinsanalytics.com/cascadia-semiconductors/q2-filed.html) — the filed 10-Q reconciled line-by-line against my July 29 announced estimates; every GAAP line ties to the dollar
-- [Q2 FY2026 Read-Through](https://www.robbinsanalytics.com/cascadia-semiconductors/q2-readthrough.html) — the pre-filing announced-tier margin walk (8-K press release, before the 10-Q)
-- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-semiconductors) — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report
+- [View Live Module](https://www.robbinsanalytics.com/cascadia-finance/) — the hosted Phase 1 executive pack
+- [Margin Walk & Segments](https://www.robbinsanalytics.com/cascadia-finance/margins.html) — the Phase 2 gross-margin walk and Probe Cards vs Systems view
+- [Peer Benchmark & Governance](https://www.robbinsanalytics.com/cascadia-finance/peers.html) — the Phase 3 US-listed T&M peer comparison + XBRL tag-mapping table
+- [Q2 FY2026 Filed vs Announced](https://www.robbinsanalytics.com/cascadia-finance/q2-filed.html) — the filed 10-Q reconciled line-by-line against my July 29 announced estimates; every GAAP line ties to the dollar
+- [Q2 FY2026 Read-Through](https://www.robbinsanalytics.com/cascadia-finance/q2-readthrough.html) — the pre-filing announced-tier margin walk (8-K press release, before the 10-Q)
+- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-finance) — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report
 - [Cascadia Architecture Overview](../cascadia.qmd)

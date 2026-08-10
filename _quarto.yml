@@ -22,6 +22,13 @@ project:
     # makes "the live site is actually serving this commit" the Action's own
     # pass/fail. The committed value is the placeholder `local`.
     - build.txt
+    # Redirect stubs for the module's old /cascadia-semiconductors/ URLs. Same
+    # reason as CNAME above: `quarto publish gh-pages` rebuilds the branch from
+    # _site and force-pushes, so anything not copied in is destroyed on the next
+    # deploy. GitHub does not redirect project Pages URLs on a repo rename, so
+    # these files are the only thing standing between every previously shared
+    # link — and every social card already in the wild — and a 404.
+    - cascadia-semiconductors/
 
 website:
   title: "Robbins Analytics"
@@ -59,7 +66,7 @@ website:
           - text: "Cascadia Deal Desk"
             href: projects/cascadia-dealdesk.qmd
           - text: "Cascadia Finance"
-            href: projects/cascadia-semiconductors.qmd
+            href: projects/cascadia-finance.qmd
           - text: "Cascadia BI Migration"
             href: projects/cascadia-bi-migration.qmd
           - text: "Cascadia Staffing"
