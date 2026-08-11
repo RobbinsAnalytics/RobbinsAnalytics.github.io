@@ -4,10 +4,12 @@ subtitle: "FormFactor's GAAP financials from SEC EDGAR XBRL — an executive clo
 image: https://www.robbinsanalytics.com/assets/thumb-finance.png
 image-alt: "Cascadia module card — title, one-line summary, and the data source."
 # The page moved from cascadia-semiconductors.qmd when the module's URLs were
-# renamed to match its narrowed Finance scope. Quarto renders a real redirect
-# document at the old path, so previously shared links keep working.
-aliases:
-  - /projects/cascadia-semiconductors.html
+# renamed to match its narrowed Finance scope. There is deliberately no
+# `aliases:` entry: Quarto's alias emits a page titled "Redirect" with no social
+# metadata, so a shared old link rendered a card reading "Redirect" with no
+# image. projects/cascadia-semiconductors.html is a hand-written stub carrying
+# the card instead, shipped via `resources:`. Re-adding an alias here would
+# regenerate that path and overwrite it.
 ---
 
 ::: {.case-study-header}

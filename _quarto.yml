@@ -29,6 +29,12 @@ project:
     # these files are the only thing standing between every previously shared
     # link — and every social card already in the wild — and a 404.
     - cascadia-semiconductors/
+    # The case study's old path. Hand-written rather than a Quarto `aliases:`
+    # entry, because the alias emits a page titled "Redirect" carrying no
+    # og: tags — a scraper stops there and never follows the redirect, so a
+    # shared old link produced a card reading "Redirect" with no image. Not a
+    # render input, so this line is the only thing that puts it in _site.
+    - projects/cascadia-semiconductors.html
 
 website:
   title: "Robbins Analytics"
