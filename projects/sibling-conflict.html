@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cascadia Clothing – Robbins Analytics</title>
+<title>The Combinatorics of Sibling Conflict – Robbins Analytics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -86,16 +86,45 @@ ul.task-list li input[type="checkbox"] {
 <link rel="icon" href="../assets/brand/favicon-16.png" sizes="16x16">
 <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Cascadia Clothing – Robbins Analytics">
-<meta property="og:description" content="Coming soon — retail and ecommerce analytics for an apparel scenario.">
-<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-clothing.png">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="The Combinatorics of Sibling Conflict – Robbins Analytics">
+<meta property="og:description" content="A short mathematics paper — not an analytics module. How many ways can n children split into two opposing sides? The answer is a Stirling number, and it grows exponentially.">
+<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-sibling-conflict.png">
 <meta property="og:site_name" content="Robbins Analytics">
-<meta property="og:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
-<meta name="twitter:title" content="Cascadia Clothing – Robbins Analytics">
-<meta name="twitter:description" content="Coming soon — retail and ecommerce analytics for an apparel scenario.">
-<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-clothing.png">
-<meta name="twitter:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
+<meta property="og:image:alt" content="Cascadia Curiosities card — title, one-line summary, and the source.">
+<meta name="twitter:title" content="The Combinatorics of Sibling Conflict – Robbins Analytics">
+<meta name="twitter:description" content="A short mathematics paper — not an analytics module. How many ways can n children split into two opposing sides? The answer is a Stirling number, and it grows exponentially.">
+<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-sibling-conflict.png">
+<meta name="twitter:image:alt" content="Cascadia Curiosities card — title, one-line summary, and the source.">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -199,8 +228,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cascadia Clothing</h1>
-<p class="subtitle lead">Coming soon — retail and ecommerce analytics for an apparel scenario.</p>
+<h1 class="title">The Combinatorics of Sibling Conflict</h1>
+<p class="subtitle lead">A short mathematics paper — not an analytics module. How many ways can n children split into two opposing sides? The answer is a Stirling number, and it grows exponentially.</p>
 </div>
 
 
@@ -219,19 +248,146 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="case-study-header">
 <div class="cs-domain">
-<p>Retail Analytics</p>
+<p>Mathematics · Preprint · Not a BI module</p>
 </div>
-<section id="cascadia-clothing" class="level1">
-<h1>Cascadia Clothing</h1>
+<section id="the-combinatorics-of-sibling-conflict" class="level1">
+<h1>The Combinatorics of Sibling Conflict</h1>
 <div class="cs-hook">
-<p>The next Cascadia build — retail and ecommerce analytics, with the stack matched to the problem once the data is chosen.</p>
+<p>Everything else in this portfolio is a data build. This is not. It is a ~2,000-word mathematics paper with two figures and one table: no client, no pipeline, no dashboard, no dataset. It counts a possibility space and says so.</p>
 </div>
 </section>
 </div>
+<p><a href="https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf" class="btn btn-primary">Read the Paper (PDF)</a> <a href="https://github.com/RobbinsAnalytics/cascadia-curiosities" class="btn btn-outline-secondary">Repository</a></p>
 <hr>
-<p>The next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF. Drawing on my ecommerce BI background, it will extend the Cascadia approach into retail, with the tooling chosen to fit the data and scale. Check back, or follow along on <a href="https://github.com/RobbinsAnalytics">GitHub</a>.</p>
+<section id="status-read-this-before-the-rest" class="level2">
+<h2 data-anchor-id="status-read-this-before-the-rest">Status — read this before the rest</h2>
+<p><strong>Preprint, under consideration at <em>The Mathematical Intelligencer</em></strong> (queried 2026-08-12, reply pending).</p>
+<p>To be exact about what that means: a pre-submission query went to the journal’s co-editors-in-chief on 2026-08-12 with the compiled PDF attached, and the reply is pending. Formal submission would follow a green light. The paper is <strong>not published, not accepted, and not peer-reviewed.</strong> Nothing on this page should be read as a publication credit.</p>
+<p>The version linked above is the submitted manuscript. Springer’s preprint policy permits posting the submitted version on a personal site and does not treat it as prior publication (verified 2026-08-12); it is disclosed at formal submission.</p>
+<hr>
+</section>
+<section id="the-question" class="level2">
+<h2 data-anchor-id="the-question">The question</h2>
+<p>I have four children, each two years apart. The number of distinct ways they could get into a fight seemed never-ending, so I counted it.</p>
+<p>Formally: a <strong>conflict configuration</strong> is an unordered pair of disjoint, nonempty subsets of the n children — the two sides — with any remaining children uninvolved. That third category matters. A child can be on side A, on side B, or out of it entirely.</p>
+<hr>
+</section>
+<section id="the-result" class="level2">
+<h2 data-anchor-id="the-result">The result</h2>
+<p>Each child is assigned to side A, side B, or neither, giving 3<sup>n</sup> assignments. Removing the assignments where either side is empty (2·2<sup>n</sup> − 1, by inclusion–exclusion) and halving, because the labels A and B are interchangeable, leaves:</p>
+<p><span class="math display">\[C(n) = \frac{3^n - 2 \cdot 2^n + 1}{2}\]</span></p>
+<p>This is not an ad hoc expression. It equals <strong>S(n+1, 3)</strong>, a Stirling number of the second kind — <a href="https://oeis.org/A000392">OEIS A000392</a>, where the sequence is characterised as exactly this: the disjoint unions of two nonempty subsets of an n-element set.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Children</th>
+<th style="text-align: right;">Sibling pairs, n(n−1)/2</th>
+<th style="text-align: right;">Conflict configurations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">90</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">301</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">966</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">3,025</td>
+</tr>
+</tbody>
+</table>
+<p>Four children form six sibling pairs but allow 25 conflict configurations. Eight children form 28 pairs and allow 3,025. Pairs grow quadratically; the conflict space grows exponentially, tracking 3<sup>n</sup> — each additional child roughly triples it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/sibling-conflict-figureA.png" class="img-fluid figure-img" alt="Line chart titled 'Four children allow 25 possible conflict configurations, but form only 6 sibling pairs.' Two series over one to four children. The green conflict-configuration line runs 0, 1, 6, 25 and is labelled 25 at its right end; the grey sibling-pairs line runs 0, 1, 3, 6 and is labelled 6. The two lines separate after two children. Source strip: OEIS A000392, S(n+1, 3), exact counts, nothing estimated."></p>
+<figcaption>Figure A — the typical range, n = 1 to 4. At three children the six possible conflicts already double the three pairs.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/sibling-conflict-figure1.png" class="img-fluid figure-img" alt="Line chart titled 'Eight children allow 3,025 possible conflict configurations, but form only 28 sibling pairs.' Two series over one to eight children. The green conflict-configuration line is flat until about four children, then climbs steeply through labelled values 90, 301 and 966 to 3,025 at eight children. The grey sibling-pairs line stays flat against the horizontal axis for its whole length, labelled 28 at its right end. An annotation reads 'Each added child roughly triples the space of possible conflicts.' Source strip: OEIS A000392, S(n+1, 3), exact counts, nothing estimated."></p>
+<figcaption>Figure B — the full range, n = 1 to 8. The pairs line does not visibly leave the axis; the conflict line reaches 3,025.</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="what-the-paper-does-not-claim" class="level2">
+<h2 data-anchor-id="what-the-paper-does-not-claim">What the paper does not claim</h2>
+<p>The formula counts a <strong>possibility space</strong>. It does not predict how often siblings actually fight, how badly, or how any of it turns out. Many families with a large theoretical conflict space stay close; some small families fracture. The caveat is carried in the abstract, in Section 3, and on the face of both figures, because a chart that travels without its paper needs to carry its own limits.</p>
+<p>It is also not a novelty claim over the whole field. Bossard (1945) counted family relationships as n(n−1)/2, and Kephart (1950) extended that to subgroupings. Both are cited in the paper, and the claim is narrowed accordingly: this extends the Bossard–Kephart tradition to <em>opposing-sides</em> configurations, and connects it to the coalition-structure-generation literature in cooperative game theory. Adjacent formalism — three-way conflict analysis in the Pawlak tradition — is noted and distinguished: it analyses a given conflict rather than counting the space of them.</p>
+<hr>
+</section>
+<section id="how-it-was-checked" class="level2">
+<h2 data-anchor-id="how-it-was-checked">How it was checked</h2>
+<ul>
+<li><strong>Brute force.</strong> All 3<sup>n</sup> assignments enumerated for n = 1–8, both sides required nonempty, halved for label symmetry. Matches the closed form exactly: 0, 1, 6, 25, 90, 301, 966, 3,025.</li>
+<li><strong>Closed form.</strong> Cross-checked against OEIS A000392, whose listed formula a(n) = (1 + 3<sup>n−1</sup> − 2<sup>n</sup>)/2 gives a(n+1) = (3<sup>n</sup> − 2·2<sup>n</sup> + 1)/2.</li>
+<li><strong>Prior art.</strong> Searched before the novelty claim was written, then the claim was narrowed to fit what the search found rather than the reverse.</li>
+<li><strong>Citations.</strong> Every reference vetted to source: Bossard, Kephart, Minuchin, Caplow, McHale et al., Bank &amp; Kahn, Hank &amp; Steinbach, Jensen et al., Rahwan et al., Sandholm et al., Lang et al.</li>
+</ul>
+<hr>
+</section>
+<section id="the-figures-went-through-the-same-review-as-the-dashboards" class="level2">
+<h2 data-anchor-id="the-figures-went-through-the-same-review-as-the-dashboards">The figures went through the same review as the dashboards</h2>
+<p>This is the one thing the paper shares with the rest of the portfolio. Both figures were built to Cascadia VIZ-PRINCIPLES v2.5 and scored against CHART-REVIEW v2.5, including <strong>two Rule 7.4 reading panels</strong> — four blind reviewers per round who see only the rendered chart, at two widths each, with an editor, a quantitative family-studies researcher, a non-technical parent, and a visualization seat.</p>
+<p>The panels changed the figures. Round one produced twelve findings, ten of them defects: the “each added child roughly triples it” annotation was asserted but not checkable on the canvas, so value labels at n = 5, 6, 7 were added and the tripling became verifiable by eye; the subtitle gained both “others uninvolved” and the possibility-space caveat because two seats read a claim about real families that the mathematics does not support. Round two ran after the artifact changed to two figures and produced eight more defects — the non-technical seat could not find a four-child family on a chart that started being readable at five, which is why Figure A exists at all.</p>
+<p>Three findings were rejected with reasons and five accepted as residual, each recorded. The full disposition tables and panel returns are in the repository.</p>
+<p><strong>One exception carries onto this page.</strong> Both figures were typeset in DejaVu, substituting for the brand’s Source Serif 4 and Segoe UI, which were unavailable in the build environment; the review recorded that they should be re-rendered with brand fonts if reused on a Cascadia web property. They are shipped here as-is deliberately — these are the exact files that cleared both panels, and re-rendering them would produce charts no panel has read.</p>
+<hr>
+</section>
+<section id="why-it-is-in-this-portfolio" class="level2">
+<h2 data-anchor-id="why-it-is-in-this-portfolio">Why it is in this portfolio</h2>
+<p>Because the standard is the same one. The paper states what it measures and what it does not, cites the prior work that narrows its own claim, publishes the review its figures failed and then passed, and describes its status precisely rather than favourably. That is the through-line with every data build here — it just happens to have no data.</p>
+<hr>
+</section>
+<section id="disclosure" class="level2">
+<h2 data-anchor-id="disclosure">Disclosure</h2>
+<p>Independent work, no funding, no affiliation. Submitted-version preprint posted under Springer’s preprint policy (verified 2026-08-12). The formula is a combinatorial identity; no human subjects, no dataset, and no empirical claim about any family.</p>
+<hr>
+</section>
+<section id="links" class="level2">
+<h2 data-anchor-id="links">Links</h2>
+<ul>
+<li><a href="https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf">The Paper (PDF)</a> — the submitted manuscript, ~2,000 words, two figures, one table</li>
+<li><a href="https://github.com/RobbinsAnalytics/cascadia-curiosities">Repository</a> — manuscript source, figure build scripts, research record, chart review and both panel returns</li>
+<li><a href="https://oeis.org/A000392">OEIS A000392</a> — the sequence, S(n+1, 3)</li>
+<li><a href="../cascadia.html">Cascadia Architecture Overview</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,339 +1,73 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Aaron Robbins",
+    "objectID": "projects/cascadia-medical-devices.html",
+    "href": "projects/cascadia-medical-devices.html",
+    "title": "Cascadia Medical Devices",
     "section": "",
-    "text": "Business Intelligence & Analytics Leader\n\n\n\n12+ years turning messy data into decisions leaders trust — across healthcare, manufacturing, and financial analytics. I build across the modern analytics stack: SQL data models, cloud and local pipelines, financial analytics on public filings, and reporting non-technical teams actually use."
+    "text": "Manufacturing Analytics\n\n\n\n\nProving that a production-grade BI architecture scales from raw sensor data to boardroom OEE dashboards — in a single, reproducible build."
   },
   {
-    "objectID": "index.html#cascadia-portfolio",
-    "href": "index.html#cascadia-portfolio",
-    "title": "Aaron Robbins",
-    "section": "The Cascadia Portfolio",
-    "text": "The Cascadia Portfolio\nCascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. Each piece matches the right tools to the problem: a governed SQL Server → Microsoft Fabric → Power BI enterprise stack, pragmatic local SQL Server + Power BI, lightweight Python and static-web analytics on public SEC and federal data, and the program side of BI — platform migration and metric governance. The through-line isn’t one architecture; it’s the craft: rigorous modeling, honest data governance, and decisions leaders can trust.\n\n\nFeatured Case Studies\n\n\n\n\nSupply Chain / Distribution-Centre Governance\n\n\nCascadia Control Tower\nNewLive\nThree fill rates computed from one dataset, all arithmetically correct and 7.0 points apart — and a split-shipment cost that none of them measures. Certifies one definition, prices the leak against a modelled no-split counterfactual, and shows why no single split threshold works across two banners. Synthetic operations, anchored to BLS, Census and SEC data.\nView Case Study Fill Rate & Split Cost\n\n\n\n\n\n\nPricing Governance / Financial Analytics\n\n\nCascadia Deal Desk\nNewLive\nMulti-quarter pricing agreements as a governed dataset rather than a signed PDF — every quote line matched to the agreement in force on its own date, the gap priced in dollars, and a materiality threshold you calibrate before you automate an alert. Synthetic data throughout.\nView Case Study Exception Report Customer Margin\n\n\n\n\n\n\nFinancial Analytics\n\n\nCascadia Finance\nLive\nFormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.\nView Case Study Exec Pack Margin Walk Peers 2026 Q2 10-Q\n\n\n\n\n\n\nBI Leadership / Governance\n\n\nCascadia BI Migration\nPlaybook\nA 24-week program to migrate an organization off legacy BI onto a governed, AI-assisted platform — certified metric layer first, parity QA as the deliverable, wave-by-wave sunset. An illustrative program design.\nView Case Study\n\n\n\n\n\n\nHealthcare / Staffing Marketplace\n\n\nCascadia Staffing\nComplete\nContingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.\nView Case Study\n\n\n\n\n\n\nHealthcare / Pharmacy\n\n\nCascadia Pharmacy\nComplete\nGLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.\nView Case Study\n\n\n\n\n\n\nManufacturing\n\n\nCascadia Medical Devices\nComplete\nA dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.\nView Case Study\n\n\n\n\n\n\nRetail\n\n\nCascadia Clothing\nComing Soon\nDemand, merchandising, and fulfillment analytics for a retail apparel scenario.\nPreview\n\n\n\n\n\nLearn about the Cascadia architecture →"
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html",
-    "href": "projects/cascadia-controltower.html",
-    "title": "Cascadia Control Tower",
-    "section": "",
-    "text": "Supply Chain / Distribution-Centre Governance\n\n\n\n\nA distribution centre reports 94% fill rate to Operations, 92% to the merchant team and 87% to Finance. Three numbers, three teams, all arithmetically correct, none reconciled. Meanwhile the thing actually costing money is invisible in all three — an order split across two nodes still counts as filled. This module certifies one definition, prices the leak, and shows why no single split threshold works across two banners.\nFill Rate & Split Cost"
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#the-problem",
-    "href": "projects/cascadia-controltower.html#the-problem",
-    "title": "Cascadia Control Tower",
-    "section": "The problem",
-    "text": "The problem\nFill rate sounds like one number. It is at least three, and the supply-chain discipline has never settled which one it means — published guidance says plainly that there is no agreed OTIF formula, because the calculation depends on which point of view you are measuring and the level at which the data is stored.\nSo three teams compute three different things from one dataset and each is right:\n\n\n\n\n\n\n\n\n\nMetric\nValue\nRead by\nThe question it answers\n\n\n\n\nUnit fill\n94.3%\nOperations\nHow much of the demand did we move?\n\n\nLine fill\n91.6%\nMerchandising\nHow much of the assortment could we serve?\n\n\nOrder fill\n87.2%\nFinance\nDid the customer get what they asked for?\n\n\n\nOrder fill is arithmetically the lowest of the three in every period, because an order counts as filled only if every line in it is. The gap between the most forgiving definition and the strictest is 7.0 points — wide enough that Operations can report service improving while Finance reports it flat, both correctly, and the meeting resolves nothing.\nThe second problem is worse, because nothing on that list measures it. An order split across two fulfilment nodes still counts as filled on all three definitions. It is 100% filled, on time, in full — and it costs roughly a second parcel to ship."
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#the-analytical-payload",
-    "href": "projects/cascadia-controltower.html#the-analytical-payload",
-    "title": "Cascadia Control Tower",
-    "section": "The analytical payload",
-    "text": "The analytical payload\nThe definitional gap and the economic leak are the same phenomenon. Fill rate looks healthiest exactly where splitting is worst, because splitting is how the network achieves fill.\nThat is easy to assert and hard to prove, so the simulation records, for every order, what the same order against the same inventory position would have shipped if splitting were forbidden — the best any single node could have done, evaluated before the real allocation commits. Splitting buys 2.65 points of unit fill. Without that counterfactual the claim is rhetoric; with it, the governance decision has a price.\nShortfall and splitting turn out to be two symptoms of one condition — inventory fragmented relative to what customers put in a basket. Slow-moving styles are ranged at two nodes rather than six, so a basket containing one either reaches for a second node or goes short:\n\n\n\nSKU velocity band\nShips short\nUses more than one node\n\n\n\n\nA · fast\n4.4%\n4.2%\n\n\nB · mid\n8.4%\n10.2%\n\n\nC · slow\n9.5%\n17.1%\n\n\n\nAnd the same rule produces different economics by banner. The dollar cost of a split barely differs — $5.64 in the off-price banner, $5.18 in the premium one. Its consequence differs by more than three times, because it is charged against a margin that differs by more than three times:\n\nOff-Main (off-price): 12.1% of the gross margin on the order\nAlder & Vance (premium): 3.6%\n\nThere is therefore no single correct split threshold. Any network-wide rule is simultaneously too aggressive for one banner and too permissive for the other. That is a governance finding, not a modelling inconvenience."
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#the-resolution",
-    "href": "projects/cascadia-controltower.html#the-resolution",
-    "title": "Cascadia Control Tower",
-    "section": "The resolution",
-    "text": "The resolution\nCertify order fill as the service number. Retain line and unit fill as explicitly exploratory, with the reason stated. Add split rate to the same register, so the cost of achieving fill sits next to the fill.\nCertification is not a ranking. An exploratory metric is not a bad metric; it is one the business has agreed not to run on. Retaining the other two definitions and labelling them is the governance act — deleting them would move the disagreement rather than resolve it.\nThe register carries eleven metrics, eight certified. It is generated from the meta blocks on the dbt models that compute the metrics — the same file that defines their tests. Nothing is typed twice, and a --check mode fails the build if a definition drifts from the model behind it. A hand-typed register is documentation; a generated one is engineering."
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#what-was-built",
-    "href": "projects/cascadia-controltower.html#what-was-built",
-    "title": "Cascadia Control Tower",
-    "section": "What was built",
-    "text": "What was built\nPython generator → DuckDB star schema → dbt Core → static ECharts page.\n\nA seeded generator, 24 months, 379,979 orders across 621,942 lines and six nodes. Same seed, same content hash — re-checked on every validation run.\nInventory held at style and size, which is what lets the three fill rates differ at all. Size brokenness is the commonest reason a real retail line ships incomplete; model stock at style level and every line becomes all-or-nothing.\nNo order is ever labelled “split.” An order splits when the allocator cannot satisfy every line from one node and reaches for a second. The classification is an observed consequence of a documented rule, and the validation suite re-derives it from the shipments alone.\ndbt Core on DuckDB — 6 staging views, 9 marts, 69 data tests.\nA static page with ECharts vendored and the dataset inlined. No build step and no part of the page makes a network call. It is the durable artifact and survives the warehouse being switched off."
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#three-real-anchors-and-what-they-can-honestly-claim",
-    "href": "projects/cascadia-controltower.html#three-real-anchors-and-what-they-can-honestly-claim",
-    "title": "Cascadia Control Tower",
-    "section": "Three real anchors, and what they can honestly claim",
-    "text": "Three real anchors, and what they can honestly claim\n\n\n\n\n\n\n\n\nAnchor\nSource\nWhat it constrains\n\n\n\n\nLabor\nBLS OEWS May 2025, SOC 53-7062, Seattle-Tacoma-Bellevue\nEvery labor dollar costed at a real published wage — $22.95/hr median — across the percentile spread, not a median alone\n\n\nInventory\nUS Census MRTS, department stores, 1992–2026\nThe network runs at 0.97 months of stock against a sector band of 2.03–3.64\n\n\nP&L\nSEC EDGAR XBRL — Macy’s, Kohl’s, Dillard’s\nDC operating cost at 6.83% of shipped sales against a peer SG&A range of 23.7–39.0%\n\n\n\nTwo of the three audits bound the model rather than matching it, and the page says so. Census inventories cover entire department stores, most of whose stock sits on selling floors this module never simulates — so sitting below the band is the correct answer, not a miss. Fulfilment cost is not separately disclosed by any public department store; it sits inside SG&A alongside stores, marketing and corporate. Both are weaker claims than a match, and stating that is the point.\nAn audit that cannot fail is not an audit. Each is a pure function of measured numbers, so the suite hands each one deliberately wrong values and confirms it trips — inventory inflated past the sector band, seasonality flattened, cost inflated past peer SG&A, cost cut to a rounding error, splits made uniform, concentration reversed. All six trip, and that result is recorded next to the real one."
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#validation-a-blind-reading-panel",
-    "href": "projects/cascadia-controltower.html#validation-a-blind-reading-panel",
-    "title": "Cascadia Control Tower",
-    "section": "Validation: a blind reading panel",
-    "text": "Validation: a blind reading panel\nThe portfolio’s visualization standard requires that charts be read by people who do not know the finding before they ship. A four-seat panel ran blind against this module. The seats saw seven rendered chart images by absolute path and were told those files were the only thing they could open — no brief, no build notes, no source data, no surrounding prose, and no statement of the intended finding. They ran in parallel and could not see each other’s returns.\nThe roster is cast from the decision the module serves, not from a template:\n\n\n\n\n\n\n\nSeat\nWhy this seat exists\n\n\n\n\nDirector of DC Operations, 16 yrs\nOwns the service number the decision would certify, and whether what drags it down is inside his four walls or upstream in inventory placement\n\n\nDirector of Supply Chain Finance, 11 yrs\nOwns the margin the service costs and sets the threshold. Tests every cost for whether it is incremental cash\n\n\nVP Merchandise Planning, off-price banner, 19 yrs\nThe banner the threshold lands hardest on — and deliberately the room’s least analytics-literate real reader\n\n\nVisualization reader\nCanvas only. No tables, no arithmetic. Judges whether the picture carries the claim\n\n\n\nEach returned four fixed items per chart: what they would say about it an hour later, one number they would quote and where on the canvas they got it, the question they would ask, and what they went looking for and could not find.\nThey returned 25 findings. 20 were dispositioned as defects, 13 fixed, 7 accepted with reasons recorded, 5 rejected as preferences. These charts had already been corrected once — and four in five of the panel’s defects were still uncaught.\nThree of them invalidated a headline, and none was visible to any automated check:\n\nA title claimed “the same $5.46 second parcel.” It is not the same: $5.64 and $5.18 are, and $5.46 is the blend of them. All three domain seats independently distrusted the figure — the merchant seat said she had “been handed the bad end of an average.” She was right, and the title now names both.\nA chart’s headline turned on which of two fulfilment centres was “primary,” and the chart never said. Against one the claim was true; against the other it was false. The truth of the headline rested on a fact the picture withheld.\nA “dips in the same season” claim compared against a series that was never drawn. The real month-of-year comparison was already in the data and already being tested against — it just was not on the canvas. It is now.\n\nThe strongest signal was convergence rather than eloquence. All three domain seats independently refused to repeat one chart’s finding until someone told them whether one fulfilment network against whole department-store companies was like-for-like. The page already answered them, clearly and correctly — in the prose, not on the chart. The disclosure existed; the chart was silent about something the page knew.\nThat is the value of the exercise, and it is why the panel is worth its cost: nothing about the analysis was wrong. What was wrong was what a reader could see."
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#honest-limits",
-    "href": "projects/cascadia-controltower.html#honest-limits",
-    "title": "Cascadia Control Tower",
-    "section": "Honest limits",
-    "text": "Honest limits\n\nThe operational data is invented. Every fill rate, split rate and dollar describes a simulation. The generator is not evidence about the world.\nTwo of the three realism audits bound rather than match, for scope reasons stated above and on the page.\nThe counterfactual is modelled, not measured. It is registered as exploratory and must never be reported as achieved service.\nThe calibration source is not named, and that costs reproducibility. Scale and mix parameters draw on one real department-store operator’s published filings; that filer is never named, so this one input is attested rather than reproducible. The three realism audits deliberately do not depend on it.\nReturns and reverse logistics are excluded on purpose — the largest documented cost in the research, and the natural Phase 2.\nA calibration target was missed and is reported missed, with the three ways of forcing it that were tried and rejected.\nThe shipping render has not itself been panelled. The panel read the previous version; the thirteen fixes made in response are author work, unread by anyone blind.\nThere is no live BigQuery or Looker Studio view. The warehouse ships as DuckDB. Said plainly rather than implied by omission."
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#tech-stack",
-    "href": "projects/cascadia-controltower.html#tech-stack",
-    "title": "Cascadia Control Tower",
-    "section": "Tech Stack",
-    "text": "Tech Stack\n\nPython pandas DuckDB dbt Core Star Schema Apache ECharts Static HTML / JS WCAG 2.2 AA GitHub Pages Git"
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#disclosure",
-    "href": "projects/cascadia-controltower.html#disclosure",
-    "title": "Cascadia Control Tower",
-    "section": "Disclosure",
-    "text": "Disclosure\nEvery order, style, size, shipment, labor hour and dollar in this module is synthetic, produced by a seeded generator committed to the repository. Alder & Vance and Off-Main are invented banners of an invented operator, and no real company is the subject of this analysis. The three public datasets that constrain the generator — BLS OEWS wages, US Census MRTS retail inventories, and the SEC EDGAR XBRL filings of Macy’s, Kohl’s and Dillard’s — are real, and are named wherever they are used; they serve as external benchmarks, not as subjects. Independent portfolio project, not affiliated with or endorsed by any company, and not based on any non-public information. It illustrates a distribution-centre governance design on invented operational data only."
-  },
-  {
-    "objectID": "projects/cascadia-controltower.html#links",
-    "href": "projects/cascadia-controltower.html#links",
-    "title": "Cascadia Control Tower",
-    "section": "Links",
-    "text": "Links\n\nFill Rate & Split Cost — seven charts, the certified metric register, and the realism audits\nBuild Repository — generator, dbt project, validation suite, and the governance documents\nCascadia Architecture Overview"
-  },
-  {
-    "objectID": "projects/cascadia-clothing.html",
-    "href": "projects/cascadia-clothing.html",
-    "title": "Cascadia Clothing",
-    "section": "",
-    "text": "Retail Analytics\n\n\nCascadia Clothing\n\nThe next Cascadia build — retail and ecommerce analytics, with the stack matched to the problem once the data is chosen.\n\n\n\n\nThe next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF. Drawing on my ecommerce BI background, it will extend the Cascadia approach into retail, with the tooling chosen to fit the data and scale. Check back, or follow along on GitHub."
-  },
-  {
-    "objectID": "projects/cascadia-finance.html",
-    "href": "projects/cascadia-finance.html",
-    "title": "Cascadia Finance",
-    "section": "",
-    "text": "Financial Analytics\n\n\n\n\nPublic SEC filings turned into an executive close pack for FormFactor (NASDAQ: FORM) — headline → driver → variance, the way a finance director reads numbers. GAAP quarterly, FY2018 → Q1 FY2026, rebuilt offline from a frozen snapshot so the numbers never drift.\nExecutive Pack Margin Walk & Segments Peer Benchmark Q2 FY2026 10-Q"
-  },
-  {
-    "objectID": "projects/cascadia-finance.html#overview",
-    "href": "projects/cascadia-finance.html#overview",
-    "title": "Cascadia Finance",
+    "objectID": "projects/cascadia-medical-devices.html#overview",
+    "href": "projects/cascadia-medical-devices.html#overview",
+    "title": "Cascadia Medical Devices",
     "section": "Overview",
-    "text": "Overview\nA financial-analytics module on real SEC filing data. It models FormFactor’s public GAAP financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, now extended with a margin-driver view (Phase 2) and a peer benchmark (Phase 3) — all three phases live.\nDeliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages."
+    "text": "Overview\nA full analytics stack for a fictional 3-line medical-device manufacturer, built on ~5.9M synthetic production events across 29 months, paired with real NASA C-MAPSS turbofan run-to-failure sensor data for predictive maintenance. It demonstrates dimensional modeling at scale, a medallion pipeline, and root-cause operational analytics."
   },
   {
-    "objectID": "projects/cascadia-finance.html#why-this-stack",
-    "href": "projects/cascadia-finance.html#why-this-stack",
-    "title": "Cascadia Finance",
-    "section": "Why This Stack",
-    "text": "Why This Stack\nThis module exists for a financial-analytics role, and the tooling is a deliberate “right tool for the job” choice rather than a scaled-down enterprise stack. It has to be screen-shareable in an interview, hostable for free and forever, and transparent enough to walk through line by line. A few hundred lines of well-commented Python plus a static ECharts page does all three — and the Python ingestion layer is itself part of the story: analytics built to spec, in the open, with the data governance made explicit on every page."
-  },
-  {
-    "objectID": "projects/cascadia-finance.html#architecture",
-    "href": "projects/cascadia-finance.html#architecture",
-    "title": "Cascadia Finance",
-    "section": "Architecture",
-    "text": "Architecture\nSEC EDGAR XBRL (frozen JSON) → Python (requests + pandas) → SQLite star schema → static ECharts pages.\n\nIngest. Pulls FormFactor (CIK 0001039399) financial concepts from the SEC EDGAR XBRL APIs — SEC-compliant User-Agent, throttled well under rate limits — and commits the raw JSON snapshots to the repo.\nConform. Tidy CSVs, one row per company × metric × fiscal quarter, with QoQ and YoY variances precomputed and derived / restated / missing flags.\nModel. A SQLite star schema — dim_company, dim_metric, dim_date, fact_financials_quarterly.\nPresent. Static, hostable ECharts pages — index.html (the executive pack), margins.html (the gross-margin walk & segment view), and peers.html (the US-listed T&M peer benchmark) — each with KPI headline cards, QoQ/YoY variance chips, labeled charts, and a “Data & method” footnotes section."
-  },
-  {
-    "objectID": "projects/cascadia-finance.html#headline-skill-financial-data-governance",
-    "href": "projects/cascadia-finance.html#headline-skill-financial-data-governance",
-    "title": "Cascadia Finance",
-    "section": "Headline Skill: Financial-Data Governance",
-    "text": "Headline Skill: Financial-Data Governance\nGetting the governance right is the credibility play for a finance audience:\n\nFrozen snapshot. The data was pulled once and committed; every page carries an “as of SEC filings retrieved 2026-07-21” stamp, and the build rebuilds offline from those snapshots so the dataset cannot silently drift (FormFactor reports its next quarter July 29, mid-process). Refreshing is a deliberate manual action, never a side effect.\nGAAP vs non-GAAP. XBRL facts are GAAP and will not match a company’s non-GAAP press-release headlines — FormFactor’s headline gross margin is a record ~49% non-GAAP quarter, while the GAAP margin from the filings is lower and moved differently. Every metric is labeled GAAP explicitly, and the GAAP and non-GAAP framings are shown side by side rather than blurred.\nDerived Q4s. 10-Ks file the full year rather than a discrete Q4, so Q4 = FY − (Q1+Q2+Q3) is derived where needed, flagged as derived, and reconciled in validation.\nTag mapping & restatements. XBRL tags change over time and filings get restated; a tag-mapping table handles the drift and the latest-filed value wins.\nMissing data is flagged, never filled. No interpolation, no zero-fill — “not disclosed” is a first-class value."
-  },
-  {
-    "objectID": "projects/cascadia-finance.html#validation",
-    "href": "projects/cascadia-finance.html#validation",
-    "title": "Cascadia Finance",
-    "section": "Validation",
-    "text": "Validation\nvalidate.py reconciles the derived quarters (four quarters sum to the full year within rounding) and spot-checks revenue and gross profit against figures verifiable in FormFactor’s press releases, writing the results to governance/validation_report.md. Every headline number on the page traces back to a filed, checkable source."
-  },
-  {
-    "objectID": "projects/cascadia-finance.html#the-module",
-    "href": "projects/cascadia-finance.html#the-module",
-    "title": "Cascadia Finance",
-    "section": "The Module",
-    "text": "The Module\nThe Phase 1 executive pack is live now — an interactive, mobile-friendly page you can open on a phone or share on a screen.\nOpen the Live Executive Pack →\nPhase 2 — the gross-margin walk & segments — is live too. The QoQ margin bridge (revenue effect vs margin effect), the Q1 FY2026 GM inflection with its filed drivers, and the Probe Cards vs Systems segment view, with segment revenue reconciled to consolidated GAAP.\nOpen the Margin Walk & Segments →\nPhase 3 — the peer benchmark & governance showcase — is live too. FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and every not-comparable metric flagged, never estimated.\nOpen the Peer Benchmark →\nBeyond the frozen phases — a Q2 FY2026 announced-to-filed story. When FormFactor announced Q2 on July 29, 2026, I ran the press-release figures through the same margin-walk method — deliberately outside the frozen dataset, every figure labelled announced. When the 10-Q filed on August 4, I reconciled those estimates against the filed XBRL line by line: all eleven GAAP lines tied to the dollar, and the non-GAAP gross margin (which has no XBRL counterpart) is flagged not comparable rather than forced. Both pages ship as freeze extensions — Phases 1–3 stay exactly as they were.\nOpen Q2 Filed vs Announced → Q2 Read-Through (announced) →"
-  },
-  {
-    "objectID": "projects/cascadia-finance.html#roadmap",
-    "href": "projects/cascadia-finance.html#roadmap",
-    "title": "Cascadia Finance",
-    "section": "Roadmap",
-    "text": "Roadmap\n\nPhase 1 — Executive Financial Pack (live). FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.\nPhase 2 — Margin Drivers (live). A GAAP gross-margin walk (revenue-vs-margin bridge) and the Probe Cards vs Systems segment view — segment revenue reconciled to consolidated GAAP, and segment margin shown only where it ties exactly (FY2024+).\nPhase 3 — Peer Benchmark + Governance (live). FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and honest not-comparable flags — nothing estimated."
-  },
-  {
-    "objectID": "projects/cascadia-finance.html#tech-stack",
-    "href": "projects/cascadia-finance.html#tech-stack",
-    "title": "Cascadia Finance",
-    "section": "Tech Stack",
-    "text": "Tech Stack\n\nPython pandas SEC EDGAR XBRL SQLite Apache ECharts Static HTML / JS GitHub Pages Git"
-  },
-  {
-    "objectID": "projects/cascadia-finance.html#disclosure",
-    "href": "projects/cascadia-finance.html#disclosure",
-    "title": "Cascadia Finance",
-    "section": "Disclosure",
-    "text": "Disclosure\nBuilt from public SEC filings (EDGAR XBRL APIs), as of 2026-07-21. Independent portfolio project — not affiliated with, endorsed by, or based on any non-public information from FormFactor or any company shown. Not investment advice."
-  },
-  {
-    "objectID": "projects/cascadia-finance.html#links",
-    "href": "projects/cascadia-finance.html#links",
-    "title": "Cascadia Finance",
-    "section": "Links",
-    "text": "Links\n\nView Live Module — the hosted Phase 1 executive pack\nMargin Walk & Segments — the Phase 2 gross-margin walk and Probe Cards vs Systems view\nPeer Benchmark & Governance — the Phase 3 US-listed T&M peer comparison + XBRL tag-mapping table\nQ2 FY2026 Filed vs Announced — the filed 10-Q reconciled line-by-line against my July 29 announced estimates; every GAAP line ties to the dollar\nQ2 FY2026 Read-Through — the pre-filing announced-tier margin walk (8-K press release, before the 10-Q)\nBuild Repository — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report\nCascadia Architecture Overview"
-  },
-  {
-    "objectID": "projects/cascadia-bi-migration.html",
-    "href": "projects/cascadia-bi-migration.html",
-    "title": "Cascadia BI Migration",
-    "section": "",
-    "text": "BI Leadership / Metric Governance\n\n\n\n\nHow I’d run a Tableau → AI-native BI migration: retire self-serve reporting for the general population, migrate the dashboards that actually matter, and stand up a certified metric layer so the numbers the business runs on have one owned definition. An illustrative program design — company-agnostic, no confidential information."
-  },
-  {
-    "objectID": "projects/cascadia-bi-migration.html#the-scenario",
-    "href": "projects/cascadia-bi-migration.html#the-scenario",
-    "title": "Cascadia BI Migration",
-    "section": "The Scenario",
-    "text": "The Scenario\nA high-growth company runs ~500 dashboards on a legacy BI tool — but fewer than 100 are actually used, and only ~20–25 are heavily used. A license renewal is the forcing function: renew for the whole population at full cost, or migrate the reporting that matters onto a modern, AI-assisted BI platform (sitting on the existing cloud data warehouse) and renew lean for a handful of admins.\nThe trap in a migration like this is treating it as a copy job. Rebuilding 500 dashboards on uncertified metrics just moves the technical debt to a new tool. The program below does the opposite: certify the numbers first, migrate only what’s used, and make parity QA — proving the new number equals the trusted old number — the actual deliverable."
-  },
-  {
-    "objectID": "projects/cascadia-bi-migration.html#guiding-principles",
-    "href": "projects/cascadia-bi-migration.html#guiding-principles",
-    "title": "Cascadia BI Migration",
-    "section": "Guiding Principles",
-    "text": "Guiding Principles\n\nCertified layer first, dashboards second. A migrated dashboard built on an undefined metric just relocates the problem. Define the number, then build on it.\nMigrate what’s used; retire the rest on a published date. Most of the ~500 dashboards should be retired, not moved.\nTwo tiers, always labeled. Certified metrics for decisions; exploratory clearly marked as not-yet-locked.\nParity QA is the deliverable. With AI-assisted, prompt-driven rebuilds, construction is cheap — the value is proving the new number matches the trusted old one, or is correctly different and documented why.\nNo big-bang. Wave-by-wave cutover, each with hypercare.\nPartner, don’t turf-war. BI owns definitions, the context layer, and QA; platform engineering owns the warehouse and pipelines; data science owns the AI-platform depth.\nGovernance, not gatekeeping. Enable self-service on a trusted base rather than becoming the bottleneck everyone routes around."
-  },
-  {
-    "objectID": "projects/cascadia-bi-migration.html#the-plan",
-    "href": "projects/cascadia-bi-migration.html#the-plan",
-    "title": "Cascadia BI Migration",
-    "section": "The Plan",
-    "text": "The Plan\n\n\n\n\nNorth Star: by the renewal deadline, legacy-BI reporting is retired for the general population (~150 → ~5 licenses); the ~20–25 heavily-used dashboards are migrated and certified on a trusted metric layer in the new platform.\n\n\n\nMO 1\n\n\nMO 2\n\n\nMO 3\n\n\nMO 4\n\n\nMO 5\n\n\nMO 6\n\n\n\n\n0 · Mobilize & AlignWk 1–2\n\n\n\nMobilize\n\n\n\n\n\n1 · Discover & InventoryWk 2–5\n\n\n\nDiscover & Inventory\n\n\n\n\n\n2 · Govern & CertifyWk 4–8\n\n\n\nGovern & Certify\n\n\n\n\n\n3 · PilotWk 7–10\n\n\n\nPilot\n\n\n\n\n\n4 · Wave MigrationWk 9–20\n\n\n\nWave Migration (by department / value)\n\n\n\n\n\n5 · Sunset & RenewalWk 18–24\n\n\n\nSunset & Renew (~5 licenses)\n\n\n\n\n\nGovernance & QAcontinuous\n\n\n\ncertified layer · parity QA (ongoing)\n\n\n\n\n\nHypercarerolling\n\n\n\n2–4 wks after each wave\n\n\n\n\n\n\n\n\n\nG0mandate + seam\n\n\n\n\n\n\n\nG1backlog + retire list\n\n\n\n\n\n\n\nG2catalog v1\n\n\n\n\n\n\n\nG3pilot adopted\n\n\n\n\n\n\n\nG4ready to sunset\n\n\n\n\n\n\n\nG5renewal\n\n\n\n\n Sequential phase (has an exit gate)  Pilot (proof of the motion)  Continuous track  Decision gate (go/no-go)\n\n\n\nFront-loaded discovery and governance; migration waves through the middle; sunset lands on the renewal deadline. Governance and QA run continuously once stood up, and bars overlap by design."
-  },
-  {
-    "objectID": "projects/cascadia-bi-migration.html#phases-exit-gates",
-    "href": "projects/cascadia-bi-migration.html#phases-exit-gates",
-    "title": "Cascadia BI Migration",
-    "section": "Phases & Exit Gates",
-    "text": "Phases & Exit Gates\n\n\n\n\n\n\n\n\n\nPhase\nWeeks\nObjective\nExit gate\n\n\n\n\n0 · Mobilize & Align\n1–2\nConfirm scope, mandate, and the real state of the platform + warehouse\nCharter signed; BI / platform-eng / data-science seam agreed in writing\n\n\n1 · Discover & Inventory\n2–5\nKnow what exists, what’s used, and what the business actually runs on\nPrioritized backlog + retire list approved; top-15 metric shortlist\n\n\n2 · Govern & Certify\n4–8\nStand up the trusted metric layer the platform consumes\nCertified Metric Catalog v1; parity-QA process ratified\n\n\n3 · Pilot\n7–10\nProve the motion end-to-end with a friendly, high-value area\nPilot adopted; parity signed off; per-dashboard runbook validated\n\n\n4 · Wave Migration\n9–20\nMigrate the used dashboards in prioritized waves\nAll used dashboards migrated & certified; only long-tail remains\n\n\n5 · Sunset & Renewal\n18–24\nTurn legacy BI off for the general population; renew lean\nGeneral population off legacy BI; ~5-license renewal executed"
-  },
-  {
-    "objectID": "projects/cascadia-bi-migration.html#risk-register",
-    "href": "projects/cascadia-bi-migration.html#risk-register",
-    "title": "Cascadia BI Migration",
-    "section": "Risk Register",
-    "text": "Risk Register\n\n\n\n\n\n\n\n\nRisk\nImpact\nMitigation\n\n\n\n\nStakeholder outreach never gets prioritized\nHigh — discovery stalls the whole plan\nMake it the Phase-1 headline; short structured interviews; executive air cover to secure time\n\n\n“Same number, different answer” after rebuild\nHigh — kills trust in the new platform\nCertify the metric before rebuild; parity QA every dashboard; label board-vs-operating differences explicitly\n\n\nRefresh-lag surprises users expecting real-time\nMedium\nSet as-of expectations in the semantic layer; match cadence to the decision; escalate true real-time needs to engineering\n\n\nAI skeptics / “the tool is wrong”\nMedium\nMost “wrong” is an undefined metric — show the certified definition + parity, and win skeptics one number at a time\n\n\nTurf friction over the context layer\nMedium\nAgree the seam explicitly at G0; co-own the context layer — BI brings business definitions, data science brings platform depth\n\n\nHidden legacy tech debt (“nobody knows how it was built”)\nMedium\nTreat undocumented dashboards as retire-candidates unless a user defends them; don’t faithfully reproduce debt\n\n\nScope creep (migrate all 500 / gold-plate)\nMedium\nRetire-by-default; migrate only used; keep exploratory cheap and clearly labeled"
-  },
-  {
-    "objectID": "projects/cascadia-bi-migration.html#success-metrics",
-    "href": "projects/cascadia-bi-migration.html#success-metrics",
-    "title": "Cascadia BI Migration",
-    "section": "Success Metrics",
-    "text": "Success Metrics\n\nLicense reduction: ~150 → ~5 by renewal (the headline).\nDashboards: # migrated & certified vs. # retired vs. # remaining (target: 100% of used migrated).\nCertified metrics: count in the catalog, each with a definition, source, and owner.\nAdoption: active users on the new versions; legacy usage trending to zero for the general population.\nTrust: definitional disputes raised vs. resolved; parity pass-rate at cutover.\nCost: license spend avoided; warehouse-refresh savings from governance.\nCycle: time-to-migrate per dashboard, trending down as the runbook matures."
-  },
-  {
-    "objectID": "projects/cascadia-bi-migration.html#skills-demonstrated",
-    "href": "projects/cascadia-bi-migration.html#skills-demonstrated",
-    "title": "Cascadia BI Migration",
-    "section": "Skills Demonstrated",
-    "text": "Skills Demonstrated\nBI program leadership and delivery · metric governance and certification (one definition, source, and owner per number) · stakeholder management and change enablement across non-technical teams (sales, clinical ops, finance, RevOps) · parity QA for AI-generated queries · cross-functional partnership with platform engineering and data science · phased delivery with explicit go/no-go gates.\n\nAn illustrative program design demonstrating how I approach a BI platform migration and metric-governance program. Tools referenced are generic; no proprietary or confidential information is included."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Aaron Robbins",
-    "section": "",
-    "text": "I’m a business intelligence and analytics leader. I build the systems that make numbers trustworthy at scale — the metric definitions, the data models, and the governance underneath them, not just the dashboard sitting on top. A report is only as good as the data behind it, and that layer is the work.\nOver 12+ years I’ve done this from both chairs. At Lowe’s ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six through building the data warehouse and the reporting stack that supported $10M+ in revenue. At Philips Healthcare I led BI and analytics programs across a global manufacturing operation — ten factories, three continents, 200+ stakeholders in eight countries — standardizing 200+ Critical Data Elements into a common data model, harmonizing KPI frameworks across fifteen factories, and taking $80K a year out of the reporting estate through rationalization. That was leadership through influence rather than reporting lines, which is the harder version of the job.\nThe craft is current. Every module in the Cascadia portfolio was built in 2026 to my specification: I set the architecture, the data models, the metric definitions and the validation gates, and directed the build. The code is public on GitHub — governed data models, matching rules documented as deliverables in their own right, and validation suites that fail the build rather than ship a number I can’t defend.\nSo I’m comfortable as the person building it or as the person who stands up the function and hires the team. The standard doesn’t change either way."
-  },
-  {
-    "objectID": "about.html#bio",
-    "href": "about.html#bio",
-    "title": "About Aaron Robbins",
-    "section": "",
-    "text": "I’m a business intelligence and analytics leader. I build the systems that make numbers trustworthy at scale — the metric definitions, the data models, and the governance underneath them, not just the dashboard sitting on top. A report is only as good as the data behind it, and that layer is the work.\nOver 12+ years I’ve done this from both chairs. At Lowe’s ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six through building the data warehouse and the reporting stack that supported $10M+ in revenue. At Philips Healthcare I led BI and analytics programs across a global manufacturing operation — ten factories, three continents, 200+ stakeholders in eight countries — standardizing 200+ Critical Data Elements into a common data model, harmonizing KPI frameworks across fifteen factories, and taking $80K a year out of the reporting estate through rationalization. That was leadership through influence rather than reporting lines, which is the harder version of the job.\nThe craft is current. Every module in the Cascadia portfolio was built in 2026 to my specification: I set the architecture, the data models, the metric definitions and the validation gates, and directed the build. The code is public on GitHub — governed data models, matching rules documented as deliverables in their own right, and validation suites that fail the build rather than ship a number I can’t defend.\nSo I’m comfortable as the person building it or as the person who stands up the function and hires the team. The standard doesn’t change either way."
-  },
-  {
-    "objectID": "about.html#selected-outcomes",
-    "href": "about.html#selected-outcomes",
-    "title": "About Aaron Robbins",
-    "section": "Selected outcomes",
-    "text": "Selected outcomes\n\nFounded a BI function. Proposed the department at Lowe’s/ATG Stores, hired the foundational team, and managed six analysts and developers through the build of the data warehouse, KPI definitions, and stewardship model.\nGoverned data at enterprise scale. Standardized 200+ Critical Data Elements and common data model definitions across a global manufacturing platform, enforcing semantic consistency across systems that had none.\nHarmonized metrics across fifteen factories. Replaced site-by-site KPI variants with one trusted framework — 17 automated KPIs and 21 new T4 KPIs — so leadership could compare plants on definitions that actually matched.\nTook $80K a year out of the reporting estate. BI rationalization governing refresh rates, usage, ownership, and access, removing duplicate and abandoned reporting.\nEliminated 100+ hours a week of manual reporting, moving disconnected spreadsheets and point-in-time extracts into automated, governed dashboards.\nZero audit findings in a regulated medical-device data environment, with access-controlled handling of sensitive data."
-  },
-  {
-    "objectID": "about.html#skills",
-    "href": "about.html#skills",
-    "title": "About Aaron Robbins",
-    "section": "Skills",
-    "text": "Skills\n\nBI & visualization: Power BI (data modeling, DAX, Power Query/M), Tableau, Qlik, SAP BusinessObjects, advanced Excel\nData & modeling: SQL Server, SAP HANA, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality, Microsoft Fabric, Databricks, Azure data platforms\nKPI & frameworks: KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization\nDomains: healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics\nLeading work: BI function ownership, analytics program & portfolio management, Agile (Scrumban) / Scrum Master, stakeholder management across eight countries, self-service enablement, mentoring analysts"
-  },
-  {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "About Aaron Robbins",
-    "section": "Contact",
-    "text": "Contact\n\n\nLinkedIn linkedin.com/in/aaron-robbins-6b25a2136\n\n\nGitHub github.com/RobbinsAnalytics"
-  },
-  {
-    "objectID": "projects/cascadia-staffing.html",
-    "href": "projects/cascadia-staffing.html",
-    "title": "Cascadia Staffing",
-    "section": "",
-    "text": "Healthcare / Staffing Marketplace Analytics\n\n\n\n\n21 million daily staffing records across 14,362 U.S. nursing facilities — contract vs. employee hours by role, per facility, per day — answering how big the contingent-labor market is, where it concentrates, and why demand is unplannable."
-  },
-  {
-    "objectID": "projects/cascadia-staffing.html#overview",
-    "href": "projects/cascadia-staffing.html#overview",
-    "title": "Cascadia Staffing",
-    "section": "Overview",
-    "text": "Overview\nA marketplace-labor analytics stack built on the CMS Payroll-Based Journal (PBJ) Daily Nurse Staffing dataset — the auditable, payroll-derived record of every U.S. skilled nursing facility’s daily staffing. It applies the Cascadia approach to workforce economics: the employee-vs-contract labor mix, staffing volatility, and coverage shortfall against a published federal benchmark. It is also the portfolio’s most explicit KPI governance showcase: one certified definition per metric, and every headline number validated twice."
-  },
-  {
-    "objectID": "projects/cascadia-staffing.html#business-problem",
-    "href": "projects/cascadia-staffing.html#business-problem",
-    "title": "Cascadia Staffing",
+    "objectID": "projects/cascadia-medical-devices.html#business-problem",
+    "href": "projects/cascadia-medical-devices.html#business-problem",
+    "title": "Cascadia Medical Devices",
     "section": "Business Problem",
-    "text": "Business Problem\nHealthcare staffing marketplaces exist because facilities can’t fully staff with employees: demand swings day to day, weekends run structurally short, and the gap gets filled with expensive agency labor. Those are measurable claims — PBJ records contract and employee hours separately, by role, for every facility-day. This build quantifies the market a staffing marketplace actually serves: how much labor is contingent, where reliance concentrates, how volatile daily demand is, and how often facilities run below expected staffing."
+    "text": "Business Problem\nManufacturing leaders couldn’t see why on-time delivery was slipping on certain product lines. The data existed but was fragmented across systems with no single, trusted view."
   },
   {
-    "objectID": "projects/cascadia-staffing.html#architecture",
-    "href": "projects/cascadia-staffing.html#architecture",
-    "title": "Cascadia Staffing",
+    "objectID": "projects/cascadia-medical-devices.html#architecture",
+    "href": "projects/cascadia-medical-devices.html#architecture",
+    "title": "Cascadia Medical Devices",
     "section": "Architecture",
-    "text": "Architecture\nLocal SQL Server star schema → Power BI import model — no cloud lakehouse; the modeling and governance discipline lives in the schema and the certified-measures layer.\nSource layer: CascadiaStaffing SQL Server star schema — 4 dimension tables + 2 fact tables.\n\nfact_staffing_day_role (21,140,864 rows, grain: facility × day × role × labor type, CY2025 Q4)\nfact_facility_day (1.32M rows, grain: facility × day) — added deliberately so census counts once per facility-day, making a 16× double-counting error structurally impossible rather than relying on measure authors to avoid it\n\nStaging: a Python raw → clean layer — Windows-1252 → UTF-8 decoding, UNPIVOT of the employee/contract hour pairs into a labor-type dimension, dedup on provnum × workdate, and suppression flags; suppressed hours stay NULL and are never zero-filled.\nSemantic model + report: Power BI import mode — a dedicated certified-measures layer where every KPI has exactly one definition, written into the measure itself. Page 1 (“The Contingent-Labor Market”) is built, validated, and shown below."
+    "text": "Architecture\nThis build is the portfolio’s full enterprise-BI stack — the one Cascadia domain that runs end to end on Microsoft Fabric:\n\n\n\n\nCascadia end-to-end data platform\n\n\n\nSource (SQL Server): CascadiaMES — star schema with 4 fact tables, 8 dimensions, dim_date, ~5.9M rows, plus a separate schema for NASA C-MAPSS sensor data. Loaded reproducibly via PowerShell; DP-600-aligned.\nPipeline (Microsoft Fabric): Bronze → Silver → Gold medallion lakehouse, implemented in PySpark notebooks.\nSemantic model + report (Power BI): Direct Lake connection; DAX measures for OEE, MTBF, defect rate, and on-time-in-full delivery."
   },
   {
-    "objectID": "projects/cascadia-staffing.html#data-sources",
-    "href": "projects/cascadia-staffing.html#data-sources",
-    "title": "Cascadia Staffing",
+    "objectID": "projects/cascadia-medical-devices.html#data-sources",
+    "href": "projects/cascadia-medical-devices.html#data-sources",
+    "title": "Cascadia Medical Devices",
     "section": "Data Sources",
-    "text": "Data Sources\n\n\n\n\n\n\n\n\n\nSource\nType\nRows\nNotes\n\n\n\n\nCMS PBJ Daily Nurse Staffing\nFederal (CMS)\n1.32M raw facility-days → 21.1M modeled\nCY2025 Q4 · 14,362 facilities × 92 days · employee/contract hours unpivoted into a labor-type dimension across 8 nursing roles\n\n\n\nAttribution: CMS Payroll-Based Journal Daily Nurse Staffing — public domain federal data, derived from facility payroll submissions."
+    "text": "Data Sources\n\n\n\n\n\n\n\n\n\nSource\nType\nRows\nNotes\n\n\n\n\nCascadiaMES (simulated)\nSQL Server\n~5.9M\nSeed-controlled deterministic generator; 4 fact tables, 8 dimensions\n\n\nNASA C-MAPSS\nPublic (NASA)\n265K cycles\nTurbofan Engine Degradation dataset (FD001–FD004); cited and disclosed"
   },
   {
-    "objectID": "projects/cascadia-staffing.html#headline-skill-kpi-governance-on-real-data",
-    "href": "projects/cascadia-staffing.html#headline-skill-kpi-governance-on-real-data",
-    "title": "Cascadia Staffing",
-    "section": "Headline Skill: KPI Governance on Real Data",
-    "text": "Headline Skill: KPI Governance on Real Data\nPBJ has honest traps, and the build models them instead of papering over them:\n\nA null is not a zero. Suppressed/unreported hours stay NULL and are never zero-filled; 65% of fact rows are real reported zeros, and merging the two would silently corrupt the contract-labor ratio.\nUndefined means undefined. 351 facility-days report zero residents; hours-per-resident-day is excluded there — with an on-page exclusion counter — rather than divided into a fake zero.\nKill the trap structurally. Daily census arrives denormalized across 16 rows per facility-day; naive summation overstates resident-days by exactly 16× and still looks plausible on a chart. A facility-day grain table removes the mistake by design.\nOne definition per number. Every KPI card traces to a single certified measure with its definition stated on the page and embedded in the model.\nValidate twice. Every headline number was cross-checked against independent T-SQL run directly on the warehouse — and the state-level results reproduce independently published research (Vermont’s contract share matches LTCCC’s Q1 2025 figure to within a tenth of a point).\n\n\nKey Findings (CY2025 Q4)\n\n5.25% of all direct-care hours are contract labor — roughly double the ~3% pre-pandemic baseline, but well down from the ~11% peak of 2022: facilities are actively unwinding expensive agency contracts.\nThe average is not the market. State-level contingent reliance spans ~1% (Alabama) to ~24% (Vermont) — a marketplace’s demand lives in that tail, not the mean.\nLicensed-nurse scarcity shows up in the mix: contingent share is 5.98% for nurse roles vs 4.78% for aide roles.\nDaily demand is unplannable: the median facility’s total care hours swing ±10% day to day (coefficient of variation of daily hours).\n36.4% of facility-days run below the CMS ~3.48 total-nurse HPRD reference — even though the national average (3.76) clears it. Average adequate, distribution broken.\nA structural weekend cliff: staffing drops from 3.93 to 3.34 hours per resident-day every weekend — a recurring 15% shortfall."
+    "objectID": "projects/cascadia-medical-devices.html#headline-skill-root-cause-analytics-predictive-maintenance",
+    "href": "projects/cascadia-medical-devices.html#headline-skill-root-cause-analytics-predictive-maintenance",
+    "title": "Cascadia Medical Devices",
+    "section": "Headline Skill: Root-Cause Analytics & Predictive Maintenance",
+    "text": "Headline Skill: Root-Cause Analytics & Predictive Maintenance\nThe dataset carries an engineered, discoverable story: a single station’s cycle time drifts up (≈58→69s), dragging First Pass Yield down on one line (≈95.5%→90.2%) and on-time-in-full delivery down on the affected product (≈92%→69%) — while control lines stay flat. The reporting isolates the root cause rather than just showing the symptom.\nThe NASA C-MAPSS layer adds a parallel story: remaining useful life (RUL) modeling on turbofan engine sensor data, surfaced as a reliability/maintenance planning view in the same report."
   },
   {
-    "objectID": "projects/cascadia-staffing.html#the-report",
-    "href": "projects/cascadia-staffing.html#the-report",
-    "title": "Cascadia Staffing",
+    "objectID": "projects/cascadia-medical-devices.html#the-report",
+    "href": "projects/cascadia-medical-devices.html#the-report",
+    "title": "Cascadia Medical Devices",
     "section": "The Report",
-    "text": "The Report\n\n\n\nThe Contingent-Labor Market page — Power BI. Certified KPI cards for contingent penetration, staffing volatility, facility-days below expected staffing, and total nurse HPRD; contingent penetration by state; the weekend coverage cliff; and a data-quality footnote stating each metric’s certified definition."
+    "text": "The Report\n\n\n\nThe manufacturing analytics report — Power BI. OEE, FPY, and OTIF headline cards; availability / performance / OEE by production line; FPY by month and station (the declining station drives the root-cause story); a downtime Pareto by reason code; and OTIF by customer.\n\n\nThe Power BI report surfaces the OEE and root-cause yield story alongside the NASA C-MAPSS reliability / remaining-useful-life view."
   },
   {
-    "objectID": "projects/cascadia-staffing.html#opportunities-for-future-enhancements",
-    "href": "projects/cascadia-staffing.html#opportunities-for-future-enhancements",
-    "title": "Cascadia Staffing",
+    "objectID": "projects/cascadia-medical-devices.html#opportunities-for-future-enhancements",
+    "href": "projects/cascadia-medical-devices.html#opportunities-for-future-enhancements",
+    "title": "Cascadia Medical Devices",
     "section": "Opportunities for Future Enhancements",
-    "text": "Opportunities for Future Enhancements\n\nA Facility Explorer page for drill-down by facility, state, and role.\nAdditional PBJ quarters to extend the contingent-labor trend over time."
+    "text": "Opportunities for Future Enhancements\n\nA recorded 3-minute walkthrough of the root-cause story.\nA Direct Lake performance writeup on the 5.9M-row model."
   },
   {
-    "objectID": "projects/cascadia-staffing.html#tech-stack",
-    "href": "projects/cascadia-staffing.html#tech-stack",
-    "title": "Cascadia Staffing",
+    "objectID": "projects/cascadia-medical-devices.html#tech-stack",
+    "href": "projects/cascadia-medical-devices.html#tech-stack",
+    "title": "Cascadia Medical Devices",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Python CMS PBJ Data Power BI DAX Semantic Model (PBIP) PowerShell"
+    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Python (simdata) Microsoft Fabric PySpark Power BI DAX PowerShell"
   },
   {
-    "objectID": "projects/cascadia-staffing.html#links",
-    "href": "projects/cascadia-staffing.html#links",
-    "title": "Cascadia Staffing",
+    "objectID": "projects/cascadia-medical-devices.html#links",
+    "href": "projects/cascadia-medical-devices.html#links",
+    "title": "Cascadia Medical Devices",
     "section": "Links",
-    "text": "Links\n\nBuild Repository — SQL DDL, Python acquisition/staging, one-command reproducible build (run_build.ps1), KPI validation scripts\nPower BI Handoff Doc — schema, validated row counts, and the data traps documented for the semantic-model layer\nCascadia Architecture Overview"
+    "text": "Links\n\nBuild Repository — SQL DDL, data generation scripts, medallion notebooks\nArchitecture Explainer — schema design decisions and data dictionary\nCascadia Architecture Overview"
   },
   {
     "objectID": "projects/cascadia-dealdesk.html",
@@ -413,76 +147,6 @@
     "text": "Links\n\nAgreement vs. Quoted Price — the exception report, with the materiality threshold control\nCustomer Pricing & Margin — one customer over a period, and the agreement timeline\nBuild Repository — generator, matching rule, validation, and the governance documents\nCascadia Architecture Overview"
   },
   {
-    "objectID": "projects/cascadia-medical-devices.html",
-    "href": "projects/cascadia-medical-devices.html",
-    "title": "Cascadia Medical Devices",
-    "section": "",
-    "text": "Manufacturing Analytics\n\n\n\n\nProving that a production-grade BI architecture scales from raw sensor data to boardroom OEE dashboards — in a single, reproducible build."
-  },
-  {
-    "objectID": "projects/cascadia-medical-devices.html#overview",
-    "href": "projects/cascadia-medical-devices.html#overview",
-    "title": "Cascadia Medical Devices",
-    "section": "Overview",
-    "text": "Overview\nA full analytics stack for a fictional 3-line medical-device manufacturer, built on ~5.9M synthetic production events across 29 months, paired with real NASA C-MAPSS turbofan run-to-failure sensor data for predictive maintenance. It demonstrates dimensional modeling at scale, a medallion pipeline, and root-cause operational analytics."
-  },
-  {
-    "objectID": "projects/cascadia-medical-devices.html#business-problem",
-    "href": "projects/cascadia-medical-devices.html#business-problem",
-    "title": "Cascadia Medical Devices",
-    "section": "Business Problem",
-    "text": "Business Problem\nManufacturing leaders couldn’t see why on-time delivery was slipping on certain product lines. The data existed but was fragmented across systems with no single, trusted view."
-  },
-  {
-    "objectID": "projects/cascadia-medical-devices.html#architecture",
-    "href": "projects/cascadia-medical-devices.html#architecture",
-    "title": "Cascadia Medical Devices",
-    "section": "Architecture",
-    "text": "Architecture\nThis build is the portfolio’s full enterprise-BI stack — the one Cascadia domain that runs end to end on Microsoft Fabric:\n\n\n\n\nCascadia end-to-end data platform\n\n\n\nSource (SQL Server): CascadiaMES — star schema with 4 fact tables, 8 dimensions, dim_date, ~5.9M rows, plus a separate schema for NASA C-MAPSS sensor data. Loaded reproducibly via PowerShell; DP-600-aligned.\nPipeline (Microsoft Fabric): Bronze → Silver → Gold medallion lakehouse, implemented in PySpark notebooks.\nSemantic model + report (Power BI): Direct Lake connection; DAX measures for OEE, MTBF, defect rate, and on-time-in-full delivery."
-  },
-  {
-    "objectID": "projects/cascadia-medical-devices.html#data-sources",
-    "href": "projects/cascadia-medical-devices.html#data-sources",
-    "title": "Cascadia Medical Devices",
-    "section": "Data Sources",
-    "text": "Data Sources\n\n\n\n\n\n\n\n\n\nSource\nType\nRows\nNotes\n\n\n\n\nCascadiaMES (simulated)\nSQL Server\n~5.9M\nSeed-controlled deterministic generator; 4 fact tables, 8 dimensions\n\n\nNASA C-MAPSS\nPublic (NASA)\n265K cycles\nTurbofan Engine Degradation dataset (FD001–FD004); cited and disclosed"
-  },
-  {
-    "objectID": "projects/cascadia-medical-devices.html#headline-skill-root-cause-analytics-predictive-maintenance",
-    "href": "projects/cascadia-medical-devices.html#headline-skill-root-cause-analytics-predictive-maintenance",
-    "title": "Cascadia Medical Devices",
-    "section": "Headline Skill: Root-Cause Analytics & Predictive Maintenance",
-    "text": "Headline Skill: Root-Cause Analytics & Predictive Maintenance\nThe dataset carries an engineered, discoverable story: a single station’s cycle time drifts up (≈58→69s), dragging First Pass Yield down on one line (≈95.5%→90.2%) and on-time-in-full delivery down on the affected product (≈92%→69%) — while control lines stay flat. The reporting isolates the root cause rather than just showing the symptom.\nThe NASA C-MAPSS layer adds a parallel story: remaining useful life (RUL) modeling on turbofan engine sensor data, surfaced as a reliability/maintenance planning view in the same report."
-  },
-  {
-    "objectID": "projects/cascadia-medical-devices.html#the-report",
-    "href": "projects/cascadia-medical-devices.html#the-report",
-    "title": "Cascadia Medical Devices",
-    "section": "The Report",
-    "text": "The Report\n\n\n\nThe manufacturing analytics report — Power BI. OEE, FPY, and OTIF headline cards; availability / performance / OEE by production line; FPY by month and station (the declining station drives the root-cause story); a downtime Pareto by reason code; and OTIF by customer.\n\n\nThe Power BI report surfaces the OEE and root-cause yield story alongside the NASA C-MAPSS reliability / remaining-useful-life view."
-  },
-  {
-    "objectID": "projects/cascadia-medical-devices.html#opportunities-for-future-enhancements",
-    "href": "projects/cascadia-medical-devices.html#opportunities-for-future-enhancements",
-    "title": "Cascadia Medical Devices",
-    "section": "Opportunities for Future Enhancements",
-    "text": "Opportunities for Future Enhancements\n\nA recorded 3-minute walkthrough of the root-cause story.\nA Direct Lake performance writeup on the 5.9M-row model."
-  },
-  {
-    "objectID": "projects/cascadia-medical-devices.html#tech-stack",
-    "href": "projects/cascadia-medical-devices.html#tech-stack",
-    "title": "Cascadia Medical Devices",
-    "section": "Tech Stack",
-    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Python (simdata) Microsoft Fabric PySpark Power BI DAX PowerShell"
-  },
-  {
-    "objectID": "projects/cascadia-medical-devices.html#links",
-    "href": "projects/cascadia-medical-devices.html#links",
-    "title": "Cascadia Medical Devices",
-    "section": "Links",
-    "text": "Links\n\nBuild Repository — SQL DDL, data generation scripts, medallion notebooks\nArchitecture Explainer — schema design decisions and data dictionary\nCascadia Architecture Overview"
-  },
-  {
     "objectID": "projects/cascadia-pharmacy.html",
     "href": "projects/cascadia-pharmacy.html",
     "title": "Cascadia Pharmacy",
@@ -553,6 +217,118 @@
     "text": "Links\n\nCascadia Architecture Overview"
   },
   {
+    "objectID": "projects/cascadia-clothing.html",
+    "href": "projects/cascadia-clothing.html",
+    "title": "Cascadia Clothing",
+    "section": "",
+    "text": "Retail Analytics\n\n\nCascadia Clothing\n\nThe next Cascadia build — retail and ecommerce analytics, with the stack matched to the problem once the data is chosen.\n\n\n\n\nThe next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF. Drawing on my ecommerce BI background, it will extend the Cascadia approach into retail, with the tooling chosen to fit the data and scale. Check back, or follow along on GitHub."
+  },
+  {
+    "objectID": "projects/cascadia-bi-migration.html",
+    "href": "projects/cascadia-bi-migration.html",
+    "title": "Cascadia BI Migration",
+    "section": "",
+    "text": "BI Leadership / Metric Governance\n\n\n\n\nHow I’d run a Tableau → AI-native BI migration: retire self-serve reporting for the general population, migrate the dashboards that actually matter, and stand up a certified metric layer so the numbers the business runs on have one owned definition. An illustrative program design — company-agnostic, no confidential information."
+  },
+  {
+    "objectID": "projects/cascadia-bi-migration.html#the-scenario",
+    "href": "projects/cascadia-bi-migration.html#the-scenario",
+    "title": "Cascadia BI Migration",
+    "section": "The Scenario",
+    "text": "The Scenario\nA high-growth company runs ~500 dashboards on a legacy BI tool — but fewer than 100 are actually used, and only ~20–25 are heavily used. A license renewal is the forcing function: renew for the whole population at full cost, or migrate the reporting that matters onto a modern, AI-assisted BI platform (sitting on the existing cloud data warehouse) and renew lean for a handful of admins.\nThe trap in a migration like this is treating it as a copy job. Rebuilding 500 dashboards on uncertified metrics just moves the technical debt to a new tool. The program below does the opposite: certify the numbers first, migrate only what’s used, and make parity QA — proving the new number equals the trusted old number — the actual deliverable."
+  },
+  {
+    "objectID": "projects/cascadia-bi-migration.html#guiding-principles",
+    "href": "projects/cascadia-bi-migration.html#guiding-principles",
+    "title": "Cascadia BI Migration",
+    "section": "Guiding Principles",
+    "text": "Guiding Principles\n\nCertified layer first, dashboards second. A migrated dashboard built on an undefined metric just relocates the problem. Define the number, then build on it.\nMigrate what’s used; retire the rest on a published date. Most of the ~500 dashboards should be retired, not moved.\nTwo tiers, always labeled. Certified metrics for decisions; exploratory clearly marked as not-yet-locked.\nParity QA is the deliverable. With AI-assisted, prompt-driven rebuilds, construction is cheap — the value is proving the new number matches the trusted old one, or is correctly different and documented why.\nNo big-bang. Wave-by-wave cutover, each with hypercare.\nPartner, don’t turf-war. BI owns definitions, the context layer, and QA; platform engineering owns the warehouse and pipelines; data science owns the AI-platform depth.\nGovernance, not gatekeeping. Enable self-service on a trusted base rather than becoming the bottleneck everyone routes around."
+  },
+  {
+    "objectID": "projects/cascadia-bi-migration.html#the-plan",
+    "href": "projects/cascadia-bi-migration.html#the-plan",
+    "title": "Cascadia BI Migration",
+    "section": "The Plan",
+    "text": "The Plan\n\n\n\n\nNorth Star: by the renewal deadline, legacy-BI reporting is retired for the general population (~150 → ~5 licenses); the ~20–25 heavily-used dashboards are migrated and certified on a trusted metric layer in the new platform.\n\n\n\nMO 1\n\n\nMO 2\n\n\nMO 3\n\n\nMO 4\n\n\nMO 5\n\n\nMO 6\n\n\n\n\n0 · Mobilize & AlignWk 1–2\n\n\n\nMobilize\n\n\n\n\n\n1 · Discover & InventoryWk 2–5\n\n\n\nDiscover & Inventory\n\n\n\n\n\n2 · Govern & CertifyWk 4–8\n\n\n\nGovern & Certify\n\n\n\n\n\n3 · PilotWk 7–10\n\n\n\nPilot\n\n\n\n\n\n4 · Wave MigrationWk 9–20\n\n\n\nWave Migration (by department / value)\n\n\n\n\n\n5 · Sunset & RenewalWk 18–24\n\n\n\nSunset & Renew (~5 licenses)\n\n\n\n\n\nGovernance & QAcontinuous\n\n\n\ncertified layer · parity QA (ongoing)\n\n\n\n\n\nHypercarerolling\n\n\n\n2–4 wks after each wave\n\n\n\n\n\n\n\n\n\nG0mandate + seam\n\n\n\n\n\n\n\nG1backlog + retire list\n\n\n\n\n\n\n\nG2catalog v1\n\n\n\n\n\n\n\nG3pilot adopted\n\n\n\n\n\n\n\nG4ready to sunset\n\n\n\n\n\n\n\nG5renewal\n\n\n\n\n Sequential phase (has an exit gate)  Pilot (proof of the motion)  Continuous track  Decision gate (go/no-go)\n\n\n\nFront-loaded discovery and governance; migration waves through the middle; sunset lands on the renewal deadline. Governance and QA run continuously once stood up, and bars overlap by design."
+  },
+  {
+    "objectID": "projects/cascadia-bi-migration.html#phases-exit-gates",
+    "href": "projects/cascadia-bi-migration.html#phases-exit-gates",
+    "title": "Cascadia BI Migration",
+    "section": "Phases & Exit Gates",
+    "text": "Phases & Exit Gates\n\n\n\n\n\n\n\n\n\nPhase\nWeeks\nObjective\nExit gate\n\n\n\n\n0 · Mobilize & Align\n1–2\nConfirm scope, mandate, and the real state of the platform + warehouse\nCharter signed; BI / platform-eng / data-science seam agreed in writing\n\n\n1 · Discover & Inventory\n2–5\nKnow what exists, what’s used, and what the business actually runs on\nPrioritized backlog + retire list approved; top-15 metric shortlist\n\n\n2 · Govern & Certify\n4–8\nStand up the trusted metric layer the platform consumes\nCertified Metric Catalog v1; parity-QA process ratified\n\n\n3 · Pilot\n7–10\nProve the motion end-to-end with a friendly, high-value area\nPilot adopted; parity signed off; per-dashboard runbook validated\n\n\n4 · Wave Migration\n9–20\nMigrate the used dashboards in prioritized waves\nAll used dashboards migrated & certified; only long-tail remains\n\n\n5 · Sunset & Renewal\n18–24\nTurn legacy BI off for the general population; renew lean\nGeneral population off legacy BI; ~5-license renewal executed"
+  },
+  {
+    "objectID": "projects/cascadia-bi-migration.html#risk-register",
+    "href": "projects/cascadia-bi-migration.html#risk-register",
+    "title": "Cascadia BI Migration",
+    "section": "Risk Register",
+    "text": "Risk Register\n\n\n\n\n\n\n\n\nRisk\nImpact\nMitigation\n\n\n\n\nStakeholder outreach never gets prioritized\nHigh — discovery stalls the whole plan\nMake it the Phase-1 headline; short structured interviews; executive air cover to secure time\n\n\n“Same number, different answer” after rebuild\nHigh — kills trust in the new platform\nCertify the metric before rebuild; parity QA every dashboard; label board-vs-operating differences explicitly\n\n\nRefresh-lag surprises users expecting real-time\nMedium\nSet as-of expectations in the semantic layer; match cadence to the decision; escalate true real-time needs to engineering\n\n\nAI skeptics / “the tool is wrong”\nMedium\nMost “wrong” is an undefined metric — show the certified definition + parity, and win skeptics one number at a time\n\n\nTurf friction over the context layer\nMedium\nAgree the seam explicitly at G0; co-own the context layer — BI brings business definitions, data science brings platform depth\n\n\nHidden legacy tech debt (“nobody knows how it was built”)\nMedium\nTreat undocumented dashboards as retire-candidates unless a user defends them; don’t faithfully reproduce debt\n\n\nScope creep (migrate all 500 / gold-plate)\nMedium\nRetire-by-default; migrate only used; keep exploratory cheap and clearly labeled"
+  },
+  {
+    "objectID": "projects/cascadia-bi-migration.html#success-metrics",
+    "href": "projects/cascadia-bi-migration.html#success-metrics",
+    "title": "Cascadia BI Migration",
+    "section": "Success Metrics",
+    "text": "Success Metrics\n\nLicense reduction: ~150 → ~5 by renewal (the headline).\nDashboards: # migrated & certified vs. # retired vs. # remaining (target: 100% of used migrated).\nCertified metrics: count in the catalog, each with a definition, source, and owner.\nAdoption: active users on the new versions; legacy usage trending to zero for the general population.\nTrust: definitional disputes raised vs. resolved; parity pass-rate at cutover.\nCost: license spend avoided; warehouse-refresh savings from governance.\nCycle: time-to-migrate per dashboard, trending down as the runbook matures."
+  },
+  {
+    "objectID": "projects/cascadia-bi-migration.html#skills-demonstrated",
+    "href": "projects/cascadia-bi-migration.html#skills-demonstrated",
+    "title": "Cascadia BI Migration",
+    "section": "Skills Demonstrated",
+    "text": "Skills Demonstrated\nBI program leadership and delivery · metric governance and certification (one definition, source, and owner per number) · stakeholder management and change enablement across non-technical teams (sales, clinical ops, finance, RevOps) · parity QA for AI-generated queries · cross-functional partnership with platform engineering and data science · phased delivery with explicit go/no-go gates.\n\nAn illustrative program design demonstrating how I approach a BI platform migration and metric-governance program. Tools referenced are generic; no proprietary or confidential information is included."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Aaron Robbins",
+    "section": "",
+    "text": "Business Intelligence & Analytics Leader\n\n\n\n12+ years turning messy data into decisions leaders trust — across healthcare, manufacturing, and financial analytics. I build across the modern analytics stack: SQL data models, cloud and local pipelines, financial analytics on public filings, and reporting non-technical teams actually use."
+  },
+  {
+    "objectID": "index.html#cascadia-portfolio",
+    "href": "index.html#cascadia-portfolio",
+    "title": "Aaron Robbins",
+    "section": "The Cascadia Portfolio",
+    "text": "The Cascadia Portfolio\nCascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. Each piece matches the right tools to the problem: a governed SQL Server → Microsoft Fabric → Power BI enterprise stack, pragmatic local SQL Server + Power BI, lightweight Python and static-web analytics on public SEC and federal data, and the program side of BI — platform migration and metric governance. The through-line isn’t one architecture; it’s the craft: rigorous modeling, honest data governance, and decisions leaders can trust.\n\n\nFeatured Case Studies\n\n\n\n\nSupply Chain / Distribution-Centre Governance\n\n\nCascadia Control Tower\nNewLive\nThree fill rates computed from one dataset, all arithmetically correct and 7.0 points apart — and a split-shipment cost that none of them measures. Certifies one definition, prices the leak against a modelled no-split counterfactual, and shows why no single split threshold works across two banners. Synthetic operations, anchored to BLS, Census and SEC data.\nView Case Study Fill Rate & Split Cost\n\n\n\n\n\n\nPricing Governance / Financial Analytics\n\n\nCascadia Deal Desk\nNewLive\nMulti-quarter pricing agreements as a governed dataset rather than a signed PDF — every quote line matched to the agreement in force on its own date, the gap priced in dollars, and a materiality threshold you calibrate before you automate an alert. Synthetic data throughout.\nView Case Study Exception Report Customer Margin\n\n\n\n\n\n\nFinancial Analytics\n\n\nCascadia Finance\nLive\nFormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.\nView Case Study Exec Pack Margin Walk Peers 2026 Q2 10-Q\n\n\n\n\n\n\nBI Leadership / Governance\n\n\nCascadia BI Migration\nPlaybook\nA 24-week program to migrate an organization off legacy BI onto a governed, AI-assisted platform — certified metric layer first, parity QA as the deliverable, wave-by-wave sunset. An illustrative program design.\nView Case Study\n\n\n\n\n\n\nHealthcare / Staffing Marketplace\n\n\nCascadia Staffing\nComplete\nContingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.\nView Case Study\n\n\n\n\n\n\nHealthcare / Pharmacy\n\n\nCascadia Pharmacy\nComplete\nGLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.\nView Case Study\n\n\n\n\n\n\nManufacturing\n\n\nCascadia Medical Devices\nComplete\nA dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.\nView Case Study\n\n\n\n\n\n\nRetail\n\n\nCascadia Clothing\nComing Soon\nDemand, merchandising, and fulfillment analytics for a retail apparel scenario.\nPreview\n\n\n\n\n\n\n\nBeyond the Portfolio\nOne piece here is not an analytics module and is deliberately kept out of the grid above rather than dressed up as a case study.\n\n\n\n\nMathematics · Not a BI module\n\n\nThe Combinatorics of Sibling Conflict\nPreprint\nNo client, no data pipeline, no dashboard — a ~2,000-word mathematics paper. The number of ways n children can split into two opposing sides, with the rest uninvolved, is (3n − 2·2n + 1)/2, the Stirling number S(n+1, 3). Four kids: 6 sibling pairs but 25 conflict configurations. Eight kids: 28 pairs, 3,025. Pairs grow quadratically; the conflict space grows exponentially.\nQueried to The Mathematical Intelligencer 2026-08-12, reply pending — not published, not accepted, not peer-reviewed. Its two figures went through the same Rule 7.4 reading panels as the dashboards.\nRead the Write-Up The Paper (PDF)\n\n\n\n\n\nLearn about the Cascadia architecture →"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Aaron Robbins",
+    "section": "",
+    "text": "I’m a business intelligence and analytics leader. I build the systems that make numbers trustworthy at scale — the metric definitions, the data models, and the governance underneath them, not just the dashboard sitting on top. A report is only as good as the data behind it, and that layer is the work.\nOver 12+ years I’ve done this from both chairs. At Lowe’s ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six through building the data warehouse and the reporting stack that supported $10M+ in revenue. At Philips Healthcare I led BI and analytics programs across a global manufacturing operation — ten factories, three continents, 200+ stakeholders in eight countries — standardizing 200+ Critical Data Elements into a common data model, harmonizing KPI frameworks across fifteen factories, and taking $80K a year out of the reporting estate through rationalization. That was leadership through influence rather than reporting lines, which is the harder version of the job.\nThe craft is current. Every module in the Cascadia portfolio was built in 2026 to my specification: I set the architecture, the data models, the metric definitions and the validation gates, and directed the build. The code is public on GitHub — governed data models, matching rules documented as deliverables in their own right, and validation suites that fail the build rather than ship a number I can’t defend.\nSo I’m comfortable as the person building it or as the person who stands up the function and hires the team. The standard doesn’t change either way."
+  },
+  {
+    "objectID": "about.html#bio",
+    "href": "about.html#bio",
+    "title": "About Aaron Robbins",
+    "section": "",
+    "text": "I’m a business intelligence and analytics leader. I build the systems that make numbers trustworthy at scale — the metric definitions, the data models, and the governance underneath them, not just the dashboard sitting on top. A report is only as good as the data behind it, and that layer is the work.\nOver 12+ years I’ve done this from both chairs. At Lowe’s ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six through building the data warehouse and the reporting stack that supported $10M+ in revenue. At Philips Healthcare I led BI and analytics programs across a global manufacturing operation — ten factories, three continents, 200+ stakeholders in eight countries — standardizing 200+ Critical Data Elements into a common data model, harmonizing KPI frameworks across fifteen factories, and taking $80K a year out of the reporting estate through rationalization. That was leadership through influence rather than reporting lines, which is the harder version of the job.\nThe craft is current. Every module in the Cascadia portfolio was built in 2026 to my specification: I set the architecture, the data models, the metric definitions and the validation gates, and directed the build. The code is public on GitHub — governed data models, matching rules documented as deliverables in their own right, and validation suites that fail the build rather than ship a number I can’t defend.\nSo I’m comfortable as the person building it or as the person who stands up the function and hires the team. The standard doesn’t change either way."
+  },
+  {
+    "objectID": "about.html#selected-outcomes",
+    "href": "about.html#selected-outcomes",
+    "title": "About Aaron Robbins",
+    "section": "Selected outcomes",
+    "text": "Selected outcomes\n\nFounded a BI function. Proposed the department at Lowe’s/ATG Stores, hired the foundational team, and managed six analysts and developers through the build of the data warehouse, KPI definitions, and stewardship model.\nGoverned data at enterprise scale. Standardized 200+ Critical Data Elements and common data model definitions across a global manufacturing platform, enforcing semantic consistency across systems that had none.\nHarmonized metrics across fifteen factories. Replaced site-by-site KPI variants with one trusted framework — 17 automated KPIs and 21 new T4 KPIs — so leadership could compare plants on definitions that actually matched.\nTook $80K a year out of the reporting estate. BI rationalization governing refresh rates, usage, ownership, and access, removing duplicate and abandoned reporting.\nEliminated 100+ hours a week of manual reporting, moving disconnected spreadsheets and point-in-time extracts into automated, governed dashboards.\nZero audit findings in a regulated medical-device data environment, with access-controlled handling of sensitive data."
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About Aaron Robbins",
+    "section": "Skills",
+    "text": "Skills\n\nBI & visualization: Power BI (data modeling, DAX, Power Query/M), Tableau, Qlik, SAP BusinessObjects, advanced Excel\nData & modeling: SQL Server, SAP HANA, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality, Microsoft Fabric, Databricks, Azure data platforms\nKPI & frameworks: KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization\nDomains: healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics\nLeading work: BI function ownership, analytics program & portfolio management, Agile (Scrumban) / Scrum Master, stakeholder management across eight countries, self-service enablement, mentoring analysts"
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Aaron Robbins",
+    "section": "Contact",
+    "text": "Contact\n\n\nLinkedIn linkedin.com/in/aaron-robbins-6b25a2136\n\n\nGitHub github.com/RobbinsAnalytics"
+  },
+  {
     "objectID": "cascadia.html",
     "href": "cascadia.html",
     "title": "The Cascadia Family",
@@ -564,7 +340,7 @@
     "href": "cascadia.html#the-builds-their-stacks",
     "title": "The Cascadia Family",
     "section": "The Builds & Their Stacks",
-    "text": "The Builds & Their Stacks\n\n\n\nDomain\nStatus\nStack\nData\nHeadline Skill\n\n\n\n\nCascadia Control Tower\nLive\nPython → DuckDB → dbt Core → static ECharts\nSynthetic (seeded generator), anchored to BLS, Census and SEC XBRL\nMetric certification / counterfactual costing\n\n\nCascadia Deal Desk\nLive\nPython → SQLite → static ECharts\nSynthetic (seeded generator)\nPricing governance / exception calibration\n\n\nCascadia Finance\nLive\nPython → SQLite → static ECharts (SEC EDGAR XBRL)\nFormFactor SEC filings (real)\nFinancial analytics / XBRL governance\n\n\nCascadia Staffing\nComplete\nLocal SQL Server → Power BI\nCMS PBJ Daily Nurse Staffing (real)\nMarketplace labor KPIs / metric governance\n\n\nCascadia Pharmacy\nComplete\nLocal SQL Server → Power BI\nCMS Part D + CDC VaxView (real)\nMessy-data cleaning / GLP-1 growth\n\n\nCascadia Medical Devices\nComplete\nSQL Server → Microsoft Fabric → Power BI\nSimulated MES + NASA C-MAPSS\nPredictive maintenance / OEE\n\n\nCascadia Clothing\nPlanned\nTBD\nTBD e-commerce data\nCustomer segmentation\n\n\n\n\nBeyond the builds: Cascadia BI Migration — a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. Analytics leadership, not just a data build."
+    "text": "The Builds & Their Stacks\n\n\n\nDomain\nStatus\nStack\nData\nHeadline Skill\n\n\n\n\nCascadia Control Tower\nLive\nPython → DuckDB → dbt Core → static ECharts\nSynthetic (seeded generator), anchored to BLS, Census and SEC XBRL\nMetric certification / counterfactual costing\n\n\nCascadia Deal Desk\nLive\nPython → SQLite → static ECharts\nSynthetic (seeded generator)\nPricing governance / exception calibration\n\n\nCascadia Finance\nLive\nPython → SQLite → static ECharts (SEC EDGAR XBRL)\nFormFactor SEC filings (real)\nFinancial analytics / XBRL governance\n\n\nCascadia Staffing\nComplete\nLocal SQL Server → Power BI\nCMS PBJ Daily Nurse Staffing (real)\nMarketplace labor KPIs / metric governance\n\n\nCascadia Pharmacy\nComplete\nLocal SQL Server → Power BI\nCMS Part D + CDC VaxView (real)\nMessy-data cleaning / GLP-1 growth\n\n\nCascadia Medical Devices\nComplete\nSQL Server → Microsoft Fabric → Power BI\nSimulated MES + NASA C-MAPSS\nPredictive maintenance / OEE\n\n\nCascadia Clothing\nPlanned\nTBD\nTBD e-commerce data\nCustomer segmentation\n\n\n\n\nBeyond the builds: Cascadia BI Migration — a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. Analytics leadership, not just a data build.\n\n\nNot a build at all: The Combinatorics of Sibling Conflict — a short mathematics paper, kept out of the table above because it has no stack, no data and no headline skill to put in those columns. It counts the ways n children can split into two opposing sides — (3n − 2·2n + 1)/2, the Stirling number S(n+1, 3) — and is explicit that this is a possibility space, not a claim about real families. A preprint: queried to The Mathematical Intelligencer 2026-08-12, reply pending; not published, not peer-reviewed. It is here because its figures cleared the same reading panels the dashboards do."
   },
   {
     "objectID": "cascadia.html#three-patterns-one-standard",
@@ -578,7 +354,7 @@
     "href": "cascadia.html#design-principles",
     "title": "The Cascadia Family",
     "section": "Design Principles",
-    "text": "Design Principles\n\n\nProduction patterns only Every table, index, and pipeline uses conventions you would enforce on a real production system — surrogate keys, computed date_key columns, idempotent builds, and row-count validation scripts.\n\n\nReal data where it matters CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is limited to the manufacturing simulation layer, purely for volume and anonymity.\n\n\nRepeatable builds Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the Cascadia Finance module — useful for demos, onboarding, and validating changes.\n\n\nHonest about limits Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values (like reconstructed fiscal quarters) are marked as derived.\n\n\nAmbiguity fails the build Where a rule cannot resolve a case, the run stops rather than guessing. Cascadia Deal Desk’s matching rule settles contested quote lines with three documented tiebreaks; if a tie survives all three, the build fails — an unresolvable tie is a data-quality defect, not a judgment call.\n\n\nDefinitions live with the code that computes them A metric register that is typed by hand is documentation; one generated from the models is engineering. Cascadia Control Tower’s eleven-metric register is built from the meta blocks on the dbt models themselves — the same file that defines their tests — and a --check mode fails the build if a published definition drifts from the model behind it.\n\n\nAn audit that cannot fail is not an audit A realism check that has only ever seen good data has not been tested. Control Tower’s audits are pure functions of measured numbers, so the suite feeds each one deliberately wrong values — inventory inflated past the sector band, cost cut to a rounding error, splits made uniform — and confirms it trips. All six negative controls trip, and that result is published next to the real one.\n\n\nCharts reviewed against a standard Every chart is scored pass/fail against my visualization design system before it ships, including a blind panel of readers who see only the rendered chart. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded."
+    "text": "Design Principles\n\n\nProduction patterns only Every table, index, and pipeline uses conventions you would enforce on a real production system — surrogate keys, computed date_key columns, idempotent builds, and row-count validation scripts.\n\n\nReal data where it matters CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is limited to the manufacturing simulation layer, purely for volume and anonymity.\n\n\nRepeatable builds Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the Cascadia Finance module — useful for demos, onboarding, and validating changes.\n\n\nHonest about limits Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values (like reconstructed fiscal quarters) are marked as derived.\n\n\nAmbiguity fails the build Where a rule cannot resolve a case, the run stops rather than guessing. Cascadia Deal Desk’s matching rule settles contested quote lines with three documented tiebreaks; if a tie survives all three, the build fails — an unresolvable tie is a data-quality defect, not a judgment call.\n\n\nDefinitions live with the code that computes them A metric register that is typed by hand is documentation; one generated from the models is engineering. Cascadia Control Tower’s eleven-metric register is built from the meta blocks on the dbt models themselves — the same file that defines their tests — and a --check mode fails the build if a published definition drifts from the model behind it.\n\n\nAn audit that cannot fail is not an audit A realism check that has only ever seen good data has not been tested. Control Tower’s audits are pure functions of measured numbers, so the suite feeds each one deliberately wrong values — inventory inflated past the sector band, cost cut to a rounding error, splits made uniform — and confirms it trips. All six negative controls trip, and that result is published next to the real one.\n\n\nCharts reviewed against a standard Every chart is scored pass/fail against my visualization design system before it ships, including a blind panel of readers who see only the rendered chart. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded.\n\n\nPrior work narrows the claim, not the other way round The literature search runs before the finding is written up, and what it returns is allowed to shrink the claim. The Combinatorics of Sibling Conflict went looking for prior art and found Bossard (1945) and Kephart (1950) counting family relationships and subgroups; the paper’s novelty claim was narrowed from “not addressed” to “extends that tradition to opposing sides,” and both antecedents are cited rather than left out."
   },
   {
     "objectID": "cascadia.html#tech-stack",
@@ -586,5 +362,299 @@
     "title": "The Cascadia Family",
     "section": "Tech Stack",
     "text": "Tech Stack\n\nPython (pandas) SQLite DuckDB dbt Core Apache ECharts SEC EDGAR XBRL SQL Server 2025 T-SQL Power BI DAX Microsoft Fabric PySpark Static HTML / JS WCAG 2.2 AA GitHub Pages PowerShell Git"
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html",
+    "href": "projects/cascadia-controltower.html",
+    "title": "Cascadia Control Tower",
+    "section": "",
+    "text": "Supply Chain / Distribution-Centre Governance\n\n\n\n\nA distribution centre reports 94% fill rate to Operations, 92% to the merchant team and 87% to Finance. Three numbers, three teams, all arithmetically correct, none reconciled. Meanwhile the thing actually costing money is invisible in all three — an order split across two nodes still counts as filled. This module certifies one definition, prices the leak, and shows why no single split threshold works across two banners.\nFill Rate & Split Cost"
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#the-problem",
+    "href": "projects/cascadia-controltower.html#the-problem",
+    "title": "Cascadia Control Tower",
+    "section": "The problem",
+    "text": "The problem\nFill rate sounds like one number. It is at least three, and the supply-chain discipline has never settled which one it means — published guidance says plainly that there is no agreed OTIF formula, because the calculation depends on which point of view you are measuring and the level at which the data is stored.\nSo three teams compute three different things from one dataset and each is right:\n\n\n\n\n\n\n\n\n\nMetric\nValue\nRead by\nThe question it answers\n\n\n\n\nUnit fill\n94.3%\nOperations\nHow much of the demand did we move?\n\n\nLine fill\n91.6%\nMerchandising\nHow much of the assortment could we serve?\n\n\nOrder fill\n87.2%\nFinance\nDid the customer get what they asked for?\n\n\n\nOrder fill is arithmetically the lowest of the three in every period, because an order counts as filled only if every line in it is. The gap between the most forgiving definition and the strictest is 7.0 points — wide enough that Operations can report service improving while Finance reports it flat, both correctly, and the meeting resolves nothing.\nThe second problem is worse, because nothing on that list measures it. An order split across two fulfilment nodes still counts as filled on all three definitions. It is 100% filled, on time, in full — and it costs roughly a second parcel to ship."
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#the-analytical-payload",
+    "href": "projects/cascadia-controltower.html#the-analytical-payload",
+    "title": "Cascadia Control Tower",
+    "section": "The analytical payload",
+    "text": "The analytical payload\nThe definitional gap and the economic leak are the same phenomenon. Fill rate looks healthiest exactly where splitting is worst, because splitting is how the network achieves fill.\nThat is easy to assert and hard to prove, so the simulation records, for every order, what the same order against the same inventory position would have shipped if splitting were forbidden — the best any single node could have done, evaluated before the real allocation commits. Splitting buys 2.65 points of unit fill. Without that counterfactual the claim is rhetoric; with it, the governance decision has a price.\nShortfall and splitting turn out to be two symptoms of one condition — inventory fragmented relative to what customers put in a basket. Slow-moving styles are ranged at two nodes rather than six, so a basket containing one either reaches for a second node or goes short:\n\n\n\nSKU velocity band\nShips short\nUses more than one node\n\n\n\n\nA · fast\n4.4%\n4.2%\n\n\nB · mid\n8.4%\n10.2%\n\n\nC · slow\n9.5%\n17.1%\n\n\n\nAnd the same rule produces different economics by banner. The dollar cost of a split barely differs — $5.64 in the off-price banner, $5.18 in the premium one. Its consequence differs by more than three times, because it is charged against a margin that differs by more than three times:\n\nOff-Main (off-price): 12.1% of the gross margin on the order\nAlder & Vance (premium): 3.6%\n\nThere is therefore no single correct split threshold. Any network-wide rule is simultaneously too aggressive for one banner and too permissive for the other. That is a governance finding, not a modelling inconvenience."
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#the-resolution",
+    "href": "projects/cascadia-controltower.html#the-resolution",
+    "title": "Cascadia Control Tower",
+    "section": "The resolution",
+    "text": "The resolution\nCertify order fill as the service number. Retain line and unit fill as explicitly exploratory, with the reason stated. Add split rate to the same register, so the cost of achieving fill sits next to the fill.\nCertification is not a ranking. An exploratory metric is not a bad metric; it is one the business has agreed not to run on. Retaining the other two definitions and labelling them is the governance act — deleting them would move the disagreement rather than resolve it.\nThe register carries eleven metrics, eight certified. It is generated from the meta blocks on the dbt models that compute the metrics — the same file that defines their tests. Nothing is typed twice, and a --check mode fails the build if a definition drifts from the model behind it. A hand-typed register is documentation; a generated one is engineering."
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#what-was-built",
+    "href": "projects/cascadia-controltower.html#what-was-built",
+    "title": "Cascadia Control Tower",
+    "section": "What was built",
+    "text": "What was built\nPython generator → DuckDB star schema → dbt Core → static ECharts page.\n\nA seeded generator, 24 months, 379,979 orders across 621,942 lines and six nodes. Same seed, same content hash — re-checked on every validation run.\nInventory held at style and size, which is what lets the three fill rates differ at all. Size brokenness is the commonest reason a real retail line ships incomplete; model stock at style level and every line becomes all-or-nothing.\nNo order is ever labelled “split.” An order splits when the allocator cannot satisfy every line from one node and reaches for a second. The classification is an observed consequence of a documented rule, and the validation suite re-derives it from the shipments alone.\ndbt Core on DuckDB — 6 staging views, 9 marts, 69 data tests.\nA static page with ECharts vendored and the dataset inlined. No build step and no part of the page makes a network call. It is the durable artifact and survives the warehouse being switched off."
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#three-real-anchors-and-what-they-can-honestly-claim",
+    "href": "projects/cascadia-controltower.html#three-real-anchors-and-what-they-can-honestly-claim",
+    "title": "Cascadia Control Tower",
+    "section": "Three real anchors, and what they can honestly claim",
+    "text": "Three real anchors, and what they can honestly claim\n\n\n\n\n\n\n\n\nAnchor\nSource\nWhat it constrains\n\n\n\n\nLabor\nBLS OEWS May 2025, SOC 53-7062, Seattle-Tacoma-Bellevue\nEvery labor dollar costed at a real published wage — $22.95/hr median — across the percentile spread, not a median alone\n\n\nInventory\nUS Census MRTS, department stores, 1992–2026\nThe network runs at 0.97 months of stock against a sector band of 2.03–3.64\n\n\nP&L\nSEC EDGAR XBRL — Macy’s, Kohl’s, Dillard’s\nDC operating cost at 6.83% of shipped sales against a peer SG&A range of 23.7–39.0%\n\n\n\nTwo of the three audits bound the model rather than matching it, and the page says so. Census inventories cover entire department stores, most of whose stock sits on selling floors this module never simulates — so sitting below the band is the correct answer, not a miss. Fulfilment cost is not separately disclosed by any public department store; it sits inside SG&A alongside stores, marketing and corporate. Both are weaker claims than a match, and stating that is the point.\nAn audit that cannot fail is not an audit. Each is a pure function of measured numbers, so the suite hands each one deliberately wrong values and confirms it trips — inventory inflated past the sector band, seasonality flattened, cost inflated past peer SG&A, cost cut to a rounding error, splits made uniform, concentration reversed. All six trip, and that result is recorded next to the real one."
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#validation-a-blind-reading-panel",
+    "href": "projects/cascadia-controltower.html#validation-a-blind-reading-panel",
+    "title": "Cascadia Control Tower",
+    "section": "Validation: a blind reading panel",
+    "text": "Validation: a blind reading panel\nThe portfolio’s visualization standard requires that charts be read by people who do not know the finding before they ship. A four-seat panel ran blind against this module. The seats saw seven rendered chart images by absolute path and were told those files were the only thing they could open — no brief, no build notes, no source data, no surrounding prose, and no statement of the intended finding. They ran in parallel and could not see each other’s returns.\nThe roster is cast from the decision the module serves, not from a template:\n\n\n\n\n\n\n\nSeat\nWhy this seat exists\n\n\n\n\nDirector of DC Operations, 16 yrs\nOwns the service number the decision would certify, and whether what drags it down is inside his four walls or upstream in inventory placement\n\n\nDirector of Supply Chain Finance, 11 yrs\nOwns the margin the service costs and sets the threshold. Tests every cost for whether it is incremental cash\n\n\nVP Merchandise Planning, off-price banner, 19 yrs\nThe banner the threshold lands hardest on — and deliberately the room’s least analytics-literate real reader\n\n\nVisualization reader\nCanvas only. No tables, no arithmetic. Judges whether the picture carries the claim\n\n\n\nEach returned four fixed items per chart: what they would say about it an hour later, one number they would quote and where on the canvas they got it, the question they would ask, and what they went looking for and could not find.\nThey returned 25 findings. 20 were dispositioned as defects, 13 fixed, 7 accepted with reasons recorded, 5 rejected as preferences. These charts had already been corrected once — and four in five of the panel’s defects were still uncaught.\nThree of them invalidated a headline, and none was visible to any automated check:\n\nA title claimed “the same $5.46 second parcel.” It is not the same: $5.64 and $5.18 are, and $5.46 is the blend of them. All three domain seats independently distrusted the figure — the merchant seat said she had “been handed the bad end of an average.” She was right, and the title now names both.\nA chart’s headline turned on which of two fulfilment centres was “primary,” and the chart never said. Against one the claim was true; against the other it was false. The truth of the headline rested on a fact the picture withheld.\nA “dips in the same season” claim compared against a series that was never drawn. The real month-of-year comparison was already in the data and already being tested against — it just was not on the canvas. It is now.\n\nThe strongest signal was convergence rather than eloquence. All three domain seats independently refused to repeat one chart’s finding until someone told them whether one fulfilment network against whole department-store companies was like-for-like. The page already answered them, clearly and correctly — in the prose, not on the chart. The disclosure existed; the chart was silent about something the page knew.\nThat is the value of the exercise, and it is why the panel is worth its cost: nothing about the analysis was wrong. What was wrong was what a reader could see."
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#honest-limits",
+    "href": "projects/cascadia-controltower.html#honest-limits",
+    "title": "Cascadia Control Tower",
+    "section": "Honest limits",
+    "text": "Honest limits\n\nThe operational data is invented. Every fill rate, split rate and dollar describes a simulation. The generator is not evidence about the world.\nTwo of the three realism audits bound rather than match, for scope reasons stated above and on the page.\nThe counterfactual is modelled, not measured. It is registered as exploratory and must never be reported as achieved service.\nThe calibration source is not named, and that costs reproducibility. Scale and mix parameters draw on one real department-store operator’s published filings; that filer is never named, so this one input is attested rather than reproducible. The three realism audits deliberately do not depend on it.\nReturns and reverse logistics are excluded on purpose — the largest documented cost in the research, and the natural Phase 2.\nA calibration target was missed and is reported missed, with the three ways of forcing it that were tried and rejected.\nThe shipping render has not itself been panelled. The panel read the previous version; the thirteen fixes made in response are author work, unread by anyone blind.\nThere is no live BigQuery or Looker Studio view. The warehouse ships as DuckDB. Said plainly rather than implied by omission."
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#tech-stack",
+    "href": "projects/cascadia-controltower.html#tech-stack",
+    "title": "Cascadia Control Tower",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nPython pandas DuckDB dbt Core Star Schema Apache ECharts Static HTML / JS WCAG 2.2 AA GitHub Pages Git"
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#disclosure",
+    "href": "projects/cascadia-controltower.html#disclosure",
+    "title": "Cascadia Control Tower",
+    "section": "Disclosure",
+    "text": "Disclosure\nEvery order, style, size, shipment, labor hour and dollar in this module is synthetic, produced by a seeded generator committed to the repository. Alder & Vance and Off-Main are invented banners of an invented operator, and no real company is the subject of this analysis. The three public datasets that constrain the generator — BLS OEWS wages, US Census MRTS retail inventories, and the SEC EDGAR XBRL filings of Macy’s, Kohl’s and Dillard’s — are real, and are named wherever they are used; they serve as external benchmarks, not as subjects. Independent portfolio project, not affiliated with or endorsed by any company, and not based on any non-public information. It illustrates a distribution-centre governance design on invented operational data only."
+  },
+  {
+    "objectID": "projects/cascadia-controltower.html#links",
+    "href": "projects/cascadia-controltower.html#links",
+    "title": "Cascadia Control Tower",
+    "section": "Links",
+    "text": "Links\n\nFill Rate & Split Cost — seven charts, the certified metric register, and the realism audits\nBuild Repository — generator, dbt project, validation suite, and the governance documents\nCascadia Architecture Overview"
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html",
+    "href": "projects/cascadia-staffing.html",
+    "title": "Cascadia Staffing",
+    "section": "",
+    "text": "Healthcare / Staffing Marketplace Analytics\n\n\n\n\n21 million daily staffing records across 14,362 U.S. nursing facilities — contract vs. employee hours by role, per facility, per day — answering how big the contingent-labor market is, where it concentrates, and why demand is unplannable."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#overview",
+    "href": "projects/cascadia-staffing.html#overview",
+    "title": "Cascadia Staffing",
+    "section": "Overview",
+    "text": "Overview\nA marketplace-labor analytics stack built on the CMS Payroll-Based Journal (PBJ) Daily Nurse Staffing dataset — the auditable, payroll-derived record of every U.S. skilled nursing facility’s daily staffing. It applies the Cascadia approach to workforce economics: the employee-vs-contract labor mix, staffing volatility, and coverage shortfall against a published federal benchmark. It is also the portfolio’s most explicit KPI governance showcase: one certified definition per metric, and every headline number validated twice."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#business-problem",
+    "href": "projects/cascadia-staffing.html#business-problem",
+    "title": "Cascadia Staffing",
+    "section": "Business Problem",
+    "text": "Business Problem\nHealthcare staffing marketplaces exist because facilities can’t fully staff with employees: demand swings day to day, weekends run structurally short, and the gap gets filled with expensive agency labor. Those are measurable claims — PBJ records contract and employee hours separately, by role, for every facility-day. This build quantifies the market a staffing marketplace actually serves: how much labor is contingent, where reliance concentrates, how volatile daily demand is, and how often facilities run below expected staffing."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#architecture",
+    "href": "projects/cascadia-staffing.html#architecture",
+    "title": "Cascadia Staffing",
+    "section": "Architecture",
+    "text": "Architecture\nLocal SQL Server star schema → Power BI import model — no cloud lakehouse; the modeling and governance discipline lives in the schema and the certified-measures layer.\nSource layer: CascadiaStaffing SQL Server star schema — 4 dimension tables + 2 fact tables.\n\nfact_staffing_day_role (21,140,864 rows, grain: facility × day × role × labor type, CY2025 Q4)\nfact_facility_day (1.32M rows, grain: facility × day) — added deliberately so census counts once per facility-day, making a 16× double-counting error structurally impossible rather than relying on measure authors to avoid it\n\nStaging: a Python raw → clean layer — Windows-1252 → UTF-8 decoding, UNPIVOT of the employee/contract hour pairs into a labor-type dimension, dedup on provnum × workdate, and suppression flags; suppressed hours stay NULL and are never zero-filled.\nSemantic model + report: Power BI import mode — a dedicated certified-measures layer where every KPI has exactly one definition, written into the measure itself. Page 1 (“The Contingent-Labor Market”) is built, validated, and shown below."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#data-sources",
+    "href": "projects/cascadia-staffing.html#data-sources",
+    "title": "Cascadia Staffing",
+    "section": "Data Sources",
+    "text": "Data Sources\n\n\n\n\n\n\n\n\n\nSource\nType\nRows\nNotes\n\n\n\n\nCMS PBJ Daily Nurse Staffing\nFederal (CMS)\n1.32M raw facility-days → 21.1M modeled\nCY2025 Q4 · 14,362 facilities × 92 days · employee/contract hours unpivoted into a labor-type dimension across 8 nursing roles\n\n\n\nAttribution: CMS Payroll-Based Journal Daily Nurse Staffing — public domain federal data, derived from facility payroll submissions."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#headline-skill-kpi-governance-on-real-data",
+    "href": "projects/cascadia-staffing.html#headline-skill-kpi-governance-on-real-data",
+    "title": "Cascadia Staffing",
+    "section": "Headline Skill: KPI Governance on Real Data",
+    "text": "Headline Skill: KPI Governance on Real Data\nPBJ has honest traps, and the build models them instead of papering over them:\n\nA null is not a zero. Suppressed/unreported hours stay NULL and are never zero-filled; 65% of fact rows are real reported zeros, and merging the two would silently corrupt the contract-labor ratio.\nUndefined means undefined. 351 facility-days report zero residents; hours-per-resident-day is excluded there — with an on-page exclusion counter — rather than divided into a fake zero.\nKill the trap structurally. Daily census arrives denormalized across 16 rows per facility-day; naive summation overstates resident-days by exactly 16× and still looks plausible on a chart. A facility-day grain table removes the mistake by design.\nOne definition per number. Every KPI card traces to a single certified measure with its definition stated on the page and embedded in the model.\nValidate twice. Every headline number was cross-checked against independent T-SQL run directly on the warehouse — and the state-level results reproduce independently published research (Vermont’s contract share matches LTCCC’s Q1 2025 figure to within a tenth of a point).\n\n\nKey Findings (CY2025 Q4)\n\n5.25% of all direct-care hours are contract labor — roughly double the ~3% pre-pandemic baseline, but well down from the ~11% peak of 2022: facilities are actively unwinding expensive agency contracts.\nThe average is not the market. State-level contingent reliance spans ~1% (Alabama) to ~24% (Vermont) — a marketplace’s demand lives in that tail, not the mean.\nLicensed-nurse scarcity shows up in the mix: contingent share is 5.98% for nurse roles vs 4.78% for aide roles.\nDaily demand is unplannable: the median facility’s total care hours swing ±10% day to day (coefficient of variation of daily hours).\n36.4% of facility-days run below the CMS ~3.48 total-nurse HPRD reference — even though the national average (3.76) clears it. Average adequate, distribution broken.\nA structural weekend cliff: staffing drops from 3.93 to 3.34 hours per resident-day every weekend — a recurring 15% shortfall."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#the-report",
+    "href": "projects/cascadia-staffing.html#the-report",
+    "title": "Cascadia Staffing",
+    "section": "The Report",
+    "text": "The Report\n\n\n\nThe Contingent-Labor Market page — Power BI. Certified KPI cards for contingent penetration, staffing volatility, facility-days below expected staffing, and total nurse HPRD; contingent penetration by state; the weekend coverage cliff; and a data-quality footnote stating each metric’s certified definition."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#opportunities-for-future-enhancements",
+    "href": "projects/cascadia-staffing.html#opportunities-for-future-enhancements",
+    "title": "Cascadia Staffing",
+    "section": "Opportunities for Future Enhancements",
+    "text": "Opportunities for Future Enhancements\n\nA Facility Explorer page for drill-down by facility, state, and role.\nAdditional PBJ quarters to extend the contingent-labor trend over time."
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#tech-stack",
+    "href": "projects/cascadia-staffing.html#tech-stack",
+    "title": "Cascadia Staffing",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nSQL Server 2025 T-SQL Python CMS PBJ Data Power BI DAX Semantic Model (PBIP) PowerShell"
+  },
+  {
+    "objectID": "projects/cascadia-staffing.html#links",
+    "href": "projects/cascadia-staffing.html#links",
+    "title": "Cascadia Staffing",
+    "section": "Links",
+    "text": "Links\n\nBuild Repository — SQL DDL, Python acquisition/staging, one-command reproducible build (run_build.ps1), KPI validation scripts\nPower BI Handoff Doc — schema, validated row counts, and the data traps documented for the semantic-model layer\nCascadia Architecture Overview"
+  },
+  {
+    "objectID": "projects/sibling-conflict.html",
+    "href": "projects/sibling-conflict.html",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "",
+    "text": "Mathematics · Preprint · Not a BI module\n\n\n\n\nEverything else in this portfolio is a data build. This is not. It is a ~2,000-word mathematics paper with two figures and one table: no client, no pipeline, no dashboard, no dataset. It counts a possibility space and says so.\nRead the Paper (PDF) Repository"
+  },
+  {
+    "objectID": "projects/sibling-conflict.html#status-read-this-before-the-rest",
+    "href": "projects/sibling-conflict.html#status-read-this-before-the-rest",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "Status — read this before the rest",
+    "text": "Status — read this before the rest\nPreprint, under consideration at The Mathematical Intelligencer (queried 2026-08-12, reply pending).\nTo be exact about what that means: a pre-submission query went to the journal’s co-editors-in-chief on 2026-08-12 with the compiled PDF attached, and the reply is pending. Formal submission would follow a green light. The paper is not published, not accepted, and not peer-reviewed. Nothing on this page should be read as a publication credit.\nThe version linked above is the submitted manuscript. Springer’s preprint policy permits posting the submitted version on a personal site and does not treat it as prior publication (verified 2026-08-12); it is disclosed at formal submission."
+  },
+  {
+    "objectID": "projects/sibling-conflict.html#the-question",
+    "href": "projects/sibling-conflict.html#the-question",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "The question",
+    "text": "The question\nI have four children, each two years apart. The number of distinct ways they could get into a fight seemed never-ending, so I counted it.\nFormally: a conflict configuration is an unordered pair of disjoint, nonempty subsets of the n children — the two sides — with any remaining children uninvolved. That third category matters. A child can be on side A, on side B, or out of it entirely."
+  },
+  {
+    "objectID": "projects/sibling-conflict.html#the-result",
+    "href": "projects/sibling-conflict.html#the-result",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "The result",
+    "text": "The result\nEach child is assigned to side A, side B, or neither, giving 3n assignments. Removing the assignments where either side is empty (2·2n − 1, by inclusion–exclusion) and halving, because the labels A and B are interchangeable, leaves:\n\\[C(n) = \\frac{3^n - 2 \\cdot 2^n + 1}{2}\\]\nThis is not an ad hoc expression. It equals S(n+1, 3), a Stirling number of the second kind — OEIS A000392, where the sequence is characterised as exactly this: the disjoint unions of two nonempty subsets of an n-element set.\n\n\n\nChildren\nSibling pairs, n(n−1)/2\nConflict configurations\n\n\n\n\n1\n0\n0\n\n\n2\n1\n1\n\n\n3\n3\n6\n\n\n4\n6\n25\n\n\n5\n10\n90\n\n\n6\n15\n301\n\n\n7\n21\n966\n\n\n8\n28\n3,025\n\n\n\nFour children form six sibling pairs but allow 25 conflict configurations. Eight children form 28 pairs and allow 3,025. Pairs grow quadratically; the conflict space grows exponentially, tracking 3n — each additional child roughly triples it.\n\n\n\nFigure A — the typical range, n = 1 to 4. At three children the six possible conflicts already double the three pairs.\n\n\n\n\n\nFigure B — the full range, n = 1 to 8. The pairs line does not visibly leave the axis; the conflict line reaches 3,025."
+  },
+  {
+    "objectID": "projects/sibling-conflict.html#what-the-paper-does-not-claim",
+    "href": "projects/sibling-conflict.html#what-the-paper-does-not-claim",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "What the paper does not claim",
+    "text": "What the paper does not claim\nThe formula counts a possibility space. It does not predict how often siblings actually fight, how badly, or how any of it turns out. Many families with a large theoretical conflict space stay close; some small families fracture. The caveat is carried in the abstract, in Section 3, and on the face of both figures, because a chart that travels without its paper needs to carry its own limits.\nIt is also not a novelty claim over the whole field. Bossard (1945) counted family relationships as n(n−1)/2, and Kephart (1950) extended that to subgroupings. Both are cited in the paper, and the claim is narrowed accordingly: this extends the Bossard–Kephart tradition to opposing-sides configurations, and connects it to the coalition-structure-generation literature in cooperative game theory. Adjacent formalism — three-way conflict analysis in the Pawlak tradition — is noted and distinguished: it analyses a given conflict rather than counting the space of them."
+  },
+  {
+    "objectID": "projects/sibling-conflict.html#how-it-was-checked",
+    "href": "projects/sibling-conflict.html#how-it-was-checked",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "How it was checked",
+    "text": "How it was checked\n\nBrute force. All 3n assignments enumerated for n = 1–8, both sides required nonempty, halved for label symmetry. Matches the closed form exactly: 0, 1, 6, 25, 90, 301, 966, 3,025.\nClosed form. Cross-checked against OEIS A000392, whose listed formula a(n) = (1 + 3n−1 − 2n)/2 gives a(n+1) = (3n − 2·2n + 1)/2.\nPrior art. Searched before the novelty claim was written, then the claim was narrowed to fit what the search found rather than the reverse.\nCitations. Every reference vetted to source: Bossard, Kephart, Minuchin, Caplow, McHale et al., Bank & Kahn, Hank & Steinbach, Jensen et al., Rahwan et al., Sandholm et al., Lang et al."
+  },
+  {
+    "objectID": "projects/sibling-conflict.html#the-figures-went-through-the-same-review-as-the-dashboards",
+    "href": "projects/sibling-conflict.html#the-figures-went-through-the-same-review-as-the-dashboards",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "The figures went through the same review as the dashboards",
+    "text": "The figures went through the same review as the dashboards\nThis is the one thing the paper shares with the rest of the portfolio. Both figures were built to Cascadia VIZ-PRINCIPLES v2.5 and scored against CHART-REVIEW v2.5, including two Rule 7.4 reading panels — four blind reviewers per round who see only the rendered chart, at two widths each, with an editor, a quantitative family-studies researcher, a non-technical parent, and a visualization seat.\nThe panels changed the figures. Round one produced twelve findings, ten of them defects: the “each added child roughly triples it” annotation was asserted but not checkable on the canvas, so value labels at n = 5, 6, 7 were added and the tripling became verifiable by eye; the subtitle gained both “others uninvolved” and the possibility-space caveat because two seats read a claim about real families that the mathematics does not support. Round two ran after the artifact changed to two figures and produced eight more defects — the non-technical seat could not find a four-child family on a chart that started being readable at five, which is why Figure A exists at all.\nThree findings were rejected with reasons and five accepted as residual, each recorded. The full disposition tables and panel returns are in the repository.\nOne exception carries onto this page. Both figures were typeset in DejaVu, substituting for the brand’s Source Serif 4 and Segoe UI, which were unavailable in the build environment; the review recorded that they should be re-rendered with brand fonts if reused on a Cascadia web property. They are shipped here as-is deliberately — these are the exact files that cleared both panels, and re-rendering them would produce charts no panel has read."
+  },
+  {
+    "objectID": "projects/sibling-conflict.html#why-it-is-in-this-portfolio",
+    "href": "projects/sibling-conflict.html#why-it-is-in-this-portfolio",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "Why it is in this portfolio",
+    "text": "Why it is in this portfolio\nBecause the standard is the same one. The paper states what it measures and what it does not, cites the prior work that narrows its own claim, publishes the review its figures failed and then passed, and describes its status precisely rather than favourably. That is the through-line with every data build here — it just happens to have no data."
+  },
+  {
+    "objectID": "projects/sibling-conflict.html#disclosure",
+    "href": "projects/sibling-conflict.html#disclosure",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "Disclosure",
+    "text": "Disclosure\nIndependent work, no funding, no affiliation. Submitted-version preprint posted under Springer’s preprint policy (verified 2026-08-12). The formula is a combinatorial identity; no human subjects, no dataset, and no empirical claim about any family."
+  },
+  {
+    "objectID": "projects/sibling-conflict.html#links",
+    "href": "projects/sibling-conflict.html#links",
+    "title": "The Combinatorics of Sibling Conflict",
+    "section": "Links",
+    "text": "Links\n\nThe Paper (PDF) — the submitted manuscript, ~2,000 words, two figures, one table\nRepository — manuscript source, figure build scripts, research record, chart review and both panel returns\nOEIS A000392 — the sequence, S(n+1, 3)\nCascadia Architecture Overview"
+  },
+  {
+    "objectID": "projects/cascadia-finance.html",
+    "href": "projects/cascadia-finance.html",
+    "title": "Cascadia Finance",
+    "section": "",
+    "text": "Financial Analytics\n\n\n\n\nPublic SEC filings turned into an executive close pack for FormFactor (NASDAQ: FORM) — headline → driver → variance, the way a finance director reads numbers. GAAP quarterly, FY2018 → Q1 FY2026, rebuilt offline from a frozen snapshot so the numbers never drift.\nExecutive Pack Margin Walk & Segments Peer Benchmark Q2 FY2026 10-Q"
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#overview",
+    "href": "projects/cascadia-finance.html#overview",
+    "title": "Cascadia Finance",
+    "section": "Overview",
+    "text": "Overview\nA financial-analytics module on real SEC filing data. It models FormFactor’s public GAAP financials — revenue, gross profit and margin, R&D and SG&A, total opex, operating income and margin, and diluted EPS — as a quarterly executive pack, now extended with a margin-driver view (Phase 2) and a peer benchmark (Phase 3) — all three phases live.\nDeliberately lightweight: no SQL Server, no Power BI, no paid services. Python pulls and freezes the data, SQLite holds a star schema, and the front end is static HTML + Apache ECharts hosted free on GitHub Pages."
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#why-this-stack",
+    "href": "projects/cascadia-finance.html#why-this-stack",
+    "title": "Cascadia Finance",
+    "section": "Why This Stack",
+    "text": "Why This Stack\nThis module exists for a financial-analytics role, and the tooling is a deliberate “right tool for the job” choice rather than a scaled-down enterprise stack. It has to be screen-shareable in an interview, hostable for free and forever, and transparent enough to walk through line by line. A few hundred lines of well-commented Python plus a static ECharts page does all three — and the Python ingestion layer is itself part of the story: analytics built to spec, in the open, with the data governance made explicit on every page."
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#architecture",
+    "href": "projects/cascadia-finance.html#architecture",
+    "title": "Cascadia Finance",
+    "section": "Architecture",
+    "text": "Architecture\nSEC EDGAR XBRL (frozen JSON) → Python (requests + pandas) → SQLite star schema → static ECharts pages.\n\nIngest. Pulls FormFactor (CIK 0001039399) financial concepts from the SEC EDGAR XBRL APIs — SEC-compliant User-Agent, throttled well under rate limits — and commits the raw JSON snapshots to the repo.\nConform. Tidy CSVs, one row per company × metric × fiscal quarter, with QoQ and YoY variances precomputed and derived / restated / missing flags.\nModel. A SQLite star schema — dim_company, dim_metric, dim_date, fact_financials_quarterly.\nPresent. Static, hostable ECharts pages — index.html (the executive pack), margins.html (the gross-margin walk & segment view), and peers.html (the US-listed T&M peer benchmark) — each with KPI headline cards, QoQ/YoY variance chips, labeled charts, and a “Data & method” footnotes section."
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#headline-skill-financial-data-governance",
+    "href": "projects/cascadia-finance.html#headline-skill-financial-data-governance",
+    "title": "Cascadia Finance",
+    "section": "Headline Skill: Financial-Data Governance",
+    "text": "Headline Skill: Financial-Data Governance\nGetting the governance right is the credibility play for a finance audience:\n\nFrozen snapshot. The data was pulled once and committed; every page carries an “as of SEC filings retrieved 2026-07-21” stamp, and the build rebuilds offline from those snapshots so the dataset cannot silently drift (FormFactor reports its next quarter July 29, mid-process). Refreshing is a deliberate manual action, never a side effect.\nGAAP vs non-GAAP. XBRL facts are GAAP and will not match a company’s non-GAAP press-release headlines — FormFactor’s headline gross margin is a record ~49% non-GAAP quarter, while the GAAP margin from the filings is lower and moved differently. Every metric is labeled GAAP explicitly, and the GAAP and non-GAAP framings are shown side by side rather than blurred.\nDerived Q4s. 10-Ks file the full year rather than a discrete Q4, so Q4 = FY − (Q1+Q2+Q3) is derived where needed, flagged as derived, and reconciled in validation.\nTag mapping & restatements. XBRL tags change over time and filings get restated; a tag-mapping table handles the drift and the latest-filed value wins.\nMissing data is flagged, never filled. No interpolation, no zero-fill — “not disclosed” is a first-class value."
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#validation",
+    "href": "projects/cascadia-finance.html#validation",
+    "title": "Cascadia Finance",
+    "section": "Validation",
+    "text": "Validation\nvalidate.py reconciles the derived quarters (four quarters sum to the full year within rounding) and spot-checks revenue and gross profit against figures verifiable in FormFactor’s press releases, writing the results to governance/validation_report.md. Every headline number on the page traces back to a filed, checkable source."
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#the-module",
+    "href": "projects/cascadia-finance.html#the-module",
+    "title": "Cascadia Finance",
+    "section": "The Module",
+    "text": "The Module\nThe Phase 1 executive pack is live now — an interactive, mobile-friendly page you can open on a phone or share on a screen.\nOpen the Live Executive Pack →\nPhase 2 — the gross-margin walk & segments — is live too. The QoQ margin bridge (revenue effect vs margin effect), the Q1 FY2026 GM inflection with its filed drivers, and the Probe Cards vs Systems segment view, with segment revenue reconciled to consolidated GAAP.\nOpen the Margin Walk & Segments →\nPhase 3 — the peer benchmark & governance showcase — is live too. FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and every not-comparable metric flagged, never estimated.\nOpen the Peer Benchmark →\nBeyond the frozen phases — a Q2 FY2026 announced-to-filed story. When FormFactor announced Q2 on July 29, 2026, I ran the press-release figures through the same margin-walk method — deliberately outside the frozen dataset, every figure labelled announced. When the 10-Q filed on August 4, I reconciled those estimates against the filed XBRL line by line: all eleven GAAP lines tied to the dollar, and the non-GAAP gross margin (which has no XBRL counterpart) is flagged not comparable rather than forced. Both pages ship as freeze extensions — Phases 1–3 stay exactly as they were.\nOpen Q2 Filed vs Announced → Q2 Read-Through (announced) →"
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#roadmap",
+    "href": "projects/cascadia-finance.html#roadmap",
+    "title": "Cascadia Finance",
+    "section": "Roadmap",
+    "text": "Roadmap\n\nPhase 1 — Executive Financial Pack (live). FormFactor GAAP quarterly: revenue, margins, opex, EPS, with QoQ/YoY variances.\nPhase 2 — Margin Drivers (live). A GAAP gross-margin walk (revenue-vs-margin bridge) and the Probe Cards vs Systems segment view — segment revenue reconciled to consolidated GAAP, and segment margin shown only where it ties exactly (FY2024+).\nPhase 3 — Peer Benchmark + Governance (live). FormFactor vs a US-listed test & measurement peer set (TER, ONTO, CAMT, COHU, INTT; KLA as a process-control reference), with the XBRL tag-mapping table rendered on the page and honest not-comparable flags — nothing estimated."
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#tech-stack",
+    "href": "projects/cascadia-finance.html#tech-stack",
+    "title": "Cascadia Finance",
+    "section": "Tech Stack",
+    "text": "Tech Stack\n\nPython pandas SEC EDGAR XBRL SQLite Apache ECharts Static HTML / JS GitHub Pages Git"
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#disclosure",
+    "href": "projects/cascadia-finance.html#disclosure",
+    "title": "Cascadia Finance",
+    "section": "Disclosure",
+    "text": "Disclosure\nBuilt from public SEC filings (EDGAR XBRL APIs), as of 2026-07-21. Independent portfolio project — not affiliated with, endorsed by, or based on any non-public information from FormFactor or any company shown. Not investment advice."
+  },
+  {
+    "objectID": "projects/cascadia-finance.html#links",
+    "href": "projects/cascadia-finance.html#links",
+    "title": "Cascadia Finance",
+    "section": "Links",
+    "text": "Links\n\nView Live Module — the hosted Phase 1 executive pack\nMargin Walk & Segments — the Phase 2 gross-margin walk and Probe Cards vs Systems view\nPeer Benchmark & Governance — the Phase 3 US-listed T&M peer comparison + XBRL tag-mapping table\nQ2 FY2026 Filed vs Announced — the filed 10-Q reconciled line-by-line against my July 29 announced estimates; every GAAP line ties to the dollar\nQ2 FY2026 Read-Through — the pre-filing announced-tier margin walk (8-K press release, before the 10-Q)\nBuild Repository — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report\nCascadia Architecture Overview"
   }
 ]
