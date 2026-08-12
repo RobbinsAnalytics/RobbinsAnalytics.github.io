@@ -159,4 +159,32 @@ Demand, merchandising, and fulfillment analytics for a retail apparel scenario.
 
 ---
 
+### Beyond the Portfolio
+
+One piece here is not an analytics module and is deliberately kept out of the
+grid above rather than dressed up as a case study.
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-8}
+::: {.project-card}
+::: {.card-label}
+Mathematics · Not a BI module
+:::
+### The Combinatorics of Sibling Conflict
+<span class="badge-status">Preprint</span>
+
+No client, no data pipeline, no dashboard — a ~2,000-word mathematics paper. The number of ways n children can split into two opposing sides, with the rest uninvolved, is (3^n^ − 2·2^n^ + 1)/2, the Stirling number S(n+1, 3). Four kids: 6 sibling pairs but 25 conflict configurations. Eight kids: 28 pairs, 3,025. Pairs grow quadratically; the conflict space grows exponentially.
+
+Queried to *The Mathematical Intelligencer* 2026-08-12, reply pending — not published, not accepted, not peer-reviewed. Its two figures went through the same Rule 7.4 reading panels as the dashboards.
+
+[Read the Write-Up](projects/sibling-conflict.qmd){.btn .btn-primary .btn-sm}
+[The Paper (PDF)](https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+:::
+
+---
+
 [Learn about the Cascadia architecture →](cascadia.qmd)

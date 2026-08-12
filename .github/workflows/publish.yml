@@ -107,7 +107,9 @@ jobs:
           for path in / /about.html /cascadia.html \
                       /projects/cascadia-finance.html \
                       /projects/cascadia-dealdesk.html \
+                      /projects/sibling-conflict.html \
                       /assets/thumb-finance.png \
+                      /assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf \
                       /projects/cascadia-semiconductors.html \
                       /cascadia-semiconductors/ \
                       /cascadia-semiconductors/margins.html \

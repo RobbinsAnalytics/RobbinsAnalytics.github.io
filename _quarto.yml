@@ -83,6 +83,12 @@ website:
             href: projects/cascadia-medical-devices.qmd
           - text: "Cascadia Clothing (Coming Soon)"
             href: projects/cascadia-clothing.qmd
+          # Last, and labelled as what it is. Not a Cascadia module — a
+          # mathematics preprint — so it carries neither the "Cascadia" prefix
+          # every entry above shares nor a status word that would read as a
+          # build state.
+          - text: "Sibling Conflict (mathematics paper)"
+            href: projects/sibling-conflict.qmd
     right:
       - icon: github
         href: https://github.com/RobbinsAnalytics

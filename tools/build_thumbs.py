@@ -69,6 +69,16 @@ MODULES = [
     dict(slug="clothing", data="synthetic data · in build", kicker="Cascadia Clothing", title="Retail and ecommerce analytics",
          line="In build — an apparel scenario.",
          accent="rain", motif="bars", muted=True),
+    # Not a BI module — a mathematics preprint, so the kicker reads "Cascadia
+    # Curiosities" rather than "Cascadia <module>" and the line says outright
+    # what it is not. Evergreen because 2.3.1 binds the hue to the piece
+    # wherever it appears, and the piece's own two figures already encode their
+    # emphasis series in Evergreen; a different hue here would give one artifact
+    # two colours. Deal Desk is the slot's co-tenant and the two cards never
+    # appear adjacent — this one sits below the Featured grid, not inside it.
+    dict(slug="sibling-conflict", data="preprint · OEIS A000392 · no dataset", kicker="Cascadia Curiosities", title="The combinatorics of sibling conflict",
+         line="Four kids form 6 sibling pairs but allow 25 conflict configurations; eight kids, 3,025. A short mathematics paper, not a BI module.",
+         accent="evergreen", motif="line"),
 ]
 
 MOTIFS = {
