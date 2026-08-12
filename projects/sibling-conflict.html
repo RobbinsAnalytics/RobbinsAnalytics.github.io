@@ -329,15 +329,30 @@ window.Quarto = {
 </tbody>
 </table>
 <p>Four children form six sibling pairs but allow 25 conflict configurations. Eight children form 28 pairs and allow 3,025. Pairs grow quadratically; the conflict space grows exponentially, tracking 3<sup>n</sup> — each additional child roughly triples it.</p>
+<!-- Below 600px the design render (1050px wide, built for 7 inches of print)
+     scales to ~324px and its in-chart type lands at 6-7 CSS px. The narrow
+     render is the 3.6in single-column build and carries larger relative type.
+     Both cleared the Rule 7.4 panels; chart-review.md records every seat
+     reading both widths. -->
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../assets/sibling-conflict-figureA.png" class="img-fluid figure-img" alt="Line chart titled 'Four children allow 25 possible conflict configurations, but form only 6 sibling pairs.' Two series over one to four children. The green conflict-configuration line runs 0, 1, 6, 25 and is labelled 25 at its right end; the grey sibling-pairs line runs 0, 1, 3, 6 and is labelled 6. The two lines separate after two children. Source strip: OEIS A000392, S(n+1, 3), exact counts, nothing estimated."></p>
+<p><picture>
+<source media="(max-width: 600px)" srcset="../assets/sibling-conflict-figureA-narrow.png">
+<img src="../assets/sibling-conflict-figureA.png" class="img-fluid figure-img" alt="Line chart titled 'Four children allow 25 possible conflict configurations, but form only 6 sibling pairs.' Two series over one to four children. The green conflict-configuration line runs 0, 1, 6, 25 and is labelled 25 at its right end; the grey sibling-pairs line runs 0, 1, 3, 6 and is labelled 6. The two lines separate after two children. Source strip: OEIS A000392, S(n+1, 3), exact counts, nothing estimated.">
+</picture></p>
 <figcaption>Figure A — the typical range, n = 1 to 4. At three children the six possible conflicts already double the three pairs.</figcaption>
 </figure>
 </div>
+<!-- Same reasoning as Figure A. The annotation is described rather than quoted:
+     the two renders word it differently ("triples the space of possible
+     conflicts" / "triples the possibilities"), and alt applies to whichever
+     source the browser picks. -->
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../assets/sibling-conflict-figure1.png" class="img-fluid figure-img" alt="Line chart titled 'Eight children allow 3,025 possible conflict configurations, but form only 28 sibling pairs.' Two series over one to eight children. The green conflict-configuration line is flat until about four children, then climbs steeply through labelled values 90, 301 and 966 to 3,025 at eight children. The grey sibling-pairs line stays flat against the horizontal axis for its whole length, labelled 28 at its right end. An annotation reads 'Each added child roughly triples the space of possible conflicts.' Source strip: OEIS A000392, S(n+1, 3), exact counts, nothing estimated."></p>
+<p><picture>
+<source media="(max-width: 600px)" srcset="../assets/sibling-conflict-figure1-narrow.png">
+<img src="../assets/sibling-conflict-figure1.png" class="img-fluid figure-img" alt="Line chart titled 'Eight children allow 3,025 possible conflict configurations, but form only 28 sibling pairs.' Two series over one to eight children. The green conflict-configuration line is flat until about four children, then climbs steeply through labelled values 90, 301 and 966 to 3,025 at eight children. The grey sibling-pairs line stays flat against the horizontal axis for its whole length, labelled 28 at its right end. An annotation states that each added child roughly triples the space of possible conflicts. Source strip: OEIS A000392, S(n+1, 3), exact counts, nothing estimated.">
+</picture></p>
 <figcaption>Figure B — the full range, n = 1 to 8. The pairs line does not visibly leave the axis; the conflict line reaches 3,025.</figcaption>
 </figure>
 </div>
