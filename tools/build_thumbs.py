@@ -77,7 +77,7 @@ MODULES = [
     # two colours. Deal Desk is the slot's co-tenant and the two cards never
     # appear adjacent — this one sits below the Featured grid, not inside it.
     dict(slug="sibling-conflict", data="preprint · OEIS A000392 · no dataset", kicker="Cascadia Curiosities", title="The combinatorics of sibling conflict",
-         line="Four kids form 6 sibling pairs but allow 25 conflict configurations; eight kids, 3,025. A short mathematics paper, not a BI module.",
+         line="Of the 3,025 ways eight children can take sides, just 28 are one against one. A short mathematics paper, not a BI module.",
          accent="evergreen", motif="line"),
 ]
 

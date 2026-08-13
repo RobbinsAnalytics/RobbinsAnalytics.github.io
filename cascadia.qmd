@@ -21,7 +21,7 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 > **Beyond the builds:** [Cascadia BI Migration](projects/cascadia-bi-migration.qmd) — a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. Analytics leadership, not just a data build.
 
-> **Not a build at all:** [The Combinatorics of Sibling Conflict](projects/sibling-conflict.qmd) — a short mathematics paper, kept out of the table above because it has no stack, no data and no headline skill to put in those columns. It counts the ways n children can split into two opposing sides — (3^n^ − 2·2^n^ + 1)/2, the Stirling number S(n+1, 3) — and is explicit that this is a possibility space, not a claim about real families. A preprint: queried to *The Mathematical Intelligencer* 2026-08-12, reply pending; not published, not peer-reviewed. It is here because its figures cleared the same reading panels the dashboards do.
+> **Not a build at all:** [The Combinatorics of Sibling Conflict](projects/sibling-conflict.qmd) — a short mathematics paper, and a pet project. No stack, no data, nothing to put in the columns above. It counts the ways n children can split into two opposing sides: (3^n^ − 2·2^n^ + 1)/2, the Stirling number S(n+1, 3).
 
 ---
 
@@ -78,10 +78,6 @@ A realism check that has only ever seen good data has not been tested. Control T
 ::: {.g-col-12 .g-col-md-6}
 **Charts reviewed against a standard**
 Every chart is scored pass/fail against my visualization design system before it ships, including a blind panel of readers who see only the rendered chart. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded.
-:::
-::: {.g-col-12 .g-col-md-6}
-**Prior work narrows the claim, not the other way round**
-The literature search runs before the finding is written up, and what it returns is allowed to shrink the claim. [The Combinatorics of Sibling Conflict](projects/sibling-conflict.qmd) went looking for prior art and found Bossard (1945) and Kephart (1950) counting family relationships and subgroups; the paper's novelty claim was narrowed from "not addressed" to "extends that tradition to opposing sides," and both antecedents are cited rather than left out.
 :::
 :::
 
