@@ -123,14 +123,14 @@
     "href": "projects/cascadia-dealdesk.html#the-module",
     "title": "Cascadia Deal Desk",
     "section": "The Module",
-    "text": "The Module\nAgreement vs. quoted price. The exception page. An unfiltered overview establishes the whole book first, then a customer selector, a date range and a materiality threshold filter it. Chart titles recompute from the filtered data, and the provenance strip under every chart names the active filter state, so a screenshot of a filtered view cannot claim to describe the full dataset.\nOpen the Exception Page →\nCustomer pricing and margin. The same model, answering the ad-hoc question. A small-multiples grid on shared scales shows the whole landscape before any selector appears, because “who should I look at” is the question that precedes “show me this customer.” Then price against agreement, margin against margin-at-agreed, product mix, and an agreement timeline showing renewals and supersessions.\nOpen the Customer Page →\nBoth pages are keyboard navigable chart by chart, carry a real data table for every chart, and hold to WCAG 2.2 AA."
+    "text": "The Module\nAgreement vs. quoted price. The exception page. An unfiltered overview establishes the whole book first, then a customer selector, a date range and a materiality threshold filter it. Chart titles recompute from the filtered data, and the provenance strip under every chart names the active filter state, so a screenshot of a filtered view cannot claim to describe the full dataset.\nOpen the Exception Page →\nCustomer pricing and margin. The same model, answering the ad-hoc question. A small-multiples grid on shared scales shows the whole landscape before any selector appears, because “who should I look at” is the question that precedes “show me this customer.” Then price against agreement, margin against margin-at-agreed, product mix, and an agreement timeline showing renewals and supersessions.\nOpen the Customer Page →\nEvery chart on both pages carries a real data table, except the small-multiples grid, which carries its content in its description instead. Where a table reads the finding badly, the chart also takes a keyboard cursor that walks the series point by point. WCAG 2.2 AA is the design target (unverified): no accessibility audit has been run against these pages."
   },
   {
     "objectID": "projects/cascadia-dealdesk.html#tech-stack",
     "href": "projects/cascadia-dealdesk.html#tech-stack",
     "title": "Cascadia Deal Desk",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nPython pandas SQLite Star Schema Apache ECharts Static HTML / JS WCAG 2.2 AA GitHub Pages Git"
+    "text": "Tech Stack\n\nPython pandas SQLite Star Schema Apache ECharts Static HTML / JS WCAG 2.2 AA target (unverified) GitHub Pages Git"
   },
   {
     "objectID": "projects/cascadia-dealdesk.html#disclosure",
@@ -361,7 +361,7 @@
     "href": "cascadia.html#tech-stack",
     "title": "The Cascadia Family",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nPython (pandas) SQLite DuckDB dbt Core Apache ECharts SEC EDGAR XBRL SQL Server 2025 T-SQL Power BI DAX Microsoft Fabric PySpark Static HTML / JS WCAG 2.2 AA GitHub Pages PowerShell Git"
+    "text": "Tech Stack\n\nPython (pandas) SQLite DuckDB dbt Core Apache ECharts SEC EDGAR XBRL SQL Server 2025 T-SQL Power BI DAX Microsoft Fabric PySpark Static HTML / JS WCAG 2.2 AA target (unverified) GitHub Pages PowerShell Git"
   },
   {
     "objectID": "projects/cascadia-controltower.html",
@@ -424,7 +424,7 @@
     "href": "projects/cascadia-controltower.html#tech-stack",
     "title": "Cascadia Control Tower",
     "section": "Tech Stack",
-    "text": "Tech Stack\n\nPython pandas DuckDB dbt Core Star Schema Apache ECharts Static HTML / JS WCAG 2.2 AA GitHub Pages Git"
+    "text": "Tech Stack\n\nPython pandas DuckDB dbt Core Star Schema Apache ECharts Static HTML / JS WCAG 2.2 AA target (unverified) GitHub Pages Git"
   },
   {
     "objectID": "projects/cascadia-controltower.html#disclosure",
