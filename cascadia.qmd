@@ -99,7 +99,7 @@ Every chart is scored pass/fail against my visualization design system before it
 <span class="chip">Microsoft Fabric</span>
 <span class="chip">PySpark</span>
 <span class="chip">Static HTML / JS</span>
-<span class="chip">WCAG 2.2 AA</span>
+<span class="chip">WCAG 2.2 AA target (unverified)</span>
 <span class="chip">GitHub Pages</span>
 <span class="chip">PowerShell</span>
 <span class="chip">Git</span>

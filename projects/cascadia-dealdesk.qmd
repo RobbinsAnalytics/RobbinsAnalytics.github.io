@@ -107,7 +107,7 @@ Three artifacts ship with the module, and they are the point rather than the pap
 
 [Open the Customer Page →](https://www.robbinsanalytics.com/cascadia-dealdesk/customer.html){.btn .btn-primary}
 
-Both pages are keyboard navigable chart by chart, carry a real data table for every chart, and hold to WCAG 2.2 AA.
+Every chart on both pages carries a real data table, except the small-multiples grid, which carries its content in its description instead. Where a table reads the finding badly, the chart also takes a keyboard cursor that walks the series point by point. WCAG 2.2 AA is the design target (unverified): no accessibility audit has been run against these pages.
 
 ---
 
@@ -120,7 +120,7 @@ Both pages are keyboard navigable chart by chart, carry a real data table for ev
 <span class="chip">Star Schema</span>
 <span class="chip">Apache ECharts</span>
 <span class="chip">Static HTML / JS</span>
-<span class="chip">WCAG 2.2 AA</span>
+<span class="chip">WCAG 2.2 AA target (unverified)</span>
 <span class="chip">GitHub Pages</span>
 <span class="chip">Git</span>
 </div>

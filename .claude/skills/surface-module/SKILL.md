@@ -57,8 +57,10 @@ Four separate edits, and it is normal to remember the first and forget the rest:
   governance move. Deal Desk's "the run fails rather than guessing" was a
   sharper claim than anything on the page and sat invisible for weeks. Ask what
   this build does that the others do not, and whether a reader could tell.
-- **Tech Stack chips.** Add anything genuinely new (e.g. `WCAG 2.2 AA`). Do not
-  duplicate an existing chip.
+- **Tech Stack chips.** Add anything genuinely new (e.g. `dbt Core`). Do not
+  duplicate an existing chip. A chip states a fact about the stack, not a claim
+  about a result — anything unverified has to say so, the way
+  `WCAG 2.2 AA target (unverified)` does.
 
 ### 5 · `tools/build_thumbs.py` — the OG card
 
