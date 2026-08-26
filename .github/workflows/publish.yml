@@ -164,3 +164,31 @@ jobs:
         run: |
           python -m pip install --quiet axe-core-python==0.1.0
           python tools/a11y_check.py --cache-bust "${{ github.sha }}"
+
+      # Compares six pages at four widths against the images in
+      # .github/visual-baselines/. Those are only valid because they were
+      # produced on this same runner image by the "Generate visual baselines"
+      # workflow -- a screenshot taken on Windows differs from a Linux one in
+      # font rendering alone, so a locally generated baseline would make this
+      # permanently red.
+      #
+      # A failure here is a prompt to look, not a verdict. An unintended
+      # regression gets fixed; an intended design change gets fresh baselines
+      # from that workflow, downloaded and committed deliberately. This runs
+      # after the deploy for the same reason every other check does -- it
+      # compares what the edge is actually serving.
+      - name: Visual regression check
+        run: |
+          python -m pip install --quiet pillow
+          python tools/visual_check.py --cache-bust "${{ github.sha }}"
+
+      # Without this a failure above is just a percentage. The diff images make
+      # it something a person can judge in ten seconds.
+      - name: Upload visual diffs
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-diffs-${{ github.sha }}
+          path: visual-diffs/
+          if-no-files-found: ignore
+          retention-days: 14

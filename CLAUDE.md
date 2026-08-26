@@ -103,4 +103,7 @@ a Linux one in font rendering alone. Regenerate with the "Generate visual
 baselines" workflow (`workflow_dispatch`), then download its artifact and commit
 the images. That workflow does not commit anything itself, deliberately: the
 push to `main` is the deploy and the single approval, and CI writing to `main`
-would break that.
+would break that. **Each regeneration costs about 15 MB of git history** — the
+24 full-page PNGs are already well compressed, so that is the real price of
+pixel comparison rather than something a flag can fix. Regenerate when a design
+change or a runner-image move needs it, not as routine hygiene.
