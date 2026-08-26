@@ -77,7 +77,7 @@ PBJ has honest traps, and the build models them instead of papering over them:
 
 ## The Report
 
-![The Contingent-Labor Market page — Power BI. Certified KPI cards for contingent penetration, staffing volatility, facility-days below expected staffing, and total nurse HPRD; contingent penetration by state; the weekend coverage cliff; and a data-quality footnote stating each metric's certified definition.](../assets/cascadia-staffing-page1.png)
+![The Contingent-Labor Market page — Power BI. Certified KPI cards for contingent penetration, staffing volatility, facility-days below expected staffing, and total nurse HPRD; contingent penetration by state; the weekend coverage cliff; and a data-quality footnote stating each metric's certified definition.](../assets/cascadia-staffing-page1.png){fig-alt="Power BI report page. Certified KPI cards for contingent penetration, staffing volatility, facility-days below expected staffing and total nurse hours per resident day; a map or bar chart of contingent penetration by state; a weekend coverage cliff shown as a day-of-week series; and a data-quality footnote giving each metric's certified definition."}
 
 ---
 

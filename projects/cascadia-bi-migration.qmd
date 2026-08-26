@@ -48,10 +48,10 @@ The trap in a migration like this is treating it as a copy job. Rebuilding 500 d
 #bmg-gantt .bmg-months .m { position:absolute; top:0; height:24px; width:16.6667%; text-align:center; font-size:11.5px; font-weight:600; color:#33475b; line-height:24px; border-left:1px solid #e4e9f1; }
 #bmg-gantt .bmg-row { position:relative; height:36px; display:flex; align-items:center; }
 #bmg-gantt .bmg-row .lab { width:210px; padding-right:12px; font-size:12px; font-weight:600; color:#2a3441; text-align:right; }
-#bmg-gantt .bmg-row .lab .wk { display:block; font-weight:400; font-size:10px; color:#8792a3; }
+#bmg-gantt .bmg-row .lab .wk { display:block; font-weight:400; font-size:10px; color:#697384; }
 #bmg-gantt .bmg-track { position:absolute; left:210px; right:0; top:0; height:36px; background-image:repeating-linear-gradient(to right, transparent 0, transparent calc(16.6667% - 1px), #eef1f6 calc(16.6667% - 1px), #eef1f6 16.6667%); }
 #bmg-gantt .bmg-bar { position:absolute; top:7px; height:22px; border-radius:5px; color:#fff; font-size:10.5px; font-weight:600; line-height:22px; padding:0 9px; white-space:nowrap; overflow:visible; box-shadow:0 1px 2px rgba(20,40,70,.18); }
-#bmg-gantt .bmg-bar.cont { top:9px; height:18px; }
+#bmg-gantt .bmg-bar.cont { top:9px; height:18px; color:#1b2430; }  /* dark ink: these two bars are pale by design, and white on them measured 2.63:1 and 4.36:1 */
 #bmg-gantt .bmg-stripe { background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.28) 0, rgba(255,255,255,.28) 5px, transparent 5px, transparent 11px); }
 #bmg-gantt .bmg-msrow { position:relative; height:44px; margin-left:210px; margin-top:4px; border-top:1px dashed #cbd4e2; }
 #bmg-gantt .bmg-ms { position:absolute; top:8px; transform:translateX(-50%); text-align:center; }
@@ -78,10 +78,10 @@ The trap in a migration like this is treating it as a copy job. Rebuilding 500 d
 <div class="bmg-row"><div class="lab">0 · Mobilize &amp; Align<span class="wk">Wk 1–2</span></div><div class="bmg-track"><div class="bmg-bar" style="left:0%; width:8.33%; background:#163a5f">Mobilize</div></div></div>
 <div class="bmg-row"><div class="lab">1 · Discover &amp; Inventory<span class="wk">Wk 2–5</span></div><div class="bmg-track"><div class="bmg-bar" style="left:4.17%; width:16.67%; background:#245a9a">Discover &amp; Inventory</div></div></div>
 <div class="bmg-row"><div class="lab">2 · Govern &amp; Certify<span class="wk">Wk 4–8</span></div><div class="bmg-track"><div class="bmg-bar" style="left:12.5%; width:20.83%; background:#2f72b8">Govern &amp; Certify</div></div></div>
-<div class="bmg-row"><div class="lab">3 · Pilot<span class="wk">Wk 7–10</span></div><div class="bmg-track"><div class="bmg-bar" style="left:25%; width:16.67%; background:#0f8a8f">Pilot</div></div></div>
+<div class="bmg-row"><div class="lab">3 · Pilot<span class="wk">Wk 7–10</span></div><div class="bmg-track"><div class="bmg-bar" style="left:25%; width:16.67%; background:#0e8387">Pilot</div></div></div>
 <div class="bmg-row"><div class="lab">4 · Wave Migration<span class="wk">Wk 9–20</span></div><div class="bmg-track"><div class="bmg-bar" style="left:33.33%; width:50%; background:#2c6fb0">Wave Migration (by department / value)</div></div></div>
 <div class="bmg-row"><div class="lab">5 · Sunset &amp; Renewal<span class="wk">Wk 18–24</span></div><div class="bmg-track"><div class="bmg-bar" style="left:70.83%; width:29.17%; background:#1c4e86">Sunset &amp; Renew (~5 licenses)</div></div></div>
-<div class="bmg-row"><div class="lab">Governance &amp; QA<span class="wk">continuous</span></div><div class="bmg-track"><div class="bmg-bar cont bmg-stripe" style="left:20.83%; width:79.17%; background:#6b7a90">certified layer · parity QA (ongoing)</div></div></div>
+<div class="bmg-row"><div class="lab">Governance &amp; QA<span class="wk">continuous</span></div><div class="bmg-track"><div class="bmg-bar cont bmg-stripe" style="left:20.83%; width:79.17%; background:#8f9db0">certified layer · parity QA (ongoing)</div></div></div>
 <div class="bmg-row"><div class="lab">Hypercare<span class="wk">rolling</span></div><div class="bmg-track"><div class="bmg-bar cont bmg-stripe" style="left:29.17%; width:70.83%; background:#93a1b4">2–4 wks after each wave</div></div></div>
 
 <div class="bmg-msrow">
@@ -95,8 +95,8 @@ The trap in a migration like this is treating it as a copy job. Rebuilding 500 d
 
 <div class="bmg-legend">
   <span class="k"><span class="sw" style="background:#245a9a"></span> Sequential phase (has an exit gate)</span>
-  <span class="k"><span class="sw" style="background:#0f8a8f"></span> Pilot (proof of the motion)</span>
-  <span class="k"><span class="sw bmg-stripe" style="background:#6b7a90"></span> Continuous track</span>
+  <span class="k"><span class="sw" style="background:#0e8387"></span> Pilot (proof of the motion)</span>
+  <span class="k"><span class="sw bmg-stripe" style="background:#8f9db0"></span> Continuous track</span>
   <span class="k"><span class="dia2"></span> Decision gate (go/no-go)</span>
 </div>
 </div>

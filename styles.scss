@@ -281,6 +281,15 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
     width: 100%;
     height: auto;
   }
+
+  // The theme's caption colour (#5C7167) is tuned for Paper. This container is
+  // the one place a caption sits on Spruce, where that colour measures 3.07:1
+  // and fails as text. Rain is the palette's de-emphasis ink and reads 6.39:1
+  // here, so the caption stays visually secondary without going illegible.
+  // Found by the axe run added to CI on 2026-08-25.
+  figcaption {
+    color: $cascadia-rain;
+  }
 }
 
 // Page header for case studies

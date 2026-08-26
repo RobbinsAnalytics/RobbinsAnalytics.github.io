@@ -34,7 +34,7 @@ Manufacturing leaders couldn't see why on-time delivery was slipping on certain 
 This build is the portfolio's full enterprise-BI stack — the one Cascadia domain that runs end to end on Microsoft Fabric:
 
 ::: {.arch-container}
-![Cascadia end-to-end data platform](../assets/cascadia_analytics_tech_stack.svg)
+![Cascadia end-to-end data platform](../assets/cascadia_analytics_tech_stack.svg){fig-alt="Architecture diagram: SQL Server source systems feed a Microsoft Fabric medallion lakehouse — Bronze, Silver, Gold — which is surfaced through a Power BI Direct Lake semantic model."}
 :::
 
 **Source (SQL Server):** CascadiaMES — star schema with 4 fact tables, 8 dimensions, `dim_date`, ~5.9M rows, plus a separate schema for NASA C-MAPSS sensor data. Loaded reproducibly via PowerShell; DP-600-aligned.
@@ -64,7 +64,7 @@ The NASA C-MAPSS layer adds a parallel story: remaining useful life (RUL) modeli
 
 ## The Report
 
-![The manufacturing analytics report — Power BI. OEE, FPY, and OTIF headline cards; availability / performance / OEE by production line; FPY by month and station (the declining station drives the root-cause story); a downtime Pareto by reason code; and OTIF by customer.](../assets/cascadia-medical-devices-page1.png)
+![The manufacturing analytics report — Power BI. OEE, FPY, and OTIF headline cards; availability / performance / OEE by production line; FPY by month and station (the declining station drives the root-cause story); a downtime Pareto by reason code; and OTIF by customer.](../assets/cascadia-medical-devices-page1.png){fig-alt="Power BI report page. A row of headline cards for OEE, first-pass yield and on-time-in-full; bar charts of availability, performance and OEE by production line; first-pass yield by month and station, with one station visibly declining; a downtime Pareto by reason code; and on-time-in-full by customer."}
 
 The Power BI report surfaces the OEE and root-cause yield story alongside the NASA C-MAPSS reliability / remaining-useful-life view.
 
@@ -95,5 +95,5 @@ The Power BI report surfaces the OEE and root-cause yield story alongside the NA
 ## Links
 
 - [Build Repository](https://github.com/RobbinsAnalytics/manufacturing-analytics) — SQL DDL, data generation scripts, medallion notebooks
-- [Architecture Explainer](https://github.com/RobbinsAnalytics/manufacturing-analytics/blob/main/docs/explainers/02_source_sql_layer.md) — schema design decisions and data dictionary
+- [Architecture Explainer](https://github.com/RobbinsAnalytics/manufacturing-analytics/blob/main/docs/02_source_sql_layer.md) — schema design decisions and data dictionary
 - [Cascadia Architecture Overview](../cascadia.qmd)

@@ -1,0 +1,61 @@
+name: Generate visual baselines
+
+# Manual only. This exists because visual-regression baselines are only valid
+# if they were produced on the same image that will later compare against them:
+# font hinting, subpixel rendering and the installed font set all differ between
+# a Windows workstation and an ubuntu runner, and a baseline generated locally
+# would make the check permanently red for reasons unrelated to the site.
+#
+# It deliberately does NOT commit anything. In this repo the push to `main` IS
+# the deploy and the single deliberate approval, and a workflow that writes to
+# `main` would quietly break that property. So: the runner generates, a human
+# downloads the artifact and commits it.
+#
+# Run this when a design change is intended, or when the runner image moves and
+# the whole set drifts uniformly.
+on:
+  workflow_dispatch:
+    inputs:
+      origin:
+        description: "Origin to screenshot"
+        required: false
+        default: "https://www.robbinsanalytics.com"
+
+permissions:
+  contents: read
+
+jobs:
+  baselines:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install Playwright and Pillow
+        run: |
+          python -m pip install --quiet playwright pillow
+          python -m playwright install --with-deps chromium
+
+      - name: Screenshot every page at every width
+        run: |
+          python tools/visual_check.py \
+            --origin "${{ inputs.origin }}" \
+            --update
+
+      - name: Upload the baselines
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-baselines
+          path: .github/visual-baselines/
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: What to do with this artifact
+        run: |
+          echo "Download the 'visual-baselines' artifact, unzip it into"
+          echo ".github/visual-baselines/, and commit the images."
+          echo "They are only valid because they were produced on this runner."

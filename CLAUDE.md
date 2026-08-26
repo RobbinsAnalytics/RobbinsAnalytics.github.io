@@ -1,6 +1,6 @@
 # robbinsanalytics.com — what an agent needs to know
 
-Quarto site, published to GitHub Pages. Nine facts that are not inferable from
+Quarto site, published to GitHub Pages. Ten facts that are not inferable from
 the code, each of which caused a real failure. Everything else, read the repo.
 
 ## Publishing
@@ -79,6 +79,28 @@ going live is always one deliberate yes.
 
 **Verification lives in the Action, not in a local shell.** After deploying,
 the workflow asserts the Pages `cname`, polls `build.txt` until the edge serves
-the pushed SHA, and checks the core pages and redirects. Any miss fails the run
+the pushed SHA, checks the core pages and redirects, crawls every link on the
+site, and runs axe over eleven pages at two viewports. Any miss fails the run
 and emails Aaron. Do not re-add a local verification loop — that is the thing
 that produced false passes. Do not improvise a shorter version of `/publish`.
+
+**The accessibility job is regression prevention. It is not proof of
+conformance, and nothing here may say that it is.** Automated tooling reaches
+roughly 30–40% of WCAG success criteria; whether alt text says the right thing,
+whether a heading structure matches the document, whether focus order follows
+reading order — all of that needs a person. A green run means no
+machine-detectable regression and nothing more. This repo's HEAD once had to
+remove five unverified "WCAG 2.2 AA" claims; the site says
+`WCAG 2.2 AA target (unverified)` and that stays true until someone audits it.
+`.github/a11y-baseline.json` records the two accepted third-party violations
+(Quarto's navbar toggler, MathJax's speech layer) — it is a ledger printed on
+every run, not a mute, and this site's own HTML does not belong in it.
+
+Visual regression compares six pages at 390 / 414 / 768 / 1440 against
+baselines in `.github/visual-baselines/`. **Those baselines are only valid
+because they were generated on the runner** — a Windows screenshot differs from
+a Linux one in font rendering alone. Regenerate with the "Generate visual
+baselines" workflow (`workflow_dispatch`), then download its artifact and commit
+the images. That workflow does not commit anything itself, deliberately: the
+push to `main` is the deploy and the single approval, and CI writing to `main`
+would break that.

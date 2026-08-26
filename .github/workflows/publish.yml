@@ -140,3 +140,27 @@ jobs:
           check 301 "https://robbinsanalytics.com/?cb=${sha}"
           check 301 "https://robbinsanalytics.github.io/?cb=${sha}"
           exit $fail
+
+      # ---------------------------------------------------------------------
+      # The two sweeps below run only after the edge is confirmed to be on this
+      # commit, so a failure here is a real defect and not propagation lag. Both
+      # fail the run, which is the only notification that has ever worked.
+      # ---------------------------------------------------------------------
+
+      # The fixed list above is a contract -- it names the URLs that must never
+      # break. This is the sweep that finds a link a page acquired last week.
+      # Its first run found two dead ones: a GitHub explainer path that never
+      # existed and a CDC page that moved.
+      - name: Crawl every link on the site
+        run: python tools/crawl_links.py --cache-bust "${{ github.sha }}"
+
+      # REGRESSION PREVENTION, NOT PROOF OF CONFORMANCE. Automated tooling
+      # reaches roughly 30-40% of WCAG success criteria; the rest needs a
+      # person. A green run here means no machine-detectable regression and
+      # nothing more. This repo's HEAD once had to remove five unverified
+      # "WCAG 2.2 AA" claims -- do not let this job become the sixth. The site
+      # says "target (unverified)" and that stays true.
+      - name: Accessibility regression check
+        run: |
+          python -m pip install --quiet axe-core-python==0.1.0
+          python tools/a11y_check.py --cache-bust "${{ github.sha }}"

@@ -193,19 +193,36 @@ def check_noisy_files():
 # naming the old numbers would have survived that bump silently.
 # ---------------------------------------------------------------------------
 def check_action_versions():
-    wf = read(".github/workflows/publish.yml")
-    uses = dict(re.findall(r"uses:\s*([\w.-]+/[\w./-]+)@([\w.-]+)", wf))
-    if not uses:
-        fail(".github/workflows/publish.yml", "no `uses:` refs found")
+    workflows = sorted((ROOT / ".github" / "workflows").glob("*.yml"))
+    if not workflows:
+        fail(".github/workflows/", "no workflow files found")
         return
 
-    for action, ref in sorted(uses.items()):
-        if not re.fullmatch(r"v\d+", ref):
-            fail(
-                "publish.yml pins %s@%s" % (action, ref),
-                "expected a bare major such as v4 — a branch is not a pin, and a "
-                "full semver stops receiving patch releases",
-            )
+    uses = {}
+    seen_in = {}
+    for wf_path in workflows:
+        wf = wf_path.read_text(encoding="utf-8")
+        for action, ref in re.findall(r"uses:\s*([\w.-]+/[\w./-]+)@([\w.-]+)", wf):
+            name = wf_path.name
+            if not re.fullmatch(r"v\d+", ref):
+                fail(
+                    "%s pins %s@%s" % (name, action, ref),
+                    "expected a bare major such as v7 — a branch is not a pin, and a "
+                    "full semver stops receiving patch releases",
+                )
+            # Two workflows pinning the same action to different majors is the
+            # drift that makes "which version are we on" unanswerable.
+            if action in uses and uses[action] != ref:
+                fail(
+                    "%s is pinned twice at different majors" % action,
+                    "%s uses @%s, %s uses @%s" % (seen_in[action], uses[action], name, ref),
+                )
+            uses[action] = ref
+            seen_in[action] = name
+
+    if not uses:
+        fail(".github/workflows/", "no `uses:` refs found")
+        return
 
     # Prose that restates a version has to agree with the workflow. Live
     # documents only: _notes/ is dated planning material from 2026-06-29 and is
@@ -220,7 +237,8 @@ def check_action_versions():
                         "publish.yml uses @%s" % ref,
                     )
     notes.append(
-        "action pins: %s" % ", ".join("%s@%s" % (a, r) for a, r in sorted(uses.items()))
+        "action pins across %d workflow(s): %s"
+        % (len(workflows), ", ".join("%s@%s" % (a, r) for a, r in sorted(uses.items())))
     )
 
 

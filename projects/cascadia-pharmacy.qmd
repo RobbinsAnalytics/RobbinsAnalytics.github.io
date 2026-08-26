@@ -55,7 +55,7 @@ Two of the biggest growth areas in retail pharmacy are GLP-1 medications and imm
 
 **Attribution:**
 - CMS Part D data: [Centers for Medicare & Medicaid Services](https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-medicaid-spending-by-drug/medicare-part-d-spending-by-drug) — public domain federal data.
-- CDC VaxView: [Centers for Disease Control and Prevention](https://www.cdc.gov/vaccines/imz-managers/coverage/adultvaxview/index.html) — public domain federal data.
+- CDC VaxView: [Centers for Disease Control and Prevention](https://www.cdc.gov/adultvaxview/) — public domain federal data.
 
 ---
 
@@ -72,7 +72,7 @@ Real government data isn't clean: CMS suppresses small-cell counts (blanks/aster
 
 ## The Report
 
-![GLP-1 Growth page — Power BI. KPI cards for cumulative spend, YoY growth, beneficiaries, and cost per beneficiary; spend trend 2020–2023; brand-level breakdown; and a suppressed-data disclosure so totals stay honest.](../assets/cascadia-pharmacy-glp1.png)
+![GLP-1 Growth page — Power BI. KPI cards for cumulative spend, YoY growth, beneficiaries, and cost per beneficiary; spend trend 2020–2023; brand-level breakdown; and a suppressed-data disclosure so totals stay honest.](../assets/cascadia-pharmacy-glp1.png){fig-alt="Power BI report page. KPI cards for cumulative GLP-1 spend, year-over-year growth, beneficiary count and cost per beneficiary; a spend trend line from 2020 to 2023 rising steeply; a brand-level breakdown bar chart; and a disclosure panel stating how suppressed rows are handled."}
 
 *A recorded walkthrough is a planned enhancement.*
 

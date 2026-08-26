@@ -11,3 +11,7 @@ Thumbs.db
 # (see README for publish workflow)
 
 **/*.quarto_ipynb
+
+# Visual-regression diff images, written by tools/visual_check.py on a failure
+# and uploaded as a workflow artifact. Never committed.
+/visual-diffs/

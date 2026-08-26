@@ -39,7 +39,7 @@ For personal-scale builds on public data, a full cloud lakehouse is overkill. Th
 The full production pattern: a SQL Server star schema feeding a Microsoft Fabric medallion lakehouse (Bronze → Silver → Gold), surfaced through a Power BI Direct Lake semantic model. This is the pattern for when the data volume and the organization justify a governed cloud platform.
 
 ::: {.arch-container}
-![The enterprise-BI pattern — SQL Server → Microsoft Fabric medallion lakehouse → Power BI. Used in full by Cascadia Medical Devices.](assets/cascadia_analytics_tech_stack.svg)
+![The enterprise-BI pattern — SQL Server → Microsoft Fabric medallion lakehouse → Power BI. Used in full by Cascadia Medical Devices.](assets/cascadia_analytics_tech_stack.svg){fig-alt="Architecture diagram: SQL Server source systems feed a Microsoft Fabric medallion lakehouse — Bronze, Silver, Gold — which is surfaced through a Power BI Direct Lake semantic model."}
 :::
 
 ---
