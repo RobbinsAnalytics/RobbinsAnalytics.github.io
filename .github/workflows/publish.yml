@@ -10,12 +10,19 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: quarto-dev/quarto-actions/setup@v2
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+      # Prose that restates a machine-readable fact drifts, and the prose is
+      # what the next person reads. Runs before the build so a stale reference
+      # fails the run without deploying. See tools/check_references.py for what
+      # is checked and, just as importantly, what is deliberately not.
+      - name: Check stated facts against their sources
+        run: python tools/check_references.py
+
       - name: Regenerate OG thumbnails
         run: |
           python -m pip install --quiet playwright

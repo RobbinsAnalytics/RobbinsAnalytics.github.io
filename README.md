@@ -37,20 +37,18 @@ This repo is a **site shell only**. The build repos it links to are separate:
 
 ## Publish Workflow
 
-This site uses the **`quarto publish gh-pages`** approach:
+**`.github/workflows/publish.yml` owns deployment. Pushing `main` is the deploy.**
 
 - Source lives on `main` (what you're reading now).
-- Rendered HTML is pushed to the `gh-pages` branch automatically by Quarto.
-- GitHub Pages is configured to serve from the `gh-pages` branch.
+- Every push to `main` triggers the workflow, which renders the site and pushes the result to the `gh-pages` branch.
+- GitHub Pages serves that branch at the custom domain.
+- The workflow then verifies itself against the live site: it asserts the Pages `cname` survived, polls `build.txt` until the edge serves the pushed commit, and checks the live pages and redirects. A miss fails the run.
 
 ### To publish a new version
 
-```powershell
-# From the repo root
-quarto publish gh-pages --no-browser
-```
+Commit and push `main` — that is the whole deploy. In a Claude Code session, use `/publish`, which classifies line-ending noise, stages by name, commits and pushes.
 
-Quarto renders the site locally, then force-pushes the rendered output to the `gh-pages` branch. The live site updates within ~30 seconds.
+> **Do not run `quarto publish gh-pages` by hand.** It races the workflow and can push a stale local build over a fresh one. The workflow is the only thing that should write `gh-pages`. This README instructed the manual command until 2026-08-25; that instruction was the hazard, not a shortcut.
 
 ### Local preview
 
@@ -60,27 +58,21 @@ quarto preview
 
 ---
 
-## Custom Domain (future)
+## Custom Domain
 
-A custom domain can be added later without rebuilding:
+**Live at `www.robbinsanalytics.com`**, set by the `CNAME` file in the repo root.
 
-1. Buy a domain (e.g., `aaronrobbins.io`).
-2. Add a `CNAME` file to the repo root containing only your domain:
-   ```
-   aaronrobbins.io
-   ```
-3. Add the appropriate DNS records at your registrar (GitHub docs: [Managing a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
-4. Re-run `quarto publish gh-pages --no-browser`.
-
-> **Note:** `quarto publish gh-pages` will overwrite the `gh-pages` branch including any `CNAME` file. Always keep the `CNAME` file in the `main` branch source and re-publish after DNS changes.
+`quarto publish gh-pages` rebuilds the `gh-pages` branch and force-pushes it, so any `CNAME` GitHub writes to that branch is destroyed on the next deploy — the custom domain silently clears and the site falls back to the `github.io` address. `_quarto.yml` lists `CNAME` under `resources:` so Quarto copies it into `_site` on every build, and the workflow asserts the Pages `cname` after deploying. Do not remove either control.
 
 ---
 
 ## Contributing / Updating
 
-- **Copy updates (Cowork):** Edit the `.qmd` files, then run `quarto publish gh-pages --no-browser`.
-- **Screenshots / video (Aaron):** Drop files into `assets/img/`, update the relevant `projects/*.qmd`, then publish.
-- **New case study:** Copy a `projects/*.qmd` template, add a navbar entry in `_quarto.yml`, publish.
+- **Copy updates:** Edit the `.qmd` files, commit, push `main`.
+- **Screenshots / video:** Drop files into `assets/img/`, update the relevant `projects/*.qmd`, commit, push.
+- **New case study:** Copy a `projects/*.qmd` template, add a navbar entry in `_quarto.yml`, add a `MODULES` entry in `tools/build_thumbs.py` for its OG card, then push. The `surface-module` skill walks the full set of edits.
+
+See `CLAUDE.md` for the facts about this repo that are not inferable from the code.
 
 ---
 

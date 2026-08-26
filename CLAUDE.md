@@ -1,6 +1,6 @@
 # robbinsanalytics.com — what an agent needs to know
 
-Quarto site, published to GitHub Pages. Eight facts that are not inferable from
+Quarto site, published to GitHub Pages. Nine facts that are not inferable from
 the code, each of which caused a real failure. Everything else, read the repo.
 
 ## Publishing
@@ -35,8 +35,23 @@ not commit a real SHA into it.
 `assets/cascadia_analytics_tech_stack.svg`. They are not real changes.
 **Verify every file before staging** — if
 `git diff --ignore-all-space --numstat -- <file>` returns nothing, the diff is
-whitespace and the file must not be staged. A `PreToolUse` hook enforces this
-and will refuse the commit; the hook is the control, this note is the reason.
+whitespace and the file must not be staged. `.gitattributes` prevents most of
+this churn at the source and `.githooks/no_whitespace_commits.py` refuses what
+gets through; the gates are the control, this note is the reason.
+
+**Three commit gates run here, and the activation does not travel with a
+clone.** `.githooks/secret_scan.py` and `.githooks/no_whitespace_commits.py` run
+as a git `pre-commit` hook, **credential gate first** — the order is
+load-bearing, because under `set -e` a whitespace complaint would otherwise
+abort the commit before the credential scan ran, and a staged credential would
+go unreported behind a complaint about line endings.
+`.claude/hooks/no_blanket_add_or_force_push.py` runs as a `PreToolUse` hook and
+refuses blanket staging and force pushes; it binds under `bypassPermissions`,
+where the `deny` block in `.claude/settings.json` does not. The scripts are
+tracked and arrive with a clone — **`git config core.hooksPath .githooks` does
+not.** Run it once per clone or there is no git-side gate at all. Verify all
+three with `python .claude/hooks/hook_test_matrix.py`: 50 declared cases, exit
+non-zero on any miss. Do not reach for `--no-verify`.
 
 **The Cowork device bridge leaves a stale `.git/index.lock`.** If git reports
 another process is running, delete that file and retry. Nothing is wrong.
@@ -48,9 +63,11 @@ another process is running, delete that file and retry. Nothing is wrong.
 address still resolves and redirects, but must not appear in the source.
 
 **Thumbnails are generated, never edited.** `tools/build_thumbs.py` produces all
-eight OG cards in `assets/` from the `MODULES` list at the top of that file. To
+ten OG cards in `assets/` from the `MODULES` list at the top of that file. To
 change a card, change the script. CI regenerates them on every build, so hand-
-edited images are overwritten.
+edited images are overwritten. That count is asserted in CI by
+`tools/check_references.py` — it said "eight" for two modules longer than it was
+true.
 
 ## How to publish
 
