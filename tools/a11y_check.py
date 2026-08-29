@@ -67,6 +67,16 @@ PAGES = [
 
 VIEWPORTS = [("desktop", 1440, 900), ("mobile", 390, 844)]
 
+# WCAG 1.4.10 reflow. axe-core does not test it, and the gap is not academic:
+# this check reported green on every run for months while cascadia.html was
+# 542 px wide at a 390 px viewport and the whole page -- navbar included --
+# scrolled sideways on a phone. A check whose name implies coverage it does
+# not have is worse than no check, because it is believed.
+#
+# 320 px is the width the criterion actually names. 390 is added because that
+# is where the real defect lived and where a reader meets it.
+REFLOW_WIDTHS = [320, 390]
+
 TAGS = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]
 
 
@@ -75,6 +85,18 @@ def load_baseline(path):
         return {}
     data = json.loads(path.read_text(encoding="utf-8"))
     return {e["id"]: e for e in data.get("accepted", [])}
+
+
+def load_reflow_baseline(path):
+    """Pages whose horizontal overflow is accepted, keyed by path.
+
+    Kept apart from `accepted` because the two are accepted for different
+    reasons and only one of them is unfixable. See the comments in the ledger.
+    """
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return {e["page"]: e for e in data.get("accepted_reflow", [])}
 
 
 def main():
@@ -88,11 +110,15 @@ def main():
     from playwright.sync_api import sync_playwright
 
     baseline = load_baseline(Path(args.baseline))
+    reflow_baseline = load_reflow_baseline(Path(args.baseline))
     axe = Axe()
     origin = args.origin.rstrip("/")
     suffix = ("?cb=%s" % args.cache_bust) if args.cache_bust else ""
 
     new = []        # (rule_id, page, viewport, impact, help, [targets])
+    reflow = []     # (page, width, scrollWidth, clientWidth)
+    reflow_accepted = []
+    reflow_checked = 0
     accepted_hits = []
     checked = 0
 
@@ -118,12 +144,33 @@ def main():
                         else:
                             new.append(row)
                 ctx.close()
+
+            for w in REFLOW_WIDTHS:
+                ctx = browser.new_context(viewport={"width": w, "height": 844})
+                page = ctx.new_page()
+                for path in PAGES:
+                    page.goto(origin + path + suffix, wait_until="networkidle",
+                              timeout=60000)
+                    page.evaluate("() => document.fonts.ready")
+                    page.wait_for_timeout(200)
+                    m = page.evaluate(
+                        "() => ({s: document.documentElement.scrollWidth,"
+                        "        c: document.documentElement.clientWidth})")
+                    reflow_checked += 1
+                    if m["s"] > m["c"] + 1:
+                        if path in reflow_baseline:
+                            reflow_accepted.append((path, w, m["s"], m["c"]))
+                        else:
+                            reflow.append((path, w, m["s"], m["c"]))
+                ctx.close()
         finally:
             browser.close()
 
     print("  axe-core over %d page/viewport combinations" % checked)
     print("  tags: %s" % ", ".join(TAGS))
     print("  viewports: %s" % ", ".join("%s %dx%d" % v for v in VIEWPORTS))
+    print("  reflow (WCAG 1.4.10) over %d page/width combinations at %s"
+          % (reflow_checked, ", ".join(str(w) for w in REFLOW_WIDTHS)))
 
     if baseline:
         print()
@@ -144,10 +191,38 @@ def main():
             print("  ::warning::these baseline entries matched nothing and look fixed — "
                   "remove them: %s" % ", ".join(sorted(stale)))
 
-    if not new:
+    if reflow_baseline:
+        print()
+        print("  ACCEPTED REFLOW \u2014 recorded, reported every run, not failing:")
+        for page, entry in sorted(reflow_baseline.items()):
+            hits = sorted({w for p, w, _, _ in reflow_accepted if p == page})
+            print("    %-46s overflows at %s"
+                  % (page, ", ".join("%d px" % w for w in hits) or "nothing this run"))
+            print("        %s" % entry.get("reason", "(no reason recorded)"))
+        stale_reflow = [pg for pg in reflow_baseline
+                        if not any(p == pg for p, _, _, _ in reflow_accepted)]
+        if stale_reflow:
+            print()
+            print("  ::warning::these reflow entries matched nothing and look "
+                  "fixed \u2014 remove them: %s" % ", ".join(sorted(stale_reflow)))
+
+    if reflow:
+        sys.stderr.write("\nREFLOW — the page scrolls sideways (WCAG 1.4.10)\n\n")
+        for path, w, sw, cw in sorted(reflow):
+            sys.stderr.write(
+                "  ::error::%s is %d px wide at a %d px viewport (over by %d)\n"
+                % (path, sw, w, sw - cw))
+        sys.stderr.write(
+            "\nWide content belongs in its own overflow-x container; the page "
+            "around it must not scroll.\n\n")
+
+    if not new and not reflow:
         print()
         print("No new machine-detectable violations. This is not a conformance claim.")
         return 0
+
+    if not new:
+        return 1
 
     sys.stderr.write("\nACCESSIBILITY VIOLATIONS\n\n")
     for rid, path, label, impact, help_text, targets in sorted(new):

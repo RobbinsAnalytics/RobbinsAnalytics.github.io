@@ -41,6 +41,7 @@ antialiasing; it does not absorb a font substitution.
 """
 
 import argparse
+import struct
 import sys
 from pathlib import Path
 
@@ -83,6 +84,11 @@ def shoot(page, url, width):
     page.evaluate("() => document.fonts.ready")
     page.wait_for_timeout(600)
     return page.screenshot(full_page=True, animations="disabled", scale="css")
+
+
+def png_width(png):
+    """Pixel width straight from the IHDR chunk. No decode, no dependency."""
+    return struct.unpack(">I", png[16:20])[0]
 
 
 def compare(baseline_png, current_png, diff_path):
@@ -128,6 +134,8 @@ def main():
         base_dir.mkdir(parents=True, exist_ok=True)
 
     missing, failed, ok = [], [], 0
+    rejected = []
+    pending = []
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
@@ -142,8 +150,29 @@ def main():
                     png = shoot(page, origin + path + suffix, width)
 
                     if args.update:
-                        target.write_bytes(png)
-                        print("  wrote  %s  (%d bytes)" % (name, len(png)))
+                        # A baseline is a claim about what correct looks like,
+                        # so it has to pass the cheapest test of correctness
+                        # before it earns that status. A full-page screenshot
+                        # wider than its viewport means the page scrolls
+                        # sideways -- WCAG 1.4.10, Rule 5.3.
+                        #
+                        # This is not hypothetical. cascadia-390.png sat in
+                        # this directory at 509 px wide against a 390 px
+                        # viewport, so the gate spent months comparing one
+                        # broken rendering against another and reporting
+                        # green. A generator that cannot reject its own input
+                        # will eventually certify a bug as the standard.
+                        shot_w = png_width(png)
+                        if shot_w != width:
+                            rejected.append((name, shot_w, width))
+                            print("  REFUSED  %s  -- %d px wide at a %d px "
+                                  "viewport" % (name, shot_w, width))
+                            continue
+                        # Held, not written. A baseline set is adopted whole or
+                        # not at all: writing half of one and then reporting
+                        # that none were accepted would be its own false claim.
+                        pending.append((target, name, png))
+                        print("  ok     %s  (%d bytes)" % (name, len(png)))
                         continue
 
                     if not target.exists():
@@ -158,6 +187,23 @@ def main():
                 ctx.close()
         finally:
             browser.close()
+
+    if rejected:
+        print("")
+        print("NO BASELINES WERE WRITTEN. %d passed and were discarded with "
+              "them." % len(pending))
+        print("A screenshot wider than its viewport is a defect, not a "
+              "baseline:")
+        for name, got, want in rejected:
+            print("  %s  %d px wide at a %d px viewport (over by %d)"
+                  % (name, got, want, got - want))
+        print("")
+        print("Fix the page's horizontal overflow, deploy it, then regenerate.")
+        sys.exit(1)
+
+    for target, name, png in pending:
+        target.write_bytes(png)
+        print("  wrote  %s  (%d bytes)" % (name, len(png)))
 
     if args.update:
         print("\nBaselines written to %s." % base_dir)

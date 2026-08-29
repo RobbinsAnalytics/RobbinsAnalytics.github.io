@@ -29,11 +29,15 @@ Fill rate sounds like one number. It is at least three, and the supply-chain dis
 
 So three teams compute three different things from one dataset and each is right:
 
+::: {.table-scroll}
+
 | Metric | Value | Read by | The question it answers |
 |---|---|---|---|
 | Unit fill | **94.3%** | Operations | How much of the demand did we move? |
 | Line fill | **91.6%** | Merchandising | How much of the assortment could we serve? |
 | Order fill | **87.2%** | Finance | Did the customer get what they asked for? |
+
+:::
 
 Order fill is arithmetically the lowest of the three in every period, because an order counts as filled only if every line in it is. The gap between the most forgiving definition and the strictest is **7.0 points** — wide enough that Operations can report service improving while Finance reports it flat, both correctly, and the meeting resolves nothing.
 
@@ -47,11 +51,15 @@ That is easy to assert and hard to prove, so the simulation records, for every o
 
 Shortfall and splitting turn out to be two symptoms of one condition — inventory fragmented relative to what customers put in a basket. Slow-moving styles are ranged at two nodes rather than six, so a basket containing one either reaches for a second node or goes short:
 
+::: {.table-scroll}
+
 | SKU velocity band | Ships short | Uses more than one node |
 |---|---|---|
 | A · fast | 4.4% | 4.2% |
 | B · mid | 8.4% | 10.2% |
 | **C · slow** | **9.5%** | **17.1%** |
+
+:::
 
 **And the same rule produces different economics by banner.** The dollar cost of a split barely differs — $5.64 in the off-price banner, $5.18 in the premium one. Its consequence differs by more than three times, because it is charged against a margin that differs by more than three times:
 
@@ -80,11 +88,15 @@ Python generator → DuckDB star schema → **dbt Core** → static ECharts page
 
 ## Three real anchors, and what they can honestly claim
 
+::: {.table-scroll}
+
 | Anchor | Source | What it constrains |
 |---|---|---|
 | Labor | **BLS OEWS** May 2025, SOC 53-7062, Seattle-Tacoma-Bellevue | Every labor dollar costed at a real published wage — $22.95/hr median — across the percentile spread, not a median alone |
 | Inventory | **US Census MRTS**, department stores, 1992–2026 | The network runs at 0.97 months of stock against a sector band of 2.03–3.64 |
 | P&L | **SEC EDGAR XBRL** — Macy's, Kohl's, Dillard's | DC operating cost at 6.83% of shipped sales against a peer SG&A range of 23.7–39.0% |
+
+:::
 
 **Two of the three audits bound the model rather than matching it, and the page says so.** Census inventories cover entire department stores, most of whose stock sits on selling floors this module never simulates — so sitting below the band is the correct answer, not a miss. Fulfilment cost is not separately disclosed by any public department store; it sits inside SG&A alongside stores, marketing and corporate. Both are weaker claims than a match, and stating that is the point.
 
@@ -96,12 +108,16 @@ The portfolio's visualization standard requires that charts be read by people wh
 
 The roster is cast from the decision the module serves, not from a template:
 
+::: {.table-scroll}
+
 | Seat | Why this seat exists |
 |---|---|
 | Director of DC Operations, 16 yrs | Owns the service number the decision would certify, and whether what drags it down is inside his four walls or upstream in inventory placement |
 | Director of Supply Chain Finance, 11 yrs | Owns the margin the service costs and sets the threshold. Tests every cost for whether it is incremental cash |
 | VP Merchandise Planning, off-price banner, 19 yrs | The banner the threshold lands hardest on — and deliberately the room's least analytics-literate real reader |
 | Visualization reader | Canvas only. No tables, no arithmetic. Judges whether the picture carries the claim |
+
+:::
 
 Each returned four fixed items per chart: what they would say about it an hour later, one number they would quote **and where on the canvas they got it**, the question they would ask, and what they went looking for and could not find.
 
