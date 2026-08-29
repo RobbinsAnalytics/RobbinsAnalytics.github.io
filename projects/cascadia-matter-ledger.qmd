@@ -16,13 +16,12 @@ Eleven million federal civil case records, frozen and hash-verified, modelled in
 :::
 
 [Can this number be trusted?](https://www.robbinsanalytics.com/cascadia-matter-ledger/){.btn .btn-primary}
-[Build Repository](https://github.com/RobbinsAnalytics/cascadia-matter-ledger){.btn .btn-outline}
 
 ---
 
 ## Overview
 
-Every other module in this portfolio is a **frozen snapshot**: pulled once, validated once at build time, published. That proves a governed model can be built. It proves nothing about operating one.
+Every previous module in this portfolio is a **frozen snapshot**: pulled once, validated once at build time, published. That proves a governed model can be built. It proves nothing about operating one.
 
 This module closes that gap. It is built on the Federal Judicial Center's Integrated Database — **10,960,173 civil case records**, statistical years 1988 to 2026 — frozen at a stated date and verified by SHA-256 on every build. On top of it sit five certified measures with written definitions, named owners and source lineage. Alongside it runs a **scheduled incremental pipeline** that takes a bounded slice from a second source, derives a governed event from unstructured docket text, re-asserts the module's invariants, and reconciles the increment against the frozen baseline — publishing the result whether it passes or not.
 
