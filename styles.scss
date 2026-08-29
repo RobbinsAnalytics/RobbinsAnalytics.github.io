@@ -320,6 +320,28 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
   }
 }
 
+// Wide tables scroll inside their own box, so the page does not.
+//
+// The builds table on the family page is five columns of prose and will not
+// reflow below about 516px of content. At a 390px viewport that pushed the
+// whole document to 542px, so EVERY page-level element scrolled sideways --
+// the navbar and the search button included, which is how it was noticed.
+//
+// Found by the visual-regression gate, not by eye: it reported the cascadia
+// screenshot as 542px wide at a 390px viewport. The overflow predates the
+// Matter Ledger row; that row, being the longest, widened it by 33px from an
+// already-broken 509. Rebaselining without this fix would have recorded the
+// bug as the new normal, which is the failure mode that gate exists to catch.
+//
+// WCAG 1.4.10 allows a scroll container for content that genuinely needs two
+// dimensions. A five-column comparison table does; the page around it does not.
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  > table { margin-bottom: 0; }
+}
+
 // Footer
 .nav-footer {
   background: $cascadia-spruce;
