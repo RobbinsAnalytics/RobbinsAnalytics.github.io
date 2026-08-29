@@ -251,6 +251,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="the-problem">The problem</h2>
 <p>Fill rate sounds like one number. It is at least three, and the supply-chain discipline has never settled which one it means — published guidance says plainly that there is no agreed OTIF formula, because the calculation depends on which point of view you are measuring and the level at which the data is stored.</p>
 <p>So three teams compute three different things from one dataset and each is right:</p>
+<div class="table-scroll">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -287,6 +288,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
 <p>Order fill is arithmetically the lowest of the three in every period, because an order counts as filled only if every line in it is. The gap between the most forgiving definition and the strictest is <strong>7.0 points</strong> — wide enough that Operations can report service improving while Finance reports it flat, both correctly, and the meeting resolves nothing.</p>
 <p><strong>The second problem is worse, because nothing on that list measures it.</strong> An order split across two fulfilment nodes still counts as filled on all three definitions. It is 100% filled, on time, in full — and it costs roughly a second parcel to ship.</p>
 </section>
@@ -295,6 +297,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>The definitional gap and the economic leak are the same phenomenon.</strong> Fill rate looks healthiest exactly where splitting is worst, because splitting is <em>how</em> the network achieves fill.</p>
 <p>That is easy to assert and hard to prove, so the simulation records, for every order, what the same order against the same inventory position would have shipped if splitting were forbidden — the best any single node could have done, evaluated <em>before</em> the real allocation commits. <strong>Splitting buys 2.65 points of unit fill.</strong> Without that counterfactual the claim is rhetoric; with it, the governance decision has a price.</p>
 <p>Shortfall and splitting turn out to be two symptoms of one condition — inventory fragmented relative to what customers put in a basket. Slow-moving styles are ranged at two nodes rather than six, so a basket containing one either reaches for a second node or goes short:</p>
+<div class="table-scroll">
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -321,6 +324,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>And the same rule produces different economics by banner.</strong> The dollar cost of a split barely differs — $5.64 in the off-price banner, $5.18 in the premium one. Its consequence differs by more than three times, because it is charged against a margin that differs by more than three times:</p>
 <ul>
 <li><strong>Off-Main (off-price): 12.1% of the gross margin on the order</strong></li>
@@ -347,6 +351,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="three-real-anchors-and-what-they-can-honestly-claim" class="level2">
 <h2 data-anchor-id="three-real-anchors-and-what-they-can-honestly-claim">Three real anchors, and what they can honestly claim</h2>
+<div class="table-scroll">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -378,6 +383,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>Two of the three audits bound the model rather than matching it, and the page says so.</strong> Census inventories cover entire department stores, most of whose stock sits on selling floors this module never simulates — so sitting below the band is the correct answer, not a miss. Fulfilment cost is not separately disclosed by any public department store; it sits inside SG&amp;A alongside stores, marketing and corporate. Both are weaker claims than a match, and stating that is the point.</p>
 <p><strong>An audit that cannot fail is not an audit.</strong> Each is a pure function of measured numbers, so the suite hands each one deliberately wrong values and confirms it trips — inventory inflated past the sector band, seasonality flattened, cost inflated past peer SG&amp;A, cost cut to a rounding error, splits made uniform, concentration reversed. All six trip, and that result is recorded next to the real one.</p>
 </section>
@@ -385,6 +391,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="validation-a-blind-reading-panel">Validation: a blind reading panel</h2>
 <p>The portfolio’s visualization standard requires that charts be read by people who do not know the finding before they ship. <strong>A four-seat panel ran blind against this module.</strong> The seats saw seven rendered chart images by absolute path and were told those files were the only thing they could open — no brief, no build notes, no source data, no surrounding prose, and no statement of the intended finding. They ran in parallel and could not see each other’s returns.</p>
 <p>The roster is cast from the decision the module serves, not from a template:</p>
+<div class="table-scroll">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -415,6 +422,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
 <p>Each returned four fixed items per chart: what they would say about it an hour later, one number they would quote <strong>and where on the canvas they got it</strong>, the question they would ask, and what they went looking for and could not find.</p>
 <p><strong>They returned 25 findings. 20 were dispositioned as defects, 13 fixed, 7 accepted with reasons recorded, 5 rejected as preferences.</strong> These charts had already been corrected once — and <strong>four in five of the panel’s defects were still uncaught</strong>.</p>
 <p>Three of them invalidated a headline, and none was visible to any automated check:</p>
