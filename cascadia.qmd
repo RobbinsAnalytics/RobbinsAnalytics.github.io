@@ -9,7 +9,7 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 ## The Builds & Their Stacks
 
-::: {.table-scroll}
+::: {.table-scroll tabindex="0"}
 
 | Domain | Status | Stack | Data | Headline Skill |
 |---|---|---|---|---|

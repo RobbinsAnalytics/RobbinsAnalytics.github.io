@@ -29,7 +29,7 @@ Fill rate sounds like one number. It is at least three, and the supply-chain dis
 
 So three teams compute three different things from one dataset and each is right:
 
-::: {.table-scroll}
+::: {.table-scroll tabindex="0"}
 
 | Metric | Value | Read by | The question it answers |
 |---|---|---|---|
@@ -51,7 +51,7 @@ That is easy to assert and hard to prove, so the simulation records, for every o
 
 Shortfall and splitting turn out to be two symptoms of one condition — inventory fragmented relative to what customers put in a basket. Slow-moving styles are ranged at two nodes rather than six, so a basket containing one either reaches for a second node or goes short:
 
-::: {.table-scroll}
+::: {.table-scroll tabindex="0"}
 
 | SKU velocity band | Ships short | Uses more than one node |
 |---|---|---|
@@ -88,7 +88,7 @@ Python generator → DuckDB star schema → **dbt Core** → static ECharts page
 
 ## Three real anchors, and what they can honestly claim
 
-::: {.table-scroll}
+::: {.table-scroll tabindex="0"}
 
 | Anchor | Source | What it constrains |
 |---|---|---|
@@ -108,7 +108,7 @@ The portfolio's visualization standard requires that charts be read by people wh
 
 The roster is cast from the decision the module serves, not from a template:
 
-::: {.table-scroll}
+::: {.table-scroll tabindex="0"}
 
 | Seat | Why this seat exists |
 |---|---|

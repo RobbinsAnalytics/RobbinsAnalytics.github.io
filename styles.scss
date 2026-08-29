@@ -339,6 +339,16 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 
+  // tabindex="0" in the markup, so a keyboard can reach and scroll this box.
+  // Making a region scrollable without making it focusable trades a reflow
+  // failure for a 2.1.1 one, and the accessibility check caught exactly that
+  // on the first run after this pattern shipped. The focus ring is the
+  // adopted AAA 2.4.13 one and must not be clipped by the scroll container.
+  &:focus-visible {
+    outline: 2px solid $cascadia-evergreen;
+    outline-offset: 2px;
+  }
+
   > table { margin-bottom: 0; }
 }
 
