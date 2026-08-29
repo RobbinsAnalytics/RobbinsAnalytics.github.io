@@ -42,6 +42,12 @@ MODULES = [
     dict(slug="portfolio", data="eight modules · real and synthetic sources, labelled per module", kicker="Robbins Analytics", title="Analytics that shows its work",
          line="Eight governed BI modules — the data layer, the metric layer, and the review that let them ship.",
          accent="evergreen", motif="bars", landing=True),
+    # Lupine, which Pharmacy is the only other tenant of — different domain,
+    # so the two cards do not appear adjacent. The steps motif echoes the
+    # module's own decomposition chart.
+    dict(slug="matter-ledger", data="FJC Integrated Database · public federal civil dockets", kicker="Cascadia Matter Ledger", title="Can this number be trusted?",
+         line="Eleven million federal civil case records, certified measures, and a pipeline that re-asserts its own invariants twice a day.",
+         accent="lupine", motif="steps"),
     # Slot 3 (madrona, the alert hue) — the module's finding is a cost the
     # service metrics do not measure. Staffing is the slot's only co-tenant and
     # the two cards never appear adjacent.

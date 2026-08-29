@@ -63,7 +63,7 @@ another process is running, delete that file and retry. Nothing is wrong.
 address still resolves and redirects, but must not appear in the source.
 
 **Thumbnails are generated, never edited.** `tools/build_thumbs.py` produces all
-ten OG cards in `assets/` from the `MODULES` list at the top of that file. To
+eleven OG cards in `assets/` from the `MODULES` list at the top of that file. To
 change a card, change the script. CI regenerates them on every build, so hand-
 edited images are overwritten. That count is asserted in CI by
 `tools/check_references.py` — it said "eight" for two modules longer than it was

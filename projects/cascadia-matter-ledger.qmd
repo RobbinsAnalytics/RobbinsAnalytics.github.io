@@ -1,0 +1,137 @@
+---
+title: "Cascadia Matter Ledger"
+subtitle: "A governed model of the public federal civil docket — and a scheduled pipeline that re-asserts its own invariants on every run and publishes what it finds."
+image: https://www.robbinsanalytics.com/assets/thumb-matter-ledger.png
+image-alt: "Cascadia module card — title, one-line summary, and the data source."
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+Legal Operations Analytics
+:::
+# Cascadia Matter Ledger
+::: {.cs-hook}
+Eleven million federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures — plus a live edge that runs twice a day, reconciles itself against the frozen baseline, and shows the failures. Ask it one ordinary question and the ungoverned answer comes back **negative**.
+:::
+:::
+
+[Can this number be trusted?](https://www.robbinsanalytics.com/cascadia-matter-ledger/){.btn .btn-primary}
+[Build Repository](https://github.com/RobbinsAnalytics/cascadia-matter-ledger){.btn .btn-outline}
+
+---
+
+## Overview
+
+Every other module in this portfolio is a **frozen snapshot**: pulled once, validated once at build time, published. That proves a governed model can be built. It proves nothing about operating one.
+
+This module closes that gap. It is built on the Federal Judicial Center's Integrated Database — **10,960,173 civil case records**, statistical years 1988 to 2026 — frozen at a stated date and verified by SHA-256 on every build. On top of it sit five certified measures with written definitions, named owners and source lineage. Alongside it runs a **scheduled incremental pipeline** that takes a bounded slice from a second source, derives a governed event from unstructured docket text, re-asserts the module's invariants, and reconciles the increment against the frozen baseline — publishing the result whether it passes or not.
+
+The domain is legal operations, where the record of an event is a court filing rather than a row. That is the point: it is the hardest place to make "a governed number" mean anything.
+
+---
+
+## Why This Stack
+
+The measures and the governance have to travel; the renderer does not. So there is no Power BI, no SQL Server, no paid service anywhere in it.
+
+Python freezes and verifies the source. **DuckDB** does the modelling directly over a two-gigabyte flat file — no warehouse, no cluster, eleven million rows on a desktop. The front end is static HTML and Apache ECharts on GitHub Pages. Every figure on the page is computed at build time from a certified measure; nothing is typed.
+
+That choice is deliberate for a reader who owns a BI estate: a semantic layer and a governance record that can be lifted into any tool are worth more than a dashboard that only exists in one.
+
+---
+
+## Architecture
+
+**FJC Integrated Database (frozen, hash-verified) → Python transcode + quarantine → DuckDB conformed model → certified measures → static ECharts.
+CourtListener RECAP → scheduled incremental pull → governed event derivation → reconciliation against the frozen baseline.**
+
+- **Freeze.** The snapshot is 314 MB compressed, 2.0 GB expanded. It is pulled once, hashed, and never re-downloaded; the build exits non-zero if the hash moves. Too large for git, so the freeze is asserted **by hash** rather than by committing the bytes — the module's one deliberate departure from the house pattern, written into `.gitignore` and the source register rather than left implicit.
+- **Conform.** Dimensions are loaded **from the publisher's own codebook**, never written as `CASE WHEN` blocks, and are effective-dated where a code changed meaning across the decades. Malformed records are quarantined with a reason and counted, never repaired.
+- **Model.** `fact_matter` — 1,405,046 status records covering 1,403,097 contract and commercial matters, with a written rule mapping a court docket onto a matter-shaped entity and stating what that mapping loses.
+- **Measure.** Five certified measures: time to termination, disposition mix, procedural progress at termination, filing volume trend, and open inventory with aging.
+- **Operate.** A twice-daily scheduled job takes a narrow slice of N.D. Cal. contract dockets, watermarked and resumable, designed inside a documented rate limit of 5 requests a minute and 125 a day.
+
+---
+
+## Headline Skill: Operating a governed model, not just building one
+
+The differentiator is not the model. It is that the pipeline **tests itself on every run and publishes the result**, including when the result is bad.
+
+- **Every run re-asserts the module's invariants** — matter-key uniqueness, no negative durations, no closed matter without an end date, no excluded party surviving into the fact table — and writes a per-run record naming each check and its outcome.
+- **The reconciliation is published whether or not it balances.** It currently does not, by −714 matters, and the page states the four reasons in order of size rather than tuning them away.
+- **A rate-limit stop is recorded as a stop, not a failure.** The run log keeps stops, skips and genuine failures apart, because a surface that colours all three red trains its reader to ignore red.
+
+**The pipeline has caught four defects in itself**, every one silent — nothing errored, and each would have under-collected or mis-stated while reporting success:
+
+| Defect | How it surfaced |
+|---|---|
+| The watermark advanced past 36 dockets whose rows were never written | The run's own record showed the watermark had moved while the output file did not exist |
+| A docket was called complete on its first page; 29 of the first 36 had more | Row counts did not reconcile against the roster |
+| The request budget read the daily rate-limit window while the hourly window was exhausted | The run spent itself on backoffs for requests that could not succeed |
+| A tie-break depended on row order, which a parallel query engine does not guarantee | **The independent re-derivation disagreed with the build by one record in 1,370,419** |
+
+---
+
+## Validation
+
+**Nothing publishes unless a second, independently written script agrees.** `validate_measures.py` re-derives every published cell from the frozen file down a separate path — the party-name normalisation is implemented in SQL there and in Python in the build, deliberately, so one bug cannot reproduce itself in both. **502 of 502 published cells reconcile exactly.**
+
+Two figures were deliberately **not** certified. The source carries an amount demanded and an amount recovered, and the publisher's own codebook warns that courts have not always reported them in the stated units. A publisher's accuracy warning is a reason to leave a field alone, not a caveat to print under a chart.
+
+The charts were then read by a **blind four-seat reading panel** — three domain seats cast from the decision the page serves, plus a canvas-only visualization reader, each given only the rendered images and no access to the design system, the build notes, the data or each other. It returned 16 findings and 10 defects; all ten were fixed before anything shipped. All four seats independently reported the same defect: a headline percentage that the picture did not actually draw.
+
+---
+
+## The Module
+
+One page, read top to bottom, arguing one thing.
+
+- **The question, asked plainly** — how long does it take to resolve a contract dispute in federal court?
+- **The two answers.** Against the raw frozen file: **−742.3 days**. Against the governed model: **208 days**. Both from the same file, retrieved once, on the same day, and neither query contains a mistake anyone would call obvious.
+- **Why they differ** — the seven-rule decomposition, in which one rule does nearly all the work and the other six are drawn at true scale rather than hidden.
+- **The trap.** Both versions of the trend agree that matters are getting slower. That is not reassurance: the broken records carry a sentinel year that falls off the end of any chart anyone would draw, so the defect is invisible in one cut of the data and catastrophic in another.
+- **What the governed layer actually is** — 43% of contract matters end before the issue is even joined; the median time to resolve runs from 98 to 307 days depending on the kind of dispute; 30.7% settle and 0.9% reach a jury verdict.
+- **How it stays right** — the live edge, the reconciliation, the run history, and the incident record.
+
+---
+
+## Roadmap
+
+- Widen the live slice beyond a single district once coverage is modelled rather than assumed.
+- Carry the codebook's disposition grouping into the dimension, so two categories that both read "other" stop needing a code number to tell them apart.
+- Model RECAP coverage explicitly, so an observed motion count can become a certified measure rather than an observation.
+
+---
+
+## Tech Stack
+
+<div class="tech-chips">
+<span class="chip">Python</span>
+<span class="chip">DuckDB</span>
+<span class="chip">pandas</span>
+<span class="chip">FJC Integrated Database</span>
+<span class="chip">CourtListener API</span>
+<span class="chip">Apache ECharts</span>
+<span class="chip">Playwright</span>
+<span class="chip">Static HTML / JS</span>
+<span class="chip">GitHub Pages</span>
+<span class="chip">Git</span>
+</div>
+
+---
+
+## Disclosure
+
+Built from public federal court records — the Federal Judicial Center's Integrated Database, frozen at 2026-08-26 and verified by SHA-256, plus a bounded live increment from CourtListener's RECAP archive. **No client data and no proprietary data of any kind.**
+
+The model is aggregate by construction and carries no party column: nothing here is, or can be read as, an assessment of any identified party's litigation exposure. The subject-matter exclusion that guarantees this is implemented in the pipeline, owned, and its measured limits are stated in the repository rather than asserted.
+
+Independent portfolio project. Nothing here is legal advice.
+
+---
+
+## Links
+
+- [Can this number be trusted?](https://www.robbinsanalytics.com/cascadia-matter-ledger/) — the live module: five charts, the health surface, and the incident record
+- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-matter-ledger) — the frozen source register, the governance documents, the certified measures and the independent validation
+- [Cascadia Architecture Overview](../cascadia.qmd)
