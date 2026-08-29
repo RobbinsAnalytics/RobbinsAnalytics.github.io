@@ -368,14 +368,14 @@
     "href": "projects/cascadia-matter-ledger.html",
     "title": "Cascadia Matter Ledger",
     "section": "",
-    "text": "Legal Operations Analytics\n\n\n\n\nEleven million federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures — plus a live edge that runs twice a day, reconciles itself against the frozen baseline, and shows the failures. Ask it one ordinary question and the ungoverned answer comes back negative.\nCan this number be trusted? Build Repository"
+    "text": "Legal Operations Analytics\n\n\n\n\nEleven million federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures — plus a live edge that runs twice a day, reconciles itself against the frozen baseline, and shows the failures. Ask it one ordinary question and the ungoverned answer comes back negative.\nCan this number be trusted?"
   },
   {
     "objectID": "projects/cascadia-matter-ledger.html#overview",
     "href": "projects/cascadia-matter-ledger.html#overview",
     "title": "Cascadia Matter Ledger",
     "section": "Overview",
-    "text": "Overview\nEvery other module in this portfolio is a frozen snapshot: pulled once, validated once at build time, published. That proves a governed model can be built. It proves nothing about operating one.\nThis module closes that gap. It is built on the Federal Judicial Center’s Integrated Database — 10,960,173 civil case records, statistical years 1988 to 2026 — frozen at a stated date and verified by SHA-256 on every build. On top of it sit five certified measures with written definitions, named owners and source lineage. Alongside it runs a scheduled incremental pipeline that takes a bounded slice from a second source, derives a governed event from unstructured docket text, re-asserts the module’s invariants, and reconciles the increment against the frozen baseline — publishing the result whether it passes or not.\nThe domain is legal operations, where the record of an event is a court filing rather than a row. That is the point: it is the hardest place to make “a governed number” mean anything."
+    "text": "Overview\nEvery previous module in this portfolio is a frozen snapshot: pulled once, validated once at build time, published. That proves a governed model can be built. It proves nothing about operating one.\nThis module closes that gap. It is built on the Federal Judicial Center’s Integrated Database — 10,960,173 civil case records, statistical years 1988 to 2026 — frozen at a stated date and verified by SHA-256 on every build. On top of it sit five certified measures with written definitions, named owners and source lineage. Alongside it runs a scheduled incremental pipeline that takes a bounded slice from a second source, derives a governed event from unstructured docket text, re-asserts the module’s invariants, and reconciles the increment against the frozen baseline — publishing the result whether it passes or not.\nThe domain is legal operations, where the record of an event is a court filing rather than a row. That is the point: it is the hardest place to make “a governed number” mean anything."
   },
   {
     "objectID": "projects/cascadia-matter-ledger.html#why-this-stack",
