@@ -39,6 +39,21 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 ::: {.g-col-12 .g-col-md-4}
 ::: {.project-card}
 ::: {.card-label}
+Legal Operations Analytics
+:::
+### Cascadia Matter Ledger
+<span class="badge-status new">New</span><span class="badge-status">Live</span>
+
+Eleven million public federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures — then a scheduled pipeline that re-asserts its own invariants twice a day, reconciles against the frozen baseline, and publishes the failures. Ask it one ordinary question and the ungoverned answer comes back negative.
+
+[View Case Study](projects/cascadia-matter-ledger.qmd){.btn .btn-primary .btn-sm}
+[Can this number be trusted?](https://www.robbinsanalytics.com/cascadia-matter-ledger/){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
 Supply Chain / Distribution-Centre Governance
 :::
 ### Cascadia Control Tower

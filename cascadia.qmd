@@ -11,6 +11,7 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 | Domain | Status | Stack | Data | Headline Skill |
 |---|---|---|---|---|
+| [Cascadia Matter Ledger](projects/cascadia-matter-ledger.qmd) | Live | Python → DuckDB → static ECharts, plus a scheduled incremental pull | FJC Integrated Database and CourtListener RECAP — public federal court records (real) | Operating a governed model: a pipeline that re-asserts its own invariants and publishes the failures |
 | [Cascadia Control Tower](projects/cascadia-controltower.qmd) | Live | Python → DuckDB → dbt Core → static ECharts | Synthetic (seeded generator), anchored to BLS, Census and SEC XBRL | Metric certification / counterfactual costing |
 | [Cascadia Deal Desk](projects/cascadia-dealdesk.qmd) | Live | Python → SQLite → static ECharts | Synthetic (seeded generator) | Pricing governance / exception calibration |
 | [Cascadia Finance](projects/cascadia-finance.qmd) | Live | Python → SQLite → static ECharts (SEC EDGAR XBRL) | FormFactor SEC filings (real) | Financial analytics / XBRL governance |
@@ -27,10 +28,10 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 ## Three Patterns, One Standard
 
-**Lightweight analytical stack — Cascadia Deal Desk, Finance & Control Tower.**
+**Lightweight analytical stack — Cascadia Deal Desk, Finance, Control Tower & Matter Ledger.**
 Three modules that need neither SQL Server nor Power BI: Python (pandas) conforms the data into a local star schema and renders a static, hostable page with Apache ECharts, with the dataset inlined at build time so no page fetches data at runtime. Finance pulls and freezes SEC EDGAR XBRL filings and labels every figure GAAP vs non-GAAP; Deal Desk matches quote lines against a governed agreement register and prices the gap in dollars; Control Tower certifies one of three competing fill-rate definitions and prices the split-shipment cost that none of them measures. Deal Desk and Control Tower ship ECharts with the page, so they run forever, offline, for free; Finance loads it from a CDN, so it needs the network to draw — and all three circulate as a link with nothing to install.
 
-Control Tower is the pattern's larger variant: the warehouse is **DuckDB** rather than SQLite, and the transformation layer is **dbt Core** — 6 staging views, 9 marts and 69 data tests — because at 621,942 order lines the modeling is worth a real transformation framework and the tests are worth running on every build. The output is the same durable static page, which survives the warehouse being switched off.
+**Control Tower and Matter Ledger are the pattern's larger variant**, and they are two tenants of it rather than one exception. Both swap SQLite for **DuckDB** because the row counts stopped fitting the smaller engine — 621,942 order lines in one, 10,960,173 federal case records in the other. Control Tower adds **dbt Core** on top, 6 staging views, 9 marts and 69 data tests, because its transformation layer is worth a real framework. Matter Ledger does not: its modeling is a single conformance pass over a 2.0 GB flat file, and what it adds instead is a **live edge** — a scheduled incremental pull from a second source that reconciles against the frozen baseline on every run. The output in both cases is the same durable static page, which survives the warehouse being switched off.
 
 **Pragmatic local stack — Cascadia Pharmacy & Staffing.**
 For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python `raw → clean` staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.
@@ -50,6 +51,10 @@ The full production pattern: a SQL Server star schema feeding a Microsoft Fabric
 ::: {.g-col-12 .g-col-md-6}
 **Production patterns only**
 Every table, index, and pipeline uses conventions you would enforce on a real production system — surrogate keys, computed `date_key` columns, idempotent builds, and row-count validation scripts.
+:::
+::: {.g-col-12 .g-col-md-6}
+**Operated, not only built**
+Most of these modules are frozen snapshots: pulled once, validated once at build time, published. Cascadia Matter Ledger runs on a schedule, re-asserts its own invariants on every run, reconciles a live increment against the frozen baseline, and publishes the result — including when a run fails and why. A surface that has only ever shown green has demonstrated nothing.
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Real data where it matters**
@@ -92,6 +97,8 @@ Every chart is scored pass/fail against my visualization design system before it
 <span class="chip">dbt Core</span>
 <span class="chip">Apache ECharts</span>
 <span class="chip">SEC EDGAR XBRL</span>
+<span class="chip">FJC Integrated Database</span>
+<span class="chip">Playwright</span>
 <span class="chip">SQL Server 2025</span>
 <span class="chip">T-SQL</span>
 <span class="chip">Power BI</span>

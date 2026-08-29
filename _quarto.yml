@@ -67,6 +67,8 @@ website:
         href: cascadia.qmd
       - text: "Projects"
         menu:
+          - text: "Cascadia Matter Ledger"
+            href: projects/cascadia-matter-ledger.qmd
           - text: "Cascadia Control Tower"
             href: projects/cascadia-controltower.qmd
           - text: "Cascadia Deal Desk"
