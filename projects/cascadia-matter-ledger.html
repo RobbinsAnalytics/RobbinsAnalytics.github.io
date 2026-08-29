@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cascadia Deal Desk – Robbins Analytics</title>
+<title>Cascadia Matter Ledger – Robbins Analytics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,14 +87,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
 
 
-<meta property="og:title" content="Cascadia Deal Desk – Robbins Analytics">
-<meta property="og:description" content="Pricing governance and margin leakage analytics — a governed agreement register, a documented matching rule, and an exception report you calibrate before you automate.">
-<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-dealdesk.png">
+<meta property="og:title" content="Cascadia Matter Ledger – Robbins Analytics">
+<meta property="og:description" content="A governed model of the public federal civil docket — and a scheduled pipeline that re-asserts its own invariants on every run and publishes what it finds.">
+<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-matter-ledger.png">
 <meta property="og:site_name" content="Robbins Analytics">
 <meta property="og:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
-<meta name="twitter:title" content="Cascadia Deal Desk – Robbins Analytics">
-<meta name="twitter:description" content="Pricing governance and margin leakage analytics — a governed agreement register, a documented matching rule, and an exception report you calibrate before you automate.">
-<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-dealdesk.png">
+<meta name="twitter:title" content="Cascadia Matter Ledger – Robbins Analytics">
+<meta name="twitter:description" content="A governed model of the public federal civil docket — and a scheduled pipeline that re-asserts its own invariants on every run and publishes what it finds.">
+<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-matter-ledger.png">
 <meta name="twitter:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -203,8 +203,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cascadia Deal Desk</h1>
-<p class="subtitle lead">Pricing governance and margin leakage analytics — a governed agreement register, a documented matching rule, and an exception report you calibrate before you automate.</p>
+<h1 class="title">Cascadia Matter Ledger</h1>
+<p class="subtitle lead">A governed model of the public federal civil docket — and a scheduled pipeline that re-asserts its own invariants on every run and publishes what it finds.</p>
 </div>
 
 
@@ -223,121 +223,132 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="case-study-header">
 <div class="cs-domain">
-<p>Pricing Governance / Financial Analytics</p>
+<p>Legal Operations Analytics</p>
 </div>
-<section id="cascadia-deal-desk" class="level1">
-<h1>Cascadia Deal Desk</h1>
+<section id="cascadia-matter-ledger" class="level1">
+<h1>Cascadia Matter Ledger</h1>
 <div class="cs-hook">
-<p>A supplier signs multi-quarter pricing agreements at a premium, and then quotes the customer’s old price anyway. This module makes the agreement a queryable dataset, matches every quote line against it, prices the gap in dollars, and shows what is still recoverable. Built entirely on synthetic data.</p>
+<p>Eleven million federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures — plus a live edge that runs twice a day, reconciles itself against the frozen baseline, and shows the failures. Ask it one ordinary question and the ungoverned answer comes back <strong>negative</strong>.</p>
 </div>
 </section>
 </div>
-<p><a href="https://www.robbinsanalytics.com/cascadia-dealdesk/" class="btn btn-primary">Agreement vs.&nbsp;Quoted Price</a> <a href="https://www.robbinsanalytics.com/cascadia-dealdesk/customer.html" class="btn btn-primary">Customer Pricing &amp; Margin</a></p>
+<p><a href="https://www.robbinsanalytics.com/cascadia-matter-ledger/" class="btn btn-primary">Can this number be trusted?</a> <a href="https://github.com/RobbinsAnalytics/cascadia-matter-ledger" class="btn btn-outline">Build Repository</a></p>
 <hr>
-<div class="callout callout-style-default callout-important callout-titled" title="Synthetic data">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Synthetic data
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Every customer, part number, price, agreement and person in this module was invented by a seeded generator. There is no real pricing data in this project and there never will be. It demonstrates a design; it measures nothing real.</p>
-</div>
-</div>
 <section id="overview" class="level2">
 <h2 data-anchor-id="overview">Overview</h2>
-<p>A deal desk is the function that reviews a quote against the agreed commercial terms <em>before</em> it goes to the customer. This module builds the analytics that make that review possible.</p>
-<p>The problem it models is specific to capacity-constrained supply, and semiconductor test is a good example of it. A customer commits volume, the supplier commits capacity, and the price is locked for several quarters, frequently at a premium above what that customer previously paid. Four things then go wrong:</p>
-<ul>
-<li><strong>The agreement is not a dataset.</strong> Terms are negotiated in spreadsheets and end life as a signed PDF. Nothing downstream can query them.</li>
-<li><strong>Quoting is disconnected from the agreement.</strong> Sales quotes in a CRM that has no link to the register, so reps quote the customer’s <em>previous</em> price and the negotiated premium is never collected.</li>
-<li><strong>Controls only catch catastrophes.</strong> Deviations route to finance for approval only when they fall far below target, so moderate leakage passes silently.</li>
-<li><strong>Verification is manual and therefore infrequent.</strong> An analyst reconciles a pricing spreadsheet against bookings weekly or monthly, which means leakage surfaces long after the quote went out.</li>
-</ul>
-<p>And a fifth thing, separate from the leak: understanding how one customer’s pricing and margin have behaved over a period should not be an ad-hoc analysis every time. The same model answers it, with no separate build.</p>
+<p>Every other module in this portfolio is a <strong>frozen snapshot</strong>: pulled once, validated once at build time, published. That proves a governed model can be built. It proves nothing about operating one.</p>
+<p>This module closes that gap. It is built on the Federal Judicial Center’s Integrated Database — <strong>10,960,173 civil case records</strong>, statistical years 1988 to 2026 — frozen at a stated date and verified by SHA-256 on every build. On top of it sit five certified measures with written definitions, named owners and source lineage. Alongside it runs a <strong>scheduled incremental pipeline</strong> that takes a bounded slice from a second source, derives a governed event from unstructured docket text, re-asserts the module’s invariants, and reconciles the increment against the frozen baseline — publishing the result whether it passes or not.</p>
+<p>The domain is legal operations, where the record of an event is a court filing rather than a row. That is the point: it is the hardest place to make “a governed number” mean anything.</p>
 <hr>
 </section>
 <section id="why-this-stack" class="level2">
 <h2 data-anchor-id="why-this-stack">Why This Stack</h2>
-<p><strong>Python (pandas) → SQLite star schema → static HTML + Apache ECharts → GitHub Pages.</strong></p>
-<p>Power BI was considered and rejected, deliberately. The deliverable has to be a link that circulates inside an organization with nothing to install, no license, and no tenant. A <code>.pbix</code> fails that test. ECharts is vendored into the repository rather than loaded from a CDN, and the dataset is inlined at build time, so the pages make no network call at all and work offline, from a file path, and behind a corporate proxy.</p>
-<p>The Python is written as a teaching artifact, readable top to bottom by a non-engineer, because the code is part of the argument rather than an implementation detail.</p>
+<p>The measures and the governance have to travel; the renderer does not. So there is no Power BI, no SQL Server, no paid service anywhere in it.</p>
+<p>Python freezes and verifies the source. <strong>DuckDB</strong> does the modelling directly over a two-gigabyte flat file — no warehouse, no cluster, eleven million rows on a desktop. The front end is static HTML and Apache ECharts on GitHub Pages. Every figure on the page is computed at build time from a certified measure; nothing is typed.</p>
+<p>That choice is deliberate for a reader who owns a BI estate: a semantic layer and a governance record that can be lifted into any tool are worth more than a dashboard that only exists in one.</p>
 <hr>
 </section>
 <section id="architecture" class="level2">
 <h2 data-anchor-id="architecture">Architecture</h2>
+<p><strong>FJC Integrated Database (frozen, hash-verified) → Python transcode + quarantine → DuckDB conformed model → certified measures → static ECharts. CourtListener RECAP → scheduled incremental pull → governed event derivation → reconciliation against the frozen baseline.</strong></p>
 <ul>
-<li><strong>Generate.</strong> A seeded, fully reproducible generator produces 24 months of activity: 40 customers, 120 parts across six families, 12 sales reps, 461 agreements and 3,003 quote lines. Same seed, identical database hash.</li>
-<li><strong>Model.</strong> A SQLite star schema with the agreement register as a first-class dimension: customer, part or family scope, agreed price, effective window, committed units, approval reference, status, and a supersession pointer.</li>
-<li><strong>Conform.</strong> The matching rule runs and every derived field is materialized: match status, price variance in dollars and percent, margin at quoted and at agreed, margin impact, exposure state. Nothing is computed in the browser.</li>
-<li><strong>Validate.</strong> Twelve PASS/FAIL checks, including a realism audit that fails the build if the generated leakage is not concentrated and directional.</li>
-<li><strong>Present.</strong> Two static ECharts pages with client-side filtering over inlined JSON.</li>
+<li><strong>Freeze.</strong> The snapshot is 314 MB compressed, 2.0 GB expanded. It is pulled once, hashed, and never re-downloaded; the build exits non-zero if the hash moves. Too large for git, so the freeze is asserted <strong>by hash</strong> rather than by committing the bytes — the module’s one deliberate departure from the house pattern, written into <code>.gitignore</code> and the source register rather than left implicit.</li>
+<li><strong>Conform.</strong> Dimensions are loaded <strong>from the publisher’s own codebook</strong>, never written as <code>CASE WHEN</code> blocks, and are effective-dated where a code changed meaning across the decades. Malformed records are quarantined with a reason and counted, never repaired.</li>
+<li><strong>Model.</strong> <code>fact_matter</code> — 1,405,046 status records covering 1,403,097 contract and commercial matters, with a written rule mapping a court docket onto a matter-shaped entity and stating what that mapping loses.</li>
+<li><strong>Measure.</strong> Five certified measures: time to termination, disposition mix, procedural progress at termination, filing volume trend, and open inventory with aging.</li>
+<li><strong>Operate.</strong> A twice-daily scheduled job takes a narrow slice of N.D. Cal. contract dockets, watermarked and resumable, designed inside a documented rate limit of 5 requests a minute and 125 a day.</li>
 </ul>
 <hr>
 </section>
-<section id="headline-skill-the-matching-rule-and-exception-calibration" class="level2">
-<h2 data-anchor-id="headline-skill-the-matching-rule-and-exception-calibration">Headline Skill: The Matching Rule and Exception Calibration</h2>
-<p>The charts are not the skill here. These four things are:</p>
-<p><strong>The matching rule is documented as a deliverable in its own right.</strong> Every quote line joins to the register on customer and part where the quote date falls inside an effective window, and three tiebreaks resolve the rest, in order: an agreement already expired or superseded <strong>as of the quote date</strong> is excluded; a part-scope agreement beats a family-scope one; and where two equally specific agreements both cover the date, the later effective start wins. If a tie survives all three, the run <strong>fails rather than guessing</strong>, because that is a data-quality defect and not a judgment call. <code>governance/matching_rules.md</code> states the rule in plain English with a worked example of each case, including the overlap and the expiry a naive join gets wrong.</p>
-<p><strong>Quantify, do not flag.</strong> Every off-agreement line carries a dollar figure. And the arithmetic gets said first rather than waiting to be asked: margin impact is exactly the negative of price variance, because standard cost cancels out of the subtraction. <strong>Every dollar of price variance is a dollar of margin, one for one.</strong> There is no volume offset and no cost recovery. A finance reader checks that in thirty seconds, so the page states it up front and an automated check reconciles it on every matched line.</p>
-<p><strong>Exception report first, trigger second.</strong> The materiality threshold is a control the reader operates, not a number I chose. Move it and watch the exception count collapse far faster than the dollars do. That gap is the whole argument for calibrating a rule before automating an alert on it: alerting on a threshold nobody trusts yet only teaches people to dismiss the alert. Approved exceptions are retained in the data and excluded from the totals, so the threshold can be calibrated <em>against</em> the false positives rather than around them.</p>
-<p><strong>Two failures that look identical in a margin report.</strong> Leakage is a control failure: the agreement existed and the quote did not use it. Erosion is not a failure at all: every line was priced exactly to agreement and margin still fell, because standard cost steps quarterly while the agreed price is locked for the life of the agreement. One is fixed at the quote, the other at renewal. A report that says only “margin is down” cannot tell you which conversation to have. The customer page keeps them apart.</p>
+<section id="headline-skill-operating-a-governed-model-not-just-building-one" class="level2">
+<h2 data-anchor-id="headline-skill-operating-a-governed-model-not-just-building-one">Headline Skill: Operating a governed model, not just building one</h2>
+<p>The differentiator is not the model. It is that the pipeline <strong>tests itself on every run and publishes the result</strong>, including when the result is bad.</p>
+<ul>
+<li><strong>Every run re-asserts the module’s invariants</strong> — matter-key uniqueness, no negative durations, no closed matter without an end date, no excluded party surviving into the fact table — and writes a per-run record naming each check and its outcome.</li>
+<li><strong>The reconciliation is published whether or not it balances.</strong> It currently does not, by −714 matters, and the page states the four reasons in order of size rather than tuning them away.</li>
+<li><strong>A rate-limit stop is recorded as a stop, not a failure.</strong> The run log keeps stops, skips and genuine failures apart, because a surface that colours all three red trains its reader to ignore red.</li>
+</ul>
+<p><strong>The pipeline has caught four defects in itself</strong>, every one silent — nothing errored, and each would have under-collected or mis-stated while reporting success:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Defect</th>
+<th>How it surfaced</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The watermark advanced past 36 dockets whose rows were never written</td>
+<td>The run’s own record showed the watermark had moved while the output file did not exist</td>
+</tr>
+<tr class="even">
+<td>A docket was called complete on its first page; 29 of the first 36 had more</td>
+<td>Row counts did not reconcile against the roster</td>
+</tr>
+<tr class="odd">
+<td>The request budget read the daily rate-limit window while the hourly window was exhausted</td>
+<td>The run spent itself on backoffs for requests that could not succeed</td>
+</tr>
+<tr class="even">
+<td>A tie-break depended on row order, which a parallel query engine does not guarantee</td>
+<td><strong>The independent re-derivation disagreed with the build by one record in 1,370,419</strong></td>
+</tr>
+</tbody>
+</table>
 <hr>
 </section>
 <section id="validation" class="level2">
 <h2 data-anchor-id="validation">Validation</h2>
-<p><code>validate.py</code> writes <code>governance/validation_report.md</code>. All twelve checks pass:</p>
-<ul>
-<li>Every quote line resolves to exactly one match status; none null, none ambiguous.</li>
-<li>No quote matches an agreement that was superseded or expired as of its own date.</li>
-<li>Variance and margin identities reconcile on every matched line, including margin impact against the negative of price variance.</li>
-<li>Referential integrity across all dimensions, including bookings back to their quote lines.</li>
-<li>Exception counts are monotonic as the threshold rises.</li>
-<li>Coverage audit reports lines with <strong>no governing agreement</strong> explicitly, broken out by cause, rather than dropping them.</li>
-<li>A realism audit that checks the leakage is concentrated and directional, and fails loudly if the generator has produced uniform noise instead of a pattern.</li>
-</ul>
-<hr>
-</section>
-<section id="governance-in-the-open" class="level2">
-<h2 data-anchor-id="governance-in-the-open">Governance in the Open</h2>
-<p>Three artifacts ship with the module, and they are the point rather than the paperwork:</p>
-<ul>
-<li><strong><code>matching_rules.md</code></strong> — the rule, the tiebreaks, the tie-failure behavior, worked examples, and an honest limits section.</li>
-<li><strong><code>generator_assumptions.md</code></strong> — every tunable assumption and the realized mix against target.</li>
-<li><strong><code>chart-review.md</code></strong> — a scored pass/fail review of all eleven charts against my visualization design system, including the checks that failed on the first pass and what changed. Several titles claimed figures a reader could not verify from the plot, and those charts were rebuilt rather than re-worded.</li>
-</ul>
+<p><strong>Nothing publishes unless a second, independently written script agrees.</strong> <code>validate_measures.py</code> re-derives every published cell from the frozen file down a separate path — the party-name normalisation is implemented in SQL there and in Python in the build, deliberately, so one bug cannot reproduce itself in both. <strong>502 of 502 published cells reconcile exactly.</strong></p>
+<p>Two figures were deliberately <strong>not</strong> certified. The source carries an amount demanded and an amount recovered, and the publisher’s own codebook warns that courts have not always reported them in the stated units. A publisher’s accuracy warning is a reason to leave a field alone, not a caveat to print under a chart.</p>
+<p>The charts were then read by a <strong>blind four-seat reading panel</strong> — three domain seats cast from the decision the page serves, plus a canvas-only visualization reader, each given only the rendered images and no access to the design system, the build notes, the data or each other. It returned 16 findings and 10 defects; all ten were fixed before anything shipped. All four seats independently reported the same defect: a headline percentage that the picture did not actually draw.</p>
 <hr>
 </section>
 <section id="the-module" class="level2">
 <h2 data-anchor-id="the-module">The Module</h2>
-<p><strong>Agreement vs.&nbsp;quoted price.</strong> The exception page. An unfiltered overview establishes the whole book first, then a customer selector, a date range and a materiality threshold filter it. Chart titles recompute from the filtered data, and the provenance strip under every chart names the active filter state, so a screenshot of a filtered view cannot claim to describe the full dataset.</p>
-<p><a href="https://www.robbinsanalytics.com/cascadia-dealdesk/" class="btn btn-primary">Open the Exception Page →</a></p>
-<p><strong>Customer pricing and margin.</strong> The same model, answering the ad-hoc question. A small-multiples grid on shared scales shows the whole landscape before any selector appears, because “who should I look at” is the question that precedes “show me this customer.” Then price against agreement, margin against margin-at-agreed, product mix, and an agreement timeline showing renewals and supersessions.</p>
-<p><a href="https://www.robbinsanalytics.com/cascadia-dealdesk/customer.html" class="btn btn-primary">Open the Customer Page →</a></p>
-<p>Every chart on both pages carries a real data table, except the small-multiples grid, which carries its content in its description instead. Where a table reads the finding badly, the chart also takes a keyboard cursor that walks the series point by point. WCAG 2.2 AA is the design target (unverified): no accessibility audit has been run against these pages.</p>
+<p>One page, read top to bottom, arguing one thing.</p>
+<ul>
+<li><strong>The question, asked plainly</strong> — how long does it take to resolve a contract dispute in federal court?</li>
+<li><strong>The two answers.</strong> Against the raw frozen file: <strong>−742.3 days</strong>. Against the governed model: <strong>208 days</strong>. Both from the same file, retrieved once, on the same day, and neither query contains a mistake anyone would call obvious.</li>
+<li><strong>Why they differ</strong> — the seven-rule decomposition, in which one rule does nearly all the work and the other six are drawn at true scale rather than hidden.</li>
+<li><strong>The trap.</strong> Both versions of the trend agree that matters are getting slower. That is not reassurance: the broken records carry a sentinel year that falls off the end of any chart anyone would draw, so the defect is invisible in one cut of the data and catastrophic in another.</li>
+<li><strong>What the governed layer actually is</strong> — 43% of contract matters end before the issue is even joined; the median time to resolve runs from 98 to 307 days depending on the kind of dispute; 30.7% settle and 0.9% reach a jury verdict.</li>
+<li><strong>How it stays right</strong> — the live edge, the reconciliation, the run history, and the incident record.</li>
+</ul>
+<hr>
+</section>
+<section id="roadmap" class="level2">
+<h2 data-anchor-id="roadmap">Roadmap</h2>
+<ul>
+<li>Widen the live slice beyond a single district once coverage is modelled rather than assumed.</li>
+<li>Carry the codebook’s disposition grouping into the dimension, so two categories that both read “other” stop needing a code number to tell them apart.</li>
+<li>Model RECAP coverage explicitly, so an observed motion count can become a certified measure rather than an observation.</li>
+</ul>
 <hr>
 </section>
 <section id="tech-stack" class="level2">
 <h2 data-anchor-id="tech-stack">Tech Stack</h2>
 <div class="tech-chips">
-<p><span class="chip">Python</span> <span class="chip">pandas</span> <span class="chip">SQLite</span> <span class="chip">Star Schema</span> <span class="chip">Apache ECharts</span> <span class="chip">Static HTML / JS</span> <span class="chip">WCAG 2.2 AA target (unverified)</span> <span class="chip">GitHub Pages</span> <span class="chip">Git</span></p>
+<p><span class="chip">Python</span> <span class="chip">DuckDB</span> <span class="chip">pandas</span> <span class="chip">FJC Integrated Database</span> <span class="chip">CourtListener API</span> <span class="chip">Apache ECharts</span> <span class="chip">Playwright</span> <span class="chip">Static HTML / JS</span> <span class="chip">GitHub Pages</span> <span class="chip">Git</span></p>
 </div>
 <hr>
 </section>
 <section id="disclosure" class="level2">
 <h2 data-anchor-id="disclosure">Disclosure</h2>
-<p>All data in this module is synthetic, generated by a seeded script committed to the repository. No real company, customer, product, price, agreement or person appears anywhere in it. Independent portfolio project, not affiliated with or endorsed by any company, and not based on any non-public information. It illustrates a pricing-governance design on invented data only.</p>
+<p>Built from public federal court records — the Federal Judicial Center’s Integrated Database, frozen at 2026-08-26 and verified by SHA-256, plus a bounded live increment from CourtListener’s RECAP archive. <strong>No client data and no proprietary data of any kind.</strong></p>
+<p>The model is aggregate by construction and carries no party column: nothing here is, or can be read as, an assessment of any identified party’s litigation exposure. The subject-matter exclusion that guarantees this is implemented in the pipeline, owned, and its measured limits are stated in the repository rather than asserted.</p>
+<p>Independent portfolio project. Nothing here is legal advice.</p>
 <hr>
 </section>
 <section id="links" class="level2">
 <h2 data-anchor-id="links">Links</h2>
 <ul>
-<li><a href="https://www.robbinsanalytics.com/cascadia-dealdesk/">Agreement vs.&nbsp;Quoted Price</a> — the exception report, with the materiality threshold control</li>
-<li><a href="https://www.robbinsanalytics.com/cascadia-dealdesk/customer.html">Customer Pricing &amp; Margin</a> — one customer over a period, and the agreement timeline</li>
-<li><a href="https://github.com/RobbinsAnalytics/cascadia-dealdesk">Build Repository</a> — generator, matching rule, validation, and the governance documents</li>
+<li><a href="https://www.robbinsanalytics.com/cascadia-matter-ledger/">Can this number be trusted?</a> — the live module: five charts, the health surface, and the incident record</li>
+<li><a href="https://github.com/RobbinsAnalytics/cascadia-matter-ledger">Build Repository</a> — the frozen source register, the governance documents, the certified measures and the independent validation</li>
 <li><a href="../cascadia.html">Cascadia Architecture Overview</a></li>
 </ul>
 
