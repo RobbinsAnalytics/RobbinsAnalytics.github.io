@@ -139,6 +139,21 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
     margin: 0;
   }
 
+  .hero-motto {
+    font-family: $cascadia-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: $cascadia-ever-lt;   // 6.8:1 across the hero gradient, worst case
+    margin: 0.5rem 0 0;
+  }
+
+  .hero-motto-sub {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: $cascadia-rain;      // 5.8:1 across the hero gradient, worst case
+    margin: 0.15rem 0 0;
+  }
+
   .hero-tagline {
     color: $cascadia-rain;      // 6.4:1 on Spruce
     font-size: 0.95rem;

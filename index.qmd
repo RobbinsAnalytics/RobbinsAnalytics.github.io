@@ -15,10 +15,18 @@ image-alt: "Cascadia module card — title, one-line summary, and the data sourc
 ::: {.hero-subtitle}
 Business Intelligence & Analytics Leader
 :::
+
+::: {.hero-motto}
+Proof is the Point
+
+::: {.hero-motto-sub}
+*Trust What You Can Test*
+:::
+:::
 :::
 
 ::: {.hero-tagline}
-12+ years turning messy data into decisions leaders trust — across healthcare, manufacturing, and financial analytics. I build across the modern analytics stack: SQL data models, cloud and local pipelines, financial analytics on public filings, and reporting non-technical teams actually use.
+12+ years turning messy data into decisions leaders trust — across healthcare manufacturing and quality, and ecommerce and retail, with time in supply chain, digital merchandising, and finance along the way. The expertise is in the craft, not the tooling: governance, specification, and semantic modeling — proof stakeholders can check, not a claim they have to trust. I've built that inside organizations, not just around them: proposing and staffing a BI function from zero, then leading programs across ten factories and 200+ stakeholders in eight countries.
 :::
 
 :::
@@ -28,7 +36,7 @@ Business Intelligence & Analytics Leader
 
 ## The Cascadia Portfolio {#cascadia-portfolio}
 
-Cascadia is a portfolio of end-to-end analytics work — building the data systems, and leading how organizations run on them. Each piece matches the right tools to the problem: a governed SQL Server → Microsoft Fabric → Power BI enterprise stack, pragmatic local SQL Server + Power BI, lightweight Python and static-web analytics on public SEC and federal data, and the program side of BI — platform migration and metric governance. The through-line isn't one architecture; it's the craft: rigorous modeling, honest data governance, and decisions leaders can trust.
+Cascadia is a portfolio built to be checked, not taken on faith. Each module carries its own governance layer — certified measures, frozen baselines, a validation suite that fails the build rather than ship a number I can't defend — so a claim on this site is a claim you can verify against the data behind it, not just read. The stack varies by problem: a governed SQL Server → Microsoft Fabric → Power BI enterprise pipeline, pragmatic local SQL Server + Power BI, lightweight Python → DuckDB/SQLite → static ECharts on real SEC, federal court, and economic data, and the program side of BI — platform migration and metric governance. The through-line isn't the architecture; it's that every number on every page can be tested against its source.
 
 ---
 
