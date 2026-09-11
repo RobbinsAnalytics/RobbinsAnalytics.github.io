@@ -49,6 +49,21 @@ Cascadia is a portfolio built to be checked, not taken on faith. Each module car
 ::: {.card-label}
 Legal Operations Analytics
 :::
+### Cascadia Fee Examiner
+<span class="badge-status new">New</span><span class="badge-status">Live</span>
+
+A bankruptcy research database, a public court docket, and two task-code vocabularies — three sources, three owners, none sharing an identifier. A stated rule resolves 9 of 25 caption-to-database firm pairs; the other 16 are published with a reason, not dropped. Reported at its actual state: 48 of 216 eligible cases searched so far.
+
+[View Case Study](projects/cascadia-fee-examiner.qmd){.btn .btn-primary .btn-sm}
+[Three systems, one firm, no shared key](https://www.robbinsanalytics.com/cascadia-fee-examiner/){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
+Legal Operations Analytics
+:::
 ### Cascadia Matter Ledger
 <span class="badge-status new">New</span><span class="badge-status">Live</span>
 
@@ -87,21 +102,6 @@ Multi-quarter pricing agreements as a governed dataset rather than a signed PDF 
 [View Case Study](projects/cascadia-dealdesk.qmd){.btn .btn-primary .btn-sm}
 [Exception Report](https://www.robbinsanalytics.com/cascadia-dealdesk/){.btn .btn-outline-secondary .btn-sm}
 [Customer Margin](https://www.robbinsanalytics.com/cascadia-dealdesk/customer.html){.btn .btn-outline-secondary .btn-sm}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
-Legal Operations Analytics
-:::
-### Cascadia Fee Examiner
-<span class="badge-status new">New</span><span class="badge-status">Live</span>
-
-A bankruptcy research database, a public court docket, and two task-code vocabularies — three sources, three owners, none sharing an identifier. A stated rule resolves 9 of 25 caption-to-database firm pairs; the other 16 are published with a reason, not dropped. Reported at its actual state: 48 of 216 eligible cases searched so far.
-
-[View Case Study](projects/cascadia-fee-examiner.qmd){.btn .btn-primary .btn-sm}
-[Three systems, one firm, no shared key](https://www.robbinsanalytics.com/cascadia-fee-examiner/){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 

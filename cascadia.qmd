@@ -13,10 +13,10 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 | Domain | Status | Stack | Data | Headline Skill |
 |---|---|---|---|---|
+| [Cascadia Fee Examiner](projects/cascadia-fee-examiner.qmd) | Live | Python (stdlib) → flat CSV/JSON → static ECharts | LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B — public court and research records (real) | Entity resolution across sources with no shared key; publishing what it can't resolve |
 | [Cascadia Matter Ledger](projects/cascadia-matter-ledger.qmd) | Live | Python → DuckDB → static ECharts, plus a scheduled incremental pull | FJC Integrated Database and CourtListener RECAP — public federal court records (real) | Operating a governed model: a pipeline that re-asserts its own invariants and publishes the failures |
 | [Cascadia Control Tower](projects/cascadia-controltower.qmd) | Live | Python → DuckDB → dbt Core → static ECharts | Synthetic (seeded generator), anchored to BLS, Census and SEC XBRL | Metric certification / counterfactual costing |
 | [Cascadia Deal Desk](projects/cascadia-dealdesk.qmd) | Live | Python → SQLite → static ECharts | Synthetic (seeded generator) | Pricing governance / exception calibration |
-| [Cascadia Fee Examiner](projects/cascadia-fee-examiner.qmd) | Live | Python (stdlib) → flat CSV/JSON → static ECharts | LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B — public court and research records (real) | Entity resolution across sources with no shared key; publishing what it can't resolve |
 | [Cascadia Finance](projects/cascadia-finance.qmd) | Live | Python → SQLite → static ECharts (SEC EDGAR XBRL) | FormFactor SEC filings (real) | Financial analytics / XBRL governance |
 | [Cascadia Staffing](projects/cascadia-staffing.qmd) | Complete | Local SQL Server → Power BI | CMS PBJ Daily Nurse Staffing (real) | Marketplace labor KPIs / metric governance |
 | [Cascadia Pharmacy](projects/cascadia-pharmacy.qmd) | Complete | Local SQL Server → Power BI | CMS Part D + CDC VaxView (real) | Messy-data cleaning / GLP-1 growth |
