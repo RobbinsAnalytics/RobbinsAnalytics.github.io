@@ -16,6 +16,7 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 | [Cascadia Matter Ledger](projects/cascadia-matter-ledger.qmd) | Live | Python → DuckDB → static ECharts, plus a scheduled incremental pull | FJC Integrated Database and CourtListener RECAP — public federal court records (real) | Operating a governed model: a pipeline that re-asserts its own invariants and publishes the failures |
 | [Cascadia Control Tower](projects/cascadia-controltower.qmd) | Live | Python → DuckDB → dbt Core → static ECharts | Synthetic (seeded generator), anchored to BLS, Census and SEC XBRL | Metric certification / counterfactual costing |
 | [Cascadia Deal Desk](projects/cascadia-dealdesk.qmd) | Live | Python → SQLite → static ECharts | Synthetic (seeded generator) | Pricing governance / exception calibration |
+| [Cascadia Fee Examiner](projects/cascadia-fee-examiner.qmd) | Live | Python (stdlib) → flat CSV/JSON → static ECharts | LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B — public court and research records (real) | Entity resolution across sources with no shared key; publishing what it can't resolve |
 | [Cascadia Finance](projects/cascadia-finance.qmd) | Live | Python → SQLite → static ECharts (SEC EDGAR XBRL) | FormFactor SEC filings (real) | Financial analytics / XBRL governance |
 | [Cascadia Staffing](projects/cascadia-staffing.qmd) | Complete | Local SQL Server → Power BI | CMS PBJ Daily Nurse Staffing (real) | Marketplace labor KPIs / metric governance |
 | [Cascadia Pharmacy](projects/cascadia-pharmacy.qmd) | Complete | Local SQL Server → Power BI | CMS Part D + CDC VaxView (real) | Messy-data cleaning / GLP-1 growth |
@@ -32,10 +33,12 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 ## Three Patterns, One Standard
 
-**Lightweight analytical stack — Cascadia Deal Desk, Finance, Control Tower & Matter Ledger.**
+**Lightweight analytical stack — Cascadia Deal Desk, Finance, Control Tower, Matter Ledger & Fee Examiner.**
 Three modules that need neither SQL Server nor Power BI: Python (pandas) conforms the data into a local star schema and renders a static, hostable page with Apache ECharts, with the dataset inlined at build time so no page fetches data at runtime. Finance pulls and freezes SEC EDGAR XBRL filings and labels every figure GAAP vs non-GAAP; Deal Desk matches quote lines against a governed agreement register and prices the gap in dollars; Control Tower certifies one of three competing fill-rate definitions and prices the split-shipment cost that none of them measures. Deal Desk and Control Tower ship ECharts with the page, so they run forever, offline, for free; Finance loads it from a CDN, so it needs the network to draw — and all three circulate as a link with nothing to install.
 
 **Control Tower and Matter Ledger are the pattern's larger variant**, and they are two tenants of it rather than one exception. Both swap SQLite for **DuckDB** because the row counts stopped fitting the smaller engine — 621,942 order lines in one, 10,960,173 federal case records in the other. Control Tower adds **dbt Core** on top, 6 staging views, 9 marts and 69 data tests, because its transformation layer is worth a real framework. Matter Ledger does not: its modeling is a single conformance pass over a 2.0 GB flat file, and what it adds instead is a **live edge** — a scheduled incremental pull from a second source that reconciles against the frozen baseline on every run. The output in both cases is the same durable static page, which survives the warehouse being switched off.
+
+**Cascadia Fee Examiner is the pattern's leanest variant, and the one with no star schema at all.** Python's standard library does the conforming — no pandas, no database, nothing but hash-verified CSV and JSON — because the problem it solves was never about row count. The frozen spine is 1,218 cases; the live acquisition has retrieved dozens of documents so far. What it needed instead was a stated, published rule for resolving firm identity across three public sources that share no key, and a policy of publishing what that rule cannot resolve rather than dropping it or guessing. The only two third-party packages anywhere in the build are `requests`, to pull from a public docket archive under its own rate limit, and Playwright, the same renderer the rest of this pattern already uses to produce its static charts.
 
 **Pragmatic local stack — Cascadia Pharmacy & Staffing.**
 For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python `raw → clean` staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.
@@ -77,6 +80,10 @@ Suppressed or missing data is flagged, never silently filled. GAAP is labeled di
 Where a rule cannot resolve a case, the run stops rather than guessing. Cascadia Deal Desk's matching rule settles contested quote lines with three documented tiebreaks; if a tie survives all three, the build fails — an unresolvable tie is a data-quality defect, not a judgment call.
 :::
 ::: {.g-col-12 .g-col-md-6}
+**Publishing an unresolved case is not a gap; dropping one would be**
+Deal Desk's ambiguity is internal, so failing the build is the right answer. Cascadia Fee Examiner's ambiguity is external — three public sources that share no key — where failing on every unresolved pair would mean never shipping. Its rule states exactly what counts as a match, resolves 9 of 25 firm pairs, and publishes the other 16 with the reason each one didn't match. A match rate near 100% would be evidence the rule is too loose, not that the data is clean.
+:::
+::: {.g-col-12 .g-col-md-6}
 **Definitions live with the code that computes them**
 A metric register that is typed by hand is documentation; one generated from the models is engineering. Cascadia Control Tower's eleven-metric register is built from the `meta` blocks on the dbt models themselves — the same file that defines their tests — and a `--check` mode fails the build if a published definition drifts from the model behind it.
 :::
@@ -102,6 +109,7 @@ Every chart is scored pass/fail against my visualization design system before it
 <span class="chip">Apache ECharts</span>
 <span class="chip">SEC EDGAR XBRL</span>
 <span class="chip">FJC Integrated Database</span>
+<span class="chip">Bankruptcy Research Database</span>
 <span class="chip">Playwright</span>
 <span class="chip">SQL Server 2025</span>
 <span class="chip">T-SQL</span>

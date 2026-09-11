@@ -73,6 +73,8 @@ website:
             href: projects/cascadia-controltower.qmd
           - text: "Cascadia Deal Desk"
             href: projects/cascadia-dealdesk.qmd
+          - text: "Cascadia Fee Examiner"
+            href: projects/cascadia-fee-examiner.qmd
           - text: "Cascadia Finance"
             href: projects/cascadia-finance.qmd
           - text: "Cascadia BI Migration"
