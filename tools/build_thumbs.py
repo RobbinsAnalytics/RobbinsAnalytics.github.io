@@ -69,6 +69,12 @@ MODULES = [
     dict(slug="medical-devices", data="NASA C-MAPSS + synthetic MES", kicker="Cascadia Medical Devices", title="Predictive maintenance and OEE",
          line="A 5.9M-row manufacturing dataset, from raw telemetry to a governed OEE metric.",
          accent="lichen", motif="decay"),
+    # Lichen's second tenant (Medical Devices is the first) -- the module's
+    # own finding is a resolution rate, not a trend or a decay curve, so
+    # "bars" is the honest motif: every one of its five charts is a bar form.
+    dict(slug="fee-examiner", data="LoPucki Bankruptcy Research Database · CourtListener RECAP · UTBMS/USTP", kicker="Cascadia Fee Examiner", title="Three systems, one firm, no shared key",
+         line="A stated token-subset rule resolves 9 of 25 caption-to-database firm pairs; the other 16 are published, not dropped.",
+         accent="lichen", motif="bars"),
     dict(slug="bi-migration", data="program design · no production data", kicker="Cascadia BI Migration", title="Off legacy BI in 24 weeks",
          line="A governed, AI-assisted platform with a certified metric layer at the center.",
          accent="glacier", motif="steps"),
