@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cascadia Matter Ledger – Robbins Analytics</title>
+<title>Cascadia Fee Examiner – Robbins Analytics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,14 +87,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
 
 
-<meta property="og:title" content="Cascadia Matter Ledger – Robbins Analytics">
-<meta property="og:description" content="A governed model of the public federal civil docket — and a scheduled pipeline that re-asserts its own invariants on every run and publishes what it finds.">
-<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-matter-ledger.png">
+<meta property="og:title" content="Cascadia Fee Examiner – Robbins Analytics">
+<meta property="og:description" content="Entity resolution across a bankruptcy research database, a public court docket, and two task-code vocabularies that share no identifier — a stated rule resolves what it can, and the rest is published, not dropped.">
+<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-fee-examiner.png">
 <meta property="og:site_name" content="Robbins Analytics">
 <meta property="og:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
-<meta name="twitter:title" content="Cascadia Matter Ledger – Robbins Analytics">
-<meta name="twitter:description" content="A governed model of the public federal civil docket — and a scheduled pipeline that re-asserts its own invariants on every run and publishes what it finds.">
-<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-matter-ledger.png">
+<meta name="twitter:title" content="Cascadia Fee Examiner – Robbins Analytics">
+<meta name="twitter:description" content="Entity resolution across a bankruptcy research database, a public court docket, and two task-code vocabularies that share no identifier — a stated rule resolves what it can, and the rest is published, not dropped.">
+<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-fee-examiner.png">
 <meta name="twitter:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -207,8 +207,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cascadia Matter Ledger</h1>
-<p class="subtitle lead">A governed model of the public federal civil docket — and a scheduled pipeline that re-asserts its own invariants on every run and publishes what it finds.</p>
+<h1 class="title">Cascadia Fee Examiner</h1>
+<p class="subtitle lead">Entity resolution across a bankruptcy research database, a public court docket, and two task-code vocabularies that share no identifier — a stated rule resolves what it can, and the rest is published, not dropped.</p>
 </div>
 
 
@@ -229,130 +229,97 @@ ul.task-list li input[type="checkbox"] {
 <div class="cs-domain">
 <p>Legal Operations Analytics</p>
 </div>
-<section id="cascadia-matter-ledger" class="level1">
-<h1>Cascadia Matter Ledger</h1>
+<section id="cascadia-fee-examiner" class="level1">
+<h1>Cascadia Fee Examiner</h1>
 <div class="cs-hook">
-<p>Eleven million federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures — plus a live edge that runs twice a day, reconciles itself against the frozen baseline, and shows the failures. Ask it one ordinary question and the ungoverned answer comes back <strong>negative</strong>.</p>
+<p>A frozen bankruptcy research database, a public court docket, and two professional task-code vocabularies — three sources, three owners, none sharing an identifier. A stated, published rule resolves 9 of 25 caption-to-database firm pairs; the other 16 are reported with the reason they didn’t match, not dropped. The acquisition itself is reported at its actual state, not its finished one: 48 of 216 eligible cases searched so far.</p>
 </div>
 </section>
 </div>
-<p><a href="https://www.robbinsanalytics.com/cascadia-matter-ledger/" class="btn btn-primary">Can this number be trusted?</a></p>
+<p><a href="https://www.robbinsanalytics.com/cascadia-fee-examiner/" class="btn btn-primary">Three systems, one firm, no shared key</a></p>
 <hr>
 <section id="overview" class="level2">
 <h2 data-anchor-id="overview">Overview</h2>
-<p>Every previous module in this portfolio is a <strong>frozen snapshot</strong>: pulled once, validated once at build time, published. That proves a governed model can be built. It proves nothing about operating one.</p>
-<p>This module closes that gap. It is built on the Federal Judicial Center’s Integrated Database — <strong>10,960,173 civil case records</strong>, statistical years 1988 to 2026 — frozen at a stated date and verified by SHA-256 on every build. On top of it sit five certified measures with written definitions, named owners and source lineage. Alongside it runs a <strong>scheduled incremental pipeline</strong> that takes a bounded slice from a second source, derives a governed event from unstructured docket text, re-asserts the module’s invariants, and reconciles the increment against the frozen baseline — publishing the result whether it passes or not.</p>
-<p>The domain is legal operations, where the record of an event is a court filing rather than a row. That is the point: it is the hardest place to make “a governed number” mean anything.</p>
+<p>A fee examiner is the officer a bankruptcy court appoints to review what the professionals actually billed the estate — a cost record the examiner did not produce, checked against vocabularies the examiner did not write. This module takes that posture and builds the spine underneath it: a frozen copy of the <strong>Florida-UCLA-LoPucki Bankruptcy Research Database</strong>, <strong>fee applications and fee orders</strong> pulled from the public docket through CourtListener’s RECAP archive, and <strong>two professional task-code vocabularies</strong> — the ABA’s 1997 UTBMS code set and the U.S. Trustee’s Appendix B categories. Three sources, three owners, and none of them shares an identifier with another.</p>
+<p>Every other module in this portfolio proves a spine can be built from one source, or from sources that already share a key. This is the first to resolve identity where no key exists at all — the same firm named one way in an academic database’s editorial record and another way in a court filing’s caption, with nothing but the text itself to join them on. The answer here is not a similarity score. It is a <strong>stated, auditable rule</strong>, written down before a single row was resolved, plus a policy of publishing what the rule cannot resolve rather than dropping it or guessing at it.</p>
+<p>The population is 216 large, public-company Chapter 11 cases filed under the U.S. Trustee’s Appendix B fee guidelines. 48 have been searched against the docket archive so far; the rest are not “uncovered” — they are <strong>not yet searched</strong>, and the module keeps those two claims apart rather than letting one stand in for the other.</p>
 <hr>
 </section>
 <section id="why-this-stack" class="level2">
 <h2 data-anchor-id="why-this-stack">Why This Stack</h2>
-<p>The measures and the governance have to travel; the renderer does not. So there is no Power BI, no SQL Server, no paid service anywhere in it.</p>
-<p>Python freezes and verifies the source. <strong>DuckDB</strong> does the modelling directly over a two-gigabyte flat file — no warehouse, no cluster, eleven million rows on a desktop. The front end is static HTML and Apache ECharts on GitHub Pages. Every figure on the page is computed at build time from a certified measure; nothing is typed.</p>
-<p>That choice is deliberate for a reader who owns a BI estate: a semantic layer and a governance record that can be lifted into any tool are worth more than a dashboard that only exists in one.</p>
+<p><strong>Python’s standard library, plus two dependencies.</strong> <code>csv</code>, <code>json</code>, <code>hashlib</code>, <code>re</code>, <code>pathlib</code> and a handful of others do the conforming. The only third-party packages anywhere in the build are <code>requests</code>, to pull from the RECAP API under its own rate limit, and Playwright, to render the published charts through headless Chromium — the same renderer that produced the images the blind reading panel saw.</p>
+<p>There is deliberately no database. The frozen spine is 1,218 cases; the acquisition has retrieved 63 documents so far. At that scale a warehouse is scaffolding around a problem that was never about row count — every artifact is a flat CSV or JSON file, hash-verified where it is frozen and rebuilt from scratch where it is live. The hard part was never fitting the data anywhere; it was that three sources describing the same events do not agree on what to call them.</p>
 <hr>
 </section>
 <section id="architecture" class="level2">
 <h2 data-anchor-id="architecture">Architecture</h2>
-<p><strong>FJC Integrated Database (frozen, hash-verified) → Python transcode + quarantine → DuckDB conformed model → certified measures → static ECharts. CourtListener RECAP → scheduled incremental pull → governed event derivation → reconciliation against the frozen baseline.</strong></p>
+<p><strong>LoPucki Bankruptcy Research Database (frozen, hash-verified) → subject-matter exclusion → Appendix B-era filter → resumable RECAP acquisition → UTBMS/USTP crosswalk + entity resolution → fee-award reconciliation attempt → static ECharts, rendered by Playwright.</strong></p>
 <ul>
-<li><strong>Freeze.</strong> The snapshot is 314 MB compressed, 2.0 GB expanded. It is pulled once, hashed, and never re-downloaded; the build exits non-zero if the hash moves. Too large for git, so the freeze is asserted <strong>by hash</strong> rather than by committing the bytes — the module’s one deliberate departure from the house pattern, written into <code>.gitignore</code> and the source register rather than left implicit.</li>
-<li><strong>Conform.</strong> Dimensions are loaded <strong>from the publisher’s own codebook</strong>, never written as <code>CASE WHEN</code> blocks, and are effective-dated where a code changed meaning across the decades. Malformed records are quarantined with a reason and counted, never repaired.</li>
-<li><strong>Model.</strong> <code>fact_matter</code> — 1,405,046 status records covering 1,403,097 contract and commercial matters, with a written rule mapping a court docket onto a matter-shaped entity and stating what that mapping loses.</li>
-<li><strong>Measure.</strong> Five certified measures: time to termination, disposition mix, procedural progress at termination, filing volume trend, and open inventory with aging.</li>
-<li><strong>Operate.</strong> A twice-daily scheduled job takes a narrow slice of N.D. Cal. contract dockets, watermarked and resumable, designed inside a documented rate limit of 5 requests a minute and 125 a day.</li>
+<li><strong>Freeze.</strong> The BRD Cases table is pulled once and verified by SHA-256 against the frozen copy on every build. The as-of date, 2023-01-12, is the publisher’s own release date, not a retrieval date. 1,218 cases sit in the snapshot; 95 are excluded at an industry-code test before any measure runs, because no telecommunications debtor is analysed in this module; 216 fall inside the Appendix B era that makes fee data reachable at all.</li>
+<li><strong>Acquire.</strong> A resumable pull against CourtListener’s RECAP archive, bounded by a 50-requests-per-hour limit on either credential tier. 48 of 216 cases have been searched; 168 have not — reported as <strong>not yet searched</strong>, a different claim from <em>not covered</em>, never conflated with it. 6 searched cases were truncated at a page cap and are excluded from the reach rates rather than counted as complete.</li>
+<li><strong>Conform.</strong> Two independent resolution problems, run separately. The first crosswalks the ABA’s 1997 UTBMS task-code set against the U.S. Trustee’s Appendix B categories — 9 of 22 categories match exactly, 8 are renamed only, 2 are broader in Appendix B, and 3 have no UTBMS counterpart at all. The Trustee’s own adoption notice claims all but one of seven older categories carried forward; this build tested that claim instead of repeating it, and named the one: <em>Reporting</em>. The second resolves firm identity between the database’s editorial name and the docket caption’s filer string, by the rule below.</li>
+<li><strong>Reconcile.</strong> Fee applications are checked against fee orders on the same docket. None have paired cleanly yet — every unpaired row states which of three reasons stopped it, down to confirming that a missing order is a coverage gap in the public archive, not a parsing failure.</li>
+<li><strong>Publish.</strong> Three independent gates must pass before anything renders; <code>render_charts.py</code> then drives headless Chromium to produce the static charts.</li>
 </ul>
 <hr>
 </section>
-<section id="headline-skill-operating-a-governed-model-not-just-building-one" class="level2">
-<h2 data-anchor-id="headline-skill-operating-a-governed-model-not-just-building-one">Headline Skill: Operating a governed model, not just building one</h2>
-<p>The differentiator is not the model. It is that the pipeline <strong>tests itself on every run and publishes the result</strong>, including when the result is bad.</p>
-<ul>
-<li><strong>Every run re-asserts the module’s invariants</strong> — matter-key uniqueness, no negative durations, no closed matter without an end date, no excluded party surviving into the fact table — and writes a per-run record naming each check and its outcome.</li>
-<li><strong>The reconciliation is published whether or not it balances.</strong> It currently does not, by −714 matters, and the page states the four reasons in order of size rather than tuning them away.</li>
-<li><strong>A rate-limit stop is recorded as a stop, not a failure.</strong> The run log keeps stops, skips and genuine failures apart, because a surface that colours all three red trains its reader to ignore red.</li>
-</ul>
-<p><strong>The pipeline has caught four defects in itself</strong>, every one silent — nothing errored, and each would have under-collected or mis-stated while reporting success:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Defect</th>
-<th>How it surfaced</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>The watermark advanced past 36 dockets whose rows were never written</td>
-<td>The run’s own record showed the watermark had moved while the output file did not exist</td>
-</tr>
-<tr class="even">
-<td>A docket was called complete on its first page; 29 of the first 36 had more</td>
-<td>Row counts did not reconcile against the roster</td>
-</tr>
-<tr class="odd">
-<td>The request budget read the daily rate-limit window while the hourly window was exhausted</td>
-<td>The run spent itself on backoffs for requests that could not succeed</td>
-</tr>
-<tr class="even">
-<td>A tie-break depended on row order, which a parallel query engine does not guarantee</td>
-<td><strong>The independent re-derivation disagreed with the build by one record in 1,370,419</strong></td>
-</tr>
-</tbody>
-</table>
+<section id="headline-skill-resolving-firm-identity-and-publishing-what-it-cant" class="level2">
+<h2 data-anchor-id="headline-skill-resolving-firm-identity-and-publishing-what-it-cant">Headline Skill: Resolving Firm Identity, and Publishing What It Can’t</h2>
+<p>The differentiator is not that two names got matched. It is that the rule was written down before a single row was resolved, and that a near-100% match rate is treated as a warning sign rather than a win.</p>
+<p><strong>The rule.</strong> A candidate pair matches when the database’s short, editorial firm name is a <strong>token subset</strong> of the docket caption’s longer, formal name — never a similarity score, and never a single shared token unless that token is the database name’s only token and it is unique across every candidate caption on that docket. Both sides are normalized first: lowercased, accents stripped, “&amp;” expanded to “and,” entity suffixes dropped (LLP, LLC, PC, Ltd…), role words dropped (attorneys, counsel, debtors, committee…).</p>
+<p><strong>The result, and what happens to the rest.</strong> 9 of 25 caption-to-database pairs resolve. The other 16 are written to a named file with a stated reason, not discarded — most often that the database recorded only the lead firm on a case where the docket caption names a co-counsel, local, or conflicts firm the database never captured. They are one shared mechanism so far, not sixteen distinct diagnoses; telling them apart by actual cause is recorded as the resolver’s own next build. A hand-authored override file exists for pairs the rule itself cannot reach — built, and unused: 0 overrides in the current run.</p>
+<p><strong>Publishing the miss is the point.</strong> The module’s own governance record states the anti-goal directly: a match rate near 100% would be evidence the rule is too loose, not that the data is clean.</p>
 <hr>
 </section>
 <section id="validation" class="level2">
 <h2 data-anchor-id="validation">Validation</h2>
-<p><strong>Nothing publishes unless a second, independently written script agrees.</strong> <code>validate_measures.py</code> re-derives every published cell from the frozen file down a separate path — the party-name normalisation is implemented in SQL there and in Python in the build, deliberately, so one bug cannot reproduce itself in both. <strong>502 of 502 published cells reconcile exactly.</strong></p>
-<p>Two figures were deliberately <strong>not</strong> certified. The source carries an amount demanded and an amount recovered, and the publisher’s own codebook warns that courts have not always reported them in the stated units. A publisher’s accuracy warning is a reason to leave a field alone, not a caveat to print under a chart.</p>
-<p>The charts were then read by a <strong>blind four-seat reading panel</strong> — three domain seats cast from the decision the page serves, plus a canvas-only visualization reader, each given only the rendered images and no access to the design system, the build notes, the data or each other. It returned 16 findings and 10 defects; all ten were fixed before anything shipped. All four seats independently reported the same defect: a headline percentage that the picture did not actually draw.</p>
+<p><strong>Three independent gates, run separately from the scripts they check, and all three currently pass.</strong> One re-asserts the snapshot’s hash, confirms every file the freeze depends on is actually tracked by git rather than silently ignored, checks the output schema for an added as well as a forbidden column, and re-runs the subject-matter exclusion against the real output instead of trusting the run that produced it. A second is the same freeze-integrity script every Cascadia module carries, byte-identical by design. A third re-derives every published cell down a path implemented separately from the build — indexed and aggregated in a different order, so one bug cannot reproduce itself in both places.</p>
+<p><strong>The reconciliation check found something more interesting than a clean pass.</strong> Crossfooting a document’s two exhibits — its timekeeper table against its category summary — should confirm they describe the same hours. Run against the documents where both exhibits parsed, it found zero comparable, zero tied, and every one <em>not comparable</em>, for a stated reason: a final application’s category summary runs cumulative across the whole case, while its timekeeper table covers one billing period, and forcing those two into agreement would have been the wrong answer, not a passing check.</p>
+<p><strong>Then a blind reading panel read the rendered charts.</strong> Four seats, seeing only the five published chart images — no build notes, no source data, no brief, and no access to each other. They filed 15 findings. Every one was dispositioned on its own evidence: 9 fixed in the chart source; 2 that the panel had accepted with a stated reason were overridden into a real revision after the underlying data was checked directly; 1 resolved by a reclassification check neither the panel nor the original build could run; 3 rejected as filed.</p>
+<p><strong>Aaron then read the shipped rendering directly, in two further rounds the panel had no part in.</strong> The first caught what a fixed disposition list cannot: one chart’s court codes were unreadable to a reader who does not already have bankruptcy court abbreviations memorized, and three separate charts had each scaled their axis to a full category or pair count rather than to the tallest bar, leaving most of the plotted area empty. Both were fixed. The second round simplified further, dropping the unreadable court code from its chart entirely rather than only relabeling it.</p>
 <hr>
 </section>
 <section id="the-module" class="level2">
 <h2 data-anchor-id="the-module">The Module</h2>
-<p>One page, read top to bottom, arguing one thing.</p>
+<p>Five charts, read against a health surface generated by the same gates that must pass before anything publishes — nothing on the page is restated by hand.</p>
 <ul>
-<li><strong>The question, asked plainly</strong> — how long does it take to resolve a contract dispute in federal court?</li>
-<li><strong>The two answers.</strong> Against the raw frozen file: <strong>−742.3 days</strong>. Against the governed model: <strong>208 days</strong>. Both from the same file, retrieved once, on the same day, and neither query contains a mistake anyone would call obvious.</li>
-<li><strong>Why they differ</strong> — the seven-rule decomposition, in which one rule does nearly all the work and the other six are drawn at true scale rather than hidden.</li>
-<li><strong>The trap.</strong> Both versions of the trend agree that matters are getting slower. That is not reassurance: the broken records carry a sentinel year that falls off the end of any chart anyone would draw, so the defect is invisible in one cut of the data and catastrophic in another.</li>
-<li><strong>What the governed layer actually is</strong> — 43% of contract matters end before the issue is even joined; the median time to resolve runs from 98 to 307 days depending on the kind of dispute; 30.7% settle and 0.9% reach a jury verdict.</li>
-<li><strong>How it stays right</strong> — the live edge, the reconciliation, the run history, and the incident record.</li>
+<li><strong>Coverage by court</strong> — a ranked bar chart, one bar per court searched so far, reach from 0% to 100%. It carries one claim only: of the cases searched, how many returned at least one retrievable document. It says nothing about the cases not yet searched, and does not let a reader confuse the two.</li>
+<li><strong>Vocabulary crosswalk</strong> — UTBMS against Appendix B, across four categories: exact, renamed, broader, and no counterpart at all.</li>
+<li><strong>Firm-identity resolution</strong> — the 9 resolved pairs against the 16 that are not, all sharing one stated mechanism rather than sixteen separate diagnoses.</li>
+<li><strong>Staffing split</strong> — a single fee application’s own hours and fees, by role. A reading-panel question changed this chart: it reads as one document’s internal split, not a sampled pattern, because the other two in-scope filings contribute only a pooled paraprofessional line.</li>
+<li><strong>Award reconciliation</strong> — zero of eleven applications paired against what the court actually allowed, broken out by which of three reasons stopped each one. A follow-up check, prompted by the same panel question, confirmed the largest reason is a coverage gap in the public archive rather than a parser miss: the classifier found dozens of order-shaped docket entries correctly identified across the underlying dockets, every one marked unavailable — nobody has purchased and uploaded the document.</li>
 </ul>
+<p><strong>What it refuses to publish, and why.</strong> Total fees per case — the archive holds a minority of applications for most cases, so a total would sum an unknown fraction and read as complete. Anything at per-timekeeper grain — no per-person row exists anywhere in the pipeline; aggregation happens before anything is written. Anything cut by debtor identity — no output carries a party column. Awarded amounts as an input to any other measure — they are the reconciliation’s answer key, and an answer key used as an input stops being a check.</p>
 <hr>
 </section>
 <section id="roadmap" class="level2">
 <h2 data-anchor-id="roadmap">Roadmap</h2>
 <ul>
-<li>Widen the live slice beyond a single district once coverage is modelled rather than assumed.</li>
-<li>Carry the codebook’s disposition grouping into the dimension, so two categories that both read “other” stop needing a code number to tell them apart.</li>
-<li>Model RECAP coverage explicitly, so an observed motion count can become a certified measure rather than an observation.</li>
+<li>Continue the acquisition: 168 of 216 cases remain unsearched, bound by a 50-requests-per-hour limit. A quarterly coverage re-check is designed but not yet scheduled to run on its own.</li>
+<li>Classify the 16 unresolved firm pairs by actual cause — an abbreviation mismatch reads very differently from a firm the database never recorded at all — rather than the single shared mechanism they currently publish under.</li>
+<li>Extend entity resolution to debtor entities filed under one lead case, which this build does not attempt.</li>
 </ul>
 <hr>
 </section>
 <section id="tech-stack" class="level2">
 <h2 data-anchor-id="tech-stack">Tech Stack</h2>
 <div class="tech-chips">
-<p><span class="chip">Python</span> <span class="chip">DuckDB</span> <span class="chip">pandas</span> <span class="chip">FJC Integrated Database</span> <span class="chip">CourtListener API</span> <span class="chip">Apache ECharts</span> <span class="chip">Playwright</span> <span class="chip">Static HTML / JS</span> <span class="chip">GitHub Pages</span> <span class="chip">Git</span></p>
+<p><span class="chip">Python</span> <span class="chip">requests</span> <span class="chip">Playwright</span> <span class="chip">Apache ECharts</span> <span class="chip">Flat CSV / JSON</span> <span class="chip">Static HTML / JS</span> <span class="chip">GitHub Pages</span> <span class="chip">Git</span></p>
 </div>
 <hr>
 </section>
 <section id="disclosure" class="level2">
 <h2 data-anchor-id="disclosure">Disclosure</h2>
-<p>Built from public federal court records — the Federal Judicial Center’s Integrated Database, frozen at 2026-08-26 and verified by SHA-256, plus a bounded live increment from CourtListener’s RECAP archive. <strong>No client data and no proprietary data of any kind.</strong></p>
-<p>The model is aggregate by construction and carries no party column: nothing here is, or can be read as, an assessment of any identified party’s litigation exposure. The subject-matter exclusion that guarantees this is implemented in the pipeline, owned, and its measured limits are stated in the repository rather than asserted.</p>
-<p>Independent portfolio project. Nothing here is legal advice.</p>
+<p>Built from three public sources: the Florida-UCLA-LoPucki Bankruptcy Research Database, used under its published attribution terms; fee applications and fee orders retrieved from the federal courts’ public dockets via CourtListener’s RECAP archive; and two public task-code vocabularies — the U.S. Trustee’s Appendix B categories and the American Bar Association’s UTBMS code set, reproduced by the LEDES Oversight Committee with the ABA’s permission.</p>
+<p>No natural person’s name appears anywhere on the page or in the module’s data — not a timekeeper, not an attorney of record, not a judge — and no telecommunications debtor is analysed; that exclusion runs at the spine, before any measure, on an industry-code test rather than a name match. Nothing here is legal advice.</p>
+<p>Independent portfolio project.</p>
 <hr>
 </section>
 <section id="links" class="level2">
 <h2 data-anchor-id="links">Links</h2>
 <ul>
-<li><a href="https://www.robbinsanalytics.com/cascadia-matter-ledger/">Can this number be trusted?</a> — the live module: five charts, the health surface, and the incident record</li>
-<li><a href="https://github.com/RobbinsAnalytics/cascadia-matter-ledger">Build Repository</a> — the frozen source register, the governance documents, the certified measures and the independent validation</li>
+<li><a href="https://www.robbinsanalytics.com/cascadia-fee-examiner/">Three systems, one firm, no shared key</a> — the live module: five charts, the health surface, and what it refuses to publish</li>
+<li><a href="https://github.com/RobbinsAnalytics/cascadia-fee-examiner">Build Repository</a> — the source register, the entity-resolution rule, the reading-panel disposition, and the three validation gates</li>
 <li><a href="../cascadia.html">Cascadia Architecture Overview</a></li>
 </ul>
 
