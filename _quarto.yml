@@ -67,14 +67,14 @@ website:
         href: cascadia.qmd
       - text: "Projects"
         menu:
+          - text: "Cascadia Fee Examiner"
+            href: projects/cascadia-fee-examiner.qmd
           - text: "Cascadia Matter Ledger"
             href: projects/cascadia-matter-ledger.qmd
           - text: "Cascadia Control Tower"
             href: projects/cascadia-controltower.qmd
           - text: "Cascadia Deal Desk"
             href: projects/cascadia-dealdesk.qmd
-          - text: "Cascadia Fee Examiner"
-            href: projects/cascadia-fee-examiner.qmd
           - text: "Cascadia Finance"
             href: projects/cascadia-finance.qmd
           - text: "Cascadia BI Migration"

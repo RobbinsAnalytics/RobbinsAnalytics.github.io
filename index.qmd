@@ -80,7 +80,7 @@ Eleven million public federal civil case records, frozen and hash-verified, mode
 Supply Chain / Distribution-Centre Governance
 :::
 ### Cascadia Control Tower
-<span class="badge-status new">New</span><span class="badge-status">Live</span>
+<span class="badge-status">Live</span>
 
 Three fill rates computed from one dataset, all arithmetically correct and 7.0 points apart — and a split-shipment cost that none of them measures. Certifies one definition, prices the leak against a modelled no-split counterfactual, and shows why no single split threshold works across two banners. Synthetic operations, anchored to BLS, Census and SEC data.
 
@@ -95,7 +95,7 @@ Three fill rates computed from one dataset, all arithmetically correct and 7.0 p
 Pricing Governance / Financial Analytics
 :::
 ### Cascadia Deal Desk
-<span class="badge-status new">New</span><span class="badge-status">Live</span>
+<span class="badge-status">Live</span>
 
 Multi-quarter pricing agreements as a governed dataset rather than a signed PDF — every quote line matched to the agreement in force on its own date, the gap priced in dollars, and a materiality threshold you calibrate before you automate an alert. Synthetic data throughout.
 
