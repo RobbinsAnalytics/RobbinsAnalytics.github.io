@@ -1,0 +1,117 @@
+---
+title: "Cascadia Revenue Assurance"
+subtitle: "A synthetic subscription-licensing book whose contracted and billable quantities part ways under three asymmetric timing rules — derived twice, by two engines written to be different, and reconciled to the cell before anything is published."
+image: https://www.robbinsanalytics.com/assets/thumb-revenue-assurance.png
+image-alt: "Cascadia module card — title, one-line summary, and the data source."
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+Revenue Operations Analytics
+:::
+# Cascadia Revenue Assurance
+::: {.cs-hook}
+What a customer is contracted for and what they are billable for are different numbers. Three deliberately asymmetric timing rules — adds land at once, reductions wait for the next term boundary, cancellations ride out the term — keep the two apart for up to a year on an annual term, with nothing erroring and no register showing it. Everything here is synthetic: a seeded generator, stated as of 2026-06-30.
+:::
+:::
+
+[Contracted is not billable](https://www.robbinsanalytics.com/cascadia-revenue-assurance/){.btn .btn-primary}
+
+---
+
+## Overview
+
+Revenue assurance is the discipline of checking that what a business bills agrees with what its own rules say it should bill. This module builds the smallest version of that discipline that can still fail: one event stream, one set of timing rules, and an order register that will not tell you, on its own, where the two parted ways.
+
+The book is **synthetic throughout** — 4,000 customers invented by a seeded generator (seed 20260911), 3,800 of them through three invented channel partners and 200 buying direct, on monthly or annual terms, across a two-year window ending 2026-06-30. No real company, customer, partner, product or person is anywhere in it, and no figure on this page or the module's is a claim about any real book of business.
+
+The register records what each customer last asked for. The billable quantity is derived from the event stream and the rules — and under those rules, an add takes effect the day it lands, a reduction is refused mid-term and lands at the next boundary, and a cancellation rides out the term. On a monthly term that wait is at most a month. On an annual term it is up to a year. At 2026-06-30 the register showed **5,875 fewer licences** than were billable, worth **$59,264 a month** at the term rates, and in every one of the window's 24 months it showed fewer. Nothing errored. The gap is money correctly billed that the register does not show, and a query that reads the register's current quantity is wrong about the invoice in every month a deferral is outstanding.
+
+---
+
+## Why This Stack
+
+**Python, flat CSV, DuckDB, and static ECharts — with the database there for a second method, not for scale.** The whole book is 50,110 subscription-months, 23,508 term instances, 7,493 transactions and 2,398 invoice lines, which SQLite would hold without complaint. DuckDB is in the build because the module's correctness claim rests on two derivation paths that could not share a bug: a record-at-a-time state machine in pure Python, and a set-based SQL path built on window functions. Two engines that work in fundamentally different ways do not reproduce the same defect by accident.
+
+There is no server and no runtime fetch. Every conformed table is a flat CSV; every figure on the module's page is composed at build time from two measures manifests and passed to the page's scripts, which decide geometry only. The four charts are rendered through headless Chromium by Playwright, the same renderer the rest of the lightweight Cascadia pattern uses, and the same one that produced the images the blind reading panel saw.
+
+---
+
+## Architecture
+
+**Seeded generator → dimensions → entitlement engine (Path 1, Python) → four publish gates, one of them an independent re-derivation (Path 2, DuckDB) → page build → static ECharts, rendered by Playwright.**
+
+- **Generate.** A fixed seed produces the raw event stream and the book's population, frozen as their own commit and protected by the estate's freeze gate. Regenerating is a deliberate act with a commit that says so; nothing under the data folders is edited by hand.
+- **Conform.** Path 1 walks the event stream one transaction at a time and derives every term instance, every subscription-month with its billable and register quantities, every deferred order, and every invoice line. It applies a fixed vocabulary of seven rejection reasons in a stated precedence — 259 of 7,493 transactions were refused and kept in the register, not dropped — and it opens the renewals no transaction ever sent, flagging each one as derived on the row.
+- **Gate.** Four gates must exit zero before anything under the conformed folder is committed: a domain gate, the two-path comparison, the freeze gate, and a golden fixture. They are described under Validation.
+- **Publish.** A page builder composes every sentence and figure from the measures manifests alone, and a render script drives Chromium across a ladder of widths from 320 pixels up, asserting no horizontal overflow at any of them.
+
+---
+
+## Headline Skill: Two Paths Written to Be Different, and a Fixture Written Before Either
+
+The differentiator is not that the numbers were checked. It is how the check was constructed so that agreement means something.
+
+**Two derivation paths from one document.** A normative rules document was written first, before any engine code — the timing rules, the rejection vocabulary and its precedence, term boundaries, same-day ordering, proration by calendar day. Path 1, the Python state machine, implements it record by record. Path 2, set-based SQL in DuckDB, implements it with window functions, written from the rules document only and never by reading Path 1's code. The two share no helper module and no intermediate table, and Path 2 reads the raw event stream rather than Path 1's conformed output, so it cannot validate Path 1 against itself. If they disagree and each is a faithful reading of the document, the defect is in the document: it is fixed there first, then in both paths. On the current build they agree on **1,027,844 cells**.
+
+**A golden fixture, committed failing.** Fifteen hand-specified cases — among them a boundary-day order, a monthly term opened on the 31st, and a direct-channel customer — with every expected term, billing row, deferral and invoice line computed by hand, 117 expected rows in all, were committed before either engine existed. Both paths must pass it, and both do.
+
+**The renewals nobody sent.** No transaction marks a renewal; a renewal is implied by the absence of a cancellation. That is the rule, not a data gap, and the state machine opens the next term under it and flags every row that rests on one. 44.4% of all subscription-month rows, carrying 48.2% of billed dollars, are derived under that stated rule and say so — declared on the row, never hidden.
+
+**No correctness percentage exists, by decision.** The module's only correctness claim is that an independent re-derivation agrees on every cell and that the golden fixture passes. That is a statement about method. A figure that implied a comparison against some other implementation as ground truth would be presenting a ground truth the module does not have.
+
+---
+
+## Validation
+
+**Four gates, all green on the published build.** The domain gate runs ten checks the rules say must hold of the published tables — the gap never negative, no billing after a cancelled term's end, every derived term without an opening transaction and every observed term with one, invoice tie-out zero on every line, the as-of date agreeing across three files, the synthetic disclosure on every output document — and ends by regenerating the raw data from the seed into a temporary folder and diffing it byte for byte. The two-path comparison re-derives every published cell down the set-based path and stops the publish on the first mismatch; there were none. The estate's freeze gate checks the protected tree against a pinned baseline, with one declared exemption for the page's additive measures file, its reason printed on every run. The golden fixture, 117 expected rows, passes on both paths.
+
+**Then a blind reading panel read the rendered charts.** Four seats — three domain readers and one visualization reader — saw static renders of the page at 320 and 1,040 pixels and nothing else: no design system, no build notes, no source data, no stated finding, and no access to each other. They returned 26 findings. 20 changed the charts, 3 were accepted with a stated reason, and 3 were rejected with one, and every finding is recorded in the reviewer's own words in the module's chart review, with its disposition beside it.
+
+**Aaron then read the shipped rendering directly, in two rounds the panel had no part in, and both are applied.** One of them overrode a panel finding: the panel had asked that the lead chart's two panels keep one shared vertical scale, and the author's read of the render judged the dead space that scale produced a higher cost than cross-panel comparability for two ranges that differ five-fold. Each panel now takes its own scale, the chart's subtitle says so, and the override is recorded as a decision in the module's decision record rather than left to read as an oversight.
+
+---
+
+## The Module
+
+Four charts, each stating one claim in its title, read against a decision the page names on its first screen: whether to keep invoicing from the register's current quantity, or to derive the billable quantity from the event stream and the rules and reconcile the invoice to it.
+
+- **A reduction or cancellation takes effect after a median 16 days on a monthly term and a median 229 days on an annual one** — two distributions over the 1,460 deferred orders, each panel on its own scale. The wait is the rule's, not the customer's.
+- **5,618 of the 5,875 licences the register does not show at June 2026 are on annual terms, and 3,556 of them are cancellations still billing** — the June gap by term type and cause, in licences; $59,264 a month at the term rates. A register that goes to zero on the cancel date while billing continues for up to a year is the module's single largest source of gap, and a consequence of the rules rather than of any error.
+- **In every one of 24 months the register showed fewer licences than were billable; 5,875 fewer (5.7%) at June 2026** — register against effective, month by month, with the gap share drawn beneath. The book grows through the whole window, so the share is the figure to read; it peaked at 8.9% in January 2026.
+- **83% of monthly-term billing rows and 19% of annual-term rows sit in a term that auto-renewed with no order behind it** — by design; 44.4% of all rows, 48.2% of billed dollars. The blended figure hides two books: every monthly term after the first is an auto-renewal, and at most one annual renewal fits inside the window.
+
+**What it refuses to publish, and why.** Nothing per partner or per customer — the book is synthetic, and a per-partner cut would invite reading it as a real one. The question a revenue-operations reader asks next, *which partner*, is answerable from the conformed tables in the repository and is deliberately not answered on the page. No correctness percentage of any kind, for the reason given above.
+
+**What was checked and found to be nothing.** Every partner and every direct invoice line is a roll-up of subscription-months, re-derived through a second join: 2,398 lines, 0 with a non-zero tie-out. Published because the value of a reconciliation is the discipline of checking, not the size of what it finds.
+
+---
+
+## Tech Stack
+
+<div class="tech-chips">
+<span class="chip">Python</span>
+<span class="chip">DuckDB</span>
+<span class="chip">Playwright</span>
+<span class="chip">Apache ECharts</span>
+<span class="chip">Flat CSV / JSON</span>
+<span class="chip">Static HTML / JS</span>
+<span class="chip">GitHub Pages</span>
+<span class="chip">Git</span>
+</div>
+
+---
+
+## Disclosure
+
+Everything in this module is synthetic. Every customer, partner, subscription and transaction was produced by a seeded generator (seed 20260911) and is disclosed as such on every output; the three partner names are invented and resemble no real reseller, carrier or company. No real company, customer, partner, product, system or person appears anywhere in the module, its repository, or this page. It is a model of a problem shape, not a claim about how any real business operates, and nothing here is financial or legal advice.
+
+Independent portfolio project.
+
+---
+
+## Links
+
+- [Contracted is not billable](https://www.robbinsanalytics.com/cascadia-revenue-assurance/) — the live module: four charts, the decision they serve, and what the page refuses to show
+- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-revenue-assurance) — the normative rules document, both derivation paths, the golden fixture, the four gates, the reading-panel disposition and the decision record
+- [Cascadia Architecture Overview](../cascadia.qmd)

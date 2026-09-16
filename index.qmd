@@ -47,6 +47,21 @@ Cascadia is a portfolio built to be checked, not taken on faith. Each module car
 ::: {.g-col-12 .g-col-md-4}
 ::: {.project-card}
 ::: {.card-label}
+Revenue Operations Analytics
+:::
+### Cascadia Revenue Assurance
+<span class="badge-status new">New</span><span class="badge-status">Live</span>
+
+What a customer is contracted for and what they are billable for are different numbers. Three asymmetric timing rules — adds land at once, reductions wait for the term boundary, cancellations ride out the term — keep the two apart for up to a year, with nothing erroring and no register showing it: 5,875 licences at June 2026. Derived twice, by two engines written to be different, agreeing on every cell. Synthetic data throughout.
+
+[View Case Study](projects/cascadia-revenue-assurance.qmd){.btn .btn-primary .btn-sm}
+[Contracted is not billable](https://www.robbinsanalytics.com/cascadia-revenue-assurance/){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
 Legal Operations Analytics
 :::
 ### Cascadia Fee Examiner
@@ -65,7 +80,7 @@ A bankruptcy research database, a public court docket, and two task-code vocabul
 Legal Operations Analytics
 :::
 ### Cascadia Matter Ledger
-<span class="badge-status new">New</span><span class="badge-status">Live</span>
+<span class="badge-status">Live</span>
 
 Eleven million public federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures — then a scheduled pipeline that re-asserts its own invariants twice a day, reconciles against the frozen baseline, and publishes the failures. Ask it one ordinary question and the ungoverned answer comes back negative.
 
