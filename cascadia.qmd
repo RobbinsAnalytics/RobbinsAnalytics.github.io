@@ -13,6 +13,7 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 | Domain | Status | Stack | Data | Headline Skill |
 |---|---|---|---|---|
+| [Cascadia Revenue Assurance](projects/cascadia-revenue-assurance.qmd) | Live | Python → flat CSV → static ECharts, with a DuckDB re-derivation gate | Synthetic (seeded generator) — a subscription-licensing book; no real company, customer or partner | Two derivation paths from one rules document, agreeing on every cell; the renewals no transaction marked, derived and flagged |
 | [Cascadia Fee Examiner](projects/cascadia-fee-examiner.qmd) | Live | Python (stdlib) → flat CSV/JSON → static ECharts | LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B — public court and research records (real) | Entity resolution across sources with no shared key; publishing what it can't resolve |
 | [Cascadia Matter Ledger](projects/cascadia-matter-ledger.qmd) | Live | Python → DuckDB → static ECharts, plus a scheduled incremental pull | FJC Integrated Database and CourtListener RECAP — public federal court records (real) | Operating a governed model: a pipeline that re-asserts its own invariants and publishes the failures |
 | [Cascadia Control Tower](projects/cascadia-controltower.qmd) | Live | Python → DuckDB → dbt Core → static ECharts | Synthetic (seeded generator), anchored to BLS, Census and SEC XBRL | Metric certification / counterfactual costing |
@@ -33,10 +34,12 @@ Cascadia is a portfolio of end-to-end analytics work — building the data syste
 
 ## Three Patterns, One Standard
 
-**Lightweight analytical stack — Cascadia Deal Desk, Finance, Control Tower, Matter Ledger & Fee Examiner.**
-Three modules that need neither SQL Server nor Power BI: Python (pandas) conforms the data into a local star schema and renders a static, hostable page with Apache ECharts, with the dataset inlined at build time so no page fetches data at runtime. Finance pulls and freezes SEC EDGAR XBRL filings and labels every figure GAAP vs non-GAAP; Deal Desk matches quote lines against a governed agreement register and prices the gap in dollars; Control Tower certifies one of three competing fill-rate definitions and prices the split-shipment cost that none of them measures. Deal Desk and Control Tower ship ECharts with the page, so they run forever, offline, for free; Finance loads it from a CDN, so it needs the network to draw — and all three circulate as a link with nothing to install.
+**Lightweight analytical stack — Cascadia Deal Desk, Finance, Control Tower, Matter Ledger, Fee Examiner & Revenue Assurance.**
+Six modules that need neither SQL Server nor Power BI: Python (pandas) conforms the data into a local star schema and renders a static, hostable page with Apache ECharts, with the dataset inlined at build time so no page fetches data at runtime. Finance pulls and freezes SEC EDGAR XBRL filings and labels every figure GAAP vs non-GAAP; Deal Desk matches quote lines against a governed agreement register and prices the gap in dollars; Control Tower certifies one of three competing fill-rate definitions and prices the split-shipment cost that none of them measures. Deal Desk and Control Tower ship ECharts with the page, so they run forever, offline, for free; Finance loads it from a CDN, so it needs the network to draw — and all three circulate as a link with nothing to install.
 
 **Control Tower and Matter Ledger are the pattern's larger variant**, and they are two tenants of it rather than one exception. Both swap SQLite for **DuckDB** because the row counts stopped fitting the smaller engine — 621,942 order lines in one, 10,960,173 federal case records in the other. Control Tower adds **dbt Core** on top, 6 staging views, 9 marts and 69 data tests, because its transformation layer is worth a real framework. Matter Ledger does not: its modeling is a single conformance pass over a 2.0 GB flat file, and what it adds instead is a **live edge** — a scheduled incremental pull from a second source that reconciles against the frozen baseline on every run. The output in both cases is the same durable static page, which survives the warehouse being switched off.
+
+**Cascadia Revenue Assurance is DuckDB's third tenant, and takes it for a different reason: a second method, not scale.** Its book is 50,110 subscription-months, which the smaller engine would hold without complaint. What it needed was two derivation paths that could not share a bug — a record-at-a-time state machine in pure Python that derives every term, every billing row and every measure from the event stream, and a set-based SQL path in DuckDB that re-derives all of it with window functions. Both are written from one normative rules document and neither from the other's code; they share no helper and no intermediate table, and the second must agree with the first on every published cell before anything renders. The output is the pattern's usual durable static page: four ECharts charts, the dataset inlined at build time, rendered by Playwright.
 
 **Cascadia Fee Examiner is the pattern's leanest variant, and the one with no star schema at all.** Python's standard library does the conforming — no pandas, no database, nothing but hash-verified CSV and JSON — because the problem it solves was never about row count. The frozen spine is 1,218 cases; the live acquisition has retrieved dozens of documents so far. What it needed instead was a stated, published rule for resolving firm identity across three public sources that share no key, and a policy of publishing what that rule cannot resolve rather than dropping it or guessing. The only two third-party packages anywhere in the build are `requests`, to pull from a public docket archive under its own rate limit, and Playwright, the same renderer the rest of this pattern already uses to produce its static charts.
 
@@ -65,7 +68,7 @@ Most of these modules are frozen snapshots: pulled once, validated once at build
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Real data where it matters**
-CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is limited to the manufacturing simulation layer, purely for volume and anonymity.
+CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is confined to the seeded synthetic modules — Deal Desk, Control Tower and Revenue Assurance, each labelled as such on every surface — and the manufacturing simulation layer, purely for volume and anonymity.
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Repeatable builds**
@@ -73,7 +76,7 @@ Each domain rebuilds from scratch with one command — PowerShell for the SQL Se
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Honest about limits**
-Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values (like reconstructed fiscal quarters) are marked as derived.
+Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values — reconstructed fiscal quarters, or the auto-renewed terms in Cascadia Revenue Assurance that no transaction opened — are marked as derived, on the row.
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Ambiguity fails the build**
@@ -82,6 +85,10 @@ Where a rule cannot resolve a case, the run stops rather than guessing. Cascadia
 ::: {.g-col-12 .g-col-md-6}
 **Publishing an unresolved case is not a gap; dropping one would be**
 Deal Desk's ambiguity is internal, so failing the build is the right answer. Cascadia Fee Examiner's ambiguity is external — three public sources that share no key — where failing on every unresolved pair would mean never shipping. Its rule states exactly what counts as a match, resolves 9 of 25 firm pairs, and publishes the other 16 with the reason each one didn't match. A match rate near 100% would be evidence the rule is too loose, not that the data is clean.
+:::
+::: {.g-col-12 .g-col-md-6}
+**Agreeing with yourself is not validation**
+A second implementation that shares a helper shares its defects. Cascadia Revenue Assurance derives every published cell twice — a record-at-a-time state machine in Python and a set-based SQL path in DuckDB, each written from one normative rules document and neither from the other's code — and a hand-computed golden fixture of 15 cases was committed failing before either engine existed. If the two paths disagree, the defect is in the rules document, and it is fixed there before either path. The module publishes no correctness percentage of any kind, by decision: its only correctness claim is that the two paths agree on every cell and the fixture passes.
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Definitions live with the code that computes them**
