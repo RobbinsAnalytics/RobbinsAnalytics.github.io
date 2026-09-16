@@ -75,6 +75,15 @@ MODULES = [
     dict(slug="fee-examiner", data="LoPucki Bankruptcy Research Database · CourtListener RECAP · UTBMS/USTP", kicker="Cascadia Fee Examiner", title="Three systems, one firm, no shared key",
          line="A stated token-subset rule resolves 9 of 25 caption-to-database firm pairs; the other 16 are published, not dropped.",
          accent="lichen", motif="bars"),
+    # Glacier's third tenant (Finance and BI Migration are the first two). No
+    # slot was free when this landed: every hue but Rain carried two tenants
+    # and Evergreen three. Madrona would echo the module's own gap colour, but
+    # Control Tower sits directly beneath this card in the Featured grid;
+    # Glacier's two tenants are the farthest from it. "bars" because the lead
+    # chart is two distributions, a bar form, not the thesis chart's line pair.
+    dict(slug="revenue-assurance", data="synthetic (seeded generator) · no real company, customer or partner", kicker="Cascadia Revenue Assurance", title="Contracted is not billable",
+         line="A register that is quietly wrong for up to a year, by rule; two derivation paths written to be different, agreeing on every cell.",
+         accent="glacier", motif="bars"),
     dict(slug="bi-migration", data="program design · no production data", kicker="Cascadia BI Migration", title="Off legacy BI in 24 weeks",
          line="A governed, AI-assisted platform with a certified metric layer at the center.",
          accent="glacier", motif="steps"),
