@@ -1,0 +1,100 @@
+---
+title: "Build by Build"
+subtitle: "Nine Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names."
+image: https://www.robbinsanalytics.com/assets/thumb-build-by-build.png
+image-alt: "Cascadia portfolio card: title, one-line summary, and the data source."
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+Portfolio
+:::
+# Build by Build
+::: {.cs-hook}
+The portfolio proves nine modules, each testable on its own. It did not show that the test surface widened build by build, and a reader arriving cold had to derive that from nine separate pages. This page renders the progression directly: one table, nine builds by fourteen test surfaces, every filled cell a link to the file on GitHub that it names. It has no data of its own. Its source is the nine module repositories, read read-only, and nothing in it invents a score.
+:::
+:::
+
+[Two ways to check a number at build one. Fourteen had appeared by build nine.](https://www.robbinsanalytics.com/cascadia-build-by-build/){.btn .btn-primary}
+
+---
+
+## Overview
+
+Nine Cascadia modules, first commits from June to September 2026, and the tests each one could carry when it shipped. The page is one chart: a table of nine builds, oldest at the top, by fourteen test surfaces in bands named Data, Numbers, Presentation and Operation. A filled cell means the build carries that surface, and the cell links to the file. An empty cell means it does not, and the page says so plainly: an empty cell is a fact about what a build carried, never a debt. Older modules are not retrofitted to fill one.
+
+The title is the finding, and the table is built so a reader can check it. Build one could check a number two ways: a one-command rebuild and a row-count check on the load. By build nine, fourteen surfaces had appeared. A diamond marks the first build to carry each surface, so there are fourteen diamonds in the table, and counting them is the check. They arrive unevenly: two at build one, none at build two, one at build three, five at build four, none at build five, three at build six, two at build seven, none at build eight, one at build nine. Build four, the first Python build, is where the surface widens most. Build nine adds the last surface, a golden fixture written before the engines that had to pass it.
+
+The rows are grouped into five eras, named for what each brought under test: Enterprise-shaped, Frozen and validated, Reviewed and registered, Operated, Re-derived. Each era's block on the page says what could be tested, what still had to be trusted, and what the next era brought under test. The page ends in a walk through the nine modules, a line each, and stops there. In an interview the walk continues out loud; the page does not try to carry it.
+
+---
+
+## Why This Stack
+
+**Python, two JSON files, and a static HTML table. No chart library, no database, no server.** The matrix is categorical presence, not quantity: a cell holds a repository-relative path or it holds nothing. A table is the right instrument for that. Every cell can be a real link, which a drawn canvas cannot give; row and column headers are read by assistive technology without a second layer of markup; and there is no axis to mis-scale. ECharts, which carries every other lightweight Cascadia page, does not ship on this one because there is nothing for it to plot.
+
+The two data files are the page's only inputs. An inventory script reads the nine module repositories and writes one entry per build; a second file carries the design standard's version chain, dated from the standards repository's own log and drawn as a thin lane between the rows. The page builder composes the table, the era blocks and the walk from those files and from prose kept beside the builder. Re-running the inventory against an unchanged estate must produce a byte-identical file. That is the test that the inventory is a function of disk and not of the session that ran it.
+
+---
+
+## Architecture
+
+**Nine sibling repositories, read-only → inventory script → one frozen data file per lane → page builder → static HTML → renders at every breakpoint for the reading panel.**
+
+- **Read.** The inventory script opens each module repository on disk, takes its first and last commit dates from the log, and tests each of the fourteen surfaces against a written rule. It never writes in a sibling. Rows, eras and stack phrases are constants copied from the spec; the script infers nothing about membership, because an era inferred from what a repository carries would be a score under another name.
+- **Rule.** Each column has a paragraph in the repository's surfaces document saying what the surface is, what artifact counts as evidence, and what does not. A script that re-reads the first path's output does not count as an independent re-derivation; a golden fixture is a hand-specified expected set committed before the engine, not a snapshot taken after it. The paragraph is the rule, and the script implements the paragraph, never the other way round.
+- **Freeze.** The data files sit under the estate's freeze gate. The inventory was read on 2026-09-16 and is frozen at d967ff5; the provenance strip at the foot of the page states both. A new build's row is appended by re-running the inventory and committing the diff as a deliberate refreeze, never as a side effect.
+- **Build.** The page builder emits the table with its bands, its era group rows and the standard's lane; the era prose and the walk; and a full text description of the table for readers who cannot see it. A render script drives headless Chromium across the widths where the layout changes, so the reading panel saw the states a reader would.
+
+---
+
+## Headline Skill: Reading the Estate as Data Without Inventing a Score
+
+The differentiator is not the table. It is what the table refuses to do.
+
+**No score, level, weight or percentage exists in the data.** A cell is a path or it is empty. The obvious next move, a totals column or a running count down the right edge, was asked for by the reading panel, and its moderator rated it the single change with the most leverage. It is not there, by standing decision: a count would rank nine builds that were never built to be ranked, and a rank invites the reader to skip the cells. The counts live only in the title and in the text description, where they are claims the table lets a reader check.
+
+**Every filled cell links to the file it names, and that is the page's own test.** A validation script asserts that every path in every filled cell is a file tracked in its repository and that every row's repository exists. A filled cell that cannot be followed is a defect in the inventory, not a rendering choice.
+
+**Older modules are not retrofitted.** The enterprise-shaped builds carry the surfaces they shipped with and always will. Retrofitting a freeze file or a chart review onto a build that shipped without one would turn the matrix into a record of this month's housekeeping rather than of what each build could test when it shipped, and the page's one claim is about the second thing.
+
+**The rows are the time axis.** Ordered by first commit, grouped by era, with the standard's versions placed by date between them. The diamonds step to the right as the rows descend, and that stepping is the progression the portfolio could not show from nine separate pages.
+
+---
+
+## Validation
+
+**The gates.** The inventory validator checks that every filled cell names a file tracked in its repository, that every row's repository exists, that every row's era is one of the five, and that the dates are ordered. The freeze gate checks the two data files against the pinned baseline. The inventory re-run must be byte-identical to the committed file before a publish.
+
+**Then a blind reading panel read the rendered table.** Four seats saw static renders of the page at the widths where the layout changes and nothing else: no build notes, no data files, no stated finding, and no access to each other. They returned 15 findings, 11 of them defects, and 10 were fixed. Every finding is recorded in the reviewer's own words in the module's chart review, with its disposition beside it. The one change the panel weighted most, a count column, is the one the standing decisions forbid, and it is forwarded to the owner as a decision rather than quietly declined.
+
+**What the panel could not read.** The moderator's own finding moved the breakpoints, so the phone-width state the panel read is not the one that shipped. The chart review says so and offers a second round on that state; it does not claim the panel saw the shipped page.
+
+---
+
+## Tech Stack
+
+<div class="tech-chips">
+<span class="chip">Python</span>
+<span class="chip">Flat JSON</span>
+<span class="chip">Static HTML / CSS / JS</span>
+<span class="chip">Playwright</span>
+<span class="chip">GitHub Pages</span>
+<span class="chip">Git</span>
+</div>
+
+---
+
+## Disclosure
+
+Everything on the page is read from the nine module repositories and the standards repository, all public on GitHub, and nothing is invented: no score, no level, no weight, no percentage. The modules are independent portfolio projects, not client work, and the page says so under its title. Where a module's data is synthetic, that module's own page discloses it; this page makes no claim about any data, only about which files each repository carries. Nothing here is a claim about how any real business operates.
+
+Independent portfolio project.
+
+---
+
+## Links
+
+- [Build by Build](https://www.robbinsanalytics.com/cascadia-build-by-build/): the live page, the matrix, the five eras and the walk
+- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-build-by-build): the inventory script, the surface definitions, the two data files, the chart review with the reading panel's record, and the decision record
+- [Cascadia Architecture Overview](../cascadia.qmd)

@@ -67,6 +67,8 @@ website:
         href: cascadia.qmd
       - text: "Projects"
         menu:
+          - text: "Build by Build"
+            href: projects/cascadia-build-by-build.qmd
           - text: "Cascadia Revenue Assurance"
             href: projects/cascadia-revenue-assurance.qmd
           - text: "Cascadia Fee Examiner"

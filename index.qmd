@@ -17,8 +17,6 @@ Business Intelligence & Analytics Leader
 :::
 
 ::: {.hero-motto}
-Proof is the Point
-
 ::: {.hero-motto-sub}
 *Trust What You Can Test*
 :::
@@ -36,7 +34,7 @@ Proof is the Point
 
 ## The Cascadia Portfolio {#cascadia-portfolio}
 
-Cascadia is a portfolio built to be checked, not taken on faith. Each module carries its own governance layer — certified measures, frozen baselines, a validation suite that fails the build rather than ship a number I can't defend — so a claim on this site is a claim you can verify against the data behind it, not just read. The stack varies by problem: a governed SQL Server → Microsoft Fabric → Power BI enterprise pipeline, pragmatic local SQL Server + Power BI, lightweight Python → DuckDB/SQLite → static ECharts on real SEC, federal court, and economic data, and the program side of BI — platform migration and metric governance. The through-line isn't the architecture; it's that every number on every page can be tested against its source.
+Cascadia is a portfolio built to be checked, not taken on faith. Which tests each module could carry, build by build, is one page: [Build by Build](projects/cascadia-build-by-build.qmd).
 
 ---
 
