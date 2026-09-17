@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Combinatorics of Sibling Conflict – Robbins Analytics</title>
+<title>Build by Build – Robbins Analytics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -86,45 +86,16 @@ ul.task-list li input[type="checkbox"] {
 <link rel="icon" href="../assets/brand/favicon-16.png" sizes="16x16">
 <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="The Combinatorics of Sibling Conflict – Robbins Analytics">
-<meta property="og:description" content="How many ways can n children take sides against each other? The answer is a Stirling number, and it grows exponentially.">
-<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-sibling-conflict.png">
+<meta property="og:title" content="Build by Build – Robbins Analytics">
+<meta property="og:description" content="Nine Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names.">
+<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-build-by-build.png">
 <meta property="og:site_name" content="Robbins Analytics">
-<meta property="og:image:alt" content="Cascadia Curiosities card — title, one-line summary, and the source.">
-<meta name="twitter:title" content="The Combinatorics of Sibling Conflict – Robbins Analytics">
-<meta name="twitter:description" content="How many ways can n children take sides against each other? The answer is a Stirling number, and it grows exponentially.">
-<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-sibling-conflict.png">
-<meta name="twitter:image:alt" content="Cascadia Curiosities card — title, one-line summary, and the source.">
+<meta property="og:image:alt" content="Cascadia portfolio card: title, one-line summary, and the data source.">
+<meta name="twitter:title" content="Build by Build – Robbins Analytics">
+<meta name="twitter:description" content="Nine Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names.">
+<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-build-by-build.png">
+<meta name="twitter:image:alt" content="Cascadia portfolio card: title, one-line summary, and the data source.">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -244,8 +215,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The Combinatorics of Sibling Conflict</h1>
-<p class="subtitle lead">How many ways can n children take sides against each other? The answer is a Stirling number, and it grows exponentially.</p>
+<h1 class="title">Build by Build</h1>
+<p class="subtitle lead">Nine Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names.</p>
 </div>
 
 
@@ -264,138 +235,76 @@ window.Quarto = {
 
 <div class="case-study-header">
 <div class="cs-domain">
-<p>Mathematics · A pet project</p>
+<p>Portfolio</p>
 </div>
-<section id="the-combinatorics-of-sibling-conflict" class="level1">
-<h1>The Combinatorics of Sibling Conflict</h1>
+<section id="build-by-build" class="level1">
+<h1>Build by Build</h1>
 <div class="cs-hook">
-<p>I have four kids, each two years apart, and I grew up with only one sibling. The number of ways they could get into a fight seemed never-ending, so I counted it. The answer for four is 25.</p>
+<p>The portfolio proves nine modules, each testable on its own. It did not show that the test surface widened build by build, and a reader arriving cold had to derive that from nine separate pages. This page renders the progression directly: one table, nine builds by fourteen test surfaces, every filled cell a link to the file on GitHub that it names. It has no data of its own. Its source is the nine module repositories, read read-only, and nothing in it invents a score.</p>
 </div>
 </section>
 </div>
-<p><a href="https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf" class="btn btn-primary">Read the Paper (PDF)</a> <a href="https://github.com/RobbinsAnalytics/cascadia-curiosities" class="btn btn-outline-secondary">Repository</a></p>
-<p>Preprint — queried to <em>The Mathematical Intelligencer</em> on 2026-08-12, reply pending. Not published, not peer-reviewed. Revised since the query, so the PDF here is newer than the one the editors have; the as-queried version is kept in the repository.</p>
+<p><a href="https://www.robbinsanalytics.com/cascadia-build-by-build/" class="btn btn-primary">Two ways to check a number at build one. Fourteen had appeared by build nine.</a></p>
 <hr>
-<section id="the-question" class="level2">
-<h2 data-anchor-id="the-question">The question</h2>
-<p>A <strong>conflict configuration</strong> is an unordered pair of disjoint, nonempty subsets of the n children — the two sides — with everyone else uninvolved. That third category is the interesting part: a child can be on side A, on side B, or out of it entirely.</p>
+<section id="overview" class="level2">
+<h2 data-anchor-id="overview">Overview</h2>
+<p>Nine Cascadia modules, first commits from June to September 2026, and the tests each one could carry when it shipped. The page is one chart: a table of nine builds, oldest at the top, by fourteen test surfaces in bands named Data, Numbers, Presentation and Operation. A filled cell means the build carries that surface, and the cell links to the file. An empty cell means it does not, and the page says so plainly: an empty cell is a fact about what a build carried, never a debt. Older modules are not retrofitted to fill one.</p>
+<p>The title is the finding, and the table is built so a reader can check it. Build one could check a number two ways: a one-command rebuild and a row-count check on the load. By build nine, fourteen surfaces had appeared. A diamond marks the first build to carry each surface, so there are fourteen diamonds in the table, and counting them is the check. They arrive unevenly: two at build one, none at build two, one at build three, five at build four, none at build five, three at build six, two at build seven, none at build eight, one at build nine. Build four, the first Python build, is where the surface widens most. Build nine adds the last surface, a golden fixture written before the engines that had to pass it.</p>
+<p>The rows are grouped into five eras, named for what each brought under test: Enterprise-shaped, Frozen and validated, Reviewed and registered, Operated, Re-derived. Each era’s block on the page says what could be tested, what still had to be trusted, and what the next era brought under test. The page ends in a walk through the nine modules, a line each, and stops there. In an interview the walk continues out loud; the page does not try to carry it.</p>
+<hr>
 </section>
-<section id="the-result" class="level2">
-<h2 data-anchor-id="the-result">The result</h2>
-<p>Each child goes to side A, side B, or neither, giving 3<sup>n</sup> assignments. Drop the ones where a side is empty (2·2<sup>n</sup> − 1, by inclusion–exclusion), halve it because the labels A and B are interchangeable, and you get:</p>
-<p><span class="math display">\[C(n) = \frac{3^n - 2 \cdot 2^n + 1}{2}\]</span></p>
-<p>Which is not an ad hoc expression — it’s <strong>S(n+1, 3)</strong>, a Stirling number of the second kind, <a href="https://oeis.org/A000392">OEIS A000392</a>.</p>
-<p>The obvious thing to compare it against is Bossard’s 1945 count of family relationships, n(n−1)/2. I had those two side by side as rival quantities until a reader pointed out that they aren’t: a sibling pair is <em>precisely</em> a configuration in which both sides are single children. The pairs don’t run alongside C(n), they sit inside it. Everything else in C(n) is a split where at least one side is a bloc.</p>
-<!-- Below 840px the web render (648px, authored at 2x for a 324px column);
-     above it the design render. The design render's provenance strip only
-     clears the 12px type floor once its column reaches ~712px (chart-review.md
-     note 8). Note 8 put the breakpoint at 760px assuming the column grows with
-     the viewport, but Bootstrap's 768px container snap makes it SHRINK there --
-     measured, the column goes 710px at vw=761 down to 666px at vw=768, and does
-     not pass 712px until vw~820. 840 is that crossover plus margin for a
-     scrollbar. Re-measure if the theme's container widths ever change. -->
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><picture>
-<source media="(max-width: 840px)" srcset="../assets/sibling-conflict-n3-web.png">
-<img src="../assets/sibling-conflict-n3.png" class="img-fluid figure-img" alt="Diagram titled 'Three children can take sides in 6 ways, and 3 of those are one against one.' Six small groups of three lettered circles A, B and C. A filled green circle is a child on one side, a ringed circle a child on the other, a grey circle a child staying out. The first row, headed 'One against one — the sibling pairs (3 of 6)', shows A vs B with C staying out, A vs C with B staying out, and B vs C with A staying out. The second row, headed 'One against two (3)', shows A vs B+C, B vs A+C and C vs A+B, each with nobody left out. A note states that A vs B and B vs A are the same split and are counted once. Source strip: all 6 configurations for three children, enumerated, computed 2026-08-13, OEIS A000392, S(n+1, 3), exact counts, nothing estimated.">
-</picture></p>
-<figcaption>All six ways three children can take sides. The three one-against-one cases in the top row are exactly the three sibling pairs — the subset drawn rather than asserted.</figcaption>
-</figure>
-</div>
-<table class="caption-top table">
-<caption>Conflict configurations C(n) = S(n+1, 3), against the one-against-one configurations they contain, n(n−1)/2 — Bossard’s sibling pairs. All values exact.</caption>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Children n</th>
-<th style="text-align: right;">Conflict configurations C(n)</th>
-<th style="text-align: right;">One against one, n(n−1)/2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">90</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">301</td>
-<td style="text-align: right;">15</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">966</td>
-<td style="text-align: right;">21</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">3,025</td>
-<td style="text-align: right;">28</td>
-</tr>
-</tbody>
-</table>
-<p>Of the 25 ways four children can take sides, 6 are one against one. Of the 3,025 ways eight children can, 28 are. The containing space grows exponentially; the thin slice of it where nobody sides with anybody grows quadratically.</p>
-<!-- Same breakpoint and reasoning as above. -->
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><picture>
-<source media="(max-width: 840px)" srcset="../assets/sibling-conflict-figureA-web.png">
-<img src="../assets/sibling-conflict-figureA.png" class="img-fluid figure-img" alt="Line chart titled 'Of the 25 ways four children can take sides, 6 are one against one.' Horizontal axis, number of children, 1 to 4; vertical axis 0 to about 25. A solid green line, labelled 'All ways to take sides: 25' at its right end, runs 0, 1, 6, 25. A dashed grey line, labelled 'One against one: 6', runs 0, 1, 3, 6. The two lines coincide to two children and part from three onward, where the green line is labelled 6 and the grey line 3. Subtitles read 'Every possible split into two opposing sides, with anyone left over staying out of it' and 'These are possibilities, not arguments that happened.' Source strip: OEIS A000392, S(n+1, 3); one against one is n(n-1)/2; computed 2026-08-12; exact counts, nothing estimated.">
-</picture></p>
-<figcaption>The range most families are actually in, n = 1 to 4, with every value readable.</figcaption>
-</figure>
-</div>
-<!-- Same breakpoint and reasoning as above. -->
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><picture>
-<source media="(max-width: 840px)" srcset="../assets/sibling-conflict-figure1-web.png">
-<img src="../assets/sibling-conflict-figure1.png" class="img-fluid figure-img" alt="Line chart titled 'Of the 3,025 ways eight children can take sides, just 28 are one against one.' Horizontal axis, number of children, 1 to 8; vertical axis 0 to 3,000. A solid green line, labelled 'All ways to take sides: 3,025' at its right end, runs along the axis to four children then climbs steeply through labelled values 90, 301 and 966. A dashed grey line, labelled 'One against one: 28', stays flat against the axis for its whole length. An italic note reads 'Each child multiplies the total: 6x at first, nearer 3x by eight.' Subtitles read 'Every possible split into two opposing sides, with anyone left over staying out of it' and 'These are possibilities, not arguments that happened.' Source strip: OEIS A000392, S(n+1, 3); one against one is n(n-1)/2; computed 2026-08-12; exact counts, nothing estimated.">
-</picture></p>
-<figcaption>The same two counts out to n = 8, where the shape of the growth takes over.</figcaption>
-</figure>
+<section id="why-this-stack" class="level2">
+<h2 data-anchor-id="why-this-stack">Why This Stack</h2>
+<p><strong>Python, two JSON files, and a static HTML table. No chart library, no database, no server.</strong> The matrix is categorical presence, not quantity: a cell holds a repository-relative path or it holds nothing. A table is the right instrument for that. Every cell can be a real link, which a drawn canvas cannot give; row and column headers are read by assistive technology without a second layer of markup; and there is no axis to mis-scale. ECharts, which carries every other lightweight Cascadia page, does not ship on this one because there is nothing for it to plot.</p>
+<p>The two data files are the page’s only inputs. An inventory script reads the nine module repositories and writes one entry per build; a second file carries the design standard’s version chain, dated from the standards repository’s own log and drawn as a thin lane between the rows. The page builder composes the table, the era blocks and the walk from those files and from prose kept beside the builder. Re-running the inventory against an unchanged estate must produce a byte-identical file. That is the test that the inventory is a function of disk and not of the session that ran it.</p>
+<hr>
+</section>
+<section id="architecture" class="level2">
+<h2 data-anchor-id="architecture">Architecture</h2>
+<p><strong>Nine sibling repositories, read-only → inventory script → one frozen data file per lane → page builder → static HTML → renders at every breakpoint for the reading panel.</strong></p>
+<ul>
+<li><strong>Read.</strong> The inventory script opens each module repository on disk, takes its first and last commit dates from the log, and tests each of the fourteen surfaces against a written rule. It never writes in a sibling. Rows, eras and stack phrases are constants copied from the spec; the script infers nothing about membership, because an era inferred from what a repository carries would be a score under another name.</li>
+<li><strong>Rule.</strong> Each column has a paragraph in the repository’s surfaces document saying what the surface is, what artifact counts as evidence, and what does not. A script that re-reads the first path’s output does not count as an independent re-derivation; a golden fixture is a hand-specified expected set committed before the engine, not a snapshot taken after it. The paragraph is the rule, and the script implements the paragraph, never the other way round.</li>
+<li><strong>Freeze.</strong> The data files sit under the estate’s freeze gate. The inventory was read on 2026-09-16 and is frozen at d967ff5; the provenance strip at the foot of the page states both. A new build’s row is appended by re-running the inventory and committing the diff as a deliberate refreeze, never as a side effect.</li>
+<li><strong>Build.</strong> The page builder emits the table with its bands, its era group rows and the standard’s lane; the era prose and the walk; and a full text description of the table for readers who cannot see it. A render script drives headless Chromium across the widths where the layout changes, so the reading panel saw the states a reader would.</li>
+</ul>
+<hr>
+</section>
+<section id="headline-skill-reading-the-estate-as-data-without-inventing-a-score" class="level2">
+<h2 data-anchor-id="headline-skill-reading-the-estate-as-data-without-inventing-a-score">Headline Skill: Reading the Estate as Data Without Inventing a Score</h2>
+<p>The differentiator is not the table. It is what the table refuses to do.</p>
+<p><strong>No score, level, weight or percentage exists in the data.</strong> A cell is a path or it is empty. The obvious next move, a totals column or a running count down the right edge, was asked for by the reading panel, and its moderator rated it the single change with the most leverage. It is not there, by standing decision: a count would rank nine builds that were never built to be ranked, and a rank invites the reader to skip the cells. The counts live only in the title and in the text description, where they are claims the table lets a reader check.</p>
+<p><strong>Every filled cell links to the file it names, and that is the page’s own test.</strong> A validation script asserts that every path in every filled cell is a file tracked in its repository and that every row’s repository exists. A filled cell that cannot be followed is a defect in the inventory, not a rendering choice.</p>
+<p><strong>Older modules are not retrofitted.</strong> The enterprise-shaped builds carry the surfaces they shipped with and always will. Retrofitting a freeze file or a chart review onto a build that shipped without one would turn the matrix into a record of this month’s housekeeping rather than of what each build could test when it shipped, and the page’s one claim is about the second thing.</p>
+<p><strong>The rows are the time axis.</strong> Ordered by first commit, grouped by era, with the standard’s versions placed by date between them. The diamonds step to the right as the rows descend, and that stepping is the progression the portfolio could not show from nine separate pages.</p>
+<hr>
+</section>
+<section id="validation" class="level2">
+<h2 data-anchor-id="validation">Validation</h2>
+<p><strong>The gates.</strong> The inventory validator checks that every filled cell names a file tracked in its repository, that every row’s repository exists, that every row’s era is one of the five, and that the dates are ordered. The freeze gate checks the two data files against the pinned baseline. The inventory re-run must be byte-identical to the committed file before a publish.</p>
+<p><strong>Then a blind reading panel read the rendered table.</strong> Four seats saw static renders of the page at the widths where the layout changes and nothing else: no build notes, no data files, no stated finding, and no access to each other. They returned 15 findings, 11 of them defects, and 10 were fixed. Every finding is recorded in the reviewer’s own words in the module’s chart review, with its disposition beside it. The one change the panel weighted most, a count column, is the one the standing decisions forbid, and it is forwarded to the owner as a decision rather than quietly declined.</p>
+<p><strong>What the panel could not read.</strong> The moderator’s own finding moved the breakpoints, so the phone-width state the panel read is not the one that shipped. The chart review says so and offers a second round on that state; it does not claim the panel saw the shipped page.</p>
+<hr>
+</section>
+<section id="tech-stack" class="level2">
+<h2 data-anchor-id="tech-stack">Tech Stack</h2>
+<div class="tech-chips">
+<p><span class="chip">Python</span> <span class="chip">Flat JSON</span> <span class="chip">Static HTML / CSS / JS</span> <span class="chip">Playwright</span> <span class="chip">GitHub Pages</span> <span class="chip">Git</span></p>
 </div>
 <hr>
 </section>
-<section id="what-it-doesnt-claim" class="level2">
-<h2 data-anchor-id="what-it-doesnt-claim">What it doesn’t claim</h2>
-<p>It counts a <strong>possibility space</strong> — not how often siblings actually fight, how badly, or how any of it turns out. Plenty of big families are close and plenty of small ones aren’t.</p>
-<p>It’s also not a novelty claim over the field. Bossard (1945) counted family relationships and Kephart (1950) extended that to subgroupings; the paper claims only to extend that line to <em>opposing-sides</em> configurations, and to say plainly that Bossard’s count sits inside the new one rather than beside it.</p>
-<p>The counts were verified two ways — brute-force enumeration of all 3<sup>n</sup> assignments for n = 1–8, and the closed form against OEIS. The figures went through four rounds of blind reading panels; the third is what caught the subset error above. The records are in the repository.</p>
+<section id="disclosure" class="level2">
+<h2 data-anchor-id="disclosure">Disclosure</h2>
+<p>Everything on the page is read from the nine module repositories and the standards repository, all public on GitHub, and nothing is invented: no score, no level, no weight, no percentage. The modules are independent portfolio projects, not client work, and the page says so under its title. Where a module’s data is synthetic, that module’s own page discloses it; this page makes no claim about any data, only about which files each repository carries. Nothing here is a claim about how any real business operates.</p>
+<p>Independent portfolio project.</p>
 <hr>
 </section>
 <section id="links" class="level2">
 <h2 data-anchor-id="links">Links</h2>
 <ul>
-<li><a href="https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf">The Paper (PDF)</a> — four figures and one table, including two worked examples not shown here</li>
-<li><a href="https://github.com/RobbinsAnalytics/cascadia-curiosities">Repository</a> — manuscript source, figure build scripts, chart review and panel returns</li>
-<li><a href="https://oeis.org/A000392">OEIS A000392</a> — the sequence, S(n+1, 3)</li>
+<li><a href="https://www.robbinsanalytics.com/cascadia-build-by-build/">Build by Build</a>: the live page, the matrix, the five eras and the walk</li>
+<li><a href="https://github.com/RobbinsAnalytics/cascadia-build-by-build">Build Repository</a>: the inventory script, the surface definitions, the two data files, the chart review with the reading panel’s record, and the decision record</li>
+<li><a href="../cascadia.html">Cascadia Architecture Overview</a></li>
 </ul>
 
 
