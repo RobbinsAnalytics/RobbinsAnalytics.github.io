@@ -88,14 +88,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="The Cascadia Family – Robbins Analytics">
-<meta property="og:description" content="Different tools for different problems — one standard of rigor, governance, and honesty about data.">
+<meta property="og:description" content="Different tools for different problems, one standard of rigor, governance, and honesty about data.">
 <meta property="og:image" content="https://www.robbinsanalytics.com/assets/cascadia_analytics_tech_stack.svg">
 <meta property="og:site_name" content="Robbins Analytics">
-<meta property="og:image:alt" content="Architecture diagram: SQL Server source systems feed a Microsoft Fabric medallion lakehouse — Bronze, Silver, Gold — which is surfaced through a Power BI Direct Lake semantic model.">
+<meta property="og:image:alt" content="Architecture diagram: SQL Server source systems feed a Microsoft Fabric medallion lakehouse of Bronze, Silver and Gold layers, which is surfaced through a Power BI Direct Lake semantic model.">
 <meta name="twitter:title" content="The Cascadia Family – Robbins Analytics">
-<meta name="twitter:description" content="Different tools for different problems — one standard of rigor, governance, and honesty about data.">
+<meta name="twitter:description" content="Different tools for different problems, one standard of rigor, governance, and honesty about data.">
 <meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/cascadia_analytics_tech_stack.svg">
-<meta name="twitter:image:alt" content="Architecture diagram: SQL Server source systems feed a Microsoft Fabric medallion lakehouse — Bronze, Silver, Gold — which is surfaced through a Power BI Direct Lake semantic model.">
+<meta name="twitter:image:alt" content="Architecture diagram: SQL Server source systems feed a Microsoft Fabric medallion lakehouse of Bronze, Silver and Gold layers, which is surfaced through a Power BI Direct Lake semantic model.">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -216,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">The Cascadia Family</h1>
-<p class="subtitle lead">Different tools for different problems — one standard of rigor, governance, and honesty about data.</p>
+<p class="subtitle lead">Different tools for different problems, one standard of rigor, governance, and honesty about data.</p>
 </div>
 
 
@@ -233,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Cascadia is a portfolio of end-to-end analytics work: building the data systems, and building the metric and governance layers that decide what the numbers on top of them mean. The pieces don’t share one architecture; they share a standard. Each uses the tools that fit its problem and its scale, from a full enterprise Microsoft BI stack to a few hundred lines of Python to a BI-platform migration program. What stays constant: dimensional modeling done properly, data governance that is honest about what the source does and doesn’t say, and reporting a non-technical audience can actually act on.</p>
+<p>Cascadia is a portfolio of end-to-end analytics work: the data systems, and the metric and governance layers that decide what the numbers on top of them mean. The pieces do not share an architecture. They share a standard, and each uses the tools that fit its problem and its scale.</p>
 <hr>
 <section id="how-i-built-this" class="level2">
 <h2 data-anchor-id="how-i-built-this">How I Built This</h2>
@@ -241,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Two controls stand over that arrangement, and every module passes both before it ships.</p>
 <p><strong>Every certified measure is validated independently against raw SQL.</strong> The check is written against the definition, not against the code that implemented it, so a published figure reconciles to source or the build does not ship.</p>
 <p><strong>Every chart is scored against a written visualization standard before it ships</strong>, including a blind reading panel: the reviewers see only the rendered chart, with no title and no framing from me, and report back what they think it says. The blind panel is my own addition to the standard.</p>
-<p>What the builds are allowed to read is a boundary rather than a limitation. Three sources: the specifications, data models and standards written for these builds; public datasets from CMS, SEC EDGAR, NASA and BLS; and synthetic operational data, labelled as synthetic on every page that shows it. No confidential internal business data goes into any of it, deliberately.</p>
+<p>What the builds are allowed to read is a boundary rather than a limitation. Three sources: the specifications, data models and standards written for these builds; public datasets from CMS, SEC EDGAR, NASA and BLS; and synthetic operational data, labeled as synthetic on every page that shows it. No confidential internal business data goes into any of it, deliberately.</p>
 <p>One failure is worth naming, because it is the honest shape of an AI failure rather than the dramatic one. Bumping a version number across a build is the kind of mechanical edit that looks safe to delegate. Twice in two days an agent-executed bump left stale references behind, and the second pass corrected two of them while creating four more. Nothing errored. Nothing looked broken. Any check that only asks whether the code still runs would have passed all four times.</p>
 <p>What catches it is grepping for the previous version before calling the bump finished, and then reading every surviving hit rather than counting them, because most surviving mentions of an old version are supposed to survive.</p>
 <p>That control is still an instruction and not an automated check, and an instruction is precisely the control that had already failed twice. The automated version of it is written up as a proposal. It is not built.</p>
@@ -265,21 +265,21 @@ ul.task-list li input[type="checkbox"] {
 <td><a href="./projects/cascadia-revenue-assurance.html">Cascadia Revenue Assurance</a></td>
 <td>Published</td>
 <td>Python → flat CSV → static ECharts, with a DuckDB re-derivation gate</td>
-<td>Synthetic (seeded generator) — a subscription-licensing book; no real company, customer or partner</td>
-<td>Two derivation paths from one rules document, agreeing on every cell; the renewals no transaction marked, derived and flagged</td>
+<td>Synthetic (seeded generator): a subscription-licensing book, with no real company, customer or partner</td>
+<td>Two derivation paths from one rules document, agreeing on every cell; the auto-renewed terms no transaction marked, derived and flagged</td>
 </tr>
 <tr class="even">
 <td><a href="./projects/cascadia-fee-examiner.html">Cascadia Fee Examiner</a></td>
 <td>Published</td>
 <td>Python (stdlib) → flat CSV/JSON → static ECharts</td>
-<td>LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B — public court and research records (real)</td>
+<td>LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B. Public court and research records (real)</td>
 <td>Entity resolution across sources with no shared key; publishing what it can’t resolve</td>
 </tr>
 <tr class="odd">
 <td><a href="./projects/cascadia-matter-ledger.html">Cascadia Matter Ledger</a></td>
 <td>Published</td>
 <td>Python → DuckDB → static ECharts, plus a scheduled incremental pull</td>
-<td>FJC Integrated Database and CourtListener RECAP — public federal court records (real)</td>
+<td>FJC Integrated Database and CourtListener RECAP. Public federal court records (real)</td>
 <td>Operating a governed model: a pipeline that re-asserts its own invariants and publishes the failures</td>
 </tr>
 <tr class="even">
@@ -335,26 +335,25 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 <blockquote class="blockquote">
-<p><strong>Beyond the builds:</strong> <a href="./projects/cascadia-bi-migration.html">Cascadia BI Migration</a> — a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. It is the one piece here that is a program design rather than a data build.</p>
+<p><strong>Beyond the builds:</strong> <a href="./projects/cascadia-bi-migration.html">Cascadia BI Migration</a> is a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. It is the one piece here that is a program design rather than a data build.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p><strong>Not a build at all:</strong> <a href="./projects/sibling-conflict.html">The Combinatorics of Sibling Conflict</a> — a short mathematics paper, and a pet project. No stack, no data, nothing to put in the columns above. It counts the ways n children can split into two opposing sides: (3<sup>n</sup> − 2·2<sup>n</sup> + 1)/2, the Stirling number S(n+1, 3).</p>
+<p><strong>Not a build at all:</strong> <a href="./projects/sibling-conflict.html">The Combinatorics of Sibling Conflict</a> is a short mathematics paper, and a pet project. No stack, no data, nothing to put in the columns above. It counts the ways n children can split into two opposing sides: (3<sup>n</sup> − 2·2<sup>n</sup> + 1)/2, the Stirling number S(n+1, 3).</p>
 </blockquote>
 <hr>
 </section>
 <section id="three-patterns-one-standard" class="level2">
 <h2 data-anchor-id="three-patterns-one-standard">Three Patterns, One Standard</h2>
-<p><strong>Lightweight analytical stack — Cascadia Deal Desk, Finance, Control Tower, Matter Ledger, Fee Examiner &amp; Revenue Assurance.</strong> Six modules that need neither SQL Server nor Power BI: Python (pandas) conforms the data into a local star schema and renders a static, hostable page with Apache ECharts, with the dataset inlined at build time so no page fetches data at runtime. Finance pulls and freezes SEC EDGAR XBRL filings and labels every figure GAAP vs non-GAAP; Deal Desk matches quote lines against a governed agreement register and prices the gap in dollars; Control Tower certifies one of three competing fill-rate definitions and prices the split-shipment cost that none of them measures. Deal Desk and Control Tower ship ECharts with the page, so they run forever, offline, for free; Finance loads it from a CDN, so it needs the network to draw — and all three circulate as a link with nothing to install.</p>
-<p><strong>Control Tower and Matter Ledger are the pattern’s larger variant</strong>, and they are two tenants of it rather than one exception. Both swap SQLite for <strong>DuckDB</strong> because the row counts stopped fitting the smaller engine — 621,942 order lines in one, 10,960,173 federal case records in the other. Control Tower adds <strong>dbt Core</strong> on top, 6 staging views, 9 marts and 69 data tests, because its transformation layer is worth a real framework. Matter Ledger does not: its modeling is a single conformance pass over a 2.0 GB flat file, and what it adds instead is a <strong>live edge</strong> — a scheduled incremental pull from a second source that reconciles against the frozen baseline on every run. The output in both cases is the same durable static page, which survives the warehouse being switched off.</p>
-<p><strong>Cascadia Revenue Assurance is DuckDB’s third tenant, and takes it for a different reason: a second method, not scale.</strong> Its book is 50,110 subscription-months, which the smaller engine would hold without complaint. What it needed was two derivation paths that could not share a bug — a record-at-a-time state machine in pure Python that derives every term, every billing row and every measure from the event stream, and a set-based SQL path in DuckDB that re-derives all of it with window functions. Both are written from one normative rules document and neither from the other’s code; they share no helper and no intermediate table, and the second must agree with the first on every published cell before anything renders. The output is the pattern’s usual durable static page: four ECharts charts, the dataset inlined at build time, rendered by Playwright.</p>
-<p><strong>Cascadia Fee Examiner is the pattern’s leanest variant, and the one with no star schema at all.</strong> Python’s standard library does the conforming — no pandas, no database, nothing but hash-verified CSV and JSON — because the problem it solves was never about row count. The frozen spine is 1,218 cases; the live acquisition has retrieved dozens of documents so far. What it needed instead was a stated, published rule for resolving firm identity across three public sources that share no key, and a policy of publishing what that rule cannot resolve rather than dropping it or guessing. The only two third-party packages anywhere in the build are <code>requests</code>, to pull from a public docket archive under its own rate limit, and Playwright, the same renderer the rest of this pattern already uses to produce its static charts.</p>
-<p><strong>Pragmatic local stack — Cascadia Pharmacy &amp; Staffing.</strong> For personal-scale builds on public data, a full cloud lakehouse is overkill. These run a local SQL Server star schema with a Python <code>raw → clean</code> staging layer — suppression flags, never zero-fill — straight into a Power BI import model. Same modeling and governance discipline, without the cloud overhead.</p>
-<p><strong>Enterprise-BI stack — Cascadia Medical Devices.</strong> Built to the full production pattern: a SQL Server star schema feeding a Microsoft Fabric medallion lakehouse (Bronze → Silver → Gold), surfaced through a Power BI Direct Lake semantic model. This is the shape to reach for when the data volume and the organization justify a governed cloud platform. The semantic model is a Power BI artifact rather than a hostable page, so unlike the modules above it there is nothing here to open; the case study is where this build is shown.</p>
+<p><strong>Lightweight analytical stack.</strong> Six modules need neither SQL Server nor Power BI: Deal Desk, Finance, Control Tower, Matter Ledger, Fee Examiner and Revenue Assurance. Python conforms the data into a local star schema and renders a static page with Apache ECharts, with the dataset inlined at build time so nothing fetches data at runtime. They circulate as a link with nothing to install, and they outlive the warehouse behind them.</p>
+<p><strong>Three of them take DuckDB, and for two different reasons.</strong> Control Tower and Matter Ledger take it for scale, at 621,942 order lines and 10,960,173 federal case records. Control Tower adds dbt Core on top, 6 staging views, 9 marts and 69 data tests, because its transformation layer is worth a real framework; Matter Ledger does not, because its modeling is a single conformance pass over a 2.0 GB file. What Matter Ledger adds instead is a live edge: a scheduled incremental pull that reconciles against the frozen baseline on every run. Revenue Assurance takes DuckDB for neither reason. Its book of 50,110 subscription-months would fit the smaller engine comfortably. It needed a second derivation path that could not share a bug with the first.</p>
+<p><strong>Cascadia Fee Examiner is the leanest variant and has no star schema at all.</strong> Python’s standard library does the conforming: no pandas, no database, nothing but hash-verified CSV and JSON, because the problem was never about row count. What it needed was a published rule for resolving firm identity across three sources that share no key, and a policy of publishing what the rule cannot resolve.</p>
+<p><strong>Pragmatic local stack.</strong> Pharmacy and Staffing run a local SQL Server star schema with a Python raw-to-clean staging layer, suppression flags rather than zero-fill, straight into a Power BI import model. Same discipline, no cloud overhead.</p>
+<p><strong>Enterprise-BI stack.</strong> Medical Devices is the full production pattern: a SQL Server star schema feeding a Microsoft Fabric medallion lakehouse, surfaced through a Power BI Direct Lake semantic model. A semantic model is not a hostable page, so unlike the modules above there is nothing here to open. The case study is where this build is shown.</p>
 <div class="arch-container">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/cascadia_analytics_tech_stack.svg" class="img-fluid figure-img" alt="Architecture diagram: SQL Server source systems feed a Microsoft Fabric medallion lakehouse — Bronze, Silver, Gold — which is surfaced through a Power BI Direct Lake semantic model."></p>
-<figcaption>The enterprise-BI pattern — SQL Server → Microsoft Fabric medallion lakehouse → Power BI. Used in full by Cascadia Medical Devices.</figcaption>
+<p><img src="assets/cascadia_analytics_tech_stack.svg" class="img-fluid figure-img" alt="Architecture diagram: SQL Server source systems feed a Microsoft Fabric medallion lakehouse of Bronze, Silver and Gold layers, which is surfaced through a Power BI Direct Lake semantic model."></p>
+<figcaption>The enterprise-BI pattern: SQL Server to a Microsoft Fabric medallion lakehouse to Power BI. Used in full by Cascadia Medical Devices.</figcaption>
 </figure>
 </div>
 </div>
@@ -364,37 +363,22 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-anchor-id="design-principles">Design Principles</h2>
 <div class="grid">
 <div class="g-col-12 g-col-md-6">
-<p><strong>Production patterns only</strong> Every table, index, and pipeline uses conventions you would enforce on a real production system — surrogate keys, computed <code>date_key</code> columns, idempotent builds, and row-count validation scripts.</p>
+<p><strong>Operated, not only built</strong> Most of these modules are frozen snapshots: pulled once, validated at build time, published. Cascadia Matter Ledger runs on a schedule, re-asserts its own invariants on every run, reconciles a live increment against the frozen baseline, and publishes the result, including when a run fails and why. A surface that has only ever shown green has demonstrated nothing.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Operated, not only built</strong> Most of these modules are frozen snapshots: pulled once, validated once at build time, published. Cascadia Matter Ledger runs on a schedule, re-asserts its own invariants on every run, reconciles a live increment against the frozen baseline, and publishes the result — including when a run fails and why. A surface that has only ever shown green has demonstrated nothing.</p>
+<p><strong>Agreeing with yourself is not validation</strong> A second implementation that shares a helper shares its defects. Cascadia Revenue Assurance derives every published cell twice, by a state machine in Python and a set-based SQL path in DuckDB, each written from one rules document and neither from the other’s code. A hand-computed fixture of 15 cases was committed failing before either engine existed. If the two paths disagree the defect is in the rules document, and it is fixed there first. The module publishes no correctness percentage of any kind, by decision.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Real data where it matters</strong> CMS, CDC, and SEC EDGAR are live, public-domain federal datasets. Fabricated data is confined to the seeded synthetic modules — Deal Desk, Control Tower and Revenue Assurance, each labelled as such on every surface — and the manufacturing simulation layer, purely for volume and anonymity.</p>
+<p><strong>An audit that cannot fail is not an audit</strong> A realism check that has only ever seen good data has not been tested. Control Tower’s audits are pure functions of measured numbers, so the suite feeds each one deliberately wrong values: inventory inflated past the sector band, cost cut to a rounding error, splits made uniform. All six negative controls trip, and that result is published next to the real one.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Repeatable builds</strong> Each domain rebuilds from scratch with one command — PowerShell for the SQL Server builds, Python for the Cascadia Finance module — useful for demos, onboarding, and validating changes.</p>
+<p><strong>Definitions live with the code that computes them</strong> A metric register typed by hand is documentation; one generated from the models is engineering. Cascadia Control Tower’s eleven-metric register is built from the <code>meta</code> blocks on the dbt models themselves, the same file that defines their tests, and a <code>--check</code> mode fails the build if a published definition drifts from the model behind it.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Honest about limits</strong> Suppressed or missing data is flagged, never silently filled. GAAP is labeled distinctly from non-GAAP. Derived values — reconstructed fiscal quarters, or the auto-renewed terms in Cascadia Revenue Assurance that no transaction opened — are marked as derived, on the row.</p>
+<p><strong>Publishing an unresolved case is not a gap; dropping one would be</strong> Where ambiguity is internal, the build fails: Deal Desk settles contested quote lines with three documented tiebreaks, and a tie that survives all three is a data-quality defect rather than a judgment call. Where it is external, failing would mean never shipping. Fee Examiner resolves 9 of 25 firm pairs across three sources that share no key, and publishes the other 16 with the reason each one did not match. A match rate near 100% would be evidence the rule is too loose.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Ambiguity fails the build</strong> Where a rule cannot resolve a case, the run stops rather than guessing. Cascadia Deal Desk’s matching rule settles contested quote lines with three documented tiebreaks; if a tie survives all three, the build fails — an unresolvable tie is a data-quality defect, not a judgment call.</p>
-</div>
-<div class="g-col-12 g-col-md-6">
-<p><strong>Publishing an unresolved case is not a gap; dropping one would be</strong> Deal Desk’s ambiguity is internal, so failing the build is the right answer. Cascadia Fee Examiner’s ambiguity is external — three public sources that share no key — where failing on every unresolved pair would mean never shipping. Its rule states exactly what counts as a match, resolves 9 of 25 firm pairs, and publishes the other 16 with the reason each one didn’t match. A match rate near 100% would be evidence the rule is too loose, not that the data is clean.</p>
-</div>
-<div class="g-col-12 g-col-md-6">
-<p><strong>Agreeing with yourself is not validation</strong> A second implementation that shares a helper shares its defects. Cascadia Revenue Assurance derives every published cell twice — a record-at-a-time state machine in Python and a set-based SQL path in DuckDB, each written from one normative rules document and neither from the other’s code — and a hand-computed golden fixture of 15 cases was committed failing before either engine existed. If the two paths disagree, the defect is in the rules document, and it is fixed there before either path. The module publishes no correctness percentage of any kind, by decision: its only correctness claim is that the two paths agree on every cell and the fixture passes.</p>
-</div>
-<div class="g-col-12 g-col-md-6">
-<p><strong>Definitions live with the code that computes them</strong> A metric register that is typed by hand is documentation; one generated from the models is engineering. Cascadia Control Tower’s eleven-metric register is built from the <code>meta</code> blocks on the dbt models themselves — the same file that defines their tests — and a <code>--check</code> mode fails the build if a published definition drifts from the model behind it.</p>
-</div>
-<div class="g-col-12 g-col-md-6">
-<p><strong>An audit that cannot fail is not an audit</strong> A realism check that has only ever seen good data has not been tested. Control Tower’s audits are pure functions of measured numbers, so the suite feeds each one deliberately wrong values — inventory inflated past the sector band, cost cut to a rounding error, splits made uniform — and confirms it trips. All six negative controls trip, and that result is published next to the real one.</p>
-</div>
-<div class="g-col-12 g-col-md-6">
-<p><strong>Charts reviewed against a standard</strong> Every chart is scored pass/fail against my visualization design system before it ships, including a blind panel of readers who see only the rendered chart. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded.</p>
+<p><strong>Charts reviewed against a standard</strong> Every chart is scored pass or fail against my visualization design system before it ships, including a blind panel of readers who see only the rendered chart. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded.</p>
 </div>
 </div>
 <hr>
