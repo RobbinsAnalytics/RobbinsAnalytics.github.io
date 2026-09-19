@@ -38,7 +38,7 @@ project:
 
 website:
   title: "Robbins Analytics"
-  description: "Business Intelligence & Analytics portfolio — Aaron Robbins"
+  description: "Analytics and analytics engineering portfolio, Aaron Robbins"
   site-url: "https://www.robbinsanalytics.com"
   favicon: assets/brand/favicon.svg
   open-graph: true

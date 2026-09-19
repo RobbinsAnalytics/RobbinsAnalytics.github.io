@@ -60,7 +60,24 @@ Open to senior, staff, or principal analytics roles in Seattle or remote
 
 ## The Cascadia Portfolio {#cascadia-portfolio}
 
-Cascadia is a portfolio built to be checked, not taken on faith. Which tests each module could carry, build by build, is one page: [Build by Build](projects/cascadia-build-by-build.qmd).
+Cascadia is a portfolio built to be checked, not taken on faith.
+
+::: {.grid}
+::: {.g-col-12}
+::: {.project-card}
+::: {.card-label}
+Portfolio
+:::
+### Build by Build
+<span class="badge-status">Published</span>
+
+Nine modules by fourteen test surfaces, read from their own repositories. Which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names. An empty cell is a fact about what a build carried, never a debt.
+
+[View the page](projects/cascadia-build-by-build.qmd){.btn .btn-primary .btn-sm}
+[Two ways to check a number at build one. Fourteen had appeared by build nine.](https://www.robbinsanalytics.com/cascadia-build-by-build/){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+:::
 
 ---
 
