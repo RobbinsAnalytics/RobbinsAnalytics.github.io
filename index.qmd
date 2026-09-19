@@ -1,5 +1,27 @@
 ---
-title: ""
+# A page title, not decoration, and it does two jobs.
+#
+# 1. The metadata surfaces. Quarto composes `<title>`, `og:title` and
+#    `twitter:title` from this plus the site title. With `title: ""` the two
+#    social surfaces rendered as "– Robbins Analytics" — a dangling separator on
+#    every shared card and every scrape of the landing page — while `<title>`
+#    fell back to the bare site title. Every other page on the site carries a
+#    title and rendered correctly; only the landing page did not.
+#
+# 2. The hero's own H1. With no title metadata, Quarto promotes the document's
+#    first level-1 heading to be the title — so `# Aaron Robbins` was lifted OUT
+#    of .hero-lede into the title block above the dark banner, and the hero
+#    rendered starting at the subtitle with no name in it. `.hero-banner h1` in
+#    styles.scss (white, 2.5rem, serif) had therefore never applied to anything.
+#    Setting a title here leaves the heading where it was written.
+#
+# `body-classes` is the third piece: with a title set, Quarto renders its own
+# title block above the hero, which would restate the name twice. styles.scss
+# hides it on this class. `title-block-style: none` is NOT the way to do that —
+# it still emits the heading AND emits a second <header id="title-block-header">,
+# which is a duplicate id and an axe failure.
+title: "Aaron Robbins, Senior / Staff / Principal Analyst"
+body-classes: hero-page
 image: https://www.robbinsanalytics.com/assets/thumb-portfolio.png
 page-layout: full
 toc: false
@@ -13,7 +35,7 @@ image-alt: "Cascadia module card — title, one-line summary, and the data sourc
 # Aaron Robbins
 
 ::: {.hero-subtitle}
-Business Intelligence & Analytics Leader
+Senior / Staff / Principal Analyst
 :::
 
 ::: {.hero-motto}
@@ -24,7 +46,11 @@ Business Intelligence & Analytics Leader
 :::
 
 ::: {.hero-tagline}
-12+ years turning messy data into decisions leaders trust — across healthcare manufacturing and quality, and ecommerce and retail, with time in supply chain, digital merchandising, and finance along the way. The expertise is in the craft, not the tooling: governance, specification, and semantic modeling — proof stakeholders can check, not a claim they have to trust. I've built that inside organizations, not just around them: proposing and staffing a BI function from zero, then leading programs across ten factories and 200+ stakeholders in eight countries.
+12+ years turning messy data into decisions leaders trust — across healthcare manufacturing and quality, and ecommerce and retail, with time in supply chain, digital merchandising, and finance along the way. The expertise is in the craft, not the tooling: governance, specification, and semantic modeling — proof stakeholders can check, not a claim they have to trust.
+:::
+
+::: {.hero-availability}
+Open to senior, staff, or principal analytics roles in Seattle or remote
 :::
 
 :::
@@ -48,7 +74,7 @@ Cascadia is a portfolio built to be checked, not taken on faith. Which tests eac
 Revenue Operations Analytics
 :::
 ### Cascadia Revenue Assurance
-<span class="badge-status new">New</span><span class="badge-status">Live</span>
+<span class="badge-status new">New</span><span class="badge-status">Published</span>
 
 What a customer is contracted for and what they are billable for are different numbers. Three asymmetric timing rules — adds land at once, reductions wait for the term boundary, cancellations ride out the term — keep the two apart for up to a year, with nothing erroring and no register showing it: 5,875 licences at June 2026. Derived twice, by two engines written to be different, agreeing on every cell. Synthetic data throughout.
 
@@ -63,7 +89,7 @@ What a customer is contracted for and what they are billable for are different n
 Legal Operations Analytics
 :::
 ### Cascadia Fee Examiner
-<span class="badge-status new">New</span><span class="badge-status">Live</span>
+<span class="badge-status new">New</span><span class="badge-status">Published</span>
 
 A bankruptcy research database, a public court docket, and two task-code vocabularies — three sources, three owners, none sharing an identifier. A stated rule resolves 9 of 25 caption-to-database firm pairs; the other 16 are published with a reason, not dropped. Reported at its actual state: 48 of 216 eligible cases searched so far.
 
@@ -78,7 +104,7 @@ A bankruptcy research database, a public court docket, and two task-code vocabul
 Legal Operations Analytics
 :::
 ### Cascadia Matter Ledger
-<span class="badge-status">Live</span>
+<span class="badge-status">Published</span>
 
 Eleven million public federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures — then a scheduled pipeline that re-asserts its own invariants twice a day, reconciles against the frozen baseline, and publishes the failures. Ask it one ordinary question and the ungoverned answer comes back negative.
 
@@ -93,7 +119,7 @@ Eleven million public federal civil case records, frozen and hash-verified, mode
 Supply Chain / Distribution-Centre Governance
 :::
 ### Cascadia Control Tower
-<span class="badge-status">Live</span>
+<span class="badge-status">Published</span>
 
 Three fill rates computed from one dataset, all arithmetically correct and 7.0 points apart — and a split-shipment cost that none of them measures. Certifies one definition, prices the leak against a modelled no-split counterfactual, and shows why no single split threshold works across two banners. Synthetic operations, anchored to BLS, Census and SEC data.
 
@@ -108,7 +134,7 @@ Three fill rates computed from one dataset, all arithmetically correct and 7.0 p
 Pricing Governance / Financial Analytics
 :::
 ### Cascadia Deal Desk
-<span class="badge-status">Live</span>
+<span class="badge-status">Published</span>
 
 Multi-quarter pricing agreements as a governed dataset rather than a signed PDF — every quote line matched to the agreement in force on its own date, the gap priced in dollars, and a materiality threshold you calibrate before you automate an alert. Synthetic data throughout.
 
@@ -124,7 +150,7 @@ Multi-quarter pricing agreements as a governed dataset rather than a signed PDF 
 Financial Analytics
 :::
 ### Cascadia Finance
-<span class="badge-status">Live</span>
+<span class="badge-status">Published</span>
 
 FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.
 
@@ -156,7 +182,7 @@ A 24-week program to migrate an organization off legacy BI onto a governed, AI-a
 Healthcare / Staffing Marketplace
 :::
 ### Cascadia Staffing
-<span class="badge-status">Complete</span>
+<span class="badge-status">Case Study</span>
 
 Contingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.
 
@@ -170,7 +196,7 @@ Contingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll dat
 Healthcare / Pharmacy
 :::
 ### Cascadia Pharmacy
-<span class="badge-status">Complete</span>
+<span class="badge-status">Case Study</span>
 
 GLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.
 
@@ -184,7 +210,7 @@ GLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC
 Manufacturing
 :::
 ### Cascadia Medical Devices
-<span class="badge-status">Complete</span>
+<span class="badge-status">Case Study</span>
 
 A dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.
 

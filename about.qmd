@@ -4,34 +4,36 @@ title: "About Aaron Robbins"
 
 ## Bio
 
-I'm a business intelligence and analytics leader. I build the systems that make numbers trustworthy at scale — the metric definitions, the data models, and the governance underneath them, not just the dashboard sitting on top. A report is only as good as the data behind it, and that layer is the work.
+I'm an analyst, and I do the analytics engineering the analysis depends on. I build the systems that make numbers trustworthy at scale — the metric definitions, the data models, and the governance underneath them, not just the dashboard sitting on top. A report is only as good as the data behind it, and that layer is the work.
 
-Over 12+ years I've done this from both chairs. At Lowe's ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six through building the data warehouse and the reporting stack that supported $10M+ in revenue. At Philips Healthcare I led BI and analytics programs across a global manufacturing operation — ten factories, three continents, 200+ stakeholders in eight countries — standardizing 200+ Critical Data Elements into a common data model, harmonizing KPI frameworks across fifteen factories, and taking $80K a year out of the reporting estate through rationalization. That was leadership through influence rather than reporting lines, which is the harder version of the job.
+Over 12+ years I've done this from both chairs. At Lowe's ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six through building the data warehouse and the reporting stack that supported $10M+ in revenue. At Philips Healthcare I led BI and analytics programs across a global manufacturing operation — ten factories, three continents, 200+ stakeholders in eight countries — standardizing 200+ Critical Data Elements into a common data model, harmonizing KPI frameworks across those ten factories, and taking $80K a year out of the reporting estate through rationalization. That was leadership through influence rather than reporting lines, which is the harder version of the job.
 
 The craft is current. Every module in the Cascadia portfolio was built in 2026 to my specification: I set the architecture, the data models, the metric definitions and the validation gates, and directed the build. The code is public on GitHub — governed data models, matching rules documented as deliverables in their own right, and validation suites that fail the build rather than ship a number I can't defend.
 
-So I'm comfortable as the person building it or as the person who stands up the function and hires the team. The standard doesn't change either way.
+I ran a team, and I am looking for an individual contributor seat on purpose. I want more hands-on time with the new AI tooling inside a working organization before I take another manager title. I kept my own book of work the whole time I was managing; staying close to the data and the tools is the part I do not want to give up.
 
 ---
 
 ## Selected outcomes
 
-- **Founded a BI function.** Proposed the department at Lowe's/ATG Stores, hired the foundational team, and managed six analysts and developers through the build of the data warehouse, KPI definitions, and stewardship model.
-- **Governed data at enterprise scale.** Standardized 200+ Critical Data Elements and common data model definitions across a global manufacturing platform, enforcing semantic consistency across systems that had none.
-- **Harmonized metrics across fifteen factories.** Replaced site-by-site KPI variants with one trusted framework — 17 automated KPIs and 21 new T4 KPIs — so leadership could compare plants on definitions that actually matched.
-- **Took $80K a year out of the reporting estate.** BI rationalization governing refresh rates, usage, ownership, and access, removing duplicate and abandoned reporting.
-- **Eliminated 100+ hours a week of manual reporting**, moving disconnected spreadsheets and point-in-time extracts into automated, governed dashboards.
+- **Governed data at enterprise scale.** I standardized 200+ Critical Data Elements and common data model definitions across a global manufacturing platform, enforcing semantic consistency across systems that had none.
+- **Harmonized metrics across ten factories.** I replaced site-by-site KPI variants with one trusted framework, 17 automated KPIs and 21 new T4 KPIs, so leadership could compare plants on definitions that actually matched.
+- **Eliminated 100+ hours a week of manual reporting.** I moved disconnected spreadsheets and point-in-time extracts into automated, governed dashboards.
 - **Zero audit findings** in a regulated medical-device data environment, with access-controlled handling of sensitive data.
+- **Took $80K a year out of the reporting estate.** I ran the BI rationalization that governed refresh rates, usage, ownership and access, and removed the duplicate and abandoned reporting it found.
+- **Founded a BI function.** I proposed the department at Lowe's/ATG Stores, hired its foundational team, and managed six analysts and developers through the build of the data warehouse, the KPI definitions and the stewardship model.
 
 ---
 
 ## Skills
 
+Tools I work in directly are listed first in each row. The rest are tools I specify against and validate, which is the same division of labour described in "How I built this."
+
 - **BI & visualization:** Power BI (data modeling, DAX, Power Query/M), Tableau, Qlik, SAP BusinessObjects, advanced Excel
 - **Data & modeling:** SQL Server, SAP HANA, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality, Microsoft Fabric, Databricks, Azure data platforms
 - **KPI & frameworks:** KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization
 - **Domains:** healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics
-- **Leading work:** BI function ownership, analytics program & portfolio management, Agile (Scrumban) / Scrum Master, stakeholder management across eight countries, self-service enablement, mentoring analysts
+- **Program & enablement:** BI function ownership, analytics program & portfolio management, Agile (Scrumban) / Scrum Master, stakeholder management across eight countries, self-service enablement, mentoring analysts
 
 ---
 

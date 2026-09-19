@@ -107,6 +107,15 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
 // already on screen, so it was furniture pretending to be an action; the
 // LinkedIn and GitHub links live on the About page, where someone checking
 // who I am is already looking. The page now goes straight into the work.
+// index.qmd sets a real `title:` so that <title>, og:title and twitter:title
+// stop rendering with nothing before the separator, and so that Quarto stops
+// promoting the hero's `# Aaron Robbins` out of the banner and into its own
+// title block. That title block is then redundant: the hero says the name, in
+// the hero's own type. Hidden rather than suppressed with
+// `title-block-style: none`, which emits a duplicate `id="title-block-header"`
+// and fails the axe run. The hero's h1 is the page's visible h1 either way.
+body.hero-page #title-block-header { display: none; }
+
 .hero-banner {
   background: linear-gradient(118deg, #1A2C23 0%, $cascadia-spruce 62%, #101D17 100%);
   border-bottom: 3px solid $cascadia-evergreen;   // the Rule 14 tick, page-scale
@@ -163,6 +172,25 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
     margin: 0;
   }
 
+  // The ask, spanning both columns under the lede and the tagline. A third
+  // child of a two-column grid would otherwise drop into the left column of a
+  // second row and read as a caption on the name rather than as a statement
+  // about the whole hero, so it is spanned explicitly.
+  //
+  // #ffffff rather than $cascadia-ever-lt: this is the one line on the page a
+  // recruiter is being asked to act on, and the subtitle's green already
+  // carries the title words. 14.6:1 against the gradient at its lightest stop.
+  .hero-availability {
+    grid-column: 1 / -1;
+    margin: 1.4rem 0 0;
+    padding-top: 1.1rem;
+    border-top: 1px solid rgba($cascadia-ever-lt, 0.35);
+    font-family: $cascadia-serif;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
   .hero-inner p:last-child { margin-bottom: 0; }
 }
 
@@ -173,6 +201,9 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
     .hero-inner { grid-template-columns: 1fr; gap: 1rem; }
     h1 { font-size: 2rem; }
     .hero-tagline { border-left: none; padding-left: 0; }
+    // The stack has already collapsed to one column and the grid gap is doing
+    // the separating, so the desktop top margin would double it.
+    .hero-availability { margin-top: 0.35rem; padding-top: 0.95rem; }
   }
 }
 
