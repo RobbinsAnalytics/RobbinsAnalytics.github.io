@@ -46,7 +46,7 @@ Senior / Staff / Principal Analyst
 :::
 
 ::: {.hero-tagline}
-12+ years turning messy data into decisions leaders trust — across healthcare manufacturing and quality, and ecommerce and retail, with time in supply chain, digital merchandising, and finance along the way. The expertise is in the craft, not the tooling: governance, specification, and semantic modeling — proof stakeholders can check, not a claim they have to trust.
+12+ years turning messy data into decisions leaders trust: healthcare manufacturing and quality, ecommerce and retail, and time along the way in supply chain, digital merchandising, and finance. The expertise is in the craft, not the tooling: governance, specification, and semantic modeling. That is proof stakeholders can check, not a claim they have to trust.
 :::
 
 ::: {.hero-availability}
