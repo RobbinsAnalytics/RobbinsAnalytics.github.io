@@ -29,8 +29,8 @@ I ran a team, and I am looking for an individual contributor seat on purpose. I 
 
 Tools I work in directly are listed first in each row. The rest are tools I specify against and validate, which is the same division of labour described in "How I built this."
 
-- **BI & visualization:** Power BI (data modeling, DAX, Power Query/M), Tableau, Qlik, SAP BusinessObjects, advanced Excel
-- **Data & modeling:** SQL Server, SAP HANA, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality, Microsoft Fabric, Databricks, Azure data platforms
+- **BI & visualization:** Power BI (data modeling, Power Query/M), Tableau, Qlik, SAP BusinessObjects, advanced Excel
+- **Data & modeling:** SQL (queries, joins, views, transformations), SAP HANA, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality, Python, DuckDB, dbt, Microsoft Fabric, Databricks, Azure data platforms
 - **KPI & frameworks:** KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization
 - **Domains:** healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics
 - **Program & enablement:** BI function ownership, analytics program & portfolio management, Agile (Scrumban) / Scrum Master, stakeholder management across eight countries, self-service enablement, mentoring analysts
