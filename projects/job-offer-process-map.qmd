@@ -1,0 +1,251 @@
+---
+title: "Job Offer Process Map"
+subtitle: "A job search run as a process: two phases, five lanes, and a gate with two keys at every interview round."
+image: https://www.robbinsanalytics.com/assets/thumb-job-offer-process-map.png
+image-alt: "Beyond the Portfolio card: title, one-line summary, and the source."
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+Process design · A working system
+:::
+# Job Offer Process Map
+::: {.cs-hook}
+Two phases, five lanes. Application runs every day and has one gate, owned by
+the candidate. Interview is triggered by an invite and repeats once per round,
+and every gate has two keys: the hiring side's and the candidate's.
+:::
+:::
+
+::: {.process-map}
+
+## Frame
+
+```{=html}
+<div class="frames">
+  <div class="frame"><b>Stage-Gate</b><span>Structure. Stages hold the work, gates hold the decisions. Outcomes: go, hold, kill, recycle.</span></div>
+  <div class="frame"><b>BPMN swimlanes</b><span>Notation. Lanes show who does each step; crossing a lane is a handoff.</span></div>
+  <div class="frame"><b>PDCA</b><span>The round loop. Prep is Plan, interview is Do, retrospective is Check, next prep is Act.</span></div>
+</div>
+<div class="legend">
+  <span><i class="lg-evt"></i>event</span>
+  <span><i class="lg-gate"></i>gate</span>
+  <span><i></i>activity</span>
+  <span><i class="lg-dash"></i>conditional or loop</span>
+</div>
+```
+
+## Phase 1: Application {#application}
+
+```{=html}
+<p class="lede">Daily cadence. One gate, owned by the candidate. Ends at the handoff to Interview.</p>
+<!-- The SVG below is byte-identical to the one in the source model. It is not
+     redrawn here; change the source and re-lift it. tabindex="0" so a keyboard
+     can reach a box that scrolls (see .table-scroll in styles.scss). -->
+<div class="diagram" role="img" tabindex="0" aria-label="Phase 1 swimlane: readiness gate, daily run, collect, score and report, disposition gate with go, hold and kill, tailor, submit, submitted.">
+<svg viewBox="0 0 680 752">
+<defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5B6660" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<line class="sep" x1="160" y1="20" x2="160" y2="740"/>
+<line class="sep" x1="280" y1="20" x2="280" y2="740"/>
+<line class="sep" x1="400" y1="20" x2="400" y2="740"/>
+<line class="sep" x1="520" y1="20" x2="520" y2="740"/>
+<rect class="lh" x="44" y="20" width="112" height="36" rx="3"/><text class="thl" x="100" y="38" text-anchor="middle" dominant-baseline="central">Scheduled tasks</text>
+<rect class="lh" x="164" y="20" width="112" height="36" rx="3"/><text class="th" x="220" y="38" text-anchor="middle" dominant-baseline="central">Claude</text>
+<rect class="lh" x="284" y="20" width="112" height="36" rx="3"/><text class="th" x="340" y="38" text-anchor="middle" dominant-baseline="central">Candidate</text>
+<rect class="lh" x="404" y="20" width="112" height="36" rx="3"/><text class="th" x="460" y="38" text-anchor="middle" dominant-baseline="central">Recruiter</text>
+<rect class="lh" x="524" y="20" width="112" height="36" rx="3"/><text class="th" x="580" y="38" text-anchor="middle" dominant-baseline="central">Hiring side</text>
+<rect class="gate" x="284" y="80" width="112" height="56" rx="3"/><text class="tg" x="340" y="99" text-anchor="middle" dominant-baseline="central">G0 readiness</text><text class="ts" x="340" y="117" text-anchor="middle" dominant-baseline="central">entry criteria</text>
+<rect class="evt" x="44" y="164" width="112" height="56" rx="28"/><text class="th" x="100" y="183" text-anchor="middle" dominant-baseline="central">Daily run</text><text class="ts" x="100" y="201" text-anchor="middle" dominant-baseline="central">timer start</text>
+<rect class="act" x="44" y="248" width="112" height="56" rx="3"/><text class="th" x="100" y="267" text-anchor="middle" dominant-baseline="central">Collect</text><text class="ts" x="100" y="285" text-anchor="middle" dominant-baseline="central">boards, sites</text>
+<rect class="act" x="44" y="332" width="112" height="56" rx="3"/><text class="th" x="100" y="351" text-anchor="middle" dominant-baseline="central">Score, report</text><text class="ts" x="100" y="369" text-anchor="middle" dominant-baseline="central">digest emailed</text>
+<rect class="gate" x="284" y="416" width="112" height="56" rx="3"/><text class="tg" x="340" y="435" text-anchor="middle" dominant-baseline="central">G1 disposition</text><text class="ts" x="340" y="453" text-anchor="middle" dominant-baseline="central">go, hold, kill</text>
+<rect class="act" x="164" y="500" width="112" height="64" rx="3"/><text class="th" x="220" y="517" text-anchor="middle" dominant-baseline="central">Tailor</text><text class="ts" x="220" y="535" text-anchor="middle" dominant-baseline="central">resume, letter,</text><text class="ts" x="220" y="550" text-anchor="middle" dominant-baseline="central">answers</text>
+<rect class="evt" x="284" y="500" width="112" height="56" rx="28"/><text class="th" x="340" y="519" text-anchor="middle" dominant-baseline="central">Kill</text><text class="ts" x="340" y="537" text-anchor="middle" dominant-baseline="central">reason logged</text>
+<rect class="act" x="284" y="584" width="112" height="56" rx="3"/><text class="th" x="340" y="603" text-anchor="middle" dominant-baseline="central">Submit</text><text class="ts" x="340" y="621" text-anchor="middle" dominant-baseline="central">employer board</text>
+<rect class="evt" x="284" y="668" width="112" height="64" rx="32"/><text class="th" x="340" y="684" text-anchor="middle" dominant-baseline="central">Application</text><text class="th" x="340" y="700" text-anchor="middle" dominant-baseline="central">submitted</text><text class="ts" x="340" y="717" text-anchor="middle" dominant-baseline="central">to Interview</text>
+<path class="arr" d="M340 136 L340 150 L100 150 L100 162" marker-end="url(#a1)"/>
+<path class="arr" d="M100 220 L100 246" marker-end="url(#a1)"/>
+<path class="arr" d="M100 304 L100 330" marker-end="url(#a1)"/>
+<path class="arr" d="M100 388 L100 402 L340 402 L340 414" marker-end="url(#a1)"/>
+<path class="arr" d="M284 444 L220 444 L220 498" marker-end="url(#a1)"/>
+<text class="ts" x="246" y="434" text-anchor="middle" dominant-baseline="central">go</text>
+<path class="arr" d="M340 472 L340 498" marker-end="url(#a1)"/>
+<path class="arr dash" d="M396 444 L412 444 L412 360 L158 360" marker-end="url(#a1)"/>
+<text class="ts" x="340" y="347" text-anchor="middle" dominant-baseline="central">hold: resurfaces</text>
+<path class="arr" d="M220 564 L220 612 L282 612" marker-end="url(#a1)"/>
+<path class="arr" d="M340 640 L340 666" marker-end="url(#a1)"/>
+</svg>
+</div>
+<p class="hint">On a phone, swipe the diagram sideways. The same steps are listed below.</p>
+<ol class="steps">
+  <li><span class="tag gate-t">Gate</span><b>G0 readiness</b> (Candidate). Entry criteria: master resume, STAR library, rule layer.</li>
+  <li><span class="tag evt-t">Event</span><b>Daily run</b> (scheduled). Timer start.</li>
+  <li><b>Collect</b> (scheduled). Job boards and employer career sites.</li>
+  <li><b>Score and report</b> (scheduled). Ranked digest emailed.</li>
+  <li><span class="tag gate-t">Gate</span><b>G1 disposition</b> (Candidate). Go = Create. Hold = Pass, back to the resurfacing board. Kill = Decline, with a reason: title too high, pay too low, or pay doesn't fit the level.</li>
+  <li><b>Tailor</b> (Claude). Resume, cover letter, free-text answers.</li>
+  <li><b>Submit</b> (Candidate). On the employer's own board, never an aggregator.</li>
+  <li><span class="tag evt-t">Event</span><b>Application submitted.</b> Handoff to Interview.</li>
+</ol>
+```
+
+## Phase 2: Interview {#interview}
+
+```{=html}
+<p class="lede">Event-driven. The dashed frame is one round and repeats. Each round ends at a dual-key gate.</p>
+<!-- Byte-identical to the source model, as above. -->
+<div class="diagram" role="img" tabindex="0" aria-label="Phase 2 swimlane: invite, email monitor, schedule, then each round runs prep docs, interview, retrospective, build check with an optional build that ships to the hiring side, then a dual-key gate of continue and advance, leading to next round, withdraw, offer, or reject, then follow-up and recycle.">
+<svg viewBox="0 0 680 1016">
+<defs><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5B6660" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<line class="sep" x1="160" y1="20" x2="160" y2="1004"/>
+<line class="sep" x1="280" y1="20" x2="280" y2="1004"/>
+<line class="sep" x1="400" y1="20" x2="400" y2="1004"/>
+<line class="sep" x1="520" y1="20" x2="520" y2="1004"/>
+<rect class="lh" x="44" y="20" width="112" height="36" rx="3"/><text class="thl" x="100" y="38" text-anchor="middle" dominant-baseline="central">Scheduled tasks</text>
+<rect class="lh" x="164" y="20" width="112" height="36" rx="3"/><text class="th" x="220" y="38" text-anchor="middle" dominant-baseline="central">Claude</text>
+<rect class="lh" x="284" y="20" width="112" height="36" rx="3"/><text class="th" x="340" y="38" text-anchor="middle" dominant-baseline="central">Candidate</text>
+<rect class="lh" x="404" y="20" width="112" height="36" rx="3"/><text class="th" x="460" y="38" text-anchor="middle" dominant-baseline="central">Recruiter</text>
+<rect class="lh" x="524" y="20" width="112" height="36" rx="3"/><text class="th" x="580" y="38" text-anchor="middle" dominant-baseline="central">Hiring side</text>
+<rect class="round" x="164" y="232" width="472" height="416" rx="6"/>
+<text class="ts" x="628" y="244" text-anchor="end" dominant-baseline="central">each round</text>
+<rect class="evt" x="404" y="80" width="112" height="56" rx="28"/><text class="th" x="460" y="99" text-anchor="middle" dominant-baseline="central">Invite</text><text class="ts" x="460" y="117" text-anchor="middle" dominant-baseline="central">message event</text>
+<rect class="act" x="44" y="80" width="112" height="56" rx="3"/><text class="th" x="100" y="99" text-anchor="middle" dominant-baseline="central">Email monitor</text><text class="ts" x="100" y="117" text-anchor="middle" dominant-baseline="central">detects invite</text>
+<rect class="act" x="284" y="164" width="112" height="56" rx="3"/><text class="th" x="340" y="183" text-anchor="middle" dominant-baseline="central">Schedule</text><text class="ts" x="340" y="201" text-anchor="middle" dominant-baseline="central">accept, book</text>
+<rect class="act" x="164" y="248" width="112" height="64" rx="3"/><text class="th" x="220" y="265" text-anchor="middle" dominant-baseline="central">Prep docs</text><text class="ts" x="220" y="283" text-anchor="middle" dominant-baseline="central">plan: prep doc,</text><text class="ts" x="220" y="298" text-anchor="middle" dominant-baseline="central">call doc</text>
+<rect class="act" x="284" y="332" width="352" height="64" rx="3"/><text class="th" x="460" y="349" text-anchor="middle" dominant-baseline="central">Interview</text><text class="ts" x="460" y="367" text-anchor="middle" dominant-baseline="central">do: recorded, transcribed;</text><text class="ts" x="460" y="382" text-anchor="middle" dominant-baseline="central">with recruiter or hiring side</text>
+<rect class="act" x="164" y="416" width="112" height="56" rx="3"/><text class="th" x="220" y="435" text-anchor="middle" dominant-baseline="central">Retrospective</text><text class="ts" x="220" y="453" text-anchor="middle" dominant-baseline="central">check</text>
+<rect class="gate" x="284" y="500" width="112" height="56" rx="3"/><text class="tg" x="340" y="519" text-anchor="middle" dominant-baseline="central">Build check</text><text class="ts" x="340" y="537" text-anchor="middle" dominant-baseline="central">every round</text>
+<rect class="act" x="164" y="584" width="112" height="56" rx="3"/><text class="th" x="220" y="603" text-anchor="middle" dominant-baseline="central">Build</text><text class="ts" x="220" y="621" text-anchor="middle" dominant-baseline="central">plan, then ship</text>
+<rect class="gate" x="284" y="584" width="112" height="56" rx="3"/><text class="tg" x="340" y="603" text-anchor="middle" dominant-baseline="central">Continue?</text><text class="ts" x="340" y="621" text-anchor="middle" dominant-baseline="central">candidate's key</text>
+<rect class="gate" x="524" y="584" width="112" height="56" rx="3"/><text class="tg" x="580" y="603" text-anchor="middle" dominant-baseline="central">Advance?</text><text class="ts" x="580" y="621" text-anchor="middle" dominant-baseline="central">their key</text>
+<rect class="evt" x="284" y="668" width="112" height="56" rx="28"/><text class="th" x="340" y="687" text-anchor="middle" dominant-baseline="central">Withdraw</text><text class="ts" x="340" y="705" text-anchor="middle" dominant-baseline="central">end event</text>
+<rect class="evt" x="524" y="668" width="112" height="56" rx="28"/><text class="th" x="580" y="687" text-anchor="middle" dominant-baseline="central">Offer</text><text class="ts" x="580" y="705" text-anchor="middle" dominant-baseline="central">to negotiation</text>
+<rect class="act" x="284" y="752" width="112" height="56" rx="3"/><text class="th" x="340" y="771" text-anchor="middle" dominant-baseline="central">Next round</text><text class="ts" x="340" y="789" text-anchor="middle" dominant-baseline="central">act: re-prep</text>
+<rect class="evt" x="404" y="836" width="112" height="56" rx="28"/><text class="th" x="460" y="855" text-anchor="middle" dominant-baseline="central">Reject</text><text class="ts" x="460" y="873" text-anchor="middle" dominant-baseline="central">end event</text>
+<rect class="act" x="284" y="920" width="112" height="80" rx="3"/><text class="th" x="340" y="937" text-anchor="middle" dominant-baseline="central">Follow-up</text><text class="ts" x="340" y="955" text-anchor="middle" dominant-baseline="central">warm email,</text><text class="ts" x="340" y="970" text-anchor="middle" dominant-baseline="central">ship any build</text><text class="ts" x="340" y="985" text-anchor="middle" dominant-baseline="central">in progress</text>
+<rect class="evt" x="524" y="920" width="112" height="56" rx="28"/><text class="th" x="580" y="939" text-anchor="middle" dominant-baseline="central">Recycle</text><text class="ts" x="580" y="957" text-anchor="middle" dominant-baseline="central">new invite</text>
+<path class="arr" d="M402 108 L158 108" marker-end="url(#a2)"/>
+<path class="arr" d="M100 136 L100 150 L340 150 L340 162" marker-end="url(#a2)"/>
+<path class="arr" d="M340 220 L340 238 L220 238 L220 246" marker-end="url(#a2)"/>
+<path class="arr" d="M220 312 L220 364 L282 364" marker-end="url(#a2)"/>
+<path class="arr" d="M340 396 L340 404 L220 404 L220 414" marker-end="url(#a2)"/>
+<path class="arr" d="M220 472 L220 486 L340 486 L340 498" marker-end="url(#a2)"/>
+<path class="arr dash" d="M284 528 L220 528 L220 582" marker-end="url(#a2)"/>
+<text class="ts" x="250" y="518" text-anchor="middle" dominant-baseline="central">yes</text>
+<path class="arr" d="M340 556 L340 582" marker-end="url(#a2)"/>
+<text class="ts" x="346" y="576" text-anchor="start" dominant-baseline="central">no</text>
+<path class="arr dash" d="M250 584 L250 563 L560 563 L560 582" marker-end="url(#a2)"/>
+<text class="ts" x="470" y="553" text-anchor="middle" dominant-baseline="central">ships</text>
+<path class="arr" d="M580 396 L580 582" marker-end="url(#a2)"/>
+<text class="ts" x="588" y="490" text-anchor="start" dominant-baseline="central">wait</text>
+<path class="arr" d="M522 612 L398 612" marker-end="url(#a2)"/>
+<text class="ts" x="460" y="600" text-anchor="middle" dominant-baseline="central">advance</text>
+<path class="arr" d="M340 640 L340 666" marker-end="url(#a2)"/>
+<text class="ts" x="352" y="653" text-anchor="start" dominant-baseline="central">withdraw</text>
+<path class="arr" d="M396 628 L410 628 L410 780 L398 780" marker-end="url(#a2)"/>
+
+<path class="arr" d="M600 640 L600 666" marker-end="url(#a2)"/>
+<path class="arr" d="M544 640 L544 656 L460 656 L460 834" marker-end="url(#a2)"/>
+<text class="ts" x="468" y="745" text-anchor="start" dominant-baseline="central">reject</text>
+<path class="arr dash" d="M284 780 L150 780 L150 276 L162 276" marker-end="url(#a2)"/>
+<text class="ts" x="146" y="528" text-anchor="end" dominant-baseline="central">next round</text>
+<path class="arr" d="M460 892 L460 906 L340 906 L340 918" marker-end="url(#a2)"/>
+<path class="arr dash" d="M396 948 L522 948" marker-end="url(#a2)"/>
+<path class="arr dash" d="M636 948 L652 948 L652 108 L518 108" marker-end="url(#a2)"/>
+<text class="ts" x="585" y="94" text-anchor="middle" dominant-baseline="central">re-entry</text>
+</svg>
+</div>
+<ol class="steps">
+  <li><span class="tag evt-t">Event</span><b>Invite</b> (recruiter). Message event, picked up by the email monitor.</li>
+  <li><b>Schedule</b> (Candidate). Accept, share availability.</li>
+  <li><b>Prep docs</b> (Claude). Plan: prep doc to read before, call doc open during.</li>
+  <li><b>Interview</b> (Candidate with the recruiter on the screener, the hiring side after that). Do: recorded with consent, transcribed. Portfolio walk in hiring manager and panel rounds, never the screener. Confirm the timeline before hanging up.</li>
+  <li><b>Retrospective</b> (Claude). Check: what landed, what to cut, what they were hanging on.</li>
+  <li><span class="tag gate-t">Gate</span><b>Build check</b> (Candidate). Asked every round. On a yes, Claude builds it and it ships to the hiring side, where it can inform their decision. On a no, the round goes straight to the gate.</li>
+  <li><span class="tag gate-t">Gate</span><b>Dual-key gate.</b> Hiring side: advance or reject, after a wait. Candidate: continue or withdraw, based on their burning questions.</li>
+  <li><span class="tag evt-t">Event</span><b>Withdraw</b>. The candidate turns the key: the process ends on the candidate's side.</li>
+  <li><b>Next round</b>. Act: back to prep with what the retrospective found.</li>
+  <li><span class="tag evt-t">Event</span><b>Offer</b>. Exits to negotiation and the accept/decline decision, both out of scope.</li>
+  <li><span class="tag evt-t">Event</span><b>Reject</b>, then <b>Follow-up</b>: warm email, ship any build in progress.</li>
+  <li><span class="tag evt-t">Event</span><b>Recycle</b>. A new invite re-enters Phase 2 directly and skips Application.</li>
+</ol>
+<p class="hint">Not drawn: the timer event when a promised timeline passes, which gives a legitimate reason to make contact again.</p>
+```
+
+## Build decision rule {#build-rule}
+
+```{=html}
+<div class="rule">
+<dl>
+  <dt>Must-meet</dt><dd>An application exists. Someone on their side has named a problem in their own words. A plan-shaped answer can ship before the next gate.</dd>
+  <dt>Should-meet</dt><dd>The problem was confirmed when the candidate asked about it. It touches something on the resume, such as governance. It's a later round.</dd>
+  <dt>Backstop</dt><dd>At least one build per process. If none has fired by the last known round, force one.</dd>
+  <dt>Ship rule</dt><dd>Confirmed: ship later, in their language. Not confirmed: ship it anyway, framed as "this might not be it."</dd>
+</dl>
+</div>
+```
+
+## Vocabulary
+
+```{=html}
+<div class="table-scroll" tabindex="0">
+<table>
+  <thead><tr><th>Working term</th><th>Standard term</th><th>Frame</th></tr></thead>
+  <tbody>
+    <tr><td>Stage 1 / Stage 2</td><td>Phase</td><td>Stage-Gate</td></tr>
+    <tr><td>Interview round</td><td>Stage</td><td>Stage-Gate</td></tr>
+    <tr><td>Pass/fail after a round</td><td>Gate, gatekeeper</td><td>Stage-Gate</td></tr>
+    <tr><td>Create / Pass / Decline</td><td>Go / Hold / Kill</td><td>Stage-Gate</td></tr>
+    <tr><td>"Is this the build?"</td><td>Gate criteria</td><td>Stage-Gate</td></tr>
+    <tr><td>False terminal, reopened role</td><td>Recycle, re-entry point</td><td>Stage-Gate</td></tr>
+    <tr><td>Invite, rejection</td><td>Message event</td><td>BPMN</td></tr>
+    <tr><td>Missed timeline</td><td>Timer event</td><td>BPMN</td></tr>
+    <tr><td>Lies dormant</td><td>Wait state</td><td>BPMN</td></tr>
+    <tr><td>Build fires at some gate</td><td>Conditional activity</td><td>BPMN</td></tr>
+    <tr><td>Offer / decline</td><td>End event</td><td>BPMN</td></tr>
+    <tr><td>Prep doc, call doc, build</td><td>Deliverable</td><td>PM</td></tr>
+    <tr><td>Transcript</td><td>Artifact</td><td>PM</td></tr>
+    <tr><td>Daily run vs. invite-driven</td><td>Cadence vs. event-driven</td><td>Ops</td></tr>
+    <tr><td>Lock</td><td>Baseline</td><td>PM</td></tr>
+    <tr><td>Flag</td><td>Parking lot, backlog</td><td>PM / Agile</td></tr>
+    <tr><td>Discussed, not locked</td><td>Open issue</td><td>PM</td></tr>
+  </tbody>
+</table>
+</div>
+```
+
+## Terms
+
+```{=html}
+<div class="rule">
+<dl>
+  <dt>JD</dt><dd>Job description: the employer's posting for the role.</dd>
+  <dt>ATS</dt><dd>Applicant tracking system: the employer's hiring software, which parses submitted resumes. Different systems parse the same resume differently.</dd>
+  <dt>Master resume</dt><dd>A long superset of every past role and result. Each tailored resume is cut down from it; nothing is written fresh.</dd>
+  <dt>STAR library</dt><dd>A collection of past-work stories in Situation, Task, Action, Result form, reused across resumes, cover letters, application answers and interviews.</dd>
+  <dt>Rule layer</dt><dd>The written rules for tailoring: what to claim, what not to claim, what never to do. Gaps are stated, never glossed.</dd>
+  <dt>Resurfacing board</dt><dd>Where held postings wait to be reconsidered on a later day.</dd>
+  <dt>Build</dt><dd>A piece of work made for one employer's named problem, usually a plan for how to solve it rather than a chart.</dd>
+  <dt>Portfolio walk</dt><dd>A short live screen-share of past builds during a hiring manager or panel interview. Never on the screener.</dd>
+</dl>
+</div>
+```
+
+## Open questions {#open-questions}
+
+```{=html}
+<ul class="plain">
+  <li>Take-home / work-sample gate</li>
+  <li>Negotiation workstream</li>
+  <li>G1 go criteria (kill criteria are written; go criteria are not)</li>
+  <li>Resume length as a dial</li>
+  <li>ATS-aware formatting</li>
+</ul>
+
+<footer class="prov">
+  <div><b>Provenance</b></div>
+  <div>Process model v0, locked 2026-09-23. The source of truth is a Mermaid file, checked node by node and edge by edge against a written spec; this page is its rendered view. The build decision rule is inferred from past builds and accepted as a draft.</div>
+</footer>
+```
+
+:::

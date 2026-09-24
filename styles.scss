@@ -398,6 +398,168 @@ body.hero-page #title-block-header { display: none; }
   > table { margin-bottom: 0; }
 }
 
+// Job offer process map (projects/job-offer-process-map.qmd). The component
+// styles of the map's standalone HTML, carried over under one wrapper so
+// nothing here reaches the rest of the site. The page's headings use the
+// site's own rules; only the components below are the map's. Every colour is
+// a palette token. The gate tint is Evergreen over Paper at 8%, not the
+// source's 11%: Evergreen text on the 11% tint measures 4.48:1, and the
+// 12px gate chips in the step lists are body-size text that WCAG 1.4.3 holds
+// to 4.5:1. 8% is the level the status pills above already use (#E9F1EC,
+// 4.63:1) and measures 4.67:1 here, so the gate labels inside the diagrams
+// clear the same bar. One tint everywhere, so a gate is one colour on the page.
+$pm-tint: mix($cascadia-evergreen, $cascadia-paper, 8%);
+
+.process-map {
+  .frames {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .frame {
+    border-top: 2px solid $cascadia-evergreen;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    b    { font: 600 16px $cascadia-serif; }
+    span { font-size: 13px; color: $cascadia-slate; }
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 12px;
+    color: $cascadia-slate;
+
+    i {
+      display: inline-block;
+      width: 26px;
+      height: 13px;
+      vertical-align: -2px;
+      margin-right: 6px;
+      border: 1px solid $cascadia-rain;
+      background: $cascadia-paper;
+    }
+    .lg-gate { background: $pm-tint; border-color: $cascadia-evergreen; }
+    .lg-evt  { border-radius: 7px; border-color: $cascadia-slate; }
+    .lg-dash { border: 0; border-top: 1.5px dashed $cascadia-slate; height: 0; vertical-align: 3px; }
+  }
+  .lede { color: $cascadia-slate; font-size: 14px; }
+  .hint { font-size: 12px; color: $cascadia-slate; }
+
+  // Each diagram scrolls inside its own box, so the page never does (WCAG
+  // 1.4.10), and the box carries tabindex="0" so a keyboard can reach it
+  // (2.1.1) -- the same pair .table-scroll documents. The SVG's smallest
+  // type is 12px at a scale of 1, so the floor is its own viewBox width
+  // (680) rather than the source's 640: below that the labels shrink under
+  // the 12px floor at phone width.
+  .diagram {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid $cascadia-mist;
+    background: $cascadia-paper;
+    margin-bottom: 8px;
+
+    &:focus-visible {
+      outline: 2px solid $cascadia-evergreen;
+      outline-offset: 2px;
+    }
+    svg { display: block; min-width: 680px; width: 100%; height: auto; }
+  }
+  .sep   { stroke: $cascadia-mist; stroke-width: 1; }
+  .lh    { fill: $cascadia-paper; stroke: $cascadia-rain; stroke-width: .75; }
+  .act   { fill: $cascadia-paper; stroke: $cascadia-rain; stroke-width: 1; }
+  .gate  { fill: $pm-tint; stroke: $cascadia-evergreen; stroke-width: 1; }
+  .evt   { fill: $cascadia-paper; stroke: $cascadia-slate; stroke-width: 1; }
+  .round { fill: none; stroke: $cascadia-rain; stroke-width: 1; stroke-dasharray: 4 3; }
+  .th    { font: 600 14px $cascadia-sans; fill: $cascadia-basalt; }
+  .thl   { font: 600 13px $cascadia-sans; fill: $cascadia-basalt; }
+  .tg    { font: 600 14px $cascadia-sans; fill: $cascadia-evergreen; }
+  .ts    { font: 400 12px $cascadia-sans; fill: $cascadia-slate; }
+  .arr   { stroke: $cascadia-slate; stroke-width: 1.1; fill: none; }
+  .dash  { stroke-dasharray: 4 3; }
+
+  ol.steps {
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 65ch;
+
+    li::marker { color: $cascadia-evergreen; font-weight: 600; }
+  }
+  // 12px, not the source's 11px: Rule 5.3's floor applies on the site.
+  .tag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 0 6px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: 1px;
+    font-weight: 600;
+  }
+  .tag.gate-t { background: $pm-tint; color: $cascadia-evergreen; }
+  .tag.evt-t  { border: 1px solid $cascadia-slate; color: $cascadia-slate; }
+  ul.plain {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 65ch;
+  }
+  .rule {
+    border: 1px solid $cascadia-mist;
+    padding: 16px;
+
+    dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; }
+    dt { font-weight: 600; color: $cascadia-evergreen; font-size: 13px; }
+    dd { margin: 0; }
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 520px;
+    font-size: 14px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid $cascadia-mist;
+    vertical-align: top;
+  }
+  th {
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: $cascadia-slate;
+    font-weight: 600;
+  }
+  // The source set the working-term column in italic serif. The site's font
+  // request loads Source Serif 4 roman only, so an italic here would be the
+  // browser's synthesized slant. Roman serif keeps the column distinct from
+  // the sans standard-term column without asking for a face that never loads.
+  td:first-child  { font-family: $cascadia-serif; }
+  td:nth-child(2) { font-weight: 600; }
+  td:last-child   { color: $cascadia-slate; font-size: 13px; }
+  .prov {
+    border-top: 1px solid $cascadia-mist;
+    padding-top: 12px;
+    margin-top: 2rem;
+    font-size: 12px;
+    color: $cascadia-slate;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    b { color: $cascadia-evergreen; font-weight: 600; }
+  }
+}
+
 // Footer
 .nav-footer {
   background: $cascadia-spruce;

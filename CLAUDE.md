@@ -63,7 +63,7 @@ another process is running, delete that file and retry. Nothing is wrong.
 address still resolves and redirects, but must not appear in the source.
 
 **Thumbnails are generated, never edited.** `tools/build_thumbs.py` produces all
-fourteen OG cards in `assets/` from the `MODULES` list at the top of that file. To
+fifteen OG cards in `assets/` from the `MODULES` list at the top of that file. To
 change a card, change the script. CI regenerates them on every build, so hand-
 edited images are overwritten. That count is asserted in CI by
 `tools/check_references.py` — it said "eight" for two modules longer than it was
@@ -80,7 +80,7 @@ going live is always one deliberate yes.
 **Verification lives in the Action, not in a local shell.** After deploying,
 the workflow asserts the Pages `cname`, polls `build.txt` until the edge serves
 the pushed SHA, checks the core pages and redirects, crawls every link on the
-site, and runs axe over eleven pages at two viewports. Any miss fails the run
+site, and runs axe over twelve pages at two viewports. Any miss fails the run
 and emails Aaron. Do not re-add a local verification loop — that is the thing
 that produced false passes. Do not improvise a shorter version of `/publish`.
 

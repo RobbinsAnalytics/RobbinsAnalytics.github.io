@@ -257,7 +257,21 @@ Demand, merchandising, and fulfillment analytics for a retail apparel scenario.
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-8}
+::: {.g-col-12 .g-col-md-6}
+::: {.project-card}
+::: {.card-label}
+Process design · A working system
+:::
+### Job Offer Process Map
+<span class="badge-status new">New</span>
+
+A job search mapped as a working process: Stage-Gate for structure, BPMN swimlanes for who does what, and a plan-do-check-act loop inside every interview round. Two phases, five lanes, and two keys at every interview gate.
+
+[See the Map](projects/job-offer-process-map.qmd){.btn .btn-primary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
 ::: {.project-card}
 ::: {.card-label}
 Mathematics · A pet project

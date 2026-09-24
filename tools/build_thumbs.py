@@ -110,6 +110,18 @@ MODULES = [
     dict(slug="sibling-conflict", data="preprint · OEIS A000392 · no dataset", kicker="Cascadia Curiosities", title="The combinatorics of sibling conflict",
          line="Of the 3,025 ways eight children can take sides, just 28 are one against one. A short mathematics paper, not a BI module.",
          accent="evergreen", motif="line"),
+    # Not a BI module -- a process design that sits beside the portfolio, so
+    # the kicker names the home page section it lives in and the line says
+    # what it is not. Evergreen because 2.3.1 binds the hue to the piece
+    # wherever it appears, and the map's own two diagrams carry their one
+    # accent -- the gate tint and the gate labels -- in Evergreen; a different
+    # hue here would give one artifact two colours. Sibling Conflict shares the
+    # slot and sits beside this card in Beyond the Portfolio, but the home
+    # page cards carry no accent hue of their own, so the two are never the
+    # same colour side by side. "steps" because a stage-gate reads as steps.
+    dict(slug="job-offer-process-map", data="process design · no dataset", kicker="Beyond the Portfolio", title="Job offer process map",
+         line="Two phases, five lanes, and two keys at every interview gate. A process design, not a BI module.",
+         accent="evergreen", motif="steps"),
 ]
 
 MOTIFS = {
