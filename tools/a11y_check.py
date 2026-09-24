@@ -63,6 +63,7 @@ PAGES = [
     "/projects/cascadia-staffing.html",
     "/projects/cascadia-bi-migration.html",
     "/projects/sibling-conflict.html",
+    "/projects/job-offer-process-map.html",
 ]
 
 VIEWPORTS = [("desktop", 1440, 900), ("mobile", 390, 844)]

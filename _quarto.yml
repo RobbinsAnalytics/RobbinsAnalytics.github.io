@@ -91,6 +91,11 @@ website:
             href: projects/cascadia-medical-devices.qmd
           - text: "Cascadia Clothing (Coming Soon)"
             href: projects/cascadia-clothing.qmd
+          # Not a Cascadia module: a process design, labelled as what it is,
+          # with no "Cascadia" prefix and no status word. It sits beside the
+          # preprint below, which stays last.
+          - text: "Job Offer Process Map (process design)"
+            href: projects/job-offer-process-map.qmd
           # Last, and labelled as what it is. Not a Cascadia module — a
           # mathematics preprint — so it carries neither the "Cascadia" prefix
           # every entry above shares nor a status word that would read as a
