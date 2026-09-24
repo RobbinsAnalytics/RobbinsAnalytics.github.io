@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cascadia BI Migration – Robbins Analytics</title>
+<title>Job Offer Process Map – Robbins Analytics</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -87,15 +87,15 @@ ul.task-list li input[type="checkbox"] {
 <link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
 
 
-<meta property="og:title" content="Cascadia BI Migration – Robbins Analytics">
-<meta property="og:description" content="A 24-week program to move an organization off legacy BI and onto a governed, AI-assisted platform — with a certified metric layer at the center.">
-<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-bi-migration.png">
+<meta property="og:title" content="Job Offer Process Map – Robbins Analytics">
+<meta property="og:description" content="A job search run as a process: two phases, five lanes, and a gate with two keys at every interview round.">
+<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-job-offer-process-map.png">
 <meta property="og:site_name" content="Robbins Analytics">
-<meta property="og:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
-<meta name="twitter:title" content="Cascadia BI Migration – Robbins Analytics">
-<meta name="twitter:description" content="A 24-week program to move an organization off legacy BI and onto a governed, AI-assisted platform — with a certified metric layer at the center.">
-<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-bi-migration.png">
-<meta name="twitter:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
+<meta property="og:image:alt" content="Beyond the Portfolio card: title, one-line summary, and the source.">
+<meta name="twitter:title" content="Job Offer Process Map – Robbins Analytics">
+<meta name="twitter:description" content="A job search run as a process: two phases, five lanes, and a gate with two keys at every interview round.">
+<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-job-offer-process-map.png">
+<meta name="twitter:image:alt" content="Beyond the Portfolio card: title, one-line summary, and the source.">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -219,8 +219,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cascadia BI Migration</h1>
-<p class="subtitle lead">A 24-week program to move an organization off legacy BI and onto a governed, AI-assisted platform — with a certified metric layer at the center.</p>
+<h1 class="title">Job Offer Process Map</h1>
+<p class="subtitle lead">A job search run as a process: two phases, five lanes, and a gate with two keys at every interview round.</p>
 </div>
 
 
@@ -239,356 +239,310 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="case-study-header">
 <div class="cs-domain">
-<p>BI Leadership / Metric Governance</p>
+<p>Process design · A working system</p>
 </div>
-<section id="cascadia-bi-migration" class="level1">
-<h1>Cascadia BI Migration</h1>
+<section id="job-offer-process-map" class="level1">
+<h1>Job Offer Process Map</h1>
 <div class="cs-hook">
-<p>How I’d run a Tableau → AI-native BI migration: retire self-serve reporting for the general population, migrate the dashboards that actually matter, and stand up a certified metric layer so the numbers the business runs on have one owned definition. An illustrative program design — company-agnostic, no confidential information.</p>
+<p>Two phases, five lanes. Application runs every day and has one gate, owned by the candidate. Interview is triggered by an invite and repeats once per round, and every gate has two keys: the hiring side’s and the candidate’s.</p>
 </div>
 </section>
 </div>
-<hr>
-<section id="the-scenario" class="level2">
-<h2 data-anchor-id="the-scenario">The Scenario</h2>
-<p>A high-growth company runs ~500 dashboards on a legacy BI tool — but fewer than 100 are actually used, and only ~20–25 are heavily used. A license renewal is the forcing function: renew for the whole population at full cost, or migrate the reporting that matters onto a modern, AI-assisted BI platform (sitting on the existing cloud data warehouse) and renew lean for a handful of admins.</p>
-<p>The trap in a migration like this is treating it as a copy job. Rebuilding 500 dashboards on uncertified metrics just moves the technical debt to a new tool. The program below does the opposite: <strong>certify the numbers first, migrate only what’s used, and make parity QA — proving the new number equals the trusted old number — the actual deliverable.</strong></p>
-<hr>
+<div class="process-map">
+<section id="frame" class="level2">
+<h2 data-anchor-id="frame">Frame</h2>
+<div class="frames">
+  <div class="frame"><b>Stage-Gate</b><span>Structure. Stages hold the work, gates hold the decisions. Outcomes: go, hold, kill, recycle.</span></div>
+  <div class="frame"><b>BPMN swimlanes</b><span>Notation. Lanes show who does each step; crossing a lane is a handoff.</span></div>
+  <div class="frame"><b>PDCA</b><span>The round loop. Prep is Plan, interview is Do, retrospective is Check, next prep is Act.</span></div>
+</div>
+<div class="legend">
+  <span><i class="lg-evt"></i>event</span>
+  <span><i class="lg-gate"></i>gate</span>
+  <span><i></i>activity</span>
+  <span><i class="lg-dash"></i>conditional or loop</span>
+</div>
 </section>
-<section id="guiding-principles" class="level2">
-<h2 data-anchor-id="guiding-principles">Guiding Principles</h2>
-<ul>
-<li><strong>Certified layer first, dashboards second.</strong> A migrated dashboard built on an undefined metric just relocates the problem. Define the number, then build on it.</li>
-<li><strong>Migrate what’s used; retire the rest on a published date.</strong> Most of the ~500 dashboards should be retired, not moved.</li>
-<li><strong>Two tiers, always labeled.</strong> <em>Certified</em> metrics for decisions; <em>exploratory</em> clearly marked as not-yet-locked.</li>
-<li><strong>Parity QA is the deliverable.</strong> With AI-assisted, prompt-driven rebuilds, construction is cheap — the value is proving the new number matches the trusted old one, or is <em>correctly</em> different and documented why.</li>
-<li><strong>No big-bang.</strong> Wave-by-wave cutover, each with hypercare.</li>
-<li><strong>Partner, don’t turf-war.</strong> BI owns definitions, the context layer, and QA; platform engineering owns the warehouse and pipelines; data science owns the AI-platform depth.</li>
-<li><strong>Governance, not gatekeeping.</strong> Enable self-service on a trusted base rather than becoming the bottleneck everyone routes around.</li>
-</ul>
-<hr>
+<section id="application" class="level2">
+<h2 data-anchor-id="application">Phase 1: Application</h2>
+<p class="lede">Daily cadence. One gate, owned by the candidate. Ends at the handoff to Interview.</p>
+<!-- The SVG below is byte-identical to the one in the source model. It is not
+     redrawn here; change the source and re-lift it. tabindex="0" so a keyboard
+     can reach a box that scrolls (see .table-scroll in styles.scss). -->
+<div class="diagram" role="img" tabindex="0" aria-label="Phase 1 swimlane: readiness gate, daily run, collect, score and report, disposition gate with go, hold and kill, tailor, submit, submitted.">
+<svg viewbox="0 0 680 752">
+<defs><marker id="a1" viewbox="0 0 10 10" refx="8" refy="5" markerwidth="6" markerheight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5B6660" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></marker></defs>
+<line class="sep" x1="160" y1="20" x2="160" y2="740"></line>
+<line class="sep" x1="280" y1="20" x2="280" y2="740"></line>
+<line class="sep" x1="400" y1="20" x2="400" y2="740"></line>
+<line class="sep" x1="520" y1="20" x2="520" y2="740"></line>
+<rect class="lh" x="44" y="20" width="112" height="36" rx="3"></rect><text class="thl" x="100" y="38" text-anchor="middle" dominant-baseline="central">Scheduled tasks</text>
+<rect class="lh" x="164" y="20" width="112" height="36" rx="3"></rect><text class="th" x="220" y="38" text-anchor="middle" dominant-baseline="central">Claude</text>
+<rect class="lh" x="284" y="20" width="112" height="36" rx="3"></rect><text class="th" x="340" y="38" text-anchor="middle" dominant-baseline="central">Candidate</text>
+<rect class="lh" x="404" y="20" width="112" height="36" rx="3"></rect><text class="th" x="460" y="38" text-anchor="middle" dominant-baseline="central">Recruiter</text>
+<rect class="lh" x="524" y="20" width="112" height="36" rx="3"></rect><text class="th" x="580" y="38" text-anchor="middle" dominant-baseline="central">Hiring side</text>
+<rect class="gate" x="284" y="80" width="112" height="56" rx="3"></rect><text class="tg" x="340" y="99" text-anchor="middle" dominant-baseline="central">G0 readiness</text><text class="ts" x="340" y="117" text-anchor="middle" dominant-baseline="central">entry criteria</text>
+<rect class="evt" x="44" y="164" width="112" height="56" rx="28"></rect><text class="th" x="100" y="183" text-anchor="middle" dominant-baseline="central">Daily run</text><text class="ts" x="100" y="201" text-anchor="middle" dominant-baseline="central">timer start</text>
+<rect class="act" x="44" y="248" width="112" height="56" rx="3"></rect><text class="th" x="100" y="267" text-anchor="middle" dominant-baseline="central">Collect</text><text class="ts" x="100" y="285" text-anchor="middle" dominant-baseline="central">boards, sites</text>
+<rect class="act" x="44" y="332" width="112" height="56" rx="3"></rect><text class="th" x="100" y="351" text-anchor="middle" dominant-baseline="central">Score, report</text><text class="ts" x="100" y="369" text-anchor="middle" dominant-baseline="central">digest emailed</text>
+<rect class="gate" x="284" y="416" width="112" height="56" rx="3"></rect><text class="tg" x="340" y="435" text-anchor="middle" dominant-baseline="central">G1 disposition</text><text class="ts" x="340" y="453" text-anchor="middle" dominant-baseline="central">go, hold, kill</text>
+<rect class="act" x="164" y="500" width="112" height="64" rx="3"></rect><text class="th" x="220" y="517" text-anchor="middle" dominant-baseline="central">Tailor</text><text class="ts" x="220" y="535" text-anchor="middle" dominant-baseline="central">resume, letter,</text><text class="ts" x="220" y="550" text-anchor="middle" dominant-baseline="central">answers</text>
+<rect class="evt" x="284" y="500" width="112" height="56" rx="28"></rect><text class="th" x="340" y="519" text-anchor="middle" dominant-baseline="central">Kill</text><text class="ts" x="340" y="537" text-anchor="middle" dominant-baseline="central">reason logged</text>
+<rect class="act" x="284" y="584" width="112" height="56" rx="3"></rect><text class="th" x="340" y="603" text-anchor="middle" dominant-baseline="central">Submit</text><text class="ts" x="340" y="621" text-anchor="middle" dominant-baseline="central">employer board</text>
+<rect class="evt" x="284" y="668" width="112" height="64" rx="32"></rect><text class="th" x="340" y="684" text-anchor="middle" dominant-baseline="central">Application</text><text class="th" x="340" y="700" text-anchor="middle" dominant-baseline="central">submitted</text><text class="ts" x="340" y="717" text-anchor="middle" dominant-baseline="central">to Interview</text>
+<path class="arr" d="M340 136 L340 150 L100 150 L100 162" marker-end="url(#a1)"></path>
+<path class="arr" d="M100 220 L100 246" marker-end="url(#a1)"></path>
+<path class="arr" d="M100 304 L100 330" marker-end="url(#a1)"></path>
+<path class="arr" d="M100 388 L100 402 L340 402 L340 414" marker-end="url(#a1)"></path>
+<path class="arr" d="M284 444 L220 444 L220 498" marker-end="url(#a1)"></path>
+<text class="ts" x="246" y="434" text-anchor="middle" dominant-baseline="central">go</text>
+<path class="arr" d="M340 472 L340 498" marker-end="url(#a1)"></path>
+<path class="arr dash" d="M396 444 L412 444 L412 360 L158 360" marker-end="url(#a1)"></path>
+<text class="ts" x="340" y="347" text-anchor="middle" dominant-baseline="central">hold: resurfaces</text>
+<path class="arr" d="M220 564 L220 612 L282 612" marker-end="url(#a1)"></path>
+<path class="arr" d="M340 640 L340 666" marker-end="url(#a1)"></path>
+</svg>
+</div>
+<p class="hint">On a phone, swipe the diagram sideways. The same steps are listed below.</p>
+<ol class="steps">
+  <li><span class="tag gate-t">Gate</span><b>G0 readiness</b> (Candidate). Entry criteria: master resume, STAR library, rule layer.</li>
+  <li><span class="tag evt-t">Event</span><b>Daily run</b> (scheduled). Timer start.</li>
+  <li><b>Collect</b> (scheduled). Job boards and employer career sites.</li>
+  <li><b>Score and report</b> (scheduled). Ranked digest emailed.</li>
+  <li><span class="tag gate-t">Gate</span><b>G1 disposition</b> (Candidate). Go = Create. Hold = Pass, back to the resurfacing board. Kill = Decline, with a reason: title too high, pay too low, or pay doesn't fit the level.</li>
+  <li><b>Tailor</b> (Claude). Resume, cover letter, free-text answers.</li>
+  <li><b>Submit</b> (Candidate). On the employer's own board, never an aggregator.</li>
+  <li><span class="tag evt-t">Event</span><b>Application submitted.</b> Handoff to Interview.</li>
+</ol>
 </section>
-<section id="the-plan" class="level2">
-<h2 data-anchor-id="the-plan">The Plan</h2>
-<div class="bmg-scroll">
-<div id="bmg-gantt">
-<style>
-#bmg-gantt { --bmg: #2f5b9c; min-width: 860px; font-size: 13px; color:#1a2230; }
-#bmg-gantt .bmg-goal { background:#f2f6fc; border-left:4px solid var(--bmg); padding:8px 14px; font-size:12.5px; color:#24405e; margin:0 0 18px; border-radius:0 4px 4px 0; }
-#bmg-gantt .bmg-months { position:relative; height:24px; margin-left:210px; border-bottom:2px solid #cdd8ea; }
-#bmg-gantt .bmg-months .m { position:absolute; top:0; height:24px; width:16.6667%; text-align:center; font-size:11.5px; font-weight:600; color:#33475b; line-height:24px; border-left:1px solid #e4e9f1; }
-#bmg-gantt .bmg-row { position:relative; height:36px; display:flex; align-items:center; }
-#bmg-gantt .bmg-row .lab { width:210px; padding-right:12px; font-size:12px; font-weight:600; color:#2a3441; text-align:right; }
-#bmg-gantt .bmg-row .lab .wk { display:block; font-weight:400; font-size:10px; color:#697384; }
-#bmg-gantt .bmg-track { position:absolute; left:210px; right:0; top:0; height:36px; background-image:repeating-linear-gradient(to right, transparent 0, transparent calc(16.6667% - 1px), #eef1f6 calc(16.6667% - 1px), #eef1f6 16.6667%); }
-#bmg-gantt .bmg-bar { position:absolute; top:7px; height:22px; border-radius:5px; color:#fff; font-size:10.5px; font-weight:600; line-height:22px; padding:0 9px; white-space:nowrap; overflow:visible; box-shadow:0 1px 2px rgba(20,40,70,.18); }
-#bmg-gantt .bmg-bar.cont { top:9px; height:18px; color:#1b2430; }  /* dark ink: these two bars are pale by design, and white on them measured 2.63:1 and 4.36:1 */
-#bmg-gantt .bmg-stripe { background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.28) 0, rgba(255,255,255,.28) 5px, transparent 5px, transparent 11px); }
-#bmg-gantt .bmg-msrow { position:relative; height:44px; margin-left:210px; margin-top:4px; border-top:1px dashed #cbd4e2; }
-#bmg-gantt .bmg-ms { position:absolute; top:8px; transform:translateX(-50%); text-align:center; }
-#bmg-gantt .bmg-ms .dia { width:14px; height:14px; background:#e08a1e; margin:0 auto; transform:rotate(45deg); border-radius:2px; box-shadow:0 1px 2px rgba(120,70,0,.3); }
-#bmg-gantt .bmg-ms .tx { font-size:9.5px; color:#7a5a1a; font-weight:700; margin-top:7px; white-space:nowrap; }
-#bmg-gantt .bmg-ms .tx small { display:block; color:#98692a; font-weight:500; font-size:8.5px; }
-#bmg-gantt .bmg-legend { display:flex; flex-wrap:wrap; gap:10px 20px; margin:18px 0 0; font-size:11px; color:#3a4552; align-items:center; }
-#bmg-gantt .bmg-legend .k { display:flex; align-items:center; gap:6px; }
-#bmg-gantt .bmg-legend .sw { width:16px; height:12px; border-radius:3px; display:inline-block; }
-#bmg-gantt .bmg-legend .dia2 { width:11px; height:11px; background:#e08a1e; transform:rotate(45deg); border-radius:2px; }
-</style>
-<div class="bmg-goal">
-<b>North Star:</b> by the renewal deadline, legacy-BI reporting is retired for the general population (~150 → ~5 licenses); the ~20–25 heavily-used dashboards are migrated <b>and certified</b> on a trusted metric layer in the new platform.
-</div>
-<div class="bmg-months">
-<div class="m" style="left:0%">
-MO 1
-</div>
-<div class="m" style="left:16.6667%">
-MO 2
-</div>
-<div class="m" style="left:33.3333%">
-MO 3
-</div>
-<div class="m" style="left:50%">
-MO 4
-</div>
-<div class="m" style="left:66.6667%">
-MO 5
-</div>
-<div class="m" style="left:83.3333%">
-MO 6
-</div>
-</div>
-<div class="bmg-row">
-<div class="lab">
-0 · Mobilize &amp; Align<span class="wk">Wk 1–2</span>
-</div>
-<div class="bmg-track">
-<div class="bmg-bar" style="left:0%; width:8.33%; background:#163a5f">
-Mobilize
-</div>
-</div>
-</div>
-<div class="bmg-row">
-<div class="lab">
-1 · Discover &amp; Inventory<span class="wk">Wk 2–5</span>
-</div>
-<div class="bmg-track">
-<div class="bmg-bar" style="left:4.17%; width:16.67%; background:#245a9a">
-Discover &amp; Inventory
-</div>
-</div>
-</div>
-<div class="bmg-row">
-<div class="lab">
-2 · Govern &amp; Certify<span class="wk">Wk 4–8</span>
-</div>
-<div class="bmg-track">
-<div class="bmg-bar" style="left:12.5%; width:20.83%; background:#2f72b8">
-Govern &amp; Certify
-</div>
-</div>
-</div>
-<div class="bmg-row">
-<div class="lab">
-3 · Pilot<span class="wk">Wk 7–10</span>
-</div>
-<div class="bmg-track">
-<div class="bmg-bar" style="left:25%; width:16.67%; background:#0e8387">
-Pilot
-</div>
-</div>
-</div>
-<div class="bmg-row">
-<div class="lab">
-4 · Wave Migration<span class="wk">Wk 9–20</span>
-</div>
-<div class="bmg-track">
-<div class="bmg-bar" style="left:33.33%; width:50%; background:#2c6fb0">
-Wave Migration (by department / value)
-</div>
-</div>
-</div>
-<div class="bmg-row">
-<div class="lab">
-5 · Sunset &amp; Renewal<span class="wk">Wk 18–24</span>
-</div>
-<div class="bmg-track">
-<div class="bmg-bar" style="left:70.83%; width:29.17%; background:#1c4e86">
-Sunset &amp; Renew (~5 licenses)
-</div>
-</div>
-</div>
-<div class="bmg-row">
-<div class="lab">
-Governance &amp; QA<span class="wk">continuous</span>
-</div>
-<div class="bmg-track">
-<div class="bmg-bar cont bmg-stripe" style="left:20.83%; width:79.17%; background:#8f9db0">
-certified layer · parity QA (ongoing)
-</div>
-</div>
-</div>
-<div class="bmg-row">
-<div class="lab">
-Hypercare<span class="wk">rolling</span>
-</div>
-<div class="bmg-track">
-<div class="bmg-bar cont bmg-stripe" style="left:29.17%; width:70.83%; background:#93a1b4">
-2–4 wks after each wave
-</div>
-</div>
-</div>
-<div class="bmg-msrow">
-<div class="bmg-ms" style="left:8.33%">
-<div class="dia">
+<section id="interview" class="level2">
+<h2 data-anchor-id="interview">Phase 2: Interview</h2>
+<p class="lede">Event-driven. The dashed frame is one round and repeats. Each round ends at a dual-key gate.</p>
+<!-- Byte-identical to the source model, as above. -->
+<div class="diagram" role="img" tabindex="0" aria-label="Phase 2 swimlane: invite, email monitor, schedule, then each round runs prep docs, interview, retrospective, build check with an optional build that ships to the hiring side, then a dual-key gate of continue and advance, leading to next round, withdraw, offer, or reject, then follow-up and recycle.">
+<svg viewbox="0 0 680 1016">
+<defs><marker id="a2" viewbox="0 0 10 10" refx="8" refy="5" markerwidth="6" markerheight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5B6660" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></marker></defs>
+<line class="sep" x1="160" y1="20" x2="160" y2="1004"></line>
+<line class="sep" x1="280" y1="20" x2="280" y2="1004"></line>
+<line class="sep" x1="400" y1="20" x2="400" y2="1004"></line>
+<line class="sep" x1="520" y1="20" x2="520" y2="1004"></line>
+<rect class="lh" x="44" y="20" width="112" height="36" rx="3"></rect><text class="thl" x="100" y="38" text-anchor="middle" dominant-baseline="central">Scheduled tasks</text>
+<rect class="lh" x="164" y="20" width="112" height="36" rx="3"></rect><text class="th" x="220" y="38" text-anchor="middle" dominant-baseline="central">Claude</text>
+<rect class="lh" x="284" y="20" width="112" height="36" rx="3"></rect><text class="th" x="340" y="38" text-anchor="middle" dominant-baseline="central">Candidate</text>
+<rect class="lh" x="404" y="20" width="112" height="36" rx="3"></rect><text class="th" x="460" y="38" text-anchor="middle" dominant-baseline="central">Recruiter</text>
+<rect class="lh" x="524" y="20" width="112" height="36" rx="3"></rect><text class="th" x="580" y="38" text-anchor="middle" dominant-baseline="central">Hiring side</text>
+<rect class="round" x="164" y="232" width="472" height="416" rx="6"></rect>
+<text class="ts" x="628" y="244" text-anchor="end" dominant-baseline="central">each round</text>
+<rect class="evt" x="404" y="80" width="112" height="56" rx="28"></rect><text class="th" x="460" y="99" text-anchor="middle" dominant-baseline="central">Invite</text><text class="ts" x="460" y="117" text-anchor="middle" dominant-baseline="central">message event</text>
+<rect class="act" x="44" y="80" width="112" height="56" rx="3"></rect><text class="th" x="100" y="99" text-anchor="middle" dominant-baseline="central">Email monitor</text><text class="ts" x="100" y="117" text-anchor="middle" dominant-baseline="central">detects invite</text>
+<rect class="act" x="284" y="164" width="112" height="56" rx="3"></rect><text class="th" x="340" y="183" text-anchor="middle" dominant-baseline="central">Schedule</text><text class="ts" x="340" y="201" text-anchor="middle" dominant-baseline="central">accept, book</text>
+<rect class="act" x="164" y="248" width="112" height="64" rx="3"></rect><text class="th" x="220" y="265" text-anchor="middle" dominant-baseline="central">Prep docs</text><text class="ts" x="220" y="283" text-anchor="middle" dominant-baseline="central">plan: prep doc,</text><text class="ts" x="220" y="298" text-anchor="middle" dominant-baseline="central">call doc</text>
+<rect class="act" x="284" y="332" width="352" height="64" rx="3"></rect><text class="th" x="460" y="349" text-anchor="middle" dominant-baseline="central">Interview</text><text class="ts" x="460" y="367" text-anchor="middle" dominant-baseline="central">do: recorded, transcribed;</text><text class="ts" x="460" y="382" text-anchor="middle" dominant-baseline="central">with recruiter or hiring side</text>
+<rect class="act" x="164" y="416" width="112" height="56" rx="3"></rect><text class="th" x="220" y="435" text-anchor="middle" dominant-baseline="central">Retrospective</text><text class="ts" x="220" y="453" text-anchor="middle" dominant-baseline="central">check</text>
+<rect class="gate" x="284" y="500" width="112" height="56" rx="3"></rect><text class="tg" x="340" y="519" text-anchor="middle" dominant-baseline="central">Build check</text><text class="ts" x="340" y="537" text-anchor="middle" dominant-baseline="central">every round</text>
+<rect class="act" x="164" y="584" width="112" height="56" rx="3"></rect><text class="th" x="220" y="603" text-anchor="middle" dominant-baseline="central">Build</text><text class="ts" x="220" y="621" text-anchor="middle" dominant-baseline="central">plan, then ship</text>
+<rect class="gate" x="284" y="584" width="112" height="56" rx="3"></rect><text class="tg" x="340" y="603" text-anchor="middle" dominant-baseline="central">Continue?</text><text class="ts" x="340" y="621" text-anchor="middle" dominant-baseline="central">candidate's key</text>
+<rect class="gate" x="524" y="584" width="112" height="56" rx="3"></rect><text class="tg" x="580" y="603" text-anchor="middle" dominant-baseline="central">Advance?</text><text class="ts" x="580" y="621" text-anchor="middle" dominant-baseline="central">their key</text>
+<rect class="evt" x="284" y="668" width="112" height="56" rx="28"></rect><text class="th" x="340" y="687" text-anchor="middle" dominant-baseline="central">Withdraw</text><text class="ts" x="340" y="705" text-anchor="middle" dominant-baseline="central">end event</text>
+<rect class="evt" x="524" y="668" width="112" height="56" rx="28"></rect><text class="th" x="580" y="687" text-anchor="middle" dominant-baseline="central">Offer</text><text class="ts" x="580" y="705" text-anchor="middle" dominant-baseline="central">to negotiation</text>
+<rect class="act" x="284" y="752" width="112" height="56" rx="3"></rect><text class="th" x="340" y="771" text-anchor="middle" dominant-baseline="central">Next round</text><text class="ts" x="340" y="789" text-anchor="middle" dominant-baseline="central">act: re-prep</text>
+<rect class="evt" x="404" y="836" width="112" height="56" rx="28"></rect><text class="th" x="460" y="855" text-anchor="middle" dominant-baseline="central">Reject</text><text class="ts" x="460" y="873" text-anchor="middle" dominant-baseline="central">end event</text>
+<rect class="act" x="284" y="920" width="112" height="80" rx="3"></rect><text class="th" x="340" y="937" text-anchor="middle" dominant-baseline="central">Follow-up</text><text class="ts" x="340" y="955" text-anchor="middle" dominant-baseline="central">warm email,</text><text class="ts" x="340" y="970" text-anchor="middle" dominant-baseline="central">ship any build</text><text class="ts" x="340" y="985" text-anchor="middle" dominant-baseline="central">in progress</text>
+<rect class="evt" x="524" y="920" width="112" height="56" rx="28"></rect><text class="th" x="580" y="939" text-anchor="middle" dominant-baseline="central">Recycle</text><text class="ts" x="580" y="957" text-anchor="middle" dominant-baseline="central">new invite</text>
+<path class="arr" d="M402 108 L158 108" marker-end="url(#a2)"></path>
+<path class="arr" d="M100 136 L100 150 L340 150 L340 162" marker-end="url(#a2)"></path>
+<path class="arr" d="M340 220 L340 238 L220 238 L220 246" marker-end="url(#a2)"></path>
+<path class="arr" d="M220 312 L220 364 L282 364" marker-end="url(#a2)"></path>
+<path class="arr" d="M340 396 L340 404 L220 404 L220 414" marker-end="url(#a2)"></path>
+<path class="arr" d="M220 472 L220 486 L340 486 L340 498" marker-end="url(#a2)"></path>
+<path class="arr dash" d="M284 528 L220 528 L220 582" marker-end="url(#a2)"></path>
+<text class="ts" x="250" y="518" text-anchor="middle" dominant-baseline="central">yes</text>
+<path class="arr" d="M340 556 L340 582" marker-end="url(#a2)"></path>
+<text class="ts" x="346" y="576" text-anchor="start" dominant-baseline="central">no</text>
+<path class="arr dash" d="M250 584 L250 563 L560 563 L560 582" marker-end="url(#a2)"></path>
+<text class="ts" x="470" y="553" text-anchor="middle" dominant-baseline="central">ships</text>
+<path class="arr" d="M580 396 L580 582" marker-end="url(#a2)"></path>
+<text class="ts" x="588" y="490" text-anchor="start" dominant-baseline="central">wait</text>
+<path class="arr" d="M522 612 L398 612" marker-end="url(#a2)"></path>
+<text class="ts" x="460" y="600" text-anchor="middle" dominant-baseline="central">advance</text>
+<path class="arr" d="M340 640 L340 666" marker-end="url(#a2)"></path>
+<text class="ts" x="352" y="653" text-anchor="start" dominant-baseline="central">withdraw</text>
+<path class="arr" d="M396 628 L410 628 L410 780 L398 780" marker-end="url(#a2)"></path>
 
+<path class="arr" d="M600 640 L600 666" marker-end="url(#a2)"></path>
+<path class="arr" d="M544 640 L544 656 L460 656 L460 834" marker-end="url(#a2)"></path>
+<text class="ts" x="468" y="745" text-anchor="start" dominant-baseline="central">reject</text>
+<path class="arr dash" d="M284 780 L150 780 L150 276 L162 276" marker-end="url(#a2)"></path>
+<text class="ts" x="146" y="528" text-anchor="end" dominant-baseline="central">next round</text>
+<path class="arr" d="M460 892 L460 906 L340 906 L340 918" marker-end="url(#a2)"></path>
+<path class="arr dash" d="M396 948 L522 948" marker-end="url(#a2)"></path>
+<path class="arr dash" d="M636 948 L652 948 L652 108 L518 108" marker-end="url(#a2)"></path>
+<text class="ts" x="585" y="94" text-anchor="middle" dominant-baseline="central">re-entry</text>
+</svg>
 </div>
-<div class="tx">
-G0<small>mandate + seam</small>
-</div>
-</div>
-<div class="bmg-ms" style="left:20.83%">
-<div class="dia">
-
-</div>
-<div class="tx">
-G1<small>backlog + retire list</small>
-</div>
-</div>
-<div class="bmg-ms" style="left:33.33%">
-<div class="dia">
-
-</div>
-<div class="tx">
-G2<small>catalog v1</small>
-</div>
-</div>
-<div class="bmg-ms" style="left:41.67%">
-<div class="dia">
-
-</div>
-<div class="tx">
-G3<small>pilot adopted</small>
-</div>
-</div>
-<div class="bmg-ms" style="left:75%">
-<div class="dia">
-
-</div>
-<div class="tx">
-G4<small>ready to sunset</small>
-</div>
-</div>
-<div class="bmg-ms" style="left:100%; transform:translateX(-80%)">
-<div class="dia">
-
-</div>
-<div class="tx">
-G5<small>renewal</small>
-</div>
-</div>
-</div>
-<div class="bmg-legend">
-<p><span class="k"><span class="sw" style="background:#245a9a"></span> Sequential phase (has an exit gate)</span> <span class="k"><span class="sw" style="background:#0e8387"></span> Pilot (proof of the motion)</span> <span class="k"><span class="sw bmg-stripe" style="background:#8f9db0"></span> Continuous track</span> <span class="k"><span class="dia2"></span> Decision gate (go/no-go)</span></p>
-</div>
-</div>
-</div>
-<p><em>Front-loaded discovery and governance; migration waves through the middle; sunset lands on the renewal deadline. Governance and QA run continuously once stood up, and bars overlap by design.</em></p>
-<hr>
+<ol class="steps">
+  <li><span class="tag evt-t">Event</span><b>Invite</b> (recruiter). Message event, picked up by the email monitor.</li>
+  <li><b>Schedule</b> (Candidate). Accept, share availability.</li>
+  <li><b>Prep docs</b> (Claude). Plan: prep doc to read before, call doc open during.</li>
+  <li><b>Interview</b> (Candidate with the recruiter on the screener, the hiring side after that). Do: recorded with consent, transcribed. Portfolio walk in hiring manager and panel rounds, never the screener. Confirm the timeline before hanging up.</li>
+  <li><b>Retrospective</b> (Claude). Check: what landed, what to cut, what they were hanging on.</li>
+  <li><span class="tag gate-t">Gate</span><b>Build check</b> (Candidate). Asked every round. On a yes, Claude builds it and it ships to the hiring side, where it can inform their decision. On a no, the round goes straight to the gate.</li>
+  <li><span class="tag gate-t">Gate</span><b>Dual-key gate.</b> Hiring side: advance or reject, after a wait. Candidate: continue or withdraw, based on their burning questions.</li>
+  <li><span class="tag evt-t">Event</span><b>Withdraw</b>. The candidate turns the key: the process ends on the candidate's side.</li>
+  <li><b>Next round</b>. Act: back to prep with what the retrospective found.</li>
+  <li><span class="tag evt-t">Event</span><b>Offer</b>. Exits to negotiation and the accept/decline decision, both out of scope.</li>
+  <li><span class="tag evt-t">Event</span><b>Reject</b>, then <b>Follow-up</b>: warm email, ship any build in progress.</li>
+  <li><span class="tag evt-t">Event</span><b>Recycle</b>. A new invite re-enters Phase 2 directly and skips Application.</li>
+</ol>
+<p class="hint">Not drawn: the timer event when a promised timeline passes, which gives a legitimate reason to make contact again.</p>
 </section>
-<section id="phases-exit-gates" class="level2">
-<h2 data-anchor-id="phases-exit-gates">Phases &amp; Exit Gates</h2>
+<section id="build-rule" class="level2">
+<h2 data-anchor-id="build-rule">Build decision rule</h2>
+<div class="rule">
+<dl>
+  <dt>Must-meet</dt><dd>An application exists. Someone on their side has named a problem in their own words. A plan-shaped answer can ship before the next gate.</dd>
+  <dt>Should-meet</dt><dd>The problem was confirmed when the candidate asked about it. It touches something on the resume, such as governance. It's a later round.</dd>
+  <dt>Backstop</dt><dd>At least one build per process. If none has fired by the last known round, force one.</dd>
+  <dt>Ship rule</dt><dd>Confirmed: ship later, in their language. Not confirmed: ship it anyway, framed as "this might not be it."</dd>
+</dl>
+</div>
+</section>
+<section id="vocabulary" class="level2">
+<h2 data-anchor-id="vocabulary">Vocabulary</h2>
+<div class="table-scroll" tabindex="0">
+
 <table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Phase</th>
-<th>Weeks</th>
-<th>Objective</th>
-<th>Exit gate</th>
+<th data-quarto-table-cell-role="th">Working term</th>
+<th data-quarto-table-cell-role="th">Standard term</th>
+<th data-quarto-table-cell-role="th">Frame</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>0 · Mobilize &amp; Align</strong></td>
-<td>1–2</td>
-<td>Confirm scope, mandate, and the real state of the platform + warehouse</td>
-<td>Charter signed; BI / platform-eng / data-science seam agreed in writing</td>
+<td>Stage 1 / Stage 2</td>
+<td>Phase</td>
+<td>Stage-Gate</td>
 </tr>
 <tr class="even">
-<td><strong>1 · Discover &amp; Inventory</strong></td>
-<td>2–5</td>
-<td>Know what exists, what’s used, and what the business actually runs on</td>
-<td>Prioritized backlog + retire list approved; top-15 metric shortlist</td>
+<td>Interview round</td>
+<td>Stage</td>
+<td>Stage-Gate</td>
 </tr>
 <tr class="odd">
-<td><strong>2 · Govern &amp; Certify</strong></td>
-<td>4–8</td>
-<td>Stand up the trusted metric layer the platform consumes</td>
-<td>Certified Metric Catalog v1; parity-QA process ratified</td>
+<td>Pass/fail after a round</td>
+<td>Gate, gatekeeper</td>
+<td>Stage-Gate</td>
 </tr>
 <tr class="even">
-<td><strong>3 · Pilot</strong></td>
-<td>7–10</td>
-<td>Prove the motion end-to-end with a friendly, high-value area</td>
-<td>Pilot adopted; parity signed off; per-dashboard runbook validated</td>
+<td>Create / Pass / Decline</td>
+<td>Go / Hold / Kill</td>
+<td>Stage-Gate</td>
 </tr>
 <tr class="odd">
-<td><strong>4 · Wave Migration</strong></td>
-<td>9–20</td>
-<td>Migrate the used dashboards in prioritized waves</td>
-<td>All <em>used</em> dashboards migrated &amp; certified; only long-tail remains</td>
+<td>"Is this the build?"</td>
+<td>Gate criteria</td>
+<td>Stage-Gate</td>
 </tr>
 <tr class="even">
-<td><strong>5 · Sunset &amp; Renewal</strong></td>
-<td>18–24</td>
-<td>Turn legacy BI off for the general population; renew lean</td>
-<td>General population off legacy BI; ~5-license renewal executed</td>
+<td>False terminal, reopened role</td>
+<td>Recycle, re-entry point</td>
+<td>Stage-Gate</td>
+</tr>
+<tr class="odd">
+<td>Invite, rejection</td>
+<td>Message event</td>
+<td>BPMN</td>
+</tr>
+<tr class="even">
+<td>Missed timeline</td>
+<td>Timer event</td>
+<td>BPMN</td>
+</tr>
+<tr class="odd">
+<td>Lies dormant</td>
+<td>Wait state</td>
+<td>BPMN</td>
+</tr>
+<tr class="even">
+<td>Build fires at some gate</td>
+<td>Conditional activity</td>
+<td>BPMN</td>
+</tr>
+<tr class="odd">
+<td>Offer / decline</td>
+<td>End event</td>
+<td>BPMN</td>
+</tr>
+<tr class="even">
+<td>Prep doc, call doc, build</td>
+<td>Deliverable</td>
+<td>PM</td>
+</tr>
+<tr class="odd">
+<td>Transcript</td>
+<td>Artifact</td>
+<td>PM</td>
+</tr>
+<tr class="even">
+<td>Daily run vs. invite-driven</td>
+<td>Cadence vs. event-driven</td>
+<td>Ops</td>
+</tr>
+<tr class="odd">
+<td>Lock</td>
+<td>Baseline</td>
+<td>PM</td>
+</tr>
+<tr class="even">
+<td>Flag</td>
+<td>Parking lot, backlog</td>
+<td>PM / Agile</td>
+</tr>
+<tr class="odd">
+<td>Discussed, not locked</td>
+<td>Open issue</td>
+<td>PM</td>
 </tr>
 </tbody>
 </table>
-<hr>
+
+</div>
 </section>
-<section id="risk-register" class="level2">
-<h2 data-anchor-id="risk-register">Risk Register</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Risk</th>
-<th>Impact</th>
-<th>Mitigation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Stakeholder outreach never gets prioritized</strong></td>
-<td>High — discovery stalls the whole plan</td>
-<td>Make it the Phase-1 headline; short structured interviews; executive air cover to secure time</td>
-</tr>
-<tr class="even">
-<td><strong>“Same number, different answer”</strong> after rebuild</td>
-<td>High — kills trust in the new platform</td>
-<td>Certify the metric <em>before</em> rebuild; parity QA every dashboard; label board-vs-operating differences explicitly</td>
-</tr>
-<tr class="odd">
-<td><strong>Refresh-lag surprises</strong> users expecting real-time</td>
-<td>Medium</td>
-<td>Set as-of expectations in the semantic layer; match cadence to the decision; escalate true real-time needs to engineering</td>
-</tr>
-<tr class="even">
-<td><strong>AI skeptics / “the tool is wrong”</strong></td>
-<td>Medium</td>
-<td>Most “wrong” is an undefined metric — show the certified definition + parity, and win skeptics one number at a time</td>
-</tr>
-<tr class="odd">
-<td><strong>Turf friction</strong> over the context layer</td>
-<td>Medium</td>
-<td>Agree the seam explicitly at G0; co-own the context layer — BI brings business definitions, data science brings platform depth</td>
-</tr>
-<tr class="even">
-<td><strong>Hidden legacy tech debt</strong> (“nobody knows how it was built”)</td>
-<td>Medium</td>
-<td>Treat undocumented dashboards as retire-candidates unless a user defends them; don’t faithfully reproduce debt</td>
-</tr>
-<tr class="odd">
-<td><strong>Scope creep</strong> (migrate all 500 / gold-plate)</td>
-<td>Medium</td>
-<td>Retire-by-default; migrate only <em>used</em>; keep exploratory cheap and clearly labeled</td>
-</tr>
-</tbody>
-</table>
-<hr>
+<section id="terms" class="level2">
+<h2 data-anchor-id="terms">Terms</h2>
+<div class="rule">
+<dl>
+  <dt>JD</dt><dd>Job description: the employer's posting for the role.</dd>
+  <dt>ATS</dt><dd>Applicant tracking system: the employer's hiring software, which parses submitted resumes. Different systems parse the same resume differently.</dd>
+  <dt>Master resume</dt><dd>A long superset of every past role and result. Each tailored resume is cut down from it; nothing is written fresh.</dd>
+  <dt>STAR library</dt><dd>A collection of past-work stories in Situation, Task, Action, Result form, reused across resumes, cover letters, application answers and interviews.</dd>
+  <dt>Rule layer</dt><dd>The written rules for tailoring: what to claim, what not to claim, what never to do. Gaps are stated, never glossed.</dd>
+  <dt>Resurfacing board</dt><dd>Where held postings wait to be reconsidered on a later day.</dd>
+  <dt>Build</dt><dd>A piece of work made for one employer's named problem, usually a plan for how to solve it rather than a chart.</dd>
+  <dt>Portfolio walk</dt><dd>A short live screen-share of past builds during a hiring manager or panel interview. Never on the screener.</dd>
+</dl>
+</div>
 </section>
-<section id="success-metrics" class="level2">
-<h2 data-anchor-id="success-metrics">Success Metrics</h2>
-<ul>
-<li><strong>License reduction:</strong> ~150 → ~5 by renewal (the headline).</li>
-<li><strong>Dashboards:</strong> # migrated &amp; certified vs.&nbsp;# retired vs.&nbsp;# remaining (target: 100% of <em>used</em> migrated).</li>
-<li><strong>Certified metrics:</strong> count in the catalog, each with a definition, source, and owner.</li>
-<li><strong>Adoption:</strong> active users on the new versions; legacy usage trending to zero for the general population.</li>
-<li><strong>Trust:</strong> definitional disputes raised vs.&nbsp;resolved; parity pass-rate at cutover.</li>
-<li><strong>Cost:</strong> license spend avoided; warehouse-refresh savings from governance.</li>
-<li><strong>Cycle:</strong> time-to-migrate per dashboard, trending down as the runbook matures.</li>
+<section id="open-questions" class="level2">
+<h2 data-anchor-id="open-questions">Open questions</h2>
+<ul class="plain">
+  <li>Take-home / work-sample gate</li>
+  <li>Negotiation workstream</li>
+  <li>G1 go criteria (kill criteria are written; go criteria are not)</li>
+  <li>Resume length as a dial</li>
+  <li>ATS-aware formatting</li>
 </ul>
-<hr>
+
+<footer class="prov">
+  <div><b>Provenance</b></div>
+  <div>Process model v0, locked 2026-09-23. The source of truth is a Mermaid file, checked node by node and edge by edge against a written spec; this page is its rendered view. The build decision rule is inferred from past builds and accepted as a draft.</div>
+</footer>
 </section>
-<section id="skills-demonstrated" class="level2">
-<h2 data-anchor-id="skills-demonstrated">Skills Demonstrated</h2>
-<p>BI program leadership and delivery · metric governance and certification (one definition, source, and owner per number) · stakeholder management and change enablement across non-technical teams (sales, clinical ops, finance, RevOps) · parity QA for AI-generated queries · cross-functional partnership with platform engineering and data science · phased delivery with explicit go/no-go gates.</p>
-<hr>
-<p><em>An illustrative program design demonstrating how I approach a BI platform migration and metric-governance program. Tools referenced are generic; no proprietary or confidential information is included.</em></p>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
