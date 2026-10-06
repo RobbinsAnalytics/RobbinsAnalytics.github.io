@@ -122,6 +122,17 @@ MODULES = [
     dict(slug="job-offer-process-map", data="process design · no dataset", kicker="Beyond the Portfolio", title="Job offer process map",
          line="Two phases, five lanes, and two keys at every interview gate. A process design, not a BI module.",
          accent="evergreen", motif="steps"),
+    # Not a BI module: an operating charter, how the author would run a data
+    # team, with a proof, a test and a mark on every practice. Evergreen
+    # because the page's own marks (the header tick, the badges, the walk's
+    # calendar) are Evergreen and 2.3.1 binds the hue to the piece; Evergreen's
+    # sixth tenant, after the portfolio card, Build by Build, Deal Desk, Sibling
+    # Conflict and the process map. The home page cards carry no accent hue, so
+    # no two Evergreen cards meet in colour. "steps" because the walk's calendar reads as steps: day 30, 60,
+    # 90, 120.
+    dict(slug="operating-charter", data="operating charter · a scenario, no confidential information", kicker="Cascadia Operating Charter", title="Earn trust before changing the structure",
+         line="How I would run a data, analytics and automation team of about eight: every practice with a proof, a test and a mark.",
+         accent="evergreen", motif="steps"),
 ]
 
 MOTIFS = {

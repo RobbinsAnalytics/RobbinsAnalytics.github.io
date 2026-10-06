@@ -46,7 +46,7 @@ That control is still an instruction and not an automated check, and an instruct
 
 :::
 
-> **Beyond the builds:** [Cascadia BI Migration](projects/cascadia-bi-migration.qmd) is a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. It is the one piece here that is a program design rather than a data build.
+> **Beyond the builds:** [Cascadia BI Migration](projects/cascadia-bi-migration.qmd) is a program design for migrating an organization off legacy BI onto a governed, AI-assisted platform, with a certified metric layer at the center. [Cascadia Operating Charter](projects/cascadia-operating-charter.qmd) is an operating charter: how I would run a data, analytics and automation team, with a proof, a test and a mark on every practice. They are the two pieces here that are designs rather than data builds.
 
 > **Not a build at all:** [The Combinatorics of Sibling Conflict](projects/sibling-conflict.qmd) is a short mathematics paper, and a pet project. No stack, no data, nothing to put in the columns above. It counts the ways n children can split into two opposing sides: (3^n^ − 2·2^n^ + 1)/2, the Stirling number S(n+1, 3).
 

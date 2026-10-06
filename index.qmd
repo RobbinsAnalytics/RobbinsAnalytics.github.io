@@ -77,6 +77,21 @@ Nine modules by fourteen test surfaces, read from their own repositories. Which 
 [Two ways to check a number at build one. Fourteen had appeared by build nine.](https://www.robbinsanalytics.com/cascadia-build-by-build/){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
+
+::: {.g-col-12}
+::: {.project-card}
+::: {.card-label}
+BI Leadership / Operating Model
+:::
+### Cascadia Operating Charter
+<span class="badge-status new">New</span><span class="badge-status">Playbook</span>
+
+How I would run a data, analytics and automation team of about eight people inside a medical device quality organization: principles set in stone, methods adjustable, and every practice carrying a proof, a test and a mark. A two-minute walk, a one-screen summary, and the charter behind them. A scenario, not a record.
+
+[View the Charter](projects/cascadia-operating-charter.qmd){.btn .btn-primary .btn-sm}
+[The charter on one screen](projects/cascadia-operating-charter.qmd#one-screen){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
 :::
 
 ---

@@ -69,6 +69,12 @@ website:
         menu:
           - text: "Build by Build"
             href: projects/cascadia-build-by-build.qmd
+          # Not a module: the operating charter, how the author would run a
+          # data team. It carries the Cascadia prefix as BI Migration does
+          # (a design, not a build) and sits second because it is the page
+          # a reader of the portfolio is most often sent to.
+          - text: "Cascadia Operating Charter"
+            href: projects/cascadia-operating-charter.qmd
           - text: "Cascadia Revenue Assurance"
             href: projects/cascadia-revenue-assurance.qmd
           - text: "Cascadia Fee Examiner"

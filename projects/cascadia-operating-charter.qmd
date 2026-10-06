@@ -1,0 +1,541 @@
+---
+title: "Cascadia Operating Charter"
+subtitle: "An operating charter for a data, analytics and automation team: principles set in stone, methods adjustable, and every practice carrying a proof, a test and a mark."
+image: https://www.robbinsanalytics.com/assets/thumb-operating-charter.png
+image-alt: "Cascadia Operating Charter card: title, one-line summary, and the source."
+body-classes: charter-page
+---
+
+::: {.case-study-header}
+::: {.cs-domain}
+BI Leadership / Operating Model
+:::
+# Cascadia Operating Charter
+::: {.cs-hook}
+An operating charter for a data, analytics and automation team of about eight people inside a medical device quality organization. A scenario, not a record: company-agnostic, no confidential information.
+:::
+:::
+
+::: {.operating-charter}
+```{=html}
+<section class="charter-walk" id="walk" aria-labelledby="walk-title">
+  <div class="walk-opening">
+    <p class="walk-kicker">The two-minute walk</p>
+    <h2 id="walk-title">Earn trust before changing the structure.</h2>
+    <p class="walk-lede">One inherited, remote team of about eight. Start with the people and the work; let evidence determine the shape.</p>
+  </div>
+
+  <div class="walk-calendar">
+    <div class="walk-heading">
+      <div><p class="walk-cue">The sequence</p><h3 id="walk-calendar-title">Listen. Prove. Recommend. Decide.</h3></div>
+      <a href="#s1" class="walk-reference">Proposed calendar · §1</a>
+    </div>
+    <ol class="walk-timeline" role="list" aria-label="Four proposed milestones, thirty days apart">
+      <li><span class="walk-day">Day <b>30</b></span><strong>Listen</strong><span>Hypothesis to the sponsor.<br>Baseline the scorecard.</span></li>
+      <li><span class="walk-day">Day <b>60</b></span><strong>Prove</strong><span>Operating arrangements.<br>First certified deliverable.*</span></li>
+      <li><span class="walk-day">Day <b>90</b></span><strong>Recommend</strong><span>Structure recommendation<br>with the evidence.</span></li>
+      <li><span class="walk-day">Day <b>120</b></span><strong>Decide</strong><span>Sponsor’s decision.<br>Structure changes follow.</span></li>
+    </ol>
+    <div class="walk-calendar-notes"><p><strong>Week one:</strong> one-on-ones, intake, critical-feed coverage.</p><p>*Subject to access, controls and capacity; the catalogue is the fallback.</p></div>
+  </div>
+
+  <div class="walk-bottom">
+    <div class="walk-model">
+      <p class="walk-cue">How we work</p>
+      <h3>One team. One board. Independent review.</h3>
+      <p>Partner-aligned analysts share certified models and standards. Mandatory work comes first. Coach weekly.</p>
+      <ol class="walk-flow" role="list" aria-label="The accountability path for certified work, as a V: the owner defines, the team builds, an independent reviewer checks, the owner accepts">
+        <li class="f1"><span>Owner</span><strong>Defines</strong></li>
+        <li class="f2"><span>Team</span><strong>Builds</strong></li>
+        <li class="f3"><span>Independent reviewer</span><strong>Checks</strong></li>
+        <li class="f4"><span>Owner</span><strong>Accepts</strong></li>
+      </ol>
+      <p class="walk-control">AI assists; a person owns every regulated decision.</p>
+      <p class="walk-note">Certified work also needs the approvals the quality procedure requires. <a href="#s2">Accountability · §2</a></p>
+    </div>
+    <div class="walk-outcomes">
+      <p class="walk-cue">What proves it</p>
+      <h3>Two headlines. One floor.</h3>
+      <dl class="walk-measures">
+        <div><dt>Team</dt><dd>First-pass verification<span>Balance with rework, escaped defects and review aging.</span></dd></div>
+        <div><dt>Partners</dt><dd>Question-to-decision time</dd></div>
+      </dl>
+      <div class="walk-floor"><strong>0</strong><p><b>Target</b><span>Statutory clock misses attributable to data</span></p></div>
+      <a href="#s9" class="walk-reference">Proposed scorecard · baseline day 30 · §9</a>
+    </div>
+  </div>
+
+  <p class="walk-evidence"><strong>Record behind the plan:</strong> a three-plant KPI reconciliation cut the cycle from the 15th to the 5th. <a href="#s5">Inspect the proof · §5</a></p>
+  <p class="walk-full"><a href="#one-screen">Read the full charter ↓</a></p>
+</section>
+```
+
+---
+
+## The charter on one screen {#one-screen}
+
+Every practice below carries a proof and a test, and a mark. **Demonstrated** means a story or a live module on this site shows this exact practice. **Adapted** means experience from an adjacent setting, applied here to a new one. **Proposed** means no proof yet; the test is the commitment. Anything with neither proof nor test is a hypothesis and says so.
+
+```{=html}
+<div class="charter-table one-screen">
+<table class="table" role="table">
+<colgroup><col style="width: 5%"><col style="width: 27%"><col style="width: 46%"><col style="width: 22%"></colgroup>
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">§</th><th scope="col" role="columnheader">Principle</th><th scope="col" role="columnheader">The practice, in one line</th><th scope="col" role="columnheader">Mark</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s0" aria-label="Section 0">0</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>Principles are set in stone. Methods are adjustable.</strong></td><td role="cell" data-label="The practice, in one line">Fixed rules, adjustable practices, a test on each</td><td role="cell" data-label="Mark"><span class="badge-mark mark-demonstrated">Demonstrated</span></td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s1" aria-label="Section 1">1</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>Change how we see before we change what we do.</strong></td><td role="cell" data-label="The practice, in one line">Hypothesis at day 30, operating arrangements by day 60, recommendation at day 90, sponsor decision by 120; visibility in week one; reporting lines and people untouched until the evidence is in</td><td role="cell" data-label="Mark"><span class="badge-mark mark-adapted">Adapted</span>; the calendar and the transfer records are proposed</td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s2" aria-label="Section 2">2</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>Builder never verifies own work.</strong></td><td role="cell" data-label="The practice, in one line">Hub and spokes, every analyst also a domain steward, three endorsement levels, the full accountability path on the certified tier, two named reviewers</td><td role="cell" data-label="Mark"><span class="badge-mark mark-adapted">Adapted</span>; the tiers and reviewer seats are proposed</td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s3" aria-label="Section 3">3</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>Mandatory work is never ranked against discretionary work.</strong></td><td role="cell" data-label="The practice, in one line">One board, four classes of service, a two-week rhythm with the retro I open, named coverage for critical feeds, async by default</td><td role="cell" data-label="Mark"><span class="badge-mark mark-adapted">Adapted</span>; the classes of service are proposed</td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s4" aria-label="Section 4">4</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>Say no with a rule, and say it with an alternative.</strong></td><td role="cell" data-label="The practice, in one line">One intake form, one priority rule, one monthly forum, one decider, the sponsor for deadlocks</td><td role="cell" data-label="Mark"><span class="badge-mark mark-adapted">Adapted</span>; the form, rule and forum are proposed</td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s5" aria-label="Section 5">5</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>Serve the decision-maker.</strong></td><td role="cell" data-label="The practice, in one line">Map the trade-offs and hand the owner a decision, not a problem</td><td role="cell" data-label="Mark"><span class="badge-mark mark-demonstrated">Demonstrated</span></td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s6" aria-label="Section 6">6</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>A number is trusted when its owner, definition, source and reviewer are written down.</strong></td><td role="cell" data-label="The practice, in one line">A metric dictionary, a certification gate, retirement by review, change control the partners already trust</td><td role="cell" data-label="Mark"><span class="badge-mark mark-adapted">Adapted</span>; retirement review and the dictionary as a product are proposed</td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s7" aria-label="Section 7">7</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>A person owns every regulated decision.</strong></td><td role="cell" data-label="The practice, in one line">Spec first, build with AI, verify against a known answer, scale assurance to risk; the model may order the queue, never decide what is in it or delay it past its clock</td><td role="cell" data-label="Mark"><span class="badge-mark mark-demonstrated">Demonstrated</span> on this site; the three regulated uses are proposed</td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s8" aria-label="Section 8">8</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>Coach to the person, measure by where they go.</strong></td><td role="cell" data-label="The practice, in one line">Hire for the gap, interview the thinking, change the format before the person, go first when something breaks</td><td role="cell" data-label="Mark"><span class="badge-mark mark-demonstrated">Demonstrated</span></td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s9" aria-label="Section 9">9</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>The standard is stated first; the measures follow.</strong></td><td role="cell" data-label="The practice, in one line">Four blocks, one floor, two headlines with balancing measures, one page, quarterly</td><td role="cell" data-label="Mark"><span class="badge-mark mark-proposed">Proposed</span></td></tr>
+<tr role="row"><td role="cell" class="sec" data-label="§"><a href="#s10" aria-label="Section 10">10</a></td><td role="cell" class="principle-cell" data-label="Principle"><strong>You don’t know all the answers. Find those who do.</strong></td><td role="cell" data-label="The practice, in one line">The questions I would ask the sponsor, and the dependencies I would not pretend to know</td><td role="cell" data-label="Mark">n/a</td></tr>
+</tbody>
+</table>
+</div>
+```
+
+---
+
+## The operating model, in five minutes {#five-minutes}
+
+```{=html}
+<div class="charter-digest">
+
+<div class="beat" id="digest-team">
+  <h3>Team design <a class="digest-ref" href="#s2">§2</a></h3>
+  <div class="team">
+    <div class="hub-spokes">
+      <div class="hub"><span class="eyebrow">The hub</span>Manager, architect, one or two engineers, a senior analyst: the certified tier, the semantic models, the metric dictionary, the review gate.</div>
+      <div class="spokes-wrap">
+        <span class="eyebrow">The spokes, by partner</span>
+        <ul class="spokes" role="list">
+          <li><b>Quality</b> two analysts</li>
+          <li><b>Regulatory</b> one or two analysts</li>
+          <li><b>Clinical</b> one analyst</li>
+        </ul>
+      </div>
+    </div>
+    <div class="vee" role="group" aria-label="The accountability path, as a V: every layer on the left has a partner on the right, and the builder of a layer never verifies it">
+      <div class="vee-head"><span>What we intend</span><span>How we check it</span></div>
+      <div class="vee-row r1"><div class="l"><span class="eyebrow">Process owner</span>Signs requirements in</div><div class="r"><span class="eyebrow">Process owner</span>Signs validation out</div></div>
+      <div class="vee-row r2"><div class="l"><span class="eyebrow">The manager</span>Requirements written down</div><div class="r"><span class="eyebrow">The manager</span>The whole checked against the owner’s intent</div></div>
+      <div class="vee-row r3"><div class="l"><span class="eyebrow">Analysts and engineers</span>Build, working with AI</div><div class="r"><span class="eyebrow">Two named reviewers</span>The check the builder cannot do on their own work</div></div>
+    </div>
+    <p class="team-base"><b>Platform</b> IT, with the architect. The hub owns the model layer, not the platform.</p>
+    <p class="hats"><b>Two hats:</b> every analyst serves a partner and is the named steward of one data domain. <b>Three endorsement levels:</b> Certified, Promoted, none; a quality mark inside the team, not regulatory status.</p>
+  </div>
+</div>
+
+<div class="beat" id="digest-work">
+  <h3>How work moves <a class="digest-ref" href="#s3">§3</a> <a class="digest-ref" href="#s4">§4</a></h3>
+  <div class="work">
+    <div class="work-col">
+      <h4>One board, four classes of service</h4>
+      <ul role="list">
+        <li><b>Expedite</b> a feed on a running regulatory clock is down; one at a time</li>
+        <li><b>Fixed date</b> regulatory reporting, management review packs, periodic surveillance reports, submissions, audits</li>
+        <li><b>Standard</b> the backlog</li>
+        <li><b>Intangible</b> the dictionary, the catalogue, stewardship, technical debt</li>
+      </ul>
+    </div>
+    <div class="work-col">
+      <h4>The priority rule</h4>
+      <ol class="ladder" role="list">
+        <li>Statutory clock and patient safety</li>
+        <li>Audit and compliance commitments</li>
+        <li>Management review deliverables</li>
+        <li>Improvement</li>
+        <li>Exploratory</li>
+      </ol>
+    </div>
+    <div class="work-col">
+      <h4>Every request answered within one business day</h4>
+      <ul role="list">
+        <li>Do now</li>
+        <li>Schedule</li>
+        <li>Self-serve on certified content</li>
+        <li>Decline, with an alternative and a logged reason</li>
+      </ul>
+    </div>
+  </div>
+  <p class="work-foot">Clock-bound work is not ranked against the rest; it is a class of service on the same board. One intake form, seven fields. At a monthly forum the partners rank standard work with the full backlog in view; one name per decision; the sponsor settles a deadlock.</p>
+</div>
+
+<div class="beat" id="digest-gov">
+  <h3>Governance and AI <a class="digest-ref" href="#s6">§6</a> <a class="digest-ref" href="#s7">§7</a></h3>
+  <div class="pair">
+    <div class="tile">
+      <span class="tile-eyebrow">Governance</span>
+      <p class="tile-find">A number is trusted when its owner, definition, source and reviewer are written down.</p>
+      <p>The metric dictionary is the first deliverable, maintained as a product. Nothing enters the certified tier through the intake queue; it enters through the gate.</p>
+    </div>
+    <div class="tile">
+      <span class="tile-eyebrow">AI, used well</span>
+      <p class="tile-find">A person owns every regulated decision.</p>
+      <p>Spec first, build with AI, verify against a known answer, scale assurance to risk. The model may order the queue; it may never decide what is in it, and it may never delay a case past its clock. Three regulated uses, proposed: reportability assistance, quality system navigation, regulatory intelligence.</p>
+    </div>
+  </div>
+</div>
+
+<div class="beat" id="digest-know">
+  <h3>How we’d know it’s working <a class="digest-ref" href="#s9">§9</a></h3>
+  <div class="tiles">
+    <div class="tile">
+      <span class="tile-eyebrow">The floor</span>
+      <span class="tile-big">Target zero</span>
+      <span class="tile-sub">statutory clock misses attributable to data. Line one, above everything.</span>
+    </div>
+    <div class="tile">
+      <span class="tile-eyebrow">For the team</span>
+      <span class="tile-big">First-pass verification rate</span>
+      <span class="tile-sub">with its balancing measures beside it, so it cannot be gamed.</span>
+    </div>
+    <div class="tile">
+      <span class="tile-eyebrow">For the partners</span>
+      <span class="tile-big">Question-to-decision time</span>
+      <span class="tile-sub">median by partner, judged by the decision maker.</span>
+    </div>
+  </div>
+  <p class="know-foot">One page, quarterly, baselined at day 30; each line carries a trend, a target and an action level, or it is noise. People: coach to the person, hire for the gap, interview the thinking, measure yourself by where they go.</p>
+</div>
+
+</div>
+<!-- /charter-digest -->
+```
+
+---
+
+## 0 · Premise {#s0}
+
+[**Principle: principles are set in stone, methods are adjustable.**]{.principle} This charter is built that way. The principles are the rows above and they do not move. The practices under them are what I would do in a specific configuration, and they change when the evidence says so. Every practice carries a proof, a test and a mark, because I do not trust what I cannot test, and I do not present a plan as a record.
+
+**The configuration it assumes.** A data, analytics and automation team of about eight people inside a medical device quality organization: mostly analysts, one or two data engineers, data architects. They exist already and are being brought together from separate units; they did not choose their manager. They serve Regulatory Affairs, Quality Assurance and Clinical across several business units and sites, plus the quality-system process owners and IT. The environment is regulated (FDA, ISO 13485) and fully remote. The mandate is to unify the team, set standards and governance, recommend a structure, and take AI and automation beyond reporting. The hardest part of the job is prioritizing competing asks and saying no. This is a scenario. The team's actual shape, systems, capacity and authority are unknown until discovery, and nothing below claims otherwise.
+
+**What that changes.** This is not a build from nothing. The first job is not trust in the data; it is trust in the manager, and then one definition of the work. Structure recommendations here are hypotheses with the evidence I would gather first, not a reorganization on day one. The sponsor knows the team better than I do.
+
+**Two rules of my own underneath everything.** A win for a person is a win for the whole team. Trust what you can test.
+
+```{=html}
+<div class="proof-test">
+<dl>
+<dt>Proof</dt>
+<dd>This site. Every module on it is built to a written specification, and from the fourth module on, every certified measure is validated against source and every chart is reviewed before it ships. The first three were not; the site’s own build history says so. The charter is held to the same rule it holds the modules to</dd>
+<dt>Test</dt>
+<dd>Every practice below has a proof row, a test row and a mark. Any that cannot be tested is labelled a hypothesis</dd>
+</dl>
+</div>
+```
+
+---
+
+## 1 · First 90 days {#s1}
+
+[**Principle: change how we see before we change what we do.**]{.principle}
+
+**The month-by-month.** Month one, listen: one-on-ones with every person on the team against the same six questions (competence, trustworthiness, energy, people skills, focus, judgment); interviews with each process owner; an inventory of everything the team supports today (assets, definitions, open commitments, which outputs are regulated records, the quality calendar, the existing service and support arrangements). Month two, prove: the inventory published, the partner forum live, one certified deliverable through the full accountability path end to end, the baseline measured. Month three, recommend: a structure hypothesis with the intake log as evidence, the options, and what would change the answer.
+
+**Four milestones, kept apart.** Day 30: a hypothesis to the sponsor, so nothing waits three months. Day 60: the operating arrangements in place (the board, the endorsement levels, the reviewer seats, the intake form, the forum); these are how the team works, not who reports to whom. Day 90: the structure recommendation with evidence. Day 120: the sponsor's decision. Reporting-line changes and people moves follow the decision, not the hypothesis.
+
+**What I refuse to change before the decision.** Reporting lines. People. Tools and platform. Any feed that serves a statutory clock, until it is validated and has named coverage. Inherited commitments, through their first full cycle. One existing ritual that works. Immediate safety or compliance action is never blocked by this list.
+
+**What changes in week one.** The intake form, as the inventory instrument. The retrospective. Weekly one-on-ones. A written daily standup. Named coverage for critical feeds. One written definition of done. The team page.
+
+**Forming the team.** Each person comes with a short written transfer record from their former manager: recurring deliverables and their consumers, open commitments with dates, which duties transfer and which stay shared and until when, system ownership, one named tiebreaker. Capability leadership (development, standards, promotion) moves to the new manager on day one; day-to-day priority is shared to a written end date. Week one holds two launch sessions: the team reads this charter and edits it live, writes its own norms and names itself; and a facilitated session where the team meets without the manager, collects what it knows, wants to know and worries about, and the manager answers in the same session.
+
+**Capacity is a dependency, not an assumption.** Review, stewardship, delivery and support are hats worn by the same eight people. Which existing duties stop or change to make room for them is agreed with the sponsor and the team in discovery. No allocation is claimed here.
+
+**The first deliverable, a candidate.** Inside 60 days, the shared top-ten metric dictionary (owner, definition, source, version for the ten measures all three partners use) and one certified model on the highest-volume shared dataset, feeding the next management review. It touches most of the team across their former units, exercises every new mechanism once, and has a date the division already keeps. It is chosen with the sponsor and is conditional on access, data, applicable controls and capacity; the inventory published as a catalogue is the fallback.
+
+```{=html}
+<div class="proof-test">
+<dl>
+<dt>Proof</dt>
+<dd>Catalogued every pipeline in an operations analytics portfolio before cutting anything; retired dead pipelines and over-frequent refreshes for about $80K a year without moving or deleting a report anyone used. Reconciling twelve KPIs across three plants took four months, not two; the inventory is what made the recommendation defensible. The calendar and the transfer records are proposed</dd>
+<dt>Test</dt>
+<dd>Hypothesis delivered by day 30. Baseline scorecard at day 30. Operating arrangements in place by day 60. Recommendation with evidence by day 90. Nothing on the refuse list moved before the decision. Transfer records signed with end dates by day 30</dd>
+</dl>
+</div>
+```
+
+---
+
+## 2 · Team design {#s2}
+
+[**Principle: the person who builds a layer is never the person who verifies it.**]{.principle}
+
+**The shape, as a starting hypothesis.** A hub and spokes. The hub (manager, architect, one or two engineers, a senior analyst) owns the certified tier, the semantic models on the enterprise platform, the metric dictionary and the review gate. The spokes (two analysts to Quality, one or two to Regulatory, one to Clinical) sit in their partners' cadences and gather their own requirements. Hub-and-spoke by partner is the starting shape because consolidation from partner-facing units is the likeliest inherited shape; month one confirms or corrects it. The hub does not own a platform; IT does. The hub owns the model layer on it: discipline at the core, flexibility at the edge.
+
+**Two hats.** Every analyst is aligned to a partner for service and is also the named steward of one data domain (complaints, corrective actions, submissions and regulatory intelligence, clinical). The steward answers "which number is right" for that domain, whichever partner asks. Stewardship competes with service for the same hours; the trade is agreed in discovery (§1), and the intake rule protects what was agreed.
+
+**Three endorsement levels,** using the BI platform's own labels: Certified, Promoted, none. The label is a quality mark inside the team. It does not decide regulatory status. For every output, three things are decided with Quality, separately from the label: its intended use; the assurance it needs under the quality system (ISO 13485 clause 4.1.6 and FDA's software-assurance guidance, Feb 2026, scaled to process risk); and whether it is an electronic record under a predicate rule. Certified: validated for its intended use, the full accountability path, may be cited in a regulated record. Promoted: reviewed by a named reviewer, restricted to uses Quality has agreed need no validation. Uncertified: exploratory, labelled, never cited in a regulated record. The accountability path below applies in full to the certified tier.
+
+**The accountability path, as a V.** Every layer on the left (what we intend) has a partner on the right (how we check it), and the builder of a layer never verifies it.
+
+```{=html}
+<div class="charter-table layer">
+<table class="table" role="table">
+<colgroup><col style="width: 29%"><col style="width: 32%"><col style="width: 39%"></colgroup>
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Layer</th><th scope="col" role="columnheader">Who</th><th scope="col" role="columnheader">Owns</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><td role="cell" data-label="Layer">Accountable owner</td><td role="cell" data-label="Who">The process owner in Regulatory, Quality or Clinical</td><td role="cell" data-label="Owns">Signs requirements in (what “right” means) and validation out (it does what we said)</td></tr>
+<tr role="row"><td role="cell" data-label="Layer">Specification and system verification</td><td role="cell" data-label="Who">The manager</td><td role="cell" data-label="Owns">Requirements written down; the whole checked against the owner’s intent; the queue’s rules; the structure</td></tr>
+<tr role="row"><td role="cell" data-label="Layer">Independent review</td><td role="cell" data-label="Who">Two named reviewers: the senior analyst for metric logic and outputs, the architect for models and pipelines, each reviewing the other</td><td role="cell" data-label="Owns">The check the builder cannot do on their own work; the technical review record</td></tr>
+<tr role="row"><td role="cell" data-label="Layer">Build</td><td role="cell" data-label="Who">Analysts and engineers, working with AI</td><td role="cell" data-label="Owns">Pipelines, models, tools, dashboards</td></tr>
+<tr role="row"><td role="cell" data-label="Layer">Platform</td><td role="cell" data-label="Who">IT, with the architect</td><td role="cell" data-label="Owns">Sources, environments, access, validated change control</td></tr>
+</tbody>
+</table>
+</div>
+```
+
+**The reviewers.** Two named, qualified, independent people, written into the procedure, with the certification right limited to them and the manager. This is the proposed control. Adjacent practice supports it: second-person review by qualified, independent people with a signed record is how data-integrity guidance works, and required review from named owners on protected paths is how software teams do it. The applicable quality procedure decides which signatures a release needs: the pull-request approval is the technical review record; the process owner's acceptance and any Quality approval are separate. Peer review rotates on everything else, for learning and coverage. A junior shadows a reviewer in rotation, which is how the bench is built. If no one on the team can hold a reviewer seat on day one, the manager holds it until the gap is filled and says so in the recommendation.
+
+**The horizontal split, held loosely.** Whether pods by data domain fit better than spokes by partner is decided at day 90 from a tagged intake log. This is a hypothesis, and the log is the test.
+
+```{=html}
+<div class="proof-test">
+<dl>
+<dt>Proof</dt>
+<dd>Built a BI function of six hires and one placement from early-career people, each hired for the gap the team had at the time, with deliberately complementary skills; two engineers built the warehouse reviewing each other’s work with the manager as mediator. Established a repeatable certification method at a global manufacturer: name the KPI, evaluate the source and its input controls, clean bronze to gold, verify the business logic field by field with the experts, certify and catalogue. The tiers and the reviewer seats are proposed</dd>
+<dt>Test</dt>
+<dd>Every certified output carries an independent reviewer’s signature in the record and the approvals the procedure requires. The certifier group is two reviewers plus the manager, configured in the platform. The steward list is published. Intended use, assurance and record status are recorded per output. The structure recommendation at day 90 cites the intake log</dd>
+</dl>
+</div>
+```
+
+---
+
+## 3 · Cadence {#s3}
+
+[**Principle: mandatory work is never ranked against discretionary work.**]{.principle}
+
+**One board, four classes of service.** Expedite: a feed that serves a running regulatory clock is down; one at a time, and if two arrive at once the manager sequences them and says so. Fixed date: regulatory reporting, management review packs, periodic surveillance reports, submissions, audits. Standard: the backlog. Intangible: the metric dictionary, the catalogue, stewardship, technical debt. Everything is on the same board, visible. Mandatory work bypasses discretionary ranking; it does not bypass the board. Each class has a published service level expectation. Capacity reserved for the first two classes starts as a stated assumption and is replaced by a quarter of data.
+
+**A two-week rhythm on top.** Planning, review, and a retrospective at which I put my own miss on the board first, every time. Weekly one-on-ones with two standing questions: what don't you have that I could help with, and where are my blind spots. The review meeting is pinned to the quality calendar (monthly trending, quarterly management review, annual reports), not to the fortnight.
+
+**Coverage.** Every pipeline that feeds a reportability or vigilance decision has a named primary and secondary, a published calendar, a manual fallback that protects the deadline, and an escalation path. Who holds it outside the overlap window, and whether the team or an existing service owner holds it at all, is agreed in discovery, not assumed.
+
+**Remote by design.** Async by default, handbook first: the change is written before it is announced. One weekly team call on a live document, one biweekly partner review, a written daily standup in the channel. Meetings recorded and optional except for decision owners. A stated overlap window across time zones. Two engineered bridges against siloing: each analyst holds a standing biweekly call with their primary process owner, and the team shows its work to the division monthly.
+
+```{=html}
+<div class="proof-test">
+<dl>
+<dt>Proof</dt>
+<dd>Ran daily calls with development, weekly calls with site leads and biweekly calls with plant managers on a three-plant reconciliation; the cadence was set by who needed to decide what. Led a global analytics team for four years without meeting it in person. Opened every biweekly retrospective with my own miss so that the team’s misses became safe to name; late in that tenure, when something slipped, it was usually mine, because the team’s part of the process had become robust. The classes of service are proposed</dd>
+<dt>Test</dt>
+<dd>WIP against limit, cycle time by class of service, and statutory clock misses attributable to data (target zero) on the scorecard. The retro board carries the manager’s item every time. One-on-ones held at cadence. Expedite share of throughput under ten percent, or the platform is the problem</dd>
+</dl>
+</div>
+```
+
+---
+
+## 4 · Prioritization and saying no {#s4}
+
+[**Principle: say no with a rule, and say it with an alternative.**]{.principle}
+
+**The form.** One intake form with seven fields: the question, the decision it changes, when it is needed and why (a regulatory clause if there is one), the audience, what was tried, whether the output will be a regulated record or cited in one, and which existing asset was checked first. Five request types. Priority by effort, answered within one business day: do now, schedule, self-serve on certified content, or decline with an alternative and a logged reason.
+
+**The rule.** Statutory clock and patient safety, then audit and compliance commitments, then management review deliverables, then improvement, then exploratory. Clock-bound work is not ranked against the rest; it is a class of service on the same board.
+
+**The forum.** Monthly. Regulatory, Quality and Clinical rank standard-class requests against each other with the full backlog in view. The triage analyst drives, the partners contribute, Quality's contribution carries a compliance veto, the manager is the one approver inside the forum's ranking within whatever authority the sponsor delegates, and the sponsor settles a deadlock or a contested rule. One name per decision. If a divisional forum already exists, join it.
+
+**Distributed intake.** The spokes gather requirements with their partners; planning is the integration point. The manager owns the rules of the queue, not the queue.
+
+**Install order.** Form in week one, as the inventory. Forum by day 30, with the inherited promises on the table. Rotating triage at day 60 if the volume justifies it.
+
+```{=html}
+<div class="proof-test">
+<dl>
+<dt>Proof</dt>
+<dd>Intake on my first team started single-threaded through me. A high performer finished early, asked for more, and nothing was scoped because I was the bottleneck. He said he could gather the content team’s requirements himself; I changed the intake process so he did, and folded it into sprint planning. On the three-plant reconciliation, two of six KPI disagreements would not settle in the room, so I took them up a rung with the trade-offs mapped and asked the plant leaders to render a verdict so we could move. The form, the rule and the forum are proposed</dd>
+<dt>Test</dt>
+<dd>Requests answered within one business day. Declines carry an alternative and a logged reason; the count is on the scorecard, not hidden. Escalations resolved, with how long they took. The inherited promises are all visible to the forum in month one</dd>
+</dl>
+</div>
+```
+
+---
+
+## 5 · Leading through influence {#s5}
+
+[**Principle: do you care, and can you help.**]{.principle} Most of this job is interpersonal, and none of the partners report to the manager.
+
+**Serve the decision-maker.** When a definition is contested, I go to the principle underneath the disagreement: what are we measuring, and what will we do with it. The more accurate and actionable definition wins, not the loudest. When it will not settle, I do the week of work so the owner's decision is easy: the competing definitions, where each is strong, where each is weak, the trade-offs, on one page. Then I hand them a decision, not a problem.
+
+**Tell each other the truth, with care.** Reconciliation cannot be done in the abstract. It means telling an expert that a number they have reported for years is not the one. Said plainly, said with the evidence, said once. The same message in a good month and a bad one.
+
+**Governance as change control.** The partners already live inside change control. Every data standard arrives as a controlled change with the artifacts they already trust: description, justification, impact, risk, approval by the affected function, verification, an effectiveness check at 90 days. The people who already answer "which number is right" are named as stewards in writing, with time recognized by their own managers. Two volunteer process owners and one certified dataset that removes a real pain inside 60 days, presented by them to their peers.
+
+```{=html}
+<div class="proof-test">
+<dl>
+<dt>Proof</dt>
+<dd>Three plants on three continents reported the same twelve KPIs with different math. Reconciled four definitions site by site, escalated two to the plant leaders with the trade-offs mapped, delivered one dashboard, cut the cycle from the 15th to the 5th and about 430 hours a year. Worked with 23 manufacturing sites in eleven countries, with ongoing multi-project work at fourteen of them, and 200-plus stakeholders, without authority over any of them</dd>
+<dt>Test</dt>
+<dd>Forum attendance by function. A trust item (“I trust the accuracy of our reporting”) two or three times a year. Question-to-decision time by partner, judged by the decision maker. Standards shipped as controlled changes with their 90-day effectiveness check closed</dd>
+</dl>
+</div>
+```
+
+---
+
+## 6 · Governance {#s6}
+
+[**Principle: a number is trusted when its owner, definition, source and reviewer are written down.**]{.principle}
+
+**The metric dictionary.** Every certified measure has a named business owner, a definition, a source, a version, and lineage from source to screen. The dictionary is the first deliverable and it is maintained as a product, not a document.
+
+**The certification gate.** A measure becomes certified when its source and input controls have been evaluated, the data has been cleaned along a stated path, the business logic has been verified field by field with the expert who owns it, an independent reviewer has signed, the approvals the procedure requires are in place, and the catalogue entry exists. Nothing enters the certified tier through the intake queue; it enters through the gate.
+
+**Scope, per output.** Each analytics product records its intended use, the assurance it needs under the quality system, and whether it is an electronic record under a predicate rule or is relied on for a regulated activity. Those are decided with Quality, not by where the final record happens to be stored and not by the endorsement label. Validation is proportionate to process risk, before use and after change, with records. A tested, version-controlled workflow is validation evidence, not an obstacle to it.
+
+**Reuse and retirement.** A certified core of a few semantic models, certification rights limited to the two named reviewers and the manager, and a written checklist. A quarterly reuse ratio (reports per certified model, share of consumption on certified content). Retirement by review, not by rule: an asset under a stated view count in 90 days with no named owner goes to a retirement review, which checks retention requirements, dependencies, legal holds and authorized disposition before anything moves. Required records and the evidence needed to reproduce them are never deleted; what is retired is archived restorably.
+
+```{=html}
+<div class="proof-test">
+<dl>
+<dt>Proof</dt>
+<dd>Governed 200-plus critical data elements at a global manufacturer; the reports were built to the standards the quality system set and checked by internal audits. The certification method above is the one I ran there. On this site, every certified measure since the fourth module reconciles to raw SQL before it ships; one module that could not balance its reconciliation published the gap with its four reasons in order of size rather than tuning it away, and declined to certify two fields the publisher’s own codebook warned about. Retirement by review and the dictionary as a product are proposed</dd>
+<dt>Test</dt>
+<dd>Share of regulated-decision outputs on certified data, rising from the day-30 baseline. Every certified measure has owner, definition, source, version, lineage, reviewer and record status in the catalogue. First-pass verification rate with its balancing measures (§9). Reuse ratio quarterly. Every retirement has a review record</dd>
+</dl>
+</div>
+```
+
+---
+
+## 7 · AI, used well {#s7}
+
+[**Principle: a person owns every regulated decision.**]{.principle}
+
+**How I build with AI.** I set the architecture, the data model and the measurement definitions as a written specification. AI coding agents build to it. I do not hand-write the code; I write the spec, review the output, and validate it. Two controls on every build since the fourth: every certified measure is validated independently against raw SQL, so a published figure reconciles to source or the build does not ship; and every chart passes a scored review against a written standard, including a blind reading panel that sees only the rendered chart and reports what it says. The first three builds had neither; the site's build history records which checks each build had and when each control arrived. That progression is the point: the controls were earned, not assumed.
+
+**How I would take AI beyond reporting in a quality system.** Treat an AI tool the way the quality system already treats software. Write the requirements first. Verify the output against a known answer set before anyone relies on it. Scale the assurance to the risk: FDA's current software-assurance guidance (Feb 2026) carries a business-intelligence example that draws the line the same way, high process risk where data integrity is touched, little or no assurance beyond the vendor's where reporting is used only for monitoring. A person owns every regulated decision. The model may order the queue; it may never decide what is in it, and it may never delay a case past its clock. Which approved environment may process complaint text and controlled documents, and under what access and supplier arrangements, is a prerequisite settled in discovery, not a given.
+
+```{=html}
+<div class="charter-table use">
+<table class="table" role="table">
+<colgroup><col style="width: 20%"><col style="width: 30%"><col style="width: 50%"></colgroup>
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Use</th><th scope="col" role="columnheader">What the model does</th><th scope="col" role="columnheader">The control</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><td role="cell" data-label="Use">Reportability assistance</td><td role="cell" data-label="What the model does">Reads the complaint text, proposes reportable or not with cited reasons, orders the queue</td><td role="cell" data-label="The control">Every case stays in the controlled human-review process inside its clock; ordering can delay nothing past its deadline; cases aging toward a deadline escalate by rule; a manual fallback exists. Run against historical adjudicated cases first and measure agreement against predefined acceptance criteria; every suggestion logged with its rationale; the human decision is the record; the model never files. Monitoring, with a stated denominator and sampling method: a human-reviewed sample of low-scored records every month, missed-reportable count, recall tracked over time, revalidation on new product, design change, language drift or performance drop. Monitoring measures performance; it does not protect a deadline</td></tr>
+<tr role="row"><td role="cell" data-label="Use">Quality system navigation</td><td role="cell" data-label="What the model does">Finds the governing procedure, form or owner</td><td role="cell" data-label="The control">Only effective revisions indexed; every answer cites document and revision; no citation, no answer</td></tr>
+<tr role="row"><td role="cell" data-label="Use">Regulatory intelligence</td><td role="cell" data-label="What the model does">Monitors sources, summarizes, tags to affected processes, routes to owners</td><td role="cell" data-label="The control">A human confirms applicability; a source link on every item; nothing auto-closes</td></tr>
+</tbody>
+</table>
+</div>
+```
+
+**Chasing edges.** The reason to use AI at all is the accumulation of small advantages: earlier information, more cycles, less manual work. "The way we've always done it" is not a reason. Permission to try is explicit when the intent is right and the control is in place.
+
+```{=html}
+<div class="proof-test">
+<dl>
+<dt>Proof</dt>
+<dd>Nine governed analytics modules built on this site in under four months, each to a written specification. From the fourth: a frozen source with a stated as-of date, a validation report committed beside the data, chart review against the written standard, a reading panel, and a proof that the checks can fail. One module runs a scheduled pipeline that re-asserts its invariants on every run (key uniqueness, no negative durations, no closed matter without an end date) and writes a per-run record naming each check and its outcome; it publishes its reconciliation whether or not it balances. The three regulated uses are proposed</dd>
+<dt>Test</dt>
+<dd>Agreement rate against a reference set and predefined acceptance criteria before go-live. For any triage assist in production: no case past its clock, monthly human-reviewed sample with its denominator, missed-reportable count, recall trend, revalidation events, every record showing the suggestion, the decision and the owner, reported to Quality leadership as a quality-system control</dd>
+</dl>
+</div>
+```
+
+---
+
+## 8 · People {#s8}
+
+[**Principle: coach to the person, and measure yourself by where they go.**]{.principle} Build the team from the people you have and the people you can afford, hire for the gap, point each person at where they want to go, coach them up, and measure yourself by where they end up.
+
+```{=html}
+<div class="charter-table practice">
+<table class="table" role="table">
+<colgroup><col style="width: 30%"><col style="width: 45%"><col style="width: 25%"></colgroup>
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Practice</th><th scope="col" role="columnheader">Proof</th><th scope="col" role="columnheader">Test</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><td role="cell" data-label="Practice">Coach to the person; change the format before you change the person</td><td role="cell" data-label="Proof">An analyst with real skill missed requirements and ran long; telling her to ask for help did not take because asking was not natural to her, so I changed the retro so that help came to her: two items of hers on the board every time, opened to the team. She got faster and was still on the team when I left</td><td role="cell" data-label="Test">One-on-one cadence held; a development plan per person</td></tr>
+<tr role="row"><td role="cell" data-label="Practice">Grow people into the next role by what they own, not by title first</td><td role="cell" data-label="Proof">An analyst taught himself the back end on his own time; I backed it, proposed a lead title, and changed what he owned: direct requirements with stakeholders without me in the middle</td><td role="cell" data-label="Test">Internal promotions; scope changes recorded</td></tr>
+<tr role="row"><td role="cell" data-label="Practice">Hire for the gap, skills bar then fit, and interview the thinking</td><td role="cell" data-label="Proof">Six hires over four and a half years, each for the gap the team had at the time. After one hire cleared the skills bar and struggled on diligence, every interview gained a process question: what would you do if you hit this, walk me through your thinking</td><td role="cell" data-label="Test">Hiring notes carry the process question and its answer</td></tr>
+<tr role="row"><td role="cell" data-label="Practice">Hire for difference</td><td role="cell" data-label="Proof">A hire from banking, twenty years older than the team, SQL on her resume but Excel in practice (Power Query, VBA, complex accounting workbooks), put almost exclusively on the accounting partner. She got the work done her way, and I could tell her reports by their look before I read them; that is where my standard for how a report should look began</td><td role="cell" data-label="Test">Complementary strengths on the skill map, with backup coverage for every critical skill</td></tr>
+<tr role="row"><td role="cell" data-label="Practice">Measure success by where people go</td><td role="cell" data-label="Proof">My first hire outgrew the budget; I could not secure what he was worth and did not try to hold him. Of the six hires, four were in their first analytics role and a fifth in her first with the title. Where they went: a customer data platform architect, a senior data engineer at a large technology company, a senior BI analyst at a national retailer, an eight-year run as a BI analyst at a global information firm, a doctoral candidate in epidemiology, and a retirement after a decade in BI</td><td role="cell" data-label="Test">Alumni outcomes recorded; nobody held below their worth</td></tr>
+<tr role="row"><td role="cell" data-label="Practice">Advocate for the right seat early</td><td role="cell" data-label="Proof">One person came to the team by placement rather than through its process; the work was acceptable and the fit never settled. A stronger manager says in the first month: keep her where she is succeeding. I let it drift. The lesson is mine</td><td role="cell" data-label="Test">A conversation at 30 days with the person and the sending manager about duties, support and fit; a conversation, not a decision</td></tr>
+<tr role="row"><td role="cell" data-label="Practice">Celebrate the person, unite on the standard</td><td role="cell" data-label="Proof">A team from different backgrounds and countries; we ate each other’s food and learned each other’s stories, and held one rule: fast, accurate, high quality, and each other’s backs. No infighting in four and a half years</td><td role="cell" data-label="Test">Conflicts raised early and resolved; the escalation path used when needed, not avoided</td></tr>
+<tr role="row"><td role="cell" data-label="Practice">Go first when something breaks</td><td role="cell" data-label="Proof">My own miss on the retro board first, every time</td><td role="cell" data-label="Test">The manager’s item on every retro board</td></tr>
+<tr role="row"><td role="cell" data-label="Practice">Ask the team where your blind spots are, on a cadence</td><td role="cell" data-label="Proof">Two standing questions every week. One answer changed the intake process</td><td role="cell" data-label="Test">Asked and logged every week</td></tr>
+</tbody>
+</table>
+</div>
+```
+
+---
+
+## 9 · How we'd know it's working {#s9}
+
+[**Principle: the standard is stated first; the measures follow.**]{.principle} This scorecard is proposed; the pieces of it existed on teams I ran, the whole did not.
+
+One page, quarterly, baselined at day 30. Each line carries a trend, a target and an action level, or it is noise. At least one perceptual measure. Never activity counts alone. A line is activated when its definition and the decision it informs are written down, not before.
+
+```{=html}
+<div class="charter-table block">
+<table class="table" role="table">
+<colgroup><col style="width: 25%"><col style="width: 75%"></colgroup>
+<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Block</th><th scope="col" role="columnheader">Lines</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><td role="cell" data-label="Block"><strong>Floor</strong></td><td role="cell" data-label="Lines">Statutory clock misses attributable to data. Target zero. Line one, above everything</td></tr>
+<tr role="row"><td role="cell" data-label="Block"><strong>Flow</strong></td><td role="cell" data-label="Lines">Change lead time; release frequency; change failure and rework rate; cycle time by class of service; WIP against limit</td></tr>
+<tr role="row"><td role="cell" data-label="Block"><strong>Decision speed</strong></td><td role="cell" data-label="Lines">Question-to-decision time from the decision ledger the intake form creates, median by partner, judged by the decision maker</td></tr>
+<tr role="row"><td role="cell" data-label="Block"><strong>Reliability</strong></td><td role="cell" data-label="Lines">Data downtime (incidents times time to detect plus time to resolve); monitoring coverage; unused assets; certified share of consumption</td></tr>
+<tr role="row"><td role="cell" data-label="Block"><strong>Quality outcome</strong></td><td role="cell" data-label="Lines">First-pass verification rate (certified deliverables that clear independent review without rework), paired with rework after release, escaped defects and review aging so the rate cannot be gamed by easy work or thin review; nonconformances raised against analytics outputs; audit findings touching data; the division’s own quality measures the team’s work feeds</td></tr>
+<tr role="row"><td role="cell" data-label="Block"><strong>People and partners</strong></td><td role="cell" data-label="Lines">The company’s engagement survey for the team; one trust item; development plans in place; internal promotions</td></tr>
+<tr role="row"><td role="cell" data-label="Block"><strong>AI, when live</strong></td><td role="cell" data-label="Lines">Human-reviewed reference sample with its denominator; missed-reportable count; recall trend; revalidation events</td></tr>
+</tbody>
+</table>
+</div>
+```
+
+**Two headlines.** For the team: first-pass verification rate, with its balancing measures beside it. For the partners: question-to-decision time.
+
+```{=html}
+<div class="proof-test">
+<dl>
+<dt>Proof</dt>
+<dd>The certification method, the pipeline catalogue and the reconciliation records above are the measures that existed on teams I ran; the scorecard assembles them and is proposed as a whole</dd>
+<dt>Test</dt>
+<dd>The scorecard exists at day 30 and again at day 90, and the day-90 recommendation cites it</dd>
+</dl>
+</div>
+```
+
+---
+
+## 10 · What I don't know yet {#s10}
+
+[**Principle: you don't know all the answers. Find those who do.**]{.principle}
+
+What I would ask the sponsor before believing any of the above, in the order it matters:
+
+1. Who does each person report to today, and what stays with their former managers?
+2. What existing duties can stop or change to fund review, stewardship and coverage, and what authority and budget does this seat carry?
+3. Does one complaint-handling system serve every business unit, or several, and who owns the platform?
+4. Does Quality Systems or IT already run a validation function for quality-system software that the team's reviewers should plug into?
+5. Does a divisional data governance forum already exist to join?
+6. Who owns after-hours decisions and the manual fallback when a statutory feed fails today?
+7. Which approved environment may process complaint text and controlled documents for AI, under what access and supplier arrangements?
+8. Has a reorganization already been announced to the team?
+9. Does the division have a quality metrics dashboard the scorecard should sit inside?
+10. Of the AI uses, which is first, how should its outputs be validated before anyone relies on them, and what should be different at six months and at twelve?
+
+What would change the plan: a split complaint system (the first deliverable becomes the dictionary alone); an existing validation function (the reviewers become its members); an announced reorganization (the hypothesis at day 30 becomes the design); a sponsor who wants the structure answer faster (the day-60 operating arrangements are the answer, the day-90 document is the evidence); no capacity to fund the hats (the scope shrinks before the standard does).
+
+::: {.closing}
+A win for a person is a win for the whole team.
+:::
+
+---
+
+```{=html}
+<p class="strip"><span class="tick" aria-hidden="true">▎</span> Sources: the author’s record (two teams led, 2014 to 2026; the sites and stakeholder figures are the author’s own, not independently audited) · the Cascadia modules and Build by Build on this site · FDA software-assurance guidance, Feb 2026 · as of 2026-10-02 · marks: Demonstrated, Adapted, Proposed · nothing here names a person or a company</p>
+```
+:::
