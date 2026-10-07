@@ -58,6 +58,12 @@ MODULES = [
     dict(slug="matter-ledger", data="FJC Integrated Database · public federal civil dockets", kicker="Cascadia Matter Ledger", title="Can this number be trusted?",
          line="Eleven million federal civil case records, certified measures, and a pipeline that re-asserts its own invariants twice a day.",
          accent="lupine", motif="steps"),
+    # Lupine's third tenant. Matter Ledger sits two cards away in the Featured
+    # grid and Pharmacy below it, so no two Lupine cards meet. "line" because
+    # the lead chart is a count series with a forecast band, not a bar form.
+    dict(slug="early-warning", data="openFDA device event, recall and enforcement · public FDA data", kicker="Cascadia Early Warning", title="What volume should we expect next?",
+         line="A next-month forecast with ranges, a locked test run once, and a fixed review rule. Counts of reports, never rates.",
+         accent="lupine", motif="line"),
     # Slot 3 (madrona, the alert hue) — the module's finding is a cost the
     # service metrics do not measure. Staffing is the slot's only co-tenant and
     # the two cards never appear adjacent.

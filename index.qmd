@@ -103,6 +103,21 @@ How I would run a data, analytics and automation team of about eight people insi
 ::: {.g-col-12 .g-col-md-4}
 ::: {.project-card}
 ::: {.card-label}
+Medical Device Quality Analytics
+:::
+### Cascadia Early Warning
+<span class="badge-status new">New</span><span class="badge-status">Published</span>
+
+A next-month forecast of FDA device-report volume for seven cardiovascular product codes, with ranges drawn from the model's own error history; a locked test of 24 months the model never saw, run once, with its scores published as they came out; and a pre-registered review rule that opened one episode in 224 evaluated months. Counts of reports, never rates, and no firm named anywhere. Public openFDA data, 649,082 reports frozen by hash.
+
+[View Case Study](projects/cascadia-early-warning.qmd){.btn .btn-primary .btn-sm}
+[What volume should we expect next?](https://www.robbinsanalytics.com/cascadia-early-warning/){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.project-card}
+::: {.card-label}
 Revenue Operations Analytics
 :::
 ### Cascadia Revenue Assurance
@@ -121,7 +136,7 @@ What a customer is contracted for and what they are billable for are different n
 Legal Operations Analytics
 :::
 ### Cascadia Fee Examiner
-<span class="badge-status new">New</span><span class="badge-status">Published</span>
+<span class="badge-status">Published</span>
 
 A bankruptcy research database, a public court docket, and two task-code vocabularies — three sources, three owners, none sharing an identifier. A stated rule resolves 9 of 25 caption-to-database firm pairs; the other 16 are published with a reason, not dropped. Reported at its actual state: 48 of 216 eligible cases searched so far.
 

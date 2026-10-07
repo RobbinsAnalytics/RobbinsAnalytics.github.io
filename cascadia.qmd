@@ -17,7 +17,7 @@ Two controls stand over that arrangement, and every module passes both before it
 
 **Every chart is scored against a written visualization standard before it ships**, including a blind reading panel: the reviewers see only the rendered chart, with no title and no framing from me, and report back what they think it says. The blind panel is my own addition to the standard.
 
-What the builds are allowed to read is a boundary rather than a limitation. Three sources: the specifications, data models and standards written for these builds; public datasets from CMS, SEC EDGAR, NASA and BLS; and synthetic operational data, labeled as synthetic on every page that shows it. No confidential internal business data goes into any of it, deliberately.
+What the builds are allowed to read is a boundary rather than a limitation. Three sources: the specifications, data models and standards written for these builds; public datasets from CMS, SEC EDGAR, NASA, BLS and FDA; and synthetic operational data, labeled as synthetic on every page that shows it. No confidential internal business data goes into any of it, deliberately.
 
 One failure is worth naming, because it is the honest shape of an AI failure rather than the dramatic one. Bumping a version number across a build is the kind of mechanical edit that looks safe to delegate. Twice in two days an agent-executed bump left stale references behind, and the second pass corrected two of them while creating four more. Nothing errored. Nothing looked broken. Any check that only asks whether the code still runs would have passed all four times.
 
@@ -33,6 +33,7 @@ That control is still an instruction and not an automated check, and an instruct
 
 | Domain | Status | Stack | Data | Headline Skill |
 |---|---|---|---|---|
+| [Cascadia Early Warning](projects/cascadia-early-warning.qmd) | Published | Python → DuckDB → statsmodels → static ECharts, with a SQL re-derivation gate and a weekly live edge | openFDA device event, recall, enforcement and classification endpoints. Public FDA records (real) | Pre-registered forecasting: a locked test run once, honest ranges, a fixed review rule, counts never rates |
 | [Cascadia Revenue Assurance](projects/cascadia-revenue-assurance.qmd) | Published | Python → flat CSV → static ECharts, with a DuckDB re-derivation gate | Synthetic (seeded generator): a subscription-licensing book, with no real company, customer or partner | Two derivation paths from one rules document, agreeing on every cell; the auto-renewed terms no transaction marked, derived and flagged |
 | [Cascadia Fee Examiner](projects/cascadia-fee-examiner.qmd) | Published | Python (stdlib) → flat CSV/JSON → static ECharts | LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B. Public court and research records (real) | Entity resolution across sources with no shared key; publishing what it can't resolve |
 | [Cascadia Matter Ledger](projects/cascadia-matter-ledger.qmd) | Published | Python → DuckDB → static ECharts, plus a scheduled incremental pull | FJC Integrated Database and CourtListener RECAP. Public federal court records (real) | Operating a governed model: a pipeline that re-asserts its own invariants and publishes the failures |
@@ -54,9 +55,9 @@ That control is still an instruction and not an automated check, and an instruct
 
 ## Three Patterns, One Standard
 
-**Lightweight analytical stack.** Six modules need neither SQL Server nor Power BI: Deal Desk, Finance, Control Tower, Matter Ledger, Fee Examiner and Revenue Assurance. Python conforms the data into a local star schema and renders a static page with Apache ECharts, with the dataset inlined at build time so nothing fetches data at runtime. They circulate as a link with nothing to install, and they outlive the warehouse behind them.
+**Lightweight analytical stack.** Seven modules need neither SQL Server nor Power BI: Deal Desk, Finance, Control Tower, Matter Ledger, Fee Examiner, Revenue Assurance and Early Warning. Python conforms the data into a local star schema and renders a static page with Apache ECharts, with the dataset inlined at build time so nothing fetches data at runtime. They circulate as a link with nothing to install, and they outlive the warehouse behind them.
 
-**Three of them take DuckDB, and for two different reasons.** Control Tower and Matter Ledger take it for scale, at 621,942 order lines and 10,960,173 federal case records. Control Tower adds dbt Core on top, 6 staging views, 9 marts and 69 data tests, because its transformation layer is worth a real framework; Matter Ledger does not, because its modeling is a single conformance pass over a 2.0 GB file. What Matter Ledger adds instead is a live edge: a scheduled incremental pull that reconciles against the frozen baseline on every run. Revenue Assurance takes DuckDB for neither reason. Its book of 50,110 subscription-months would fit the smaller engine comfortably. It needed a second derivation path that could not share a bug with the first.
+**Four of them take DuckDB, and for two different reasons.** Control Tower and Matter Ledger take it for scale, at 621,942 order lines and 10,960,173 federal case records; Early Warning takes it for both reasons at once, holding 649,083 device-report records and re-deriving every published cell down a SQL path written separately from the Python build. Control Tower adds dbt Core on top, 6 staging views, 9 marts and 69 data tests, because its transformation layer is worth a real framework; Matter Ledger does not, because its modeling is a single conformance pass over a 2.0 GB file. What Matter Ledger adds instead is a live edge: a scheduled incremental pull that reconciles against the frozen baseline on every run. Revenue Assurance takes DuckDB for neither reason. Its book of 50,110 subscription-months would fit the smaller engine comfortably. It needed a second derivation path that could not share a bug with the first.
 
 **Cascadia Fee Examiner is the leanest variant and has no star schema at all.** Python's standard library does the conforming: no pandas, no database, nothing but hash-verified CSV and JSON, because the problem was never about row count. What it needed was a published rule for resolving firm identity across three sources that share no key, and a policy of publishing what the rule cannot resolve.
 
@@ -94,6 +95,10 @@ A metric register typed by hand is documentation; one generated from the models 
 Where ambiguity is internal, the build fails: Deal Desk settles contested quote lines with three documented tiebreaks, and a tie that survives all three is a data-quality defect rather than a judgment call. Where it is external, failing would mean never shipping. Fee Examiner resolves 9 of 25 firm pairs across three sources that share no key, and publishes the other 16 with the reason each one did not match. A match rate near 100% would be evidence the rule is too loose.
 :::
 ::: {.g-col-12 .g-col-md-6}
+**A test you may only run once**
+A forecast evaluated on data the model has already seen proves nothing, and a held-out test that is re-run until it looks good proves less. Cascadia Early Warning commits its harness, its periods, its interval method and its promotion rule before the first forecast row exists, runs the locked period once, and has its validator read the git history: a locked row that ever changed, or a promotion decided after the first locked row, fails the build. The result is published as it came out, including the three codes whose ranges did not hold.
+:::
+::: {.g-col-12 .g-col-md-6}
 **Charts reviewed against a standard**
 Every chart is scored pass or fail against my visualization design system before it ships, including a blind panel of readers who see only the rendered chart. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded.
 :::
@@ -112,6 +117,8 @@ Every chart is scored pass or fail against my visualization design system before
 <span class="chip">SEC EDGAR XBRL</span>
 <span class="chip">FJC Integrated Database</span>
 <span class="chip">Bankruptcy Research Database</span>
+<span class="chip">openFDA</span>
+<span class="chip">statsmodels</span>
 <span class="chip">Playwright</span>
 <span class="chip">SQL Server 2025</span>
 <span class="chip">T-SQL</span>

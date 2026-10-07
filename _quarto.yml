@@ -75,6 +75,8 @@ website:
           # a reader of the portfolio is most often sent to.
           - text: "Cascadia Operating Charter"
             href: projects/cascadia-operating-charter.qmd
+          - text: "Cascadia Early Warning"
+            href: projects/cascadia-early-warning.qmd
           - text: "Cascadia Revenue Assurance"
             href: projects/cascadia-revenue-assurance.qmd
           - text: "Cascadia Fee Examiner"
