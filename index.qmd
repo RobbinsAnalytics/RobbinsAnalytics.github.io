@@ -108,10 +108,10 @@ Medical Device Quality Analytics
 ### Cascadia Early Warning
 <span class="badge-status new">New</span><span class="badge-status">Published</span>
 
-A next-month forecast of FDA device-report volume for seven cardiovascular product codes, with ranges drawn from the model's own error history; a locked test of 24 months the model never saw, run once, with its scores published as they came out; and a pre-registered review rule that opened one episode in 224 evaluated months. Counts of reports, never rates, and no firm named anywhere. Public openFDA data, 649,082 reports frozen by hash.
+DSQ, one of seven cardiovascular product codes spanning Classes II and III: about 736 FDA device reports expected in November 2026, three months ahead, 80% range 376 to 906. At that horizon, ranges like it held 20 of 22 locked-test months. The review queue is a retrospective, filtered demonstration: 1 episode where the rule is on, 7 if it ran in every code. Counts of reports, never rates, and no firm named anywhere. Public openFDA data, 649,080 distinct reports.
 
-[View Case Study](projects/cascadia-early-warning.qmd){.btn .btn-primary .btn-sm}
-[What volume should we expect next?](https://www.robbinsanalytics.com/cascadia-early-warning/){.btn .btn-outline-secondary .btn-sm}
+[View Case Study](https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html){.btn .btn-primary .btn-sm}
+[Open forecast module](https://www.robbinsanalytics.com/cascadia-early-warning/){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
 

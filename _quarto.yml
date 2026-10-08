@@ -35,6 +35,10 @@ project:
     # shared old link produced a card reading "Redirect" with no image. Not a
     # render input, so this line is the only thing that puts it in _site.
     - projects/cascadia-semiconductors.html
+    # Cascadia Early Warning's case study moved to the module's own repository
+    # (/cascadia-early-warning/case-study.html). Same stub, same reason, and
+    # the old .qmd is deleted so Quarto cannot regenerate this path.
+    - projects/cascadia-early-warning.html
 
 website:
   title: "Robbins Analytics"
@@ -76,7 +80,7 @@ website:
           - text: "Cascadia Operating Charter"
             href: projects/cascadia-operating-charter.qmd
           - text: "Cascadia Early Warning"
-            href: projects/cascadia-early-warning.qmd
+            href: https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html
           - text: "Cascadia Revenue Assurance"
             href: projects/cascadia-revenue-assurance.qmd
           - text: "Cascadia Fee Examiner"
