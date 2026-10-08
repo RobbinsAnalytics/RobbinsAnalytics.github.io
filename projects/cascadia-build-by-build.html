@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-3bb78da904e445aaf056d1d42c213ec9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -88,12 +88,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Build by Build – Robbins Analytics">
-<meta property="og:description" content="Nine Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names.">
+<meta property="og:description" content="Ten Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names.">
 <meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-build-by-build.png">
 <meta property="og:site_name" content="Robbins Analytics">
 <meta property="og:image:alt" content="Cascadia portfolio card: title, one-line summary, and the data source.">
 <meta name="twitter:title" content="Build by Build – Robbins Analytics">
-<meta name="twitter:description" content="Nine Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names.">
+<meta name="twitter:description" content="Ten Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names.">
 <meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-build-by-build.png">
 <meta name="twitter:image:alt" content="Cascadia portfolio card: title, one-line summary, and the data source.">
 <meta name="twitter:card" content="summary_large_image">
@@ -144,6 +144,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../projects/cascadia-operating-charter.html">
  <span class="dropdown-text">Cascadia Operating Charter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html">
+ <span class="dropdown-text">Cascadia Early Warning</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../projects/cascadia-revenue-assurance.html">
@@ -224,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Build by Build</h1>
-<p class="subtitle lead">Nine Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names.</p>
+<p class="subtitle lead">Ten Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names.</p>
 </div>
 
 
@@ -248,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="build-by-build" class="level1">
 <h1>Build by Build</h1>
 <div class="cs-hook">
-<p>The portfolio proves nine modules, each testable on its own. It did not show that the test surface widened build by build, and a reader arriving cold had to derive that from nine separate pages. This page renders the progression directly: one table, nine builds by fourteen test surfaces, every filled cell a link to the file on GitHub that it names. It has no data of its own. Its source is the nine module repositories, read read-only, and nothing in it invents a score.</p>
+<p>The portfolio proves ten modules, each testable on its own. It did not show that the test surface widened build by build, and a reader arriving cold had to derive that from ten separate pages. This page renders the progression directly: one table, ten builds by fourteen test surfaces, every filled cell a link to the file on GitHub that it names. It has no data of its own. Its source is the ten module repositories, read read-only, and nothing in it invents a score.</p>
 </div>
 </section>
 </div>
@@ -256,24 +260,24 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="overview" class="level2">
 <h2 data-anchor-id="overview">Overview</h2>
-<p>Nine Cascadia modules, first commits from June to September 2026, and the tests each one could carry when it shipped. The page is one chart: a table of nine builds, oldest at the top, by fourteen test surfaces in bands named Data, Numbers, Presentation and Operation. A filled cell means the build carries that surface, and the cell links to the file. An empty cell means it does not, and the page says so plainly: an empty cell is a fact about what a build carried, never a debt. Older modules are not retrofitted to fill one.</p>
-<p>The title is the finding, and the table is built so a reader can check it. Build one could check a number two ways: a one-command rebuild and a row-count check on the load. By build nine, fourteen surfaces had appeared. A diamond marks the first build to carry each surface, so there are fourteen diamonds in the table, and counting them is the check. They arrive unevenly: two at build one, none at build two, one at build three, five at build four, none at build five, three at build six, two at build seven, none at build eight, one at build nine. Build four, the first Python build, is where the surface widens most. Build nine adds the last surface, a golden fixture written before the engines that had to pass it.</p>
-<p>The rows are grouped into five eras, named for what each brought under test: Enterprise-shaped, Frozen and validated, Reviewed and registered, Operated, Re-derived. Each era’s block on the page says what could be tested, what still had to be trusted, and what the next era brought under test. The page ends in a walk through the nine modules, a line each, and stops there. In an interview the walk continues out loud; the page does not try to carry it.</p>
+<p>Ten Cascadia modules, built one after another over four months, and the tests each one could carry when it shipped. First commits run from June to October 2026. The page is one chart: a table of ten builds, oldest at the top, by fourteen test surfaces in bands named Data, Numbers, Presentation and Operation. A filled cell means the build carries that surface, and the cell links to the file. An empty cell means it does not, and the page says so plainly: an empty cell is a fact about what a build carried, never a debt. Older modules are not retrofitted to fill one.</p>
+<p>The title is the finding, and the table is built so a reader can check it. Build one could check a number two ways: a one-command rebuild and a row-count check on the load. By build nine, fourteen surfaces had appeared. A diamond marks the first build to carry each surface, so there are fourteen diamonds in the table, and counting them is the check. They arrive unevenly: two at build one, none at build two, one at build three, five at build four, none at build five, three at build six, two at build seven, none at build eight, one at build nine, none at build ten. Build four, the first Python build, is where the surface widens most. Build nine adds the last surface, a golden fixture written before the engines that had to pass it.</p>
+<p>The rows are grouped into six eras, named for what each brought under test: Enterprise-shaped, Frozen and validated, Reviewed and registered, Operated, Re-derived, Pre-specified. Pre-specified brought the forecast itself under test: a harness, its periods and its promotion rule, committed before the first forecast existed. Each era’s block on the page says what could be tested, what still had to be trusted, and what the next era brought under test. The page ends in a walk through the ten modules, a line each, and stops there. In an interview the walk continues out loud; the page does not try to carry it.</p>
 <hr>
 </section>
 <section id="why-this-stack" class="level2">
 <h2 data-anchor-id="why-this-stack">Why This Stack</h2>
 <p><strong>Python, two JSON files, and a static HTML table. No chart library, no database, no server.</strong> The matrix is categorical presence, not quantity: a cell holds a repository-relative path or it holds nothing. A table is the right instrument for that. Every cell can be a real link, which a drawn canvas cannot give; row and column headers are read by assistive technology without a second layer of markup; and there is no axis to mis-scale. ECharts, which carries every other lightweight Cascadia page, does not ship on this one because there is nothing for it to plot.</p>
-<p>The two data files are the page’s only inputs. An inventory script reads the nine module repositories and writes one entry per build; a second file carries the design standard’s version chain, dated from the standards repository’s own log and drawn as a thin lane between the rows. The page builder composes the table, the era blocks and the walk from those files and from prose kept beside the builder. Re-running the inventory against an unchanged estate must produce a byte-identical file. That is the test that the inventory is a function of disk and not of the session that ran it.</p>
+<p>The two data files are the page’s only inputs. An inventory script reads the ten module repositories and writes one entry per build; a second file carries the design standard’s version chain, dated from the standards repository’s own log and drawn as a thin lane between the rows. The page builder composes the table, the era blocks and the walk from those files and from prose kept beside the builder. Re-running the inventory against an unchanged estate must produce a byte-identical file. That is the test that the inventory is a function of disk and not of the session that ran it.</p>
 <hr>
 </section>
 <section id="architecture" class="level2">
 <h2 data-anchor-id="architecture">Architecture</h2>
-<p><strong>Nine sibling repositories, read-only → inventory script → one frozen data file per lane → page builder → static HTML → renders at every breakpoint for the reading panel.</strong></p>
+<p><strong>Ten sibling repositories, read-only → inventory script → one frozen data file per lane → page builder → static HTML → renders at every breakpoint for the reading panel.</strong></p>
 <ul>
 <li><strong>Read.</strong> The inventory script opens each module repository on disk, takes its first and last commit dates from the log, and tests each of the fourteen surfaces against a written rule. It never writes in a sibling. Rows, eras and stack phrases are constants copied from the spec; the script infers nothing about membership, because an era inferred from what a repository carries would be a score under another name.</li>
 <li><strong>Rule.</strong> Each column has a paragraph in the repository’s surfaces document saying what the surface is, what artifact counts as evidence, and what does not. A script that re-reads the first path’s output does not count as an independent re-derivation; a golden fixture is a hand-specified expected set committed before the engine, not a snapshot taken after it. The paragraph is the rule, and the script implements the paragraph, never the other way round.</li>
-<li><strong>Freeze.</strong> The data files sit under the estate’s freeze gate. The inventory was read on 2026-09-16 and is frozen at d967ff5; the provenance strip at the foot of the page states both. A new build’s row is appended by re-running the inventory and committing the diff as a deliberate refreeze, never as a side effect.</li>
+<li><strong>Freeze.</strong> The data files sit under the estate’s freeze gate. The inventory was read on 2026-10-07 and is frozen at 66b9de6; the provenance strip at the foot of the page states both. A new build’s row is appended by re-running the inventory and committing the diff as a deliberate refreeze, never as a side effect.</li>
 <li><strong>Build.</strong> The page builder emits the table with its bands, its era group rows and the standard’s lane; the era prose and the walk; and a full text description of the table for readers who cannot see it. A render script drives headless Chromium across the widths where the layout changes, so the reading panel saw the states a reader would.</li>
 </ul>
 <hr>
@@ -281,10 +285,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="headline-skill-reading-the-estate-as-data-without-inventing-a-score" class="level2">
 <h2 data-anchor-id="headline-skill-reading-the-estate-as-data-without-inventing-a-score">Headline Skill: Reading the Estate as Data Without Inventing a Score</h2>
 <p>The differentiator is not the table. It is what the table refuses to do.</p>
-<p><strong>No score, level, weight or percentage exists in the data.</strong> A cell is a path or it is empty. The obvious next move, a totals column or a running count down the right edge, was asked for by the reading panel, and its moderator rated it the single change with the most leverage. It is not there, by standing decision: a count would rank nine builds that were never built to be ranked, and a rank invites the reader to skip the cells. The counts live only in the title and in the text description, where they are claims the table lets a reader check.</p>
+<p><strong>No score, level, weight or percentage exists in the data.</strong> A cell is a path or it is empty. The obvious next move, a totals column or a running count down the right edge, was asked for by the reading panel, and its moderator rated it the single change with the most leverage. It is not there, by standing decision: a count would rank ten builds that were never built to be ranked, and a rank invites the reader to skip the cells. The counts live only in the title and in the text description, where they are claims the table lets a reader check.</p>
 <p><strong>Every filled cell links to the file it names, and that is the page’s own test.</strong> A validation script asserts that every path in every filled cell is a file tracked in its repository and that every row’s repository exists. A filled cell that cannot be followed is a defect in the inventory, not a rendering choice.</p>
 <p><strong>Older modules are not retrofitted.</strong> The enterprise-shaped builds carry the surfaces they shipped with and always will. Retrofitting a freeze file or a chart review onto a build that shipped without one would turn the matrix into a record of this month’s housekeeping rather than of what each build could test when it shipped, and the page’s one claim is about the second thing.</p>
-<p><strong>The rows are the time axis.</strong> Ordered by first commit, grouped by era, with the standard’s versions placed by date between them. The diamonds step to the right as the rows descend, and that stepping is the progression the portfolio could not show from nine separate pages.</p>
+<p><strong>The rows are the time axis.</strong> Ordered by first commit, grouped by era, with the standard’s versions placed by date between them. The diamonds step to the right as the rows descend, and that stepping is the progression the portfolio could not show from ten separate pages.</p>
 <hr>
 </section>
 <section id="validation" class="level2">
@@ -303,14 +307,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="disclosure" class="level2">
 <h2 data-anchor-id="disclosure">Disclosure</h2>
-<p>Everything on the page is read from the nine module repositories and the standards repository, all public on GitHub, and nothing is invented: no score, no level, no weight, no percentage. The modules are independent portfolio projects, not client work, and the page says so under its title. Where a module’s data is synthetic, that module’s own page discloses it; this page makes no claim about any data, only about which files each repository carries. Nothing here is a claim about how any real business operates.</p>
+<p>Everything on the page is read from the ten module repositories and the standards repository, all public on GitHub, and nothing is invented: no score, no level, no weight, no percentage. The modules are independent portfolio projects, not client work, and the page says so under its title. Where a module’s data is synthetic, that module’s own page discloses it; this page makes no claim about any data, only about which files each repository carries. Nothing here is a claim about how any real business operates.</p>
 <p>Independent portfolio project.</p>
 <hr>
 </section>
 <section id="links" class="level2">
 <h2 data-anchor-id="links">Links</h2>
 <ul>
-<li><a href="https://www.robbinsanalytics.com/cascadia-build-by-build/">Build by Build</a>: the live page, the matrix, the five eras and the walk</li>
+<li><a href="https://www.robbinsanalytics.com/cascadia-build-by-build/">Build by Build</a>: the live page, the matrix, the six eras and the walk</li>
 <li><a href="https://github.com/RobbinsAnalytics/cascadia-build-by-build">Build Repository</a>: the inventory script, the surface definitions, the two data files, the chart review with the reading panel’s record, and the decision record</li>
 <li><a href="../cascadia.html">Cascadia Architecture Overview</a></li>
 </ul>
