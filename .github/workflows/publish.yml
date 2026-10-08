@@ -129,7 +129,8 @@ jobs:
           done
           # Everything from /projects/cascadia-semiconductors.html down is an
           # OLD Cascadia Finance URL that must keep returning 200 forever.
-          # The case-study path is served by Quarto's `aliases:` redirect; the
+          # The case-study path is served by a hand-written stub,
+          # projects/cascadia-semiconductors.html (not a Quarto `aliases:` entry); the
           # /cascadia-semiconductors/* paths are served by the project repo
           # today and by the redirect stubs in that directory once the repo
           # rename frees the path. GitHub does not redirect project Pages URLs

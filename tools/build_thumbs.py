@@ -39,17 +39,17 @@ C = {
 
 # Rule 2.3.1 — fixed slots, never re-dealt. A module keeps its hue everywhere.
 MODULES = [
-    dict(slug="portfolio", data="nine modules · real and synthetic sources, labelled per module", kicker="Robbins Analytics", title="Analytics that shows its work",
-         line="Nine governed BI modules — the data layer, the metric layer, and the review that let them ship.",
+    dict(slug="portfolio", data="ten modules · real and synthetic sources, labelled per module", kicker="Robbins Analytics", title="Analytics that shows its work",
+         line="Ten governed BI modules — the data layer, the metric layer, and the review that let them ship.",
          accent="evergreen", motif="bars", landing=True),
     # The portfolio walk, not a module: it has no data of its own and reads the
-    # nine module repositories read-only. Evergreen because the page's own marks
+    # ten module repositories read-only. Evergreen because the page's own marks
     # are Evergreen and 2.3.1 binds the hue to the piece wherever it appears;
     # the portfolio card above is the slot's co-tenant on the same hue, and the
     # two never appear adjacent because this piece has no home page card at
     # all. "bars" because the page's one chart is a presence matrix whose marks
     # thicken down the rows.
-    dict(slug="build-by-build", data="nine module repositories, read read-only · inventory frozen 2026-09-16", kicker="Cascadia Portfolio", title="Build by Build",
+    dict(slug="build-by-build", data="ten module repositories, read read-only · inventory frozen 2026-10-07", kicker="Cascadia Portfolio", title="Build by Build",
          line="Two ways to check a number at build one. Fourteen had appeared by build nine.",
          accent="evergreen", motif="bars"),
     # Lupine, which Pharmacy is the only other tenant of — different domain,
