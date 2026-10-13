@@ -92,6 +92,21 @@ How I would run a data, analytics and automation team of about eight people insi
 [The charter on one screen](projects/cascadia-operating-charter.qmd#one-screen){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
+
+::: {.g-col-12}
+::: {.project-card}
+::: {.card-label}
+Analytics Validation / Playbook
+:::
+### Validating AI-Assisted Analytics
+<span class="badge-status new">New</span><span class="badge-status">Playbook</span>
+
+How can you be confident in code you did not read or write in full? From requirements to evidence, with clear ownership at every step: one invented dispatch rule, a known answer specified before the code, and four experiments that run a real SQL query in your browser and show what a check adds to reading. Harbor Dispatch is invented; the real evidence is pinned to Cascadia builds.
+
+[Open playbook](https://www.robbinsanalytics.com/cascadia-validation-playbook/){.btn .btn-primary .btn-sm}
+[Start with the code check](https://www.robbinsanalytics.com/cascadia-validation-playbook/#opening-experiment){.btn .btn-outline-secondary .btn-sm}
+:::
+:::
 :::
 
 ---

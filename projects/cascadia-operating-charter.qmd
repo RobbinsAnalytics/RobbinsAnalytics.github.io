@@ -432,6 +432,8 @@ Every practice below carries a proof and a test, and a mark. **Demonstrated** me
 
 **Chasing edges.** The reason to use AI at all is the accumulation of small advantages: earlier information, more cycles, less manual work. "The way we've always done it" is not a reason. Permission to try is explicit when the intent is right and the control is in place.
 
+The method behind the two controls, from a requirement to an answer specified separately from the implementation to a check that can expose a mistake, is written up as a playbook with four experiments that run in the browser: [Validating AI-Assisted Analytics](https://www.robbinsanalytics.com/cascadia-validation-playbook/).
+
 ```{=html}
 <div class="proof-test">
 <dl>

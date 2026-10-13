@@ -139,6 +139,17 @@ MODULES = [
     dict(slug="operating-charter", data="operating charter · a scenario, no confidential information", kicker="Cascadia Operating Charter", title="Earn trust before changing the structure",
          line="How I would run a data, analytics and automation team of about eight: every practice with a proof, a test and a mark.",
          accent="evergreen", motif="steps"),
+    # Not a BI module: a playbook, how confidence in AI-assisted code is earned
+    # from a requirement, a separately specified answer and a check that can
+    # expose a mistake, shown on an invented dispatch rule. Evergreen because
+    # the page's two Cascadia exhibits carry their emphasis in Evergreen and
+    # 2.3.1 binds the hue to the piece; Evergreen's seventh tenant, after the
+    # charter. The home page cards carry no accent hue, so no two Evergreen
+    # cards meet in colour. "bars" because the page's one bar exhibit is six
+    # order ages against one fixed scale.
+    dict(slug="validation-playbook", data="Harbor Dispatch, an invented teaching example · real evidence pinned to Cascadia builds", kicker="Cascadia Validation Playbook", title="How can you be confident in code you did not read or write in full?",
+         line="From requirements to evidence, with clear ownership at every step. One invented dispatch rule, four experiments that run in the browser.",
+         accent="evergreen", motif="bars"),
 ]
 
 MOTIFS = {

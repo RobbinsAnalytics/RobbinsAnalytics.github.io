@@ -39,6 +39,11 @@ project:
     # (/cascadia-early-warning/case-study.html). Same stub, same reason, and
     # the old .qmd is deleted so Quarto cannot regenerate this path.
     - projects/cascadia-early-warning.html
+    # The validation playbook is a Felix page served from its own repository
+    # (/cascadia-validation-playbook/). This stub guards the projects/ path a
+    # reader or a scraper would guess; same shape, same reason, and no .qmd
+    # exists at the path so Quarto cannot regenerate it.
+    - projects/cascadia-validation-playbook.html
 
 website:
   title: "Robbins Analytics"
@@ -79,6 +84,13 @@ website:
           # a reader of the portfolio is most often sent to.
           - text: "Cascadia Operating Charter"
             href: projects/cascadia-operating-charter.qmd
+          # Not a module: a playbook, how confidence in AI-assisted code is
+          # earned from requirements, a separately specified answer and an
+          # enforced check. A Felix page in its own repository, linked by its
+          # live URL as Early Warning is; it sits beside the charter because
+          # the two are read together.
+          - text: "Validating AI-Assisted Analytics"
+            href: https://www.robbinsanalytics.com/cascadia-validation-playbook/
           - text: "Cascadia Early Warning"
             href: https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html
           - text: "Cascadia Revenue Assurance"
