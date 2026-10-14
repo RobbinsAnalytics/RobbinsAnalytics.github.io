@@ -50,8 +50,8 @@ refuses blanket staging and force pushes; it binds under `bypassPermissions`,
 where the `deny` block in `.claude/settings.json` does not. The scripts are
 tracked and arrive with a clone — **`git config core.hooksPath .githooks` does
 not.** Run it once per clone or there is no git-side gate at all. Verify all
-three with `python .claude/hooks/hook_test_matrix.py`: 50 declared cases, exit
-non-zero on any miss. Do not reach for `--no-verify`.
+three with `python .claude/hooks/hook_test_matrix.py`; it prints its own case
+count and exits non-zero on any miss. Do not reach for `--no-verify`.
 
 **The Cowork device bridge leaves a stale `.git/index.lock`.** If git reports
 another process is running, delete that file and retry. Nothing is wrong.
