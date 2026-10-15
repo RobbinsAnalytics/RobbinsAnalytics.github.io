@@ -18,3 +18,5 @@ The next Cascadia build — retail and ecommerce analytics, with the stack match
 ---
 
 The next Cascadia build: retail and ecommerce analytics for an apparel scenario — demand and inventory, merchandising performance, and fulfillment/OTIF. Drawing on my ecommerce BI background, it will extend the Cascadia approach into retail, with the tooling chosen to fit the data and scale. Check back, or follow along on [GitHub](https://github.com/RobbinsAnalytics).
+
+Rehearsal of the candidate check, 2026-10-14: [a page that does not exist](/projects/this-page-does-not-exist.html). This sentence is reverted in the next commit.
