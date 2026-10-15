@@ -9,6 +9,11 @@ A module is not shipped when its build is done. It is shipped when a reader can
 find it. Six files carry a module, and they drift apart silently because five of
 them are obvious and one is not.
 
+Since reskin phase one (2026-10-14, ADR 0002) the home page and the
+case-study index are rendered from one inventory, `data/portfolio.yml`,
+through one template. A new module is **one inventory entry plus one
+dropdown entry**; no card is hand-written anywhere.
+
 **The one that drifts is `cascadia.qmd`.** When Deal Desk shipped it landed in the
 navbar, the home page, its own case-study page and the thumbnail generator — and
 was completely absent from the Cascadia family page: no row in the builds table,
@@ -32,20 +37,38 @@ Validation, Tech Stack, Disclosure and Links sections.
 
 ### 2 · `_quarto.yml` — the navbar
 
-Add under `navbar: left: - text: "Projects" menu:`. Order matters — newest and
-strongest first, since this menu is how most readers navigate.
+Add under `navbar: left: - text: "Case Studies" menu:`, above the first data
+build (the playbooks sit at the top, the process map and the paper at the
+bottom, "All case studies" last). Newest build first, since this menu is how
+most readers navigate. Every entry in this menu has a row in the inventory
+and nothing else does; the two must agree.
 
-### 3 · `index.qmd` — the home page card
+### 3 · `data/portfolio.yml` — the inventory (home page and index)
 
-Add a `.project-card` under **Featured Case Studies**: `.card-label` domain,
-title, status badges (`New`, `Live`, `Playbook`, `Coming Soon`), the one-line
-hook, then a `View Case Study` primary button plus outline buttons for each live
-page. **The featured set is the four most recent modules, and only four.** A
-new module takes the first slot and the fourth card leaves the home page; it
-is not lost, because the family page's Builds & Their Stacks table already
-lists every build with a link, and the sentence under the featured four
-points there. Do not let the section grow past four (decided 2026-10-14; the
-section had held twelve).
+Add one entry. The fields are documented at the top of the file; the ones
+that take judgment are:
+
+- `status`, in the site's own words: `Published` for a live build,
+  `Complete` for a finished case study with no live page, `Coming Soon` for
+  a planned one. `Playbook` and `Preprint` are for the design pieces and the
+  paper, not for a module.
+- `order`: the position in the family page's Builds & Their Stacks table,
+  which is newest first, so a new build takes the order of the first data
+  build and every entry below it moves down by one. The card number on the
+  index is this position, not a build number.
+- `summary`: three lines at card width, no em dashes, no count that goes
+  stale. Aaron reads it in the pull request.
+- `featured`: **`false` by default.** The home page carries three featured
+  builds under "Selected builds", chosen by capability and not by recency,
+  with the newest of them first. Today they are Early Warning, Revenue
+  Assurance and Matter Ledger. **Whether a new build is featured, and
+  which of the three it replaces, is Aaron's call: ask in the report, never
+  assume.** The index lists every entry regardless, and "See all N case
+  studies" under the featured three counts itself from the inventory.
+
+The home page's Leadership Portfolio (Build by Build, the Operating Charter,
+the Validation Playbook, BI Migration) and Beyond the Portfolio are rendered
+from the same file by `type`; a module never lands there.
 
 ### 4 · `cascadia.qmd` — the family page  ← the one that drifts
 
@@ -115,4 +138,6 @@ caching lag apart from a bad deploy before assuming something failed.
 
 Say which of the six surfaces changed, which were already correct, what the
 link check returned, and what the live pages showed. If a surface was
-deliberately skipped, say why.
+deliberately skipped, say why. **Ask whether the new build should be
+featured on the home page and, if so, which of the current three it
+replaces.**

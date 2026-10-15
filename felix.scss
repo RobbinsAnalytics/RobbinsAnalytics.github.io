@@ -637,6 +637,95 @@ body.felix-home {
   }
 }
 
+// ---------- The index (Felix §6.6 inner opener, §6.4 filter buttons) ----------
+body.felix-index {
+  #title-block-header { display: none; }
+
+  .fx-inner {
+    @include fx-container;
+    padding-top: 3.5rem;
+    padding-bottom: 1.5rem;
+    @media (min-width: 640px) { padding-top: 5rem; }
+    &.fx-inner--list { padding-top: 0; padding-bottom: 6rem; }
+  }
+  .fx-inner h1 {
+    margin: 0.75rem 0 0;
+    font-size: 3rem;
+    line-height: 1.04;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    @media (min-width: 640px) { font-size: 3.75rem; }
+  }
+  .fx-stop { color: $fx-teal-3; }
+  .fx-inner__intro {
+    margin: 1.5rem 0 0;
+    max-width: 42rem;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: $fx-ink-soft;
+    p { margin: 0; }
+  }
+  .fx-grid--index { margin-top: 2rem; }
+}
+
+// Filter row. Buttons, 44px tall, a count bubble; the pressed one is ink
+// with a lime bubble. Focus is the teal-2 ring, which measures 5.4:1 on
+// paper, 6.3:1 on white, and sits outside the ink button; on the lime
+// bubble it is never drawn, since the bubble is not focusable.
+.fx-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  &[hidden] { display: none; }
+}
+.fx-tab {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.375rem 0.375rem 0.375rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: $fx-white;
+  color: $fx-ink-soft;
+  font-family: $fx-font-sans;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .15s, color .15s;
+  &:hover { color: $fx-ink; }
+  &:focus-visible { @include fx-focus; }
+  .fx-tab__count {
+    display: grid;
+    place-items: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.375rem;
+    border-radius: 999px;
+    background: $fx-paper;
+    color: $fx-ink-soft;
+    font-family: $fx-font-mono;
+    font-size: 0.7rem;
+  }
+  &[aria-pressed="true"] {
+    background: $fx-ink;
+    color: $fx-white;
+    .fx-tab__count { background: $fx-lime; color: $fx-ink; }
+  }
+}
+.fx-tabs__status {
+  margin: 0.75rem 0 0;
+  min-height: 1.25rem;
+  font-family: $fx-font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: $fx-ink-soft;
+}
+.fx-card[hidden] { display: none; }
+
 // ---------- Cards (Felix §6.5 case-study card, as an <article>) ----------
 .fx-grid {
   display: grid;

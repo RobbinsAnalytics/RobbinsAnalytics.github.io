@@ -50,6 +50,16 @@ switch (group) {
   default:           rows = all;
 }
 
+// The index's status tabs: All, then every status present, in the order
+// each first appears in the sorted inventory, with its count. Rendered at
+// build time; the inline script below only toggles `hidden`.
+const statusOrder = [];
+const statusCount = {};
+for (const { item } of all) {
+  if (!(item.status in statusCount)) { statusCount[item.status] = 0; statusOrder.push(item.status); }
+  statusCount[item.status] += 1;
+}
+
 const badges = (item) => {
   let out = "";
   if (item.new === true) out += `<span class="fx-badge fx-badge--new">New</span>`;
@@ -77,6 +87,18 @@ const tags = (item) => (item.tags || []).map(t => `<span class="fx-tag">${esc(t)
   </div>
 </article>
 <% } } else { %>
+<% if (group === "index") { %>
+<!-- The status tab row. `hidden` until the script below runs, so with
+     JavaScript off every card is on the page and no non-working control
+     is shown (brief step 3). Buttons, not links: there is no URL state. -->
+<div class="fx-tabs" role="group" aria-label="Filter by status" hidden>
+  <button type="button" class="fx-tab" data-filter="" aria-pressed="true">All <span class="fx-tab__count"><%= total %></span></button>
+<% for (const st of statusOrder) { %>
+  <button type="button" class="fx-tab" data-filter="<%= esc(st) %>" aria-pressed="false"><%= esc(st) %> <span class="fx-tab__count"><%= statusCount[st] %></span></button>
+<% } %>
+</div>
+<p class="fx-tabs__status" aria-live="polite"></p>
+<% } %>
 <div class="fx-grid fx-grid--<%= esc(group) %>">
 <% for (const { item, pos } of rows) { %>
 <article class="fx-card<%= item.status === "Coming Soon" ? " fx-card--muted" : "" %>" data-status="<%= esc(item.status) %>" data-type="<%= esc(item.type) %>">
@@ -96,6 +118,39 @@ const tags = (item) => (item.tags || []).map(t => `<span class="fx-tag">${esc(t)
 </div>
 <% if (group === "featured") { %>
 <p class="fx-more"><a class="fx-btn fx-btn--outline" href="/case-studies.html">See all <%= total %> case studies</a></p>
+<% } %>
+<% if (group === "index") { %>
+<script>
+(function () {
+  // Status filter for the index. Chosen over Quarto's built-in category
+  // filter (B1, 2026-10-14): that one keys on a `categories` field, renders
+  // in the page margin and writes URL hash state, all three of which the
+  // reskin decisions rule out. This toggles `hidden` on cards by their
+  // data-status; the counts were rendered at build time from the inventory.
+  var row = document.querySelector(".fx-tabs");
+  var grid = document.querySelector(".fx-grid--index");
+  if (!row || !grid) return;
+  var tabs = row.querySelectorAll(".fx-tab");
+  var cards = grid.querySelectorAll(".fx-card");
+  var status = document.querySelector(".fx-tabs__status");
+  function apply(filter) {
+    var shown = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var hide = filter !== "" && cards[i].getAttribute("data-status") !== filter;
+      cards[i].hidden = hide;
+      if (!hide) shown++;
+    }
+    for (var j = 0; j < tabs.length; j++) {
+      tabs[j].setAttribute("aria-pressed", tabs[j].getAttribute("data-filter") === filter ? "true" : "false");
+    }
+    if (status) status.textContent = filter === "" ? "" : "Showing " + shown + " of " + cards.length + ": " + filter;
+  }
+  for (var k = 0; k < tabs.length; k++) {
+    tabs[k].addEventListener("click", function () { apply(this.getAttribute("data-filter")); });
+  }
+  row.hidden = false;
+})();
+</script>
 <% } %>
 <% } %>
 ```
