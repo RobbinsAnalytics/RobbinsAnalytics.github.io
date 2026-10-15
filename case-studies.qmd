@@ -1,0 +1,41 @@
+---
+title: "Case Studies"
+description: "Every case study, playbook, paper and process design in the Robbins Analytics portfolio, in one list."
+image: https://www.robbinsanalytics.com/assets/thumb-portfolio.png
+image-alt: "Cascadia module card — title, one-line summary, and the data source."
+# felix-index scopes the Felix page styling to this page (felix.scss), and
+# hides Quarto's title block: the opener below carries the one H1, in the
+# Felix inner-page form (eyebrow, H1 with the coloured stop, one sentence).
+body-classes: felix-index
+# custom, not full: the Felix opener and grid carry their own 76rem
+# container, and Quarto's page grid would add a second set of gutters.
+page-layout: custom
+toc: false
+# One Quarto listing over the inventory. Quarto hands a custom template
+# `items`, `template-params` and `utils`, not the listing itself, so the
+# group is named here. See _templates/fx-card.ejs and data/portfolio.yml.
+listing:
+  - id: fx-index
+    contents: data/portfolio.yml
+    template: _templates/fx-card.ejs
+    sort: "order"
+    page-size: 100
+    template-params:
+      group: index
+      heading: h2
+---
+
+::: {.fx-inner}
+[The Cascadia Portfolio]{.fx-eyebrow}
+
+# Case Studies[.]{.fx-stop}
+
+::: {.fx-inner__intro}
+Cascadia is a portfolio built to be checked, not taken on faith.
+:::
+:::
+
+::: {.fx-inner .fx-inner--list}
+::: {#fx-index}
+:::
+:::

@@ -54,19 +54,17 @@ website:
   twitter-card: true
 
   navbar:
-    background: dark
-    foreground: light
-    # The navbar is Spruce ($navbar-bg in styles.scss), which is exactly the
-    # surface LOGO.md 1.1 sends to the reversed cut — so this is the reversed
-    # mark, not the light one. They are separate cuts, not recolours (3.3), and
-    # the light mark's Rain #828E88 context bars measure 1.15:1 against dark
-    # Evergreen on Spruce, which would merge the bars into one shape.
-    #
-    # The mark only, beside the existing text title — not the primary lockup.
-    # At navbar height the lockup runs near the 12px floor of Rule 5.3 and the
-    # ligature has not been proofed there.
-    logo: assets/brand/robbins-mark-reversed.svg
-    logo-alt: "Robbins Analytics"
+    # Felix header (reskin phase one, ADR 0002, 2026-10-14): paper
+    # background, a text wordmark, the pill nav group. Styled in felix.scss
+    # over the Bootstrap navbar Quarto emits; `light` here only sets
+    # Bootstrap's data-bs-theme so its own defaults (toggler, link colours)
+    # start dark-on-light. The SVG mark is no longer in the navbar; it stays
+    # as the favicon (LOGO.md 4.2). The wordmark is "Robbins Analytics." with
+    # the serif word and the lime-family stop: inline HTML, which Quarto
+    # passes through the navbar title.
+    background: light
+    foreground: dark
+    title: 'Robbins <em>Analytics</em><span class="fx-wm-stop">.</span>'
     left:
       - text: "Home"
         href: index.qmd
@@ -74,7 +72,7 @@ website:
         href: about.qmd
       - text: "Cascadia"
         href: cascadia.qmd
-      - text: "Projects"
+      - text: "Case Studies"
         menu:
           - text: "Build by Build"
             href: projects/cascadia-build-by-build.qmd
@@ -126,13 +124,20 @@ website:
           # build state.
           - text: "Sibling Conflict (mathematics paper)"
             href: projects/sibling-conflict.qmd
-    right:
-      - icon: github
-        href: https://github.com/RobbinsAnalytics
-        aria-label: GitHub
+          # The index: every entry above, numbered, with status tabs. Last,
+          # as the Felix dropdown has it (ADR 0002, 2026-10-14).
+          - text: "All case studies"
+            href: case-studies.qmd
+    # No right-hand items: the GitHub icon moved to the footer with the
+    # reskin (Felix's header has none), where the footer already carried it.
 
+  # Felix footer in column form (felix.scss places the three slots on a
+  # grid): the dark wordmark, the two icon links, and the legal line as the
+  # strip beneath them. The wordmark sits in `center` because `left` is the
+  # legal line and Quarto has only these three slots.
   page-footer:
     left: "© 2026 Aaron Robbins"
+    center: '<span class="fx-wordmark">Robbins <em>Analytics</em><span class="fx-wm-stop">.</span></span>'
     # An icon-only link has no text node, so without aria-label a screen reader
     # announces "link" and nothing else. Quarto renders the icon as
     # <i role="img"> with no name, which fails link-name and role-img-alt on
@@ -152,7 +157,13 @@ format:
       - text: |
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+          <!-- One request for every face the site uses. Source Serif 4 is the
+               Cascadia voice (styles.scss, charts and the page bodies this
+               release leaves alone); Inter, Inter Tight, Fraunces italic and
+               JetBrains Mono are Felix's four (felix-design-system.md §1.3),
+               global because the header and footer need them on every page.
+               All five are on Google Fonts under the SIL OFL. -->
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Fraunces:ital,wght@1,400&family=JetBrains+Mono:wght@400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
           <!-- LOGO.md 4.2. SVG first so it wins wherever it is supported and
                the mark can swap palettes with the browser chrome; the 32px PNG
                is for Safari, which renders SVG favicons but ignores the
@@ -164,6 +175,9 @@ format:
     theme:
       - cosmo
       - styles.scss
+      # The Felix chrome layer, after the Cascadia layer so its rules win
+      # where both speak; its tokens are kept apart from $cascadia-*.
+      - felix.scss
     toc: false
     anchor-sections: false
     smooth-scroll: true
