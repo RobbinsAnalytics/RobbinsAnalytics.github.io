@@ -75,8 +75,10 @@ PAGES = {
 # Bootstrap md breakpoint, 1440 desktop.
 WIDTHS = [390, 414, 768, 1440]
 
-# A pixel counts as different only if a channel moves by more than this. Text
-# antialiasing moves by one or two levels between otherwise identical runs.
+# A pixel counts as different only if a channel moves by more than this, and
+# only against the baseline's 3x3 neighbourhood (see compare()). Text
+# antialiasing moves by one or two levels, and glyph edges by one pixel,
+# between otherwise identical runs.
 CHANNEL_THRESHOLD = 12
 
 # And the page fails only if more than this share of pixels differ. A real
@@ -102,7 +104,7 @@ def png_width(png):
 
 def compare(baseline_png, current_png, diff_path):
     """Return (ratio_differing, note). ratio is 1.0 for a size mismatch."""
-    from PIL import Image, ImageChops
+    from PIL import Image, ImageChops, ImageFilter
     import io as _io
 
     a = Image.open(_io.BytesIO(baseline_png)).convert("RGB")
@@ -119,9 +121,24 @@ def compare(baseline_png, current_png, diff_path):
         w, h = min(a.size[0], b.size[0]), min(a.size[1], b.size[1])
         a, b = a.crop((0, 0, w, h)), b.crop((0, 0, w, h))
 
-    diff = ImageChops.difference(a, b)
+    # A pixel counts as different only if the candidate's value lies outside
+    # the range the baseline shows anywhere in the 3x3 neighbourhood around it,
+    # by more than the channel threshold. Text antialiasing moves glyph edges
+    # by a pixel between otherwise identical runs, and on a narrow page with
+    # many serif headings that alone crossed TOLERANCE: on 2026-10-14 a commit
+    # whose tree was identical to a green run failed about-414 (0.083%) and
+    # sibling-conflict-414 (0.158%), and every one of those pixels had its
+    # value within one pixel in the baseline. A real change moves content by
+    # a line, a border, a colour -- far more than one pixel -- and is still
+    # caught; a one-pixel shift of a whole element is the price, stated here.
+    lo = a.filter(ImageFilter.MinFilter(3))
+    hi = a.filter(ImageFilter.MaxFilter(3))
+    below = ImageChops.subtract(lo, b)     # how far under the neighbourhood's floor
+    above = ImageChops.subtract(b, hi)     # how far over its ceiling
+    out = ImageChops.lighter(below, above)
     # Collapse to the largest per-channel move at each pixel, then threshold.
-    mono = diff.convert("L").point(lambda v: 255 if v > CHANNEL_THRESHOLD else 0)
+    mono = ImageChops.lighter(ImageChops.lighter(*out.split()[:2]), out.split()[2])
+    mono = mono.point(lambda v: 255 if v > CHANNEL_THRESHOLD else 0)
     differing = sum(mono.histogram()[1:])
     total = a.size[0] * a.size[1]
     ratio = differing / float(total) if total else 0.0
