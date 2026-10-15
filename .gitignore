@@ -15,3 +15,7 @@ Thumbs.db
 # Visual-regression diff images, written by tools/visual_check.py on a failure
 # and uploaded as a workflow artifact. Never committed.
 /visual-diffs/
+
+# Written by the pre-render scripts (tools/build_footer.py,
+# tools/build_bbb_grid.py) on every render. Never committed.
+/_generated/

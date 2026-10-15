@@ -10,9 +10,9 @@
 #
 # 2. The hero's own H1. With no title metadata, Quarto promotes the document's
 #    first level-1 heading to be the title — so `# Aaron Robbins` was lifted OUT
-#    of .hero-lede into the title block above the hero, and the hero rendered
-#    starting at the subtitle with no name in it. Setting a title here leaves
-#    the heading where it was written.
+#    of the hero into the title block above it, and the hero rendered starting
+#    at the subtitle with no name in it. Setting a title here leaves the
+#    heading where it was written.
 #
 # `body-classes` is the third piece: with a title set, Quarto renders its own
 # title block, which would restate the name twice. felix.scss hides it on
@@ -56,7 +56,7 @@ listing:
     template-params:
       group: feature
       slug: build-by-build
-      heading: h4
+      heading: h3
   - id: fx-leadership
     contents: data/portfolio.yml
     template: _templates/fx-card.ejs
@@ -84,61 +84,125 @@ listing:
       heading: h4
 ---
 
-<!-- The hero. Every line of copy below is Aaron's and is moved, not edited
-     (lines 43 to 69 of the 2026-10-14 index.qmd); only the wrapper changed,
-     from .hero-banner/.hero-inner to the Felix split (§7 "Home"). The span
-     on the first name applies the headline formula and changes no text. -->
+<!-- THE HERO (Felix §7 "Home" split; Aaron's notes 2 to 9, 2026-10-15).
+     Aaron's 2026-10-14 hero copy is split into its parts, not rewritten:
+     the lede sentence, the five industries as pills, The Craft and The
+     Portfolio as two of three items. One change of wording, Aaron's own:
+     "let AI do the build" is now "direct AI to do the build". The Track
+     Record is new copy built from about.qmd line 9. The motto moved to the
+     statement panel below. The availability line is unchanged. -->
 
 ::: {.fx-hero}
-::: {.hero-lede}
-# [Aaron]{.fx-serif} Robbins
+::: {.fx-hero__text}
+# [Aaron]{.fx-serif} Robbins[.]{.fx-stop}
 
 ::: {.hero-subtitle}
 AI Analytics Architect
 :::
 
-::: {.hero-motto}
-::: {.hero-motto-sub}
-*Trust What You Can Test*
-:::
-:::
+::: {.fx-hero__lede}
+12+ years turning messy data into decisions leaders trust.
 :::
 
-::: {.hero-aside}
-::: {.hero-tagline}
-12+ years turning messy data into decisions leaders trust: healthcare manufacturing and quality, ecommerce and retail, and time in supply chain, digital merchandising, and finance. The expertise is in the craft, not the tooling. I design the analytics, specify what correct looks like, and let AI do the build. Every build carries its own evidence: known answers set before the code, tests that run every time, and a record of what each test caught. That is proof stakeholders can check, not a claim they have to trust.
-:::
+```{=html}
+<ul class="fx-hero__pills" aria-label="Industries">
+  <li>Healthcare manufacturing and quality</li>
+  <li>Ecommerce and retail</li>
+  <li>Supply chain</li>
+  <li>Digital merchandising</li>
+  <li>Finance</li>
+</ul>
+<dl class="fx-hero__items">
+  <div>
+    <dt>The Craft</dt>
+    <dd>The expertise is in the craft, not the tooling. I design the analytics, specify what correct looks like, and direct AI to do the build.</dd>
+  </div>
+  <div>
+    <dt>The Portfolio</dt>
+    <dd>Every build carries its own evidence: known answers set before the code, tests that run every time, and a record of what each test caught. That is proof stakeholders can check, not a claim they have to trust.</dd>
+  </div>
+  <div>
+    <dt>The Track Record</dt>
+    <dd>Proposed and staffed a BI function from zero, then ran BI and analytics programs across 23 manufacturing sites in eleven countries, with 200+ stakeholders.</dd>
+  </div>
+</dl>
+```
 
 ::: {.hero-availability}
 Open to analytics manager, lead, or principal roles where reporting has outgrown trust, and to conversations about roles that don't exist yet. Seattle or remote.
 :::
 
 ::: {.fx-hero__actions}
-[All case studies](case-studies.qmd){.fx-btn .fx-btn--primary}
-[Learn about the Cascadia architecture](cascadia.qmd){.fx-btn .fx-btn--outline}
+[View case studies <span class="fx-arrow" aria-hidden="true">&#8594;</span>](case-studies.qmd){.fx-btn .fx-btn--dark}
+[Cascadia architecture](cascadia.qmd){.fx-btn .fx-btn--outline}
 :::
 :::
+
+{{< include _includes/hero-art.html >}}
+
 :::
+
+<!-- THE ONE RULE (Felix §6.11 statement panel; note 6). The motto, just below
+     the fold. The quotation is Felix's copy, attributed to Aaron, kept at his
+     direction (2026-10-15). -->
+
+```{=html}
+<section class="fx-statement" aria-labelledby="fx-statement-title">
+  <div class="fx-statement__panel">
+    <p class="fx-statement__eyebrow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg> The one rule</p>
+    <h2 class="fx-statement__title" id="fx-statement-title">Trust What You<br><span class="fx-statement__serif">Can Test<svg class="fx-underline" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8 C 30 2, 60 11, 118 4" fill="none" stroke="#d4f36b" stroke-width="2.5" stroke-linecap="round"/></svg></span><span class="fx-statement__stop">.</span></h2>
+    <div class="fx-statement__foot">
+      <blockquote class="fx-statement__quote">
+        <p><span class="fx-q">&#8220;</span>Validation suites that fail the build rather than ship a number I can&#8217;t defend.<span class="fx-q">&#8221;</span></p>
+        <footer>&#8212; Aaron Robbins</footer>
+      </blockquote>
+      <span class="fx-statement__seal" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16" fill="currentColor"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg></span>
+    </div>
+  </div>
+</section>
+```
+
+<!-- FIVE FIGURES (Felix §6.5 stat strip; note 10). Generated from
+     data/stats.json by tools/build_stats.py and spliced in by
+     tools/fx_include.lua; every tile is checked against the page or the
+     snapshot it quotes by tools/check_references.py. -->
+
+::: {.fx-stats-section}
+::: {.fx-include file="_generated/stats.html"}
+:::
+:::
+
+<!-- THE CASCADIA PORTFOLIO (note 11: after the Trust card, above the cards). -->
 
 ::: {.fx-section #cascadia-portfolio}
 
 ::: {.fx-opener}
 ::: {.fx-opener__head}
-[01 / Case Studies]{.fx-eyebrow}
+[Case studies]{.fx-pill}
 
 ## The Cascadia Portfolio
 :::
 
 ::: {.fx-opener__intro}
-Cascadia is a portfolio built to be checked, not taken on faith.
+Cascadia is a portfolio built to be checked, not taken on faith. Which tests each module could carry, build by build, is one page: [Build by Build](projects/cascadia-build-by-build.qmd).
+:::
+:::
+
+<!-- Build by Build, smaller (note 12): the template renders the text column
+     from the inventory; the matrix beside it is the real ten-by-fourteen
+     grid, generated from the committed snapshot by tools/build_bbb_grid.py.
+     The two share one lime card through .fx-feature-wrap. -->
+
+::: {.fx-feature-wrap}
+::: {#fx-feature}
+:::
+
+::: {.fx-include file="_generated/bbb-grid.html"}
 :::
 :::
 
 ::: {.fx-sub}
 ### Leadership Portfolio
-:::
-
-::: {#fx-feature}
 :::
 
 ::: {#fx-leadership}
@@ -151,14 +215,101 @@ Cascadia is a portfolio built to be checked, not taken on faith.
 ::: {#fx-featured}
 :::
 
+:::
+
+<!-- HOW THE WORK IS DONE (note 13, Aaron's choice 2026-10-15: specify,
+     validate, operate, not the three stack patterns). Copy from cascadia.qmd,
+     How I Built This and Design Principles; each tile names the build that
+     proves it. -->
+
+::: {.fx-white}
+::: {.fx-white__panel}
+
+::: {.fx-opener .fx-opener--row}
+::: {.fx-opener__head}
+[Method]{.fx-pill}
+
+## Specify, [validate]{.fx-serif}, operate
+:::
+
+[Learn about the Cascadia architecture <span class="fx-arrow--disc" aria-hidden="true">&#8599;</span>](cascadia.qmd#how-i-built-this){.fx-disc-link}
+:::
+
+```{=html}
+<ol class="fx-tiles">
+  <li class="fx-tile">
+    <div class="fx-tile__top"><p class="fx-tile__num">01<span>Specify</span></p><a class="fx-pill" href="https://www.robbinsanalytics.com/cascadia-validation-playbook/">Validation Playbook</a></div>
+    <h3 class="fx-tile__title">Written <span class="fx-tile__muted">spec</span></h3>
+    <p class="fx-tile__flow">Specification &#8594; agent build &#8594; review</p>
+    <p class="fx-tile__text">I set the architecture, the data model and the measurement definitions as a written specification. AI coding agents build to it. I do not hand-write the Python: I write the spec, review the output and validate it.</p>
+  </li>
+  <li class="fx-tile">
+    <div class="fx-tile__top"><p class="fx-tile__num">02<span>Validate</span></p><a class="fx-pill" href="/projects/cascadia-revenue-assurance.html">Revenue Assurance</a></div>
+    <h3 class="fx-tile__title">Independent <span class="fx-tile__muted">check</span></h3>
+    <p class="fx-tile__flow">Definition &#8594; independent SQL &#8594; reconcile</p>
+    <p class="fx-tile__text">Every certified measure is validated independently against raw SQL, written to the definition and not to the code. Revenue Assurance derives every published cell twice, by two engines written to be different, and they agree.</p>
+  </li>
+  <li class="fx-tile">
+    <div class="fx-tile__top"><p class="fx-tile__num">03<span>Operate</span></p><a class="fx-pill" href="/projects/cascadia-matter-ledger.html">Matter Ledger</a></div>
+    <h3 class="fx-tile__title">Operated, not <span class="fx-tile__muted">only built</span></h3>
+    <p class="fx-tile__flow">Schedule &#8594; re-assert &#8594; publish failures</p>
+    <p class="fx-tile__text">A surface that has only ever shown green has demonstrated nothing. Matter Ledger runs on a schedule, re-asserts its own invariants on every run, reconciles a live increment against the frozen baseline, and publishes the result, including when a run fails.</p>
+  </li>
+</ol>
+```
+
+:::
+:::
+
+::: {.fx-section}
 ::: {.fx-sub}
 ### Beyond the Portfolio
 :::
 
 ::: {#fx-beyond}
 :::
-
 :::
 
-::: {.fx-section .fx-section--last}
-:::
+<!-- LET'S TALK (Felix §6.11 CTA banner; note 14). Felix's copy, kept at
+     Aaron's direction. There is no contact page and no email on the site, so
+     "Get in touch" opens LinkedIn (Aaron, 2026-10-15). The bars on the right
+     carry no axis, labels or numbers. -->
+
+```{=html}
+<section class="fx-cta" aria-labelledby="fx-cta-title">
+  <div class="fx-cta__panel">
+    <div class="fx-cta__copy">
+      <p class="fx-cta__pill"><span class="fx-cta__dot" aria-hidden="true"></span>Let&#8217;s talk</p>
+      <h2 class="fx-cta__title" id="fx-cta-title">Let&#8217;s build numbers people can <span class="fx-cta__serif">trust<svg class="fx-underline" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M2 8 C 30 2, 60 11, 118 4" fill="none" stroke="#d4f36b" stroke-width="2.5" stroke-linecap="round"/></svg></span><span class="fx-cta__stop">.</span></h2>
+      <p class="fx-cta__text">Comfortable as the person building it, or as the person who stands up the function and hires the team. The standard doesn&#8217;t change either way.</p>
+      <p class="fx-cta__actions">
+        <a class="fx-btn fx-btn--disc-lime" href="https://www.linkedin.com/in/aaron-robbins-6b25a2136/">Get in touch <span class="fx-btn__disc" aria-hidden="true">&#8599;</span></a>
+        <a class="fx-btn fx-btn--ghost-light" href="https://github.com/RobbinsAnalytics"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg> GitHub</a>
+      </p>
+    </div>
+    <div class="fx-cta__art" aria-hidden="true">
+      <div class="fx-seal">
+        <svg class="fx-seal__ring" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs><path id="fxSealPath" d="M100 22 a78 78 0 1 1 -0.01 0"/></defs>
+          <circle cx="100" cy="100" r="98" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <text font-family="JetBrains Mono, ui-monospace, Menlo, monospace" font-size="13" letter-spacing="2" fill="rgba(255,255,255,0.78)"><textPath href="#fxSealPath" textLength="486">TRUST WHAT YOU CAN TEST &#10022; BUILT TO BE CHECKED &#10022;</textPath></text>
+        </svg>
+        <span class="fx-seal__disc"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16" fill="currentColor"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg></span>
+      </div>
+      <svg class="fx-cta__bars" viewBox="-10 -20 440 320" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+        <g fill="rgba(255,255,255,0.11)" stroke="rgba(255,255,255,0.14)">
+          <rect x="0" y="190" width="40" height="130" rx="17"/>
+          <rect x="62" y="150" width="40" height="170" rx="17"/>
+          <rect x="124" y="170" width="40" height="150" rx="17"/>
+          <rect x="186" y="110" width="40" height="210" rx="17"/>
+          <rect x="248" y="130" width="40" height="190" rx="17"/>
+          <rect x="310" y="60" width="40" height="260" rx="17"/>
+          <rect x="372" y="10" width="40" height="310" rx="17" fill="#3f8f85" stroke="none"/>
+        </g>
+        <polyline points="20,180 82,140 144,160 206,100 268,120 330,50 392,0" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round"/>
+        <g fill="#ffffff"><circle cx="20" cy="180" r="3.5"/><circle cx="82" cy="140" r="3.5"/><circle cx="144" cy="160" r="3.5"/><circle cx="206" cy="100" r="3.5"/><circle cx="268" cy="120" r="3.5"/><circle cx="330" cy="50" r="3.5"/><circle cx="392" cy="0" r="5" fill="#d4f36b"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+```

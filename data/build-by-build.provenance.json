@@ -1,0 +1,18 @@
+{
+  "_comment": [
+    "Provenance of data/build-by-build.json, a committed snapshot of the Build by",
+    "Build inventory. The homepage draws its matrix from this file at render time",
+    "(tools/build_bbb_grid.py) and the stat strip recomputes its two portfolio",
+    "figures from it; nothing is fetched. tools/check_references.py asserts the",
+    "file's sha256 equals `sha256` below and that it holds ten rows with fourteen",
+    "surface keys each. A refreeze of the matrix is a deliberate pull request that",
+    "replaces the snapshot and this record together."
+  ],
+  "source_repository": "https://github.com/RobbinsAnalytics/cascadia-build-by-build",
+  "source_path": "data/builds.json",
+  "freeze_commit": "66b9de6bf7fd333b1b1fa4253a41425a08b6ebb2",
+  "frozen_on": "2026-10-07",
+  "sha256": "710086a3525b9542523b10bc6d03cc714babbe427e6b1473fcd4356701b15e50",
+  "rows": 10,
+  "surfaces": 14
+}
