@@ -74,7 +74,7 @@ website:
         href: about.qmd
       - text: "Cascadia"
         href: cascadia.qmd
-      - text: "Projects"
+      - text: "Case Studies"
         menu:
           - text: "Build by Build"
             href: projects/cascadia-build-by-build.qmd
@@ -126,6 +126,10 @@ website:
           # build state.
           - text: "Sibling Conflict (mathematics paper)"
             href: projects/sibling-conflict.qmd
+          # The index: every entry above, numbered, with status tabs. Last,
+          # as the Felix dropdown has it (ADR 0002, 2026-10-14).
+          - text: "All case studies"
+            href: case-studies.qmd
     right:
       - icon: github
         href: https://github.com/RobbinsAnalytics

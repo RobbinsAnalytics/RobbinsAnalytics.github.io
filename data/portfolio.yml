@@ -1,0 +1,301 @@
+# The portfolio inventory: one entry per page the Case Studies dropdown in
+# _quarto.yml links to, and nothing else. Every card on the homepage and on
+# /case-studies.html is rendered from this file through one template,
+# _templates/fx-card.ejs; no card is hand-written. Decided 2026-10-14
+# (reskin phase one, ADR 0002).
+#
+# WHY data/ AND NOT _data/. Quarto's listing resolver excludes every path
+# that starts with an underscore ("_*", "**/_*"), so a listing whose
+# `contents:` names _data/portfolio.yml matches nothing and renders empty
+# (tried 2026-10-14 on Quarto 1.9.38). This directory therefore has no
+# leading underscore. Quarto does not render .yml files, so nothing here
+# becomes a page.
+#
+# ORDER. Everything is sorted by `order`, ascending. The number a card shows
+# ("01", "02", ...) is its DISPLAY POSITION in that sort, computed by the
+# template at render time. It is not a build number and it moves when an
+# entry is added above it. For the data builds, `order` copies the position
+# in the Builds & Their Stacks table on cascadia.qmd, which the
+# surface-module skill keeps newest first; for the playbooks, the paper and
+# the process map it is the position they hold in the dropdown. No git
+# dates, no inference from when a wrapper landed.
+#
+# FIELDS
+#   slug         stable identifier, also the key the homepage names its
+#                feature card by
+#   title        the title WITHOUT the family word (the card prints
+#                "<family> <title>", family in muted ink)
+#   family       "Cascadia" for the Cascadia-prefixed pages, "" otherwise
+#   domain       the mono eyebrow line (the .card-label on index.qmd where
+#                one existed, else the .cs-domain of the case-study page)
+#   type         work type: case-study | playbook | paper | process. It is
+#                never shown as a status; it supplies the small suffix next
+#                to the card number ("Case study", "Playbook", ...).
+#   status       publication state in the SITE'S OWN WORDS, mapped from
+#                what the site said on 2026-10-14: a card badged Published
+#                stays Published; a build the family table calls "Case
+#                Study" is Complete; "Planned" there is Coming Soon;
+#                Playbook and Preprint stay. The status tab row on the index
+#                mixes these with the two type-like words (Playbook,
+#                Preprint) on purpose; `type` and `status` are kept apart so
+#                that can be split later without touching content.
+#   new          true/false, its own field, never a status
+#   summary      three lines at card width. Output unescaped by the template
+#                so <sup> can be used; write & as &amp; if one is ever
+#                needed. No em dashes. No counts that go stale.
+#   lede         feature card only: the takeaway sentence
+#   tags         stack words from the family page's table; empty where that
+#                table has no row for the entry
+#   href         the case study (site-root-relative .html, or absolute for
+#                a page served from another repository)
+#   module_href  the live module, where one exists
+#   module_label the visible text of that second link
+#   order        integer, see ORDER above
+#   featured     true for the three builds the homepage carries under
+#                "Selected builds", chosen by capability (2026-10-14):
+#                Early Warning, Revenue Assurance, Matter Ledger
+#   note         the placement comment carried over from _quarto.yml
+
+- slug: build-by-build
+  title: "Build by Build"
+  family: ""
+  domain: "Portfolio"
+  type: playbook
+  status: Published
+  new: false
+  lede: "Two ways to check a number at build one. Fourteen had appeared by build nine."
+  summary: "Ten modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names. An empty cell is a fact about what a build carried, never a debt."
+  tags: []
+  href: /projects/cascadia-build-by-build.html
+  module_href: https://www.robbinsanalytics.com/cascadia-build-by-build/
+  module_label: "Open the live matrix"
+  order: 1
+  featured: false
+
+- slug: operating-charter
+  title: "Operating Charter"
+  family: "Cascadia"
+  domain: "BI Leadership / Operating Model"
+  type: playbook
+  status: Playbook
+  new: true
+  summary: "How I would run a data, analytics and automation team inside a medical device quality organization: principles set in stone, methods adjustable, and every practice carrying a proof, a test and a mark. A scenario, not a record."
+  tags: []
+  href: /projects/cascadia-operating-charter.html
+  order: 2
+  featured: false
+  note: "Not a module: the operating charter, how the author would run a data team. It carries the Cascadia prefix as BI Migration does (a design, not a build) and sits second because it is the page a reader of the portfolio is most often sent to."
+
+- slug: validation-playbook
+  title: "Validating AI-Assisted Analytics"
+  family: ""
+  domain: "Analytics Validation / Playbook"
+  type: playbook
+  status: Playbook
+  new: true
+  summary: "How can you be confident in code you did not read or write in full? One invented dispatch rule, a known answer specified before the code, and four experiments that run a real SQL query in your browser and show what a check adds to reading."
+  tags: []
+  href: https://www.robbinsanalytics.com/cascadia-validation-playbook/
+  order: 3
+  featured: false
+  note: "Not a module: a playbook, how confidence in AI-assisted code is earned from requirements, a separately specified answer and an enforced check. A Felix page in its own repository, linked by its live URL as Early Warning is; it sits beside the charter because the two are read together."
+
+- slug: early-warning
+  title: "Early Warning"
+  family: "Cascadia"
+  domain: "Medical Device Quality Analytics"
+  type: case-study
+  status: Published
+  new: true
+  summary: "A forecast of FDA device reports three months ahead for one cardiovascular product code, with an explicit range that held in 20 of 22 locked-test months. Counts of reports, never rates, and no firm named anywhere. Public openFDA data."
+  tags: [Python, DuckDB, statsmodels, ECharts]
+  href: https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html
+  module_href: https://www.robbinsanalytics.com/cascadia-early-warning/
+  module_label: "Open forecast module"
+  order: 4
+  featured: true
+
+- slug: revenue-assurance
+  title: "Revenue Assurance"
+  family: "Cascadia"
+  domain: "Revenue Operations Analytics"
+  type: case-study
+  status: Published
+  new: true
+  summary: "What a customer is contracted for and what they are billable for are different numbers. Three asymmetric timing rules keep them apart for up to a year with nothing erroring. Derived twice, by two engines written to be different, agreeing on every cell. Synthetic data throughout."
+  tags: [Python, CSV, DuckDB, ECharts]
+  href: /projects/cascadia-revenue-assurance.html
+  module_href: https://www.robbinsanalytics.com/cascadia-revenue-assurance/
+  module_label: "Open module"
+  order: 5
+  featured: true
+
+- slug: fee-examiner
+  title: "Fee Examiner"
+  family: "Cascadia"
+  domain: "Legal Operations Analytics"
+  type: case-study
+  status: Published
+  new: false
+  summary: "A bankruptcy research database, a public court docket and two task-code vocabularies: three sources, three owners, none sharing an identifier. A stated rule resolves what it can, and the rest is published with a reason, not dropped. Reported at its actual state."
+  tags: [Python stdlib, CSV/JSON, ECharts]
+  href: /projects/cascadia-fee-examiner.html
+  module_href: https://www.robbinsanalytics.com/cascadia-fee-examiner/
+  module_label: "Open module"
+  order: 6
+  featured: false
+
+- slug: matter-ledger
+  title: "Matter Ledger"
+  family: "Cascadia"
+  domain: "Legal Operations Analytics"
+  type: case-study
+  status: Published
+  new: false
+  summary: "Eleven million public federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures. Then a scheduled pipeline that re-asserts its own invariants twice a day, reconciles against the frozen baseline, and publishes the failures."
+  tags: [Python, DuckDB, ECharts]
+  href: /projects/cascadia-matter-ledger.html
+  module_href: https://www.robbinsanalytics.com/cascadia-matter-ledger/
+  module_label: "Open module"
+  order: 7
+  featured: true
+
+- slug: controltower
+  title: "Control Tower"
+  family: "Cascadia"
+  domain: "Supply Chain / Distribution-Centre Governance"
+  type: case-study
+  status: Published
+  new: false
+  summary: "Three fill rates computed from one dataset, why they disagree, and the split-shipment cost that none of them measures. One definition certified, the leak priced, and six negative controls that all trip, published next to the real result. Synthetic data, anchored to public sources."
+  tags: [Python, DuckDB, dbt Core, ECharts]
+  href: /projects/cascadia-controltower.html
+  module_href: https://www.robbinsanalytics.com/cascadia-controltower/
+  module_label: "Open module"
+  order: 8
+  featured: false
+
+- slug: dealdesk
+  title: "Deal Desk"
+  family: "Cascadia"
+  domain: "Pricing Governance / Financial Analytics"
+  type: case-study
+  status: Published
+  new: false
+  summary: "Pricing governance and margin leakage: a governed agreement register, a documented matching rule, and an exception report you calibrate before you automate. A contested quote line that survives three tiebreaks is a data defect, not a judgment call. Synthetic data."
+  tags: [Python, SQLite, ECharts]
+  href: /projects/cascadia-dealdesk.html
+  module_href: https://www.robbinsanalytics.com/cascadia-dealdesk/
+  module_label: "Open module"
+  order: 9
+  featured: false
+
+- slug: finance
+  title: "Finance"
+  family: "Cascadia"
+  domain: "Financial Analytics"
+  type: case-study
+  status: Published
+  new: false
+  summary: "An executive close pack built from FormFactor's GAAP financials as filed in SEC EDGAR XBRL: real filings, conformed in Python and SQLite and rendered as static ECharts, with the XBRL tags governing what each figure is allowed to mean."
+  tags: [Python, SQLite, ECharts, XBRL]
+  href: /projects/cascadia-finance.html
+  module_href: https://www.robbinsanalytics.com/cascadia-finance/
+  module_label: "Open module"
+  order: 10
+  featured: false
+
+- slug: bi-migration
+  title: "BI Migration"
+  family: "Cascadia"
+  domain: "BI Leadership / Metric Governance"
+  type: playbook
+  status: Playbook
+  new: false
+  summary: "A 24-week program design for moving an organization off legacy BI and onto a governed, AI-assisted platform, with a certified metric layer at the center. A design, not a build."
+  tags: []
+  href: /projects/cascadia-bi-migration.html
+  order: 11
+  featured: false
+
+- slug: staffing
+  title: "Staffing"
+  family: "Cascadia"
+  domain: "Healthcare / Staffing Marketplace Analytics"
+  type: case-study
+  status: Complete
+  new: false
+  summary: "Contingent-labor economics for U.S. nursing facilities on real CMS payroll data, with a certified-metric governance layer. A local SQL Server star schema, a Python staging layer with suppression flags rather than zero-fill, and a Power BI import model."
+  tags: [SQL Server, Power BI]
+  href: /projects/cascadia-staffing.html
+  order: 12
+  featured: false
+
+- slug: pharmacy
+  title: "Pharmacy"
+  family: "Cascadia"
+  domain: "Healthcare / Pharmacy Analytics"
+  type: case-study
+  status: Complete
+  new: false
+  summary: "GLP-1 drug spend growth and immunization coverage on real CMS Part D and CDC VaxView data. Messy public data cleaned in a staging layer, suppression flags rather than zero-fill, and the result surfaced in Power BI."
+  tags: [SQL Server, Power BI]
+  href: /projects/cascadia-pharmacy.html
+  order: 13
+  featured: false
+
+- slug: medical-devices
+  title: "Medical Devices"
+  family: "Cascadia"
+  domain: "Manufacturing Analytics"
+  type: case-study
+  status: Complete
+  new: false
+  summary: "Predictive maintenance and OEE analytics on a simulated MES and NASA C-MAPSS data. The full enterprise pattern: a SQL Server star schema into a Microsoft Fabric medallion lakehouse, surfaced through a Power BI Direct Lake semantic model."
+  tags: [SQL Server, Microsoft Fabric, Power BI]
+  href: /projects/cascadia-medical-devices.html
+  order: 14
+  featured: false
+
+- slug: clothing
+  title: "Clothing"
+  family: "Cascadia"
+  domain: "Retail Analytics"
+  type: case-study
+  status: Coming Soon
+  new: false
+  summary: "Retail and ecommerce analytics for an apparel scenario, with customer segmentation as the headline skill. Stack and data not yet chosen."
+  tags: []
+  href: /projects/cascadia-clothing.html
+  order: 15
+  featured: false
+
+- slug: job-offer-process-map
+  title: "Job Offer Process Map"
+  family: ""
+  domain: "Process design · A working system"
+  type: process
+  status: Published
+  new: true
+  summary: "A job search mapped as a working process: Stage-Gate for structure, BPMN swimlanes for who does what, and a plan-do-check-act loop inside every interview round. Two phases, five lanes, and two keys at every interview gate."
+  tags: []
+  href: /projects/job-offer-process-map.html
+  order: 16
+  featured: false
+  note: "Not a Cascadia module: a process design, labelled as what it is, with no \"Cascadia\" prefix and no status word. It sits beside the preprint below, which stays last."
+
+- slug: sibling-conflict
+  title: "The Combinatorics of Sibling Conflict"
+  family: ""
+  domain: "Mathematics · A pet project"
+  type: paper
+  status: Preprint
+  new: false
+  summary: "Not an analytics module: a short mathematics paper. The number of ways n children can take sides against each other, with the rest uninvolved, is (3<sup>n</sup> − 2·2<sup>n</sup> + 1)/2, the Stirling number S(n+1, 3). Of the 25 ways four children can, 6 are one against one; of the 3,025 ways eight children can, 28 are."
+  tags: []
+  href: /projects/sibling-conflict.html
+  module_href: https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf
+  module_label: "The paper (PDF)"
+  order: 17
+  featured: false
+  note: "Last, and labelled as what it is. Not a Cascadia module, a mathematics preprint, so it carries neither the \"Cascadia\" prefix every entry above shares nor a status word that would read as a build state."

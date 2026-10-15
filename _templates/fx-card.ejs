@@ -1,0 +1,101 @@
+<%
+/*
+  The one card template. Every card on the homepage and on the case-study
+  index is rendered from data/portfolio.yml through this file (reskin phase
+  one, 2026-10-14, ADR 0002). Markup follows Felix §6.5 "Case-study card"
+  with two deliberate departures recorded in the brief: the card is an
+  <article> with separate anchors, never one whole-card link, because a
+  card may have two destinations (case study and live module); and the arrow
+  glyph is decoration, not a second focus stop.
+
+  WHAT QUARTO HANDS A CUSTOM TEMPLATE (read from quarto.js 1.9.38, and
+  confirmed by a throwaway render): `items`, `templateParams`
+  (the listing's `template-params:` block), `metadataAttrs` and `utils`.
+  NOT `listing` -- a custom template cannot read listing.id, which is why
+  each listing names its group through template-params. Quarto's EJS has
+  the two output tags the other way round from stock EJS: the equals tag
+  outputs raw and the dash tag escapes (throwaway render, 2026-10-14). This
+  file uses the equals tag throughout and esc() where text is untrusted.
+
+  GROUPS (templateParams.group). The template always receives the whole
+  inventory, sorted by `order` by the listing, so a card's number is its
+  global display position whichever page it is on:
+    index       every entry, numbered 01 upward
+    feature     the one lime feature card, templateParams.slug names it
+    leadership  type playbook, minus the feature slug
+    featured    featured: true
+    beyond      type paper or process
+  templateParams.heading sets the card heading level (default h3).
+*/
+const esc = (s) => String(s == null ? "" : s)
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const pad2 = (n) => (n < 10 ? "0" : "") + n;
+const slugify = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const KIND = { "case-study": "Case study", "playbook": "Playbook", "paper": "Paper", "process": "Process design" };
+
+const group = templateParams.group || "index";
+const H = templateParams.heading || "h3";
+const featureSlug = templateParams.slug || "";
+
+// Position in the full inventory, in the order the listing sorted it.
+const all = items.map((item, i) => ({ item, pos: i + 1 }));
+const total = all.length;
+
+let rows;
+switch (group) {
+  case "feature":    rows = all.filter(r => r.item.slug === featureSlug); break;
+  case "leadership": rows = all.filter(r => r.item.type === "playbook" && r.item.slug !== featureSlug); break;
+  case "featured":   rows = all.filter(r => r.item.featured === true); break;
+  case "beyond":     rows = all.filter(r => r.item.type === "paper" || r.item.type === "process"); break;
+  default:           rows = all;
+}
+
+const badges = (item) => {
+  let out = "";
+  if (item.new === true) out += `<span class="fx-badge fx-badge--new">New</span>`;
+  out += `<span class="fx-badge fx-badge--${slugify(item.status)}">${esc(item.status)}</span>`;
+  return out;
+};
+const titleHtml = (item) => (item.family ? `<span class="fx-card__family">${esc(item.family)}</span> ` : "") + esc(item.title);
+const tags = (item) => (item.tags || []).map(t => `<span class="fx-tag">${esc(t)}</span>`).join("");
+%>
+```{=html}
+<% if (group === "feature") { for (const { item, pos } of rows) { %>
+<article class="fx-feature" data-slug="<%= esc(item.slug) %>">
+  <div class="fx-feature__body">
+    <p class="fx-feature__kicker"><span class="fx-pill fx-pill--on-lime">Featured · <%= esc(item.domain) %></span></p>
+    <<%= H %> class="fx-feature__title"><%= titleHtml(item) %></<%= H %>>
+    <p class="fx-feature__lede"><%= item.lede || "" %></p>
+    <p class="fx-feature__summary"><%= item.summary %></p>
+    <p class="fx-feature__links">
+      <% if (item.module_href) { %><a class="fx-feature__link fx-feature__link--primary" href="<%= esc(item.module_href) %>"><%= esc(item.module_label || "Open module") %> <span class="fx-arrow" aria-hidden="true">&#8599;</span></a><% } %>
+      <a class="fx-feature__link" href="<%= esc(item.href) %>">View the page <span class="fx-arrow" aria-hidden="true">&#8594;</span></a>
+    </p>
+  </div>
+  <div class="fx-feature__aside" aria-hidden="true">
+    <span class="fx-feature__mark"><%= pad2(pos) %></span>
+  </div>
+</article>
+<% } } else { %>
+<div class="fx-grid fx-grid--<%= esc(group) %>">
+<% for (const { item, pos } of rows) { %>
+<article class="fx-card<%= item.status === "Coming Soon" ? " fx-card--muted" : "" %>" data-status="<%= esc(item.status) %>" data-type="<%= esc(item.type) %>">
+  <div class="fx-card__top">
+    <p class="fx-card__num"><%= pad2(pos) %><span class="fx-card__kind"><%= esc(KIND[item.type] || item.type) %></span></p>
+    <div class="fx-card__badges"><%= badges(item) %></div>
+  </div>
+  <p class="fx-card__domain"><%= esc(item.domain) %></p>
+  <<%= H %> class="fx-card__title"><a class="fx-card__link" href="<%= esc(item.href) %>"><%= titleHtml(item) %></a></<%= H %>>
+  <p class="fx-card__summary"><%= item.summary %></p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><%= tags(item) %></div>
+    <% if (item.module_href) { %><a class="fx-card__module" href="<%= esc(item.module_href) %>"><%= esc(item.module_label || "Open module") %> <span class="fx-arrow" aria-hidden="true">&#8599;</span></a><% } else { %><span class="fx-arrow fx-arrow--disc" aria-hidden="true">&#8599;</span><% } %>
+  </div>
+</article>
+<% } %>
+</div>
+<% if (group === "featured") { %>
+<p class="fx-more"><a class="fx-btn fx-btn--outline" href="/case-studies.html">See all <%= total %> case studies</a></p>
+<% } %>
+<% } %>
+```

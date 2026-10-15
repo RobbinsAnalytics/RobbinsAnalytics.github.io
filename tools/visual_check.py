@@ -64,6 +64,7 @@ DEFAULT_ORIGIN = "https://www.robbinsanalytics.com"
 # pointing at the wrong repo.
 PAGES = {
     "index": "/",
+    "case-studies": "/case-studies.html",
     "about": "/about.html",
     "cascadia": "/cascadia.html",
     "finance": "/projects/cascadia-finance.html",

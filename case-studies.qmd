@@ -1,0 +1,25 @@
+---
+title: "Case Studies"
+description: "Every case study, playbook, paper and process design in the Robbins Analytics portfolio, in one list."
+image: https://www.robbinsanalytics.com/assets/thumb-portfolio.png
+image-alt: "Cascadia module card — title, one-line summary, and the data source."
+page-layout: full
+toc: false
+# One Quarto listing over the inventory. Quarto hands a custom template
+# `items`, `template-params` and `utils`, not the listing itself, so the
+# group is named here. See _templates/fx-card.ejs and data/portfolio.yml.
+listing:
+  - id: fx-index
+    contents: data/portfolio.yml
+    template: _templates/fx-card.ejs
+    sort: "order"
+    page-size: 100
+    template-params:
+      group: index
+      heading: h2
+---
+
+Cascadia is a portfolio built to be checked, not taken on faith.
+
+::: {#fx-index}
+:::
