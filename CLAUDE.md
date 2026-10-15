@@ -1,6 +1,6 @@
 # robbinsanalytics.com — what an agent needs to know
 
-Quarto site, published to GitHub Pages. Ten facts that are not inferable from
+Quarto site, published to GitHub Pages. Twelve facts that are not inferable from
 the code, each of which caused a real failure. Everything else, read the repo.
 
 ## Publishing
@@ -8,8 +8,21 @@ the code, each of which caused a real failure. Everything else, read the repo.
 **The workflow owns deployment.** `.github/workflows/publish.yml` runs
 `quarto publish gh-pages` on every push to `main`. **Never run
 `quarto publish gh-pages` by hand** — it races CI and can push a stale build
-over a fresh one. Merging a pull request into `main` is the deploy; `main`
-takes no direct push.
+over a fresh one. Merging a pull request into `main` is the deploy.
+
+**`main` takes no direct push, and two mechanisms make it so rather than a
+sentence.** GitHub ruleset 25126263 ("main releases by pull request (ADR
+0003)") requires a pull request and the `candidate` status check on `main`,
+with no bypass actor, not even the owner, so a direct push is refused
+server-side whoever sends it. `.claude/hooks/no_merge_from_code.py`, a
+`PreToolUse` hook, refuses a Code session `gh pr merge`, the same merge by
+REST, any push whose destination is `main`, and a merge while `main` is checked
+out — a Code session pushes with the owner's token, and GitHub cannot tell that
+merge from Aaron's, so the hook is the only thing that says the token in a Code
+session may not click it. The `ask` entry for `git push` in
+`.claude/settings.json` does not bind under `bypassPermissions`; these two do.
+The hook matches the command text, so a Bash heredoc that merely quotes the
+refused phrase is refused too; write such prose with the file-editing tools.
 
 **`CNAME` must ship in `_site`.** The workflow rebuilds the `gh-pages` branch
 from `_site` and force-pushes it, so any `CNAME` GitHub writes to that branch is
