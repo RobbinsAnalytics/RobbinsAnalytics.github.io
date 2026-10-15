@@ -58,7 +58,7 @@ jobs:
 
       - name: Install Playwright, Pillow and axe
         run: |
-          python -m pip install --quiet playwright pillow axe-core-python==0.1.0
+          python -m pip install --quiet playwright pillow axe-core-python==0.1.0 pyyaml
           python -m playwright install --with-deps chromium
 
       # The thumbnails and icons are regenerated exactly as publish.yml does

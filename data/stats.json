@@ -1,0 +1,50 @@
+{
+  "_comment": [
+    "The five stat tiles on the homepage (Aaron's choice, 2026-10-15). Every",
+    "tile names the file it quotes and the sentence it quotes, and",
+    "tools/check_references.py asserts that the sentence is still in that file",
+    "and that the tile's value token appears in the sentence. The two portfolio",
+    "tiles carry `compute`, and the checker recomputes them from",
+    "data/build-by-build.json and fails if the displayed value differs. That is",
+    "traceability and arithmetic; the career figures remain the About page's",
+    "claims and are checked for consistency with it, not for truth."
+  ],
+  "snapshot": "data/build-by-build.json",
+  "tiles": [
+    {
+      "value": "12+",
+      "label": "years in BI and analytics",
+      "source": "index.qmd",
+      "quote": "12+ years turning messy data into decisions leaders trust",
+      "token": "12+"
+    },
+    {
+      "value": "10",
+      "label": "builds in four months, June to October 2026",
+      "source": "data/build-by-build.json",
+      "compute": "rows",
+      "token": "10"
+    },
+    {
+      "value": "14",
+      "label": "test surfaces across the portfolio",
+      "source": "data/build-by-build.json",
+      "compute": "surfaces",
+      "token": "14"
+    },
+    {
+      "value": "200+",
+      "label": "Critical Data Elements standardized on one manufacturing platform",
+      "source": "about.qmd",
+      "quote": "I standardized 200+ Critical Data Elements and common data model definitions across a global manufacturing platform",
+      "token": "200+"
+    },
+    {
+      "value": "$80K",
+      "label": "a year taken out of a reporting estate",
+      "source": "about.qmd",
+      "quote": "Took $80K a year out of the reporting estate",
+      "token": "$80K"
+    }
+  ]
+}

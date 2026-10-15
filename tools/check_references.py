@@ -274,6 +274,82 @@ def check_no_github_io_urls():
         notes.append("no github.io URLs in rendered source (%d files scanned)" % len(targets))
 
 
+# ---------------------------------------------------------------------------
+# 6 · The Build by Build snapshot is the bytes its provenance record says.
+#
+# data/build-by-build.json is a committed copy of another repository's frozen
+# inventory, and the homepage draws its matrix and two of its stat tiles from
+# it. A copy drifts the moment someone edits it in place, so the provenance
+# record pins the sha256 and the shape, and a refreeze has to replace both
+# files in one pull request. Standard library only: this check runs before
+# the workflows install anything.
+# ---------------------------------------------------------------------------
+def check_bbb_snapshot():
+    import hashlib
+    import json
+
+    raw = (ROOT / "data" / "build-by-build.json").read_bytes()
+    prov = json.loads(read("data/build-by-build.provenance.json"))
+    digest = hashlib.sha256(raw).hexdigest()
+    if digest != prov["sha256"]:
+        fail(
+            "data/build-by-build.json does not match its provenance record",
+            "sha256 is %s, provenance says %s; a refreeze replaces both files together"
+            % (digest[:12], prov["sha256"][:12]),
+        )
+        return
+    builds = json.loads(raw)
+    rows = len(builds)
+    surfaces = {len(b["surfaces"]) for b in builds}
+    if rows != prov["rows"] or surfaces != {prov["surfaces"]}:
+        fail(
+            "data/build-by-build.json shape",
+            "%d rows with surface counts %s; provenance says %d x %d"
+            % (rows, sorted(surfaces), prov["rows"], prov["surfaces"]),
+        )
+        return
+    notes.append(
+        "Build by Build snapshot: %d x %d, sha256 %s, frozen %s at %s"
+        % (rows, prov["surfaces"], digest[:12], prov["frozen_on"], prov["freeze_commit"][:7])
+    )
+
+
+# ---------------------------------------------------------------------------
+# 7 · Every stat tile still quotes a sentence that exists, with its value in
+# it; the portfolio tiles equal what the snapshot computes.
+#
+# Traceability and arithmetic, not proof: a career figure is the About page's
+# claim and this asserts only that the tile and the page still agree. A tile
+# whose sentence was edited away, or whose value no longer appears in it,
+# fails here rather than outliving its source.
+# ---------------------------------------------------------------------------
+def check_stat_tiles():
+    import json
+
+    data = json.loads(read("data/stats.json"))
+    builds = json.loads(read(data["snapshot"]))
+    for n, t in enumerate(data["tiles"], 1):
+        label = "stat tile %d (%s %s)" % (n, t["value"], t["label"])
+        if "compute" in t:
+            if t["compute"] == "rows":
+                got = str(len(builds))
+            elif t["compute"] == "surfaces":
+                got = str(len({k for b in builds for k in b["surfaces"]}))
+            else:
+                fail(label, "unknown compute %r" % t["compute"])
+                continue
+            if got != t["value"]:
+                fail(label, "displays %s but %s computes %s from the snapshot" % (t["value"], t["compute"], got))
+            continue
+        src = read(t["source"])
+        if t["quote"] not in src:
+            fail(label, "its quoted sentence is no longer in %s" % t["source"])
+        elif t["token"] not in t["quote"]:
+            fail(label, "value token %r does not appear in the quoted sentence" % t["token"])
+    if not any(f.startswith("stat tile") for f in failures):
+        notes.append("stat tiles: %d checked against their sources and the snapshot" % len(data["tiles"]))
+
+
 def main():
     for check in (
         check_domain,
@@ -281,6 +357,8 @@ def main():
         check_noisy_files,
         check_action_versions,
         check_no_github_io_urls,
+        check_bbb_snapshot,
+        check_stat_tiles,
     ):
         try:
             check()
