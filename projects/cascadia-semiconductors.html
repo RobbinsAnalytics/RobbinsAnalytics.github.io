@@ -41,7 +41,10 @@
   }
   h1 { font-size: 1.25rem; margin: 0 0 .5rem; }
   p { margin: .5rem 0; }
-  a { color: #2f6f4f; }
+  /* The destination URL is printed as one unbreakable token, and at a 320 px
+     viewport it ran 32 px past the edge (WCAG 1.4.10, found 2026-10-14 when
+     the accessibility check started visiting the stubs). */
+  a { color: #2f6f4f; overflow-wrap: anywhere; }
   .note { color: #6b7770; font-size: .875rem; }
   @media (prefers-color-scheme: dark) {
     body { background: #14201a; color: #e8efea; }
