@@ -6,13 +6,16 @@ name: Generate visual baselines
 # a Windows workstation and an ubuntu runner, and a baseline generated locally
 # would make the check permanently red for reasons unrelated to the site.
 #
-# It deliberately does NOT commit anything. In this repo the push to `main` IS
-# the deploy and the single deliberate approval, and a workflow that writes to
-# `main` would quietly break that property. So: the runner generates, a human
-# downloads the artifact and commits it.
+# It deliberately does NOT commit anything. In this repo the pull-request merge
+# IS the deploy and the single deliberate approval (ADR 0003), a workflow that
+# writes to `main` would quietly break that property, and the ruleset on `main`
+# would refuse the push besides. So: the runner generates, a human downloads
+# the artifact and commits it on a branch.
 #
-# Run this when a design change is intended, or when the runner image moves and
-# the whole set drifts uniformly.
+# Since candidate.yml, an intended change to one page does not need this: the
+# pull request's candidate run uploads every screenshot it compared, and those
+# are the new baselines for the changed pages. Run this when the runner image
+# moves and the whole set drifts uniformly.
 on:
   workflow_dispatch:
     inputs:

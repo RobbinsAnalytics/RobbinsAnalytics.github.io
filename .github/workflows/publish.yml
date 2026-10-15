@@ -6,6 +6,13 @@ on:
 permissions:
   contents: write
   pages: read
+# One deploy at a time, in order, none cancelled. Two merges in quick
+# succession must not race each other to gh-pages: the second waits for the
+# first to finish verifying, so build.txt on the edge is always the newest
+# merge and never the loser of a race.
+concurrency:
+  group: pages
+  cancel-in-progress: false
 jobs:
   build-deploy:
     runs-on: ubuntu-latest

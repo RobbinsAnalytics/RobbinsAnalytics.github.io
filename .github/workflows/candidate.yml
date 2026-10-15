@@ -1,0 +1,145 @@
+name: Candidate checks
+
+# ADR 0003: the site releases by pull request. This workflow is the half that
+# runs BEFORE anything is public. It renders the pull request's commit, serves
+# the result inside the runner, and runs the same three sweeps publish.yml runs
+# against the live edge -- the link crawl, the accessibility regression check
+# and the visual regression check -- against that candidate instead. The job
+# is named `candidate` because the ruleset on `main` requires a status check
+# of exactly that name before a pull request can merge; rename it and the
+# ruleset must be updated in the same breath or main becomes unmergeable.
+#
+# What this does not do: deploy, touch `gh-pages`, or verify the live site.
+# Those stay in publish.yml, which still runs on the merge commit and still
+# verifies what the edge actually serves. The live checks are not redundant
+# with these -- a candidate that passes here can still miss the edge (a lost
+# CNAME, a stale CDN), and only a check against the edge sees that.
+#
+# Why serve _site rather than screenshot a staging deploy: there is no staging
+# origin, and standing one up would mean a second Pages site to keep honest.
+# A local http.server inside the runner is the same bytes Quarto would publish,
+# rendered by the same Chromium on the same image as the baselines. The first
+# run of this workflow settled whether a localhost render matches baselines
+# captured from the live origin; the pull request that introduced it records
+# the answer.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+# One candidate run per pull request at a time. A newer push supersedes the
+# run in flight: the superseded commit is no longer what would merge, so its
+# verdict is not worth the minutes.
+concurrency:
+  group: candidate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  candidate:
+    name: candidate
+    runs-on: ubuntu-latest
+    env:
+      ORIGIN: http://127.0.0.1:8000
+    steps:
+      - uses: actions/checkout@v7
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      # Same gate, same position as publish.yml: a stale stated fact fails the
+      # candidate before anything renders.
+      - name: Check stated facts against their sources
+        run: python tools/check_references.py
+
+      - name: Install Playwright, Pillow and axe
+        run: |
+          python -m pip install --quiet playwright pillow axe-core-python==0.1.0
+          python -m playwright install --with-deps chromium
+
+      # The thumbnails and icons are regenerated exactly as publish.yml does
+      # it, so the candidate's assets/ is what the deploy's would be. A
+      # thumbnail build that fails here fails before it would have failed the
+      # deploy.
+      - name: Regenerate OG thumbnails
+        run: python tools/build_thumbs.py --out assets --strict
+
+      - name: Regenerate the icon set
+        run: python tools/build_icons.py --out assets/brand
+
+      # Stamped so a downloaded candidate can be told apart from a deploy: the
+      # live site's build.txt carries a merge commit, a candidate's carries the
+      # pull request's head with this prefix. Never committed; the tracked value
+      # stays `local`.
+      - name: Stamp the candidate
+        run: echo "candidate ${{ github.event.pull_request.head.sha }}" > build.txt
+
+      - name: Render
+        run: quarto render
+
+      # http.server is enough: static files, directory index.html, a real 404
+      # for a missing path, HEAD supported. Bound to loopback; nothing outside
+      # the runner can reach it.
+      - name: Serve the candidate
+        id: serve
+        run: |
+          set -euo pipefail
+          (cd _site && python -m http.server 8000 --bind 127.0.0.1 >/tmp/http.log 2>&1 &)
+          for i in $(seq 1 30); do
+            if curl -sS -o /dev/null -w '%{http_code}' "$ORIGIN/build.txt" | grep -q 200; then
+              echo "serving _site at $ORIGIN: $(curl -sS "$ORIGIN/build.txt")"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "::error::_site did not come up on $ORIGIN"
+          cat /tmp/http.log || true
+          exit 1
+
+      # The three sweeps run independently of one another's outcome -- a
+      # broken link should not hide a visual regression from the person
+      # reading the pull request -- and any one of them failing fails the job.
+
+      - name: Crawl every link on the candidate
+        if: ${{ !cancelled() && steps.serve.conclusion == 'success' }}
+        run: python tools/crawl_links.py --origin "$ORIGIN"
+
+      # REGRESSION PREVENTION, NOT PROOF OF CONFORMANCE. See the header of
+      # tools/a11y_check.py and CLAUDE.md; a green step here is not a WCAG
+      # claim and nothing may quote it as one.
+      - name: Accessibility regression check
+        if: ${{ !cancelled() && steps.serve.conclusion == 'success' }}
+        run: python tools/a11y_check.py --origin "$ORIGIN"
+
+      # Compares against .github/visual-baselines/. Every screenshot the
+      # comparison took is written to candidate-screenshots/ so a changed page's
+      # new baseline is the very image that was compared, downloadable from
+      # this run rather than regenerated by a second workflow.
+      - name: Visual regression check
+        if: ${{ !cancelled() && steps.serve.conclusion == 'success' }}
+        run: python tools/visual_check.py --origin "$ORIGIN" --shots-dir candidate-screenshots
+
+      # Uploaded on every run, green or red. A passing run's screenshots are
+      # how a pull request that intends a visual change gets its new baselines
+      # -- captured on the runner, from the candidate, by the comparison itself.
+      - name: Upload the candidate screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: candidate-screenshots-${{ github.event.pull_request.head.sha }}
+          path: candidate-screenshots/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Upload visual diffs
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-diffs-${{ github.event.pull_request.head.sha }}
+          path: visual-diffs/
+          if-no-files-found: ignore
+          retention-days: 14

@@ -37,16 +37,17 @@ This repo is a **site shell only**. The build repos it links to are separate:
 
 ## Publish Workflow
 
-**`.github/workflows/publish.yml` owns deployment. Pushing `main` is the deploy.**
+**`.github/workflows/publish.yml` owns deployment. Merging a pull request into `main` is the deploy; `main` takes no direct push.**
 
 - Source lives on `main` (what you're reading now).
-- Every push to `main` triggers the workflow, which renders the site and pushes the result to the `gh-pages` branch.
+- Every pull request runs `.github/workflows/candidate.yml`, which renders the branch inside the runner and runs the link, accessibility and visual checks against it; a ruleset on `main` requires that check and refuses direct pushes.
+- Every merge to `main` triggers the publish workflow, which renders the site and pushes the result to the `gh-pages` branch.
 - GitHub Pages serves that branch at the custom domain.
 - The workflow then verifies itself against the live site: it asserts the Pages `cname` survived, polls `build.txt` until the edge serves the pushed commit, and checks the live pages and redirects. A miss fails the run.
 
 ### To publish a new version
 
-Commit and push `main` — that is the whole deploy. In a Claude Code session, use `/publish`, which classifies line-ending noise, stages by name, commits and pushes.
+Open a pull request and merge it — the merge is the whole deploy. In a Claude Code session, use `/publish`, which classifies line-ending noise, stages by name, commits, pushes the branch and opens or updates the pull request; the merge is done by hand in the GitHub interface after the candidate check is green.
 
 > **Do not run `quarto publish gh-pages` by hand.** It races the workflow and can push a stale local build over a fresh one. The workflow is the only thing that should write `gh-pages`. This README instructed the manual command until 2026-08-25; that instruction was the hazard, not a shortcut.
 
@@ -68,8 +69,8 @@ quarto preview
 
 ## Contributing / Updating
 
-- **Copy updates:** Edit the `.qmd` files, commit, push `main`.
-- **Screenshots / video:** Drop files into `assets/img/`, update the relevant `projects/*.qmd`, commit, push.
+- **Copy updates:** Edit the `.qmd` files, commit on a branch, open a pull request, merge.
+- **Screenshots / video:** Drop files into `assets/img/`, update the relevant `projects/*.qmd`, commit on a branch, open a pull request, merge.
 - **New case study:** Copy a `projects/*.qmd` template, add a navbar entry in `_quarto.yml`, add a `MODULES` entry in `tools/build_thumbs.py` for its OG card, then push. The `surface-module` skill walks the full set of edits.
 
 See `CLAUDE.md` for the facts about this repo that are not inferable from the code.

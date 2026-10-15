@@ -3,6 +3,8 @@
 
     python tools/visual_check.py                 compare, fail on drift
     python tools/visual_check.py --update        write new baselines
+    python tools/visual_check.py --shots-dir D   compare, and keep every
+                                                 screenshot taken in D
 
 Exit 0 if every page matches its baseline within tolerance, 1 otherwise. Diff
 images are written to the --diff-dir so a failing run can be looked at rather
@@ -17,11 +19,18 @@ would guarantee a permanently red check: font hinting, subpixel rendering and
 the available font set all differ from a Linux runner, and every screenshot
 would differ for reasons that have nothing to do with the site.
 
-That the baselines must come from the runner is the reason this is a separate
-dispatch workflow rather than a step that writes them on first run. The deploy
-workflow does not push to `main` -- in this repo the push IS the deploy and the
-single deliberate approval, and a CI job that commits to `main` would quietly
-break that. So the runner generates, a human commits.
+That the baselines must come from the runner is the reason they are produced by
+a workflow and committed by a person rather than written on first run. No
+workflow in this repo pushes to `main` -- the pull-request merge is the release
+and the single deliberate approval (ADR 0003), and a CI job that commits to
+`main` would quietly break that. So the runner generates, a human commits.
+
+Since the candidate workflow (`.github/workflows/candidate.yml`), the usual
+source is not the dispatch workflow at all: a pull request's candidate run
+writes every screenshot it compared to `--shots-dir` and uploads them, so a
+changed page's new baseline is the exact image that was compared, taken on the
+runner from the candidate. The dispatch workflow remains for a whole-set
+refresh, such as a runner-image move.
 
 WHAT A FAILURE MEANS
 
@@ -66,8 +75,10 @@ PAGES = {
 # Bootstrap md breakpoint, 1440 desktop.
 WIDTHS = [390, 414, 768, 1440]
 
-# A pixel counts as different only if a channel moves by more than this. Text
-# antialiasing moves by one or two levels between otherwise identical runs.
+# A pixel counts as different only if a channel moves by more than this, and
+# only against the baseline's 3x3 neighbourhood (see compare()). Text
+# antialiasing moves by one or two levels, and glyph edges by one pixel,
+# between otherwise identical runs.
 CHANNEL_THRESHOLD = 12
 
 # And the page fails only if more than this share of pixels differ. A real
@@ -93,24 +104,50 @@ def png_width(png):
 
 def compare(baseline_png, current_png, diff_path):
     """Return (ratio_differing, note). ratio is 1.0 for a size mismatch."""
-    from PIL import Image, ImageChops
+    from PIL import Image, ImageChops, ImageFilter
     import io as _io
 
     a = Image.open(_io.BytesIO(baseline_png)).convert("RGB")
     b = Image.open(_io.BytesIO(current_png)).convert("RGB")
+    note = ""
     if a.size != b.size:
-        return 1.0, "size changed: baseline %sx%s, now %sx%s" % (a.size + b.size)
+        # A page whose height changed is a change, full stop, and the ratio
+        # says so. But it is also the most common INTENDED change -- a
+        # sentence got longer -- and until 2026-10-14 this returned here
+        # without writing anything, so the diff artifact was empty exactly
+        # when a person most needed to look. Diff the overlapping region:
+        # the first band of difference is where the text moved.
+        note = "size changed: baseline %sx%s, now %sx%s" % (a.size + b.size)
+        w, h = min(a.size[0], b.size[0]), min(a.size[1], b.size[1])
+        a, b = a.crop((0, 0, w, h)), b.crop((0, 0, w, h))
 
-    diff = ImageChops.difference(a, b)
+    # A pixel counts as different only if the candidate's value lies outside
+    # the range the baseline shows anywhere in the 3x3 neighbourhood around it,
+    # by more than the channel threshold. Text antialiasing moves glyph edges
+    # by a pixel between otherwise identical runs, and on a narrow page with
+    # many serif headings that alone crossed TOLERANCE: on 2026-10-14 a commit
+    # whose tree was identical to a green run failed about-414 (0.083%) and
+    # sibling-conflict-414 (0.158%), and every one of those pixels had its
+    # value within one pixel in the baseline. A real change moves content by
+    # a line, a border, a colour -- far more than one pixel -- and is still
+    # caught; a one-pixel shift of a whole element is the price, stated here.
+    lo = a.filter(ImageFilter.MinFilter(3))
+    hi = a.filter(ImageFilter.MaxFilter(3))
+    below = ImageChops.subtract(lo, b)     # how far under the neighbourhood's floor
+    above = ImageChops.subtract(b, hi)     # how far over its ceiling
+    out = ImageChops.lighter(below, above)
     # Collapse to the largest per-channel move at each pixel, then threshold.
-    mono = diff.convert("L").point(lambda v: 255 if v > CHANNEL_THRESHOLD else 0)
+    mono = ImageChops.lighter(ImageChops.lighter(*out.split()[:2]), out.split()[2])
+    mono = mono.point(lambda v: 255 if v > CHANNEL_THRESHOLD else 0)
     differing = sum(mono.histogram()[1:])
     total = a.size[0] * a.size[1]
     ratio = differing / float(total) if total else 0.0
+    if note:
+        ratio = 1.0
     if ratio > TOLERANCE and diff_path:
         diff_path.parent.mkdir(parents=True, exist_ok=True)
         mono.save(diff_path)
-    return ratio, ""
+    return ratio, note
 
 
 def main():
@@ -121,12 +158,16 @@ def main():
     ap.add_argument("--diff-dir", default=str(ROOT / "visual-diffs"))
     ap.add_argument("--update", action="store_true",
                     help="write baselines instead of comparing")
+    ap.add_argument("--shots-dir", default="",
+                    help="when comparing, also write every screenshot taken "
+                         "to this directory, named as its baseline is")
     args = ap.parse_args()
 
     from playwright.sync_api import sync_playwright
 
     base_dir = Path(args.baseline_dir)
     diff_dir = Path(args.diff_dir)
+    shots_dir = Path(args.shots_dir) if args.shots_dir else None
     origin = args.origin.rstrip("/")
     suffix = ("?cb=%s" % args.cache_bust) if args.cache_bust else ""
 
@@ -174,6 +215,13 @@ def main():
                         pending.append((target, name, png))
                         print("  ok     %s  (%d bytes)" % (name, len(png)))
                         continue
+
+                    if shots_dir is not None:
+                        # The image the comparison used, byte for byte, so
+                        # promoting it to a baseline changes nothing about
+                        # what was compared.
+                        shots_dir.mkdir(parents=True, exist_ok=True)
+                        (shots_dir / name).write_bytes(png)
 
                     if not target.exists():
                         missing.append(name)
