@@ -121,18 +121,24 @@ than a missing link.
 ## Then publish
 
 Use `/publish`. It fetches first, refuses to proceed if the branch is behind,
-classifies whitespace noise, stages by name, commits, pushes, and verifies the
-live site over HTTP. **Do not improvise a shorter version, and never run
-`quarto publish gh-pages` by hand** — the workflow does it, and running both
-races them.
+classifies whitespace noise, stages by name, commits, pushes the branch, and
+opens or updates the pull request, then stops. **The pull request merge is
+the release and the single approval** (ADR 0003): the `candidate` workflow
+renders the branch and runs the link crawl, the accessibility check and the
+visual check against it, and Aaron merges in the GitHub interface after
+reading that run. A Code session does not merge; the hook and the ruleset on
+`main` refuse it. **Do not improvise a shorter version, and never run
+`quarto publish gh-pages` by hand** — `publish.yml` does it on the merge
+commit, and running both races them.
 
 ## Then verify what a reader sees
 
-Origin-side evidence is not verification. After the deploy lands, load the
-family page and the home page at `www.robbinsanalytics.com` and confirm the new
-module appears in both. GitHub's CDN caches for roughly ten minutes, so a stale
-read shortly after deploying is expected — check the `gh-pages` blob to tell a
-caching lag apart from a bad deploy before assuming something failed.
+That is `publish.yml`'s job, after the merge: it asserts the Pages `cname`,
+polls `build.txt` until the edge serves the merge commit, checks the core
+pages and redirects, and runs the same three sweeps against the live edge. A
+red run emails Aaron. A later session confirms the release from the live
+home page and family page; the surfacing session is done when the pull
+request is green and reported.
 
 ## Report
 
