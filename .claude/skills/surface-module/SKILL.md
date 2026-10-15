@@ -40,8 +40,12 @@ strongest first, since this menu is how most readers navigate.
 Add a `.project-card` under **Featured Case Studies**: `.card-label` domain,
 title, status badges (`New`, `Live`, `Playbook`, `Coming Soon`), the one-line
 hook, then a `View Case Study` primary button plus outline buttons for each live
-page. Only the strongest three or four modules belong here; demote one if needed
-rather than letting the section grow without limit.
+page. **The featured set is the four most recent modules, and only four.** A
+new module takes the first slot and the fourth card leaves the home page; it
+is not lost, because the family page's Builds & Their Stacks table already
+lists every build with a link, and the sentence under the featured four
+points there. Do not let the section grow past four (decided 2026-10-14; the
+section had held twelve).
 
 ### 4 · `cascadia.qmd` — the family page  ← the one that drifts
 

@@ -20,7 +20,19 @@
 # hides it on this class. `title-block-style: none` is NOT the way to do that —
 # it still emits the heading AND emits a second <header id="title-block-header">,
 # which is a duplicate id and an axe failure.
-title: "Aaron Robbins, Senior / Staff / Principal Analyst"
+title: "Aaron Robbins, AI Analytics Architect"
+# The social titles are set explicitly because Quarto otherwise composes
+# "<title> – <site title>" with an en dash; the spec (2026-10-14) wants a
+# pipe on the cards. The <title> element itself keeps Quarto's composed form
+# (`pagetitle:` does not remove the site title; tried 2026-10-14), which is
+# what every other page carries. The description is the site-wide one in
+# _quarto.yml, restated here so this page never falls back to anything else.
+open-graph:
+  title: "Aaron Robbins, AI Analytics Architect | Robbins Analytics"
+  description: "AI analytics architecture portfolio, Aaron Robbins. Governed analytics, built with AI and proven by tests."
+twitter-card:
+  title: "Aaron Robbins, AI Analytics Architect | Robbins Analytics"
+  description: "AI analytics architecture portfolio, Aaron Robbins. Governed analytics, built with AI and proven by tests."
 body-classes: hero-page
 image: https://www.robbinsanalytics.com/assets/thumb-portfolio.png
 page-layout: full
@@ -35,7 +47,7 @@ image-alt: "Cascadia module card — title, one-line summary, and the data sourc
 # Aaron Robbins
 
 ::: {.hero-subtitle}
-Senior / Staff / Principal Analyst
+AI Analytics Architect
 :::
 
 ::: {.hero-motto}
@@ -46,11 +58,11 @@ Senior / Staff / Principal Analyst
 :::
 
 ::: {.hero-tagline}
-12+ years turning messy data into decisions leaders trust: healthcare manufacturing and quality, ecommerce and retail, and time along the way in supply chain, digital merchandising, and finance. The expertise is in the craft, not the tooling: governance, specification, and semantic modeling. That is proof stakeholders can check, not a claim they have to trust.
+12+ years turning messy data into decisions leaders trust: healthcare manufacturing and quality, ecommerce and retail, and time in supply chain, digital merchandising, and finance. The expertise is in the craft, not the tooling. I design the analytics, specify what correct looks like, and let AI do the build. Every build carries its own evidence: known answers set before the code, tests that run every time, and a record of what each test caught. That is proof stakeholders can check, not a claim they have to trust.
 :::
 
 ::: {.hero-availability}
-Open to senior, staff, or principal analytics roles in Seattle or remote
+Open to analytics manager, lead, or principal roles where reporting has outgrown trust, and to conversations about roles that don't exist yet. Seattle or remote.
 :::
 
 :::
@@ -115,7 +127,7 @@ How can you be confident in code you did not read or write in full? From require
 
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-4}
+::: {.g-col-12 .g-col-md-6}
 ::: {.project-card}
 ::: {.card-label}
 Medical Device Quality Analytics
@@ -130,7 +142,7 @@ DSQ, one of seven cardiovascular product codes spanning Classes II and III: abou
 :::
 :::
 
-::: {.g-col-12 .g-col-md-4}
+::: {.g-col-12 .g-col-md-6}
 ::: {.project-card}
 ::: {.card-label}
 Revenue Operations Analytics
@@ -145,7 +157,7 @@ What a customer is contracted for and what they are billable for are different n
 :::
 :::
 
-::: {.g-col-12 .g-col-md-4}
+::: {.g-col-12 .g-col-md-6}
 ::: {.project-card}
 ::: {.card-label}
 Legal Operations Analytics
@@ -160,7 +172,7 @@ A bankruptcy research database, a public court docket, and two task-code vocabul
 :::
 :::
 
-::: {.g-col-12 .g-col-md-4}
+::: {.g-col-12 .g-col-md-6}
 ::: {.project-card}
 ::: {.card-label}
 Legal Operations Analytics
@@ -174,127 +186,9 @@ Eleven million public federal civil case records, frozen and hash-verified, mode
 [Can this number be trusted?](https://www.robbinsanalytics.com/cascadia-matter-ledger/){.btn .btn-outline-secondary .btn-sm}
 :::
 :::
-
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
-Supply Chain / Distribution-Centre Governance
-:::
-### Cascadia Control Tower
-<span class="badge-status">Published</span>
-
-Three fill rates computed from one dataset, all arithmetically correct and 7.0 points apart — and a split-shipment cost that none of them measures. Certifies one definition, prices the leak against a modelled no-split counterfactual, and shows why no single split threshold works across two banners. Synthetic operations, anchored to BLS, Census and SEC data.
-
-[View Case Study](projects/cascadia-controltower.qmd){.btn .btn-primary .btn-sm}
-[Fill Rate & Split Cost](https://www.robbinsanalytics.com/cascadia-controltower/){.btn .btn-outline-secondary .btn-sm}
-:::
 :::
 
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
-Pricing Governance / Financial Analytics
-:::
-### Cascadia Deal Desk
-<span class="badge-status">Published</span>
-
-Multi-quarter pricing agreements as a governed dataset rather than a signed PDF — every quote line matched to the agreement in force on its own date, the gap priced in dollars, and a materiality threshold you calibrate before you automate an alert. Synthetic data throughout.
-
-[View Case Study](projects/cascadia-dealdesk.qmd){.btn .btn-primary .btn-sm}
-[Exception Report](https://www.robbinsanalytics.com/cascadia-dealdesk/){.btn .btn-outline-secondary .btn-sm}
-[Customer Margin](https://www.robbinsanalytics.com/cascadia-dealdesk/customer.html){.btn .btn-outline-secondary .btn-sm}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
-Financial Analytics
-:::
-### Cascadia Finance
-<span class="badge-status">Published</span>
-
-FormFactor (NASDAQ: FORM) GAAP financials from SEC EDGAR XBRL — an executive close pack in Python → SQLite → static ECharts, with frozen-snapshot governance and explicit GAAP-vs-non-GAAP labeling.
-
-[View Case Study](projects/cascadia-finance.qmd){.btn .btn-primary .btn-sm}
-[Exec Pack](https://www.robbinsanalytics.com/cascadia-finance/){.btn .btn-outline-secondary .btn-sm}
-[Margin Walk](https://www.robbinsanalytics.com/cascadia-finance/margins.html){.btn .btn-outline-secondary .btn-sm}
-[Peers](https://www.robbinsanalytics.com/cascadia-finance/peers.html){.btn .btn-outline-secondary .btn-sm}
-[2026 Q2 10-Q](https://www.robbinsanalytics.com/cascadia-finance/q2-filed.html){.btn .btn-outline-secondary .btn-sm}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
-BI Leadership / Governance
-:::
-### Cascadia BI Migration
-<span class="badge-status">Playbook</span>
-
-A 24-week program to migrate an organization off legacy BI onto a governed, AI-assisted platform — certified metric layer first, parity QA as the deliverable, wave-by-wave sunset. An illustrative program design.
-
-[View Case Study](projects/cascadia-bi-migration.qmd){.btn .btn-primary .btn-sm}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
-Healthcare / Staffing Marketplace
-:::
-### Cascadia Staffing
-<span class="badge-status">Case Study</span>
-
-Contingent-labor economics for 14,362 U.S. nursing facilities on CMS payroll data — 21M staffing records, contract vs. employee hours by role and day, with a certified-measure governance layer validated against independent SQL.
-
-[View Case Study](projects/cascadia-staffing.qmd){.btn .btn-primary .btn-sm}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
-Healthcare / Pharmacy
-:::
-### Cascadia Pharmacy
-<span class="badge-status">Case Study</span>
-
-GLP-1 spending trends (CMS Medicare Part D) and adult immunization coverage (CDC), with a messy/incomplete-data cleaning showcase.
-
-[View Case Study](projects/cascadia-pharmacy.qmd){.btn .btn-primary .btn-sm}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
-Manufacturing
-:::
-### Cascadia Medical Devices
-<span class="badge-status">Case Study</span>
-
-A dimensional model over 5.9M production events plus real NASA turbofan sensor data, tracing a root-cause story from station degradation to on-time delivery.
-
-[View Case Study](projects/cascadia-medical-devices.qmd){.btn .btn-primary .btn-sm}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-4}
-::: {.project-card}
-::: {.card-label}
-Retail
-:::
-### Cascadia Clothing
-<span class="badge-status coming-soon">Coming Soon</span>
-
-Demand, merchandising, and fulfillment analytics for a retail apparel scenario.
-
-[Preview](projects/cascadia-clothing.qmd){.btn .btn-outline-secondary .btn-sm}
-:::
-:::
-
-:::
+Eight more builds, and every stack, on [the Cascadia page](cascadia.qmd#the-builds-their-stacks).
 
 ---
 

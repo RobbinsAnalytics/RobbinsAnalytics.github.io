@@ -47,7 +47,7 @@ project:
 
 website:
   title: "Robbins Analytics"
-  description: "Analytics and analytics engineering portfolio, Aaron Robbins"
+  description: "AI analytics architecture portfolio, Aaron Robbins. Governed analytics, built with AI and proven by tests."
   site-url: "https://www.robbinsanalytics.com"
   favicon: assets/brand/favicon.svg
   open-graph: true
