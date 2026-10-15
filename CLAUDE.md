@@ -8,7 +8,8 @@ the code, each of which caused a real failure. Everything else, read the repo.
 **The workflow owns deployment.** `.github/workflows/publish.yml` runs
 `quarto publish gh-pages` on every push to `main`. **Never run
 `quarto publish gh-pages` by hand** — it races CI and can push a stale build
-over a fresh one. Pushing `main` is the deploy.
+over a fresh one. Merging a pull request into `main` is the deploy; `main`
+takes no direct push.
 
 **`CNAME` must ship in `_site`.** The workflow rebuilds the `gh-pages` branch
 from `_site` and force-pushes it, so any `CNAME` GitHub writes to that branch is
@@ -72,17 +73,29 @@ true.
 ## How to publish
 
 Use `/publish`. It fetches first, refuses to proceed if the branch is behind,
-classifies whitespace noise, stages by name, commits, and pushes. **The push is
-the deploy and the single approval** — `git push` is on `ask` in
-`.claude/settings.json` while the read-only preflight calls are on `allow`, so
-going live is always one deliberate yes.
+classifies whitespace noise, stages by name, commits, pushes the branch, opens
+or updates the pull request, and stops. **The merge is the deploy and the
+single approval** (ADR 0003, 2026-10-13), and two mechanisms make it so rather
+than a sentence: a GitHub ruleset on `main` refuses every direct push and
+requires the `candidate` status check, with no bypass actor, not even the
+owner; and `.claude/hooks/no_merge_from_code.py`, a `PreToolUse` hook, refuses
+a Code session `gh pr merge`, any push whose destination is `main`, and a merge
+while on `main`. The `ask` entry for `git push` in `.claude/settings.json` does
+not bind under `bypassPermissions`; the hook and the ruleset do. Aaron merges
+in the GitHub interface after reading the candidate run, and going live is
+still one deliberate yes — his.
 
-**Verification lives in the Action, not in a local shell.** After deploying,
-the workflow asserts the Pages `cname`, polls `build.txt` until the edge serves
-the pushed SHA, checks the core pages and redirects, crawls every link on the
-site, and runs axe over thirteen pages at two viewports. Any miss fails the run
-and emails Aaron. Do not re-add a local verification loop — that is the thing
-that produced false passes. Do not improvise a shorter version of `/publish`.
+**Verification lives in two workflows, not in a local shell.** On every pull
+request, `candidate.yml` renders the branch, serves it inside the runner, and
+runs the link crawl, the accessibility regression check and the visual
+regression check against that candidate; the ruleset requires it green before
+the merge. After the merge, `publish.yml` deploys, asserts the Pages `cname`,
+polls `build.txt` until the edge serves the merge commit, checks the core pages
+and redirects, and runs the same three sweeps against the live edge — the
+candidate cannot see a lost CNAME or a stale CDN, and only the live run can.
+Any miss fails the run and emails Aaron. Do not re-add a local verification
+loop — that is the thing that produced false passes. Do not improvise a shorter
+version of `/publish`.
 
 **The accessibility job is regression prevention. It is not proof of
 conformance, and nothing here may say that it is.** Automated tooling reaches
@@ -93,17 +106,25 @@ machine-detectable regression and nothing more. This repo's HEAD once had to
 remove five unverified "WCAG 2.2 AA" claims; the site says
 `WCAG 2.2 AA target (unverified)` and that stays true until someone audits it.
 `.github/a11y-baseline.json` records the two accepted third-party violations
-(Quarto's navbar toggler, MathJax's speech layer) — it is a ledger printed on
-every run, not a mute, and this site's own HTML does not belong in it.
+(Quarto's navbar toggler on every page, MathJax's speech layer on the paper),
+each scoped to its page and its selector — it is a ledger printed on every run,
+not a mute, and this site's own HTML does not belong in it. The pages axe
+visits are derived from the tree by `site_pages()` in `tools/a11y_check.py`,
+not typed: the hand list it replaced had been missing five case studies.
 
 Visual regression compares six pages at 390 / 414 / 768 / 1440 against
 baselines in `.github/visual-baselines/`. **Those baselines are only valid
 because they were generated on the runner** — a Windows screenshot differs from
-a Linux one in font rendering alone. Regenerate with the "Generate visual
-baselines" workflow (`workflow_dispatch`), then download its artifact and commit
-the images. That workflow does not commit anything itself, deliberately: the
-push to `main` is the deploy and the single approval, and CI writing to `main`
-would break that. **Each regeneration costs about 15 MB of git history** — the
-24 full-page PNGs are already well compressed, so that is the real price of
-pixel comparison rather than something a flag can fix. Regenerate when a design
-change or a runner-image move needs it, not as routine hygiene.
+a Linux one in font rendering alone. A page that is meant to change gets its
+new baselines from the pull request's own candidate run: download its
+`candidate-screenshots-<sha>` artifact and commit the changed pages' images on
+the branch, so the baseline is the very image the comparison took, on the
+runner, from the candidate. The "Generate visual baselines" workflow
+(`workflow_dispatch`) remains for a whole-set refresh when the runner image
+moves. Neither commits anything itself, deliberately: the merge is the deploy
+and the single approval, CI writing to `main` would break that, and the ruleset
+would refuse it besides. **Each full regeneration costs about 15 MB of git
+history** — the 24 full-page PNGs are already well compressed, so that is the
+real price of pixel comparison rather than something a flag can fix. Commit
+only the pages that changed, and regenerate the set when a runner-image move
+needs it, not as routine hygiene.

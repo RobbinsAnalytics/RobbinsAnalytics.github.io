@@ -37,10 +37,26 @@ run and does not fail it; anything not in the file does. The file is a ledger,
 not a mute: it is printed in full every run, so an accepted violation cannot
 quietly become permanent by being invisible. Removing an entry is how one gets
 fixed.
+
+An entry matches on rule AND page, never on rule alone. Each carries `page`:
+a path, a list of paths, or "*" for every page, stated explicitly rather than
+by omission. It may also carry `selector`: then only violating nodes whose
+axe target contains that string are accepted, and any other node failing the
+same rule on the same page is new. Until 2026-10-14 the match was on rule id
+alone, so a violation of either accepted rule in this site's own markup, on
+any page, would have passed -- the third-party scope the ledger described was
+not the scope the code enforced.
+
+WHICH PAGES
+
+Built, not typed: see site_pages(). The hand list this replaced named
+thirteen pages and had been missing five case studies for as long as they had
+existed, because nothing added a page to it when a page was added.
 """
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -48,24 +64,58 @@ ROOT = Path(__file__).resolve().parent.parent
 
 DEFAULT_ORIGIN = "https://www.robbinsanalytics.com"
 
-# The site's own pages. The /cascadia-semiconductors/* paths are served by the
-# Cascadia Finance repo and cannot be fixed from here, so they are not asserted
-# by this check -- the publish workflow already asserts they return 200.
-PAGES = [
-    "/",
-    "/about.html",
-    "/cascadia.html",
-    "/projects/cascadia-finance.html",
-    "/projects/cascadia-dealdesk.html",
-    "/projects/cascadia-controltower.html",
-    "/projects/cascadia-medical-devices.html",
-    "/projects/cascadia-pharmacy.html",
-    "/projects/cascadia-staffing.html",
-    "/projects/cascadia-bi-migration.html",
-    "/projects/sibling-conflict.html",
-    "/projects/job-offer-process-map.html",
-    "/projects/cascadia-operating-charter.html",
-]
+# Redirect stubs under projects/: hand-written .html files that are not render
+# inputs and reach _site through _quarto.yml's resources list. Each carries an
+# instant <meta http-equiv="refresh"> to a page served by another repository.
+# They are this site's own markup and are checked as such; see page_route().
+STUBS = sorted("/projects/%s" % p.name for p in (ROOT / "projects").glob("*.html"))
+
+
+def site_pages():
+    """Every page this repo renders or ships, derived from the tree.
+
+    THIS LIST IS BUILT, NOT TYPED. The roots are the top-level .qmd files
+    (index.qmd is "/"); every projects/*.qmd by its rendered name; every
+    projects/*.html redirect stub. A page added to the site is checked on its
+    next run with no edit here.
+
+    Not included, deliberately: the /cascadia-semiconductors/* paths and the
+    other module paths under this domain, which are served by their own
+    repositories and cannot be fixed from here; and the apex and github.io
+    hosts, which the publish workflow asserts redirect -- they are hosts, not
+    pages of a candidate, and have nothing for axe to read.
+    """
+    pages = []
+    for q in sorted(ROOT.glob("*.qmd")):
+        pages.append("/" if q.stem == "index" else "/%s.html" % q.stem)
+    for q in sorted((ROOT / "projects").glob("*.qmd")):
+        pages.append("/projects/%s.html" % q.stem)
+    pages.extend(STUBS)
+    return pages
+
+
+PAGES = site_pages()
+
+# A stub redirects on load with a zero delay, so a plain navigation lands axe
+# on the destination -- another repository's page -- and never on the stub.
+# The stub's own markup is what this repo authors and answers for, so its
+# refresh directive is stripped in transit and the page is checked as it is
+# served otherwise. Nothing checkable is lost: axe's own meta-refresh rule
+# permits a zero delay, which is the only thing the removed tag said.
+_REFRESH = re.compile(r'<meta\s+http-equiv="refresh"[^>]*>', re.I)
+
+
+def page_route(origin):
+    stub_urls = {origin + s for s in STUBS}
+
+    def handler(route):
+        url = route.request.url.split("?", 1)[0]
+        if route.request.resource_type == "document" and url in stub_urls:
+            response = route.fetch()
+            route.fulfill(response=response, body=_REFRESH.sub("", response.text()))
+        else:
+            route.continue_()
+    return handler
 
 VIEWPORTS = [("desktop", 1440, 900), ("mobile", 390, 844)]
 
@@ -83,10 +133,50 @@ TAGS = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]
 
 
 def load_baseline(path):
+    """The accepted entries, as a list. Each must say which page(s) it covers."""
     if not path.exists():
-        return {}
+        return []
     data = json.loads(path.read_text(encoding="utf-8"))
-    return {e["id"]: e for e in data.get("accepted", [])}
+    entries = data.get("accepted", [])
+    for e in entries:
+        if "page" not in e:
+            sys.exit("a11y baseline entry %r has no `page`; say \"*\" if it "
+                     "really is every page" % e.get("id"))
+    return entries
+
+
+def entry_covers(entry, path):
+    page = entry["page"]
+    if page == "*":
+        return True
+    if isinstance(page, list):
+        return path in page
+    return page == path
+
+
+def entry_label(entry):
+    page = entry["page"]
+    if isinstance(page, list):
+        page = ", ".join(page)
+    return "%s on %s" % (entry["id"], "every page" if page == "*" else page)
+
+
+def split_nodes(violation, path, baseline):
+    """Partition a violation's nodes into (accepted targets, new targets, entries hit)."""
+    entries = [e for e in baseline
+               if e["id"] == violation["id"] and entry_covers(e, path)]
+    accepted, new, hit = [], [], []
+    for node in violation.get("nodes", []):
+        targets = [str(t) for t in node.get("target", [])]
+        covering = [e for e in entries
+                    if "selector" not in e
+                    or any(e["selector"] in t for t in targets)]
+        if covering:
+            accepted.extend(targets)
+            hit.extend(covering)
+        else:
+            new.extend(targets)
+    return accepted, new, hit
 
 
 def load_reflow_baseline(path):
@@ -121,8 +211,9 @@ def main():
     reflow = []     # (page, width, scrollWidth, clientWidth)
     reflow_accepted = []
     reflow_checked = 0
-    accepted_hits = []
+    hits = {}       # id(entry) -> accepted nodes this run
     checked = 0
+    route = page_route(origin)
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
@@ -130,6 +221,7 @@ def main():
             for label, w, h in VIEWPORTS:
                 ctx = browser.new_context(viewport={"width": w, "height": h})
                 page = ctx.new_page()
+                page.route("**/*", route)
                 for path in PAGES:
                     url = origin + path + suffix
                     page.goto(url, wait_until="networkidle", timeout=60000)
@@ -138,18 +230,18 @@ def main():
                     })
                     checked += 1
                     for v in result.get("violations", []):
-                        targets = [t for n in v.get("nodes", []) for t in n.get("target", [])]
-                        row = (v["id"], path, label, v.get("impact") or "n/a",
-                               v.get("help", ""), targets[:4])
-                        if v["id"] in baseline:
-                            accepted_hits.append(row)
-                        else:
-                            new.append(row)
+                        _, new_targets, hit = split_nodes(v, path, baseline)
+                        for e in hit:
+                            hits[id(e)] = hits.get(id(e), 0) + 1
+                        if new_targets:
+                            new.append((v["id"], path, label, v.get("impact") or "n/a",
+                                        v.get("help", ""), new_targets[:4]))
                 ctx.close()
 
             for w in REFLOW_WIDTHS:
                 ctx = browser.new_context(viewport={"width": w, "height": 844})
                 page = ctx.new_page()
+                page.route("**/*", route)
                 for path in PAGES:
                     page.goto(origin + path + suffix, wait_until="networkidle",
                               timeout=60000)
@@ -168,6 +260,9 @@ def main():
         finally:
             browser.close()
 
+    n_proj = len(list((ROOT / "projects").glob("*.qmd")))
+    print("  pages: %d, derived from the tree (%d roots, %d projects/*.qmd, %d stubs)"
+          % (len(PAGES), len(PAGES) - n_proj - len(STUBS), n_proj, len(STUBS)))
     print("  axe-core over %d page/viewport combinations" % checked)
     print("  tags: %s" % ", ".join(TAGS))
     print("  viewports: %s" % ", ".join("%s %dx%d" % v for v in VIEWPORTS))
@@ -178,16 +273,17 @@ def main():
         print()
         print("  ACCEPTED VIOLATIONS — recorded in %s, reported every run, not failing:"
               % Path(args.baseline).name)
-        for rid, entry in sorted(baseline.items()):
-            hits = sum(1 for r in accepted_hits if r[0] == rid)
-            print("    %-28s %d hit(s) this run" % (rid, hits))
+        for entry in sorted(baseline, key=entry_label):
+            print("    %-60s %d node(s) this run"
+                  % (entry_label(entry), hits.get(id(entry), 0)))
+            if "selector" in entry:
+                print("        only nodes whose target contains %r" % entry["selector"])
             print("        %s" % entry.get("reason", "(no reason recorded)"))
         # An entry marked intermittent depends on third-party script timing and
         # legitimately matches nothing on some runs. Exempting it keeps the
         # stale-entry warning meaningful for the entries where it is real.
-        stale = [rid for rid, e in baseline.items()
-                 if not e.get("intermittent")
-                 and not any(r[0] == rid for r in accepted_hits)]
+        stale = [entry_label(e) for e in baseline
+                 if not e.get("intermittent") and not hits.get(id(e))]
         if stale:
             print()
             print("  ::warning::these baseline entries matched nothing and look fixed — "
@@ -234,8 +330,8 @@ def main():
             sys.stderr.write("           at %s\n" % t)
         sys.stderr.write("\n")
     sys.stderr.write(
-        "Fix these, or record one in %s with a reason if it is genuinely accepted.\n"
-        "An entry there is reported on every run — it is a ledger, not a mute.\n\n"
+        "Fix these, or record one in %s with its page and a reason if it is genuinely\n"
+        "accepted. An entry there is reported on every run — it is a ledger, not a mute.\n\n"
         % Path(args.baseline).name
     )
     return 1
