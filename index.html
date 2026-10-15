@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./assets/brand/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -45,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3bb78da904e445aaf056d1d42c213ec9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-aa3a58f22bb0a1e965538d10fd2cfca4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,10 +75,129 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-fx-feature .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-slug','listing-title','listing-family','listing-domain','listing-type','listing-status','listing-new','listing-lede','listing-summary','listing-tags','listing-href','listing-module_href','listing-module_label','listing-order','listing-featured','listing-note',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-slug","listing-title","listing-family","listing-domain","listing-type","listing-status","listing-new","listing-lede","listing-summary","listing-tags","listing-href","listing-module_href","listing-module_label","listing-order","listing-featured","listing-note"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-fx-feature'] = new List('listing-fx-feature', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-fx-leadership .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-slug','listing-title','listing-family','listing-domain','listing-type','listing-status','listing-new','listing-lede','listing-summary','listing-tags','listing-href','listing-module_href','listing-module_label','listing-order','listing-featured','listing-note',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-slug","listing-title","listing-family","listing-domain","listing-type","listing-status","listing-new","listing-lede","listing-summary","listing-tags","listing-href","listing-module_href","listing-module_label","listing-order","listing-featured","listing-note"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-fx-leadership'] = new List('listing-fx-leadership', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-fx-featured .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-slug','listing-title','listing-family','listing-domain','listing-type','listing-status','listing-new','listing-lede','listing-summary','listing-tags','listing-href','listing-module_href','listing-module_label','listing-order','listing-featured','listing-note',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-slug","listing-title","listing-family","listing-domain","listing-type","listing-status","listing-new","listing-lede","listing-summary","listing-tags","listing-href","listing-module_href","listing-module_label","listing-order","listing-featured","listing-note"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-fx-featured'] = new List('listing-fx-featured', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-fx-beyond .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-slug','listing-title','listing-family','listing-domain','listing-type','listing-status','listing-new','listing-lede','listing-summary','listing-tags','listing-href','listing-module_href','listing-module_label','listing-order','listing-featured','listing-note',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-slug","listing-title","listing-family","listing-domain","listing-type","listing-status","listing-new","listing-lede","listing-summary","listing-tags","listing-href","listing-module_href","listing-module_label","listing-order","listing-featured","listing-note"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-fx-beyond'] = new List('listing-fx-beyond', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap">
+<!-- One request for every face the site uses. Source Serif 4 is the
+     Cascadia voice (styles.scss, charts and the page bodies this
+     release leaves alone); Inter, Inter Tight, Fraunces italic and
+     JetBrains Mono are Felix's four (felix-design-system.md §1.3),
+     global because the header and footer need them on every page.
+     All five are on Google Fonts under the SIL OFL. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600;700&amp;family=Fraunces:ital,wght@1,400&amp;family=JetBrains+Mono:wght@400&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap">
 <!-- LOGO.md 4.2. SVG first so it wins wherever it is supported and
      the mark can swap palettes with the browser chrome; the 32px PNG
      is for Safari, which renders SVG favicons but ignores the
@@ -86,6 +207,35 @@ ul.task-list li input[type="checkbox"] {
 <link rel="icon" href="./assets/brand/favicon-16.png" sizes="16x16">
 <link rel="apple-touch-icon" href="./assets/brand/apple-touch-icon.png">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Aaron Robbins, AI Analytics Architect | Robbins Analytics">
 <meta property="og:description" content="AI analytics architecture portfolio, Aaron Robbins. Governed analytics, built with AI and proven by tests.">
@@ -99,19 +249,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed hero-page quarto-light">
+<body class="nav-fixed hero-page felix-home fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/brand/robbins-mark-reversed.svg" alt="Robbins Analytics" class="navbar-logo light-content">
-    <img src="./assets/brand/robbins-mark-reversed.svg" alt="Robbins Analytics" class="navbar-logo dark-content">
-    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Robbins Analytics</span>
+    <span class="navbar-title">Robbins <em>Analytics</em><span class="fx-wm-stop">.</span></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -133,10 +279,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Cascadia</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Projects</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-case-studies" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Case Studies</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-case-studies">    
         <li>
     <a class="dropdown-item" href="./projects/cascadia-build-by-build.html">
  <span class="dropdown-text">Build by Build</span></a>
@@ -205,15 +351,12 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./projects/sibling-conflict.html">
  <span class="dropdown-text">Sibling Conflict (mathematics paper)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./case-studies.html">
+ <span class="dropdown-text">All case studies</span></a>
+  </li>  
     </ul>
   </li>
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/RobbinsAnalytics"> <i class="bi bi-github" role="img" aria-label="GitHub">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -222,12 +365,10 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -236,7 +377,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
     
   
@@ -248,10 +389,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="hero-banner">
-<div class="hero-inner">
+<!-- The hero. Every line of copy below is Aaron's and is moved, not edited
+     (lines 43 to 69 of the 2026-10-14 index.qmd); only the wrapper changed,
+     from .hero-banner/.hero-inner to the Felix split (§7 "Home"). The span
+     on the first name applies the headline formula and changes no text. -->
+<div class="fx-hero">
 <section id="aaron-robbins" class="level1 hero-lede">
-<h1>Aaron Robbins</h1>
+<h1><span class="fx-serif">Aaron</span> Robbins</h1>
 <div class="hero-subtitle">
 <p>AI Analytics Architect</p>
 </div>
@@ -261,157 +405,206 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
+<div class="hero-aside">
 <div class="hero-tagline">
 <p>12+ years turning messy data into decisions leaders trust: healthcare manufacturing and quality, ecommerce and retail, and time in supply chain, digital merchandising, and finance. The expertise is in the craft, not the tooling. I design the analytics, specify what correct looks like, and let AI do the build. Every build carries its own evidence: known answers set before the code, tests that run every time, and a record of what each test caught. That is proof stakeholders can check, not a claim they have to trust.</p>
 </div>
 <div class="hero-availability">
 <p>Open to analytics manager, lead, or principal roles where reporting has outgrown trust, and to conversations about roles that don’t exist yet. Seattle or remote.</p>
 </div>
+<div class="fx-hero__actions">
+<p><a href="./case-studies.html" class="fx-btn fx-btn--primary">All case studies</a> <a href="./cascadia.html" class="fx-btn fx-btn--outline">Learn about the Cascadia architecture</a></p>
 </div>
 </div>
-<hr>
-<section id="cascadia-portfolio" class="level2">
-<h2 data-anchor-id="cascadia-portfolio">The Cascadia Portfolio</h2>
+</div>
+<div id="cascadia-portfolio" class="fx-section">
+<div class="fx-opener">
+<div class="fx-opener__head">
+<p><span class="fx-eyebrow">01 / Case Studies</span></p>
+<section id="the-cascadia-portfolio" class="level2">
+<h2 data-anchor-id="the-cascadia-portfolio">The Cascadia Portfolio</h2>
+</section>
+</div>
+<div class="fx-opener__intro">
 <p>Cascadia is a portfolio built to be checked, not taken on faith.</p>
-<div class="grid">
-<div class="g-col-12">
-<div class="project-card">
-<div class="card-label">
-<p>Portfolio</p>
 </div>
-<section id="build-by-build" class="level3">
-<h3 data-anchor-id="build-by-build">Build by Build</h3>
-<p><span class="badge-status">Published</span></p>
-<p>Ten modules by fourteen test surfaces, read from their own repositories. Which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names. An empty cell is a fact about what a build carried, never a debt.</p>
-<p><a href="./projects/cascadia-build-by-build.html" class="btn btn-primary btn-sm">View the page</a> <a href="https://www.robbinsanalytics.com/cascadia-build-by-build/" class="btn btn-outline-secondary btn-sm">Two ways to check a number at build one. Fourteen had appeared by build nine.</a></p>
+</div>
+<section id="leadership-portfolio" class="level3 fx-sub">
+<h3 data-anchor-id="leadership-portfolio">Leadership Portfolio</h3>
 </section>
+<div id="listing-fx-feature" class="quarto-listing quarto-listing-container-custom">
+
+<article class="fx-feature" data-slug="build-by-build">
+  <div class="fx-feature__body">
+    <p class="fx-feature__kicker"><span class="fx-pill fx-pill--on-lime">Featured · Portfolio</span></p>
+    <h4 class="fx-feature__title">Build by Build</h4>
+    <p class="fx-feature__lede">Two ways to check a number at build one. Fourteen had appeared by build nine.</p>
+    <p class="fx-feature__summary">Ten modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names. An empty cell is a fact about what a build carried, never a debt.</p>
+    <p class="fx-feature__links">
+      <a class="fx-feature__link fx-feature__link--primary" href="https://www.robbinsanalytics.com/cascadia-build-by-build/">Open the live matrix <span class="fx-arrow" aria-hidden="true">↗</span></a>
+      <a class="fx-feature__link" href="./projects/cascadia-build-by-build.html">View the page <span class="fx-arrow" aria-hidden="true">→</span></a>
+    </p>
+  </div>
+  <div class="fx-feature__aside" aria-hidden="true">
+    <span class="fx-feature__mark">01</span>
+  </div>
+</article>
+
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
+<div id="listing-fx-leadership" class="quarto-listing quarto-listing-container-custom">
+
+<div class="fx-grid fx-grid--leadership">
+
+<article class="fx-card" data-status="Playbook" data-type="playbook">
+  <div class="fx-card__top">
+    <p class="fx-card__num">02<span class="fx-card__kind">Playbook</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--playbook">Playbook</span></div>
+  </div>
+  <p class="fx-card__domain">BI Leadership / Operating Model</p>
+  <h4 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-operating-charter.html"><span class="fx-card__family">Cascadia</span> Operating Charter</a></h4>
+  <p class="fx-card__summary">How I would run a data, analytics and automation team inside a medical device quality organization: principles set in stone, methods adjustable, and every practice carrying a proof, a test and a mark. A scenario, not a record.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Playbook" data-type="playbook">
+  <div class="fx-card__top">
+    <p class="fx-card__num">03<span class="fx-card__kind">Playbook</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--playbook">Playbook</span></div>
+  </div>
+  <p class="fx-card__domain">Analytics Validation / Playbook</p>
+  <h4 class="fx-card__title"><a class="fx-card__link" href="https://www.robbinsanalytics.com/cascadia-validation-playbook/">Validating AI-Assisted Analytics</a></h4>
+  <p class="fx-card__summary">How can you be confident in code you did not read or write in full? One invented dispatch rule, a known answer specified before the code, and four experiments that run a real SQL query in your browser and show what a check adds to reading.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Playbook" data-type="playbook">
+  <div class="fx-card__top">
+    <p class="fx-card__num">11<span class="fx-card__kind">Playbook</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--playbook">Playbook</span></div>
+  </div>
+  <p class="fx-card__domain">BI Leadership / Metric Governance</p>
+  <h4 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-bi-migration.html"><span class="fx-card__family">Cascadia</span> BI Migration</a></h4>
+  <p class="fx-card__summary">A 24-week program design for moving an organization off legacy BI and onto a governed, AI-assisted platform, with a certified metric layer at the center. A design, not a build.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
 </div>
-<div class="g-col-12">
-<div class="project-card">
-<div class="card-label">
-<p>BI Leadership / Operating Model</p>
+
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
-<section id="cascadia-operating-charter" class="level3">
-<h3 data-anchor-id="cascadia-operating-charter">Cascadia Operating Charter</h3>
-<p><span class="badge-status new">New</span><span class="badge-status">Playbook</span></p>
-<p>How I would run a data, analytics and automation team of about eight people inside a medical device quality organization: principles set in stone, methods adjustable, and every practice carrying a proof, a test and a mark. A two-minute walk, a one-screen summary, and the charter behind them. A scenario, not a record.</p>
-<p><a href="./projects/cascadia-operating-charter.html" class="btn btn-primary btn-sm">View the Charter</a> <a href="./projects/cascadia-operating-charter.html#one-screen" class="btn btn-outline-secondary btn-sm">The charter on one screen</a></p>
+<section id="selected-builds" class="level3 fx-sub">
+<h3 data-anchor-id="selected-builds">Selected builds</h3>
 </section>
+<div id="listing-fx-featured" class="quarto-listing quarto-listing-container-custom">
+
+<div class="fx-grid fx-grid--featured">
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">04<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Medical Device Quality Analytics</p>
+  <h4 class="fx-card__title"><a class="fx-card__link" href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html"><span class="fx-card__family">Cascadia</span> Early Warning</a></h4>
+  <p class="fx-card__summary">A forecast of FDA device reports three months ahead for one cardiovascular product code, with an explicit range that held in 20 of 22 locked-test months. Counts of reports, never rates, and no firm named anywhere. Public openFDA data.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python</span><span class="fx-tag">DuckDB</span><span class="fx-tag">statsmodels</span><span class="fx-tag">ECharts</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-early-warning/">Open forecast module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">05<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Revenue Operations Analytics</p>
+  <h4 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-revenue-assurance.html"><span class="fx-card__family">Cascadia</span> Revenue Assurance</a></h4>
+  <p class="fx-card__summary">What a customer is contracted for and what they are billable for are different numbers. Three asymmetric timing rules keep them apart for up to a year with nothing erroring. Derived twice, by two engines written to be different, agreeing on every cell. Synthetic data throughout.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python</span><span class="fx-tag">CSV</span><span class="fx-tag">DuckDB</span><span class="fx-tag">ECharts</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-revenue-assurance/">Open module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">07<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Legal Operations Analytics</p>
+  <h4 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-matter-ledger.html"><span class="fx-card__family">Cascadia</span> Matter Ledger</a></h4>
+  <p class="fx-card__summary">Eleven million public federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures. Then a scheduled pipeline that re-asserts its own invariants twice a day, reconciles against the frozen baseline, and publishes the failures.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python</span><span class="fx-tag">DuckDB</span><span class="fx-tag">ECharts</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-matter-ledger/">Open module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
 </div>
+
+<p class="fx-more"><a class="fx-btn fx-btn--outline" href="./case-studies.html">See all 17 case studies</a></p>
+
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
-<div class="g-col-12">
-<div class="project-card">
-<div class="card-label">
-<p>Analytics Validation / Playbook</p>
-</div>
-<section id="validating-ai-assisted-analytics" class="level3">
-<h3 data-anchor-id="validating-ai-assisted-analytics">Validating AI-Assisted Analytics</h3>
-<p><span class="badge-status new">New</span><span class="badge-status">Playbook</span></p>
-<p>How can you be confident in code you did not read or write in full? From requirements to evidence, with clear ownership at every step: one invented dispatch rule, a known answer specified before the code, and four experiments that run a real SQL query in your browser and show what a check adds to reading. Harbor Dispatch is invented; the real evidence is pinned to Cascadia builds.</p>
-<p><a href="https://www.robbinsanalytics.com/cascadia-validation-playbook/" class="btn btn-primary btn-sm">Open playbook</a> <a href="https://www.robbinsanalytics.com/cascadia-validation-playbook/#opening-experiment" class="btn btn-outline-secondary btn-sm">Start with the code check</a></p>
-</section>
-</div>
-</div>
-</div>
-<hr>
-<section id="featured-case-studies" class="level3">
-<h3 data-anchor-id="featured-case-studies">Featured Case Studies</h3>
-<div class="grid">
-<div class="g-col-12 g-col-md-6">
-<div class="project-card">
-<div class="card-label">
-<p>Medical Device Quality Analytics</p>
-</div>
-<section id="cascadia-early-warning" class="level3">
-<h3 data-anchor-id="cascadia-early-warning">Cascadia Early Warning</h3>
-<p><span class="badge-status new">New</span><span class="badge-status">Published</span></p>
-<p>DSQ, one of seven cardiovascular product codes spanning Classes II and III: about 736 FDA device reports expected in November 2026, three months ahead, 80% range 376 to 906. At that horizon, ranges like it held 20 of 22 locked-test months. The review queue is a retrospective, filtered demonstration: 1 episode where the rule is on, 7 if it ran in every code. Counts of reports, never rates, and no firm named anywhere. Public openFDA data, 649,080 distinct reports.</p>
-<p><a href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html" class="btn btn-primary btn-sm">View Case Study</a> <a href="https://www.robbinsanalytics.com/cascadia-early-warning/" class="btn btn-outline-secondary btn-sm">Open forecast module</a></p>
-</section>
-</div>
-</div>
-<div class="g-col-12 g-col-md-6">
-<div class="project-card">
-<div class="card-label">
-<p>Revenue Operations Analytics</p>
-</div>
-<section id="cascadia-revenue-assurance" class="level3">
-<h3 data-anchor-id="cascadia-revenue-assurance">Cascadia Revenue Assurance</h3>
-<p><span class="badge-status new">New</span><span class="badge-status">Published</span></p>
-<p>What a customer is contracted for and what they are billable for are different numbers. Three asymmetric timing rules — adds land at once, reductions wait for the term boundary, cancellations ride out the term — keep the two apart for up to a year, with nothing erroring and no register showing it: 5,875 licences at June 2026. Derived twice, by two engines written to be different, agreeing on every cell. Synthetic data throughout.</p>
-<p><a href="./projects/cascadia-revenue-assurance.html" class="btn btn-primary btn-sm">View Case Study</a> <a href="https://www.robbinsanalytics.com/cascadia-revenue-assurance/" class="btn btn-outline-secondary btn-sm">Contracted is not billable</a></p>
-</section>
-</div>
-</div>
-<div class="g-col-12 g-col-md-6">
-<div class="project-card">
-<div class="card-label">
-<p>Legal Operations Analytics</p>
-</div>
-<section id="cascadia-fee-examiner" class="level3">
-<h3 data-anchor-id="cascadia-fee-examiner">Cascadia Fee Examiner</h3>
-<p><span class="badge-status">Published</span></p>
-<p>A bankruptcy research database, a public court docket, and two task-code vocabularies — three sources, three owners, none sharing an identifier. A stated rule resolves 9 of 25 caption-to-database firm pairs; the other 16 are published with a reason, not dropped. Reported at its actual state: 48 of 216 eligible cases searched so far.</p>
-<p><a href="./projects/cascadia-fee-examiner.html" class="btn btn-primary btn-sm">View Case Study</a> <a href="https://www.robbinsanalytics.com/cascadia-fee-examiner/" class="btn btn-outline-secondary btn-sm">Three systems, one firm, no shared key</a></p>
-</section>
-</div>
-</div>
-<div class="g-col-12 g-col-md-6">
-<div class="project-card">
-<div class="card-label">
-<p>Legal Operations Analytics</p>
-</div>
-<section id="cascadia-matter-ledger" class="level3">
-<h3 data-anchor-id="cascadia-matter-ledger">Cascadia Matter Ledger</h3>
-<p><span class="badge-status">Published</span></p>
-<p>Eleven million public federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures — then a scheduled pipeline that re-asserts its own invariants twice a day, reconciles against the frozen baseline, and publishes the failures. Ask it one ordinary question and the ungoverned answer comes back negative.</p>
-<p><a href="./projects/cascadia-matter-ledger.html" class="btn btn-primary btn-sm">View Case Study</a> <a href="https://www.robbinsanalytics.com/cascadia-matter-ledger/" class="btn btn-outline-secondary btn-sm">Can this number be trusted?</a></p>
-</section>
-</div>
-</div>
-</div>
-<p>Eight more builds, and every stack, on <a href="./cascadia.html#the-builds-their-stacks">the Cascadia page</a>.</p>
-<hr>
-</section>
-<section id="beyond-the-portfolio" class="level3">
+<section id="beyond-the-portfolio" class="level3 fx-sub">
 <h3 data-anchor-id="beyond-the-portfolio">Beyond the Portfolio</h3>
-<div class="grid">
-<div class="g-col-12 g-col-md-6">
-<div class="project-card">
-<div class="card-label">
-<p>Process design · A working system</p>
-</div>
-<section id="job-offer-process-map" class="level3">
-<h3 data-anchor-id="job-offer-process-map">Job Offer Process Map</h3>
-<p><span class="badge-status new">New</span></p>
-<p>A job search mapped as a working process: Stage-Gate for structure, BPMN swimlanes for who does what, and a plan-do-check-act loop inside every interview round. Two phases, five lanes, and two keys at every interview gate.</p>
-<p><a href="./projects/job-offer-process-map.html" class="btn btn-primary btn-sm">See the Map</a></p>
 </section>
+<div id="listing-fx-beyond" class="quarto-listing quarto-listing-container-custom">
+
+<div class="fx-grid fx-grid--beyond">
+
+<article class="fx-card" data-status="Published" data-type="process">
+  <div class="fx-card__top">
+    <p class="fx-card__num">16<span class="fx-card__kind">Process design</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Process design · A working system</p>
+  <h4 class="fx-card__title"><a class="fx-card__link" href="./projects/job-offer-process-map.html">Job Offer Process Map</a></h4>
+  <p class="fx-card__summary">A job search mapped as a working process: Stage-Gate for structure, BPMN swimlanes for who does what, and a plan-do-check-act loop inside every interview round. Two phases, five lanes, and two keys at every interview gate.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Preprint" data-type="paper">
+  <div class="fx-card__top">
+    <p class="fx-card__num">17<span class="fx-card__kind">Paper</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--preprint">Preprint</span></div>
+  </div>
+  <p class="fx-card__domain">Mathematics · A pet project</p>
+  <h4 class="fx-card__title"><a class="fx-card__link" href="./projects/sibling-conflict.html">The Combinatorics of Sibling Conflict</a></h4>
+  <p class="fx-card__summary">Not an analytics module: a short mathematics paper. The number of ways n children can take sides against each other, with the rest uninvolved, is (3<sup>n</sup> − 2·2<sup>n</sup> + 1)/2, the Stirling number S(n+1, 3). Of the 25 ways four children can, 6 are one against one; of the 3,025 ways eight children can, 28 are.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf">The paper (PDF) <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+</div>
+
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 </div>
-<div class="g-col-12 g-col-md-6">
-<div class="project-card">
-<div class="card-label">
-<p>Mathematics · A pet project</p>
+<div class="fx-section fx-section--last">
+
 </div>
-<section id="the-combinatorics-of-sibling-conflict" class="level3">
-<h3 data-anchor-id="the-combinatorics-of-sibling-conflict">The Combinatorics of Sibling Conflict</h3>
-<p><span class="badge-status">Preprint</span></p>
-<p>Not an analytics module — a short mathematics paper. The number of ways n children can take sides against each other, with the rest uninvolved, is (3<sup>n</sup> − 2·2<sup>n</sup> + 1)/2, the Stirling number S(n+1, 3). Of the 25 ways four children can, 6 are one against one; of the 3,025 ways eight children can, 28 are.</p>
-<p><a href="./projects/sibling-conflict.html" class="btn btn-primary btn-sm">Read It</a> <a href="https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf" class="btn btn-outline-secondary btn-sm">The Paper (PDF)</a></p>
-</section>
-</div>
-</div>
-</div>
-<hr>
-<p><a href="./cascadia.html">Learn about the Cascadia architecture →</a></p>
 
 
-</section>
-</section>
 
-</main> <!-- /main -->
+
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const isCodeAnnotation = (el) => {
@@ -817,8 +1010,8 @@ ul.task-list li input[type="checkbox"] {
 <p>© 2026 Aaron Robbins</p>
 </div>   
     <div class="nav-footer-center">
-      &nbsp;
-    </div>
+<p><span class="fx-wordmark">Robbins <em>Analytics</em><span class="fx-wm-stop">.</span></span></p>
+</div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

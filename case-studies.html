@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Every case study, playbook, paper and process design in the Robbins Analytics portfolio, in one list.">
+
+<title>Case Studies – Robbins Analytics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./assets/brand/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-aa3a58f22bb0a1e965538d10fd2cfca4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-fx-index .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-slug','listing-title','listing-family','listing-domain','listing-type','listing-status','listing-new','listing-lede','listing-summary','listing-tags','listing-href','listing-module_href','listing-module_label','listing-order','listing-featured','listing-note',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-slug","listing-title","listing-family","listing-domain","listing-type","listing-status","listing-new","listing-lede","listing-summary","listing-tags","listing-href","listing-module_href","listing-module_label","listing-order","listing-featured","listing-note"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-fx-index'] = new List('listing-fx-index', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<style>html{ scroll-behavior: smooth; }</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!-- One request for every face the site uses. Source Serif 4 is the
+     Cascadia voice (styles.scss, charts and the page bodies this
+     release leaves alone); Inter, Inter Tight, Fraunces italic and
+     JetBrains Mono are Felix's four (felix-design-system.md §1.3),
+     global because the header and footer need them on every page.
+     All five are on Google Fonts under the SIL OFL. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600;700&amp;family=Fraunces:ital,wght@1,400&amp;family=JetBrains+Mono:wght@400&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap">
+<!-- LOGO.md 4.2. SVG first so it wins wherever it is supported and
+     the mark can swap palettes with the browser chrome; the 32px PNG
+     is for Safari, which renders SVG favicons but ignores the
+     embedded prefers-color-scheme block. Quarto's own favicon: key
+     emits the SVG link; these are the ones it cannot express. -->
+<link rel="icon" href="./assets/brand/favicon-32.png" sizes="32x32">
+<link rel="icon" href="./assets/brand/favicon-16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="./assets/brand/apple-touch-icon.png">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Case Studies – Robbins Analytics">
+<meta property="og:description" content="Every case study, playbook, paper and process design in the Robbins Analytics portfolio, in one list.">
+<meta property="og:image" content="https://www.robbinsanalytics.com/assets/thumb-portfolio.png">
+<meta property="og:site_name" content="Robbins Analytics">
+<meta property="og:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
+<meta name="twitter:title" content="Case Studies – Robbins Analytics">
+<meta name="twitter:description" content="Every case study, playbook, paper and process design in the Robbins Analytics portfolio, in one list.">
+<meta name="twitter:image" content="https://www.robbinsanalytics.com/assets/thumb-portfolio.png">
+<meta name="twitter:image:alt" content="Cascadia module card — title, one-line summary, and the data source.">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed felix-index fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Robbins <em>Analytics</em><span class="fx-wm-stop">.</span></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cascadia.html"> 
+<span class="menu-text">Cascadia</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-case-studies" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Case Studies</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-case-studies">    
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-build-by-build.html">
+ <span class="dropdown-text">Build by Build</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-operating-charter.html">
+ <span class="dropdown-text">Cascadia Operating Charter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.robbinsanalytics.com/cascadia-validation-playbook/">
+ <span class="dropdown-text">Validating AI-Assisted Analytics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html">
+ <span class="dropdown-text">Cascadia Early Warning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-revenue-assurance.html">
+ <span class="dropdown-text">Cascadia Revenue Assurance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-fee-examiner.html">
+ <span class="dropdown-text">Cascadia Fee Examiner</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-matter-ledger.html">
+ <span class="dropdown-text">Cascadia Matter Ledger</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-controltower.html">
+ <span class="dropdown-text">Cascadia Control Tower</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-dealdesk.html">
+ <span class="dropdown-text">Cascadia Deal Desk</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-finance.html">
+ <span class="dropdown-text">Cascadia Finance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-bi-migration.html">
+ <span class="dropdown-text">Cascadia BI Migration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-staffing.html">
+ <span class="dropdown-text">Cascadia Staffing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-pharmacy.html">
+ <span class="dropdown-text">Cascadia Pharmacy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-medical-devices.html">
+ <span class="dropdown-text">Cascadia Medical Devices</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/cascadia-clothing.html">
+ <span class="dropdown-text">Cascadia Clothing (Coming Soon)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/job-offer-process-map.html">
+ <span class="dropdown-text">Job Offer Process Map (process design)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects/sibling-conflict.html">
+ <span class="dropdown-text">Sibling Conflict (mathematics paper)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./case-studies.html">
+ <span class="dropdown-text">All case studies</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<!-- main -->
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Case Studies</h1>
+</div>
+
+<div>
+  <div class="description">
+    Every case study, playbook, paper and process design in the Robbins Analytics portfolio, in one list.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="fx-inner">
+<p><span class="fx-eyebrow">The Cascadia Portfolio</span></p>
+<section id="case-studies." class="level1">
+<h1>Case Studies<span class="fx-stop">.</span></h1>
+<div class="fx-inner__intro">
+<p>Cascadia is a portfolio built to be checked, not taken on faith.</p>
+</div>
+</section>
+</div>
+<div class="fx-inner fx-inner--list">
+<div id="listing-fx-index" class="quarto-listing quarto-listing-container-custom">
+
+<!-- The status tab row. `hidden` until the script below runs, so with
+     JavaScript off every card is on the page and no non-working control
+     is shown (brief step 3). Buttons, not links: there is no URL state. -->
+<div class="fx-tabs" role="group" aria-label="Filter by status" hidden="">
+  <button type="button" class="fx-tab" data-filter="" aria-pressed="true">All <span class="fx-tab__count">17</span></button>
+
+  <button type="button" class="fx-tab" data-filter="Published" aria-pressed="false">Published <span class="fx-tab__count">9</span></button>
+
+  <button type="button" class="fx-tab" data-filter="Playbook" aria-pressed="false">Playbook <span class="fx-tab__count">3</span></button>
+
+  <button type="button" class="fx-tab" data-filter="Complete" aria-pressed="false">Complete <span class="fx-tab__count">3</span></button>
+
+  <button type="button" class="fx-tab" data-filter="Coming Soon" aria-pressed="false">Coming Soon <span class="fx-tab__count">1</span></button>
+
+  <button type="button" class="fx-tab" data-filter="Preprint" aria-pressed="false">Preprint <span class="fx-tab__count">1</span></button>
+
+</div>
+<p class="fx-tabs__status" aria-live="polite"></p>
+
+<div class="fx-grid fx-grid--index">
+
+<article class="fx-card" data-status="Published" data-type="playbook">
+  <div class="fx-card__top">
+    <p class="fx-card__num">01<span class="fx-card__kind">Playbook</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Portfolio</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-build-by-build.html">Build by Build</a></h2>
+  <p class="fx-card__summary">Ten modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names. An empty cell is a fact about what a build carried, never a debt.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-build-by-build/">Open the live matrix <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Playbook" data-type="playbook">
+  <div class="fx-card__top">
+    <p class="fx-card__num">02<span class="fx-card__kind">Playbook</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--playbook">Playbook</span></div>
+  </div>
+  <p class="fx-card__domain">BI Leadership / Operating Model</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-operating-charter.html"><span class="fx-card__family">Cascadia</span> Operating Charter</a></h2>
+  <p class="fx-card__summary">How I would run a data, analytics and automation team inside a medical device quality organization: principles set in stone, methods adjustable, and every practice carrying a proof, a test and a mark. A scenario, not a record.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Playbook" data-type="playbook">
+  <div class="fx-card__top">
+    <p class="fx-card__num">03<span class="fx-card__kind">Playbook</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--playbook">Playbook</span></div>
+  </div>
+  <p class="fx-card__domain">Analytics Validation / Playbook</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="https://www.robbinsanalytics.com/cascadia-validation-playbook/">Validating AI-Assisted Analytics</a></h2>
+  <p class="fx-card__summary">How can you be confident in code you did not read or write in full? One invented dispatch rule, a known answer specified before the code, and four experiments that run a real SQL query in your browser and show what a check adds to reading.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">04<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Medical Device Quality Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html"><span class="fx-card__family">Cascadia</span> Early Warning</a></h2>
+  <p class="fx-card__summary">A forecast of FDA device reports three months ahead for one cardiovascular product code, with an explicit range that held in 20 of 22 locked-test months. Counts of reports, never rates, and no firm named anywhere. Public openFDA data.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python</span><span class="fx-tag">DuckDB</span><span class="fx-tag">statsmodels</span><span class="fx-tag">ECharts</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-early-warning/">Open forecast module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">05<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Revenue Operations Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-revenue-assurance.html"><span class="fx-card__family">Cascadia</span> Revenue Assurance</a></h2>
+  <p class="fx-card__summary">What a customer is contracted for and what they are billable for are different numbers. Three asymmetric timing rules keep them apart for up to a year with nothing erroring. Derived twice, by two engines written to be different, agreeing on every cell. Synthetic data throughout.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python</span><span class="fx-tag">CSV</span><span class="fx-tag">DuckDB</span><span class="fx-tag">ECharts</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-revenue-assurance/">Open module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">06<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Legal Operations Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-fee-examiner.html"><span class="fx-card__family">Cascadia</span> Fee Examiner</a></h2>
+  <p class="fx-card__summary">A bankruptcy research database, a public court docket and two task-code vocabularies: three sources, three owners, none sharing an identifier. A stated rule resolves what it can, and the rest is published with a reason, not dropped. Reported at its actual state.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python stdlib</span><span class="fx-tag">CSV/JSON</span><span class="fx-tag">ECharts</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-fee-examiner/">Open module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">07<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Legal Operations Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-matter-ledger.html"><span class="fx-card__family">Cascadia</span> Matter Ledger</a></h2>
+  <p class="fx-card__summary">Eleven million public federal civil case records, frozen and hash-verified, modelled into certified legal-operations measures. Then a scheduled pipeline that re-asserts its own invariants twice a day, reconciles against the frozen baseline, and publishes the failures.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python</span><span class="fx-tag">DuckDB</span><span class="fx-tag">ECharts</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-matter-ledger/">Open module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">08<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Supply Chain / Distribution-Centre Governance</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-controltower.html"><span class="fx-card__family">Cascadia</span> Control Tower</a></h2>
+  <p class="fx-card__summary">Three fill rates computed from one dataset, why they disagree, and the split-shipment cost that none of them measures. One definition certified, the leak priced, and six negative controls that all trip, published next to the real result. Synthetic data, anchored to public sources.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python</span><span class="fx-tag">DuckDB</span><span class="fx-tag">dbt Core</span><span class="fx-tag">ECharts</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-controltower/">Open module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">09<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Pricing Governance / Financial Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-dealdesk.html"><span class="fx-card__family">Cascadia</span> Deal Desk</a></h2>
+  <p class="fx-card__summary">Pricing governance and margin leakage: a governed agreement register, a documented matching rule, and an exception report you calibrate before you automate. A contested quote line that survives three tiebreaks is a data defect, not a judgment call. Synthetic data.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python</span><span class="fx-tag">SQLite</span><span class="fx-tag">ECharts</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-dealdesk/">Open module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">10<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Financial Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-finance.html"><span class="fx-card__family">Cascadia</span> Finance</a></h2>
+  <p class="fx-card__summary">An executive close pack built from FormFactor's GAAP financials as filed in SEC EDGAR XBRL: real filings, conformed in Python and SQLite and rendered as static ECharts, with the XBRL tags governing what each figure is allowed to mean.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">Python</span><span class="fx-tag">SQLite</span><span class="fx-tag">ECharts</span><span class="fx-tag">XBRL</span></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/cascadia-finance/">Open module <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Playbook" data-type="playbook">
+  <div class="fx-card__top">
+    <p class="fx-card__num">11<span class="fx-card__kind">Playbook</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--playbook">Playbook</span></div>
+  </div>
+  <p class="fx-card__domain">BI Leadership / Metric Governance</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-bi-migration.html"><span class="fx-card__family">Cascadia</span> BI Migration</a></h2>
+  <p class="fx-card__summary">A 24-week program design for moving an organization off legacy BI and onto a governed, AI-assisted platform, with a certified metric layer at the center. A design, not a build.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Complete" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">12<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--complete">Complete</span></div>
+  </div>
+  <p class="fx-card__domain">Healthcare / Staffing Marketplace Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-staffing.html"><span class="fx-card__family">Cascadia</span> Staffing</a></h2>
+  <p class="fx-card__summary">Contingent-labor economics for U.S. nursing facilities on real CMS payroll data, with a certified-metric governance layer. A local SQL Server star schema, a Python staging layer with suppression flags rather than zero-fill, and a Power BI import model.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">SQL Server</span><span class="fx-tag">Power BI</span></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Complete" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">13<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--complete">Complete</span></div>
+  </div>
+  <p class="fx-card__domain">Healthcare / Pharmacy Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-pharmacy.html"><span class="fx-card__family">Cascadia</span> Pharmacy</a></h2>
+  <p class="fx-card__summary">GLP-1 drug spend growth and immunization coverage on real CMS Part D and CDC VaxView data. Messy public data cleaned in a staging layer, suppression flags rather than zero-fill, and the result surfaced in Power BI.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">SQL Server</span><span class="fx-tag">Power BI</span></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Complete" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">14<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--complete">Complete</span></div>
+  </div>
+  <p class="fx-card__domain">Manufacturing Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-medical-devices.html"><span class="fx-card__family">Cascadia</span> Medical Devices</a></h2>
+  <p class="fx-card__summary">Predictive maintenance and OEE analytics on a simulated MES and NASA C-MAPSS data. The full enterprise pattern: a SQL Server star schema into a Microsoft Fabric medallion lakehouse, surfaced through a Power BI Direct Lake semantic model.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"><span class="fx-tag">SQL Server</span><span class="fx-tag">Microsoft Fabric</span><span class="fx-tag">Power BI</span></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card fx-card--muted" data-status="Coming Soon" data-type="case-study">
+  <div class="fx-card__top">
+    <p class="fx-card__num">15<span class="fx-card__kind">Case study</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--coming-soon">Coming Soon</span></div>
+  </div>
+  <p class="fx-card__domain">Retail Analytics</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/cascadia-clothing.html"><span class="fx-card__family">Cascadia</span> Clothing</a></h2>
+  <p class="fx-card__summary">Retail and ecommerce analytics for an apparel scenario, with customer segmentation as the headline skill. Stack and data not yet chosen.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Published" data-type="process">
+  <div class="fx-card__top">
+    <p class="fx-card__num">16<span class="fx-card__kind">Process design</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--new">New</span><span class="fx-badge fx-badge--published">Published</span></div>
+  </div>
+  <p class="fx-card__domain">Process design · A working system</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/job-offer-process-map.html">Job Offer Process Map</a></h2>
+  <p class="fx-card__summary">A job search mapped as a working process: Stage-Gate for structure, BPMN swimlanes for who does what, and a plan-do-check-act loop inside every interview round. Two phases, five lanes, and two keys at every interview gate.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <span class="fx-arrow fx-arrow--disc" aria-hidden="true">↗</span>
+  </div>
+</article>
+
+<article class="fx-card" data-status="Preprint" data-type="paper">
+  <div class="fx-card__top">
+    <p class="fx-card__num">17<span class="fx-card__kind">Paper</span></p>
+    <div class="fx-card__badges"><span class="fx-badge fx-badge--preprint">Preprint</span></div>
+  </div>
+  <p class="fx-card__domain">Mathematics · A pet project</p>
+  <h2 class="fx-card__title"><a class="fx-card__link" href="./projects/sibling-conflict.html">The Combinatorics of Sibling Conflict</a></h2>
+  <p class="fx-card__summary">Not an analytics module: a short mathematics paper. The number of ways n children can take sides against each other, with the rest uninvolved, is (3<sup>n</sup> − 2·2<sup>n</sup> + 1)/2, the Stirling number S(n+1, 3). Of the 25 ways four children can, 6 are one against one; of the 3,025 ways eight children can, 28 are.</p>
+  <div class="fx-card__foot">
+    <div class="fx-card__tags"></div>
+    <a class="fx-card__module" href="https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf">The paper (PDF) <span class="fx-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</article>
+
+</div>
+
+<script>
+(function () {
+  // Status filter for the index. Chosen over Quarto's built-in category
+  // filter (B1, 2026-10-14): that one keys on a `categories` field, renders
+  // in the page margin and writes URL hash state, all three of which the
+  // reskin decisions rule out. This toggles `hidden` on cards by their
+  // data-status; the counts were rendered at build time from the inventory.
+  var row = document.querySelector(".fx-tabs");
+  var grid = document.querySelector(".fx-grid--index");
+  if (!row || !grid) return;
+  var tabs = row.querySelectorAll(".fx-tab");
+  var cards = grid.querySelectorAll(".fx-card");
+  var status = document.querySelector(".fx-tabs__status");
+  function apply(filter) {
+    var shown = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var hide = filter !== "" && cards[i].getAttribute("data-status") !== filter;
+      cards[i].hidden = hide;
+      if (!hide) shown++;
+    }
+    for (var j = 0; j < tabs.length; j++) {
+      tabs[j].setAttribute("aria-pressed", tabs[j].getAttribute("data-filter") === filter ? "true" : "false");
+    }
+    if (status) status.textContent = filter === "" ? "" : "Showing " + shown + " of " + cards.length + ": " + filter;
+  }
+  for (var k = 0; k < tabs.length; k++) {
+    tabs[k].addEventListener("click", function () { apply(this.getAttribute("data-filter")); });
+  }
+  row.hidden = false;
+})();
+</script>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</div>
+
+
+
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.robbinsanalytics\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Aaron Robbins</p>
+</div>   
+    <div class="nav-footer-center">
+<p><span class="fx-wordmark">Robbins <em>Analytics</em><span class="fx-wm-stop">.</span></span></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/RobbinsAnalytics">
+      <i class="bi bi-github" role="img" aria-label="GitHub — Robbins Analytics">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/aaron-robbins-6b25a2136/">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn — Aaron Robbins">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
