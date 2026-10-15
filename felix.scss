@@ -1,0 +1,944 @@
+/*-- scss:defaults --*/
+/*
+   Felix: the site's page chrome, from reskin phase one (ADR 0002, Accepted
+   2026-10-14). Source: cascadia-standards/design-system/felix-design-system.md
+   v1.0, read from the live Vercel build on 2026-10-06. This file is the
+   second theme layer after styles.scss and is deliberately kept apart from
+   it: the $cascadia-* tokens in styles.scss are the chart signature
+   (Source Serif 4, Evergreen, Paper, Spruce) and stay for charts and for
+   every page body this release does not restyle; the $fx-* tokens here are
+   the chrome.
+
+   SCOPE. Three things are global: the header, the footer, and the fx-*
+   component classes (which only the homepage and the index use). Paper
+   background, Inter body type and Inter Tight display type apply ONLY under
+   body.felix-home and body.felix-index. No Bootstrap variable, no global
+   body or h1..h5 rule, is changed here, so a case-study wrapper keeps its
+   Cascadia body under the new chrome. That mismatch is intended and is the
+   full-reskin project's work.
+
+   TWO DEPARTURES FROM FELIX, both required by the brief (its §2):
+   - muted is #6b7877, not #7a8786. Felix's own §9 measures #7a8786 at
+     3.7:1 on white, which fails AA at the 0.7rem the "Case study" suffix
+     uses; #6b7877 measures 4.59:1 on white (and 3.95:1 on paper, where it
+     is only ever used large, in a card title).
+   - The footer legal line is white at 55%, not 40%. white/40 on ink is
+     3.8:1 and fails AA for small text; white/55 is 5.93:1.
+   Both computed 2026-10-14 by WCAG 2.x relative luminance from the token
+   values.
+*/
+
+// ---------- Felix tokens (SCSS) ----------
+$fx-paper:     #efeee9;   // page background
+$fx-white:     #ffffff;   // cards
+$fx-mist:      #e8f0ef;   // tinted hover
+$fx-mist-2:    #f1f6f5;   // lighter tint: dropdown footer row, hovers
+$fx-line:      #dedcd5;   // hairlines, card borders
+$fx-ink:       #0f1f1e;   // headings, dark panels, primary buttons
+$fx-ink-soft:  #4a5857;   // body copy
+$fx-muted:     #6b7877;   // captions, de-emphasised prefix (darkened, see above)
+$fx-teal:      #12403c;   // primary button, serif accent word, links
+$fx-teal-2:    #1f6b63;   // eyebrows, hover state of primary
+$fx-teal-3:    #3f8f85;   // the coloured full stop, dots
+$fx-lime:      #d4f36b;   // THE accent: feature card, New badge
+$fx-lime-2:    #c2e84a;   // lime hover
+
+$fx-font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;
+$fx-font-display: "Inter Tight", "Inter", ui-sans-serif, system-ui, sans-serif;
+$fx-font-serif:   "Fraunces", ui-serif, Georgia, serif;
+$fx-font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+$fx-radius-card: 1.75rem;
+$fx-shadow-soft: 0 1px 2px rgba($fx-ink, 0.03);
+$fx-shadow-lift: 0 2px 4px rgba($fx-ink, 0.05), 0 20px 40px -18px rgba($fx-teal, 0.28);
+$fx-container:   76rem;
+
+/*-- scss:rules --*/
+
+// ---------- Felix tokens (CSS custom properties) ----------
+:root {
+  --fx-paper: #{$fx-paper};
+  --fx-white: #{$fx-white};
+  --fx-mist: #{$fx-mist};
+  --fx-mist-2: #{$fx-mist-2};
+  --fx-line: #{$fx-line};
+  --fx-ink: #{$fx-ink};
+  --fx-ink-soft: #{$fx-ink-soft};
+  --fx-muted: #{$fx-muted};
+  --fx-teal: #{$fx-teal};
+  --fx-teal-2: #{$fx-teal-2};
+  --fx-teal-3: #{$fx-teal-3};
+  --fx-lime: #{$fx-lime};
+  --fx-lime-2: #{$fx-lime-2};
+  --fx-font-sans: #{$fx-font-sans};
+  --fx-font-display: #{$fx-font-display};
+  --fx-font-serif: #{$fx-font-serif};
+  --fx-font-mono: #{$fx-font-mono};
+}
+
+// The container every chrome element and every Felix section shares:
+// 76rem, 1.25rem gutters, 2rem from 768px (Felix §3.1).
+@mixin fx-container {
+  width: 100%;
+  max-width: $fx-container;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+}
+
+@mixin fx-focus($color: $fx-teal-2) {
+  outline: 2px solid $color;
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+// =====================================================================
+// HEADER (every page) -- Felix §6.2 over Quarto's Bootstrap navbar.
+//
+// B4, tried 2026-10-14: the emitted navbar restyles to the pill group and
+// the dropdown card by CSS alone. What CSS cannot add is the domain line
+// and the status word Felix prints under each dropdown item: Quarto emits
+// one <span class="dropdown-text"> per entry and nothing else, and the
+// brief rules out forking the navbar template in this release. The panel
+// therefore carries titles only, with "All case studies" as its mist-2
+// footer row.
+// =====================================================================
+#quarto-header {
+  .navbar {
+    background: $fx-paper;
+    padding: 0;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    transition: border-color .3s, background-color .3s;
+  }
+
+  // Scrolled state: headroom marks the header once it leaves the top.
+  &.headroom--not-top .navbar {
+    border-bottom-color: rgba($fx-ink, 0.10);
+    background: rgba($fx-paper, 0.95);
+    backdrop-filter: blur(24px);
+  }
+
+  .navbar-container {
+    @include fx-container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4.25rem;
+    flex-wrap: wrap;
+  }
+
+  // Wordmark: text, Felix §6.1 without the bar glyph (the SVG mark stays
+  // as the favicon). "Robbins" display semibold, "Analytics" Fraunces
+  // italic in teal-2, and the full stop in teal-3.
+  .navbar-brand-container { margin: 0; flex: 0 0 auto; }
+  .navbar-brand {
+    padding: 0;
+    margin: 0;
+    color: $fx-ink;
+    text-decoration: none;
+    &:hover, &:focus { color: $fx-ink; }
+  }
+  .navbar-title {
+    font-family: $fx-font-display;
+    font-size: 1.3rem;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    white-space: nowrap;
+    color: $fx-ink;
+    em, .fx-wm-serif {
+      font-family: $fx-font-serif;
+      font-style: italic;
+      font-weight: 400;
+      color: $fx-teal-2;
+    }
+    .fx-wm-stop { color: $fx-teal-3; }
+  }
+
+  // The pill group, from the lg breakpoint where the navbar expands.
+  .navbar-nav {
+    align-items: center;
+    gap: 0.125rem;
+  }
+  @media (min-width: 992px) {
+    .navbar-nav {
+      background: $fx-white;
+      border-radius: 999px;
+      padding: 0.25rem;
+      margin-left: auto !important;
+      margin-right: 0 !important;
+    }
+  }
+  .nav-item { margin: 0; }
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-family: $fx-font-sans;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: $fx-ink-soft;
+    transition: background-color .15s, color .15s;
+    .menu-text { color: inherit; }
+    &:hover, &:focus { background: $fx-paper; color: $fx-ink; }
+    &.active, &[aria-current="page"] { background: $fx-ink; color: $fx-white; }
+    &:focus-visible { @include fx-focus; }
+  }
+  // The dropdown's chevron: Bootstrap's caret, drawn as Felix's chevron.
+  .dropdown-toggle::after {
+    border: 0;
+    width: 0.55em;
+    height: 0.55em;
+    margin-left: 0.35em;
+    margin-bottom: 0.2em;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    vertical-align: middle;
+    transition: transform .2s;
+  }
+  .nav-item.dropdown.show .dropdown-toggle::after,
+  .dropdown-toggle[aria-expanded="true"]::after { transform: rotate(225deg); margin-bottom: -0.15em; }
+
+  // Dropdown panel (Felix §6.2): a white card, 22rem, hairline border,
+  // lifted shadow, rounded items, the index as a tinted footer row.
+  .dropdown-menu {
+    background: $fx-white;
+    border: 1px solid $fx-line;
+    border-radius: 1.5rem;
+    box-shadow: $fx-shadow-soft, $fx-shadow-lift;
+    padding: 0.5rem;
+    width: 22rem;
+    max-width: calc(100vw - 2.5rem);
+    max-height: 70vh;
+    overflow-y: auto;
+    margin-top: 0.5rem;
+    li { margin: 0; }
+    // Right-aligned to its toggle, which sits at the right end of the pill
+    // group: Popper's left-aligned placement put the 22rem panel past the
+    // viewport edge at 1440 (seen 2026-10-14).
+    @media (min-width: 992px) {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: auto !important;
+      transform: none !important;
+    }
+  }
+  .dropdown-item {
+    display: block;
+    border-radius: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    font-family: $fx-font-sans;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $fx-ink;
+    white-space: normal;
+    &:hover, &:focus { background: $fx-mist-2; color: $fx-ink; }
+    &:focus-visible { @include fx-focus; border-radius: 0.75rem; }
+  }
+  .dropdown-menu li:last-child .dropdown-item {
+    margin-top: 0.25rem;
+    background: $fx-mist-2;
+    color: $fx-teal;
+    &::after { content: " \2197"; }
+  }
+
+  // Search (Quarto's detached search button) and the hamburger: 44px discs.
+  #quarto-search { margin: 0 0 0 auto; }
+  .aa-DetachedSearchButton {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba($fx-ink, 0.14);
+    background: $fx-white;
+    color: $fx-ink;
+    .aa-DetachedSearchButtonIcon { color: $fx-ink; }
+    &:focus-visible { @include fx-focus; }
+  }
+  @media (min-width: 992px) { #quarto-search { margin-left: 0.75rem; } }
+  .navbar-toggler {
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    margin-left: 0.5rem;
+    border: 0;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    color: $fx-ink;
+    &:focus { box-shadow: none; }
+    &:focus-visible { @include fx-focus; }
+  }
+  .navbar-toggler-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230f1f1e' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+  // Mobile menu (Felix §6.2): below the bar, full width, stacked rounded
+  // links, the dropdown's entries as an indented, hairline-ruled list.
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      flex-basis: 100%;
+      border-top: 1px solid $fx-line;
+      background: $fx-paper;
+      padding: 1rem 0;
+      max-height: calc(100dvh - 4.25rem);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .navbar-nav {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+    .nav-link {
+      border-radius: 0.75rem;
+      padding: 0.75rem;
+      font-size: 1rem;
+      color: $fx-ink;
+      min-height: 2.75rem;
+      &.active, &[aria-current="page"] { background: $fx-white; color: $fx-ink; }
+    }
+    .dropdown-menu {
+      position: static !important;
+      transform: none !important;
+      width: auto;
+      max-width: none;
+      max-height: none;
+      border: 0;
+      border-left: 1px solid $fx-line;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+      margin: 0.25rem 0 0.5rem 0.75rem;
+      padding: 0 0 0 0.75rem;
+    }
+    .dropdown-item {
+      padding: 0.625rem 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: $fx-ink-soft;
+      min-height: 2.75rem;
+      border-radius: 0.5rem;
+    }
+    .dropdown-menu li:last-child .dropdown-item { background: transparent; color: $fx-teal; font-weight: 500; }
+  }
+}
+
+// =====================================================================
+// FOOTER (every page) -- Felix §6.11, in column form: the dark wordmark
+// and the two icon links on the first row, the legal line as the strip
+// under a hairline. Two glows rather than a flat fill (Felix rule 8, minus
+// the grain, see below).
+// =====================================================================
+.nav-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: $fx-ink;
+  color: rgba($fx-white, 0.70);
+  font-family: $fx-font-sans;
+  font-size: 0.875rem;
+  margin: 0;
+  padding: 4rem max(1.25rem, calc((100% - #{$fx-container}) / 2 + 1.25rem)) 3rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "brand social"
+    "legal legal";
+  align-items: center;
+  gap: 2.5rem 1.5rem;
+  min-height: 0;
+  @media (min-width: 768px) {
+    padding-inline: max(2rem, calc((100% - #{$fx-container}) / 2 + 2rem));
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(50% 60% at 85% 100%, rgba($fx-teal-3, 0.28), transparent 70%),
+      radial-gradient(35% 45% at 5% 0%, rgba($fx-teal-2, 0.25), transparent 70%);
+  }
+  // No film grain. Felix lays an SVG feTurbulence data URI over every dark
+  // panel; its filter reference, url(#n), is matched by Quarto's CSS
+  // resource scanner (kCssUrlRegex excludes only data: and http: targets,
+  // not a fragment inside a data URI) and the render fails trying to copy a
+  // file named "%23n" (2026-10-14, Quarto 1.9.38). The two glows carry the
+  // panel; the grain is a build-forward candidate as a real SVG asset.
+
+  // Quarto's three slots, placed on the grid. The wordmark sits in the
+  // centre slot of _quarto.yml because the left slot is the legal line.
+  .nav-footer-center {
+    grid-area: brand;
+    text-align: left;
+    margin: 0;
+    flex: none;
+    p { margin: 0; }
+  }
+  .nav-footer-right {
+    grid-area: social;
+    margin: 0;
+    flex: none;
+  }
+  .nav-footer-left {
+    grid-area: legal;
+    margin: 0;
+    flex: none;
+    border-top: 1px solid rgba($fx-white, 0.10);
+    padding-top: 1.5rem;
+    font-size: 0.75rem;
+    color: rgba($fx-white, 0.55);   // 5.93:1 on ink; Felix's white/40 is 3.8:1
+    p { margin: 0; }
+  }
+
+  .fx-wordmark {
+    font-family: $fx-font-display;
+    font-size: 1.3rem;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    white-space: nowrap;
+    color: $fx-white;
+    em, .fx-wm-serif {
+      font-family: $fx-font-serif;
+      font-style: italic;
+      font-weight: 400;
+      color: $fx-teal-3;
+    }
+    .fx-wm-stop { color: $fx-lime; }
+  }
+
+  .footer-items {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    .nav-item { margin: 0; }
+  }
+  // Icon circle, dark (Felix §6.3).
+  .footer-items .nav-link {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border-radius: 999px;
+    border: 1px solid rgba($fx-white, 0.15);
+    color: $fx-white;
+    font-size: 1.05rem;
+    transition: background-color .2s, color .2s, border-color .2s;
+    &:hover, &:focus { background: $fx-white; color: $fx-ink; border-color: $fx-white; }
+    &:focus-visible { @include fx-focus($fx-lime); }
+    i { color: inherit; }
+  }
+  a { color: rgba($fx-white, 0.65); }
+}
+
+// =====================================================================
+// THE TWO FELIX PAGES. Paper, Inter, Inter Tight: only here.
+// =====================================================================
+body.felix-home,
+body.felix-index {
+  background: $fx-paper;
+  color: $fx-ink;
+  font-family: $fx-font-sans;
+  -webkit-font-smoothing: antialiased;
+
+  h1, h2, h3, h4, h5 {
+    font-family: $fx-font-display;
+    letter-spacing: -0.025em;
+    color: $fx-ink;
+  }
+  // Plain prose links only; the fx-* components set their own colours.
+  a:not([class]) { color: $fx-teal; }
+  ::selection { background: $fx-teal; color: $fx-white; }
+  a:focus-visible, button:focus-visible { @include fx-focus; }
+}
+
+// The headline formula (Felix §1.4): one word per headline in italic
+// Fraunces, teal. Applied by a span; it changes no text.
+.fx-serif {
+  font-family: $fx-font-serif;
+  font-style: italic;
+  font-weight: 400;
+  color: $fx-teal;
+  letter-spacing: -0.03em;
+}
+
+.fx-eyebrow {
+  display: block;
+  font-family: $fx-font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $fx-teal-2;
+  margin: 0;
+}
+
+// ---------- Buttons (Felix §4 .btn) ----------
+.fx-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: $fx-font-sans;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform .2s, background-color .2s, color .2s, border-color .2s;
+  &:hover { transform: translateY(-1px); text-decoration: none; }
+  &:focus-visible { @include fx-focus; }
+}
+.fx-btn--primary { background: $fx-teal; color: $fx-white; &:hover, &:focus { background: $fx-teal-2; color: $fx-white; } }
+.fx-btn--dark    { background: $fx-ink;  color: $fx-white; &:hover, &:focus { background: $fx-teal;   color: $fx-white; } }
+.fx-btn--outline { background: $fx-white; color: $fx-ink; border-color: $fx-line; &:hover, &:focus { border-color: $fx-teal-2; color: $fx-teal; } }
+
+// ---------- Pill (Felix §6.4) ----------
+.fx-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: $fx-white;
+  border: 1px solid rgba($fx-ink, 0.14);
+  color: $fx-ink;
+  font-family: $fx-font-sans;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.fx-pill--on-lime { background: transparent; border-color: rgba($fx-ink, 0.8); }
+
+// ---------- Sections and openers (Felix §3.2, §6.6) ----------
+.fx-section {
+  @include fx-container;
+  padding-top: 6rem;
+  &.fx-section--last { padding-bottom: 6rem; }
+  scroll-margin-top: 5rem;
+}
+.fx-opener {
+  display: grid;
+  gap: 1.5rem;
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1.1fr;
+    align-items: end;
+  }
+  h2 {
+    margin: 1.25rem 0 0;
+    font-size: 2.25rem;
+    line-height: 1.02;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    @media (min-width: 640px) { font-size: 3.4rem; }
+  }
+  .fx-opener__intro {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: $fx-ink-soft;
+    @media (min-width: 1024px) { padding-bottom: 0.5rem; }
+  }
+}
+.fx-sub {
+  margin: 3.5rem 0 0;
+  padding-top: 2.5rem;
+  border-top: 1px solid $fx-line;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1rem;
+  h3 {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+}
+
+// ---------- The hero (Felix §7 "Home", the split) ----------
+body.felix-home {
+  #title-block-header { display: none; }
+
+  .fx-hero {
+    @include fx-container;
+    padding-top: 2.5rem;
+    padding-bottom: 1rem;
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+    @media (min-width: 1024px) {
+      grid-template-columns: 1.05fr 1fr;
+      gap: 3.5rem;
+      padding-top: 4rem;
+      padding-bottom: 2rem;
+    }
+  }
+  .hero-lede h1 {
+    margin: 0;
+    font-size: clamp(3.2rem, 2rem + 5.6vw, 6.2rem);
+    line-height: 0.9;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+  }
+  .hero-subtitle {
+    margin-top: 1.25rem;
+    font-family: $fx-font-display;
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: $fx-ink-soft;
+    p { margin: 0; }
+  }
+  .hero-motto {
+    margin-top: 1.5rem;
+    font-family: $fx-font-serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: $fx-teal;
+    p { margin: 0; }
+    em { font-style: italic; }
+  }
+  .hero-tagline {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: $fx-ink-soft;
+    p { margin: 0; }
+    @media (min-width: 640px) { font-size: 1.15rem; }
+  }
+  .hero-availability {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid $fx-line;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $fx-ink;
+    p { margin: 0; }
+  }
+  .fx-hero__actions {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
+
+// ---------- Cards (Felix §6.5 case-study card, as an <article>) ----------
+.fx-grid {
+  display: grid;
+  // minmax(0, 1fr) at every width: an implicit `auto` track lets a card's
+  // min-content width (a nowrap link beside the tags) push the grid past a
+  // 320px viewport, which the reflow check caught on 2026-10-14.
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+  @media (min-width: 640px)  { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (min-width: 1024px) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  &.fx-grid--beyond {
+    @media (min-width: 1024px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+}
+
+.fx-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  border-radius: $fx-radius-card;
+  background: $fx-white;
+  padding: 1.5rem;
+  transition: transform .3s, box-shadow .3s;
+  &:hover { transform: translateY(-4px); box-shadow: $fx-shadow-lift; }
+  &:has(.fx-card__link:focus-visible) { outline: 2px solid $fx-teal-2; outline-offset: 3px; }
+
+  .fx-card__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .fx-card__num {
+    margin: 0;
+    font-family: $fx-font-display;
+    font-size: 1.7rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: $fx-ink;
+  }
+  .fx-card__kind {
+    margin-left: 0.25rem;
+    vertical-align: top;
+    font-family: $fx-font-sans;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: $fx-muted;
+  }
+  .fx-card__badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.375rem;
+  }
+  .fx-card__domain {
+    margin: 2.5rem 0 0;
+    font-family: $fx-font-mono;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $fx-teal-2;
+  }
+  .fx-card__title {
+    margin: 0.5rem 0 0;
+    font-family: $fx-font-display;
+    font-size: 1.55rem;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: $fx-ink;
+    opacity: 1;
+  }
+  .fx-card__family { color: $fx-muted; }
+  // The title is the card's one link, stretched over the card. The module
+  // link below it sits above the stretch with its own z-index.
+  .fx-card__link {
+    color: inherit;
+    text-decoration: none;
+    &::after { content: ""; position: absolute; inset: 0; border-radius: $fx-radius-card; }
+    &:hover { color: $fx-teal; }
+    &:focus-visible { outline: none; }
+  }
+  .fx-card__summary {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: $fx-ink-soft;
+  }
+  .fx-card__foot {
+    margin-top: auto;
+    padding-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .fx-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+  .fx-card__module {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $fx-ink;
+    text-decoration: none;
+    white-space: nowrap;
+    &:hover { color: $fx-teal; }
+    &:focus-visible { @include fx-focus; }
+    .fx-arrow {
+      display: grid;
+      place-items: center;
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 999px;
+      background: $fx-white;
+      border: 1px solid rgba($fx-ink, 0.14);
+      color: $fx-ink;
+      font-size: 1rem;
+      transition: background-color .25s, color .25s, border-color .25s, transform .25s;
+    }
+    &:hover .fx-arrow { background: $fx-ink; border-color: $fx-ink; color: $fx-lime; transform: rotate(-8deg); }
+  }
+  &.fx-card--muted .fx-card__title { color: $fx-ink-soft; }
+}
+
+// The circular arrow (Felix §4 .arrow-btn), decorative: not a focus stop.
+.fx-arrow--disc {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  background: $fx-white;
+  border: 1px solid rgba($fx-ink, 0.14);
+  color: $fx-ink;
+  font-size: 1rem;
+  transition: background-color .25s, color .25s, border-color .25s, transform .25s;
+}
+.fx-card:hover .fx-arrow--disc { background: $fx-ink; border-color: $fx-ink; color: $fx-lime; transform: rotate(-8deg); }
+
+.fx-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: $fx-paper;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  color: $fx-ink-soft;
+  white-space: nowrap;
+}
+
+// Status badges (Felix §6.4), one per status word the inventory uses.
+.fx-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 999px;
+  border: 1px solid rgba($fx-ink, 0.12);
+  background: $fx-white;
+  color: $fx-ink;
+  padding: 0.25rem 0.625rem;
+  font-family: $fx-font-sans;
+  font-size: 0.7rem;
+  line-height: 1;
+  font-weight: 500;
+  white-space: nowrap;
+  &::before {
+    content: "";
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 999px;
+    background: $fx-teal-3;
+    flex-shrink: 0;
+  }
+}
+.fx-badge--new         { background: $fx-lime; border-color: $fx-lime; color: $fx-ink; &::before { background: $fx-ink; } }
+.fx-badge--published   { &::before { background: $fx-teal-3; } }
+.fx-badge--complete    { color: $fx-ink-soft; &::before { background: rgba($fx-ink, 0.4); } }
+.fx-badge--playbook    { background: #fdf4e3; border-color: #f0d9ad; color: #7a5210; &::before { background: #d99a2b; } }
+.fx-badge--coming-soon { background: transparent; border-style: dashed; border-color: rgba($fx-ink, 0.25); color: $fx-muted; &::before { background: rgba($fx-ink, 0.25); } }
+.fx-badge--preprint    { background: #eef0fb; border-color: #d9ddf5; color: #39428a; &::before { background: #6571c9; } }
+
+// ---------- Lime feature card (Felix §6.5, one per page) ----------
+// No heat grid. The right panel carries the card's catalogue number in
+// display type and a glow: typography only, nothing that reads as a chart.
+.fx-feature {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: $fx-radius-card;
+  background: $fx-lime;
+  color: $fx-ink;
+  @media (min-width: 768px) { grid-template-columns: 1.3fr 1fr; }
+
+  .fx-feature__body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    @media (min-width: 640px) { padding: 2.5rem; }
+  }
+  .fx-feature__kicker { margin: 0; }
+  .fx-feature__title {
+    margin: 2rem 0 0;
+    font-family: $fx-font-display;
+    font-size: 2.25rem;
+    line-height: 1.02;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: $fx-ink;
+    @media (min-width: 640px) { font-size: 3rem; }
+  }
+  .fx-feature__lede {
+    margin: 1.25rem 0 0;
+    max-width: 36rem;
+    font-family: $fx-font-display;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: $fx-ink;
+  }
+  .fx-feature__summary {
+    margin: 0.75rem 0 0;
+    max-width: 36rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba($fx-ink, 0.75);   // 6.65:1 on lime
+  }
+  .fx-feature__links {
+    margin: 2rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+  }
+  .fx-feature__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid $fx-ink;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $fx-ink;
+    text-decoration: none;
+    .fx-arrow { transition: transform .2s; }
+    &:hover { color: $fx-ink; .fx-arrow { transform: translateX(0.25rem); } }
+    &:focus-visible { @include fx-focus($fx-ink); border-radius: 2px; }
+  }
+  .fx-feature__link--primary {
+    border: 0;
+    padding: 0.7rem 1.25rem;
+    min-height: 2.75rem;
+    border-radius: 999px;
+    background: $fx-ink;
+    color: $fx-white;
+    transition: background-color .2s, transform .2s;
+    &:hover { background: $fx-teal; color: $fx-white; transform: translateY(-1px); .fx-arrow { transform: none; } }
+    &:focus-visible { @include fx-focus($fx-ink); }
+  }
+  .fx-feature__aside {
+    position: relative;
+    display: none;
+    place-items: center;
+    min-height: 14rem;
+    background: $fx-ink;
+    background-image:
+      radial-gradient(45% 60% at 100% 100%, rgba($fx-lime, 0.16), transparent 70%),
+      radial-gradient(40% 55% at 0% 0%, rgba($fx-teal-3, 0.35), transparent 70%);
+    @media (min-width: 768px) { display: grid; }
+  }
+  .fx-feature__mark {
+    font-family: $fx-font-display;
+    font-size: clamp(6rem, 11vw, 10rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    color: $fx-lime;
+  }
+}
+
+.fx-more {
+  margin: 2rem 0 0;
+  text-align: center;
+}
+
+// Quarto's listing wrapper adds nothing visible; keep it from adding space.
+.quarto-listing { margin: 0; }
+.listing-no-matching { display: none; }
