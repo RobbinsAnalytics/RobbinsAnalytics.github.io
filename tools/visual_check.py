@@ -107,8 +107,17 @@ def compare(baseline_png, current_png, diff_path):
 
     a = Image.open(_io.BytesIO(baseline_png)).convert("RGB")
     b = Image.open(_io.BytesIO(current_png)).convert("RGB")
+    note = ""
     if a.size != b.size:
-        return 1.0, "size changed: baseline %sx%s, now %sx%s" % (a.size + b.size)
+        # A page whose height changed is a change, full stop, and the ratio
+        # says so. But it is also the most common INTENDED change -- a
+        # sentence got longer -- and until 2026-10-14 this returned here
+        # without writing anything, so the diff artifact was empty exactly
+        # when a person most needed to look. Diff the overlapping region:
+        # the first band of difference is where the text moved.
+        note = "size changed: baseline %sx%s, now %sx%s" % (a.size + b.size)
+        w, h = min(a.size[0], b.size[0]), min(a.size[1], b.size[1])
+        a, b = a.crop((0, 0, w, h)), b.crop((0, 0, w, h))
 
     diff = ImageChops.difference(a, b)
     # Collapse to the largest per-channel move at each pixel, then threshold.
@@ -116,10 +125,12 @@ def compare(baseline_png, current_png, diff_path):
     differing = sum(mono.histogram()[1:])
     total = a.size[0] * a.size[1]
     ratio = differing / float(total) if total else 0.0
+    if note:
+        ratio = 1.0
     if ratio > TOLERANCE and diff_path:
         diff_path.parent.mkdir(parents=True, exist_ok=True)
         mono.save(diff_path)
-    return ratio, ""
+    return ratio, note
 
 
 def main():
