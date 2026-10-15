@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-aa3a58f22bb0a1e965538d10fd2cfca4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-55095ecacb6c9d1c7d1378591e7a160e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -256,6 +256,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/brand/robbins-mark.svg" alt="Robbins Analytics" class="navbar-logo light-content">
+    <img src="./assets/brand/robbins-mark.svg" alt="Robbins Analytics" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Robbins <em>Analytics</em><span class="fx-wm-stop">.</span></span>
     </a>
@@ -389,69 +393,131 @@ window.Quarto = {
 </header>
 
 
-<!-- The hero. Every line of copy below is Aaron's and is moved, not edited
-     (lines 43 to 69 of the 2026-10-14 index.qmd); only the wrapper changed,
-     from .hero-banner/.hero-inner to the Felix split (§7 "Home"). The span
-     on the first name applies the headline formula and changes no text. -->
+<!-- THE HERO (Felix §7 "Home" split; Aaron's notes 2 to 9, 2026-10-15).
+     Aaron's 2026-10-14 hero copy is split into its parts, not rewritten:
+     the lede sentence, the five industries as pills, The Craft and The
+     Portfolio as two of three items. One change of wording, Aaron's own:
+     "let AI do the build" is now "direct AI to do the build". The Track
+     Record is new copy built from about.qmd line 9. The motto moved to the
+     statement panel below. The availability line is unchanged. -->
 <div class="fx-hero">
-<section id="aaron-robbins" class="level1 hero-lede">
-<h1><span class="fx-serif">Aaron</span> Robbins</h1>
+<section id="aaron-robbins." class="level1 fx-hero__text">
+<h1><span class="fx-serif">Aaron</span> Robbins<span class="fx-stop">.</span></h1>
 <div class="hero-subtitle">
 <p>AI Analytics Architect</p>
 </div>
-<div class="hero-motto">
-<div class="hero-motto-sub">
-<p><em>Trust What You Can Test</em></p>
+<div class="fx-hero__lede">
+<p>12+ years turning messy data into decisions leaders trust.</p>
 </div>
-</div>
-</section>
-<div class="hero-aside">
-<div class="hero-tagline">
-<p>12+ years turning messy data into decisions leaders trust: healthcare manufacturing and quality, ecommerce and retail, and time in supply chain, digital merchandising, and finance. The expertise is in the craft, not the tooling. I design the analytics, specify what correct looks like, and let AI do the build. Every build carries its own evidence: known answers set before the code, tests that run every time, and a record of what each test caught. That is proof stakeholders can check, not a claim they have to trust.</p>
-</div>
+<ul class="fx-hero__pills" aria-label="Industries">
+  <li>Healthcare manufacturing and quality</li>
+  <li>Ecommerce and retail</li>
+  <li>Supply chain</li>
+  <li>Digital merchandising</li>
+  <li>Finance</li>
+</ul>
+<dl class="fx-hero__items">
+  <div>
+    <dt>The Craft</dt>
+    <dd>The expertise is in the craft, not the tooling. I design the analytics, specify what correct looks like, and direct AI to do the build.</dd>
+  </div>
+  <div>
+    <dt>The Portfolio</dt>
+    <dd>Every build carries its own evidence: known answers set before the code, tests that run every time, and a record of what each test caught. That is proof stakeholders can check, not a claim they have to trust.</dd>
+  </div>
+  <div>
+    <dt>The Track Record</dt>
+    <dd>Proposed and staffed a BI function from zero, then ran BI and analytics programs across 23 manufacturing sites in eleven countries, with 200+ stakeholders.</dd>
+  </div>
+</dl>
 <div class="hero-availability">
 <p>Open to analytics manager, lead, or principal roles where reporting has outgrown trust, and to conversations about roles that don’t exist yet. Seattle or remote.</p>
 </div>
 <div class="fx-hero__actions">
-<p><a href="./case-studies.html" class="fx-btn fx-btn--primary">All case studies</a> <a href="./cascadia.html" class="fx-btn fx-btn--outline">Learn about the Cascadia architecture</a></p>
+<p><a href="./case-studies.html" class="fx-btn fx-btn--dark">View case studies <span class="fx-arrow" aria-hidden="true">→</span></a> <a href="./cascadia.html" class="fx-btn fx-btn--outline">Cascadia architecture</a></p>
 </div>
+</section>
+<!-- The hero illustration, Felix §6.12, rebuilt as inline SVG (Aaron's note
+     8, 2026-10-15). Decoration in brand colours: two pillars, a dark panel
+     with a dot grid, gridlines, seven bars, a drawn curve with a dashed lime
+     twin and three node markers. It plots nothing; the caption is the
+     motto, not a claim. -->
+<figure class="fx-hero__art figure" role="img" aria-label="Decorative illustration in the site's colours: two tall rounded pillars beside a dark green panel with rising bars and a curve drawn across them, captioned Trust what you can test.">
+<svg viewbox="0 0 520 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<defs> <lineargradient id="fxHeroPanel" x1="0" y1="0" x2="1" y2="1"> <stop offset="0" stop-color="#1a4f4a"></stop> <stop offset="1" stop-color="#0e3531"></stop> </lineargradient> <pattern id="fxHeroDots" width="22" height="22" patternunits="userSpaceOnUse"> <circle cx="11" cy="11" r="1.2" fill="#ffffff" opacity="0.12"></circle> </pattern> </defs> <rect x="0" y="40" width="42" height="520" rx="18" fill="#12403c" opacity="0.85"></rect> <rect x="58" y="80" width="42" height="480" rx="18" fill="#12403c"></rect> <rect x="124" y="0" width="396" height="560" rx="30" fill="url(#fxHeroPanel)"></rect> <rect x="124" y="0" width="396" height="560" rx="30" fill="url(#fxHeroDots)"></rect> <circle cx="470" cy="60" r="110" fill="#3f8f85" opacity="0.12"></circle> <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"> <line x1="160" y1="190" x2="484" y2="190"></line> <line x1="160" y1="270" x2="484" y2="270"></line> <line x1="160" y1="350" x2="484" y2="350"></line> <line x1="160" y1="430" x2="484" y2="430"></line> </g> <g fill="#3f8f85" opacity="0.35"> <rect x="166" y="380" width="30" height="110" rx="8"></rect> <rect x="212" y="350" width="30" height="140" rx="8"></rect> <rect x="258" y="320" width="30" height="170" rx="8"></rect> <rect x="304" y="300" width="30" height="190" rx="8"></rect> <rect x="350" y="260" width="30" height="230" rx="8"></rect> <rect x="396" y="230" width="30" height="260" rx="8"></rect> <rect x="442" y="190" width="30" height="300" rx="8"></rect> </g> <path d="M170 420 C 230 400, 260 360, 310 330 S 400 240, 462 170" fill="none" stroke="#d4f36b" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round" transform="translate(0 6)"></path> <path d="M170 420 C 230 400, 260 360, 310 330 S 400 240, 462 170" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"></path> <g> <circle cx="240" cy="384" r="9" fill="#12403c" stroke="#ffffff" stroke-width="2.5"></circle><circle cx="240" cy="384" r="3" fill="#ffffff"></circle> <circle cx="340" cy="304" r="9" fill="#12403c" stroke="#ffffff" stroke-width="2.5"></circle><circle cx="340" cy="304" r="3" fill="#ffffff"></circle> <circle cx="462" cy="170" r="9" fill="#12403c" stroke="#ffffff" stroke-width="2.5"></circle><circle cx="462" cy="170" r="3" fill="#ffffff"></circle> </g> <text x="166" y="528" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2" fill="#ffffff" fill-opacity="0.4">TRUST WHAT YOU CAN TEST</text>
+</svg>
+</figure>
 </div>
+<!-- THE ONE RULE (Felix §6.11 statement panel; note 6). The motto, just below
+     the fold. The quotation is Felix's copy, attributed to Aaron, kept at his
+     direction (2026-10-15). -->
+<section class="fx-statement" aria-labelledby="fx-statement-title">
+  <div class="fx-statement__panel">
+    <p class="fx-statement__eyebrow"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path></svg> The one rule</p>
+    <h2 class="fx-statement__title" id="fx-statement-title">Trust What You<br><span class="fx-statement__serif">Can Test<svg class="fx-underline" viewbox="0 0 120 12" preserveaspectratio="none" aria-hidden="true" focusable="false"><path d="M2 8 C 30 2, 60 11, 118 4" fill="none" stroke="#d4f36b" stroke-width="2.5" stroke-linecap="round"></path></svg></span><span class="fx-statement__stop">.</span></h2>
+    <div class="fx-statement__foot">
+      <blockquote class="fx-statement__quote blockquote">
+        <p><span class="fx-q">“</span>Validation suites that fail the build rather than ship a number I can’t defend.<span class="fx-q">”</span></p>
+        <footer>— Aaron Robbins</footer>
+      </blockquote>
+      <span class="fx-statement__seal" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewbox="0 0 16 16" fill="currentColor"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path></svg></span>
+    </div>
+  </div>
+</section>
+<!-- FIVE FIGURES (Felix §6.5 stat strip; note 10). Generated from
+     data/stats.json by tools/build_stats.py and spliced in by
+     tools/fx_include.lua; every tile is checked against the page or the
+     snapshot it quotes by tools/check_references.py. -->
+<div class="fx-stats-section">
+<!-- Generated by tools/build_stats.py from data/stats.json; do not edit. -->
+<ol class="fx-stats" aria-label="Five figures"><li class="fx-stat"><span class="fx-stat__num">01</span><span class="fx-stat__value">12+</span><span class="fx-stat__label">years in BI and analytics</span></li><li class="fx-stat"><span class="fx-stat__num">02</span><span class="fx-stat__value">10</span><span class="fx-stat__label">builds in four months, June to October 2026</span></li><li class="fx-stat"><span class="fx-stat__num">03</span><span class="fx-stat__value">14</span><span class="fx-stat__label">test surfaces across the portfolio</span></li><li class="fx-stat"><span class="fx-stat__num">04</span><span class="fx-stat__value">200+</span><span class="fx-stat__label">Critical Data Elements standardized on one manufacturing platform</span></li><li class="fx-stat"><span class="fx-stat__num">05</span><span class="fx-stat__value">$80K</span><span class="fx-stat__label">a year taken out of a reporting estate</span></li></ol>
+<p class="fx-stats__source">Career figures from the About page; portfolio figures from the Build by Build inventory, frozen 2026-10-07.</p>
+
 </div>
+<!-- THE CASCADIA PORTFOLIO (note 11: after the Trust card, above the cards). -->
 <div id="cascadia-portfolio" class="fx-section">
 <div class="fx-opener">
 <div class="fx-opener__head">
-<p><span class="fx-eyebrow">01 / Case Studies</span></p>
+<p><span class="fx-pill">Case studies</span></p>
 <section id="the-cascadia-portfolio" class="level2">
 <h2 data-anchor-id="the-cascadia-portfolio">The Cascadia Portfolio</h2>
 </section>
 </div>
 <div class="fx-opener__intro">
-<p>Cascadia is a portfolio built to be checked, not taken on faith.</p>
+<p>Cascadia is a portfolio built to be checked, not taken on faith. Which tests each module could carry, build by build, is one page: <a href="./projects/cascadia-build-by-build.html">Build by Build</a>.</p>
 </div>
 </div>
-<section id="leadership-portfolio" class="level3 fx-sub">
-<h3 data-anchor-id="leadership-portfolio">Leadership Portfolio</h3>
-</section>
+<!-- Build by Build, smaller (note 12): the template renders the text column
+     from the inventory; the matrix beside it is the real ten-by-fourteen
+     grid, generated from the committed snapshot by tools/build_bbb_grid.py.
+     The two share one lime card through .fx-feature-wrap. -->
+<div class="fx-feature-wrap">
 <div id="listing-fx-feature" class="quarto-listing quarto-listing-container-custom">
 
-<article class="fx-feature" data-slug="build-by-build">
-  <div class="fx-feature__body">
-    <p class="fx-feature__kicker"><span class="fx-pill fx-pill--on-lime">Featured · Portfolio</span></p>
-    <h4 class="fx-feature__title">Build by Build</h4>
-    <p class="fx-feature__lede">Two ways to check a number at build one. Fourteen had appeared by build nine.</p>
-    <p class="fx-feature__summary">Ten modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names. An empty cell is a fact about what a build carried, never a debt.</p>
-    <p class="fx-feature__links">
-      <a class="fx-feature__link fx-feature__link--primary" href="https://www.robbinsanalytics.com/cascadia-build-by-build/">Open the live matrix <span class="fx-arrow" aria-hidden="true">↗</span></a>
-      <a class="fx-feature__link" href="./projects/cascadia-build-by-build.html">View the page <span class="fx-arrow" aria-hidden="true">→</span></a>
-    </p>
-  </div>
-  <div class="fx-feature__aside" aria-hidden="true">
-    <span class="fx-feature__mark">01</span>
-  </div>
+<article class="fx-feature__body" data-slug="build-by-build">
+  <p class="fx-feature__kicker"><span class="fx-pill fx-pill--on-lime">Featured · Portfolio</span></p>
+  <h3 class="fx-feature__title">Build by Build</h3>
+  <p class="fx-feature__lede">Two ways to check a number at build one. Fourteen had appeared by build nine.</p>
+  <p class="fx-feature__links">
+    <a class="fx-feature__link" href="https://www.robbinsanalytics.com/cascadia-build-by-build/">Explore the build matrix <span class="fx-arrow" aria-hidden="true">→</span></a>
+    <a class="fx-feature__link fx-feature__link--quiet" href="./projects/cascadia-build-by-build.html">About the page</a>
+  </p>
 </article>
 
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
+<!-- Generated by tools/build_bbb_grid.py from data/build-by-build.json; do not edit. -->
+<div class="fx-matrix" data-rows="10" data-cols="14" data-present="70">
+  <div class="fx-matrix__bands" aria-hidden="true"><span class="fx-matrix__band" style="--span:3">Data</span><span class="fx-matrix__band" style="--span:6">Numbers</span><span class="fx-matrix__band" style="--span:3">Presentation</span><span class="fx-matrix__band" style="--span:2">Operation</span></div>
+  <div class="fx-matrix__grid" role="img" aria-labelledby="fx-matrix-caption" aria-describedby="fx-matrix-desc" style="--cols:14"><span class="fx-matrix__cell is-on" data-build="manufacturing-analytics" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="frozen_source"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="source_register"></span><span class="fx-matrix__cell is-on" data-build="manufacturing-analytics" data-surface="row_count_validation"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="validation_report"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="tests_as_code"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="independent_rederivation"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="golden_fixture"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="negative_controls"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="chart_review"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="reading_panel"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="metric_register"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell" data-build="manufacturing-analytics" data-surface="reconciliation_published"></span><span class="fx-matrix__cell is-on" data-build="cascadia-pharmacy-analytics" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="frozen_source"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="source_register"></span><span class="fx-matrix__cell is-on" data-build="cascadia-pharmacy-analytics" data-surface="row_count_validation"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="validation_report"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="tests_as_code"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="independent_rederivation"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="golden_fixture"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="negative_controls"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="chart_review"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="reading_panel"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="metric_register"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell" data-build="cascadia-pharmacy-analytics" data-surface="reconciliation_published"></span><span class="fx-matrix__cell is-on" data-build="cascadia-staffing-analytics" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="frozen_source"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="source_register"></span><span class="fx-matrix__cell is-on" data-build="cascadia-staffing-analytics" data-surface="row_count_validation"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="validation_report"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="tests_as_code"></span><span class="fx-matrix__cell is-on" data-build="cascadia-staffing-analytics" data-surface="independent_rederivation"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="golden_fixture"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="negative_controls"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="chart_review"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="reading_panel"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="metric_register"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell" data-build="cascadia-staffing-analytics" data-surface="reconciliation_published"></span><span class="fx-matrix__cell is-on" data-build="cascadia-finance-analytics" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell is-on" data-build="cascadia-finance-analytics" data-surface="frozen_source"></span><span class="fx-matrix__cell" data-build="cascadia-finance-analytics" data-surface="source_register"></span><span class="fx-matrix__cell" data-build="cascadia-finance-analytics" data-surface="row_count_validation"></span><span class="fx-matrix__cell is-on" data-build="cascadia-finance-analytics" data-surface="validation_report"></span><span class="fx-matrix__cell" data-build="cascadia-finance-analytics" data-surface="tests_as_code"></span><span class="fx-matrix__cell" data-build="cascadia-finance-analytics" data-surface="independent_rederivation"></span><span class="fx-matrix__cell" data-build="cascadia-finance-analytics" data-surface="golden_fixture"></span><span class="fx-matrix__cell is-on" data-build="cascadia-finance-analytics" data-surface="negative_controls"></span><span class="fx-matrix__cell is-on" data-build="cascadia-finance-analytics" data-surface="chart_review"></span><span class="fx-matrix__cell is-on" data-build="cascadia-finance-analytics" data-surface="reading_panel"></span><span class="fx-matrix__cell" data-build="cascadia-finance-analytics" data-surface="metric_register"></span><span class="fx-matrix__cell" data-build="cascadia-finance-analytics" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell" data-build="cascadia-finance-analytics" data-surface="reconciliation_published"></span><span class="fx-matrix__cell is-on" data-build="cascadia-dealdesk-analytics" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell is-on" data-build="cascadia-dealdesk-analytics" data-surface="frozen_source"></span><span class="fx-matrix__cell" data-build="cascadia-dealdesk-analytics" data-surface="source_register"></span><span class="fx-matrix__cell is-on" data-build="cascadia-dealdesk-analytics" data-surface="row_count_validation"></span><span class="fx-matrix__cell is-on" data-build="cascadia-dealdesk-analytics" data-surface="validation_report"></span><span class="fx-matrix__cell" data-build="cascadia-dealdesk-analytics" data-surface="tests_as_code"></span><span class="fx-matrix__cell" data-build="cascadia-dealdesk-analytics" data-surface="independent_rederivation"></span><span class="fx-matrix__cell" data-build="cascadia-dealdesk-analytics" data-surface="golden_fixture"></span><span class="fx-matrix__cell" data-build="cascadia-dealdesk-analytics" data-surface="negative_controls"></span><span class="fx-matrix__cell is-on" data-build="cascadia-dealdesk-analytics" data-surface="chart_review"></span><span class="fx-matrix__cell is-on" data-build="cascadia-dealdesk-analytics" data-surface="reading_panel"></span><span class="fx-matrix__cell" data-build="cascadia-dealdesk-analytics" data-surface="metric_register"></span><span class="fx-matrix__cell" data-build="cascadia-dealdesk-analytics" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell" data-build="cascadia-dealdesk-analytics" data-surface="reconciliation_published"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="frozen_source"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="source_register"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="row_count_validation"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="validation_report"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="tests_as_code"></span><span class="fx-matrix__cell" data-build="cascadia-controltower-analytics" data-surface="independent_rederivation"></span><span class="fx-matrix__cell" data-build="cascadia-controltower-analytics" data-surface="golden_fixture"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="negative_controls"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="chart_review"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="reading_panel"></span><span class="fx-matrix__cell is-on" data-build="cascadia-controltower-analytics" data-surface="metric_register"></span><span class="fx-matrix__cell" data-build="cascadia-controltower-analytics" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell" data-build="cascadia-controltower-analytics" data-surface="reconciliation_published"></span><span class="fx-matrix__cell" data-build="cascadia-matter-ledger-analytics" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell is-on" data-build="cascadia-matter-ledger-analytics" data-surface="frozen_source"></span><span class="fx-matrix__cell is-on" data-build="cascadia-matter-ledger-analytics" data-surface="source_register"></span><span class="fx-matrix__cell" data-build="cascadia-matter-ledger-analytics" data-surface="row_count_validation"></span><span class="fx-matrix__cell" data-build="cascadia-matter-ledger-analytics" data-surface="validation_report"></span><span class="fx-matrix__cell is-on" data-build="cascadia-matter-ledger-analytics" data-surface="tests_as_code"></span><span class="fx-matrix__cell is-on" data-build="cascadia-matter-ledger-analytics" data-surface="independent_rederivation"></span><span class="fx-matrix__cell" data-build="cascadia-matter-ledger-analytics" data-surface="golden_fixture"></span><span class="fx-matrix__cell" data-build="cascadia-matter-ledger-analytics" data-surface="negative_controls"></span><span class="fx-matrix__cell is-on" data-build="cascadia-matter-ledger-analytics" data-surface="chart_review"></span><span class="fx-matrix__cell is-on" data-build="cascadia-matter-ledger-analytics" data-surface="reading_panel"></span><span class="fx-matrix__cell is-on" data-build="cascadia-matter-ledger-analytics" data-surface="metric_register"></span><span class="fx-matrix__cell is-on" data-build="cascadia-matter-ledger-analytics" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell is-on" data-build="cascadia-matter-ledger-analytics" data-surface="reconciliation_published"></span><span class="fx-matrix__cell" data-build="cascadia-fee-examiner" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell is-on" data-build="cascadia-fee-examiner" data-surface="frozen_source"></span><span class="fx-matrix__cell is-on" data-build="cascadia-fee-examiner" data-surface="source_register"></span><span class="fx-matrix__cell" data-build="cascadia-fee-examiner" data-surface="row_count_validation"></span><span class="fx-matrix__cell" data-build="cascadia-fee-examiner" data-surface="validation_report"></span><span class="fx-matrix__cell" data-build="cascadia-fee-examiner" data-surface="tests_as_code"></span><span class="fx-matrix__cell is-on" data-build="cascadia-fee-examiner" data-surface="independent_rederivation"></span><span class="fx-matrix__cell" data-build="cascadia-fee-examiner" data-surface="golden_fixture"></span><span class="fx-matrix__cell" data-build="cascadia-fee-examiner" data-surface="negative_controls"></span><span class="fx-matrix__cell is-on" data-build="cascadia-fee-examiner" data-surface="chart_review"></span><span class="fx-matrix__cell is-on" data-build="cascadia-fee-examiner" data-surface="reading_panel"></span><span class="fx-matrix__cell is-on" data-build="cascadia-fee-examiner" data-surface="metric_register"></span><span class="fx-matrix__cell is-on" data-build="cascadia-fee-examiner" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell is-on" data-build="cascadia-fee-examiner" data-surface="reconciliation_published"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="frozen_source"></span><span class="fx-matrix__cell" data-build="cascadia-revenue-assurance" data-surface="source_register"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="row_count_validation"></span><span class="fx-matrix__cell" data-build="cascadia-revenue-assurance" data-surface="validation_report"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="tests_as_code"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="independent_rederivation"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="golden_fixture"></span><span class="fx-matrix__cell" data-build="cascadia-revenue-assurance" data-surface="negative_controls"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="chart_review"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="reading_panel"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="metric_register"></span><span class="fx-matrix__cell" data-build="cascadia-revenue-assurance" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell is-on" data-build="cascadia-revenue-assurance" data-surface="reconciliation_published"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="one_command_rebuild"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="frozen_source"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="source_register"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="row_count_validation"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="validation_report"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="tests_as_code"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="independent_rederivation"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="golden_fixture"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="negative_controls"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="chart_review"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="reading_panel"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="metric_register"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="scheduled_run_with_health"></span><span class="fx-matrix__cell is-on" data-build="cascadia-early-warning" data-surface="reconciliation_published"></span></div>
+  <p class="fx-matrix__caption" id="fx-matrix-caption">10 builds × 14 test surfaces · 70 of 140 present · <span style="white-space:nowrap">frozen 2026-10-07</span></p>
+  <p class="visually-hidden" id="fx-matrix-desc">The Build by Build matrix: 10 builds by 14 test surfaces, 70 of 140 cells present. Each row is one Cascadia build in first-commit order, from Cascadia Medical Devices to Cascadia Early Warning. Each column is one test surface, in four bands: Data (3), Numbers (6), Presentation (3) and Operation (2). A filled cell means the build carried that test surface when it shipped. The inventory was frozen on 2026-10-07. The full matrix, with every filled cell linked to the file it names, is the Build by Build page.</p>
+</div>
+
+</div>
+<section id="leadership-portfolio" class="level3 fx-sub">
+<h3 data-anchor-id="leadership-portfolio">Leadership Portfolio</h3>
+</section>
 <div id="listing-fx-leadership" class="quarto-listing quarto-listing-container-custom">
 
 <div class="fx-grid fx-grid--leadership">
@@ -557,6 +623,45 @@ window.Quarto = {
 
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
+</div>
+<!-- HOW THE WORK IS DONE (note 13, Aaron's choice 2026-10-15: specify,
+     validate, operate, not the three stack patterns). Copy from cascadia.qmd,
+     How I Built This and Design Principles; each tile names the build that
+     proves it. -->
+<div class="fx-white">
+<div class="fx-white__panel">
+<div class="fx-opener fx-opener--row">
+<div class="fx-opener__head">
+<p><span class="fx-pill">Method</span></p>
+<section id="specify-validate-operate" class="level2">
+<h2 data-anchor-id="specify-validate-operate">Specify, <span class="fx-serif">validate</span>, operate</h2>
+</section>
+</div>
+<p><a href="./cascadia.html#how-i-built-this" class="fx-disc-link">Learn about the Cascadia architecture <span class="fx-arrow--disc" aria-hidden="true">↗</span></a></p>
+</div>
+<ol class="fx-tiles">
+  <li class="fx-tile">
+    <div class="fx-tile__top"><p class="fx-tile__num">01<span>Specify</span></p><a class="fx-pill" href="https://www.robbinsanalytics.com/cascadia-validation-playbook/">Validation Playbook</a></div>
+    <h3 class="fx-tile__title">Written <span class="fx-tile__muted">spec</span></h3>
+    <p class="fx-tile__flow">Specification → agent build → review</p>
+    <p class="fx-tile__text">I set the architecture, the data model and the measurement definitions as a written specification. AI coding agents build to it. I do not hand-write the Python: I write the spec, review the output and validate it.</p>
+  </li>
+  <li class="fx-tile">
+    <div class="fx-tile__top"><p class="fx-tile__num">02<span>Validate</span></p><a class="fx-pill" href="./projects/cascadia-revenue-assurance.html">Revenue Assurance</a></div>
+    <h3 class="fx-tile__title">Independent <span class="fx-tile__muted">check</span></h3>
+    <p class="fx-tile__flow">Definition → independent SQL → reconcile</p>
+    <p class="fx-tile__text">Every certified measure is validated independently against raw SQL, written to the definition and not to the code. Revenue Assurance derives every published cell twice, by two engines written to be different, and they agree.</p>
+  </li>
+  <li class="fx-tile">
+    <div class="fx-tile__top"><p class="fx-tile__num">03<span>Operate</span></p><a class="fx-pill" href="./projects/cascadia-matter-ledger.html">Matter Ledger</a></div>
+    <h3 class="fx-tile__title">Operated, not <span class="fx-tile__muted">only built</span></h3>
+    <p class="fx-tile__flow">Schedule → re-assert → publish failures</p>
+    <p class="fx-tile__text">A surface that has only ever shown green has demonstrated nothing. Matter Ledger runs on a schedule, re-asserts its own invariants on every run, reconciles a live increment against the frozen baseline, and publishes the result, including when a run fails.</p>
+  </li>
+</ol>
+</div>
+</div>
+<div class="fx-section">
 <section id="beyond-the-portfolio" class="level3 fx-sub">
 <h3 data-anchor-id="beyond-the-portfolio">Beyond the Portfolio</h3>
 </section>
@@ -597,14 +702,83 @@ window.Quarto = {
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
 </div>
-<div class="fx-section fx-section--last">
+<!-- LET'S TALK (Felix §6.11 CTA banner; note 14). Felix's copy, kept at
+     Aaron's direction. There is no contact page and no email on the site, so
+     "Get in touch" opens LinkedIn (Aaron, 2026-10-15). The bars on the right
+     carry no axis, labels or numbers. -->
+<section class="fx-cta" aria-labelledby="fx-cta-title">
+  <div class="fx-cta__panel">
+    <div class="fx-cta__copy">
+      <p class="fx-cta__pill"><span class="fx-cta__dot" aria-hidden="true"></span>Let’s talk</p>
+      <h2 class="fx-cta__title" id="fx-cta-title">Let’s build numbers people can <span class="fx-cta__serif">trust<svg class="fx-underline" viewbox="0 0 120 12" preserveaspectratio="none" aria-hidden="true" focusable="false"><path d="M2 8 C 30 2, 60 11, 118 4" fill="none" stroke="#d4f36b" stroke-width="2.5" stroke-linecap="round"></path></svg></span><span class="fx-cta__stop">.</span></h2>
+      <p class="fx-cta__text">Comfortable as the person building it, or as the person who stands up the function and hires the team. The standard doesn’t change either way.</p>
+      <p class="fx-cta__actions">
+        <a class="fx-btn fx-btn--disc-lime" href="https://www.linkedin.com/in/aaron-robbins-6b25a2136/">Get in touch <span class="fx-btn__disc" aria-hidden="true">↗</span></a>
+        <a class="fx-btn fx-btn--ghost-light" href="https://github.com/RobbinsAnalytics"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg> GitHub</a>
+      </p>
+    </div>
+    <div class="fx-cta__art" aria-hidden="true">
+      <div class="fx-seal">
+        <svg class="fx-seal__ring" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs><path id="fxSealPath" d="M100 22 a78 78 0 1 1 -0.01 0"></path></defs>
+          <circle cx="100" cy="100" r="98" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"></circle>
+          <text font-family="JetBrains Mono, ui-monospace, Menlo, monospace" font-size="13" letter-spacing="2" fill="rgba(255,255,255,0.78)"><textpath href="#fxSealPath" textlength="486">TRUST WHAT YOU CAN TEST ✦ BUILT TO BE CHECKED ✦</textpath></text>
+        </svg>
+        <span class="fx-seal__disc"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewbox="0 0 16 16" fill="currentColor"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path></svg></span>
+      </div>
+      <svg class="fx-cta__bars" viewbox="-10 -20 440 320" preserveaspectratio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+        <g fill="rgba(255,255,255,0.11)" stroke="rgba(255,255,255,0.14)">
+          <rect x="0" y="190" width="40" height="130" rx="17"></rect>
+          <rect x="62" y="150" width="40" height="170" rx="17"></rect>
+          <rect x="124" y="170" width="40" height="150" rx="17"></rect>
+          <rect x="186" y="110" width="40" height="210" rx="17"></rect>
+          <rect x="248" y="130" width="40" height="190" rx="17"></rect>
+          <rect x="310" y="60" width="40" height="260" rx="17"></rect>
+          <rect x="372" y="10" width="40" height="310" rx="17" fill="#3f8f85" stroke="none"></rect>
+        </g>
+        <polyline points="20,180 82,140 144,160 206,100 268,120 330,50 392,0" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round"></polyline>
+        <g fill="#ffffff"><circle cx="20" cy="180" r="3.5"></circle><circle cx="82" cy="140" r="3.5"></circle><circle cx="144" cy="160" r="3.5"></circle><circle cx="206" cy="100" r="3.5"></circle><circle cx="268" cy="120" r="3.5"></circle><circle cx="330" cy="50" r="3.5"></circle><circle cx="392" cy="0" r="5" fill="#d4f36b"></circle></g>
+      </svg>
+    </div>
+  </div>
+</section>
 
-</div>
 
 
 
 
-
+<!-- Generated by tools/build_footer.py from data/portfolio.yml; do not edit. -->
+<footer class="fx-footer" id="fx-footer">
+  <div class="fx-footer__inner">
+    <div class="fx-footer__brand">
+      <a class="fx-footer__wordmark" href="./" aria-label="Robbins Analytics, home">
+        <img src="./assets/brand/robbins-mark-reversed.svg" alt="" width="32" height="32">
+        <span class="fx-wordmark">Robbins <em>Analytics</em><span class="fx-wm-stop">.</span></span>
+      </a>
+      <p class="fx-footer__blurb">AI analytics architecture portfolio, Aaron Robbins. Governed analytics, built with AI and proven by tests.</p>
+    </div>
+    <nav class="fx-footer__col" aria-label="Explore">
+      <p class="fx-footer__head">Explore</p>
+      <ul><li><a href="./">Home</a></li><li><a href="./about.html">About</a></li><li><a href="./cascadia.html">Cascadia architecture</a></li><li><a href="./case-studies.html">All case studies</a></li></ul>
+    </nav>
+    <nav class="fx-footer__col" aria-label="Featured builds">
+      <p class="fx-footer__head">Featured builds</p>
+      <ul><li><a href="./projects/cascadia-build-by-build.html">Build by Build</a></li><li><a href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html">Cascadia Early Warning</a></li><li><a href="./projects/cascadia-revenue-assurance.html">Cascadia Revenue Assurance</a></li><li><a href="./projects/cascadia-matter-ledger.html">Cascadia Matter Ledger</a></li></ul>
+    </nav>
+    <div class="fx-footer__col">
+      <p class="fx-footer__head">Connect</p>
+      <ul class="fx-footer__social">
+        <li><a href="https://www.linkedin.com/in/aaron-robbins-6b25a2136/" aria-label="LinkedIn — Aaron Robbins"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"></path></svg></a></li>
+        <li><a href="https://github.com/RobbinsAnalytics" aria-label="GitHub — Robbins Analytics"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path></svg></a></li>
+      </ul>
+      <a class="fx-footer__top" href="#quarto-header">Back to top <span class="fx-footer__top-disc" aria-hidden="true">↑</span></a>
+    </div>
+  </div>
+  <div class="fx-footer__legal">
+    <span>© 2026 Aaron Robbins</span>
+    <span class="fx-footer__tag">Trust what you can test</span>
+  </div>
+</footer>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const isCodeAnnotation = (el) => {
@@ -1004,32 +1178,6 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>© 2026 Aaron Robbins</p>
-</div>   
-    <div class="nav-footer-center">
-<p><span class="fx-wordmark">Robbins <em>Analytics</em><span class="fx-wm-stop">.</span></span></p>
-</div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/RobbinsAnalytics">
-      <i class="bi bi-github" role="img" aria-label="GitHub — Robbins Analytics">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/aaron-robbins-6b25a2136/">
-      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn — Aaron Robbins">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>
-  </div>
-</footer>
 
 
 
