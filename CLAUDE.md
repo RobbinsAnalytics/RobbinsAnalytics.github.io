@@ -125,19 +125,46 @@ not a mute, and this site's own HTML does not belong in it. The pages axe
 visits are derived from the tree by `site_pages()` in `tools/a11y_check.py`,
 not typed: the hand list it replaced had been missing five case studies.
 
-Visual regression compares six pages at 390 / 414 / 768 / 1440 against
+Visual regression compares seven pages at 390 / 414 / 768 / 1440 against
 baselines in `.github/visual-baselines/`. **Those baselines are only valid
 because they were generated on the runner** — a Windows screenshot differs from
-a Linux one in font rendering alone. A page that is meant to change gets its
-new baselines from the pull request's own candidate run: download its
+a Linux one in font rendering alone. **The runner image and Playwright are
+pinned for the same reason**: `runs-on: ubuntu-24.04` and `playwright==1.64.0`
+(Chromium build 1248) in all three workflows. `ubuntu-latest` was moving to
+Ubuntu 26 from 2026-10-19; move the pins together, on purpose, with a
+whole-set refresh. A page that is meant to change gets its new baselines from
+the pull request's own candidate run: download its
 `candidate-screenshots-<sha>` artifact and commit the changed pages' images on
 the branch, so the baseline is the very image the comparison took, on the
-runner, from the candidate. The "Generate visual baselines" workflow
+runner, from the candidate. **That commit does not need a second full run.**
+If it is the only new commit, changes nothing but those images, and each is
+byte-identical to a screenshot the previous run took of a page that run
+failed, `tools/baseline_fastpath.py` accepts it in seconds; its header lists
+all six conditions, and anything else falls back to the full run. The "Generate visual baselines" workflow
 (`workflow_dispatch`) remains for a whole-set refresh when the runner image
 moves. Neither commits anything itself, deliberately: the merge is the deploy
 and the single approval, CI writing to `main` would break that, and the ruleset
 would refuse it besides. **Each full regeneration costs about 15 MB of git
-history** — the 24 full-page PNGs are already well compressed, so that is the
+history** — the 28 full-page PNGs are already well compressed, so that is the
 real price of pixel comparison rather than something a flag can fix. Commit
 only the pages that changed, and regenerate the set when a runner-image move
 needs it, not as routine hygiene.
+
+**A change runs start to finish in one pass, and Aaron supervises none of
+it.** Once a change is authorized, the session edits, renders, pushes, gives
+Aaron the local preview and the pull request link straight away, and keeps
+ownership of the candidate run while he looks. It does not end its turn to ask
+about routine steps. When the visual check fails, **open every diff**, not only
+the pages you meant to change: an edited page can still carry an unintended
+defect (a hidden heading, a cropped image, shifted spacing). Diffs that match
+the requested change get their baselines promoted, as one commit of only those
+images, which the fast path accepts. A diff on a page the change should not
+have touched, or an unintended difference on the edited page, is a defect: fix
+it, do not promote it. Verification stays proportional — a copy or chip edit
+gets the render, `tools/check_references.py` and an overflow look at 390 and
+1440; multi-width comparisons are for layout and design ports; the link crawl
+and the accessibility suite run in CI, not locally. Report the candidate as
+ready only when it is green, and say what was checked. A visible edit to a
+compared page takes one full run plus a fast-path acceptance, about 7 to 9
+minutes end to end; an edit to a page the visual check does not cover takes
+one run.

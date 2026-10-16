@@ -152,12 +152,25 @@ supersedes the last. Three red outcomes and what each means:
 - **Crawl**: a link on the candidate is broken. Fix the link.
 - **Accessibility**: a new machine-detectable violation, or a page that
   scrolls sideways. Fix the markup; the ledger is for third-party markup only.
-- **Visual**: pixels moved on one of the six compared pages. Download the
-  run's `visual-diffs-<sha>` artifact and look. A regression gets fixed. An
-  intended change gets its new baselines from the same run: download
-  `candidate-screenshots-<sha>`, copy the changed pages' images into
-  `.github/visual-baselines/`, commit them on the branch, push. They were
-  taken on the runner from the candidate, which is what makes them valid.
+- **Visual**: pixels moved on one of the seven compared pages. Download the
+  run's `visual-diffs-<sha>` and `candidate-screenshots-<sha>` artifacts and
+  open **every** failed page, including the ones you meant to change: an edited
+  page can still carry an unintended defect. A regression, or any difference
+  the request did not ask for, gets fixed. Differences that match the request
+  get their new baselines from the same run: copy exactly those failed pages'
+  screenshots into `.github/visual-baselines/`, commit **only those images**
+  as their own commit, push. They were taken on the runner from the candidate,
+  which is what makes them valid. The next run's first step,
+  `tools/baseline_fastpath.py`, accepts that commit without re-rendering when
+  it is the only new commit and every image is byte-identical to a screenshot
+  of a failed page; if it prints a reason instead, the full run goes ahead and
+  that is fine. **This is the established step, not a decision for Aaron:** do
+  not end the turn to ask about it.
+
+Give Aaron the local preview and the pull request link as soon as the branch
+is pushed, then stay with the candidate run until it is green or a failure
+needs his call. The preview is early; the report that the candidate is ready
+is not.
 
 **Do not run `quarto publish gh-pages`.** The publish workflow does it after
 the merge; running it by hand races the workflow and can push a stale build

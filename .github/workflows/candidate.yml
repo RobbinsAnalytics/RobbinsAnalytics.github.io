@@ -27,8 +27,11 @@ on:
   pull_request:
     branches: [main]
 
+# actions: read lets the baseline fast path (tools/baseline_fastpath.py) read
+# this workflow's previous run and download its artifacts. Nothing here writes.
 permissions:
   contents: read
+  actions: read
 
 # One candidate run per pull request at a time. A newer push supersedes the
 # run in flight: the superseded commit is no longer what would merge, so its
@@ -40,25 +43,54 @@ concurrency:
 jobs:
   candidate:
     name: candidate
-    runs-on: ubuntu-latest
+    # Pinned, not ubuntu-latest. The visual baselines are only valid on the
+    # image that produced them, and ubuntu-latest moves to Ubuntu 26 from
+    # 2026-10-19 (GitHub's own notice on every run). Move this pin on purpose,
+    # together with a whole-set baseline refresh, never by surprise.
+    runs-on: ubuntu-24.04
     env:
       ORIGIN: http://127.0.0.1:8000
     steps:
       - uses: actions/checkout@v7
-      - uses: quarto-dev/quarto-actions/setup@v2
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
+      # A push whose only commit replaces baselines with the previous run's own
+      # screenshots is accepted here, and every later step is skipped. The six
+      # conditions it checks are in the script's header; anything else prints
+      # why and the full run goes ahead. Runs only on a push to an existing
+      # pull request, the only event that has a previous head.
+      - name: Accept a baseline-only follow-up without a second full run
+        id: fastpath
+        if: ${{ github.event.action == 'synchronize' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch --no-tags --depth=2 origin \
+            "${{ github.event.pull_request.head.sha }}" "${{ github.event.before }}" || true
+          python tools/baseline_fastpath.py \
+            --repo "${{ github.repository }}" \
+            --before "${{ github.event.before }}" \
+            --head "${{ github.event.pull_request.head.sha }}" \
+            --base "${{ github.event.pull_request.base.sha }}"
+
       # Same gate, same position as publish.yml: a stale stated fact fails the
-      # candidate before anything renders.
+      # candidate before anything renders. Cheap, so it runs on the fast path too.
       - name: Check stated facts against their sources
         run: python tools/check_references.py
 
+      - uses: quarto-dev/quarto-actions/setup@v2
+        if: ${{ success() && steps.fastpath.outputs.accepted != 'true' }}
+
+      # Playwright pinned to the release whose Chromium (build 1248, 156.0.8078.4)
+      # produced the committed baselines; the same pin is in publish.yml and
+      # visual-baselines.yml. Move all three together, with a baseline refresh.
       - name: Install Playwright, Pillow and axe
+        if: ${{ success() && steps.fastpath.outputs.accepted != 'true' }}
         run: |
-          python -m pip install --quiet playwright pillow axe-core-python==0.1.0 pyyaml
+          python -m pip install --quiet playwright==1.64.0 pillow axe-core-python==0.1.0 pyyaml
           python -m playwright install --with-deps chromium
 
       # The thumbnails and icons are regenerated exactly as publish.yml does
@@ -66,9 +98,11 @@ jobs:
       # thumbnail build that fails here fails before it would have failed the
       # deploy.
       - name: Regenerate OG thumbnails
+        if: ${{ success() && steps.fastpath.outputs.accepted != 'true' }}
         run: python tools/build_thumbs.py --out assets --strict
 
       - name: Regenerate the icon set
+        if: ${{ success() && steps.fastpath.outputs.accepted != 'true' }}
         run: python tools/build_icons.py --out assets/brand
 
       # Stamped so a downloaded candidate can be told apart from a deploy: the
@@ -76,9 +110,11 @@ jobs:
       # pull request's head with this prefix. Never committed; the tracked value
       # stays `local`.
       - name: Stamp the candidate
+        if: ${{ success() && steps.fastpath.outputs.accepted != 'true' }}
         run: echo "candidate ${{ github.event.pull_request.head.sha }}" > build.txt
 
       - name: Render
+        if: ${{ success() && steps.fastpath.outputs.accepted != 'true' }}
         run: quarto render
 
       # http.server is enough: static files, directory index.html, a real 404
@@ -86,6 +122,7 @@ jobs:
       # the runner can reach it.
       - name: Serve the candidate
         id: serve
+        if: ${{ success() && steps.fastpath.outputs.accepted != 'true' }}
         run: |
           set -euo pipefail
           (cd _site && python -m http.server 8000 --bind 127.0.0.1 >/tmp/http.log 2>&1 &)
@@ -103,17 +140,23 @@ jobs:
       # The three sweeps run independently of one another's outcome -- a
       # broken link should not hide a visual regression from the person
       # reading the pull request -- and any one of them failing fails the job.
+      #
+      # The accessibility check is the slowest and reads nothing the others
+      # write, so it starts first in the background and runs alongside the
+      # crawl and the visual check. Its own step below waits for it, prints
+      # its full output and carries its exit code, so it still fails the job
+      # and still reports under its own name.
+      - name: Start the accessibility check alongside the other sweeps
+        id: a11y_start
+        if: ${{ !cancelled() && steps.serve.conclusion == 'success' }}
+        run: |
+          rm -f /tmp/a11y.exit /tmp/a11y.log
+          (nohup bash tools/run_and_record.sh /tmp/a11y python tools/a11y_check.py --origin "$ORIGIN" >/dev/null 2>&1 &)
+          echo "started; its result is reported by the 'Accessibility regression check' step"
 
       - name: Crawl every link on the candidate
         if: ${{ !cancelled() && steps.serve.conclusion == 'success' }}
         run: python tools/crawl_links.py --origin "$ORIGIN"
-
-      # REGRESSION PREVENTION, NOT PROOF OF CONFORMANCE. See the header of
-      # tools/a11y_check.py and CLAUDE.md; a green step here is not a WCAG
-      # claim and nothing may quote it as one.
-      - name: Accessibility regression check
-        if: ${{ !cancelled() && steps.serve.conclusion == 'success' }}
-        run: python tools/a11y_check.py --origin "$ORIGIN"
 
       # Compares against .github/visual-baselines/. Every screenshot the
       # comparison took is written to candidate-screenshots/ so a changed page's
@@ -123,11 +166,29 @@ jobs:
         if: ${{ !cancelled() && steps.serve.conclusion == 'success' }}
         run: python tools/visual_check.py --origin "$ORIGIN" --shots-dir candidate-screenshots
 
-      # Uploaded on every run, green or red. A passing run's screenshots are
-      # how a pull request that intends a visual change gets its new baselines
-      # -- captured on the runner, from the candidate, by the comparison itself.
+      # REGRESSION PREVENTION, NOT PROOF OF CONFORMANCE. See the header of
+      # tools/a11y_check.py and CLAUDE.md; a green step here is not a WCAG
+      # claim and nothing may quote it as one.
+      - name: Accessibility regression check
+        if: ${{ !cancelled() && steps.a11y_start.conclusion == 'success' }}
+        run: bash tools/run_and_record.sh --wait /tmp/a11y 900
+
+      # What this run tested, for the next push's fast path: the same base
+      # commit of main is one of its six conditions.
+      - name: Record what this candidate tested
+        if: ${{ !cancelled() && steps.serve.conclusion == 'success' }}
+        run: |
+          mkdir -p candidate-screenshots
+          printf '{"head_sha": "%s", "base_sha": "%s", "merge_sha": "%s"}\n' \
+            "${{ github.event.pull_request.head.sha }}" \
+            "${{ github.event.pull_request.base.sha }}" \
+            "${{ github.sha }}" > candidate-screenshots/candidate-meta.json
+
+      # Uploaded on every full run, green or red. A run's screenshots are how a
+      # pull request that intends a visual change gets its new baselines --
+      # captured on the runner, from the candidate, by the comparison itself.
       - name: Upload the candidate screenshots
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.fastpath.outputs.accepted != 'true' }}
         uses: actions/upload-artifact@v7
         with:
           name: candidate-screenshots-${{ github.event.pull_request.head.sha }}
@@ -136,7 +197,7 @@ jobs:
           retention-days: 14
 
       - name: Upload visual diffs
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.fastpath.outputs.accepted != 'true' }}
         uses: actions/upload-artifact@v7
         with:
           name: visual-diffs-${{ github.event.pull_request.head.sha }}

@@ -29,7 +29,9 @@ permissions:
 
 jobs:
   baselines:
-    runs-on: ubuntu-latest
+    # Must match candidate.yml and publish.yml, or the baselines it makes
+    # are for a different image than the one that compares against them.
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
 
@@ -40,7 +42,7 @@ jobs:
 
       - name: Install Playwright and Pillow
         run: |
-          python -m pip install --quiet playwright pillow
+          python -m pip install --quiet playwright==1.64.0 pillow
           python -m playwright install --with-deps chromium
 
       - name: Screenshot every page at every width
