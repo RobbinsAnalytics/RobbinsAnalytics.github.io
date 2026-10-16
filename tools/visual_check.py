@@ -88,14 +88,49 @@ CHANNEL_THRESHOLD = 12
 TOLERANCE = 0.0005
 
 
+# Font evidence, collected across the run (added 2026-10-16). Two runs of the
+# same source once wrapped the About heading differently on the same image and
+# browser; the fonts come from Google Fonts on every run, so they are the
+# leading suspect. FONT_FILES records which font files were actually served;
+# FONT_ERRORS turns a face that failed to load -- a silent fallback that would
+# surface as a confusing pixel diff -- into a named failure.
+FONT_FILES = set()
+FONT_ERRORS = []
+
+
+def note_font(response):
+    if "fonts.gstatic.com" in response.url:
+        FONT_FILES.add(response.url)
+
+
 def shoot(page, url, width):
     page.set_viewport_size({"width": width, "height": 900})
     page.goto(url, wait_until="networkidle", timeout=60000)
     # Fonts load asynchronously; a screenshot taken before they swap in compares
     # a fallback stack against the real one and fails for no reason.
     page.evaluate("() => document.fonts.ready")
+    failed = page.evaluate(
+        "() => [...document.fonts].filter(f => f.status === 'error')"
+        ".map(f => f.family + ' ' + f.weight + ' ' + f.style)")
+    if failed:
+        FONT_ERRORS.append((url, width, sorted(set(failed))))
     page.wait_for_timeout(600)
     return page.screenshot(full_page=True, animations="disabled", scale="css")
+
+
+def report_fonts():
+    """Print the font files served this run; return False if any face failed."""
+    if FONT_FILES:
+        print("  fonts served this run (%d files):" % len(FONT_FILES))
+        for u in sorted(FONT_FILES):
+            print("    %s" % u.split("fonts.gstatic.com/", 1)[-1])
+    if not FONT_ERRORS:
+        return True
+    sys.stderr.write("\nFONT LOAD FAILURE: a screenshot taken now would compare a fallback\n"
+                     "face against the baseline. Re-run; if it persists, check fonts.gstatic.com.\n")
+    for url, width, faces in FONT_ERRORS:
+        sys.stderr.write("  ::error::%s at %d px: %s\n" % (url, width, ", ".join(faces)))
+    return False
 
 
 def png_width(png):
@@ -186,6 +221,7 @@ def main():
                 ctx = browser.new_context(viewport={"width": width, "height": 900},
                                           device_scale_factor=1)
                 page = ctx.new_page()
+                page.on("response", note_font)
                 for slug, path in PAGES.items():
                     name = "%s-%d.png" % (slug, width)
                     target = base_dir / name
@@ -250,6 +286,11 @@ def main():
         print("Fix the page's horizontal overflow, deploy it, then regenerate.")
         sys.exit(1)
 
+    fonts_ok = report_fonts()
+    if args.update and not fonts_ok:
+        print("NO BASELINES WERE WRITTEN: a font failed to load.")
+        sys.exit(1)
+
     for target, name, png in pending:
         target.write_bytes(png)
         print("  wrote  %s  (%d bytes)" % (name, len(png)))
@@ -275,6 +316,9 @@ def main():
         )
         return 1
 
+    if not fonts_ok:
+        return 1
+
     if not failed:
         print("\nNo visual drift.")
         return 0
@@ -284,9 +328,11 @@ def main():
         sys.stderr.write("  ::error::%s — %.3f%% of pixels differ%s\n"
                          % (name, ratio * 100, (" (%s)" % note) if note else ""))
     sys.stderr.write(
-        "\nDiff images are in the uploaded artifact. Look at them before deciding:\n"
-        "a real regression gets fixed, an intended design change gets new baselines\n"
-        "from the 'Generate visual baselines' workflow.\n\n"
+        "\nDiff images are in the uploaded artifact. Look at every one before deciding:\n"
+        "a real regression gets fixed; an intended change gets that page's new\n"
+        "baselines from this run's candidate-screenshots artifact (CLAUDE.md, How\n"
+        "to publish), and a follow-up commit of only those images is accepted by\n"
+        "tools/baseline_fastpath.py without a second full run.\n\n"
     )
     return 1
 
