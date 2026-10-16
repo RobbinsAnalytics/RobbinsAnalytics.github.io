@@ -22,23 +22,35 @@ toc: false
 ---
 
 <!-- Copy approved by Aaron 2026-10-16 (cascadia-estate, About page copy
-     draft). Pasted, not rewritten. Two sentences under Selected outcomes are
-     load-bearing: the homepage stat tiles quote them (data/stats.json) and
-     tools/check_references.py fails if either leaves this file.
+     draft), then revised by the approved About page prototype of the same
+     date (robbins-analytics-system-review/about-page-prototype): Aaron's
+     portrait in the opener, the Bio as four career stories, and the title,
+     defined as cards with a domain-neutral shared-foundation example. The
+     prototype's markup and copy are ported as supplied. Two sentences under
+     Selected outcomes are load-bearing: the homepage stat tiles quote them
+     (data/stats.json) and tools/check_references.py fails if either leaves
+     this file.
 
-     Layout: Felix §7, row About. Inner opener + contact card aside · bio
-     grid · the title, defined (the homepage's white panel and method tiles)
-     · the teal outcome band · skills definition list · the shared CTA. -->
+     Layout: Felix §7, row About, as the prototype revises it. Inner opener
+     with portrait and contact card · Bio story cards · the title, defined
+     (move cards and the dark shared-foundation card) · the teal outcome
+     band · skills definition list · the shared CTA. -->
 
-<!-- OPENER (Felix §6.6 inner opener; §3.3 "Inner hero + aside"). Right: the
-     contact card aside (§6.5), the availability line in its eyebrow's slot,
-     then LinkedIn and GitHub. No email, by the standing rule. A div with
-     role="complementary", not an <aside>: Quarto's page layout places every
-     <aside> in its margin column with !important (grid-column:
-     body-end/page-end), which on this grid resolves to implicit tracks and
-     collapsed the text column to nothing (2026-10-16). -->
+<!-- OPENER (Felix §6.6 inner opener; §3.3 "Inner hero + aside"), with
+     the prototype's portrait. From 1024px the introduction and the contact
+     card share the left column and the portrait is on the right; below
+     that, the order is introduction, portrait, contact card. The portrait
+     is a 1200 x 1800 web copy of Aaron's supplied photograph (same 2:3
+     shape; the original stays outside the repo), cropped by CSS alone: a
+     4:5 frame, object-fit: cover, object-position: 50% 45%. The contact
+     card is the availability line, then LinkedIn and GitHub; no email, by
+     the standing rule. A div with role="complementary", not an <aside>:
+     Quarto's page layout places every <aside> in its margin column with
+     !important (grid-column: body-end/page-end), which on this grid
+     resolves to implicit tracks and collapsed the text column to nothing
+     (2026-10-16). -->
 
-::: {.fx-inner .fx-about-opener}
+::: {.fx-inner .fx-about-opener .fx-about-opener--portrait}
 ::: {.fx-about-opener__text}
 [AI Analytics Architect]{.fx-eyebrow}
 
@@ -50,6 +62,13 @@ The title is new. The work is not: specify what correct means, build it, test it
 :::
 
 ```{=html}
+<figure class="fx-about-portrait">
+  <img src="assets/img/professional_portrait.jpg"
+       alt="Portrait of Aaron Robbins"
+       width="1200" height="1800"
+       fetchpriority="high" decoding="async">
+</figure>
+
 <div class="fx-contact" role="complementary" aria-label="Availability and contact">
   <p class="fx-contact__lede">Open to analytics manager, lead, or principal roles where reporting has outgrown trust, and to conversations about roles that don't exist yet. Seattle or remote.</p>
   <a class="fx-contact__row" href="https://www.linkedin.com/in/aaron-robbins-6b25a2136/">
@@ -64,73 +83,128 @@ The title is new. The work is not: specify what correct means, build it, test it
 ```
 :::
 
-<!-- BIO (Felix §3.3 "Bio" grid, 14rem_1fr; §3.4 prose measure). -->
-
-::: {.fx-bio}
-::: {.fx-bio__head}
-## Bio
-:::
-
-::: {.fx-rich}
-I have spent twelve years making numbers people can sign their name to, and the last four months proving it can be done with AI doing the build. The title is a description of the work, not a claim to a job: I design the analytics, I specify what correct looks like before anything is built, and I direct AI to do the build. Every module in the Cascadia portfolio carries its own evidence: known answers set before the code, tests that run on every build, and a record of what each test caught. That is the part of the craft that does not change with the tooling: data governance, specification, semantic modeling, and defining measures other people will sign their name to.
-
-At Lowe's ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six building the data warehouse and the reporting stack behind $100M+ in revenue. At Philips Healthcare I ran BI and analytics programs across 23 manufacturing sites in eleven countries, with ongoing multi-project work at fourteen of them, and 200+ stakeholders. None of those sites reported to me.
-
-I kept my own book of work the whole time I was managing, and the portfolio is what that looks like with today's tools: ten builds in four months, each one specified, validated and operated the way I would ask a team to do it. What I am looking for now is a reporting estate that has outgrown trust and a team that wants to earn it back. Trust what you can test. The rest of this site is the test.
-:::
-:::
-
-<!-- THE TITLE, DEFINED (Aaron's spec, 2026-10-16). The homepage's white
-     panel and its three paper tiles (Felix §6.5), reused as definitions: a
-     number, a title, a text, and no pill link. The three moves differ from
-     the homepage's method tiles on purpose ("Direct the build", "Verify");
-     do not harmonise them. Then the synthesis as one wide card, and the
-     closing paragraph in prose. -->
-
-::: {.fx-white}
-::: {.fx-white__panel}
-
-::: {.fx-opener .fx-opener--about}
-::: {.fx-opener__head}
-[The title, defined]{.fx-eyebrow}
-
-## An AI Analytics Architect owns the what and the proof, not the how.
-:::
-
-::: {.fx-opener__intro}
-The job has three moves. None of them is writing the code.
-:::
-:::
+<!-- BIO (the approved prototype): an Experience pill, the H2 and a short
+     introduction, then four career stories as white cards on the homepage's
+     case-study card pattern. Two columns from 1024px, stacked below in this
+     reading order. The cards neither lift nor carry a stretched link; the
+     Revenue Assurance name is the one link. The role pills are labels, not
+     buttons. -->
 
 ```{=html}
-<ol class="fx-tiles fx-tiles--moves">
-  <li class="fx-tile">
-    <p class="fx-tile__num">01</p>
-    <h3 class="fx-tile__title">Specify</h3>
-    <p class="fx-tile__text">Turn a business need into a precise spec: the data model, the measure definitions, the matching rules, and the invariants that must hold. Correct is defined before anything is built, so there is something to check the build against.</p>
-  </li>
-  <li class="fx-tile">
-    <p class="fx-tile__num">02</p>
-    <h3 class="fx-tile__title">Direct the build</h3>
-    <p class="fx-tile__text">AI tools or an engineer do the building; either works. The job is to aim the build at the spec, not to pour the concrete. That leverage is why one person now covers ground that used to take a team.</p>
-  </li>
-  <li class="fx-tile">
-    <p class="fx-tile__num">03</p>
-    <h3 class="fx-tile__title">Verify</h3>
-    <p class="fx-tile__text">Nothing ships on trust. Every number is re-derived a second, independent way and reconciled against source, and a check that disagrees stops the publish. Trust what you can test.</p>
-  </li>
-</ol>
-<div class="fx-synthesis">
-  <p>Under all three sits the part no tool does. Problems arrive as separate requests and are usually one system; the architect's work is seeing that and designing the fewest pieces that hold. AI builds whatever you specify, but it will not notice that two things are one. Conformed dimensions are the plain example: encounters, claims, eligibility and rides stop being four reporting problems and become one model with shared spines.</p>
-</div>
+<section class="fx-bio fx-bio--stories" id="bio" aria-labelledby="bio-title">
+  <div class="fx-bio__intro">
+    <span class="fx-pill">Experience</span>
+    <h2 id="bio-title">Bio</h2>
+    <p>I have built teams, led programs and stayed hands-on with analysis. The throughline is understanding the decision, defining the numbers and making the system useful.</p>
+  </div>
+  <div class="fx-bio__stories">
+    <section class="fx-card fx-about-card fx-bio-story" aria-labelledby="story-atg">
+      <div class="fx-about-card__top">
+        <span class="fx-about-card__number" aria-hidden="true">01</span>
+        <p class="fx-pill fx-about-card__role">BI management</p>
+      </div>
+      <p class="fx-bio-story__employer">ATG Stores (Lowe's)</p>
+      <h3 id="story-atg">Building the team</h3>
+      <p class="fx-about-card__text">I proposed the BI function, hired its foundational team and managed six analysts and developers. When accounting needed a partner, I hired for accounting judgment as well as technical skill.</p>
+      <p class="fx-about-card__result">Analysts took ownership of their stakeholder relationships.</p>
+    </section>
+    <section class="fx-card fx-about-card fx-bio-story" aria-labelledby="story-program">
+      <div class="fx-about-card__top">
+        <span class="fx-about-card__number" aria-hidden="true">02</span>
+        <p class="fx-pill fx-about-card__role">Program leadership</p>
+      </div>
+      <p class="fx-bio-story__employer">Philips Healthcare</p>
+      <h3 id="story-program">Setting shared priorities</h3>
+      <p class="fx-about-card__text">Reorganizations brought competing analytics backlogs together. I made the tradeoffs visible: effort, expected results, sites served and cost. Stakeholders could challenge the assumptions, and unresolved priorities went to the sponsor.</p>
+      <p class="fx-about-card__result">The result was one agreed queue for the work.</p>
+    </section>
+    <section class="fx-card fx-about-card fx-bio-story" aria-labelledby="story-analysis">
+      <div class="fx-about-card__top">
+        <span class="fx-about-card__number" aria-hidden="true">03</span>
+        <p class="fx-pill fx-about-card__role">Hands-on analysis</p>
+      </div>
+      <p class="fx-bio-story__employer">Philips Healthcare</p>
+      <h3 id="story-analysis">Questioning the headline number</h3>
+      <p class="fx-about-card__text">When quality notifications spiked, I traced most to label misprints caught and corrected on the line. I challenged what the headline measure was telling leadership.</p>
+      <p class="fx-about-card__result">Management accepted the recommendation to focus improvement work on failures with meaningful cost or risk.</p>
+    </section>
+    <section class="fx-card fx-about-card fx-bio-story" aria-labelledby="story-ai">
+      <div class="fx-about-card__top">
+        <span class="fx-about-card__number" aria-hidden="true">04</span>
+        <p class="fx-pill fx-about-card__role">AI Analytics Architect</p>
+      </div>
+      <p class="fx-bio-story__employer">Cascadia</p>
+      <h3 id="story-ai">Directing AI with evidence</h3>
+      <p class="fx-about-card__text">For <a href="projects/cascadia-revenue-assurance.html">Cascadia Revenue Assurance</a>, a portfolio build using synthetic data, I set the rules and expected answers before directing the AI build.</p>
+      <p class="fx-about-card__result">Its published results are checked through two separately implemented calculations. Responsibility for what those numbers mean remains mine.</p>
+    </section>
+  </div>
+</section>
 ```
 
-::: {.fx-rich .fx-white__close}
-I do not hand-write the code, and that is a choice. There are plenty of people who write code well. Specifying and verifying AI-built analytics inside a business domain is the rare skill, and it is the one this site is built to demonstrate.
-:::
+<!-- THE TITLE, DEFINED (the approved prototype). The three moves keep
+     their copy and order, each split between the card body and a separated
+     takeaway; they still differ from the homepage's method tiles on purpose
+     ("Direct the build", "Verify"). Three columns from 1024px, stacked
+     below. Then the full-width shared-foundation card, in the inverted
+     palette of the validation playbook's Commitment tile, with a
+     domain-neutral example; then the closing paragraph, whose opening
+     sentence is emphasized with a strong element and adds no heading. The
+     section carries the concise ai-analytics-architect anchor; the H2 keeps
+     the original long heading ID so existing links still land. -->
 
-:::
-:::
+```{=html}
+<section class="fx-inner fx-architect" id="ai-analytics-architect" aria-labelledby="an-ai-analytics-architect-owns-the-what-and-the-proof-not-the-how.">
+  <div class="fx-architect__intro">
+    <span class="fx-pill">The title, defined</span>
+    <h2 id="an-ai-analytics-architect-owns-the-what-and-the-proof-not-the-how.">An AI Analytics Architect owns the what and the proof, not the how.</h2>
+    <p>The job has three moves. None of them is writing the code.</p>
+  </div>
+  <ol class="fx-architect__moves">
+    <li class="fx-card fx-about-card fx-architect__move">
+      <div class="fx-about-card__top">
+        <span class="fx-about-card__number" aria-hidden="true">01</span>
+        <p class="fx-pill fx-about-card__role">Business rules</p>
+      </div>
+      <h3>Specify</h3>
+      <p class="fx-about-card__text">Turn a business need into a precise spec: the data model, the measure definitions, the matching rules, and the invariants that must hold.</p>
+      <p class="fx-about-card__result">Correct is defined before anything is built, so there is something to check the build against.</p>
+    </li>
+    <li class="fx-card fx-about-card fx-architect__move">
+      <div class="fx-about-card__top">
+        <span class="fx-about-card__number" aria-hidden="true">02</span>
+        <p class="fx-pill fx-about-card__role">Delivery</p>
+      </div>
+      <h3>Direct the build</h3>
+      <p class="fx-about-card__text">AI tools or an engineer do the building; either works. The job is to aim the build at the spec, not to pour the concrete.</p>
+      <p class="fx-about-card__result">That leverage is why one person now covers ground that used to take a team.</p>
+    </li>
+    <li class="fx-card fx-about-card fx-architect__move">
+      <div class="fx-about-card__top">
+        <span class="fx-about-card__number" aria-hidden="true">03</span>
+        <p class="fx-pill fx-about-card__role">Evidence</p>
+      </div>
+      <h3>Verify</h3>
+      <p class="fx-about-card__text">Nothing ships on trust. Every number is re-derived a second, independent way and reconciled against source, and a check that disagrees stops the publish.</p>
+      <p class="fx-about-card__result">Trust what you can test.</p>
+    </li>
+  </ol>
+  <section class="fx-card fx-about-card fx-architect__foundation" aria-labelledby="architect-shared-foundation">
+    <div class="fx-architect__foundation-head">
+      <span class="fx-pill fx-about-card__role">Shared foundation</span>
+      <h3 id="architect-shared-foundation">See the system behind the requests</h3>
+    </div>
+    <div class="fx-architect__example">
+      <p class="fx-about-card__text">Separate requests often point back to the same underlying system. A sales report, a service dashboard and a finance review may all describe the same customers, products, locations and dates.</p>
+      <p class="fx-about-card__text">Define those shared building blocks once, including what each means and how records connect, and each report can use the same foundation.</p>
+    </div>
+    <p class="fx-about-card__result">The architectural work is recognizing that overlap, deciding what should be shared and where differences matter, then giving the build a structure that can be checked.</p>
+  </section>
+  <div class="fx-architect__close">
+    <p><strong class="fx-architect__statement">I do not hand-write the code, and that is a choice.</strong> There are plenty of people who write code well. Specifying and verifying AI-built analytics inside a business domain is the rare skill, and it is the one this site is built to demonstrate.</p>
+  </div>
+</section>
+```
 
 <!-- SELECTED OUTCOMES (Felix §6.5 stat strip, dark variant for About; §3.1
      full-bleed band). Six tiles, three across from 1024, two from 640, one
