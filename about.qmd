@@ -266,15 +266,15 @@ The split below is the same division of labor described in [How I Built This](ca
 <dl class="fx-skills__list">
   <div class="fx-skills__row">
     <dt>Tools I work in directly</dt>
-    <dd><span class="fx-chip">Power BI (data modeling, Power Query/M)</span><span class="fx-chip">Tableau</span><span class="fx-chip">Qlik</span><span class="fx-chip">SAP BusinessObjects</span><span class="fx-chip">advanced Excel</span><span class="fx-chip">SQL (queries, joins, views, transformations)</span><span class="fx-chip">SAP HANA</span><span class="fx-chip">dimensional/star-schema &amp; semantic modeling</span><span class="fx-chip">ETL/ELT &amp; data integration</span><span class="fx-chip">data governance &amp; quality</span></dd>
+    <dd><span class="fx-chip">Power BI (data modeling, Power Query/M)</span><span class="fx-chip">Tableau</span><span class="fx-chip">Qlik</span><span class="fx-chip">SAP BusinessObjects</span><span class="fx-chip">advanced Excel</span><span class="fx-chip">SQL (queries, joins, views, transformations)</span><span class="fx-chip">SAP HANA</span><span class="fx-chip">dimensional/star-schema &amp; semantic modeling</span><span class="fx-chip">ETL/ELT &amp; data integration</span><span class="fx-chip">data governance &amp; quality</span><span class="fx-chip">Git / GitHub — version control and pull-request workflows</span><span class="fx-chip">Databricks — SQL analysis and validation</span></dd>
   </div>
   <div class="fx-skills__row">
     <dt>Tools I specify against and validate</dt>
-    <dd><span class="fx-chip">Python</span><span class="fx-chip">DAX</span><span class="fx-chip">DuckDB</span><span class="fx-chip">dbt</span><span class="fx-chip">Microsoft Fabric</span><span class="fx-chip">Databricks</span><span class="fx-chip">Azure data platforms</span></dd>
+    <dd><span class="fx-chip">Python</span><span class="fx-chip">DAX</span><span class="fx-chip">DuckDB</span><span class="fx-chip">dbt</span><span class="fx-chip">Microsoft Fabric</span><span class="fx-chip">Azure data platforms</span></dd>
   </div>
   <div class="fx-skills__row">
     <dt>KPI &amp; frameworks</dt>
-    <dd><span class="fx-chip">KPI development &amp; governance</span><span class="fx-chip">leading/lagging indicator frameworks</span><span class="fx-chip">Critical Data Elements &amp; common data models</span><span class="fx-chip">BI rationalization</span></dd>
+    <dd><span class="fx-chip">KPI development &amp; governance</span><span class="fx-chip">leading/lagging indicator frameworks</span><span class="fx-chip">Critical Data Elements &amp; common data models</span><span class="fx-chip">BI rationalization</span><span class="fx-chip">Requirements definition &amp; user acceptance testing</span><span class="fx-chip">Independent validation, reconciliation &amp; metric certification</span></dd>
   </div>
   <div class="fx-skills__row">
     <dt>Domains</dt>
@@ -282,7 +282,7 @@ The split below is the same division of labor described in [How I Built This](ca
   </div>
   <div class="fx-skills__row">
     <dt>Program &amp; enablement</dt>
-    <dd><span class="fx-chip">BI function ownership</span><span class="fx-chip">analytics program &amp; portfolio management</span><span class="fx-chip">Agile (Scrumban) / Scrum Master</span><span class="fx-chip">stakeholder management across eleven countries</span><span class="fx-chip">self-service enablement</span><span class="fx-chip">mentoring analysts</span></dd>
+    <dd><span class="fx-chip">BI function ownership</span><span class="fx-chip">analytics program &amp; portfolio management</span><span class="fx-chip">Agile (Scrumban) / Scrum Master</span><span class="fx-chip">stakeholder management across eleven countries</span><span class="fx-chip">self-service enablement</span><span class="fx-chip">Hiring, coaching &amp; team development</span><span class="fx-chip">AI-assisted analytics delivery &amp; agent direction</span><span class="fx-chip">Data visualization &amp; executive communication</span></dd>
   </div>
 </dl>
 ```
