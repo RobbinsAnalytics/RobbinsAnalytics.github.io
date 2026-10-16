@@ -10,9 +10,10 @@
    the chrome.
 
    SCOPE. Three things are global: the header, the footer, and the fx-*
-   component classes (which only the homepage and the index use). Paper
-   background, Inter body type and Inter Tight display type apply ONLY under
-   body.felix-home and body.felix-index. No Bootstrap variable, no global
+   component classes (which only the homepage, the index and the About page
+   use). Paper background, Inter body type and Inter Tight display type apply
+   ONLY under body.felix-home, body.felix-index and body.felix-about (the
+   About page joined on 2026-10-16). No Bootstrap variable, no global
    body or h1..h5 rule, is changed here, so a case-study wrapper keeps its
    Cascadia body under the new chrome. That mismatch is intended and is the
    full-reskin project's work.
@@ -494,7 +495,8 @@ $fx-container:   76rem;
 // THE TWO FELIX PAGES. Paper, Inter, Inter Tight: only here.
 // =====================================================================
 body.felix-home,
-body.felix-index {
+body.felix-index,
+body.felix-about {
   background: $fx-paper;
   color: $fx-ink;
   font-family: $fx-font-sans;
@@ -1135,7 +1137,8 @@ a.fx-pill { text-decoration: none; transition: border-color .15s, color .15s; &:
 // The two dark-panel headings: body.felix-home's heading rule (ink) outranks
 // a single class, so these are scoped to win.
 body.felix-home .fx-statement__title,
-body.felix-home .fx-cta__title { color: $fx-white; }
+body.felix-home .fx-cta__title,
+body.felix-about .fx-cta__title { color: $fx-white; }
 
 @keyframes fx-spin { to { transform: rotate(1turn); } }
 @media (prefers-reduced-motion: reduce) {
@@ -1143,7 +1146,11 @@ body.felix-home .fx-cta__title { color: $fx-white; }
 }
 
 // ---------- The index (Felix §6.6 inner opener, §6.4 filter buttons) ----------
-body.felix-index {
+// The inner opener (eyebrow, H1 with the coloured stop, one sentence) is the
+// About page's too, so the block is scoped to both; the grid rule at its foot
+// is the index's alone and matches nothing on About.
+body.felix-index,
+body.felix-about {
   #title-block-header { display: none; }
 
   .fx-inner {
@@ -1556,3 +1563,552 @@ body.felix-index {
 // Quarto's listing wrapper adds nothing visible; keep it from adding space.
 .quarto-listing { margin: 0; }
 .listing-no-matching { display: none; }
+
+// =====================================================================
+// THE ABOUT PAGE (Felix §7, row About; brief of 2026-10-16).
+//
+// Inner opener with portrait and contact card · Bio story cards · "The
+// title, defined" as move cards and a dark shared-foundation card · the
+// teal outcome band · skills definition list · the shared CTA (the opener,
+// Bio and title-defined layout are the approved prototype of 2026-10-16,
+// ported at the foot of this block). Everything below is scoped to
+// body.felix-about. The page base, the inner opener, .fx-card, .fx-pill and
+// the CTA are the shared component rules above; nothing here reaches
+// another page, and the 24 non-About visual baselines are the test.
+//
+// Two contrast decisions, both computed 2026-10-16 by WCAG 2.x relative
+// luminance from the token values:
+// - white/70 on teal (#12403c), the tile body in Felix's dark variant,
+//   measures 6.53:1 and passes AA at any size. Kept as Felix has it.
+// - teal-3 (#3f8f85) on teal, Felix's colour for the dark variant's mono
+//   index, measures 3.00:1 and fails AA at 0.72rem. The index is #8fd3c8
+//   instead, the CTA banner's serif colour, which measures 6.75:1.
+// =====================================================================
+body.felix-about {
+  // ---------- Opener (Felix §3.3 "Inner hero + aside": minmax(0,1fr) 20rem) ----------
+  .fx-about-opener {
+    display: grid;
+    gap: 2.5rem;
+    @media (min-width: 1024px) {
+      grid-template-columns: minmax(0, 1fr) 20rem;
+      gap: 3rem;
+      align-items: end;
+    }
+  }
+  .fx-about-opener__text { min-width: 0; }
+
+  // Contact card aside (Felix §6.5). The availability line sits in the
+  // eyebrow's slot but is set as a short paragraph, not mono uppercase: it
+  // is two sentences, and mono is for metadata (Felix §8 rule 4).
+  .fx-contact {
+    // A div with role="complementary", not an <aside>: Quarto places every
+    // <aside> in its margin column with !important; see about.qmd.
+    align-self: end;
+    min-width: 0;
+    border-radius: $fx-radius-card;
+    background: $fx-white;
+    padding: 1.5rem;
+    box-shadow: $fx-shadow-soft;
+    p { margin: 0; }
+  }
+  .fx-contact__lede {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: $fx-ink-soft;
+  }
+  .fx-contact__row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    color: $fx-ink;
+    text-decoration: none;
+    transition: background-color .15s;
+    &:hover { background: $fx-mist-2; color: $fx-ink; text-decoration: none; }
+    &:focus-visible { @include fx-focus; border-radius: 0.75rem; }
+  }
+  .fx-contact__row + .fx-contact__row { margin-top: 0.25rem; }
+  .fx-contact__disc {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    background: $fx-teal;
+    color: $fx-white;
+    &.fx-contact__disc--ink { background: $fx-ink; }
+  }
+  .fx-contact__meta { min-width: 0; font-size: 0.875rem; line-height: 1.35; }
+  .fx-contact__name { display: block; font-weight: 500; }
+  // muted on white is 4.59:1 (see the header); the handle is 0.875rem.
+  .fx-contact__handle {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: $fx-muted;
+  }
+
+  // ---------- Bio container (the story layout is at the foot of this block) ----------
+  .fx-bio {
+    @include fx-container;
+    padding-top: 5rem;
+    display: grid;
+    gap: 1.5rem;
+    @media (min-width: 1024px) { grid-template-columns: 14rem 1fr; gap: 3rem; }
+  }
+  .fx-rich {
+    max-width: 48rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: $fx-ink-soft;
+    p { margin: 0 0 1.25rem; &:last-child { margin-bottom: 0; } }
+    strong { color: $fx-ink; font-weight: 600; }
+  }
+
+  // ---------- Selected outcomes (Felix §6.5 stat strip, dark variant) ----------
+  .fx-band {
+    margin-top: 6rem;
+    background: $fx-teal;
+    color: $fx-white;
+    padding: 5rem 0;
+  }
+  .fx-band__inner { @include fx-container; }
+  .fx-band__title {
+    margin: 0;
+    color: $fx-white;
+    font-size: 2.25rem;
+    line-height: 1.02;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    @media (min-width: 640px) { font-size: 3rem; }
+  }
+  .fx-outcomes {
+    list-style: none;
+    margin: 2.5rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1px;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background: rgba($fx-white, 0.1);
+    @media (min-width: 640px)  { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (min-width: 1024px) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .fx-outcome {
+    min-width: 0;
+    background: $fx-teal;
+    padding: 1.75rem;
+    p { margin: 0; }
+  }
+  .fx-outcome__index {
+    font-family: $fx-font-mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: #8fd3c8;
+  }
+  .fx-outcome__title { margin: 0.75rem 0 0; color: $fx-white; }
+  .fx-outcome__figure {
+    display: block;
+    font-family: $fx-font-display;
+    font-size: 2.4rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .fx-outcome__head {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: $fx-font-display;
+    font-size: 1.2rem;
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .fx-outcome__text {
+    margin-top: 0.75rem !important;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba($fx-white, 0.7);
+    strong { color: $fx-white; font-weight: 600; }
+  }
+
+  // ---------- Skills (Felix §6.10 definition list) ----------
+  .fx-skills {
+    @include fx-container;
+    padding-top: 5rem;
+    h2 {
+      margin: 0;
+      font-size: 2rem;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+    }
+    .level2 > p {
+      margin: 1.25rem 0 0;
+      max-width: 46rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: $fx-ink-soft;
+    }
+  }
+  .fx-skills__list {
+    margin: 2.5rem 0 0;
+    border-top: 1px solid $fx-line;
+    border-bottom: 1px solid $fx-line;
+  }
+  .fx-skills__row {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid $fx-line;
+    &:first-child { border-top: 0; }
+    @media (min-width: 768px) { grid-template-columns: 14rem minmax(0, 1fr); gap: 1.5rem; }
+    dt {
+      margin: 0;
+      font-family: $fx-font-display;
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: $fx-ink;
+    }
+    dd { margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; min-width: 0; }
+  }
+  .fx-chip {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    border-radius: 999px;
+    background: $fx-white;
+    border: 1px solid $fx-line;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    color: $fx-ink-soft;
+  }
+  .fx-skills__action {
+    margin-top: 2.5rem;
+    p { margin: 0; }
+  }
+
+  // =====================================================================
+  // THE APPROVED PROTOTYPE (2026-10-16): portrait opener, Bio story cards,
+  // and the title, defined as cards. Ported from the handoff's
+  // dist/prototype.css with its tokens written as the $fx-* variables
+  // (same values), in the same order, after everything above, so the
+  // cascade resolves as it did in the prototype. Left out on purpose: the
+  // body.fx-prototype rules (standalone-preview header offsets) and its
+  // reduced-motion rule, which styles.scss already covers for every
+  // element (Rule 5.6).
+  //
+  // The #quarto-content > selectors are deliberate: Quarto's custom-page
+  // rules otherwise win over a plain section selector for this spacing.
+  //
+  // Contrast, from the handoff's measurements of the rendered colours
+  // (alpha composited): teal on lime, the role pills, 9.23:1; white on ink,
+  // the shared-foundation heading and takeaway, 17.00:1; white/78 on ink,
+  // its body copy, 10.69:1.
+  // =====================================================================
+
+  // ---------- Portrait opener: intro and contact left, portrait right ----------
+  #quarto-content > .fx-about-opener--portrait {
+    padding-top: 4rem;
+  }
+  .fx-about-opener--portrait {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "intro" "portrait" "contact";
+    gap: 2rem;
+    align-items: start;
+  }
+  .fx-about-opener--portrait .fx-about-opener__text {
+    grid-area: intro;
+  }
+  .fx-about-opener--portrait h1 {
+    font-size: clamp(2.75rem, 5.1vw, 4.5rem);
+    max-width: 11ch;
+    line-height: 1.04;
+  }
+  .fx-about-opener--portrait .fx-inner__intro {
+    max-width: 33rem;
+  }
+  .fx-about-portrait {
+    grid-area: portrait;
+    width: 100%;
+    max-width: 24rem;
+    margin: 0;
+    align-self: center;
+    justify-self: center;
+    aspect-ratio: 4 / 5;
+    border-radius: 1.75rem;
+    overflow: hidden;
+    background: $fx-mist;
+  }
+  // Quarto adds Bootstrap's .figure and .figure-img to every figure it
+  // renders; .figure-img's bottom margin is the one property that reaches
+  // this frame, so it is reset to match the prototype.
+  .fx-about-portrait img {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 45%;
+  }
+  .fx-about-opener--portrait .fx-contact {
+    grid-area: contact;
+    align-self: start;
+    width: 100%;
+    max-width: 36rem;
+  }
+
+  // ---------- Bio and title-defined cards share one foundation ----------
+  #quarto-content > .fx-bio--stories {
+    padding-top: 4.5rem;
+  }
+  .fx-bio.fx-bio--stories {
+    display: block;
+  }
+  .fx-bio__intro {
+    max-width: 46rem;
+    margin-bottom: 2.75rem;
+  }
+  .fx-bio__intro h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    margin: 1.1rem 0 1rem;
+    padding: 0;
+    border: 0;
+  }
+  .fx-bio__intro > p,
+  .fx-about-card__text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: $fx-ink-soft;
+    margin: 0;
+  }
+  .fx-bio__stories {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .fx-about-card {
+    min-width: 0;
+    padding: 1.75rem;
+    border: 0;
+    border-radius: 1.75rem;
+    background: $fx-white;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  // Reading cards: the shared .fx-card lift is switched off. Only the
+  // existing project-name link is interactive.
+  .fx-about-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .fx-about-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .fx-about-card__number {
+    font-family: $fx-font-display;
+    font-size: 1.7rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: $fx-ink;
+  }
+  .fx-bio-story__employer {
+    margin: 0 0 0.65rem;
+    font-family: $fx-font-mono;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $fx-teal-2;
+  }
+  // The static role pills: lime ground, teal text. The section-heading
+  // pills keep the neutral .fx-pill; neither is interactive.
+  .fx-about-card__role {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: $fx-teal;
+    background: $fx-lime;
+    border-color: transparent;
+  }
+  .fx-about-card h3 {
+    font-size: clamp(1.35rem, 2vw, 1.65rem);
+    font-family: $fx-font-display;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.8rem;
+    color: $fx-ink;
+  }
+  .fx-about-card__text {
+    margin-bottom: 1.5rem;
+  }
+  .fx-about-card__result {
+    border-top: 1px solid $fx-line;
+    margin: auto 0 0;
+    padding-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: $fx-teal;
+  }
+  .fx-about-card__text a {
+    color: $fx-teal;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+  }
+  .fx-about-card__text a:focus-visible {
+    outline: 2px solid $fx-teal-2;
+    outline-offset: 3px;
+  }
+
+  // ---------- The three moves, then the shared foundation under them ----------
+  #quarto-content > .fx-architect {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+  .fx-architect__intro {
+    max-width: 54rem;
+    margin-bottom: 2.75rem;
+  }
+  .fx-architect__intro h2 {
+    font-family: $fx-font-display;
+    font-size: clamp(2rem, 3.1vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    margin: 1.1rem 0 1rem;
+    padding: 0;
+    border: 0;
+    color: $fx-ink;
+  }
+  .fx-architect__intro > p,
+  .fx-architect__close p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: $fx-ink-soft;
+    margin: 0;
+  }
+  .fx-architect__moves {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+  }
+  .fx-architect__foundation {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 3rem;
+    row-gap: 1.5rem;
+    background: $fx-ink;
+    color: $fx-white;
+  }
+  // The inverted palette of the validation playbook's final Commitment tile.
+  .fx-architect__foundation h3,
+  .fx-architect__foundation > .fx-about-card__result {
+    color: $fx-white;
+  }
+  .fx-architect__foundation .fx-about-card__text {
+    color: rgba($fx-white, 0.78);
+  }
+  .fx-architect__foundation > .fx-about-card__result {
+    border-top-color: rgba($fx-white, 0.18);
+  }
+  .fx-architect__foundation-head > .fx-pill {
+    display: inline-flex;
+    margin-bottom: 1.25rem;
+  }
+  .fx-architect__foundation-head h3 {
+    margin: 0;
+    max-width: 20ch;
+  }
+  .fx-architect__example > p {
+    margin-bottom: 1rem;
+  }
+  .fx-architect__example > p:last-child {
+    margin-bottom: 0;
+  }
+  .fx-architect__foundation > .fx-about-card__result {
+    grid-column: 1 / -1;
+    margin: 0;
+  }
+  .fx-architect__close {
+    max-width: 52rem;
+    margin: 2rem 0 0;
+  }
+  // Emphasis inside the closing paragraph, not a heading: a block of
+  // display type that wraps naturally on small screens.
+  .fx-architect__statement {
+    display: block;
+    margin-bottom: 0.65rem;
+    font-family: $fx-font-display;
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: $fx-ink;
+  }
+
+  @media (min-width: 640px) {
+    .fx-about-opener--portrait .fx-contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: 1rem;
+    }
+    .fx-about-opener--portrait .fx-contact__lede {
+      grid-column: 1 / -1;
+    }
+    .fx-about-opener--portrait .fx-contact__row {
+      margin-top: 1rem;
+      min-width: 0;
+    }
+  }
+  @media (min-width: 1024px) {
+    .fx-about-opener--portrait {
+      grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+      grid-template-areas: "intro portrait" "contact portrait";
+      column-gap: 4rem;
+      row-gap: 2rem;
+    }
+    .fx-about-opener--portrait .fx-about-portrait {
+      align-self: stretch;
+      max-height: 32rem;
+    }
+    .fx-bio__stories {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .fx-architect__moves {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .fx-architect__foundation {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+    }
+  }
+  @media (max-width: 639px) {
+    #quarto-content > .fx-about-opener--portrait { padding-top: 2.5rem; }
+    #quarto-content > .fx-bio--stories { padding-top: 3.5rem; }
+    .fx-bio__intro { margin-bottom: 2rem; }
+    .fx-about-card { padding: 1.5rem; }
+    #quarto-content > .fx-architect { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    .fx-architect__intro { margin-bottom: 2rem; }
+  }
+}
