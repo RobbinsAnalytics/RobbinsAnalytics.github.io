@@ -11,73 +11,215 @@ open-graph:
 twitter-card:
   title: "About Aaron Robbins, AI Analytics Architect | Robbins Analytics"
   description: "Who Aaron Robbins is, what AI Analytics Architect means, and the outcomes behind it."
-# felix-about scopes the Felix About layout to this page (felix.scss).
+# felix-about scopes the Felix About layout (felix-design-system.md §7, row
+# About) to this page and hides Quarto's title block: the opener below
+# carries the one H1, in the Felix inner-page form. See felix.scss.
 body-classes: felix-about
+# custom, not full: the Felix sections carry their own 76rem container, and
+# Quarto's page grid would add a second set of gutters around it.
+page-layout: custom
+toc: false
 ---
 
 <!-- Copy approved by Aaron 2026-10-16 (cascadia-estate, About page copy
      draft). Pasted, not rewritten. Two sentences under Selected outcomes are
      load-bearing: the homepage stat tiles quote them (data/stats.json) and
-     tools/check_references.py fails if either leaves this file. -->
+     tools/check_references.py fails if either leaves this file.
 
+     Layout: Felix §7, row About. Inner opener + contact card aside · bio
+     grid · the title, defined (the homepage's white panel and method tiles)
+     · the teal outcome band · skills definition list · the shared CTA. -->
+
+<!-- OPENER (Felix §6.6 inner opener; §3.3 "Inner hero + aside"). Right: the
+     contact card aside (§6.5), the availability line in its eyebrow's slot,
+     then LinkedIn and GitHub. No email, by the standing rule. A div with
+     role="complementary", not an <aside>: Quarto's page layout places every
+     <aside> in its margin column with !important (grid-column:
+     body-end/page-end), which on this grid resolves to implicit tracks and
+     collapsed the text column to nothing (2026-10-16). -->
+
+::: {.fx-inner .fx-about-opener}
+::: {.fx-about-opener__text}
+[AI Analytics Architect]{.fx-eyebrow}
+
+# About Aaron Robbins[.]{.fx-stop}
+
+::: {.fx-inner__intro}
 The title is new. The work is not: specify what correct means, build it, test it, publish the evidence.
-
-Open to analytics manager, lead, or principal roles where reporting has outgrown trust, and to conversations about roles that don't exist yet. Seattle or remote.
-
-::: {.grid}
-::: {.g-col-12 .g-col-md-6}
-**LinkedIn**
-[linkedin.com/in/aaron-robbins-6b25a2136](https://www.linkedin.com/in/aaron-robbins-6b25a2136/)
-:::
-::: {.g-col-12 .g-col-md-6}
-**GitHub**
-[github.com/RobbinsAnalytics](https://github.com/RobbinsAnalytics)
 :::
 :::
 
----
+```{=html}
+<div class="fx-contact" role="complementary" aria-label="Availability and contact">
+  <p class="fx-contact__lede">Open to analytics manager, lead, or principal roles where reporting has outgrown trust, and to conversations about roles that don't exist yet. Seattle or remote.</p>
+  <a class="fx-contact__row" href="https://www.linkedin.com/in/aaron-robbins-6b25a2136/">
+    <span class="fx-contact__disc" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" focusable="false"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg></span>
+    <span class="fx-contact__meta"><span class="fx-contact__name">LinkedIn</span><span class="fx-contact__handle">linkedin.com/in/aaron-robbins-6b25a2136</span></span>
+  </a>
+  <a class="fx-contact__row" href="https://github.com/RobbinsAnalytics">
+    <span class="fx-contact__disc fx-contact__disc--ink" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg></span>
+    <span class="fx-contact__meta"><span class="fx-contact__name">GitHub</span><span class="fx-contact__handle">github.com/RobbinsAnalytics</span></span>
+  </a>
+</div>
+```
+:::
 
+<!-- BIO (Felix §3.3 "Bio" grid, 14rem_1fr; §3.4 prose measure). -->
+
+::: {.fx-bio}
+::: {.fx-bio__head}
 ## Bio
+:::
 
+::: {.fx-rich}
 I have spent twelve years making numbers people can sign their name to, and the last four months proving it can be done with AI doing the build. The title is a description of the work, not a claim to a job: I design the analytics, I specify what correct looks like before anything is built, and I direct AI to do the build. Every module in the Cascadia portfolio carries its own evidence: known answers set before the code, tests that run on every build, and a record of what each test caught. That is the part of the craft that does not change with the tooling: data governance, specification, semantic modeling, and defining measures other people will sign their name to.
 
 At Lowe's ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six building the data warehouse and the reporting stack behind $100M+ in revenue. At Philips Healthcare I ran BI and analytics programs across 23 manufacturing sites in eleven countries, with ongoing multi-project work at fourteen of them, and 200+ stakeholders. None of those sites reported to me.
 
 I kept my own book of work the whole time I was managing, and the portfolio is what that looks like with today's tools: ten builds in four months, each one specified, validated and operated the way I would ask a team to do it. What I am looking for now is a reporting estate that has outgrown trust and a team that wants to earn it back. Trust what you can test. The rest of this site is the test.
+:::
+:::
 
----
+<!-- THE TITLE, DEFINED (Aaron's spec, 2026-10-16). The homepage's white
+     panel and its three paper tiles (Felix §6.5), reused as definitions: a
+     number, a title, a text, and no pill link. The three moves differ from
+     the homepage's method tiles on purpose ("Direct the build", "Verify");
+     do not harmonise them. Then the synthesis as one wide card, and the
+     closing paragraph in prose. -->
+
+::: {.fx-white}
+::: {.fx-white__panel}
+
+::: {.fx-opener .fx-opener--about}
+::: {.fx-opener__head}
+[The title, defined]{.fx-eyebrow}
 
 ## An AI Analytics Architect owns the what and the proof, not the how.
+:::
 
+::: {.fx-opener__intro}
 The job has three moves. None of them is writing the code.
+:::
+:::
 
-1. **Specify.** Turn a business need into a precise spec: the data model, the measure definitions, the matching rules, and the invariants that must hold. Correct is defined before anything is built, so there is something to check the build against.
-2. **Direct the build.** AI tools or an engineer do the building; either works. The job is to aim the build at the spec, not to pour the concrete. That leverage is why one person now covers ground that used to take a team.
-3. **Verify.** Nothing ships on trust. Every number is re-derived a second, independent way and reconciled against source, and a check that disagrees stops the publish. Trust what you can test.
+```{=html}
+<ol class="fx-tiles fx-tiles--moves">
+  <li class="fx-tile">
+    <p class="fx-tile__num">01</p>
+    <h3 class="fx-tile__title">Specify</h3>
+    <p class="fx-tile__text">Turn a business need into a precise spec: the data model, the measure definitions, the matching rules, and the invariants that must hold. Correct is defined before anything is built, so there is something to check the build against.</p>
+  </li>
+  <li class="fx-tile">
+    <p class="fx-tile__num">02</p>
+    <h3 class="fx-tile__title">Direct the build</h3>
+    <p class="fx-tile__text">AI tools or an engineer do the building; either works. The job is to aim the build at the spec, not to pour the concrete. That leverage is why one person now covers ground that used to take a team.</p>
+  </li>
+  <li class="fx-tile">
+    <p class="fx-tile__num">03</p>
+    <h3 class="fx-tile__title">Verify</h3>
+    <p class="fx-tile__text">Nothing ships on trust. Every number is re-derived a second, independent way and reconciled against source, and a check that disagrees stops the publish. Trust what you can test.</p>
+  </li>
+</ol>
+<div class="fx-synthesis">
+  <p>Under all three sits the part no tool does. Problems arrive as separate requests and are usually one system; the architect's work is seeing that and designing the fewest pieces that hold. AI builds whatever you specify, but it will not notice that two things are one. Conformed dimensions are the plain example: encounters, claims, eligibility and rides stop being four reporting problems and become one model with shared spines.</p>
+</div>
+```
 
-Under all three sits the part no tool does. Problems arrive as separate requests and are usually one system; the architect's work is seeing that and designing the fewest pieces that hold. AI builds whatever you specify, but it will not notice that two things are one. Conformed dimensions are the plain example: encounters, claims, eligibility and rides stop being four reporting problems and become one model with shared spines.
-
+::: {.fx-rich .fx-white__close}
 I do not hand-write the code, and that is a choice. There are plenty of people who write code well. Specifying and verifying AI-built analytics inside a business domain is the rare skill, and it is the one this site is built to demonstrate.
+:::
 
----
+:::
+:::
 
-## Selected outcomes
+<!-- SELECTED OUTCOMES (Felix §6.5 stat strip, dark variant for About; §3.1
+     full-bleed band). Six tiles, three across from 1024, two from 640, one
+     below. Each: a mono index, the figure and the headline as one heading,
+     the existing bullet as the body with its bold lead sentence. The bodies
+     are the About page's bullets verbatim; the figures and headlines are the
+     approved draft's. The 200+ and $80K sentences are quoted by the homepage
+     stat tiles and checked by tools/check_references.py. -->
 
-- **Built the Open Quality Notification reporting that eight factories ran on.** I built the original myself, before there was a development team, sourcing from SAP directly so nothing was copied between workbooks. It scaled from one site to 8, cut about 32 hours a week of manual work, brought average closure time down 5 days, and reduced the notifications aging past 30 days by 20%. Refresh went from weekly by hand to hourly during business hours, on a cadence set by how the work actually runs rather than by how often we could run it.
-- **Gave three plants one set of numbers.** The monthly operations report pulled from Murrysville, Böblingen and Shenzhen, each calculating the same 12 KPIs differently. I ran the initiative end to end, surfaced 6 definition misalignments and reconciled 4 of them myself, and delivered one automated Power BI report on aligned definitions. It removed about 36 hours of manual compilation a month and moved the reporting cycle from the 15th to the 5th.
-- **Governed data at enterprise scale.** I standardized 200+ Critical Data Elements and common data model definitions across a global manufacturing platform, enforcing semantic consistency across systems that had none.
-- **Eliminated 100+ hours a week of manual reporting.** I moved disconnected spreadsheets and point-in-time extracts into automated, governed dashboards.
-- **Took $80K a year out of the reporting estate.** I cataloged every pipeline under the Operations umbrella, traced each to the reports it fed, measured what people actually used, and retired the dead pipelines and over-frequent refreshes. No report was moved or deleted.
-- **Founded a BI function.** I proposed the department at Lowe's/ATG Stores, hired its foundational team, and managed six analysts and developers through the build of the data warehouse, the KPI definitions and the stewardship model.
+```{=html}
+<section class="fx-band" aria-labelledby="fx-outcomes-title">
+  <div class="fx-band__inner">
+    <h2 class="fx-band__title" id="fx-outcomes-title">Selected outcomes</h2>
+    <ul class="fx-outcomes">
+      <li class="fx-outcome">
+        <p class="fx-outcome__index">01</p>
+        <h3 class="fx-outcome__title"><span class="fx-outcome__figure">8</span><span class="fx-outcome__head">factories on one reporting system</span></h3>
+        <p class="fx-outcome__text"><strong>Built the Open Quality Notification reporting that eight factories ran on.</strong> I built the original myself, before there was a development team, sourcing from SAP directly so nothing was copied between workbooks. It scaled from one site to 8, cut about 32 hours a week of manual work, brought average closure time down 5 days, and reduced the notifications aging past 30 days by 20%. Refresh went from weekly by hand to hourly during business hours, on a cadence set by how the work actually runs rather than by how often we could run it.</p>
+      </li>
+      <li class="fx-outcome">
+        <p class="fx-outcome__index">02</p>
+        <h3 class="fx-outcome__title"><span class="fx-outcome__figure">12</span><span class="fx-outcome__head">KPIs, one definition each, three plants</span></h3>
+        <p class="fx-outcome__text"><strong>Gave three plants one set of numbers.</strong> The monthly operations report pulled from Murrysville, Böblingen and Shenzhen, each calculating the same 12 KPIs differently. I ran the initiative end to end, surfaced 6 definition misalignments and reconciled 4 of them myself, and delivered one automated Power BI report on aligned definitions. It removed about 36 hours of manual compilation a month and moved the reporting cycle from the 15th to the 5th.</p>
+      </li>
+      <li class="fx-outcome">
+        <p class="fx-outcome__index">03</p>
+        <h3 class="fx-outcome__title"><span class="fx-outcome__figure">200+</span><span class="fx-outcome__head">Critical Data Elements governed</span></h3>
+        <p class="fx-outcome__text"><strong>Governed data at enterprise scale.</strong> I standardized 200+ Critical Data Elements and common data model definitions across a global manufacturing platform, enforcing semantic consistency across systems that had none.</p>
+      </li>
+      <li class="fx-outcome">
+        <p class="fx-outcome__index">04</p>
+        <h3 class="fx-outcome__title"><span class="fx-outcome__figure">100+</span><span class="fx-outcome__head">hours a week of manual reporting removed</span></h3>
+        <p class="fx-outcome__text"><strong>Eliminated 100+ hours a week of manual reporting.</strong> I moved disconnected spreadsheets and point-in-time extracts into automated, governed dashboards.</p>
+      </li>
+      <li class="fx-outcome">
+        <p class="fx-outcome__index">05</p>
+        <h3 class="fx-outcome__title"><span class="fx-outcome__figure">$80K</span><span class="fx-outcome__head">a year out of the reporting estate</span></h3>
+        <p class="fx-outcome__text"><strong>Took $80K a year out of the reporting estate.</strong> I cataloged every pipeline under the Operations umbrella, traced each to the reports it fed, measured what people actually used, and retired the dead pipelines and over-frequent refreshes. No report was moved or deleted.</p>
+      </li>
+      <li class="fx-outcome">
+        <p class="fx-outcome__index">06</p>
+        <h3 class="fx-outcome__title"><span class="fx-outcome__figure">1</span><span class="fx-outcome__head">BI function, founded and staffed</span></h3>
+        <p class="fx-outcome__text"><strong>Founded a BI function.</strong> I proposed the department at Lowe's/ATG Stores, hired its foundational team, and managed six analysts and developers through the build of the data warehouse, the KPI definitions and the stewardship model.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+```
 
----
+<!-- SKILLS (Felix §6.10 definition list). Five groups, the current labels,
+     each item a chip; the link to How I Built This; one primary button. -->
 
+::: {.fx-skills}
 ## Skills
 
 The split below is the same division of labor described in [How I Built This](cascadia.qmd#how-i-built-this).
 
-- **Tools I work in directly:** Power BI (data modeling, Power Query/M), Tableau, Qlik, SAP BusinessObjects, advanced Excel, SQL (queries, joins, views, transformations), SAP HANA, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality
-- **Tools I specify against and validate:** Python, DAX, DuckDB, dbt, Microsoft Fabric, Databricks, Azure data platforms
-- **KPI & frameworks:** KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization
-- **Domains:** healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics
-- **Program & enablement:** BI function ownership, analytics program & portfolio management, Agile (Scrumban) / Scrum Master, stakeholder management across eleven countries, self-service enablement, mentoring analysts
+```{=html}
+<dl class="fx-skills__list">
+  <div class="fx-skills__row">
+    <dt>Tools I work in directly</dt>
+    <dd><span class="fx-chip">Power BI (data modeling, Power Query/M)</span><span class="fx-chip">Tableau</span><span class="fx-chip">Qlik</span><span class="fx-chip">SAP BusinessObjects</span><span class="fx-chip">advanced Excel</span><span class="fx-chip">SQL (queries, joins, views, transformations)</span><span class="fx-chip">SAP HANA</span><span class="fx-chip">dimensional/star-schema &amp; semantic modeling</span><span class="fx-chip">ETL/ELT &amp; data integration</span><span class="fx-chip">data governance &amp; quality</span></dd>
+  </div>
+  <div class="fx-skills__row">
+    <dt>Tools I specify against and validate</dt>
+    <dd><span class="fx-chip">Python</span><span class="fx-chip">DAX</span><span class="fx-chip">DuckDB</span><span class="fx-chip">dbt</span><span class="fx-chip">Microsoft Fabric</span><span class="fx-chip">Databricks</span><span class="fx-chip">Azure data platforms</span></dd>
+  </div>
+  <div class="fx-skills__row">
+    <dt>KPI &amp; frameworks</dt>
+    <dd><span class="fx-chip">KPI development &amp; governance</span><span class="fx-chip">leading/lagging indicator frameworks</span><span class="fx-chip">Critical Data Elements &amp; common data models</span><span class="fx-chip">BI rationalization</span></dd>
+  </div>
+  <div class="fx-skills__row">
+    <dt>Domains</dt>
+    <dd><span class="fx-chip">healthcare (manufacturing, quality, pharmacy/public-health)</span><span class="fx-chip">ecommerce &amp; retail</span><span class="fx-chip">workforce/staffing</span><span class="fx-chip">financial analytics</span></dd>
+  </div>
+  <div class="fx-skills__row">
+    <dt>Program &amp; enablement</dt>
+    <dd><span class="fx-chip">BI function ownership</span><span class="fx-chip">analytics program &amp; portfolio management</span><span class="fx-chip">Agile (Scrumban) / Scrum Master</span><span class="fx-chip">stakeholder management across eleven countries</span><span class="fx-chip">self-service enablement</span><span class="fx-chip">mentoring analysts</span></dd>
+  </div>
+</dl>
+```
+
+::: {.fx-skills__action}
+[See the portfolio](case-studies.qmd){.fx-btn .fx-btn--primary}
+:::
+:::
+
+<!-- LET'S TALK: the homepage's CTA banner, shared. The markup lives once, in
+     _includes/cta.html, spliced in by tools/fx_include.lua. -->
+
+::: {.fx-include file="_includes/cta.html"}
+:::
