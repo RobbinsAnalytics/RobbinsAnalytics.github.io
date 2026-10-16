@@ -504,39 +504,11 @@
     "text": "Tech Stack\n\nPython (pandas) SQLite DuckDB dbt Core Apache ECharts SEC EDGAR XBRL FJC Integrated Database Bankruptcy Research Database openFDA statsmodels Playwright SQL Server 2025 T-SQL Power BI DAX Microsoft Fabric PySpark Static HTML / JS WCAG 2.2 AA target (unverified) GitHub Pages PowerShell Git"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Aaron Robbins",
-    "section": "",
-    "text": "I’m an analyst, and I do the analytics engineering the analysis depends on. Twelve years of the craft: data governance, specification, semantic modeling, and defining measures other people will sign their name to. The tooling I pick up as the work demands it, which lately has meant Python, DuckDB, dbt and a publishing stack, each acquired in a matter of weeks.\nAt Lowe’s ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six building the data warehouse and the reporting stack behind $100M+ in revenue. At Philips Healthcare I ran BI and analytics programs across 23 manufacturing sites in eleven countries, with ongoing multi-project work at fourteen of them, and 200+ stakeholders. None of those sites reported to me.\nI ran a team, and I am looking for an individual contributor seat on purpose. I want more hands-on time with the new AI tooling inside a working organization before I take another manager title. I kept my own book of work the whole time I was managing; staying close to the data and the tools is the part I do not want to give up."
-  },
-  {
-    "objectID": "about.html#bio",
-    "href": "about.html#bio",
-    "title": "About Aaron Robbins",
-    "section": "",
-    "text": "I’m an analyst, and I do the analytics engineering the analysis depends on. Twelve years of the craft: data governance, specification, semantic modeling, and defining measures other people will sign their name to. The tooling I pick up as the work demands it, which lately has meant Python, DuckDB, dbt and a publishing stack, each acquired in a matter of weeks.\nAt Lowe’s ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six building the data warehouse and the reporting stack behind $100M+ in revenue. At Philips Healthcare I ran BI and analytics programs across 23 manufacturing sites in eleven countries, with ongoing multi-project work at fourteen of them, and 200+ stakeholders. None of those sites reported to me.\nI ran a team, and I am looking for an individual contributor seat on purpose. I want more hands-on time with the new AI tooling inside a working organization before I take another manager title. I kept my own book of work the whole time I was managing; staying close to the data and the tools is the part I do not want to give up."
-  },
-  {
-    "objectID": "about.html#selected-outcomes",
-    "href": "about.html#selected-outcomes",
-    "title": "About Aaron Robbins",
-    "section": "Selected outcomes",
-    "text": "Selected outcomes\n\nBuilt the Open Quality Notification reporting that eight factories ran on. I built the original myself, before there was a development team, sourcing from SAP directly so nothing was copied between workbooks. It scaled from one site to 8, cut about 32 hours a week of manual work, brought average closure time down 5 days, and reduced the notifications aging past 30 days by 20%. Refresh went from weekly by hand to hourly during business hours, on a cadence set by how the work actually runs rather than by how often we could run it.\nGave three plants one set of numbers. The monthly operations report pulled from Murrysville, Böblingen and Shenzhen, each calculating the same 12 KPIs differently. I ran the initiative end to end, surfaced 6 definition misalignments and reconciled 4 of them myself, and delivered one automated Power BI report on aligned definitions. It removed about 36 hours of manual compilation a month and moved the reporting cycle from the 15th to the 5th.\nGoverned data at enterprise scale. I standardized 200+ Critical Data Elements and common data model definitions across a global manufacturing platform, enforcing semantic consistency across systems that had none.\nEliminated 100+ hours a week of manual reporting. I moved disconnected spreadsheets and point-in-time extracts into automated, governed dashboards.\nTook $80K a year out of the reporting estate. I cataloged every pipeline under the Operations umbrella, traced each to the reports it fed, measured what people actually used, and retired the dead pipelines and over-frequent refreshes. No report was moved or deleted.\nFounded a BI function. I proposed the department at Lowe’s/ATG Stores, hired its foundational team, and managed six analysts and developers through the build of the data warehouse, the KPI definitions and the stewardship model."
-  },
-  {
     "objectID": "about.html#skills",
     "href": "about.html#skills",
-    "title": "About Aaron Robbins",
+    "title": "About Aaron Robbins, AI Analytics Architect",
     "section": "Skills",
-    "text": "Skills\nThe split below is the same division of labor described in How I Built This.\n\nTools I work in directly: Power BI (data modeling, Power Query/M), Tableau, Qlik, SAP BusinessObjects, advanced Excel, SQL (queries, joins, views, transformations), SAP HANA, dimensional/star-schema & semantic modeling, ETL/ELT & data integration, data governance & quality\nTools I specify against and validate: Python, DAX, DuckDB, dbt, Microsoft Fabric, Databricks, Azure data platforms\nKPI & frameworks: KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization\nDomains: healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics\nProgram & enablement: BI function ownership, analytics program & portfolio management, Agile (Scrumban) / Scrum Master, stakeholder management across eleven countries, self-service enablement, mentoring analysts"
-  },
-  {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "About Aaron Robbins",
-    "section": "Contact",
-    "text": "Contact\n\n\nLinkedIn linkedin.com/in/aaron-robbins-6b25a2136\n\n\nGitHub github.com/RobbinsAnalytics"
+    "text": "Skills\nThe split below is the same division of labor described in How I Built This.\n\n  \n    Tools I work in directly\n    Power BI (data modeling, Power Query/M)TableauQlikSAP BusinessObjectsadvanced ExcelSQL (queries, joins, views, transformations)SAP HANAdimensional/star-schema & semantic modelingETL/ELT & data integrationdata governance & qualityGit / GitHub — version control and pull-request workflowsDatabricks — SQL analysis and validation\n  \n  \n    Tools I specify against and validate\n    PythonDAXDuckDBdbtMicrosoft FabricAzure data platforms\n  \n  \n    KPI & frameworks\n    KPI development & governanceleading/lagging indicator frameworksCritical Data Elements & common data modelsBI rationalizationRequirements definition & user acceptance testingIndependent validation, reconciliation & metric certification\n  \n  \n    Domains\n    healthcare (manufacturing, quality, pharmacy/public-health)ecommerce & retailworkforce/staffingfinancial analytics\n  \n  \n    Program & enablement\n    BI function ownershipanalytics program & portfolio managementAgile (Scrumban) / Scrum Masterstakeholder management across eleven countriesself-service enablementHiring, coaching & team developmentAI-assisted analytics delivery & agent directionData visualization & executive communication\n  \n\n\nSee the portfolio"
   },
   {
     "objectID": "projects/cascadia-revenue-assurance.html",

@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-55095ecacb6c9d1c7d1378591e7a160e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fcfcc98ff61b910d951bdc1e492b7187.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -702,10 +702,17 @@ window.Quarto = {
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
 </div>
-<!-- LET'S TALK (Felix §6.11 CTA banner; note 14). Felix's copy, kept at
-     Aaron's direction. There is no contact page and no email on the site, so
-     "Get in touch" opens LinkedIn (Aaron, 2026-10-15). The bars on the right
-     carry no axis, labels or numbers. -->
+<!-- LET'S TALK (Felix §6.11 CTA banner; note 14). Shared with the About
+     page: the markup lives once, in _includes/cta.html, and is spliced in
+     here by tools/fx_include.lua. Felix's copy, kept at Aaron's direction.
+     There is no contact page and no email on the site, so "Get in touch"
+     opens LinkedIn (Aaron, 2026-10-15). -->
+<!-- The CTA banner, Felix §6.11, shared by the homepage and the About page
+     through tools/fx_include.lua (::: {.fx-include file="_includes/cta.html"}).
+     Lifted out of index.qmd on 2026-10-16 so it exists once. Felix's copy,
+     kept at Aaron's direction (2026-10-15). There is no contact page and no
+     email on the site, so "Get in touch" opens LinkedIn. The bars on the
+     right carry no axis, labels or numbers. -->
 <section class="fx-cta" aria-labelledby="fx-cta-title">
   <div class="fx-cta__panel">
     <div class="fx-cta__copy">
@@ -742,6 +749,7 @@ window.Quarto = {
     </div>
   </div>
 </section>
+
 
 
 
