@@ -1,14 +1,63 @@
 ---
-title: "About Aaron Robbins"
+# The descriptor travels with the title (positioning decision of 2026-10-14:
+# the site descriptor is "AI Analytics Architect", title case, always). The
+# social titles are set explicitly, in the pipe form index.qmd uses, because
+# Quarto otherwise composes "<title> – <site title>" with an en dash.
+title: "About Aaron Robbins, AI Analytics Architect"
+description: "Who Aaron Robbins is, what AI Analytics Architect means, and the outcomes behind it."
+open-graph:
+  title: "About Aaron Robbins, AI Analytics Architect | Robbins Analytics"
+  description: "Who Aaron Robbins is, what AI Analytics Architect means, and the outcomes behind it."
+twitter-card:
+  title: "About Aaron Robbins, AI Analytics Architect | Robbins Analytics"
+  description: "Who Aaron Robbins is, what AI Analytics Architect means, and the outcomes behind it."
+# felix-about scopes the Felix About layout to this page (felix.scss).
+body-classes: felix-about
+---
+
+<!-- Copy approved by Aaron 2026-10-16 (cascadia-estate, About page copy
+     draft). Pasted, not rewritten. Two sentences under Selected outcomes are
+     load-bearing: the homepage stat tiles quote them (data/stats.json) and
+     tools/check_references.py fails if either leaves this file. -->
+
+The title is new. The work is not: specify what correct means, build it, test it, publish the evidence.
+
+Open to analytics manager, lead, or principal roles where reporting has outgrown trust, and to conversations about roles that don't exist yet. Seattle or remote.
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+**LinkedIn**
+[linkedin.com/in/aaron-robbins-6b25a2136](https://www.linkedin.com/in/aaron-robbins-6b25a2136/)
+:::
+::: {.g-col-12 .g-col-md-6}
+**GitHub**
+[github.com/RobbinsAnalytics](https://github.com/RobbinsAnalytics)
+:::
+:::
+
 ---
 
 ## Bio
 
-I'm an analyst, and I do the analytics engineering the analysis depends on. Twelve years of the craft: data governance, specification, semantic modeling, and defining measures other people will sign their name to. The tooling I pick up as the work demands it, which lately has meant Python, DuckDB, dbt and a publishing stack, each acquired in a matter of weeks.
+I have spent twelve years making numbers people can sign their name to, and the last four months proving it can be done with AI doing the build. The title is a description of the work, not a claim to a job: I design the analytics, I specify what correct looks like before anything is built, and I direct AI to do the build. Every module in the Cascadia portfolio carries its own evidence: known answers set before the code, tests that run on every build, and a record of what each test caught. That is the part of the craft that does not change with the tooling: data governance, specification, semantic modeling, and defining measures other people will sign their name to.
 
 At Lowe's ecommerce arm I proposed the business intelligence function, hired its first analysts, and ran a team of six building the data warehouse and the reporting stack behind $100M+ in revenue. At Philips Healthcare I ran BI and analytics programs across 23 manufacturing sites in eleven countries, with ongoing multi-project work at fourteen of them, and 200+ stakeholders. None of those sites reported to me.
 
-I ran a team, and I am looking for an individual contributor seat on purpose. I want more hands-on time with the new AI tooling inside a working organization before I take another manager title. I kept my own book of work the whole time I was managing; staying close to the data and the tools is the part I do not want to give up.
+I kept my own book of work the whole time I was managing, and the portfolio is what that looks like with today's tools: ten builds in four months, each one specified, validated and operated the way I would ask a team to do it. What I am looking for now is a reporting estate that has outgrown trust and a team that wants to earn it back. Trust what you can test. The rest of this site is the test.
+
+---
+
+## An AI Analytics Architect owns the what and the proof, not the how.
+
+The job has three moves. None of them is writing the code.
+
+1. **Specify.** Turn a business need into a precise spec: the data model, the measure definitions, the matching rules, and the invariants that must hold. Correct is defined before anything is built, so there is something to check the build against.
+2. **Direct the build.** AI tools or an engineer do the building; either works. The job is to aim the build at the spec, not to pour the concrete. That leverage is why one person now covers ground that used to take a team.
+3. **Verify.** Nothing ships on trust. Every number is re-derived a second, independent way and reconciled against source, and a check that disagrees stops the publish. Trust what you can test.
+
+Under all three sits the part no tool does. Problems arrive as separate requests and are usually one system; the architect's work is seeing that and designing the fewest pieces that hold. AI builds whatever you specify, but it will not notice that two things are one. Conformed dimensions are the plain example: encounters, claims, eligibility and rides stop being four reporting problems and become one model with shared spines.
+
+I do not hand-write the code, and that is a choice. There are plenty of people who write code well. Specifying and verifying AI-built analytics inside a business domain is the rare skill, and it is the one this site is built to demonstrate.
 
 ---
 
@@ -32,18 +81,3 @@ The split below is the same division of labor described in [How I Built This](ca
 - **KPI & frameworks:** KPI development & governance, leading/lagging indicator frameworks, Critical Data Elements & common data models, BI rationalization
 - **Domains:** healthcare (manufacturing, quality, pharmacy/public-health), ecommerce & retail, workforce/staffing, financial analytics
 - **Program & enablement:** BI function ownership, analytics program & portfolio management, Agile (Scrumban) / Scrum Master, stakeholder management across eleven countries, self-service enablement, mentoring analysts
-
----
-
-## Contact
-
-::: {.grid}
-::: {.g-col-12 .g-col-md-6}
-**LinkedIn**
-[linkedin.com/in/aaron-robbins-6b25a2136](https://www.linkedin.com/in/aaron-robbins-6b25a2136/)
-:::
-::: {.g-col-12 .g-col-md-6}
-**GitHub**
-[github.com/RobbinsAnalytics](https://github.com/RobbinsAnalytics)
-:::
-:::
