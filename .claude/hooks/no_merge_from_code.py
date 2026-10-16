@@ -15,10 +15,13 @@ course, so a template that refused it would fight every one of them.
 
 WHY A HOOK AND NOT A PERMISSION RULE
 
-`.claude/settings.json` lists `git push*` under "ask". The desktop Code surface
-runs in bypassPermissions, which skips the permission layer, so that entry is
-documentation and not a mechanism (SESSION-RULES 3). PreToolUse hooks are run
-by Claude Code itself and bind regardless of mode. The ruleset on `main` is the
+A permission rule is the wrong tool for this. `.claude/settings.json` once
+listed `git push*` under "ask" on the belief that bypassPermissions skips it.
+It did not: on 2026-10-16 every push in a bypassPermissions session waited for
+Aaron's click, which put an approval before the merge, where ADR 0003 has none,
+and it asked about every push, not the one to `main`. It was removed. A
+PreToolUse hook is run by Claude Code itself, binds regardless of mode, and
+refuses only the push and merge that matter, without asking anyone. The ruleset on `main` is the
 other half: it refuses a direct push server-side with no bypass actor, so even
 a session that evaded this file would be refused by GitHub. Two controls, one
 on each side of the wire.

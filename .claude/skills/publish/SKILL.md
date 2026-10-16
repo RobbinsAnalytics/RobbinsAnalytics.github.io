@@ -15,8 +15,9 @@ ruleset on `main` refuses every direct push and requires the `candidate` status
 check, with no bypass actor, not even the owner; and
 `.claude/hooks/no_merge_from_code.py`, a `PreToolUse` hook, refuses this
 session `gh pr merge`, any push whose destination is `main`, and a merge while
-`main` is checked out. The `ask` entry for `git push` in
-`.claude/settings.json` does not bind under `bypassPermissions`; those two do.
+`main` is checked out. Pushing a branch asks nobody: the `ask` entry for
+`git push` was removed on 2026-10-16 after it turned out to prompt Aaron on
+every push despite `bypassPermissions`. Those two controls are what bind.
 
 Verification lives in two workflows, not in this skill and not in a local
 shell. `.github/workflows/candidate.yml` runs on the pull request: it renders
