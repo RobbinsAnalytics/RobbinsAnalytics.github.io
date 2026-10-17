@@ -1671,10 +1671,13 @@ body.felix-about {
 
   // ---------- Selected outcomes (Felix §6.5 stat strip, dark variant) ----------
   .fx-band {
-    margin-top: 6rem;
+    margin-top: 1.5rem;
     background: $fx-teal;
     color: $fx-white;
     padding: 5rem 0;
+    // A separate longhand, not a new shorthand: Quarto's page rules already
+    // override this band's top padding, and only the bottom is meant to change.
+    padding-bottom: 3rem;
   }
   .fx-band__inner { @include fx-container; }
   .fx-band__title {
@@ -1688,7 +1691,7 @@ body.felix-about {
   }
   .fx-outcomes {
     list-style: none;
-    margin: 2.5rem 0 0;
+    margin: 1.75rem 0 0;
     padding: 0;
     display: grid;
     gap: 1px;
@@ -1701,7 +1704,7 @@ body.felix-about {
   .fx-outcome {
     min-width: 0;
     background: $fx-teal;
-    padding: 1.75rem;
+    padding: 1.5rem;
     p { margin: 0; }
   }
   .fx-outcome__index {
