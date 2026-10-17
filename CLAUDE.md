@@ -19,8 +19,12 @@ server-side whoever sends it. `.claude/hooks/no_merge_from_code.py`, a
 REST, any push whose destination is `main`, and a merge while `main` is checked
 out — a Code session pushes with the owner's token, and GitHub cannot tell that
 merge from Aaron's, so the hook is the only thing that says the token in a Code
-session may not click it. The `ask` entry for `git push` in
-`.claude/settings.json` does not bind under `bypassPermissions`; these two do.
+session may not click it. **There is no `ask` entry for `git push`, on
+purpose.** One stood in `.claude/settings.json` on the belief that it did not
+bind under `bypassPermissions`; it did, and every push waited for Aaron's click
+(2026-10-16, about 69 minutes of prompts in one day), so it was removed. The
+ruleset and the hook are what stop a push to `main`; a push of a branch needs
+no approval.
 The hook matches the command text, so a Bash heredoc that merely quotes the
 refused phrase is refused too; write such prose with the file-editing tools.
 
@@ -93,8 +97,8 @@ than a sentence: a GitHub ruleset on `main` refuses every direct push and
 requires the `candidate` status check, with no bypass actor, not even the
 owner; and `.claude/hooks/no_merge_from_code.py`, a `PreToolUse` hook, refuses
 a Code session `gh pr merge`, any push whose destination is `main`, and a merge
-while on `main`. The `ask` entry for `git push` in `.claude/settings.json` does
-not bind under `bypassPermissions`; the hook and the ruleset do. Aaron merges
+while on `main`. Nothing before the merge asks Aaron for approval; the hook and
+the ruleset bind without asking anyone. Aaron merges
 in the GitHub interface after reading the candidate run, and going live is
 still one deliberate yes — his.
 
