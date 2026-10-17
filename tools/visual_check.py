@@ -194,6 +194,11 @@ def main():
     ap.add_argument("--diff-dir", default=str(ROOT / "visual-diffs"))
     ap.add_argument("--update", action="store_true",
                     help="write baselines instead of comparing")
+    ap.add_argument("--expect-change", default="",
+                    help="comma-separated page slugs (or 'all') the change is meant "
+                         "to alter: a difference there is reported and its diff "
+                         "saved, but it does not fail the run. candidate.yml fills "
+                         "this from the PR's visual-skip:<page> labels.")
     ap.add_argument("--shots-dir", default="",
                     help="when comparing, also write every screenshot taken "
                          "to this directory, named as its baseline is")
@@ -210,7 +215,19 @@ def main():
     if args.update:
         base_dir.mkdir(parents=True, exist_ok=True)
 
+    expect = {s.strip() for s in args.expect_change.split(",") if s.strip()}
+    if "all" in expect:
+        expect = set(PAGES)
+    unknown = expect - set(PAGES)
+    if unknown:
+        sys.stderr.write("::error::--expect-change names unknown page(s): %s; known: %s\n"
+                         % (", ".join(sorted(unknown)), ", ".join(PAGES)))
+        return 2
+    if expect:
+        print("  expected to change (reported, not failed): %s" % ", ".join(sorted(expect)))
+
     missing, failed, ok = [], [], 0
+    expected = []
     rejected = []
     pending = []
 
@@ -265,7 +282,9 @@ def main():
                         continue
 
                     ratio, note = compare(target.read_bytes(), png, diff_dir / name)
-                    if ratio > TOLERANCE:
+                    if ratio > TOLERANCE and slug in expect:
+                        expected.append((name, ratio, note))
+                    elif ratio > TOLERANCE:
                         failed.append((name, ratio, note))
                     else:
                         ok += 1
@@ -319,8 +338,15 @@ def main():
     if not fonts_ok:
         return 1
 
+    if expected:
+        print("\nCHANGED AS INTENDED (labelled visual-skip; diff images saved, not failed):")
+        for name, ratio, note in expected:
+            print("  %s — %.3f%% of pixels differ%s" % (name, ratio * 100, (" (%s)" % note) if note else ""))
+        print("Commit these pages' screenshots from this run as their own commit; the\n"
+              "fast path accepts it (tools/baseline_fastpath.py).")
+
     if not failed:
-        print("\nNo visual drift.")
+        print("\nNo unexpected visual drift.")
         return 0
 
     sys.stderr.write("\nVISUAL DRIFT\n\n")

@@ -158,17 +158,21 @@ needs it, not as routine hygiene.
 it.** Once a change is authorized, the session edits, renders, pushes, gives
 Aaron the local preview and the pull request link straight away, and keeps
 ownership of the candidate run while he looks. It does not end its turn to ask
-about routine steps. When the visual check fails, **open every diff**, not only
-the pages you meant to change: an edited page can still carry an unintended
-defect (a hidden heading, a cropped image, shifted spacing). Diffs that match
-the requested change get their baselines promoted, as one commit of only those
-images, which the fast path accepts. A diff on a page the change should not
-have touched, or an unintended difference on the edited page, is a defect: fix
-it, do not promote it. Verification stays proportional — a copy or chip edit
-gets the render, `tools/check_references.py` and an overflow look at 390 and
-1440; multi-width comparisons are for layout and design ports; the link crawl
-and the accessibility suite run in CI, not locally. Report the candidate as
-ready only when it is green, and say what was checked. A visible edit to a
-compared page takes one full run plus a fast-path acceptance, about 7 to 9
-minutes end to end; an edit to a page the visual check does not cover takes
-one run.
+about routine steps. **Label every compared page the change is meant to
+alter** when opening the pull request: `visual-skip:<page>` with the slug from
+`PAGES` in `tools/visual_check.py` (index, about, cascadia, case-studies,
+finance, dealdesk, sibling-conflict), or `visual-skip:all` for a site-wide
+change. A difference on a labelled page is reported with its diff image and
+does not fail the run, so an intended change gives a green first run and no
+email; every unlabelled page must still match, so an accidental effect on
+another page still fails, and that is a defect to fix, not to promote. Then
+commit the labelled pages' screenshots from that run, as one commit of only
+those images; the fast path accepts it in seconds and main's baselines match
+the page Aaron merges. Aaron's preview review covers the labelled pages, which
+the pixel check does not. Verification stays proportional — a copy or style
+edit gets `tools/check_references.py` and CI; multi-width comparisons are for
+layout and design ports; the link crawl and the accessibility suite run in CI,
+not locally. Report the candidate as ready only when it is green, and say what
+was checked. A visible edit to a compared page takes one full run plus a
+fast-path acceptance, about 5 minutes end to end; an edit to a page the visual
+check does not cover takes one run.

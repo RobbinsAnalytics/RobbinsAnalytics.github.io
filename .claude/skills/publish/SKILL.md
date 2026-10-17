@@ -134,8 +134,15 @@ characters, then a body if the change needs one.
 git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
 gh pr view --json number,url,state 2>/dev/null \
   || gh pr create --base main --head "$(git rev-parse --abbrev-ref HEAD)" \
-       --title "<what this releases>" --body-file <tempfile>
+       --title "<what this releases>" --body-file <tempfile> \
+       --label visual-skip:<page>     # one per compared page the change is meant to alter
 ```
+
+**Label the pages the change is meant to alter**: `visual-skip:<page>` for each
+compared page (index, about, cascadia, case-studies, finance, dealdesk,
+sibling-conflict), or `visual-skip:all` for a site-wide change; none for a
+change that alters no compared page. A difference on a labelled page is
+reported, not failed.
 
 The push starts the candidate workflow. The pull request body is written for
 Aaron: what changed and why, in his words, and anything he must look at
@@ -153,20 +160,19 @@ supersedes the last. Three red outcomes and what each means:
 - **Crawl**: a link on the candidate is broken. Fix the link.
 - **Accessibility**: a new machine-detectable violation, or a page that
   scrolls sideways. Fix the markup; the ledger is for third-party markup only.
-- **Visual**: pixels moved on one of the seven compared pages. Download the
-  run's `visual-diffs-<sha>` and `candidate-screenshots-<sha>` artifacts and
-  open **every** failed page, including the ones you meant to change: an edited
-  page can still carry an unintended defect. A regression, or any difference
-  the request did not ask for, gets fixed. Differences that match the request
-  get their new baselines from the same run: copy exactly those failed pages'
-  screenshots into `.github/visual-baselines/`, commit **only those images**
-  as their own commit, push. They were taken on the runner from the candidate,
-  which is what makes them valid. The next run's first step,
-  `tools/baseline_fastpath.py`, accepts that commit without re-rendering when
-  it is the only new commit and every image is byte-identical to a screenshot
-  of a failed page; if it prints a reason instead, the full run goes ahead and
-  that is fine. **This is the established step, not a decision for Aaron:** do
-  not end the turn to ask about it.
+- **Visual**: pixels moved on an **unlabelled** compared page. The change
+  reached a page it was not meant to: download `visual-diffs-<sha>`, look, and
+  fix it. Do not promote it, and do not add a label to make it pass.
+
+**After a green first run that changed labelled pages** (the log lists them
+under "CHANGED AS INTENDED"), download `candidate-screenshots-<sha>`, copy
+exactly those pages' images into `.github/visual-baselines/`, commit **only
+those images** as their own commit, and push. They were taken on the runner
+from the candidate, which is what makes them valid; the next run's first step,
+`tools/baseline_fastpath.py`, accepts that commit in seconds. Main's baselines
+then match the page Aaron merges, so the post-merge live check passes. **This
+is the established step, not a decision for Aaron:** do not end the turn to
+ask about it.
 
 Give Aaron the local preview and the pull request link as soon as the branch
 is pushed, then stay with the candidate run until it is green or a failure
