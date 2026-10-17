@@ -1670,11 +1670,14 @@ body.felix-about {
   }
 
   // ---------- Selected outcomes (Felix §6.5 stat strip, dark variant) ----------
+  // Vertical padding is set by `#quarto-content > .fx-band` at the foot of this
+  // block: Quarto's `#quarto-content > * { padding-top }` outranks this
+  // selector. No top margin: the white gap above is the Architect section's.
   .fx-band {
-    margin-top: 6rem;
+    margin-top: 0;
     background: $fx-teal;
     color: $fx-white;
-    padding: 5rem 0;
+    padding: 0;
   }
   .fx-band__inner { @include fx-container; }
   .fx-band__title {
@@ -1688,7 +1691,7 @@ body.felix-about {
   }
   .fx-outcomes {
     list-style: none;
-    margin: 2.5rem 0 0;
+    margin: 1.75rem 0 0;
     padding: 0;
     display: grid;
     gap: 1px;
@@ -1701,7 +1704,7 @@ body.felix-about {
   .fx-outcome {
     min-width: 0;
     background: $fx-teal;
-    padding: 1.75rem;
+    padding: 1.5rem;
     p { margin: 0; }
   }
   .fx-outcome__index {
@@ -1738,9 +1741,10 @@ body.felix-about {
   }
 
   // ---------- Skills (Felix §6.10 definition list) ----------
+  // Top padding is set by `#quarto-content > .fx-skills` at the foot of this
+  // block, for the same Quarto override as the band.
   .fx-skills {
     @include fx-container;
-    padding-top: 5rem;
     h2 {
       margin: 0;
       font-size: 2rem;
@@ -1982,7 +1986,20 @@ body.felix-about {
   // ---------- The three moves, then the shared foundation under them ----------
   #quarto-content > .fx-architect {
     padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    padding-bottom: 3rem;
+  }
+  // Spacing at the Selected outcomes band's two colour boundaries
+  // (2026-10-16). Targets are visible gaps of about 51px on desktop and 34px
+  // on a phone at each boundary: Architect text to the band (the Architect
+  // bottom padding alone), band edge to its heading, the last outcome's text
+  // to the band's bottom edge (the card's 1.5rem padding plus this padding),
+  // and the band to the Skills heading.
+  #quarto-content > .fx-band {
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+  }
+  #quarto-content > .fx-skills {
+    padding-top: 3rem;
   }
   .fx-architect__intro {
     max-width: 54rem;
@@ -2108,7 +2125,9 @@ body.felix-about {
     #quarto-content > .fx-bio--stories { padding-top: 3.5rem; }
     .fx-bio__intro { margin-bottom: 2rem; }
     .fx-about-card { padding: 1.5rem; }
-    #quarto-content > .fx-architect { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    #quarto-content > .fx-architect { padding-top: 3.5rem; padding-bottom: 2rem; }
+    #quarto-content > .fx-band { padding-top: 2rem; padding-bottom: 0.625rem; }
+    #quarto-content > .fx-skills { padding-top: 2rem; }
     .fx-architect__intro { margin-bottom: 2rem; }
   }
 }
