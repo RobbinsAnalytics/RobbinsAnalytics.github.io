@@ -20,7 +20,7 @@
     },
     {
       "value": "11",
-      "label": "builds in four months, June to October 2026",
+      "label": "data builds since June 2026",
       "source": "data/build-by-build.json",
       "compute": "rows",
       "token": "11"

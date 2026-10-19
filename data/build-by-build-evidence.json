@@ -9,10 +9,10 @@
       "served_sha256": "b48f85b74e59da49c49c110a917b3def02cf7141cbab925ae4fb0a894a813bea",
       "sha256": "b48f85b74e59da49c49c110a917b3def02cf7141cbab925ae4fb0a894a813bea",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "V02 chart review complete at the declared frozen-build standard; four restricted simulated reader returns, 6 fixes, no open actionable findings. Current layouts and interactions pass. No certified blindness or human-usability claim. Passing completion is supported by the current asset-bound restricted review receipt, four separate simulated returns, finding dispositions and changed-content rechecks. This is not full independent or certified-blind assurance.",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "expected_event_accounting": {
       "access": "served snapshot artifact",
@@ -23,10 +23,10 @@
       "served_sha256": "a0531feb3eecbfd925f459a29fa5b794db7e9f0de1b9a23bb3c91899d7cd8fa9",
       "sha256": "a0531feb3eecbfd925f459a29fa5b794db7e9f0de1b9a23bb3c91899d7cd8fa9",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "independent obligations accounted at each cutoff",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "frozen_source": {
       "access": "public verification summary",
@@ -37,10 +37,10 @@
       "served_sha256": null,
       "sha256": "dbea8f01082e247e1cadc2fe9d3ef0397666527175fd9aaebf001d51c9c83972",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "source, submission and response freezes; manifests committed; verified by every rebuild stage",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "golden_fixture": {
       "access": "served snapshot artifact",
@@ -48,13 +48,13 @@
       "path": "governance/build-scope-checklist.json",
       "result": "pass",
       "result_basis": "Recorded result at the declared frozen-build scope; chart/panel evidence is reused with a bounded reporting update, not a new review",
-      "served_sha256": "e318032f57b4685ee0c8aa11df8026d3e8ef606befb09c6401778f85d52f5f96",
-      "sha256": "e318032f57b4685ee0c8aa11df8026d3e8ef606befb09c6401778f85d52f5f96",
+      "served_sha256": "c9f3d2e49aeda755e7253de5f762b39e00ec6155c47c0a4671c7627281ddd42c",
+      "sha256": "c9f3d2e49aeda755e7253de5f762b39e00ec6155c47c0a4671c7627281ddd42c",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "98/98 applicable fixture variants pass; 649/649 assertions compared. All 102 variants accounted for; external custody, operation and publication dependencies retain separate dispositions.",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "independent_rederivation": {
       "access": "served snapshot artifact",
@@ -65,10 +65,10 @@
       "served_sha256": "4cda2ccfe8d609f63229844bd55d1978c61f351620713660902584e1dba1bb97",
       "sha256": "4cda2ccfe8d609f63229844bd55d1978c61f351620713660902584e1dba1bb97",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "22173 of 22173 cells matched; 0 mismatched, 0 missing, 0 unexpected; register 1.1.0 (aligned). Separate implementation, not independent evaluator custody.",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "metric_register": {
       "access": "served snapshot artifact",
@@ -79,10 +79,10 @@
       "served_sha256": "f2f5cb7b62fe1b3a2040582d08d15be028c46aa598243e436ee064bd865aa89a",
       "sha256": "f2f5cb7b62fe1b3a2040582d08d15be028c46aa598243e436ee064bd865aa89a",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "register 1.1.0 (2026-10-18); drift check in check-results",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "negative_controls": {
       "access": "served snapshot artifact",
@@ -90,13 +90,13 @@
       "path": "governance/build-scope-checklist.json",
       "result": "pass",
       "result_basis": "Recorded result at the declared frozen-build scope; chart/panel evidence is reused with a bounded reporting update, not a new review",
-      "served_sha256": "e318032f57b4685ee0c8aa11df8026d3e8ef606befb09c6401778f85d52f5f96",
-      "sha256": "e318032f57b4685ee0c8aa11df8026d3e8ef606befb09c6401778f85d52f5f96",
+      "served_sha256": "c9f3d2e49aeda755e7253de5f762b39e00ec6155c47c0a4671c7627281ddd42c",
+      "sha256": "c9f3d2e49aeda755e7253de5f762b39e00ec6155c47c0a4671c7627281ddd42c",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "81/81 applicable public diagnostics pass; SF18-01 independent-custody certification is N/A to the claims made. Its raw access probe remains not_evaluated, not a successful denial.",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "one_command_rebuild": {
       "access": "public verification summary",
@@ -107,10 +107,10 @@
       "served_sha256": null,
       "sha256": "d6b2457010266759a55470075247b5405422e2d0b87207a82ef525158c7770a1",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "clean-workspace rebuild of a9c0a9a7c88b passed; 85 of 89 outputs byte-identical to the candidate build",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "reading_panel": {
       "access": "served snapshot artifact",
@@ -121,10 +121,10 @@
       "served_sha256": "95bb35f89f891a31d37605189b071b7e48c8ddefd472dbcf27b831a0a7ed657a",
       "sha256": "95bb35f89f891a31d37605189b071b7e48c8ddefd472dbcf27b831a0a7ed657a",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "V02 chart review complete at the declared frozen-build standard; four restricted simulated reader returns, 6 fixes, no open actionable findings. Current layouts and interactions pass. No certified blindness or human-usability claim. Passing completion is supported by the current asset-bound restricted review receipt, four separate simulated returns, finding dispositions and changed-content rechecks. This is not full independent or certified-blind assurance.",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "reconciliation_published": {
       "access": "served snapshot artifact",
@@ -135,10 +135,10 @@
       "served_sha256": "05f22ab3a7754252fc31e45f28b3255b88b44e668c578bc45da094eb5b0b39cd",
       "sha256": "05f22ab3a7754252fc31e45f28b3255b88b44e668c578bc45da094eb5b0b39cd",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "complete populations and residuals at declared grains",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "row_count_validation": {
       "access": "served snapshot artifact",
@@ -149,10 +149,10 @@
       "served_sha256": "eeb84c64849933509018e17b785c1c649f4906a1bf2df735443832ebdcf3c5f6",
       "sha256": "eeb84c64849933509018e17b785c1c649f4906a1bf2df735443832ebdcf3c5f6",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "284 comparisons at three positions; 0 unexplained differences; 3 disclosed source findings (the withheld landed ride)",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "scheduled_run_with_health": {
       "access": "served snapshot artifact",
@@ -163,10 +163,10 @@
       "served_sha256": "749b618d84fe4edb9e73c7214ab9594ede46212f6f77f326c56bc81b73562ee7",
       "sha256": "749b618d84fe4edb9e73c7214ab9594ede46212f6f77f326c56bc81b73562ee7",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "not_applicable",
       "summary": "No live data edge or ongoing-operation claim. Historical operating receipts are retained; scheduled worker, observer and freshness requirements are outside this build scope.",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "source_register": {
       "access": "served snapshot artifact",
@@ -177,10 +177,10 @@
       "served_sha256": "86aebc9c9f76c64efe07759cb5c861c158e4ee62bcd18a71e02bdbca9f9a74a0",
       "sha256": "86aebc9c9f76c64efe07759cb5c861c158e4ee62bcd18a71e02bdbca9f9a74a0",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "every consumed source registered with origin and hash",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "tests_as_code": {
       "access": "served snapshot artifact",
@@ -188,13 +188,13 @@
       "path": "governance/build-scope-checklist.json",
       "result": "pass",
       "result_basis": "Recorded result at the declared frozen-build scope; chart/panel evidence is reused with a bounded reporting update, not a new review",
-      "served_sha256": "e318032f57b4685ee0c8aa11df8026d3e8ef606befb09c6401778f85d52f5f96",
-      "sha256": "e318032f57b4685ee0c8aa11df8026d3e8ef606befb09c6401778f85d52f5f96",
+      "served_sha256": "c9f3d2e49aeda755e7253de5f762b39e00ec6155c47c0a4671c7627281ddd42c",
+      "sha256": "c9f3d2e49aeda755e7253de5f762b39e00ec6155c47c0a4671c7627281ddd42c",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "98/98 applicable fixture variants pass; 649/649 assertions compared. All 102 variants accounted for; external custody, operation and publication dependencies retain separate dispositions.",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     },
     "validation_report": {
       "access": "public verification summary",
@@ -205,10 +205,10 @@
       "served_sha256": null,
       "sha256": "d8d97f691ac3f2ee349db8a56f3b2b119c5390cfd67227740a88e09f3065613d",
       "snapshot_differs_from_repository": false,
-      "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+      "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
       "state": "recorded",
       "summary": "bound to the candidate and the complete required-check registry",
-      "verification_sha256": "ee40f3e6640112c79d68c3d463ce6b5e91ab4d2eb8a02a64660725fcf92499cc"
+      "verification_sha256": "6a8867e64df3efa458099a1372d9407966c7e58a4ed2cba3881eb3d80b8c2534"
     }
   },
   "cascadia-controltower-analytics": {

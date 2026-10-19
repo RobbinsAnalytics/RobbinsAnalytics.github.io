@@ -301,7 +301,7 @@
     "remote": "cascadia-claim-integrity",
     "retro": null,
     "site_slug": "cascadia-claim-integrity",
-    "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
+    "source_commit": "9e21fc7efa3978956e17a369cfd0c9f3755874f3",
     "stack": "Python, JSON/JSONL, JavaScript, SVG",
     "surfaces": {
       "chart_review": "governance/review-2026-10-19/review-receipt.json",
