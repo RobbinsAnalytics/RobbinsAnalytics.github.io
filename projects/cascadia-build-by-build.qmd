@@ -1,100 +1,107 @@
 ---
 title: "Build by Build"
-subtitle: "Ten Cascadia modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names."
+description: "How an eleven-build evidence inventory makes test coverage, recorded outcomes and their limits easier to inspect."
 image: https://www.robbinsanalytics.com/assets/thumb-build-by-build.png
-image-alt: "Cascadia portfolio card: title, one-line summary, and the data source."
+image-alt: "Build by Build: eleven builds and fifteen test surfaces."
+body-classes: felix-bbb-case
+page-layout: custom
+toc: false
 ---
 
-::: {.case-study-header}
-::: {.cs-domain}
-Portfolio
-:::
-# Build by Build
-::: {.cs-hook}
-The portfolio proves ten modules, each testable on its own. It did not show that the test surface widened build by build, and a reader arriving cold had to derive that from ten separate pages. This page renders the progression directly: one table, ten builds by fourteen test surfaces, every filled cell a link to the file on GitHub that it names. It has no data of its own. Its source is the ten module repositories, read read-only, and nothing in it invents a score.
-:::
-:::
+```{=html}
+<main class="bbb-case" id="bbb-case-main" aria-labelledby="bbb-case-title">
+  <section class="bbb-case-hero" aria-labelledby="bbb-case-title">
+    <div>
+      <p class="bbb-kicker">Portfolio / Evidence inventory / Case study</p>
+      <h1 id="bbb-case-title">Build by <em>Build.</em></h1>
+      <p class="bbb-lede">An inventory of the tests<br class="bbb-desktop-break"> behind the portfolio.</p>
+      <p class="bbb-intro">Eleven independent projects, brought into one view. Trace the checks each build carried, the results they recorded and the limits that remain.</p>
+      <div class="bbb-actions">
+        <a class="fx-btn fx-btn--dark no-external" href="https://www.robbinsanalytics.com/cascadia-build-by-build/">Explore the evidence matrix <span aria-hidden="true">↗</span></a>
+        <a class="fx-btn fx-btn--outline no-external" href="#what-changed">What changed <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+    <aside class="bbb-guide" aria-label="A route through the build">
+      <p class="bbb-kicker">A route through the build</p>
+      <h2>Open a cell.<br><em>Follow the evidence.</em></h2>
+      <ol><li>Choose a build and a kind of check.</li><li>Read the recorded outcome and its scope.</li><li>Follow the artifact or public summary.</li></ol>
+      <a href="https://www.robbinsanalytics.com/cascadia-build-by-build/#matrix" class="no-external">Start with the comparison <span aria-hidden="true">↗</span></a>
+    </aside>
+  </section>
 
-[Two ways to check a number at build one. Fourteen had appeared by build nine.](https://www.robbinsanalytics.com/cascadia-build-by-build/){.btn .btn-primary}
+  <section class="bbb-case-facts" aria-label="The inventory at a glance">
+    <article><span class="bbb-kicker">01 / Portfolio</span><strong>11</strong><p>Independent builds, ordered by first commit</p></article>
+    <article><span class="bbb-kicker">02 / Vocabulary</span><strong>15</strong><p>Test-surface definitions, with evidence and limits</p></article>
+    <article><span class="bbb-kicker">03 / Extension</span><strong>1</strong><p>Additional definition introduced with Claim Integrity</p></article>
+  </section>
+  <nav class="bbb-case-nav" aria-label="Case study sections">
+    <a href="#why-this-exists" class="no-external">Why this exists</a><a href="#what-changed" class="no-external">What changed</a><a href="#how-it-works" class="no-external">How it works</a><a href="#testing-and-limits" class="no-external">Testing and limits</a><a href="#build-forward" class="no-external">Build forward</a>
+  </nav>
 
----
+  <section class="bbb-case-section" id="why-this-exists" aria-labelledby="bbb-why-title">
+    <div class="bbb-section-head"><div><p class="bbb-kicker">The problem</p><h2 id="bbb-why-title">Make the evidence<br><em>easier to inspect.</em></h2></div><p>Separate project pages explain individual builds. A shared inventory makes their controls comparable without turning the portfolio into a ranking.</p></div>
+    <div class="bbb-three">
+      <article class="bbb-card"><span class="bbb-step">01</span><h3>Find the check</h3><p>Rebuilds, source governance, numerical checks, presentation review and operation sit in a common vocabulary.</p></article>
+      <article class="bbb-card"><span class="bbb-step">02</span><h3>Read its actual state</h3><p>A report can exist while a check fails, remains deferred or covers only part of the requirement. Its presence alone cannot establish a pass.</p></article>
+      <article class="bbb-card"><span class="bbb-step">03</span><h3>Keep the history</h3><p>The original ten builds retain every recorded cell. Older projects are not retrofitted to fill the table, and an absent historical artifact creates no remediation debt.</p></article>
+    </div>
+  </section>
 
-## Overview
+  <section class="bbb-case-section" aria-labelledby="bbb-marks-title">
+    <div class="bbb-section-head"><div><p class="bbb-kicker">Reading the comparison</p><h2 id="bbb-marks-title">Five states.<br><em>A clearer distinction.</em></h2></div><p>Shape and color carry the state together. Select a mark in the matrix for the path, recorded result and available evidence.</p></div>
+    <div class="bbb-state-grid">
+      <article class="bbb-state"><span class="bbb-state-mark bbb-recorded" aria-hidden="true">●</span><h3>Artifact recorded</h3><p>A qualifying artifact was recorded. Its scope and actual outcome still matter.</p></article>
+      <article class="bbb-state"><span class="bbb-state-mark bbb-limited" aria-hidden="true">◐</span><h3>Limited evidence</h3><p>The record retains a failure, deferral, open item or other limit. Completion is not established.</p></article>
+      <article class="bbb-state"><span class="bbb-state-mark bbb-absent" aria-hidden="true">−</span><h3>Not carried</h3><p>The original inventory did not record a qualifying artifact for that surface.</p></article>
+      <article class="bbb-state"><span class="bbb-state-mark bbb-unknown" aria-hidden="true">?</span><h3>Not assessed</h3><p>The retained evidence cannot establish presence or absence against the additional definition.</p></article>
+      <article class="bbb-state"><span class="bbb-state-mark bbb-na" aria-hidden="true">○</span><h3>Not applicable</h3><p>The requirement does not apply at this build scope or review phase. It is not counted as a pass or an absent artifact.</p></article>
+    </div>
+    <p class="bbb-note">This is a categorical inventory. Artifact counts are not quality percentages, maturity scores or business-performance measures.</p>
+  </section>
 
-Ten Cascadia modules, built one after another over four months, and the tests each one could carry when it shipped. First commits run from June to October 2026. The page is one chart: a table of ten builds, oldest at the top, by fourteen test surfaces in bands named Data, Numbers, Presentation and Operation. A filled cell means the build carries that surface, and the cell links to the file. An empty cell means it does not, and the page says so plainly: an empty cell is a fact about what a build carried, never a debt. Older modules are not retrofitted to fill one.
+  <section class="bbb-case-section" id="what-changed" aria-labelledby="bbb-change-title">
+    <div class="bbb-section-head"><div><p class="bbb-kicker">The Claim Integrity extension</p><h2 id="bbb-change-title">Expected work.<br><em>Completed checks.</em></h2></div><p>The original matrix covered ten builds and fourteen surfaces. Claim Integrity adds a build and the expected-event definition, while retaining the earlier evidence.</p></div>
+    <div class="bbb-two">
+      <article class="bbb-card bbb-capability"><span class="bbb-tag">15 / Operation</span><h3>What should have arrived?</h3><p><strong>Expected event accounting</strong> starts from independently retained triggering facts. A claim never constructed or a promised response never received remains expected work, with its cutoff and timing basis.</p><p class="bbb-card-foot">The obligation itself is explicit, extending population reconciliation beyond the records that arrived.</p><a href="https://www.robbinsanalytics.com/cascadia-build-by-build/#definition-expected_event_accounting" class="no-external">Read the counting rule <span aria-hidden="true">↗</span></a></article>
+      <article class="bbb-card bbb-capability bbb-mist"><span class="bbb-tag">Completed / Current checklist</span><h3>What passed, at which scope?</h3><p>Claim Integrity records 98/98 applicable golden-fixture variants, with 649/649 assertions compared; 81/81 applicable public diagnostic injections; and 22,173/22,173 numerical cells matching.</p><p class="bbb-card-foot">The chart review and restricted four-seat simulated panel are complete. Scheduled operation is N/A for the frozen snapshot.</p><a href="https://www.robbinsanalytics.com/cascadia-claim-integrity/#view=c" class="no-external">Read the completed checks <span aria-hidden="true">↗</span></a></article>
+    </div>
+    <p class="bbb-note">The ten new cells for earlier builds are <strong>not assessed</strong>. The original fourteen-column inventory cannot settle the additional capability, and no first-ever capability claim is made. This is an addition to this portfolio inventory, not a change to the shared standards repository.</p>
+  </section>
 
-The title is the finding, and the table is built so a reader can check it. Build one could check a number two ways: a one-command rebuild and a row-count check on the load. By build nine, fourteen surfaces had appeared. A diamond marks the first build to carry each surface, so there are fourteen diamonds in the table, and counting them is the check. They arrive unevenly: two at build one, none at build two, one at build three, five at build four, none at build five, three at build six, two at build seven, none at build eight, one at build nine, none at build ten. Build four, the first Python build, is where the surface widens most. Build nine adds the last surface, a golden fixture written before the engines that had to pass it.
+  <section class="bbb-case-section" id="how-it-works" aria-labelledby="bbb-how-title">
+    <div class="bbb-section-head"><div><p class="bbb-kicker">The implementation</p><h2 id="bbb-how-title">One retained baseline.<br><em>A traceable extension.</em></h2></div><p>Python combines local JSON records into a static HTML, CSS and JavaScript page. The same inventory feeds the homepage count and miniature.</p></div>
+    <ol class="bbb-flow" aria-label="From source evidence to the page">
+      <li><span class="bbb-kicker">01 / Retain</span><h3>Original freeze</h3><p>The ten-build inventory and its design-standard history keep their October 7 freeze.</p></li>
+      <li><span class="bbb-kicker">02 / Extend</span><h3>Pinned evidence</h3><p>Claim Integrity's row adds source identities, recorded outcomes and their scope.</p></li>
+      <li><span class="bbb-kicker">03 / Separate</span><h3>Artifact and result</h3><p>A dedicated evidence register keeps a path distinct from the conclusion it can support.</p></li>
+      <li><span class="bbb-kicker">04 / Render</span><h3>Page and miniature</h3><p>A deterministic builder renders the comparison; the website consumes the same extended inventory.</p></li>
+    </ol>
+    <div class="bbb-three bbb-stack">
+      <article class="bbb-card"><h3>A table that can be read</h3><p>Real row and column headers preserve context. Build and group filters narrow the comparison; sticky headers and build names stay visible while scrolling.</p></article>
+      <article class="bbb-card"><h3>Evidence within reach</h3><p>Keyboard-operable cells open the evidence panel with the path, recorded outcome, scope and available artifact or verification summary.</p></article>
+      <article class="bbb-card"><h3>A small static stack</h3><p>Local JSON and a static page fit a categorical comparison. No chart library or database is needed for this inventory.</p></article>
+    </div>
+    <details class="bbb-fold" id="architecture-detail"><summary>Architecture and provenance</summary><div>
+      <dl class="bbb-provenance"><div><dt>Original baseline</dt><dd><code>data/builds.json</code> and <code>data/standard.json</code> retain their October 7 freeze at <code>66b9de6</code>. No reread or retrofit of those ten repositories is implied.</dd></div><div><dt>Claim Integrity extension</dt><dd>Repository evidence is pinned to <code>9e21fc7</code>. Recorded outcomes come from the frozen public verification snapshot. Served snapshot bytes and later repository artifact bytes retain separate identities where they differ.</dd></div><div><dt>Deterministic inventory</dt><dd><code>src/extend_inventory.py</code> combines the baseline and authored extension. Check mode verifies the unchanged baseline, extension hashes, row and column shape, and explicit not-assessed states.</dd></div><div><dt>Publication builder</dt><dd><code>src/build_expanded_page.py</code> renders the matrix, definitions, scope notes and historical design-standard lane. Website counts and its miniature use the same expanded inventory.</dd></div></dl>
+      <p>The extension is additive. It does not claim all eleven repositories were audited on one date.</p><a href="https://www.robbinsanalytics.com/cascadia-build-by-build/#definitions" class="no-external">Inspect the definitions and provenance <span aria-hidden="true">↗</span></a>
+    </div></details>
+  </section>
 
-The rows are grouped into six eras, named for what each brought under test: Enterprise-shaped, Frozen and validated, Reviewed and registered, Operated, Re-derived, Pre-specified. Pre-specified brought the forecast itself under test: a harness, its periods and its promotion rule, committed before the first forecast existed. Each era's block on the page says what could be tested, what still had to be trusted, and what the next era brought under test. The page ends in a walk through the ten modules, a line each, and stops there. In an interview the walk continues out loud; the page does not try to carry it.
+  <section class="bbb-case-section" id="testing-and-limits" aria-labelledby="bbb-testing-title">
+    <div class="bbb-section-head"><div><p class="bbb-kicker">Testing and scope</p><h2 id="bbb-testing-title">State what was checked.<br><em>Keep the limits visible.</em></h2></div><p>Focused integration checks support this interface update. They do not replace the underlying builds' assurance records or certify the effectiveness of their controls.</p></div>
+    <div class="bbb-two">
+      <article class="bbb-card bbb-checked"><span class="bbb-tag">This integration</span><h3>What was checked</h3><ul><li>Preservation of all 140 original matrix cells.</li><li>Ten explicit not-assessed cells in the additional legacy column.</li><li>Deterministic output, recorded outcomes and internal destinations.</li><li>Responsive rendering, navigation, filters and keyboard interaction.</li></ul><p>Check receipts accompany the candidate. The original inventory's validation and panel records remain historical evidence.</p></article>
+      <article class="bbb-card"><span class="bbb-tag">Interpretation</span><h3>What the checks establish</h3><p>The retained inventory can be reproduced, its evidence can be followed and its current interface can be reviewed.</p><p>An earlier panel did not review this redesigned layout. No new blind panel or assurance cycle is claimed for this UI update.</p><p>A recorded artifact can carry failed, blocked, deferred, open or historical results. Those states remain visible.</p></article>
+    </div>
+    <aside class="bbb-scope" aria-labelledby="bbb-scope-title"><div><p class="bbb-kicker">Claim Integrity / Current scope</p><h3 id="bbb-scope-title">Completed checks retain their boundaries.</h3></div><div><p>The current checklist records <strong>152 passes and six N/A requirements</strong>. All applicable fixture variants pass, and the second derivation matched all <strong>22,173 published cells</strong>.</p><p>The chart review and restricted four-seat simulated panel are complete, with six fixes and no open actionable findings. Simulated readers on one model service and workstation do not establish certified blindness or human usability.</p><p>The snapshot has no live edge. Scheduled operation is N/A; real public readback becomes required at publication. The original historical outcomes remain preserved.</p><a href="https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html" class="no-external">Read the Claim Integrity case study <span aria-hidden="true">↗</span></a></div></aside>
+  </section>
 
----
+  <section class="bbb-case-section" id="build-forward" aria-labelledby="bbb-forward-title">
+    <div class="bbb-section-head"><div><p class="bbb-kicker">Build forward</p><h2 id="bbb-forward-title">What a next iteration<br><em>could establish.</em></h2></div><p>These are future investigations, not work represented as completed in this inventory.</p></div>
+    <div class="bbb-two"><article class="bbb-card"><span class="bbb-step">01 / Earlier builds</span><h3>Which older artifacts meet the additional definition?</h3><p>Inspect the earlier candidate artifacts under an explicit scope. Presence or absence needs evidence; it cannot be inferred from the old fourteen columns.</p></article><article class="bbb-card bbb-mist"><span class="bbb-step">02 / Future candidate</span><h3>Detection evaluation.</h3><p>Outside the current test matrix for all eleven builds. Future work could establish independent custody, a complete held-out fault roster, clean opportunities and timing-aware scoring.</p><p>The historical unblinded attempt met must-catch in 20/26 represented classes, with six missed targets and ten unrepresented classes. These exploratory results do not establish final-control effectiveness.</p><a href="https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html#forward" class="no-external">Read the future candidate and retained context ↗</a></article></div>
+  </section>
 
-## Why This Stack
-
-**Python, two JSON files, and a static HTML table. No chart library, no database, no server.** The matrix is categorical presence, not quantity: a cell holds a repository-relative path or it holds nothing. A table is the right instrument for that. Every cell can be a real link, which a drawn canvas cannot give; row and column headers are read by assistive technology without a second layer of markup; and there is no axis to mis-scale. ECharts, which carries every other lightweight Cascadia page, does not ship on this one because there is nothing for it to plot.
-
-The two data files are the page's only inputs. An inventory script reads the ten module repositories and writes one entry per build; a second file carries the design standard's version chain, dated from the standards repository's own log and drawn as a thin lane between the rows. The page builder composes the table, the era blocks and the walk from those files and from prose kept beside the builder. Re-running the inventory against an unchanged estate must produce a byte-identical file. That is the test that the inventory is a function of disk and not of the session that ran it.
-
----
-
-## Architecture
-
-**Ten sibling repositories, read-only → inventory script → one frozen data file per lane → page builder → static HTML → renders at every breakpoint for the reading panel.**
-
-- **Read.** The inventory script opens each module repository on disk, takes its first and last commit dates from the log, and tests each of the fourteen surfaces against a written rule. It never writes in a sibling. Rows, eras and stack phrases are constants copied from the spec; the script infers nothing about membership, because an era inferred from what a repository carries would be a score under another name.
-- **Rule.** Each column has a paragraph in the repository's surfaces document saying what the surface is, what artifact counts as evidence, and what does not. A script that re-reads the first path's output does not count as an independent re-derivation; a golden fixture is a hand-specified expected set committed before the engine, not a snapshot taken after it. The paragraph is the rule, and the script implements the paragraph, never the other way round.
-- **Freeze.** The data files sit under the estate's freeze gate. The inventory was read on 2026-10-07 and is frozen at 66b9de6; the provenance strip at the foot of the page states both. A new build's row is appended by re-running the inventory and committing the diff as a deliberate refreeze, never as a side effect.
-- **Build.** The page builder emits the table with its bands, its era group rows and the standard's lane; the era prose and the walk; and a full text description of the table for readers who cannot see it. A render script drives headless Chromium across the widths where the layout changes, so the reading panel saw the states a reader would.
-
----
-
-## Headline Skill: Reading the Estate as Data Without Inventing a Score
-
-The differentiator is not the table. It is what the table refuses to do.
-
-**No score, level, weight or percentage exists in the data.** A cell is a path or it is empty. The obvious next move, a totals column or a running count down the right edge, was asked for by the reading panel, and its moderator rated it the single change with the most leverage. It is not there, by standing decision: a count would rank ten builds that were never built to be ranked, and a rank invites the reader to skip the cells. The counts live only in the title and in the text description, where they are claims the table lets a reader check.
-
-**Every filled cell links to the file it names, and that is the page's own test.** A validation script asserts that every path in every filled cell is a file tracked in its repository and that every row's repository exists. A filled cell that cannot be followed is a defect in the inventory, not a rendering choice.
-
-**Older modules are not retrofitted.** The enterprise-shaped builds carry the surfaces they shipped with and always will. Retrofitting a freeze file or a chart review onto a build that shipped without one would turn the matrix into a record of this month's housekeeping rather than of what each build could test when it shipped, and the page's one claim is about the second thing.
-
-**The rows are the time axis.** Ordered by first commit, grouped by era, with the standard's versions placed by date between them. The diamonds step to the right as the rows descend, and that stepping is the progression the portfolio could not show from ten separate pages.
-
----
-
-## Validation
-
-**The gates.** The inventory validator checks that every filled cell names a file tracked in its repository, that every row's repository exists, that every row's era is one of the five, and that the dates are ordered. The freeze gate checks the two data files against the pinned baseline. The inventory re-run must be byte-identical to the committed file before a publish.
-
-**Then a blind reading panel read the rendered table.** Four seats saw static renders of the page at the widths where the layout changes, with no build notes, no data files, no stated finding, and no access to each other. Blindness is not certified, and the chart review says why: a probe run before the returns were pooled showed that the session running the seats placed both connected repositories' instruction files in front of each one, body text included, before its prompt. They returned 15 findings, 11 of them defects, and 10 were fixed. Every finding is recorded in the reviewer's own words in the module's chart review, with its disposition beside it. The one change the panel weighted most, a count column, is the one the standing decisions forbid, and it is forwarded to the owner as a decision rather than quietly declined.
-
-**What the panel could not read.** The moderator's own finding moved the breakpoints, so the phone-width state the panel read is not the one that shipped. The chart review says so and offers a second round on that state; it does not claim the panel saw the shipped page.
-
----
-
-## Tech Stack
-
-<div class="tech-chips">
-<span class="chip">Python</span>
-<span class="chip">Flat JSON</span>
-<span class="chip">Static HTML / CSS / JS</span>
-<span class="chip">Playwright</span>
-<span class="chip">GitHub Pages</span>
-<span class="chip">Git</span>
-</div>
-
----
-
-## Disclosure
-
-Everything on the page is read from the ten module repositories and the standards repository, all public on GitHub, and nothing is invented: no score, no level, no weight, no percentage. The modules are independent portfolio projects, not client work, and the page says so under its title. Where a module's data is synthetic, that module's own page discloses it; this page makes no claim about any data, only about which files each repository carries. Nothing here is a claim about how any real business operates.
-
-Independent portfolio project.
-
----
-
-## Links
-
-- [Build by Build](https://www.robbinsanalytics.com/cascadia-build-by-build/): the live page, the matrix, the six eras and the walk
-- [Build Repository](https://github.com/RobbinsAnalytics/cascadia-build-by-build): the inventory script, the surface definitions, the two data files, the chart review with the reading panel's record, and the decision record
-- [Cascadia Architecture Overview](../cascadia.qmd)
+  <section class="bbb-case-close" aria-labelledby="bbb-close-title"><div><p class="bbb-kicker">Explore the work</p><h2 id="bbb-close-title">Choose a cell.<br><em>Read what it supports.</em></h2></div><div class="bbb-actions"><a class="fx-btn fx-btn--dark no-external" href="https://www.robbinsanalytics.com/cascadia-build-by-build/">Open Build by Build <span aria-hidden="true">↗</span></a><a class="fx-btn fx-btn--outline" href="https://github.com/RobbinsAnalytics/cascadia-build-by-build">Build repository <span aria-hidden="true">↗</span></a><a class="bbb-text-link no-external" href="../cascadia.html">Cascadia architecture <span aria-hidden="true">↗</span></a></div></section>
+  <p class="bbb-final-note">Independent portfolio projects, not client work. Synthetic data is labeled by the build that uses it. No score or business-performance claim is inferred from this inventory.</p>
+</main>
+```
