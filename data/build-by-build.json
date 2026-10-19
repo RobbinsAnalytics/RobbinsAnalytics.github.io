@@ -12,7 +12,6 @@
     "stack": "SQL Server, Fabric, Power BI",
     "surfaces": {
       "chart_review": null,
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": null,
       "golden_fixture": null,
@@ -42,7 +41,6 @@
     "stack": "SQL Server, Power BI",
     "surfaces": {
       "chart_review": null,
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": null,
       "golden_fixture": null,
@@ -72,7 +70,6 @@
     "stack": "SQL Server, Power BI",
     "surfaces": {
       "chart_review": null,
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": null,
       "golden_fixture": null,
@@ -102,7 +99,6 @@
     "stack": "Python, SQLite, ECharts, SEC XBRL",
     "surfaces": {
       "chart_review": "governance/chart-review.md",
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": "governance/freeze.toml",
       "golden_fixture": null,
@@ -132,7 +128,6 @@
     "stack": "Python, SQLite, ECharts",
     "surfaces": {
       "chart_review": "governance/chart-review.md",
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": "data/raw/generator_manifest.json",
       "golden_fixture": null,
@@ -162,7 +157,6 @@
     "stack": "Python, DuckDB, dbt, ECharts",
     "surfaces": {
       "chart_review": "governance/chart-review.md",
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": "governance/freeze.toml",
       "golden_fixture": null,
@@ -192,7 +186,6 @@
     "stack": "Python, DuckDB, ECharts, scheduled pull",
     "surfaces": {
       "chart_review": "governance/chart-review.md",
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": "governance/freeze.toml",
       "golden_fixture": null,
@@ -222,7 +215,6 @@
     "stack": "Python, CSV/JSON, ECharts",
     "surfaces": {
       "chart_review": "governance/chart-review.md",
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": "governance/freeze.toml",
       "golden_fixture": null,
@@ -252,7 +244,6 @@
     "stack": "Python, CSV, ECharts, DuckDB gate",
     "surfaces": {
       "chart_review": "governance/chart-review.md",
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": "governance/freeze.toml",
       "golden_fixture": "tests/golden/",
@@ -283,7 +274,6 @@
     "stack": "Python, DuckDB, statsmodels, ECharts, scheduled pull",
     "surfaces": {
       "chart_review": "governance/chart-review.md",
-      "detection_evaluation": null,
       "expected_event_accounting": null,
       "frozen_source": "governance/freeze.toml",
       "golden_fixture": "tests/golden/",
@@ -302,7 +292,7 @@
   },
   {
     "case_study": "/cascadia-claim-integrity/case-study.html",
-    "default_branch": "fix/r1-remediation",
+    "default_branch": "codex/detection-build-forward",
     "era": "Claims and obligations",
     "first_commit": "2026-10-17",
     "key": "cascadia-claim-integrity",
@@ -311,24 +301,23 @@
     "remote": "cascadia-claim-integrity",
     "retro": null,
     "site_slug": "cascadia-claim-integrity",
-    "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+    "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f",
     "stack": "Python, JSON/JSONL, JavaScript, SVG",
     "surfaces": {
-      "chart_review": "governance/chart-review.md",
-      "detection_evaluation": "governance/detection-results-2.json",
+      "chart_review": "governance/review-2026-10-19/review-receipt.json",
       "expected_event_accounting": "governance/expected-event-accounting.md",
       "frozen_source": "governance/freeze.toml",
-      "golden_fixture": "governance/test-results.json",
+      "golden_fixture": "governance/build-scope-checklist.json",
       "independent_rederivation": "governance/rederivation.json",
       "metric_register": "governance/metric_register.md",
-      "negative_controls": "governance/negative-controls.json",
+      "negative_controls": "governance/build-scope-checklist.json",
       "one_command_rebuild": "governance/rebuild-receipt.json",
-      "reading_panel": "governance/panel/r1-13c/dispositions.json",
+      "reading_panel": "governance/panel/r1-13e/dispositions.json",
       "reconciliation_published": "governance/reconciliation.md",
       "row_count_validation": "governance/check-results.json",
-      "scheduled_run_with_health": "governance/operating/live/health.json",
+      "scheduled_run_with_health": "governance/build-scope-policy.json",
       "source_register": "governance/source-register.md",
-      "tests_as_code": "governance/test-results.json",
+      "tests_as_code": "governance/build-scope-checklist.json",
       "validation_report": "governance/validation_report.md"
     }
   }

@@ -3,9 +3,9 @@
   "source_path": "data/builds-expanded.json",
   "freeze_commit": "66b9de6bf7fd333b1b1fa4253a41425a08b6ebb2",
   "frozen_on": "2026-10-07 baseline; additive extension 2026-10-19",
-  "sha256": "6b666c685d6180d82ddc0fb3a323e9b26e3aff97cafa0e15bd3d604016fc8c6f",
+  "sha256": "47d1ff3c7c9e809803c193057061409127c373a7f62589d9c255f1cdd86da8e4",
   "rows": 11,
-  "surfaces": 16,
+  "surfaces": 15,
   "scope": "Mixed provenance, not a reread of all eleven repositories. freeze_commit identifies the unchanged ten-build baseline only.",
   "baseline": {
     "_comment": [
@@ -28,15 +28,19 @@
   },
   "extension": {
     "path": "data/build-by-build-extension.json",
-    "sha256": "c10451c213117dd040889b503145ebb48367dacbaf819d9822f1475410cb5320",
-    "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c"
+    "sha256": "06da7052c7032d722a59b42e9cf44b05ef8cf3dcc117476f1bdd9db71b4ae4f1",
+    "source_commit": "04133eefca93fc9162360c6a198216c7bbec531f"
   },
   "cell_evidence": {
     "path": "data/build-by-build-evidence.json",
-    "sha256": "cb027f70f81d070298ff5046a4278feee50105fcab1ca7d5a58cdbd446618f39"
+    "sha256": "5613ce34e2cd0f1075b939c51bbeabfc7b7b7d5f42dd0748c6847e5b6281102a"
   },
   "catalog": {
     "path": "data/build-by-build-surfaces.json",
-    "sha256": "b541594ea09d796aa39f761fddab5929ecf574aa3818c0bb832dcb51b5d20b83"
+    "sha256": "d4f447baa46e607a18cebc1e87c270991582e839e1c9361ca8dcaec74e28a72a"
+  },
+  "build_forward": {
+    "candidate": "Detection evaluation",
+    "matrix_column": false
   }
 }

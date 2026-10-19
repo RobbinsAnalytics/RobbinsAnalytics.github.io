@@ -1519,7 +1519,7 @@ body.felix-about {
 }
 .fx-matrix__bands {
   display: grid;
-  grid-template-columns: repeat(16, minmax(0, 1fr));
+  grid-template-columns: repeat(15, minmax(0, 1fr));
   gap: 0.3rem;
 }
 .fx-matrix__band {
@@ -2285,3 +2285,8 @@ body.felix-bbb-case {
   }
   @media(prefers-reduced-motion:reduce) { scroll-behavior: auto; }
 }
+
+// Current evidence vocabulary: an explicit N/A mark is separate from absence.
+.fx-matrix__cell.is-not_applicable { background: transparent; border: 1px solid #b8c9bd; border-radius: 50%; }
+.felix-bbb-case .bbb-state-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.felix-bbb-case .bbb-na { color: #52615b; }

@@ -26,11 +26,11 @@
       "token": "11"
     },
     {
-      "value": "16",
+      "value": "15",
       "label": "test-surface definitions in the portfolio inventory",
       "source": "data/build-by-build.json",
       "compute": "surfaces",
-      "token": "16"
+      "token": "15"
     },
     {
       "value": "200+",

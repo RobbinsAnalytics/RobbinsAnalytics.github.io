@@ -189,7 +189,7 @@ Cascadia is a portfolio built to be checked, not taken on faith. Which tests eac
 :::
 
 <!-- Build by Build, smaller (note 12): the template renders the text column
-     from the inventory; the matrix beside it is the real eleven-by-sixteen
+     from the inventory; the matrix beside it is the real eleven-by-fifteen
      grid, generated from the committed snapshot by tools/build_bbb_grid.py.
      The two share one lime card through .fx-feature-wrap. -->
 

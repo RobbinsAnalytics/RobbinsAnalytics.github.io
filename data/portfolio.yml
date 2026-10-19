@@ -63,8 +63,8 @@
   type: playbook
   status: Published
   new: false
-  lede: "Eleven builds. Sixteen test surfaces. Evidence with its limits kept in view."
-  summary: "Trace the artifacts each build carried, then read their actual scope and outcomes. Two additional surfaces account for expected events and evaluate detection; older builds remain not assessed in those columns. An artifact is evidence to inspect, not a pass rating."
+  lede: "Eleven builds. Fifteen test surfaces. Evidence with its limits kept in view."
+  summary: "Trace the artifacts each build carried, then read their actual scope and outcomes. Expected event accounting adds a fifteenth surface; older builds remain not assessed for it. Claim Integrity records completed chart and restricted reading reviews, with scheduled operation N/A. An artifact is evidence to inspect, not a pass rating."
   tags: []
   href: /projects/cascadia-build-by-build.html
   module_href: https://www.robbinsanalytics.com/cascadia-build-by-build/
@@ -107,7 +107,7 @@
   type: case-study
   status: Published
   new: true
-  summary: "A ride record is not a claim. Trace the supported facts into a claim, then follow downstream encounter readiness and outcome evidence. Missing work stays visible; client assertions stay distinct from source-evidenced outcomes. Frozen synthetic demonstration, with test results and accepted limitations published."
+  summary: "Trace supported claim facts into target readiness and encounter outcomes. All 98 applicable fixture variants pass; 22,173 numerical cells match. Chart review and a four-seat restricted simulated panel are complete. Frozen synthetic demonstration, with scope and independence limits disclosed."
   tags: [Python, JSON/JSONL, JavaScript, SVG]
   href: https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html
   module_href: https://www.robbinsanalytics.com/cascadia-claim-integrity/

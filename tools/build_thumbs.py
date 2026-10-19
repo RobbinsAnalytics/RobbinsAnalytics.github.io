@@ -50,7 +50,7 @@ MODULES = [
     # all. "bars" because the page's one chart is a presence matrix whose marks
     # thicken down the rows.
     dict(slug="build-by-build", data="eleven builds · original freeze 2026-10-07; extension 2026-10-19", kicker="Cascadia Portfolio", title="Build by Build",
-         line="Eleven builds. Sixteen test surfaces. Evidence with its limits kept in view.",
+         line="Eleven builds. Fifteen test surfaces. Evidence with its limits kept in view.",
          accent="evergreen", motif="bars"),
     # Lupine, which Pharmacy is the only other tenant of — different domain,
     # so the two cards do not appear adjacent. The steps motif echoes the

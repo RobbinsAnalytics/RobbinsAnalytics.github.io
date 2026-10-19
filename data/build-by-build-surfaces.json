@@ -118,13 +118,5 @@
     "group": "Operation",
     "description": "An independent population of expected work retains missing records, due times and historical deadline outcomes.",
     "new": true
-  },
-  {
-    "number": 16,
-    "id": "detection_evaluation",
-    "label": "Detection evaluation",
-    "group": "Numbers",
-    "description": "A complete labeled evaluation measures detections, misses, false alarms and timing, and checks that the evaluator can fail.",
-    "new": true
   }
 ]

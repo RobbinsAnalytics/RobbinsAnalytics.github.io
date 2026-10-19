@@ -309,8 +309,8 @@ def check_bbb_snapshot():
             if hashlib.sha256((ROOT / entry["path"]).read_bytes()).hexdigest() != entry["sha256"]:
                 fail("Build by Build " + label, "bytes differ from provenance")
         by_key = {b["key"]: b for b in builds}
-        if len(baseline) != 10 or len(catalog) != 16:
-            fail("Build by Build extension", "expected ten baseline rows and sixteen definitions")
+        if len(baseline) != 10 or len(catalog) != 15:
+            fail("Build by Build extension", "expected ten baseline rows and fifteen definitions")
         new_keys = {s["id"] for s in catalog if s["new"]}
         for old in baseline:
             current = by_key[old["key"]]
@@ -323,8 +323,10 @@ def check_bbb_snapshot():
         cci = extension["row"]["key"]
         if by_key.get(cci) != extension["row"] or evidence.get(cci) != extension["cells"]:
             fail("Build by Build Claim Integrity", "row or outcomes differ from pinned extension")
-        if evidence[cci]["detection_evaluation"]["state"] != "limited":
-            fail("Build by Build detector scope", "historical unblinded evaluation cannot be a completed surface")
+        if any("detection_evaluation" in b["surfaces"] for b in builds):
+            fail("Build by Build future scope", "detection evaluation must not be a current column")
+        if evidence[cci]["scheduled_run_with_health"]["state"] != "not_applicable":
+            fail("Build by Build run scope", "frozen Claim Integrity scheduled operation must be N/A")
     rows = len(builds)
     surfaces = {len(b["surfaces"]) for b in builds}
     if rows != prov["rows"] or surfaces != {prov["surfaces"]}:

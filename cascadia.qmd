@@ -13,7 +13,7 @@ Cascadia is a portfolio of end-to-end analytics work: the data systems, and the 
 
 ## A ride record is not a claim.
 
-**Cascadia Claim Integrity** follows supported facts into claim construction, then downstream encounter readiness and outcome evidence. Expected work remains visible when a record never arrives.
+**Cascadia Claim Integrity** follows supported facts into claim construction, then downstream encounter readiness and outcome evidence. Expected work remains visible when a record never arrives. All 98 applicable fixture variants pass, all 22,173 published numerical cells match, and the chart review and restricted four-seat simulated panel are complete.
 
 [Read the case study](https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html){.fx-btn .fx-btn--dark} [Open the module](https://www.robbinsanalytics.com/cascadia-claim-integrity/){.fx-btn .fx-btn--outline}
 
@@ -26,9 +26,9 @@ I set the architecture, the data model and the measurement definitions as a writ
 
 The controls are explicit, and their evidence travels with each build. Their scope and actual outcomes matter as much as their existence.
 
-**Independent derivation checks the definition.** Earlier SQL-backed modules compare published measures with a separately written calculation. Claim Integrity matched all 22,173 published cells in its second path, while retaining a recorded fail for that surface. Numerical agreement does not turn every assurance requirement green.
+**Independent derivation checks the definition.** Earlier SQL-backed modules compare published measures with a separately written calculation. Claim Integrity matched all 22,173 published cells in its second path. Its current checklist records 152 passing checks and six scope- or phase-specific N/A requirements. A separate implementation does not establish independent evaluator custody.
 
-**Chart review and reading evidence state their conditions.** Earlier builds record reviews against the visualization standard and panel exposure conditions. Claim Integrity is accepted as a frozen synthetic portfolio build with current chart re-review deferred and four minor clarity items open in a restricted simulated panel. That panel is not evidence from blind human readers.
+**Chart review and reading evidence state their conditions.** Earlier builds record reviews against the visualization standard and panel exposure conditions. Claim Integrity completed chart review and a restricted four-seat simulated panel, with six clarity fixes and no open actionable findings. The shared model service and workstation limit independence; certified blindness and human-user research are not claimed.
 
 What the builds are allowed to read is a boundary rather than a limitation. Three sources: the specifications, data models and standards written for these builds; public datasets from CMS, SEC EDGAR, NASA, BLS and FDA; and synthetic operational data, labeled as synthetic on every page that shows it. No confidential internal business data goes into any of it, deliberately.
 
@@ -46,7 +46,7 @@ That control is still an instruction and not an automated check, and an instruct
 
 | Domain | Status | Stack | Data | Headline Skill |
 |---|---|---|---|---|
-| [Cascadia Claim Integrity](https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html) | Published | Python → JSON/JSONL → static JavaScript and SVG | Frozen synthetic ride, claim, submission and response records | Claim construction from supported facts; downstream encounter readiness; independent expected-work accounting, with accepted assurance limits |
+| [Cascadia Claim Integrity](https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html) | Published | Python → JSON/JSONL → static JavaScript and SVG | Frozen synthetic ride, claim, submission and response records | Claim construction from supported facts; downstream encounter readiness; independent expected-work accounting, with completed applicable checks and explicit N/A scope |
 | [Cascadia Early Warning](https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html) | Published | Python → DuckDB → statsmodels → static ECharts, with a second derivation path and a live edge that runs weekly from publication | openFDA device event, recall, enforcement and classification endpoints. Public FDA records (real) | Pre-specified forecasting: a locked test frozen after a documented harness repair, honest ranges, a fixed review rule, counts never rates |
 | [Cascadia Revenue Assurance](projects/cascadia-revenue-assurance.qmd) | Published | Python → flat CSV → static ECharts, with a DuckDB re-derivation gate | Synthetic (seeded generator): a subscription-licensing book, with no real company, customer or partner | Two derivation paths from one rules document, agreeing on every cell; the auto-renewed terms no transaction marked, derived and flagged |
 | [Cascadia Fee Examiner](projects/cascadia-fee-examiner.qmd) | Published | Python (stdlib) → flat CSV/JSON → static ECharts | LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B. Public court and research records (real) | Entity resolution across sources with no shared key; publishing what it can't resolve |
@@ -114,7 +114,7 @@ A forecast evaluated on data the model has already seen proves nothing, and a he
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Charts reviewed against a standard**
-Chart reviews record their standard, result and exposure conditions. Earlier reviews led to charts being rebuilt when their titles could not be verified from the plot. Claim Integrity retains its accepted deferral and restricted simulated-panel findings in the verification view and case study, rather than inheriting a blanket review claim.
+Chart reviews record their standard, result and exposure conditions. Earlier reviews led to charts being rebuilt when their titles could not be verified from the plot. Claim Integrity records its completed chart review, restricted simulated-panel returns and finding dispositions in the verification view and case study. Review completion applies at the stated frozen-build standard.
 :::
 :::
 
