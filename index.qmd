@@ -119,7 +119,7 @@ AI Analytics Architect
   </div>
   <div>
     <dt>The Portfolio</dt>
-    <dd>Every build carries its own evidence: known answers set before the code, tests that run every time, and a record of what each test caught. That is proof stakeholders can check, not a claim they have to trust.</dd>
+    <dd>Each build makes its checks inspectable: what was tested, which evidence was retained, and where results failed or remained limited. Build by Build puts those records side by side, with scope and unresolved findings visible.</dd>
   </div>
   <div>
     <dt>The Track Record</dt>
@@ -189,7 +189,7 @@ Cascadia is a portfolio built to be checked, not taken on faith. Which tests eac
 :::
 
 <!-- Build by Build, smaller (note 12): the template renders the text column
-     from the inventory; the matrix beside it is the real ten-by-fourteen
+     from the inventory; the matrix beside it is the real eleven-by-sixteen
      grid, generated from the committed snapshot by tools/build_bbb_grid.py.
      The two share one lime card through .fx-feature-wrap. -->
 
@@ -247,7 +247,7 @@ Cascadia is a portfolio built to be checked, not taken on faith. Which tests eac
     <div class="fx-tile__top"><p class="fx-tile__num">02<span>Validate</span></p><a class="fx-pill" href="/projects/cascadia-revenue-assurance.html">Revenue Assurance</a></div>
     <h3 class="fx-tile__title">Independent <span class="fx-tile__muted">check</span></h3>
     <p class="fx-tile__flow">Definition &#8594; independent SQL &#8594; reconcile</p>
-    <p class="fx-tile__text">Every certified measure is validated independently against raw SQL, written to the definition and not to the code. Revenue Assurance derives every published cell twice, by two engines written to be different, and they agree.</p>
+    <p class="fx-tile__text">A separately written calculation checks a published figure against its definition. Revenue Assurance derives every published cell twice, by two engines written to be different, and they agree. Claim Integrity also publishes its numerical agreement and the separate limits of its assurance record.</p>
   </li>
   <li class="fx-tile">
     <div class="fx-tile__top"><p class="fx-tile__num">03<span>Operate</span></p><a class="fx-pill" href="/projects/cascadia-matter-ledger.html">Matter Ledger</a></div>

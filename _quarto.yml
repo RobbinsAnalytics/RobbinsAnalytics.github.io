@@ -107,6 +107,8 @@ website:
           # the two are read together.
           - text: "Validating AI-Assisted Analytics"
             href: https://www.robbinsanalytics.com/cascadia-validation-playbook/
+          - text: "Cascadia Claim Integrity"
+            href: https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html
           - text: "Cascadia Early Warning"
             href: https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html
           - text: "Cascadia Revenue Assurance"

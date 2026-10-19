@@ -299,6 +299,32 @@ def check_bbb_snapshot():
         )
         return
     builds = json.loads(raw)
+    if "baseline" in prov:
+        baseline = json.loads(read(prov["baseline"]["path"]))
+        evidence = json.loads(read(prov["cell_evidence"]["path"]))
+        extension = json.loads(read(prov["extension"]["path"]))
+        catalog = json.loads(read(prov["catalog"]["path"]))
+        for label in ("baseline", "extension", "cell_evidence", "catalog"):
+            entry = prov[label]
+            if hashlib.sha256((ROOT / entry["path"]).read_bytes()).hexdigest() != entry["sha256"]:
+                fail("Build by Build " + label, "bytes differ from provenance")
+        by_key = {b["key"]: b for b in builds}
+        if len(baseline) != 10 or len(catalog) != 16:
+            fail("Build by Build extension", "expected ten baseline rows and sixteen definitions")
+        new_keys = {s["id"] for s in catalog if s["new"]}
+        for old in baseline:
+            current = by_key[old["key"]]
+            if any(current.get(k) != v for k, v in old.items() if k != "surfaces"):
+                fail("Build by Build baseline", old["key"] + " metadata changed")
+            if any(current["surfaces"].get(k) != v for k, v in old["surfaces"].items()):
+                fail("Build by Build baseline", old["key"] + " original cells changed")
+            if any(evidence[old["key"]][k]["state"] != "not_assessed" for k in new_keys):
+                fail("Build by Build new columns", old["key"] + " must remain not assessed")
+        cci = extension["row"]["key"]
+        if by_key.get(cci) != extension["row"] or evidence.get(cci) != extension["cells"]:
+            fail("Build by Build Claim Integrity", "row or outcomes differ from pinned extension")
+        if evidence[cci]["detection_evaluation"]["state"] != "limited":
+            fail("Build by Build detector scope", "historical unblinded evaluation cannot be a completed surface")
     rows = len(builds)
     surfaces = {len(b["surfaces"]) for b in builds}
     if rows != prov["rows"] or surfaces != {prov["surfaces"]}:

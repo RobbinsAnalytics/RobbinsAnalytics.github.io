@@ -1,0 +1,1368 @@
+{
+  "cascadia-claim-integrity": {
+    "chart_review": {
+      "access": "public verification summary; repository artifact is not served",
+      "href": "/cascadia-claim-integrity/#view=c",
+      "path": "governance/chart-review.md",
+      "reported_evidence_sha256": "122a38f8ec455a453ea4ea1197ea974cdb010be05f8a05787a8192450aec91d1",
+      "result": "deferred",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": null,
+      "sha256": "122a38f8ec455a453ea4ea1197ea974cdb010be05f8a05787a8192450aec91d1",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "limited",
+      "summary": "Current chart invariant re-review deferred; accepted for this portfolio release. The earlier review in governance/chart-review.md is historical."
+    },
+    "detection_evaluation": {
+      "access": "served snapshot artifact",
+      "href": "/cascadia-claim-integrity/evidence/detection-results-2.json",
+      "path": "governance/detection-results-2.json",
+      "reported_evidence_sha256": "1a3b2a38235da7b7042fcf3b984c96d7284a31548b4074f5b434440b4b4e11ed",
+      "result": "scored",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": "1a3b2a38235da7b7042fcf3b984c96d7284a31548b4074f5b434440b4b4e11ed",
+      "sha256": "1a3b2a38235da7b7042fcf3b984c96d7284a31548b4074f5b434440b4b4e11ed",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "limited",
+      "summary": "attempt 2: 20 of 26 represented classes met must-catch (36 registered, 10 not represented); caught 46 of 52 targets; false alarms 0 of 52 clean. Unblinded; no independent evaluator custody; does not establish effectiveness of the final controls."
+    },
+    "expected_event_accounting": {
+      "access": "served snapshot artifact",
+      "href": "/cascadia-claim-integrity/evidence/expected-event-accounting.md",
+      "path": "governance/expected-event-accounting.md",
+      "reported_evidence_sha256": "a0531feb3eecbfd925f459a29fa5b794db7e9f0de1b9a23bb3c91899d7cd8fa9",
+      "result": "pass",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": "a0531feb3eecbfd925f459a29fa5b794db7e9f0de1b9a23bb3c91899d7cd8fa9",
+      "sha256": "a0531feb3eecbfd925f459a29fa5b794db7e9f0de1b9a23bb3c91899d7cd8fa9",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "recorded",
+      "summary": "independent obligations accounted at each cutoff"
+    },
+    "frozen_source": {
+      "access": "public verification summary; repository artifact is not served",
+      "href": "/cascadia-claim-integrity/#view=c",
+      "path": "governance/freeze.toml",
+      "reported_evidence_sha256": "dbea8f01082e247e1cadc2fe9d3ef0397666527175fd9aaebf001d51c9c83972",
+      "result": "pass",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": null,
+      "sha256": "dbea8f01082e247e1cadc2fe9d3ef0397666527175fd9aaebf001d51c9c83972",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "recorded",
+      "summary": "source, submission and response freezes; manifests committed; verified by every rebuild stage"
+    },
+    "golden_fixture": {
+      "access": "public verification summary; repository artifact is not served",
+      "href": "/cascadia-claim-integrity/#view=c",
+      "path": "governance/test-results.json",
+      "reported_evidence_sha256": "103d69ff45faa385704e192efd9439e77327b32dea2ca03adf0ee01c27ec1d7f",
+      "result": "fail",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": null,
+      "sha256": "103d69ff45faa385704e192efd9439e77327b32dea2ca03adf0ee01c27ec1d7f",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "limited",
+      "summary": "public goldens specified before implementation and executed by the adapter"
+    },
+    "independent_rederivation": {
+      "access": "served snapshot artifact",
+      "href": "/cascadia-claim-integrity/evidence/rederivation.json",
+      "path": "governance/rederivation.json",
+      "reported_evidence_sha256": "24562f5008502364f3f35af0cbdb408fadfcc80a33d6b7e124df596fcbd0cbbf",
+      "result": "fail",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": "24562f5008502364f3f35af0cbdb408fadfcc80a33d6b7e124df596fcbd0cbbf",
+      "sha256": "24562f5008502364f3f35af0cbdb408fadfcc80a33d6b7e124df596fcbd0cbbf",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "limited",
+      "summary": "22173 of 22173 cells matched; 0 mismatched The recorded fail status remains; numerical agreement is not a declaration that every surface requirement passed."
+    },
+    "metric_register": {
+      "access": "served snapshot artifact",
+      "href": "/cascadia-claim-integrity/evidence/metric_register.md",
+      "path": "governance/metric_register.md",
+      "reported_evidence_sha256": "f2f5cb7b62fe1b3a2040582d08d15be028c46aa598243e436ee064bd865aa89a",
+      "result": "pass",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": "f2f5cb7b62fe1b3a2040582d08d15be028c46aa598243e436ee064bd865aa89a",
+      "sha256": "f2f5cb7b62fe1b3a2040582d08d15be028c46aa598243e436ee064bd865aa89a",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "recorded",
+      "summary": "register 1.1.0 (2026-10-18); drift check in check-results"
+    },
+    "negative_controls": {
+      "access": "served snapshot artifact",
+      "href": "/cascadia-claim-integrity/evidence/negative-controls.json",
+      "path": "governance/negative-controls.json",
+      "reported_evidence_sha256": "80ba2c4414092dc21eb9fbb74ca556ac2094a8aebedceef6b281bdfcc0235992",
+      "result": "blocked",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": "80ba2c4414092dc21eb9fbb74ca556ac2094a8aebedceef6b281bdfcc0235992",
+      "sha256": "0f04f0504278231f5a4eaaf36c2728a5493ed2704382e2552aecc10dad9e4388",
+      "snapshot_differs_from_repository": true,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "limited",
+      "summary": "81 of 82 public instances reached their target, tripped the expected control and left the clean pair quiet; 1 blocked (not evaluated)"
+    },
+    "one_command_rebuild": {
+      "access": "public verification summary; repository artifact is not served",
+      "href": "/cascadia-claim-integrity/#view=c",
+      "path": "governance/rebuild-receipt.json",
+      "reported_evidence_sha256": "d6b2457010266759a55470075247b5405422e2d0b87207a82ef525158c7770a1",
+      "result": "pass",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": null,
+      "sha256": "d6b2457010266759a55470075247b5405422e2d0b87207a82ef525158c7770a1",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "recorded",
+      "summary": "clean-workspace rebuild of a9c0a9a7c88b passed; 85 of 89 outputs byte-identical to the candidate build"
+    },
+    "reading_panel": {
+      "access": "public verification summary; repository artifact is not served",
+      "href": "/cascadia-claim-integrity/#view=c",
+      "path": "governance/panel/r1-13c/dispositions.json",
+      "reported_evidence_sha256": "0efe52acb7a0109d254ed7dc4bba6ec0d13d476d104ad79563288c2a437b7b95",
+      "result": "open",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": null,
+      "sha256": "0efe52acb7a0109d254ed7dc4bba6ec0d13d476d104ad79563288c2a437b7b95",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "limited",
+      "summary": "R1-13C round of 2026-10-19 (4 simulated seats, restricted, not blind): 10 findings (4 open, 3 not a defect, 2 author known, 1 build forward); status dispositioned; 4 minor clarity items open. Earlier rounds (governance/panel/findings.json, governance/panel/r1-13/dispositions.json, governance/panel/r1-13b/dispositions.json) are history, not the current result."
+    },
+    "reconciliation_published": {
+      "access": "served snapshot artifact",
+      "href": "/cascadia-claim-integrity/evidence/reconciliation.md",
+      "path": "governance/reconciliation.md",
+      "reported_evidence_sha256": "05f22ab3a7754252fc31e45f28b3255b88b44e668c578bc45da094eb5b0b39cd",
+      "result": "pass",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": "05f22ab3a7754252fc31e45f28b3255b88b44e668c578bc45da094eb5b0b39cd",
+      "sha256": "05f22ab3a7754252fc31e45f28b3255b88b44e668c578bc45da094eb5b0b39cd",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "recorded",
+      "summary": "complete populations and residuals at declared grains"
+    },
+    "row_count_validation": {
+      "access": "served snapshot artifact",
+      "href": "/cascadia-claim-integrity/evidence/check-results.json",
+      "path": "governance/check-results.json",
+      "reported_evidence_sha256": "8c50b22f8368b52825b9a0a1c5704012f64169b4274d9a763d99e14e8b813df9",
+      "result": "pass",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": "8c50b22f8368b52825b9a0a1c5704012f64169b4274d9a763d99e14e8b813df9",
+      "sha256": "e6d8bcff5168c777f021a5712655f14d90e9ef665ea9c7494af3e3119b2a6f4f",
+      "snapshot_differs_from_repository": true,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "recorded",
+      "summary": "284 comparisons at three positions; 0 unexplained differences; 3 disclosed source findings (the withheld landed ride)"
+    },
+    "scheduled_run_with_health": {
+      "access": "public verification summary; repository artifact is not served",
+      "href": "/cascadia-claim-integrity/#view=c",
+      "path": "governance/operating/live/health.json",
+      "reported_evidence_sha256": "1a201809c95a3b0385d141d4f8748b09824405bed03d7190cb3a95a72e9d0aa3",
+      "result": "blocked",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": null,
+      "sha256": "1a201809c95a3b0385d141d4f8748b09824405bed03d7190cb3a95a72e9d0aa3",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "limited",
+      "summary": "Historical health is blocked; no successful timer receipt was established. October 19 owner acceptance treats this as a frozen snapshot with no live edge; a successful scheduled receipt is not required. Historical timestamps are retained, not current health."
+    },
+    "source_register": {
+      "access": "served snapshot artifact",
+      "href": "/cascadia-claim-integrity/evidence/source-register.md",
+      "path": "governance/source-register.md",
+      "reported_evidence_sha256": "86aebc9c9f76c64efe07759cb5c861c158e4ee62bcd18a71e02bdbca9f9a74a0",
+      "result": "pass",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": "86aebc9c9f76c64efe07759cb5c861c158e4ee62bcd18a71e02bdbca9f9a74a0",
+      "sha256": "86aebc9c9f76c64efe07759cb5c861c158e4ee62bcd18a71e02bdbca9f9a74a0",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "recorded",
+      "summary": "every consumed source registered with origin and hash"
+    },
+    "tests_as_code": {
+      "access": "public verification summary; repository artifact is not served",
+      "href": "/cascadia-claim-integrity/#view=c",
+      "path": "governance/test-results.json",
+      "reported_evidence_sha256": "103d69ff45faa385704e192efd9439e77327b32dea2ca03adf0ee01c27ec1d7f",
+      "result": "fail",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": null,
+      "sha256": "103d69ff45faa385704e192efd9439e77327b32dea2ca03adf0ee01c27ec1d7f",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "limited",
+      "summary": "Golden baseline: 96 pass, 2 fail, 2 blocked and 2 pending publication, of 102 registered variants. Additional regression suites are reported separately."
+    },
+    "validation_report": {
+      "access": "public verification summary; repository artifact is not served",
+      "href": "/cascadia-claim-integrity/#view=c",
+      "path": "governance/validation_report.md",
+      "reported_evidence_sha256": "5524bc3e37163ddc317ec77be849762cae9bafc70659a57ba031d759a42ed056",
+      "result": "pass",
+      "result_basis": "Frozen public verification snapshot; no new run or final-control certification",
+      "served_sha256": null,
+      "sha256": "57a5898844e3f744d1bcd31a3cff0a5bbe53544d060193008cbc92bc5fea7190",
+      "snapshot_differs_from_repository": false,
+      "source_commit": "e936d1ada2b5cfc54919157e4d9b8b9cd833506c",
+      "state": "recorded",
+      "summary": "bound to the candidate and the complete required-check registry"
+    }
+  },
+  "cascadia-controltower-analytics": {
+    "chart_review": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/blob/main/governance/freeze.toml",
+      "path": "governance/freeze.toml",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "golden_fixture": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "independent_rederivation": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "metric_register": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/blob/main/governance/metric_register.md",
+      "path": "governance/metric_register.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "negative_controls": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/blob/main/governance/validation_report.md",
+      "path": "governance/validation_report.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "one_command_rebuild": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/blob/main/README.md",
+      "path": "README.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reading_panel": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/blob/main/governance/reading-panel-returns-2026-08-09.md",
+      "path": "governance/reading-panel-returns-2026-08-09.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reconciliation_published": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "row_count_validation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/blob/main/validate.py",
+      "path": "validate.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "scheduled_run_with_health": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "source_register": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/blob/main/data/raw/manifest.json",
+      "path": "data/raw/manifest.json",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "tests_as_code": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/tree/main/dbt/tests/",
+      "path": "dbt/tests/",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "validation_report": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-controltower/blob/main/governance/validation_report.md",
+      "path": "governance/validation_report.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    }
+  },
+  "cascadia-dealdesk-analytics": {
+    "chart_review": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-dealdesk/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-dealdesk/blob/main/data/raw/generator_manifest.json",
+      "path": "data/raw/generator_manifest.json",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "golden_fixture": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "independent_rederivation": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "metric_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "negative_controls": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "one_command_rebuild": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-dealdesk/blob/main/README.md",
+      "path": "README.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reading_panel": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-dealdesk/blob/main/governance/READING-PANEL-2026-08-02.md",
+      "path": "governance/READING-PANEL-2026-08-02.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reconciliation_published": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "row_count_validation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-dealdesk/blob/main/src/validate.py",
+      "path": "src/validate.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "scheduled_run_with_health": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "source_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "tests_as_code": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "validation_report": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-dealdesk/blob/main/governance/validation_report.md",
+      "path": "governance/validation_report.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    }
+  },
+  "cascadia-early-warning": {
+    "chart_review": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/governance/freeze.toml",
+      "path": "governance/freeze.toml",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "golden_fixture": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/tree/main/tests/golden/",
+      "path": "tests/golden/",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "independent_rederivation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/src/validate_measures.py",
+      "path": "src/validate_measures.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "metric_register": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/governance/metric_register.md",
+      "path": "governance/metric_register.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "negative_controls": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/governance/validation_report.md",
+      "path": "governance/validation_report.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "one_command_rebuild": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/README.md",
+      "path": "README.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reading_panel": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/governance/panel/findings.json",
+      "path": "governance/panel/findings.json",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reconciliation_published": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/governance/reconciliation.md",
+      "path": "governance/reconciliation.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "row_count_validation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/src/validate.py",
+      "path": "src/validate.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "scheduled_run_with_health": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/governance/health.json",
+      "path": "governance/health.json",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "source_register": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/governance/source-register.md",
+      "path": "governance/source-register.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "tests_as_code": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/src/test_golden.py",
+      "path": "src/test_golden.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "validation_report": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-early-warning/blob/main/governance/validation_report.md",
+      "path": "governance/validation_report.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    }
+  },
+  "cascadia-fee-examiner": {
+    "chart_review": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-fee-examiner/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-fee-examiner/blob/main/governance/freeze.toml",
+      "path": "governance/freeze.toml",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "golden_fixture": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "independent_rederivation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-fee-examiner/blob/main/src/validate_measures.py",
+      "path": "src/validate_measures.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "metric_register": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-fee-examiner/blob/main/governance/metric_register.md",
+      "path": "governance/metric_register.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "negative_controls": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "one_command_rebuild": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "reading_panel": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-fee-examiner/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reconciliation_published": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-fee-examiner/blob/main/governance/reconciliation.md",
+      "path": "governance/reconciliation.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "row_count_validation": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "scheduled_run_with_health": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-fee-examiner/blob/main/governance/health.json",
+      "path": "governance/health.json",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "source_register": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-fee-examiner/blob/main/governance/source-register.md",
+      "path": "governance/source-register.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "tests_as_code": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "validation_report": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    }
+  },
+  "cascadia-finance-analytics": {
+    "chart_review": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-finance/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-finance/blob/main/governance/freeze.toml",
+      "path": "governance/freeze.toml",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "golden_fixture": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "independent_rederivation": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "metric_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "negative_controls": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-finance/blob/main/governance/validation_report.md",
+      "path": "governance/validation_report.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "one_command_rebuild": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-finance/blob/main/README.md",
+      "path": "README.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reading_panel": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-finance/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reconciliation_published": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "row_count_validation": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "scheduled_run_with_health": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "source_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "tests_as_code": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "validation_report": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-finance/blob/main/governance/validation_report.md",
+      "path": "governance/validation_report.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    }
+  },
+  "cascadia-matter-ledger-analytics": {
+    "chart_review": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-matter-ledger/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-matter-ledger/blob/main/governance/freeze.toml",
+      "path": "governance/freeze.toml",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "golden_fixture": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "independent_rederivation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-matter-ledger/blob/main/src/validate_measures.py",
+      "path": "src/validate_measures.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "metric_register": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-matter-ledger/blob/main/governance/metric_register.md",
+      "path": "governance/metric_register.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "negative_controls": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "one_command_rebuild": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "reading_panel": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-matter-ledger/blob/main/governance/panel/findings.json",
+      "path": "governance/panel/findings.json",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reconciliation_published": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-matter-ledger/blob/main/governance/reconciliation.md",
+      "path": "governance/reconciliation.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "row_count_validation": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "scheduled_run_with_health": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-matter-ledger/blob/main/governance/health.json",
+      "path": "governance/health.json",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "source_register": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-matter-ledger/blob/main/governance/source-register.md",
+      "path": "governance/source-register.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "tests_as_code": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-matter-ledger/blob/main/src/test_live_edge_retry.py",
+      "path": "src/test_live_edge_retry.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "validation_report": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    }
+  },
+  "cascadia-pharmacy-analytics": {
+    "chart_review": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "golden_fixture": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "independent_rederivation": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "metric_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "negative_controls": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "one_command_rebuild": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics/blob/master/run_phase1.ps1",
+      "path": "run_phase1.ps1",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reading_panel": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "reconciliation_published": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "row_count_validation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-pharmacy-analytics/blob/master/sql/load/07_validate_rowcounts.sql",
+      "path": "sql/load/07_validate_rowcounts.sql",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "scheduled_run_with_health": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "source_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "tests_as_code": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "validation_report": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    }
+  },
+  "cascadia-revenue-assurance": {
+    "chart_review": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/blob/main/governance/freeze.toml",
+      "path": "governance/freeze.toml",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "golden_fixture": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/tree/main/tests/golden/",
+      "path": "tests/golden/",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "independent_rederivation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/blob/main/src/validate_measures.py",
+      "path": "src/validate_measures.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "metric_register": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/blob/main/governance/metric_register.md",
+      "path": "governance/metric_register.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "negative_controls": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "one_command_rebuild": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/blob/main/CLAUDE.md",
+      "path": "CLAUDE.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reading_panel": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/blob/main/governance/chart-review.md",
+      "path": "governance/chart-review.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reconciliation_published": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/blob/main/governance/reconciliation.md",
+      "path": "governance/reconciliation.md",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "row_count_validation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/blob/main/src/validate.py",
+      "path": "src/validate.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "scheduled_run_with_health": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "source_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "tests_as_code": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-revenue-assurance/blob/main/src/test_golden.py",
+      "path": "src/test_golden.py",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "validation_report": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    }
+  },
+  "cascadia-staffing-analytics": {
+    "chart_review": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "golden_fixture": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "independent_rederivation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-staffing-analytics/blob/main/powerbi/validate_m3_kpis.sql",
+      "path": "powerbi/validate_m3_kpis.sql",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "metric_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "negative_controls": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "one_command_rebuild": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-staffing-analytics/blob/main/run_build.ps1",
+      "path": "run_build.ps1",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reading_panel": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "reconciliation_published": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "row_count_validation": {
+      "href": "https://github.com/RobbinsAnalytics/cascadia-staffing-analytics/blob/main/sql/load/07_validate_rowcounts.sql",
+      "path": "sql/load/07_validate_rowcounts.sql",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "scheduled_run_with_health": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "source_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "tests_as_code": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "validation_report": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    }
+  },
+  "manufacturing-analytics": {
+    "chart_review": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "detection_evaluation": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "expected_event_accounting": {
+      "href": null,
+      "path": null,
+      "result": "not assessed",
+      "state": "not_assessed",
+      "summary": "Not assessed against this additional definition. The fourteen-column baseline cannot establish presence or absence."
+    },
+    "frozen_source": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "golden_fixture": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "independent_rederivation": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "metric_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "negative_controls": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "one_command_rebuild": {
+      "href": "https://github.com/RobbinsAnalytics/manufacturing-analytics/blob/main/scripts/run_phase1.ps1",
+      "path": "scripts/run_phase1.ps1",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "reading_panel": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "reconciliation_published": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "row_count_validation": {
+      "href": "https://github.com/RobbinsAnalytics/manufacturing-analytics/blob/main/sql/load/13_validate_rowcounts.sql",
+      "path": "sql/load/13_validate_rowcounts.sql",
+      "result": "artifact recorded",
+      "state": "recorded",
+      "summary": "Artifact recorded in the October 7 inventory; this extension does not re-score that historical check."
+    },
+    "scheduled_run_with_health": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "source_register": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "tests_as_code": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    },
+    "validation_report": {
+      "href": null,
+      "path": null,
+      "result": "not carried in baseline",
+      "state": "absent",
+      "summary": "No qualifying artifact was recorded by the original inventory. This is not a current audit and creates no remediation debt."
+    }
+  }
+}

@@ -53,7 +53,7 @@
 #   order        integer, see ORDER above
 #   featured     true for the three builds the homepage carries under
 #                "Selected builds", chosen by capability (2026-10-14):
-#                Early Warning, Revenue Assurance, Matter Ledger
+#                Claim Integrity, Early Warning, Revenue Assurance
 #   note         the placement comment carried over from _quarto.yml
 
 - slug: build-by-build
@@ -63,8 +63,8 @@
   type: playbook
   status: Published
   new: false
-  lede: "Two ways to check a number at build one. Fourteen had appeared by build nine."
-  summary: "Ten modules by fourteen test surfaces, read from their own repositories: which tests each build could carry when it shipped, where each kind of test first appeared, and a link from every filled cell to the file it names. An empty cell is a fact about what a build carried, never a debt."
+  lede: "Eleven builds. Sixteen test surfaces. Evidence with its limits kept in view."
+  summary: "Trace the artifacts each build carried, then read their actual scope and outcomes. Two additional surfaces account for expected events and evaluate detection; older builds remain not assessed in those columns. An artifact is evidence to inspect, not a pass rating."
   tags: []
   href: /projects/cascadia-build-by-build.html
   module_href: https://www.robbinsanalytics.com/cascadia-build-by-build/
@@ -100,6 +100,21 @@
   featured: false
   note: "Not a module: a playbook, how confidence in AI-assisted code is earned from requirements, a separately specified answer and an enforced check. A Felix page in its own repository, linked by its live URL as Early Warning is; it sits beside the charter because the two are read together."
 
+- slug: claim-integrity
+  title: "Claim Integrity"
+  family: "Cascadia"
+  domain: "Healthcare / Claim Evidence"
+  type: case-study
+  status: Published
+  new: true
+  summary: "A ride record is not a claim. Trace the supported facts into a claim, then follow downstream encounter readiness and outcome evidence. Missing work stays visible; client assertions stay distinct from source-evidenced outcomes. Frozen synthetic demonstration, with test results and accepted limitations published."
+  tags: [Python, JSON/JSONL, JavaScript, SVG]
+  href: https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html
+  module_href: https://www.robbinsanalytics.com/cascadia-claim-integrity/
+  module_label: "Open claim evidence module"
+  order: 4
+  featured: true
+
 - slug: early-warning
   title: "Early Warning"
   family: "Cascadia"
@@ -112,7 +127,7 @@
   href: https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html
   module_href: https://www.robbinsanalytics.com/cascadia-early-warning/
   module_label: "Open forecast module"
-  order: 4
+  order: 5
   featured: true
 
 - slug: revenue-assurance
@@ -127,7 +142,7 @@
   href: /projects/cascadia-revenue-assurance.html
   module_href: https://www.robbinsanalytics.com/cascadia-revenue-assurance/
   module_label: "Open module"
-  order: 5
+  order: 6
   featured: true
 
 - slug: fee-examiner
@@ -142,7 +157,7 @@
   href: /projects/cascadia-fee-examiner.html
   module_href: https://www.robbinsanalytics.com/cascadia-fee-examiner/
   module_label: "Open module"
-  order: 6
+  order: 7
   featured: false
 
 - slug: matter-ledger
@@ -157,8 +172,8 @@
   href: /projects/cascadia-matter-ledger.html
   module_href: https://www.robbinsanalytics.com/cascadia-matter-ledger/
   module_label: "Open module"
-  order: 7
-  featured: true
+  order: 8
+  featured: false
 
 - slug: controltower
   title: "Control Tower"
@@ -172,7 +187,7 @@
   href: /projects/cascadia-controltower.html
   module_href: https://www.robbinsanalytics.com/cascadia-controltower/
   module_label: "Open module"
-  order: 8
+  order: 9
   featured: false
 
 - slug: dealdesk
@@ -187,7 +202,7 @@
   href: /projects/cascadia-dealdesk.html
   module_href: https://www.robbinsanalytics.com/cascadia-dealdesk/
   module_label: "Open module"
-  order: 9
+  order: 10
   featured: false
 
 - slug: finance
@@ -202,7 +217,7 @@
   href: /projects/cascadia-finance.html
   module_href: https://www.robbinsanalytics.com/cascadia-finance/
   module_label: "Open module"
-  order: 10
+  order: 11
   featured: false
 
 - slug: bi-migration
@@ -215,7 +230,7 @@
   summary: "A 24-week program design for moving an organization off legacy BI and onto a governed, AI-assisted platform, with a certified metric layer at the center. A design, not a build."
   tags: []
   href: /projects/cascadia-bi-migration.html
-  order: 11
+  order: 12
   featured: false
 
 - slug: staffing
@@ -228,7 +243,7 @@
   summary: "Contingent-labor economics for U.S. nursing facilities on real CMS payroll data, with a certified-metric governance layer. A local SQL Server star schema, a Python staging layer with suppression flags rather than zero-fill, and a Power BI import model."
   tags: [SQL Server, Power BI]
   href: /projects/cascadia-staffing.html
-  order: 12
+  order: 13
   featured: false
 
 - slug: pharmacy
@@ -241,7 +256,7 @@
   summary: "GLP-1 drug spend growth and immunization coverage on real CMS Part D and CDC VaxView data. Messy public data cleaned in a staging layer, suppression flags rather than zero-fill, and the result surfaced in Power BI."
   tags: [SQL Server, Power BI]
   href: /projects/cascadia-pharmacy.html
-  order: 13
+  order: 14
   featured: false
 
 - slug: medical-devices
@@ -254,7 +269,7 @@
   summary: "Predictive maintenance and OEE analytics on a simulated MES and NASA C-MAPSS data. The full enterprise pattern: a SQL Server star schema into a Microsoft Fabric medallion lakehouse, surfaced through a Power BI Direct Lake semantic model."
   tags: [SQL Server, Microsoft Fabric, Power BI]
   href: /projects/cascadia-medical-devices.html
-  order: 14
+  order: 15
   featured: false
 
 - slug: clothing
@@ -267,7 +282,7 @@
   summary: "Retail and ecommerce analytics for an apparel scenario, with customer segmentation as the headline skill. Stack and data not yet chosen."
   tags: []
   href: /projects/cascadia-clothing.html
-  order: 15
+  order: 16
   featured: false
 
 - slug: job-offer-process-map
@@ -280,7 +295,7 @@
   summary: "A job search mapped as a working process: Stage-Gate for structure, BPMN swimlanes for who does what, and a plan-do-check-act loop inside every interview round. Two phases, five lanes, and two keys at every interview gate."
   tags: []
   href: /projects/job-offer-process-map.html
-  order: 16
+  order: 17
   featured: false
   note: "Not a Cascadia module: a process design, labelled as what it is, with no \"Cascadia\" prefix and no status word. It sits beside the preprint below, which stays last."
 
@@ -296,6 +311,6 @@
   href: /projects/sibling-conflict.html
   module_href: https://www.robbinsanalytics.com/assets/Robbins-Combinatorics-of-Sibling-Conflict.pdf
   module_label: "The paper (PDF)"
-  order: 17
+  order: 18
   featured: false
   note: "Last, and labelled as what it is. Not a Cascadia module, a mathematics preprint, so it carries neither the \"Cascadia\" prefix every entry above shares nor a status word that would read as a build state."

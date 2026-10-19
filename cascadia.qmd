@@ -7,15 +7,28 @@ Cascadia is a portfolio of end-to-end analytics work: the data systems, and the 
 
 ---
 
+
+::: {.cci-family-callout}
+[New build / Healthcare]{.fx-eyebrow}
+
+## A ride record is not a claim.
+
+**Cascadia Claim Integrity** follows supported facts into claim construction, then downstream encounter readiness and outcome evidence. Expected work remains visible when a record never arrives.
+
+[Read the case study](https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html){.fx-btn .fx-btn--dark} [Open the module](https://www.robbinsanalytics.com/cascadia-claim-integrity/){.fx-btn .fx-btn--outline}
+
+Frozen synthetic demonstration. Testing results and accepted limitations are published with the build.
+:::
+
 ## How I Built This
 
 I set the architecture, the data model and the measurement definitions as a written specification. AI coding agents build to that specification in Python. I do not hand-write the Python. My role is to write the spec, review the output, and validate it.
 
-Two controls stand over that arrangement, and every module passes both before it ships.
+The controls are explicit, and their evidence travels with each build. Their scope and actual outcomes matter as much as their existence.
 
-**Every certified measure is validated independently against raw SQL.** The check is written against the definition, not against the code that implemented it, so a published figure reconciles to source or the build does not ship.
+**Independent derivation checks the definition.** Earlier SQL-backed modules compare published measures with a separately written calculation. Claim Integrity matched all 22,173 published cells in its second path, while retaining a recorded fail for that surface. Numerical agreement does not turn every assurance requirement green.
 
-**Every chart is scored against a written visualization standard before it ships**, including a blind reading panel: the reviewers are given the rendered chart, with no title and no framing from me, and report back what they think it says; where a panel's record could not certify that nothing else reached a seat, the record says so. The blind panel is my own addition to the standard.
+**Chart review and reading evidence state their conditions.** Earlier builds record reviews against the visualization standard and panel exposure conditions. Claim Integrity is accepted as a frozen synthetic portfolio build with current chart re-review deferred and four minor clarity items open in a restricted simulated panel. That panel is not evidence from blind human readers.
 
 What the builds are allowed to read is a boundary rather than a limitation. Three sources: the specifications, data models and standards written for these builds; public datasets from CMS, SEC EDGAR, NASA, BLS and FDA; and synthetic operational data, labeled as synthetic on every page that shows it. No confidential internal business data goes into any of it, deliberately.
 
@@ -33,6 +46,7 @@ That control is still an instruction and not an automated check, and an instruct
 
 | Domain | Status | Stack | Data | Headline Skill |
 |---|---|---|---|---|
+| [Cascadia Claim Integrity](https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html) | Published | Python → JSON/JSONL → static JavaScript and SVG | Frozen synthetic ride, claim, submission and response records | Claim construction from supported facts; downstream encounter readiness; independent expected-work accounting, with accepted assurance limits |
 | [Cascadia Early Warning](https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html) | Published | Python → DuckDB → statsmodels → static ECharts, with a second derivation path and a live edge that runs weekly from publication | openFDA device event, recall, enforcement and classification endpoints. Public FDA records (real) | Pre-specified forecasting: a locked test frozen after a documented harness repair, honest ranges, a fixed review rule, counts never rates |
 | [Cascadia Revenue Assurance](projects/cascadia-revenue-assurance.qmd) | Published | Python → flat CSV → static ECharts, with a DuckDB re-derivation gate | Synthetic (seeded generator): a subscription-licensing book, with no real company, customer or partner | Two derivation paths from one rules document, agreeing on every cell; the auto-renewed terms no transaction marked, derived and flagged |
 | [Cascadia Fee Examiner](projects/cascadia-fee-examiner.qmd) | Published | Python (stdlib) → flat CSV/JSON → static ECharts | LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B. Public court and research records (real) | Entity resolution across sources with no shared key; publishing what it can't resolve |
@@ -55,7 +69,7 @@ That control is still an instruction and not an automated check, and an instruct
 
 ## Three Patterns, One Standard
 
-**Lightweight analytical stack.** Seven modules need neither SQL Server nor Power BI: Deal Desk, Finance, Control Tower, Matter Ledger, Fee Examiner, Revenue Assurance and Early Warning. Python conforms the data into a local star schema and renders a static page with Apache ECharts, with the dataset inlined at build time so nothing fetches data at runtime. They circulate as a link with nothing to install, and they outlive the warehouse behind them.
+**Lightweight analytical stack.** Eight modules need neither SQL Server nor Power BI. Seven use the earlier Python and static ECharts pattern: Deal Desk, Finance, Control Tower, Matter Ledger, Fee Examiner, Revenue Assurance and Early Warning. Claim Integrity uses Python with JSON/JSONL and a static JavaScript/SVG interface that fetches its frozen local snapshot files. Its claims, source support and downstream encounter obligations are explicit records; no live data service is required. These modules circulate as links with nothing to install.
 
 **Four of them take DuckDB, and for two different reasons.** Control Tower and Matter Ledger take it for scale, at 621,942 order lines and 10,960,173 federal case records; Early Warning takes it for both reasons at once, holding 649,080 distinct device reports and re-deriving its counts, forecasts, scores and review episodes down a second path written separately from the Python build. Control Tower adds dbt Core on top, 6 staging views, 9 marts and 69 data tests, because its transformation layer is worth a real framework; Matter Ledger does not, because its modeling is a single conformance pass over a 2.0 GB file. What Matter Ledger adds instead is a live edge: a scheduled incremental pull that reconciles against the frozen baseline on every run. Revenue Assurance takes DuckDB for neither reason. Its book of 50,110 subscription-months would fit the smaller engine comfortably. It needed a second derivation path, written separately and reconciled against the first and against golden cases, so that an implementation error in either shows as a mismatch; what the two share, the rules and the inputs, is documented as the risk the comparison does not reduce.
 
@@ -100,7 +114,7 @@ A forecast evaluated on data the model has already seen proves nothing, and a he
 :::
 ::: {.g-col-12 .g-col-md-6}
 **Charts reviewed against a standard**
-Every chart is scored pass or fail against my visualization design system before it ships, including a blind panel of readers given the rendered chart and no framing, whose record says when blindness could not be certified. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded.
+Chart reviews record their standard, result and exposure conditions. Earlier reviews led to charts being rebuilt when their titles could not be verified from the plot. Claim Integrity retains its accepted deferral and restricted simulated-panel findings in the verification view and case study, rather than inheriting a blanket review claim.
 :::
 :::
 
@@ -127,6 +141,8 @@ Every chart is scored pass or fail against my visualization design system before
 <span class="chip">Microsoft Fabric</span>
 <span class="chip">PySpark</span>
 <span class="chip">Static HTML / JS</span>
+<span class="chip">JSON / JSONL</span>
+<span class="chip">SVG</span>
 <span class="chip">WCAG 2.2 AA target (unverified)</span>
 <span class="chip">GitHub Pages</span>
 <span class="chip">PowerShell</span>

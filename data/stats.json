@@ -19,18 +19,18 @@
       "token": "12+"
     },
     {
-      "value": "10",
+      "value": "11",
       "label": "builds in four months, June to October 2026",
       "source": "data/build-by-build.json",
       "compute": "rows",
-      "token": "10"
+      "token": "11"
     },
     {
-      "value": "14",
-      "label": "test surfaces across the portfolio",
+      "value": "16",
+      "label": "test-surface definitions in the portfolio inventory",
       "source": "data/build-by-build.json",
       "compute": "surfaces",
-      "token": "14"
+      "token": "16"
     },
     {
       "value": "200+",
