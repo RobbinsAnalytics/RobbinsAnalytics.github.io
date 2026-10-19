@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8e5af75be48690ec28a2d092029a9af5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ebe2f6431492a17488eb1f855a891d8d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -156,6 +156,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Validating AI-Assisted Analytics</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html">
+ <span class="dropdown-text">Cascadia Claim Integrity</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html">
  <span class="dropdown-text">Cascadia Early Warning</span></a>
   </li>  
@@ -254,12 +258,21 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Cascadia is a portfolio of end-to-end analytics work: the data systems, and the metric and governance layers that decide what the numbers on top of them mean. The pieces do not share an architecture. They share a standard, and each uses the tools that fit its problem and its scale.</p>
 <hr>
+<div class="cci-family-callout">
+<p><span class="fx-eyebrow">New build / Healthcare</span></p>
+<section id="a-ride-record-is-not-a-claim." class="level2">
+<h2 data-anchor-id="a-ride-record-is-not-a-claim.">A ride record is not a claim.</h2>
+<p><strong>Cascadia Claim Integrity</strong> follows supported facts into claim construction, then downstream encounter readiness and outcome evidence. Expected work remains visible when a record never arrives. All 98 applicable fixture variants pass, all 22,173 published numerical cells match, and the chart review and restricted four-seat simulated panel are complete.</p>
+<p><a href="https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html" class="fx-btn fx-btn--dark">Read the case study</a> <a href="https://www.robbinsanalytics.com/cascadia-claim-integrity/" class="fx-btn fx-btn--outline">Open the module</a></p>
+<p>Frozen synthetic demonstration. Testing results and accepted limitations are published with the build.</p>
+</section>
+</div>
 <section id="how-i-built-this" class="level2">
 <h2 data-anchor-id="how-i-built-this">How I Built This</h2>
 <p>I set the architecture, the data model and the measurement definitions as a written specification. AI coding agents build to that specification in Python. I do not hand-write the Python. My role is to write the spec, review the output, and validate it.</p>
-<p>Two controls stand over that arrangement, and every module passes both before it ships.</p>
-<p><strong>Every certified measure is validated independently against raw SQL.</strong> The check is written against the definition, not against the code that implemented it, so a published figure reconciles to source or the build does not ship.</p>
-<p><strong>Every chart is scored against a written visualization standard before it ships</strong>, including a blind reading panel: the reviewers are given the rendered chart, with no title and no framing from me, and report back what they think it says; where a panel’s record could not certify that nothing else reached a seat, the record says so. The blind panel is my own addition to the standard.</p>
+<p>The controls are explicit, and their evidence travels with each build. Their scope and actual outcomes matter as much as their existence.</p>
+<p><strong>Independent derivation checks the definition.</strong> Earlier SQL-backed modules compare published measures with a separately written calculation. Claim Integrity matched all 22,173 published cells in its second path. Its current checklist records 152 passing checks and six scope- or phase-specific N/A requirements. A separate implementation does not establish independent evaluator custody.</p>
+<p><strong>Chart review and reading evidence state their conditions.</strong> Earlier builds record reviews against the visualization standard and panel exposure conditions. Claim Integrity completed chart review and a restricted four-seat simulated panel, with six clarity fixes and no open actionable findings. The shared model service and workstation limit independence; certified blindness and human-user research are not claimed.</p>
 <p>What the builds are allowed to read is a boundary rather than a limitation. Three sources: the specifications, data models and standards written for these builds; public datasets from CMS, SEC EDGAR, NASA, BLS and FDA; and synthetic operational data, labeled as synthetic on every page that shows it. No confidential internal business data goes into any of it, deliberately.</p>
 <p>One failure is worth naming, because it is the honest shape of an AI failure rather than the dramatic one. Bumping a version number across a build is the kind of mechanical edit that looks safe to delegate. Twice in two days an agent-executed bump left stale references behind, and the second pass corrected two of them while creating four more. Nothing errored. Nothing looked broken. Any check that only asks whether the code still runs would have passed all four times.</p>
 <p>What catches it is grepping for the previous version before calling the bump finished, and then reading every surviving hit rather than counting them, because most surviving mentions of an old version are supposed to survive.</p>
@@ -281,76 +294,83 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
+<td><a href="https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html">Cascadia Claim Integrity</a></td>
+<td>Published</td>
+<td>Python → JSON/JSONL → static JavaScript and SVG</td>
+<td>Frozen synthetic ride, claim, submission and response records</td>
+<td>Claim construction from supported facts; downstream encounter readiness; independent expected-work accounting, with completed applicable checks and explicit N/A scope</td>
+</tr>
+<tr class="even">
 <td><a href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html">Cascadia Early Warning</a></td>
 <td>Published</td>
 <td>Python → DuckDB → statsmodels → static ECharts, with a second derivation path and a live edge that runs weekly from publication</td>
 <td>openFDA device event, recall, enforcement and classification endpoints. Public FDA records (real)</td>
 <td>Pre-specified forecasting: a locked test frozen after a documented harness repair, honest ranges, a fixed review rule, counts never rates</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="./projects/cascadia-revenue-assurance.html">Cascadia Revenue Assurance</a></td>
 <td>Published</td>
 <td>Python → flat CSV → static ECharts, with a DuckDB re-derivation gate</td>
 <td>Synthetic (seeded generator): a subscription-licensing book, with no real company, customer or partner</td>
 <td>Two derivation paths from one rules document, agreeing on every cell; the auto-renewed terms no transaction marked, derived and flagged</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="./projects/cascadia-fee-examiner.html">Cascadia Fee Examiner</a></td>
 <td>Published</td>
 <td>Python (stdlib) → flat CSV/JSON → static ECharts</td>
 <td>LoPucki Bankruptcy Research Database, CourtListener RECAP, UTBMS/USTP Appendix B. Public court and research records (real)</td>
 <td>Entity resolution across sources with no shared key; publishing what it can’t resolve</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="./projects/cascadia-matter-ledger.html">Cascadia Matter Ledger</a></td>
 <td>Published</td>
 <td>Python → DuckDB → static ECharts, plus a scheduled incremental pull</td>
 <td>FJC Integrated Database and CourtListener RECAP. Public federal court records (real)</td>
 <td>Operating a governed model: a pipeline that re-asserts its own invariants and publishes the failures</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="./projects/cascadia-controltower.html">Cascadia Control Tower</a></td>
 <td>Published</td>
 <td>Python → DuckDB → dbt Core → static ECharts</td>
 <td>Synthetic (seeded generator), anchored to BLS, Census and SEC XBRL</td>
 <td>Metric certification / counterfactual costing</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="./projects/cascadia-dealdesk.html">Cascadia Deal Desk</a></td>
 <td>Published</td>
 <td>Python → SQLite → static ECharts</td>
 <td>Synthetic (seeded generator)</td>
 <td>Pricing governance / exception calibration</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="./projects/cascadia-finance.html">Cascadia Finance</a></td>
 <td>Published</td>
 <td>Python → SQLite → static ECharts (SEC EDGAR XBRL)</td>
 <td>FormFactor SEC filings (real)</td>
 <td>Financial analytics / XBRL governance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="./projects/cascadia-staffing.html">Cascadia Staffing</a></td>
 <td>Case Study</td>
 <td>Local SQL Server → Power BI</td>
 <td>CMS PBJ Daily Nurse Staffing (real)</td>
 <td>Marketplace labor KPIs / metric governance</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="./projects/cascadia-pharmacy.html">Cascadia Pharmacy</a></td>
 <td>Case Study</td>
 <td>Local SQL Server → Power BI</td>
 <td>CMS Part D + CDC VaxView (real)</td>
 <td>Messy-data cleaning / GLP-1 growth</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="./projects/cascadia-medical-devices.html">Cascadia Medical Devices</a></td>
 <td>Case Study</td>
 <td>SQL Server → Microsoft Fabric → Power BI</td>
 <td>Simulated MES + NASA C-MAPSS</td>
 <td>Predictive maintenance / OEE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="./projects/cascadia-clothing.html">Cascadia Clothing</a></td>
 <td>Planned</td>
 <td>TBD</td>
@@ -370,7 +390,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="three-patterns-one-standard" class="level2">
 <h2 data-anchor-id="three-patterns-one-standard">Three Patterns, One Standard</h2>
-<p><strong>Lightweight analytical stack.</strong> Seven modules need neither SQL Server nor Power BI: Deal Desk, Finance, Control Tower, Matter Ledger, Fee Examiner, Revenue Assurance and Early Warning. Python conforms the data into a local star schema and renders a static page with Apache ECharts, with the dataset inlined at build time so nothing fetches data at runtime. They circulate as a link with nothing to install, and they outlive the warehouse behind them.</p>
+<p><strong>Lightweight analytical stack.</strong> Eight modules need neither SQL Server nor Power BI. Seven use the earlier Python and static ECharts pattern: Deal Desk, Finance, Control Tower, Matter Ledger, Fee Examiner, Revenue Assurance and Early Warning. Claim Integrity uses Python with JSON/JSONL and a static JavaScript/SVG interface that fetches its frozen local snapshot files. Its claims, source support and downstream encounter obligations are explicit records; no live data service is required. These modules circulate as links with nothing to install.</p>
 <p><strong>Four of them take DuckDB, and for two different reasons.</strong> Control Tower and Matter Ledger take it for scale, at 621,942 order lines and 10,960,173 federal case records; Early Warning takes it for both reasons at once, holding 649,080 distinct device reports and re-deriving its counts, forecasts, scores and review episodes down a second path written separately from the Python build. Control Tower adds dbt Core on top, 6 staging views, 9 marts and 69 data tests, because its transformation layer is worth a real framework; Matter Ledger does not, because its modeling is a single conformance pass over a 2.0 GB file. What Matter Ledger adds instead is a live edge: a scheduled incremental pull that reconciles against the frozen baseline on every run. Revenue Assurance takes DuckDB for neither reason. Its book of 50,110 subscription-months would fit the smaller engine comfortably. It needed a second derivation path, written separately and reconciled against the first and against golden cases, so that an implementation error in either shows as a mismatch; what the two share, the rules and the inputs, is documented as the risk the comparison does not reduce.</p>
 <p><strong>Cascadia Fee Examiner is the leanest variant and has no star schema at all.</strong> Python’s standard library does the conforming: no pandas, no database, nothing but hash-verified CSV and JSON, because the problem was never about row count. What it needed was a published rule for resolving firm identity across three sources that share no key, and a policy of publishing what the rule cannot resolve.</p>
 <p><strong>Pragmatic local stack.</strong> Pharmacy and Staffing run a local SQL Server star schema with a Python raw-to-clean staging layer, suppression flags rather than zero-fill, straight into a Power BI import model. Same discipline, no cloud overhead.</p>
@@ -407,7 +427,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>A test that cannot be quietly re-run</strong> A forecast evaluated on data the model has already seen proves nothing, and a held-out test that is re-run until it looks good proves less. Cascadia Early Warning commits its harness, its periods, its interval method and its promotion rule before the first forecast row exists, and has its validator read the git history: a locked row that ever changed, or a promotion decided after the first locked row, fails the build. One corrected result was frozen after a documented harness repair, made before any locked row was committed; promotion and point forecasts were unchanged. The result is published as it came out, including the three codes whose ranges did not hold.</p>
 </div>
 <div class="g-col-12 g-col-md-6">
-<p><strong>Charts reviewed against a standard</strong> Every chart is scored pass or fail against my visualization design system before it ships, including a blind panel of readers given the rendered chart and no framing, whose record says when blindness could not be certified. Titles that claimed a figure the reader could not verify from the plot were rebuilt rather than re-worded.</p>
+<p><strong>Charts reviewed against a standard</strong> Chart reviews record their standard, result and exposure conditions. Earlier reviews led to charts being rebuilt when their titles could not be verified from the plot. Claim Integrity records its completed chart review, restricted simulated-panel returns and finding dispositions in the verification view and case study. Review completion applies at the stated frozen-build standard.</p>
 </div>
 </div>
 <hr>
@@ -415,7 +435,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="tech-stack" class="level2">
 <h2 data-anchor-id="tech-stack">Tech Stack</h2>
 <div class="tech-chips">
-<p><span class="chip">Python (pandas)</span> <span class="chip">SQLite</span> <span class="chip">DuckDB</span> <span class="chip">dbt Core</span> <span class="chip">Apache ECharts</span> <span class="chip">SEC EDGAR XBRL</span> <span class="chip">FJC Integrated Database</span> <span class="chip">Bankruptcy Research Database</span> <span class="chip">openFDA</span> <span class="chip">statsmodels</span> <span class="chip">Playwright</span> <span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">Microsoft Fabric</span> <span class="chip">PySpark</span> <span class="chip">Static HTML / JS</span> <span class="chip">WCAG 2.2 AA target (unverified)</span> <span class="chip">GitHub Pages</span> <span class="chip">PowerShell</span> <span class="chip">Git</span></p>
+<p><span class="chip">Python (pandas)</span> <span class="chip">SQLite</span> <span class="chip">DuckDB</span> <span class="chip">dbt Core</span> <span class="chip">Apache ECharts</span> <span class="chip">SEC EDGAR XBRL</span> <span class="chip">FJC Integrated Database</span> <span class="chip">Bankruptcy Research Database</span> <span class="chip">openFDA</span> <span class="chip">statsmodels</span> <span class="chip">Playwright</span> <span class="chip">SQL Server 2025</span> <span class="chip">T-SQL</span> <span class="chip">Power BI</span> <span class="chip">DAX</span> <span class="chip">Microsoft Fabric</span> <span class="chip">PySpark</span> <span class="chip">Static HTML / JS</span> <span class="chip">JSON / JSONL</span> <span class="chip">SVG</span> <span class="chip">WCAG 2.2 AA target (unverified)</span> <span class="chip">GitHub Pages</span> <span class="chip">PowerShell</span> <span class="chip">Git</span></p>
 </div>
 
 
@@ -438,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
     <nav class="fx-footer__col" aria-label="Featured builds">
       <p class="fx-footer__head">Featured builds</p>
-      <ul><li><a href="./projects/cascadia-build-by-build.html">Build by Build</a></li><li><a href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html">Cascadia Early Warning</a></li><li><a href="./projects/cascadia-revenue-assurance.html">Cascadia Revenue Assurance</a></li><li><a href="./projects/cascadia-matter-ledger.html">Cascadia Matter Ledger</a></li></ul>
+      <ul><li><a href="./projects/cascadia-build-by-build.html">Build by Build</a></li><li><a href="https://www.robbinsanalytics.com/cascadia-claim-integrity/case-study.html">Cascadia Claim Integrity</a></li><li><a href="https://www.robbinsanalytics.com/cascadia-early-warning/case-study.html">Cascadia Early Warning</a></li><li><a href="./projects/cascadia-revenue-assurance.html">Cascadia Revenue Assurance</a></li></ul>
     </nav>
     <div class="fx-footer__col">
       <p class="fx-footer__head">Connect</p>
