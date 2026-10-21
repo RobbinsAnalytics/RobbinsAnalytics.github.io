@@ -64,6 +64,7 @@ listing:
     page-size: 100
     template-params:
       group: leadership
+      display-order: [validation-playbook, operating-charter]
       slug: build-by-build
       heading: h4
   - id: fx-featured
