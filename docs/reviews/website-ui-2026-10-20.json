@@ -1,0 +1,967 @@
+{
+  "scope": "Local Chromium presentation checks; no publication or new analytical assurance.",
+  "homepage": {
+    "desktop": [
+      {
+        "width": 1280,
+        "selector": ".fx-hero",
+        "y": 73,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "selector": "#listing-fx-leadership",
+        "y": 3006,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "selector": "#listing-fx-featured",
+        "y": 3597,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "selector": ".fx-tiles",
+        "y": 4452,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "selector": "#listing-fx-beyond",
+        "y": 5136,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "selector": ".fx-footer",
+        "y": 5861,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "selector": ".fx-hero",
+        "y": 73,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "selector": "#listing-fx-leadership",
+        "y": 2974,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "selector": "#listing-fx-featured",
+        "y": 3565,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "selector": ".fx-tiles",
+        "y": 4420,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "selector": "#listing-fx-beyond",
+        "y": 5104,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "selector": ".fx-footer",
+        "y": 5734,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "selector": ".fx-hero",
+        "y": 73,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "selector": "#listing-fx-leadership",
+        "y": 2990,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "selector": "#listing-fx-featured",
+        "y": 3581,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "selector": ".fx-tiles",
+        "y": 4436,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "selector": "#listing-fx-beyond",
+        "y": 5120,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "selector": ".fx-footer",
+        "y": 5570,
+        "headerTop": 0,
+        "headerBottom": 73.25,
+        "pageOverflow": false
+      }
+    ],
+    "mobile": [
+      {
+        "width": 320,
+        "menuKeyboard": true,
+        "top": 0,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "menuKeyboard": true,
+        "top": 0,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "menuKeyboard": true,
+        "top": 0,
+        "overflow": false
+      }
+    ],
+    "order": [
+      "Validating AI-Assisted Analytics",
+      "Cascadia Operating Charter",
+      "Cascadia BI Migration"
+    ],
+    "links": [
+      "https://www.robbinsanalytics.com/cascadia-validation-playbook/",
+      "http://127.0.0.1:8873/projects/cascadia-operating-charter.html",
+      "http://127.0.0.1:8873/projects/cascadia-bi-migration.html"
+    ]
+  },
+  "charter": {
+    "preservation": {
+      "bodyWordSequence": 6612,
+      "tablesExact": 5,
+      "proofTestEntriesExact": 18,
+      "marksExact": 10,
+      "wording": "Capitalized Using after promoting its existing label to a heading; no substantive wording changes."
+    },
+    "desktop": [
+      {
+        "width": 1280,
+        "hash": "#charter-overview",
+        "top": 93,
+        "header": 73.25,
+        "active": "#charter-overview",
+        "index": 93,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#walk",
+        "top": 93.1875,
+        "header": 73.25,
+        "active": "#walk",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#one-screen",
+        "top": 93.125,
+        "header": 73.25,
+        "active": "#one-screen",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#five-minutes",
+        "top": 93.140625,
+        "header": 73.25,
+        "active": "#five-minutes",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s0",
+        "top": 93.734375,
+        "header": 73.25,
+        "active": "#s0",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s1",
+        "top": 92.8125,
+        "header": 73.25,
+        "active": "#s1",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s2",
+        "top": 93.640625,
+        "header": 73.25,
+        "active": "#s2",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s3",
+        "top": 93.5,
+        "header": 73.25,
+        "active": "#s3",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s4",
+        "top": 93.015625,
+        "header": 73.25,
+        "active": "#s4",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s5",
+        "top": 92.96875,
+        "header": 73.25,
+        "active": "#s5",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s6",
+        "top": 93.046875,
+        "header": 73.25,
+        "active": "#s6",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s7",
+        "top": 93.0625,
+        "header": 73.25,
+        "active": "#s7",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s8",
+        "top": 93.171875,
+        "header": 73.25,
+        "active": "#s8",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s9",
+        "top": 92.9375,
+        "header": 73.25,
+        "active": "#s9",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1280,
+        "hash": "#s10",
+        "top": 93.140625,
+        "header": 73.25,
+        "active": "#s10",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#charter-overview",
+        "top": 93,
+        "header": 73.25,
+        "active": "#charter-overview",
+        "index": 93,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#walk",
+        "top": 93.1875,
+        "header": 73.25,
+        "active": "#walk",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#one-screen",
+        "top": 93.125,
+        "header": 73.25,
+        "active": "#one-screen",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#five-minutes",
+        "top": 92.921875,
+        "header": 73.25,
+        "active": "#five-minutes",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s0",
+        "top": 93.109375,
+        "header": 73.25,
+        "active": "#s0",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s1",
+        "top": 92.96875,
+        "header": 73.25,
+        "active": "#s1",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s2",
+        "top": 93.578125,
+        "header": 73.25,
+        "active": "#s2",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s3",
+        "top": 93.03125,
+        "header": 73.25,
+        "active": "#s3",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s4",
+        "top": 93.328125,
+        "header": 73.25,
+        "active": "#s4",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s5",
+        "top": 93.0625,
+        "header": 73.25,
+        "active": "#s5",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s6",
+        "top": 92.921875,
+        "header": 73.25,
+        "active": "#s6",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s7",
+        "top": 93.71875,
+        "header": 73.25,
+        "active": "#s7",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s8",
+        "top": 93.328125,
+        "header": 73.25,
+        "active": "#s8",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s9",
+        "top": 92.875,
+        "header": 73.25,
+        "active": "#s9",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1440,
+        "hash": "#s10",
+        "top": 93.234375,
+        "header": 73.25,
+        "active": "#s10",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#charter-overview",
+        "top": 93,
+        "header": 73.25,
+        "active": "#charter-overview",
+        "index": 93,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#walk",
+        "top": 93.1875,
+        "header": 73.25,
+        "active": "#walk",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#one-screen",
+        "top": 93.125,
+        "header": 73.25,
+        "active": "#one-screen",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#five-minutes",
+        "top": 93.5625,
+        "header": 73.25,
+        "active": "#five-minutes",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s0",
+        "top": 92.890625,
+        "header": 73.25,
+        "active": "#s0",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s1",
+        "top": 93.390625,
+        "header": 73.25,
+        "active": "#s1",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s2",
+        "top": 93.640625,
+        "header": 73.25,
+        "active": "#s2",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s3",
+        "top": 93.734375,
+        "header": 73.25,
+        "active": "#s3",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s4",
+        "top": 93.671875,
+        "header": 73.25,
+        "active": "#s4",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s5",
+        "top": 93.046875,
+        "header": 73.25,
+        "active": "#s5",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s6",
+        "top": 93.546875,
+        "header": 73.25,
+        "active": "#s6",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s7",
+        "top": 92.984375,
+        "header": 73.25,
+        "active": "#s7",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s8",
+        "top": 93.140625,
+        "header": 73.25,
+        "active": "#s8",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s9",
+        "top": 93.328125,
+        "header": 73.25,
+        "active": "#s9",
+        "index": 91.25,
+        "pageOverflow": false
+      },
+      {
+        "width": 1920,
+        "hash": "#s10",
+        "top": 93.234375,
+        "header": 73.25,
+        "active": "#s10",
+        "index": 91.25,
+        "pageOverflow": false
+      }
+    ],
+    "mobile": [
+      {
+        "width": 320,
+        "hash": "#charter-overview",
+        "top": 147,
+        "navBottom": 127.25,
+        "selected": "#charter-overview",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 320,
+        "hash": "#s2",
+        "top": 147.171875,
+        "navBottom": 127.25,
+        "selected": "#s2",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 320,
+        "hash": "#s7",
+        "top": 147.046875,
+        "navBottom": 127.25,
+        "selected": "#s7",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 320,
+        "hash": "#s10",
+        "top": 146.921875,
+        "navBottom": 127.25,
+        "selected": "#s10",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 390,
+        "hash": "#charter-overview",
+        "top": 147,
+        "navBottom": 127.25,
+        "selected": "#charter-overview",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 390,
+        "hash": "#s2",
+        "top": 147.578125,
+        "navBottom": 127.25,
+        "selected": "#s2",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 390,
+        "hash": "#s7",
+        "top": 146.828125,
+        "navBottom": 127.25,
+        "selected": "#s7",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 390,
+        "hash": "#s10",
+        "top": 146.765625,
+        "navBottom": 127.25,
+        "selected": "#s10",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 768,
+        "hash": "#charter-overview",
+        "top": 147,
+        "navBottom": 127.25,
+        "selected": "#charter-overview",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 768,
+        "hash": "#s2",
+        "top": 147.453125,
+        "navBottom": 127.25,
+        "selected": "#s2",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 768,
+        "hash": "#s7",
+        "top": 147.671875,
+        "navBottom": 127.25,
+        "selected": "#s7",
+        "headerTop": 0,
+        "pageOverflow": false
+      },
+      {
+        "width": 768,
+        "hash": "#s10",
+        "top": 146.984375,
+        "navBottom": 127.25,
+        "selected": "#s10",
+        "headerTop": 0,
+        "pageOverflow": false
+      }
+    ],
+    "tables": [
+      {
+        "width": 320,
+        "table": 0,
+        "before": {
+          "x": 38,
+          "head": 154.1875
+        },
+        "after": {
+          "x": 38,
+          "head": 153.1875,
+          "scroll": [
+            300,
+            300
+          ]
+        }
+      },
+      {
+        "width": 320,
+        "table": 1,
+        "before": {
+          "x": 38,
+          "head": 154.421875
+        },
+        "after": {
+          "x": 38,
+          "head": 153.421875,
+          "scroll": [
+            300,
+            29
+          ]
+        }
+      },
+      {
+        "width": 320,
+        "table": 2,
+        "before": {
+          "x": 38,
+          "head": 154.484375
+        },
+        "after": {
+          "x": 38,
+          "head": 153.484375,
+          "scroll": [
+            300,
+            179
+          ]
+        }
+      },
+      {
+        "width": 320,
+        "table": 3,
+        "before": {
+          "x": 38,
+          "head": 154.109375
+        },
+        "after": {
+          "x": 38,
+          "head": 153.109375,
+          "scroll": [
+            300,
+            300
+          ]
+        }
+      },
+      {
+        "width": 320,
+        "table": 4,
+        "before": {
+          "x": 38,
+          "head": 154.484375
+        },
+        "after": {
+          "x": 38,
+          "head": 153.484375,
+          "scroll": [
+            300,
+            133
+          ]
+        }
+      },
+      {
+        "width": 390,
+        "table": 0,
+        "before": {
+          "x": 38,
+          "head": 154.484375
+        },
+        "after": {
+          "x": 38,
+          "head": 153.484375,
+          "scroll": [
+            300,
+            300
+          ]
+        }
+      },
+      {
+        "width": 390,
+        "table": 1,
+        "before": {
+          "x": 38,
+          "head": 154.453125
+        },
+        "after": {
+          "x": 38,
+          "head": 153.453125,
+          "scroll": [
+            300,
+            29
+          ]
+        }
+      },
+      {
+        "width": 390,
+        "table": 2,
+        "before": {
+          "x": 38,
+          "head": 154.328125
+        },
+        "after": {
+          "x": 38,
+          "head": 153.328125,
+          "scroll": [
+            300,
+            179
+          ]
+        }
+      },
+      {
+        "width": 390,
+        "table": 3,
+        "before": {
+          "x": 38,
+          "head": 154.453125
+        },
+        "after": {
+          "x": 38,
+          "head": 153.453125,
+          "scroll": [
+            300,
+            300
+          ]
+        }
+      },
+      {
+        "width": 390,
+        "table": 4,
+        "before": {
+          "x": 38,
+          "head": 154.328125
+        },
+        "after": {
+          "x": 38,
+          "head": 153.328125,
+          "scroll": [
+            300,
+            133
+          ]
+        }
+      },
+      {
+        "width": 768,
+        "table": 0,
+        "before": {
+          "x": 46,
+          "head": 123.875
+        },
+        "after": {
+          "x": 46,
+          "head": 122.875,
+          "scroll": [
+            294,
+            300
+          ]
+        }
+      },
+      {
+        "width": 768,
+        "table": 1,
+        "before": {
+          "x": 46,
+          "head": 174.390625
+        },
+        "after": {
+          "x": 46,
+          "head": 174.390625,
+          "scroll": [
+            104,
+            0
+          ]
+        }
+      },
+      {
+        "width": 768,
+        "table": 2,
+        "before": {
+          "x": 46,
+          "head": 124.234375
+        },
+        "after": {
+          "x": 46,
+          "head": 123.234375,
+          "scroll": [
+            104,
+            3
+          ]
+        }
+      },
+      {
+        "width": 768,
+        "table": 3,
+        "before": {
+          "x": 46,
+          "head": 123.859375
+        },
+        "after": {
+          "x": 46,
+          "head": 122.859375,
+          "scroll": [
+            104,
+            300
+          ]
+        }
+      },
+      {
+        "width": 768,
+        "table": 4,
+        "before": {
+          "x": 46,
+          "head": 123.546875
+        },
+        "after": {
+          "x": 46,
+          "head": 122.546875,
+          "scroll": [
+            104,
+            27
+          ]
+        }
+      }
+    ],
+    "keyboard": {
+      "anchorFocus": true,
+      "proofEnter": true,
+      "proofStatePreserved": true
+    },
+    "wheel": {
+      "scrollY": 6709,
+      "active": "1 \u00c2\u00b7 First 90 days"
+    }
+  },
+  "source_sha256": {
+    "projects/cascadia-operating-charter.qmd": "08ae1e86fb95db64c68c73a2c68e79213e95614847b4270ec1cd30a0f5d5f12c",
+    "assets/charter.css": "9c9575814851a7fa6752a2aaaf4d0c7b262b21c87f270f5254f49adfa9949ce9",
+    "assets/charter-nav.js": "1dbdab5dc1467c4f6fed85e9c6788baa3f64a2a9c3aa7abfe97d024d2f6d57aa",
+    "index.qmd": "e50412ebf5ff4194940d24439faedd058abb7db405ff030c74b14bf52a5b75ac",
+    "_templates/fx-card.ejs": "af1ec61f3409ebbf0298ae82aa51abe33f451ac9e60037012376821be84fa05e",
+    "felix.scss": "3fa7da4aa49eeb2cd0573699a7723a951b46dc399e4c1b5d15ba40c66efc927b"
+  },
+  "preserved": "Portfolio data, current charter model, scenario, commitments, evidence marks and independence requirements. Separate v2 remains out of scope."
+}

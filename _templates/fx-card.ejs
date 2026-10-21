@@ -53,6 +53,13 @@ switch (group) {
   default:           rows = all;
 }
 
+// A listing may choose a presentation order without changing the inventory.
+const displayOrder = templateParams["display-order"] || [];
+if (displayOrder.length) {
+  const rank = slug => { const i = displayOrder.indexOf(slug); return i < 0 ? displayOrder.length : i; };
+  rows.sort((a, b) => rank(a.item.slug) - rank(b.item.slug));
+}
+
 // The index's status tabs: All, then every status present, in the order
 // each first appears in the sorted inventory, with its count. Rendered at
 // build time; the inline script below only toggles `hidden`.

@@ -1,0 +1,539 @@
+{
+  "reviewed_at_utc": "2026-10-21T03:02:06.217915+00:00",
+  "url": "http://127.0.0.1:8873/projects/cascadia-operating-charter.html?preview=charter-readability",
+  "preservation": {
+    "principles": 11,
+    "original_people_stories_and_checks": 9,
+    "other_evidence_fields_retained": 21,
+    "bounded_evidence_corrections": [
+      "This site. Every module on it is built to a written specification, and from the fourth module on, every certified measure is validated against source and every chart is reviewed before it ships. The first three were not; the site\u2019s own build history says so. The charter is held to the same rule it holds the modules to",
+      "Governed 200-plus critical data elements at a global manufacturer; the reports were built to the standards the quality system set and checked by internal audits. The certification method above is the one I ran there. On this site, every certified measure since the fourth module reconciles to raw SQL before it ships; one module that could not balance its reconciliation published the gap with its four reasons in order of size rather than tuning it away, and declined to certify two fields the publisher\u2019s own codebook warned about. Retirement by review and the dictionary as a product are proposed"
+    ],
+    "tracked_changes": [
+      "assets/charter-nav.js",
+      "assets/charter.css",
+      "projects/cascadia-operating-charter.qmd"
+    ]
+  },
+  "browser_checks": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "status": "pass",
+      "structure": {
+        "overflow": false,
+        "duplicate_ids": [],
+        "subsections": 52,
+        "broken_anchors": []
+      },
+      "navigation": [
+        {
+          "target": "s4",
+          "active": "#s4",
+          "header_top": 0,
+          "heading_top": 124.71875,
+          "sticky_bottom": 73.25,
+          "selected": "#s4"
+        },
+        {
+          "target": "the-form.",
+          "active": "#the-form.",
+          "header_top": 0,
+          "heading_top": 92.90625,
+          "sticky_bottom": 73.25,
+          "selected": "#the-form."
+        },
+        {
+          "target": "the-forum.",
+          "active": "#the-forum.",
+          "header_top": 0,
+          "heading_top": 93.6875,
+          "sticky_bottom": 73.25,
+          "selected": "#the-forum."
+        },
+        {
+          "target": "s7",
+          "active": "#s7",
+          "header_top": 0,
+          "heading_top": 124.46875,
+          "sticky_bottom": 73.25,
+          "selected": "#s7"
+        },
+        {
+          "target": "how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "active": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "header_top": 0,
+          "heading_top": 93.046875,
+          "sticky_bottom": 73.25,
+          "selected": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system."
+        },
+        {
+          "target": "s8",
+          "active": "#s8",
+          "header_top": 0,
+          "heading_top": 124.140625,
+          "sticky_bottom": 73.25,
+          "selected": "#s8"
+        },
+        {
+          "target": "s9",
+          "active": "#s9",
+          "header_top": 0,
+          "heading_top": 123.8125,
+          "sticky_bottom": 73.25,
+          "selected": "#s9"
+        },
+        {
+          "target": "s10",
+          "active": "#s10",
+          "header_top": 0,
+          "heading_top": 124.265625,
+          "sticky_bottom": 73.25,
+          "selected": "#s10"
+        }
+      ],
+      "table_sticky": {
+        "header": 77.25,
+        "site_header": 73.25,
+        "container_scroll": false
+      },
+      "people_evidence_retained": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "status": "pass",
+      "structure": {
+        "overflow": false,
+        "duplicate_ids": [],
+        "subsections": 52,
+        "broken_anchors": []
+      },
+      "navigation": [
+        {
+          "target": "s4",
+          "active": "#s4",
+          "header_top": 0,
+          "heading_top": 124.046875,
+          "sticky_bottom": 73.25,
+          "selected": "#s4"
+        },
+        {
+          "target": "the-form.",
+          "active": "#the-form.",
+          "header_top": 0,
+          "heading_top": 93.234375,
+          "sticky_bottom": 73.25,
+          "selected": "#the-form."
+        },
+        {
+          "target": "the-forum.",
+          "active": "#the-forum.",
+          "header_top": 0,
+          "heading_top": 93.015625,
+          "sticky_bottom": 73.25,
+          "selected": "#the-forum."
+        },
+        {
+          "target": "s7",
+          "active": "#s7",
+          "header_top": 0,
+          "heading_top": 123.796875,
+          "sticky_bottom": 73.25,
+          "selected": "#s7"
+        },
+        {
+          "target": "how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "active": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "header_top": 0,
+          "heading_top": 93.375,
+          "sticky_bottom": 73.25,
+          "selected": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system."
+        },
+        {
+          "target": "s8",
+          "active": "#s8",
+          "header_top": 0,
+          "heading_top": 124.46875,
+          "sticky_bottom": 73.25,
+          "selected": "#s8"
+        },
+        {
+          "target": "s9",
+          "active": "#s9",
+          "header_top": 0,
+          "heading_top": 124.53125,
+          "sticky_bottom": 73.25,
+          "selected": "#s9"
+        },
+        {
+          "target": "s10",
+          "active": "#s10",
+          "header_top": 0,
+          "heading_top": 124.078125,
+          "sticky_bottom": 73.25,
+          "selected": "#s10"
+        }
+      ],
+      "table_sticky": {
+        "header": 77.25,
+        "site_header": 73.25,
+        "container_scroll": false
+      },
+      "people_evidence_retained": true
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "status": "pass",
+      "structure": {
+        "overflow": false,
+        "duplicate_ids": [],
+        "subsections": 52,
+        "broken_anchors": []
+      },
+      "navigation": [
+        {
+          "target": "s4",
+          "active": "#s4",
+          "header_top": 0,
+          "heading_top": 124.5625,
+          "sticky_bottom": 73.25,
+          "selected": "#s4"
+        },
+        {
+          "target": "the-form.",
+          "active": "#the-form.",
+          "header_top": 0,
+          "heading_top": 92.953125,
+          "sticky_bottom": 73.25,
+          "selected": "#the-form."
+        },
+        {
+          "target": "the-forum.",
+          "active": "#the-forum.",
+          "header_top": 0,
+          "heading_top": 93.734375,
+          "sticky_bottom": 73.25,
+          "selected": "#the-forum."
+        },
+        {
+          "target": "s7",
+          "active": "#s7",
+          "header_top": 0,
+          "heading_top": 123.921875,
+          "sticky_bottom": 73.25,
+          "selected": "#s7"
+        },
+        {
+          "target": "how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "active": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "header_top": 0,
+          "heading_top": 93.703125,
+          "sticky_bottom": 73.25,
+          "selected": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system."
+        },
+        {
+          "target": "s8",
+          "active": "#s8",
+          "header_top": 0,
+          "heading_top": 123.890625,
+          "sticky_bottom": 73.25,
+          "selected": "#s8"
+        },
+        {
+          "target": "s9",
+          "active": "#s9",
+          "header_top": 0,
+          "heading_top": 124.65625,
+          "sticky_bottom": 73.25,
+          "selected": "#s9"
+        },
+        {
+          "target": "s10",
+          "active": "#s10",
+          "header_top": 0,
+          "heading_top": 123.78125,
+          "sticky_bottom": 73.25,
+          "selected": "#s10"
+        }
+      ],
+      "table_sticky": {
+        "header": 77.25,
+        "site_header": 73.25,
+        "container_scroll": false
+      },
+      "people_evidence_retained": true
+    },
+    {
+      "width": 768,
+      "height": 1000,
+      "status": "pass",
+      "structure": {
+        "overflow": false,
+        "duplicate_ids": [],
+        "subsections": 52,
+        "broken_anchors": []
+      },
+      "navigation": [
+        {
+          "target": "s4",
+          "active": "#s4",
+          "header_top": 0,
+          "heading_top": 179.453125,
+          "sticky_bottom": 134.25,
+          "selected": "#s4"
+        },
+        {
+          "target": "the-form.",
+          "active": "#the-form.",
+          "header_top": 0,
+          "heading_top": 153.84375,
+          "sticky_bottom": 134.25,
+          "selected": "#the-form."
+        },
+        {
+          "target": "the-forum.",
+          "active": "#the-forum.",
+          "header_top": 0,
+          "heading_top": 154.625,
+          "sticky_bottom": 134.25,
+          "selected": "#the-forum."
+        },
+        {
+          "target": "s7",
+          "active": "#s7",
+          "header_top": 0,
+          "heading_top": 178.8125,
+          "sticky_bottom": 134.25,
+          "selected": "#s7"
+        },
+        {
+          "target": "how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "active": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "header_top": 0,
+          "heading_top": 154.59375,
+          "sticky_bottom": 134.25,
+          "selected": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system."
+        },
+        {
+          "target": "s8",
+          "active": "#s8",
+          "header_top": 0,
+          "heading_top": 178.859375,
+          "sticky_bottom": 134.25,
+          "selected": "#s8"
+        },
+        {
+          "target": "s9",
+          "active": "#s9",
+          "header_top": 0,
+          "heading_top": 178.90625,
+          "sticky_bottom": 134.25,
+          "selected": "#s9"
+        },
+        {
+          "target": "s10",
+          "active": "#s10",
+          "header_top": 0,
+          "heading_top": 179.3125,
+          "sticky_bottom": 134.25,
+          "selected": "#s10"
+        }
+      ],
+      "table_sticky": {
+        "scroll_y": 17,
+        "scroll_x": 0,
+        "header_delta": -1,
+        "first_delta": 0,
+        "identifier_width": 123.109375,
+        "viewport": 684
+      },
+      "people_evidence_retained": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "status": "pass",
+      "structure": {
+        "overflow": false,
+        "duplicate_ids": [],
+        "subsections": 52,
+        "broken_anchors": []
+      },
+      "navigation": [
+        {
+          "target": "s4",
+          "active": "#s4",
+          "header_top": 0,
+          "heading_top": 176.203125,
+          "sticky_bottom": 134.25,
+          "selected": "#s4"
+        },
+        {
+          "target": "the-form.",
+          "active": "#the-form.",
+          "header_top": 0,
+          "heading_top": 153.796875,
+          "sticky_bottom": 134.25,
+          "selected": "#the-form."
+        },
+        {
+          "target": "the-forum.",
+          "active": "#the-forum.",
+          "header_top": 0,
+          "heading_top": 154.578125,
+          "sticky_bottom": 134.25,
+          "selected": "#the-forum."
+        },
+        {
+          "target": "s7",
+          "active": "#s7",
+          "header_top": 0,
+          "heading_top": 176.375,
+          "sticky_bottom": 134.25,
+          "selected": "#s7"
+        },
+        {
+          "target": "how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "active": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "header_top": 0,
+          "heading_top": 154.5625,
+          "sticky_bottom": 134.25,
+          "selected": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system."
+        },
+        {
+          "target": "s8",
+          "active": "#s8",
+          "header_top": 0,
+          "heading_top": 175.984375,
+          "sticky_bottom": 134.25,
+          "selected": "#s8"
+        },
+        {
+          "target": "s9",
+          "active": "#s9",
+          "header_top": 0,
+          "heading_top": 176.453125,
+          "sticky_bottom": 134.25,
+          "selected": "#s9"
+        },
+        {
+          "target": "s10",
+          "active": "#s10",
+          "header_top": 0,
+          "heading_top": 176.1875,
+          "sticky_bottom": 134.25,
+          "selected": "#s10"
+        }
+      ],
+      "table_sticky": {
+        "scroll_y": 63,
+        "scroll_x": 180,
+        "header_delta": -1,
+        "first_delta": 0,
+        "identifier_width": 108,
+        "viewport": 334
+      },
+      "people_evidence_retained": true
+    },
+    {
+      "width": 320,
+      "height": 900,
+      "status": "pass",
+      "structure": {
+        "overflow": false,
+        "duplicate_ids": [],
+        "subsections": 52,
+        "broken_anchors": []
+      },
+      "navigation": [
+        {
+          "target": "s4",
+          "active": "#s4",
+          "header_top": 0,
+          "heading_top": 176.390625,
+          "sticky_bottom": 134.25,
+          "selected": "#s4"
+        },
+        {
+          "target": "the-form.",
+          "active": "#the-form.",
+          "header_top": 0,
+          "heading_top": 153.984375,
+          "sticky_bottom": 134.25,
+          "selected": "#the-form."
+        },
+        {
+          "target": "the-forum.",
+          "active": "#the-forum.",
+          "header_top": 0,
+          "heading_top": 154.15625,
+          "sticky_bottom": 134.25,
+          "selected": "#the-forum."
+        },
+        {
+          "target": "s7",
+          "active": "#s7",
+          "header_top": 0,
+          "heading_top": 176.625,
+          "sticky_bottom": 134.25,
+          "selected": "#s7"
+        },
+        {
+          "target": "how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "active": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system.",
+          "header_top": 0,
+          "heading_top": 153.8125,
+          "sticky_bottom": 134.25,
+          "selected": "#how-i-would-take-ai-beyond-reporting-in-a-quality-system."
+        },
+        {
+          "target": "s8",
+          "active": "#s8",
+          "header_top": 0,
+          "heading_top": 175.921875,
+          "sticky_bottom": 134.25,
+          "selected": "#s8"
+        },
+        {
+          "target": "s9",
+          "active": "#s9",
+          "header_top": 0,
+          "heading_top": 176.5625,
+          "sticky_bottom": 134.25,
+          "selected": "#s9"
+        },
+        {
+          "target": "s10",
+          "active": "#s10",
+          "header_top": 0,
+          "heading_top": 176.640625,
+          "sticky_bottom": 134.25,
+          "selected": "#s10"
+        }
+      ],
+      "table_sticky": {
+        "scroll_y": 63,
+        "scroll_x": 180,
+        "header_delta": -1,
+        "first_delta": 0,
+        "identifier_width": 108,
+        "viewport": 264
+      },
+      "people_evidence_retained": true
+    }
+  ],
+  "browser_errors": [],
+  "failed_local_responses": [],
+  "status": "pass",
+  "source_sha256": {
+    "assets/charter-nav.js": "3e13c98056e8befcce852e0978fe443f9ec51d78476eb02ba2114f316113780d",
+    "assets/charter.css": "ad64274b9e9e3074a5aeb26e248a1d9073e8753b693a0196e27ecb2495e6dd5c",
+    "projects/cascadia-operating-charter.qmd": "d82398ab30acda0a268564be2b1dc9ac2e0e251a41807ac485543d3da9a8a7c4"
+  },
+  "scope": "Local rendered presentation and content-preservation checks for the current charter; not a new analytical assurance cycle or release approval.",
+  "review_baseline_commit": "6d32cd3fc983c70195c9e22737dba024393967e5",
+  "preserved_numerical_cells_sha256": "7bcc212223bd778660651a78f04414f020e9f4633e229d18a1cdc69cb290a04d",
+  "focused_mobile_selector_tracking": "Pass: selection follows manual reading even while the native selector retains focus."
+}

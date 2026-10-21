@@ -2290,3 +2290,13 @@ body.felix-bbb-case {
 .fx-matrix__cell.is-not_applicable { background: transparent; border: 1px solid #b8c9bd; border-radius: 50%; }
 .felix-bbb-case .bbb-state-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 .felix-bbb-case .bbb-na { color: #52615b; }
+
+// The homepage header stays available on downward scrolling too. Quarto's
+// fixed header is a direct child of body; Headroom's unpinned transform,
+// rather than an overflow ancestor, was moving it above the viewport.
+body.felix-home #quarto-header {
+  transform: none !important;
+  top: 0;
+}
+body.felix-home { scroll-padding-top: 6rem; }
+body.felix-home :is(section[id], h2[id], h3[id]) { scroll-margin-top: 6rem; }
