@@ -1,5 +1,5 @@
 {
-  "reviewed_at_utc": "2026-10-21T03:00:02.713373+00:00",
+  "reviewed_at_utc": "2026-10-21T03:02:06.217915+00:00",
   "url": "http://127.0.0.1:8873/projects/cascadia-operating-charter.html?preview=charter-readability",
   "preservation": {
     "principles": 11,
@@ -528,11 +528,12 @@
   "failed_local_responses": [],
   "status": "pass",
   "source_sha256": {
-    "assets/charter-nav.js": "4864d6139828159baa870eee7ff451dcbce02651f5338d6ce37b044082dfea54",
+    "assets/charter-nav.js": "3e13c98056e8befcce852e0978fe443f9ec51d78476eb02ba2114f316113780d",
     "assets/charter.css": "ad64274b9e9e3074a5aeb26e248a1d9073e8753b693a0196e27ecb2495e6dd5c",
     "projects/cascadia-operating-charter.qmd": "d82398ab30acda0a268564be2b1dc9ac2e0e251a41807ac485543d3da9a8a7c4"
   },
   "scope": "Local rendered presentation and content-preservation checks for the current charter; not a new analytical assurance cycle or release approval.",
   "review_baseline_commit": "6d32cd3fc983c70195c9e22737dba024393967e5",
-  "preserved_numerical_cells_sha256": "7bcc212223bd778660651a78f04414f020e9f4633e229d18a1cdc69cb290a04d"
+  "preserved_numerical_cells_sha256": "7bcc212223bd778660651a78f04414f020e9f4633e229d18a1cdc69cb290a04d",
+  "focused_mobile_selector_tracking": "Pass: selection follows manual reading even while the native selector retains focus."
 }

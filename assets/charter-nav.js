@@ -58,7 +58,7 @@
     });
     const current = sub || active;
     current.link.setAttribute('aria-current', 'location');
-    if (document.activeElement !== select) select.value = '#' + current.node.id;
+    if (select.value !== '#' + current.node.id) select.value = '#' + current.node.id;
     context.textContent = '';
     select.title = active.link.textContent.trim() + (sub ? ' - ' + sub.link.textContent : '');
     if (!compact() && previousTarget !== current.node.id) {
