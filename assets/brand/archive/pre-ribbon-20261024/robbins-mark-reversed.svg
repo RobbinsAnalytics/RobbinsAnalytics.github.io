@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-labelledby="ra-mark-rev-title">
+  <title id="ra-mark-rev-title">Robbins Analytics</title>
+  <!--
+    Robbins Analytics · mark (dark surfaces, Spruce #16241D)
+    Not a recolour of the light mark. Rule 5.7 — dark mode is a second
+    palette, or it is nothing. Note that de-emphasis inverts direction:
+    on dark, the context bars are DARKER than the emphasis bar, because
+    recessive means "toward the background" on either surface.
+
+    Emphasis  #65A583  Evergreen (dark)  5.57:1 on Spruce
+    Context   #67726C  Rain (dark mark)  3.22:1 on Spruce
+    Baseline  #9AA6A0  Rain              6.39:1 on Spruce
+  -->
+  <rect x="1"  y="8"  width="4"  height="5"  fill="#67726C"/>
+  <rect x="6"  y="3"  width="4"  height="10" fill="#65A583"/>
+  <rect x="11" y="10" width="4"  height="3"  fill="#67726C"/>
+  <rect x="0"  y="13" width="16" height="2"  fill="#9AA6A0"/>
+</svg>

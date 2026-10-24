@@ -23,9 +23,8 @@ _DEFAULT_OUT = Path(__file__).resolve().parent.parent / "assets"
 OUT = _DEFAULT_OUT
 
 # The identity mark, read from the one file that defines it rather than copied
-# here — LOGO.md 2.1's coordinates must never exist in two places. Rendered at
-# 48 px, an integer 3x of the 16-unit grid (LOGO.md 2.1), in the top-right of
-# the card where it is nowhere near the motif: the motif is a real chart form,
+# here. Ribbon is contained proportionally in the card's 48 px top-right square,
+# away from the motif: the motif is a real chart form,
 # and LOGO.md 4.1 keeps the mark off the canvas.
 _MARK_SVG = (Path(__file__).resolve().parent.parent
              / "assets" / "brand" / "robbins-mark.svg")
@@ -207,9 +206,8 @@ def page(m):
     font-size: 19px; letter-spacing: .13em; text-transform: uppercase;
     color: {C['slate']}; font-weight: 600;
   }}
-  /* LOGO.md 1.2 asks for 1 C of clear space on all four sides. The card's own
-     68px/76px padding already exceeds it at this size, so the mark needs no
-     margin of its own — but it must not be enlarged without re-checking that. */
+  /* Keep the existing card content, motif and source strip. Only the shared
+     brand mark changes; its clear space is supplied by the card padding. */
   .brand {{ width: 48px; height: 48px; flex: none }}
   .brand svg {{ width: 48px; height: 48px; display: block }}
   .tick {{ display:block; width: 5px; height: 24px; background: {accent}; flex: none }}

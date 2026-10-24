@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-labelledby="ra-mark-title">
+  <title id="ra-mark-title">Robbins Analytics</title>
+  <!--
+    Robbins Analytics · mark (light surfaces)
+    Drawn on a 16-unit integer grid. Every edge lands on a whole pixel at
+    16, 32, 64, 128, 256 and 512 px. Do not rescale by non-integer factors.
+
+    Emphasis  #1E7A4C  Evergreen        5.18:1 on Paper #FCFCFA
+    Context   #828E88  Rain (mark)      3.31:1 on Paper  — NOT palette Rain, see LOGO.md
+    Baseline  #232B27  Basalt          14.14:1 on Paper
+  -->
+  <rect x="1"  y="8"  width="4"  height="5"  fill="#828E88"/>
+  <rect x="6"  y="3"  width="4"  height="10" fill="#1E7A4C"/>
+  <rect x="11" y="10" width="4"  height="3"  fill="#828E88"/>
+  <rect x="0"  y="13" width="16" height="2"  fill="#232B27"/>
+</svg>
