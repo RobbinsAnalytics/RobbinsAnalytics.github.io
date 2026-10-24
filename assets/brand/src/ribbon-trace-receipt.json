@@ -1,0 +1,36 @@
+{
+  "source_sha256": "8b735f3357e1fe47b6a7aaff90f6efe9390ff6d0411c4ca5cfcebf0ddb6b5cfb",
+  "conversion": "C2-continuous parametric cubic splines through source-coordinate design landmarks. Intentional pointed beak, feather and tail tips retained. No straight-line contour trace.",
+  "color_treatment": "Separate solid-color feather shapes; no duplicate dark underlay below lime or teal. Reversed cuts change color only.",
+  "continuity_max_derivative_error": {
+    "tail": 1.1102230246251565e-16,
+    "body": 2.220446049250313e-16,
+    "upper": 2.220446049250313e-16,
+    "teal": 2.7755575615628914e-16,
+    "lime": 1.2593008233419134e-16
+  },
+  "cubic_segment_count": {
+    "tail": 13,
+    "body": 52,
+    "upper": 31,
+    "teal": 24,
+    "lime": 23
+  },
+  "geometry_comparison": {
+    "silhouette": {
+      "intersection_over_union": 0.97933,
+      "boundary_distance_95_percent_px": 1.414,
+      "boundary_distance_max_px": 6.708
+    },
+    "teal": {
+      "intersection_over_union": 0.98145,
+      "boundary_distance_95_percent_px": 1.414,
+      "boundary_distance_max_px": 2.236
+    },
+    "lime": {
+      "intersection_over_union": 0.98132,
+      "boundary_distance_95_percent_px": 1.0,
+      "boundary_distance_max_px": 2.0
+    }
+  }
+}

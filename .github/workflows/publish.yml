@@ -105,6 +105,9 @@ jobs:
           echo "The Action deployed, but the live site is not serving this build. Do not report this deploy as successful."
           exit 1
 
+      - name: Verify live Ribbon assets and sharing metadata
+        run: python tools/check_brand.py --origin https://www.robbinsanalytics.com --cache-bust "${{ github.sha }}"
+
       # Only runs once the edge is known to be on this commit, so a 404 here is
       # a real broken page and not propagation lag.
       - name: Verify the live pages

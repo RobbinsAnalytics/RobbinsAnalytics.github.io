@@ -65,7 +65,7 @@ def main():
   <div class="fx-footer__inner">
     <div class="fx-footer__brand">
       <a class="fx-footer__wordmark" href="/" aria-label="Robbins Analytics, home">
-        <img src="/assets/brand/robbins-mark-reversed.svg" alt="" width="32" height="32">
+        <img src="/assets/brand/robbins-mark-reversed.svg" alt="" width="52" height="44">
         <span class="fx-wordmark">Robbins <em>Analytics</em><span class="fx-wm-stop">.</span></span>
       </a>
       <p class="fx-footer__blurb">{html.escape(SITE_DESCRIPTION)}</p>

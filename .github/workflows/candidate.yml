@@ -119,6 +119,10 @@ jobs:
         if: ${{ success() && steps.fastpath.outputs.accepted != 'true' }}
         run: quarto render
 
+      - name: Verify Ribbon assets and generated sharing metadata
+        if: ${{ success() && steps.fastpath.outputs.accepted != 'true' }}
+        run: python tools/check_brand.py --rendered
+
       # http.server is enough: static files, directory index.html, a real 404
       # for a missing path, HEAD supported. Bound to loopback; nothing outside
       # the runner can reach it.

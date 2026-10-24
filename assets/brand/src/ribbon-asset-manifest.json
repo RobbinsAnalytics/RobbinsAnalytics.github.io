@@ -1,0 +1,27 @@
+{
+  "decision": "A, horizontal; period retained and matches Analytics",
+  "light_wordmark": {
+    "Robbins": "#0f1f1e",
+    "Analytics_and_period": "#1f6b63"
+  },
+  "reversed_wordmark": {
+    "Robbins": "#ffffff",
+    "Analytics_and_period": "#83c7bc"
+  },
+  "geometry": "Same Ribbon paths in every cut; favicon adds a contrast tile only",
+  "sha256": {
+    "assets/brand/src/ribbon-selected.png": "8b735f3357e1fe47b6a7aaff90f6efe9390ff6d0411c4ca5cfcebf0ddb6b5cfb",
+    "assets/brand/src/ribbon-master.svg": "8a1743aae973ebaf1e59a9108e476f643877f43e1df5f2da8892db2d5d05647c",
+    "assets/brand/src/ribbon-fonts/Fraunces-Italic.ttf": "b24448c43702fac4ee856781d461a0dfba8d8e594b6e8e190234b75fed2c0e01",
+    "assets/brand/src/ribbon-fonts/fraunces-OFL.txt": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b",
+    "assets/brand/src/ribbon-fonts/intertight-OFL.txt": "50240ab035cf1b6b3307940235481d515c4b6de3ab1fa843dbe59e7892cb9d58",
+    "assets/brand/src/ribbon-fonts/InterTight.ttf": "b81b73dcb64df3c230cabade7df6c5773bf863233f24c9ee51087519f1f88b6f",
+    "assets/brand/favicon.svg": "948ecf63c865c849441eac2860f2fb10f8aeaa3081dcc4dc0f5638d7ce4a60a3",
+    "assets/brand/robbins-lockup-primary.svg": "958094c69e90a0d2b9e61e32343b11362dbc5699d98ff934ccf91bb9d2fa01ca",
+    "assets/brand/robbins-lockup-reversed.svg": "96945f625c9e460f74e73cbdf3c45c94c170d4f9aa384db70c41b38c01513aec",
+    "assets/brand/robbins-lockup-stacked-reversed.svg": "fd8fc49f0599f751bd9d467ae9220b821903e2d55baf3ea683ff22ab4622f2c0",
+    "assets/brand/robbins-lockup-stacked.svg": "834bf03be868506aaca5d3ccb7e24d6d5483d49ccd716ef45ff96f9b20940ca4",
+    "assets/brand/robbins-mark-reversed.svg": "b4fc0aaa1c4801fb26399cd6c26a6d92dc1592e167bab1dac3b8ba1b5ebe858d",
+    "assets/brand/robbins-mark.svg": "bfecf0adfaef2ef22f8d8330ff32a3c6e166b2e936da07e4321cc82b0b43b6cd"
+  }
+}
