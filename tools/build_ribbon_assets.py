@@ -18,7 +18,7 @@ DARK = {'body':'#d0e9e4', 'teal':'#69b8ac', 'lime':'#d5ed5d', 'word':'#ffffff', 
 
 def geometry(palette):
     master = ET.parse(SRC/'ribbon-master.svg').getroot()
-    return ''.join(f'<path fill="{palette[p.attrib["id"].removeprefix("ribbon-")]}" d="{p.attrib["d"]}"/>' for p in master.findall('s:path',NS))
+    return ''.join(f'<path fill="{palette.get(p.attrib["id"].removeprefix("ribbon-"), palette["body"])}" d="{p.attrib["d"]}"/>' for p in master.findall('s:path',NS))
 
 def svg(viewbox, contents, label='Robbins Analytics'):
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{viewbox}" role="img" aria-label="{label}"><title>{label}</title>{contents}</svg>\n'

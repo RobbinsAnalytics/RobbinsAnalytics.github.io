@@ -1,0 +1,19 @@
+{
+  "source_sha256": "8b735f3357e1fe47b6a7aaff90f6efe9390ff6d0411c4ca5cfcebf0ddb6b5cfb",
+  "conversion": "Opaque contours, alpha >=128; polygons simplified by at most .85 source pixels; soft glow and raster color noise excluded.",
+  "color_treatment": "Flat representative source colors; reversed colors are an application variant.",
+  "geometry_comparison": {
+    "body": {
+      "intersection_over_union": 0.99293,
+      "contours": 5
+    },
+    "teal": {
+      "intersection_over_union": 0.99342,
+      "contours": 1
+    },
+    "lime": {
+      "intersection_over_union": 0.99291,
+      "contours": 1
+    }
+  }
+}

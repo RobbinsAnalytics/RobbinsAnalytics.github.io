@@ -27,12 +27,16 @@ Stacked assets are supplied for other placements, not
 used to increase the website header height.
 
 `src/ribbon-selected.png` preserves the selected reference byte for byte
-(SHA-256 in `src/ribbon-trace-receipt.json`). `src/ribbon-master.svg` traces
-its opaque bird contours. It excludes raster glow and color noise and uses
-flat representative colors. Polygon simplification is at most 0.85 original
-pixels, less than 0.1 CSS pixel at the header width; the receipt's contour
-overlap is a conversion check, not evidence of owner approval or a visual audit.
-The split tail, separate feathers, beak and proportions are retained.
+(SHA-256 in `src/ribbon-trace-receipt.json`). `src/ribbon-master.svg` uses
+continuous cubic Bézier curves fitted through source-coordinate landmarks.
+The initial polygon conversion showed tiny corners when enlarged and is
+preserved in `src/polygon-trace-20261024/`. It is superseded for production.
+The smooth version has continuous tangents and curvature within each run;
+only the intentional beak, feather and tail tips remain pointed. Separate
+feathers remove the duplicate dark underlay that could fringe colored edges.
+The split tail, separate feathers, beak, colors and overall proportions remain.
+The receipt records continuity, contour overlap and boundary distances against
+the selected PNG. These are geometry checks, not owner approval or a visual audit.
 
 Reversed artwork changes color only. The small-icon cut adds a dark rounded
 tile and keeps the same bird paths. Fine gaps naturally soften at 16px; no
@@ -49,7 +53,9 @@ and [Fraunces source](https://github.com/google/fonts/tree/main/ofl/fraunces).
 Source hashes are in `src/ribbon-asset-manifest.json`.
 Regenerate PNGs with `python tools/build_icons.py --out assets/brand`
 (Playwright). Normal CI consumes the committed vectors and needs no fonts for
-these exports. The optional one-time contour converter is `src/trace_ribbon.py`.
+these exports. Regenerate the smooth master with `python
+assets/brand/src/build_smooth_ribbon.py` (numpy, scipy, pillow and
+opencv-python-headless). `src/trace_ribbon.py` delegates to this generator.
 
 ## Placement inventory and boundaries
 

@@ -8,6 +8,7 @@ import argparse
 import hashlib
 from html.parser import HTMLParser
 import json
+import re
 from pathlib import Path
 import struct
 from urllib.request import urlopen, Request
@@ -37,6 +38,14 @@ def main():
     receipt=json.loads((BRAND/'src/ribbon-asset-manifest.json').read_text())
     for name,digest in receipt['sha256'].items():
         require(hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,'Changed vector/font master: '+name)
+    master=ET.parse(BRAND/'src/ribbon-master.svg').getroot()
+    master_paths=master.findall('{http://www.w3.org/2000/svg}path')
+    require(len(master_paths)==5,'Ribbon must have five separate shapes, without duplicate feather underlays')
+    for path in master_paths:
+        commands=set(re.findall(r'[A-Za-z]',path.attrib['d']))
+        require(commands=={'M','C','Z'},'Ribbon outlines must use cubic curves rather than polygon contour segments')
+    for color in ('#d5ed5d','#3f8b84'):
+        require(sum(p.attrib.get('fill')==color for p in master_paths)==1,'Colored feathers must have one solid shape each')
     svg_names=['robbins-mark.svg','robbins-mark-reversed.svg','robbins-lockup-primary.svg','robbins-lockup-reversed.svg','robbins-lockup-stacked.svg','robbins-lockup-stacked-reversed.svg','favicon.svg']
     for name in svg_names:
         el=ET.parse(BRAND/name).getroot()
