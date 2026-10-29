@@ -96,4 +96,4 @@ The Power BI report surfaces the OEE and root-cause yield story alongside the NA
 
 - [Build Repository](https://github.com/RobbinsAnalytics/manufacturing-analytics) — SQL DDL, data generation scripts, medallion notebooks
 - [Architecture Explainer](https://github.com/RobbinsAnalytics/manufacturing-analytics/blob/main/docs/02_source_sql_layer.md) — schema design decisions and data dictionary
-- [Cascadia Architecture Overview](../cascadia.qmd)
+- [About Cascadia](../cascadia/index.html)

@@ -64,20 +64,19 @@ ROOT = Path(__file__).resolve().parent.parent
 
 DEFAULT_ORIGIN = "https://www.robbinsanalytics.com"
 
-# Redirect stubs under projects/: hand-written .html files that are not render
-# inputs and reach _site through _quarto.yml's resources list. Each carries an
-# instant <meta http-equiv="refresh"> to a page served by another repository.
-# They are this site's own markup and are checked as such; see page_route().
-STUBS = sorted("/projects/%s" % p.name for p in (ROOT / "projects").glob("*.html"))
+# Hand-written HTML shipped as resources includes the former Cascadia route
+# and redirect stubs under projects/. Check their own markup before refresh.
+STUBS = ["/cascadia.html"] + sorted("/projects/%s" % p.name for p in (ROOT / "projects").glob("*.html"))
+SUITE = sorted("/cascadia/%s" % p.name for p in (ROOT / "cascadia").glob("*.html"))
 
 
 def site_pages():
     """Every page this repo renders or ships, derived from the tree.
 
     THIS LIST IS BUILT, NOT TYPED. The roots are the top-level .qmd files
-    (index.qmd is "/"); every projects/*.qmd by its rendered name; every
-    projects/*.html redirect stub. A page added to the site is checked on its
-    next run with no edit here.
+    (index.qmd is "/"); every projects/*.qmd by its rendered name; the
+    static Cascadia suite and the hand-written redirect stubs. A suite page
+    added to the site is checked on its next run with no edit here.
 
     Not included, deliberately: the /cascadia-semiconductors/* paths and the
     other module paths under this domain, which are served by their own
@@ -90,6 +89,7 @@ def site_pages():
         pages.append("/" if q.stem == "index" else "/%s.html" % q.stem)
     for q in sorted((ROOT / "projects").glob("*.qmd")):
         pages.append("/projects/%s.html" % q.stem)
+    pages.extend(SUITE)
     pages.extend(STUBS)
     return pages
 
@@ -261,8 +261,8 @@ def main():
             browser.close()
 
     n_proj = len(list((ROOT / "projects").glob("*.qmd")))
-    print("  pages: %d, derived from the tree (%d roots, %d projects/*.qmd, %d stubs)"
-          % (len(PAGES), len(PAGES) - n_proj - len(STUBS), n_proj, len(STUBS)))
+    print("  pages: %d, derived from the tree (%d roots, %d projects/*.qmd, %d suite, %d stubs)"
+          % (len(PAGES), len(PAGES) - n_proj - len(SUITE) - len(STUBS), n_proj, len(SUITE), len(STUBS)))
     print("  axe-core over %d page/viewport combinations" % checked)
     print("  tags: %s" % ", ".join(TAGS))
     print("  viewports: %s" % ", ".join("%s %dx%d" % v for v in VIEWPORTS))

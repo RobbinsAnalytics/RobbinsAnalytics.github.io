@@ -124,4 +124,4 @@ Independent portfolio project.
 
 - [Three systems, one firm, no shared key](https://www.robbinsanalytics.com/cascadia-fee-examiner/) — the live module: five charts, the health surface, and what it refuses to publish
 - [Build Repository](https://github.com/RobbinsAnalytics/cascadia-fee-examiner) — the source register, the entity-resolution rule, the reading-panel disposition, and the three validation gates
-- [Cascadia Architecture Overview](../cascadia.qmd)
+- [About Cascadia](../cascadia/index.html)

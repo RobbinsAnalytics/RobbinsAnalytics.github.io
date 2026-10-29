@@ -78,11 +78,10 @@ class LinkParser(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.found = []
 
-    # A preconnect or dns-prefetch href is an ORIGIN to warm up, not a document
-    # to fetch. https://fonts.googleapis.com answers 404 to a bare GET and is
-    # working perfectly; the stylesheet URL under it is the real link. Checking
-    # these produced two false positives on the first run of this crawler.
-    NOT_DOCUMENTS = {"preconnect", "dns-prefetch"}
+    # Preconnect, dns-prefetch and canonical hrefs are metadata, not resources
+    # a reader loads from this page. The public canonical paths are validated
+    # separately in the Cascadia integration check before publication.
+    NOT_DOCUMENTS = {"preconnect", "dns-prefetch", "canonical"}
 
     def handle_starttag(self, tag, attrs):
         wanted = self.WANTED.get(tag)
