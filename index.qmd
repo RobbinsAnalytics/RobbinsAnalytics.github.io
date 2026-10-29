@@ -135,7 +135,7 @@ Open to analytics manager, lead, or principal roles where reporting has outgrown
 
 ::: {.fx-hero__actions}
 [View case studies <span class="fx-arrow" aria-hidden="true">&#8594;</span>](case-studies.qmd){.fx-btn .fx-btn--dark}
-[Cascadia architecture](cascadia.qmd){.fx-btn .fx-btn--outline}
+[Explore Cascadia](cascadia/index.html){.fx-btn .fx-btn--outline}
 :::
 :::
 
@@ -219,9 +219,9 @@ Cascadia is a portfolio built to be checked, not taken on faith. Which tests eac
 :::
 
 <!-- HOW THE WORK IS DONE (note 13, Aaron's choice 2026-10-15: specify,
-     validate, operate, not the three stack patterns). Copy from cascadia.qmd,
-     How I Built This and Design Principles; each tile names the build that
-     proves it. -->
+     validate, operate, not the three stack patterns). This section keeps its
+     selected-build evidence; the new Cascadia suite is the operating-system
+     entry point. Homepage presentation is pending owner review. -->
 
 ::: {.fx-white}
 ::: {.fx-white__panel}
@@ -233,7 +233,7 @@ Cascadia is a portfolio built to be checked, not taken on faith. Which tests eac
 ## Specify, [validate]{.fx-serif}, operate
 :::
 
-[Learn about the Cascadia architecture <span class="fx-arrow--disc" aria-hidden="true">&#8599;</span>](cascadia.qmd#how-i-built-this){.fx-disc-link}
+[Explore the Cascadia operating system <span class="fx-arrow--disc" aria-hidden="true">&#8599;</span>](cascadia/index.html){.fx-disc-link}
 :::
 
 ```{=html}

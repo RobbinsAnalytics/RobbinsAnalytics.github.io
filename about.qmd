@@ -260,7 +260,7 @@ The title is new. The work is not: specify what correct means, build it, test it
 ::: {.fx-skills}
 ## Skills
 
-The split below is the same division of labor described in [How I Built This](cascadia.qmd#how-i-built-this).
+The split below reflects the human and AI roles described in [In Practice](cascadia/examples.html#ai-work).
 
 ```{=html}
 <dl class="fx-skills__list">

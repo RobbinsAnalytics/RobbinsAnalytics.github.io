@@ -114,4 +114,4 @@ Independent portfolio project.
 
 - [Contracted is not billable](https://www.robbinsanalytics.com/cascadia-revenue-assurance/) — the live module: four charts, the decision they serve, and what the page refuses to show
 - [Build Repository](https://github.com/RobbinsAnalytics/cascadia-revenue-assurance) — the normative rules document, both derivation paths, the golden fixture, the four gates, the reading-panel disposition and the decision record
-- [Cascadia Architecture Overview](../cascadia.qmd)
+- [About Cascadia](../cascadia/index.html)

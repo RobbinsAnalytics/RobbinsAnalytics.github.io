@@ -130,4 +130,4 @@ Built from public SEC filings (EDGAR XBRL APIs), as of 2026-07-21. Independent p
 - [Q2 FY2026 Filed vs Announced](https://www.robbinsanalytics.com/cascadia-finance/q2-filed.html) — the filed 10-Q reconciled line-by-line against my July 29 announced estimates; every GAAP line ties to the dollar
 - [Q2 FY2026 Read-Through](https://www.robbinsanalytics.com/cascadia-finance/q2-readthrough.html) — the pre-filing announced-tier margin walk (8-K press release, before the 10-Q)
 - [Build Repository](https://github.com/RobbinsAnalytics/cascadia-finance) — Python ingest/conform/build, frozen SEC snapshots, SQLite star schema, validation report
-- [Cascadia Architecture Overview](../cascadia.qmd)
+- [About Cascadia](../cascadia/index.html)

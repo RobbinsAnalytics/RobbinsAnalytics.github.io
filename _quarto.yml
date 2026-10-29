@@ -32,6 +32,12 @@ project:
     # makes "the live site is actually serving this commit" the Action's own
     # pass/fail. The committed value is the placeholder `local`.
     - build.txt
+    # The four-page Cascadia operating system is static HTML with its own
+    # scoped assets. Quarto must copy the bundle without re-rendering it.
+    - cascadia/
+    # Keep the previously shared URL as a redirect, without retaining the old
+    # Cascadia Family page. There is no cascadia.qmd render input now.
+    - cascadia.html
     # Redirect stubs for the module's old /cascadia-semiconductors/ URLs. Same
     # reason as CNAME above: `quarto publish gh-pages` rebuilds the branch from
     # _site and force-pushes, so anything not copied in is destroyed on the next
@@ -76,7 +82,7 @@ website:
       - text: "About"
         href: about.qmd
       - text: "Cascadia"
-        href: cascadia.qmd
+        href: /cascadia/
       - text: "Case Studies"
         menu:
           - text: "Build by Build"

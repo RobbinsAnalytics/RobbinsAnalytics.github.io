@@ -102,4 +102,4 @@ Real government data isn't clean: CMS suppresses small-cell counts (blanks/aster
 
 ## Links
 
-- [Cascadia Architecture Overview](../cascadia.qmd)
+- [About Cascadia](../cascadia/index.html)

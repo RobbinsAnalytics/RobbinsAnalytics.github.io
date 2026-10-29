@@ -125,6 +125,8 @@ jobs:
             fi
           }
           for path in / /about.html /cascadia.html \
+                      /cascadia/ /cascadia/examples.html \
+                      /cascadia/how-it-learns.html /cascadia/your-company.html \
                       /projects/cascadia-finance.html \
                       /projects/cascadia-dealdesk.html \
                       /projects/sibling-conflict.html \

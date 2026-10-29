@@ -173,4 +173,4 @@ Every order, style, size, shipment, labor hour and dollar in this module is synt
 
 - [Fill Rate & Split Cost](https://www.robbinsanalytics.com/cascadia-controltower/) — seven charts, the certified metric register, and the realism audits
 - [Build Repository](https://github.com/RobbinsAnalytics/cascadia-controltower) — generator, dbt project, validation suite, and the governance documents
-- [Cascadia Architecture Overview](../cascadia.qmd)
+- [About Cascadia](../cascadia/index.html)

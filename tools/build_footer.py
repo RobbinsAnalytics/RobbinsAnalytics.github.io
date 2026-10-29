@@ -31,7 +31,7 @@ SITE_DESCRIPTION = ("AI analytics architecture portfolio, Aaron Robbins. "
 EXPLORE = [
     ("Home", "/"),
     ("About", "/about.html"),
-    ("Cascadia architecture", "/cascadia.html"),
+    ("About Cascadia", "/cascadia/"),
     ("All case studies", "/case-studies.html"),
 ]
 

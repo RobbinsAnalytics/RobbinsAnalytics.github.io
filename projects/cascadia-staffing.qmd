@@ -107,4 +107,4 @@ PBJ has honest traps, and the build models them instead of papering over them:
 
 - [Build Repository](https://github.com/RobbinsAnalytics/cascadia-staffing-analytics) — SQL DDL, Python acquisition/staging, one-command reproducible build (`run_build.ps1`), KPI validation scripts
 - [Power BI Handoff Doc](https://github.com/RobbinsAnalytics/cascadia-staffing-analytics/blob/main/docs/HANDOFF_POWERBI.md) — schema, validated row counts, and the data traps documented for the semantic-model layer
-- [Cascadia Architecture Overview](../cascadia.qmd)
+- [About Cascadia](../cascadia/index.html)

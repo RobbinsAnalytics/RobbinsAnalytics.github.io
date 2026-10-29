@@ -15,7 +15,8 @@ RobbinsAnalytics.github.io/
 ├─ _quarto.yml                  # Quarto website config (cosmo theme + Cascadia palette)
 ├─ index.qmd                    # Landing page — Aaron Robbins identity + featured case studies
 ├─ about.qmd                    # Bio, skills, resume, contact
-├─ cascadia.qmd                 # Cascadia family concept + shared architecture
+├─ cascadia/                    # Four-page Cascadia operating system and scoped assets
+├─ cascadia.html                # Redirect from the former single-page URL
 ├─ projects/
 │   ├─ cascadia-medical-devices.qmd   # Manufacturing case study
 │   ├─ cascadia-pharmacy.qmd          # Healthcare/pharmacy case study
@@ -26,7 +27,7 @@ RobbinsAnalytics.github.io/
 └─ styles.scss                  # SCSS overrides — Cascadia color palette
 ```
 
-This repo is a **site shell only**. The build repos it links to are separate:
+This repo contains the portfolio shell and the four-page Cascadia operating-system presentation. The analytical build repos linked from those pages are separate:
 
 | Project | Repo |
 |---|---|

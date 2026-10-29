@@ -66,7 +66,10 @@ PAGES = {
     "index": "/",
     "case-studies": "/case-studies.html",
     "about": "/about.html",
-    "cascadia": "/cascadia.html",
+    "cascadia": "/cascadia/",
+    "cascadia-in-practice": "/cascadia/examples.html",
+    "cascadia-how-it-learns": "/cascadia/how-it-learns.html",
+    "cascadia-for-your-company": "/cascadia/your-company.html",
     "finance": "/projects/cascadia-finance.html",
     "dealdesk": "/projects/cascadia-dealdesk.html",
     "sibling-conflict": "/projects/sibling-conflict.html",
@@ -278,7 +281,10 @@ def main():
                         (shots_dir / name).write_bytes(png)
 
                     if not target.exists():
-                        missing.append(name)
+                        if slug in expect:
+                            expected.append((name, 1.0, "new page; baseline pending review"))
+                        else:
+                            missing.append(name)
                         continue
 
                     ratio, note = compare(target.read_bytes(), png, diff_dir / name)

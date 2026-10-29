@@ -15,8 +15,8 @@
 # ("01", "02", ...) is its DISPLAY POSITION in that sort, computed by the
 # template at render time. It is not a build number and it moves when an
 # entry is added above it. For the data builds, `order` copies the position
-# in the Builds & Their Stacks table on cascadia.qmd, which the
-# surface-module skill keeps newest first; for the playbooks, the paper and
+# in the former Builds & Their Stacks table, now superseded by the four-page
+# Cascadia suite. For the playbooks, the paper and
 # the process map it is the position they hold in the dropdown. No git
 # dates, no inference from when a wrapper landed.
 #
