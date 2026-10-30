@@ -151,6 +151,28 @@ MODULES = [
          accent="evergreen", motif="bars"),
 ]
 
+# The four-page Cascadia operating system is a suite, not another analytics
+# module. These cards share the current brand mark and the existing card
+# typography, but omit chart motifs because none represents these pages.
+SUITE_PAGES = [
+    dict(slug="about", data="Cascadia · Robbins Analytics", kicker="Cascadia",
+         title="About Cascadia",
+         line="An evolving operating system for delivering solutions and building knowledge.",
+         accent="evergreen", motif=None),
+    dict(slug="in-practice", data="Cascadia · Robbins Analytics", kicker="Cascadia",
+         title="In Practice",
+         line="Real portfolio solutions show how rules, evidence and human review shape AI-assisted work.",
+         accent="evergreen", motif=None),
+    dict(slug="how-it-learns", data="Cascadia · Robbins Analytics", kicker="Cascadia",
+         title="How It Learns",
+         line="Evidence and retrospectives make learning available to the next build.",
+         accent="evergreen", motif=None),
+    dict(slug="for-your-company", data="Cascadia · Robbins Analytics", kicker="Cascadia",
+         title="For Your Company",
+         line="A playbook for setting up the capabilities and delivering the first accepted solution.",
+         accent="evergreen", motif=None),
+]
+
 MOTIFS = {
     # Small, honest marks. Not decoration — each is a real chart form from the
     # system, drawn at signature-chart rules (0.3): shape only, no axes.
@@ -186,6 +208,9 @@ def motif_svg(kind, colour, muted=False):
 def page(m):
     accent = C["rain"] if m.get("muted") else C[m["accent"]]
     title_size = 62 if len(m["title"]) < 46 else 54
+    motif = (f'<div class="motifrow"><div class="motif">'
+             f'{motif_svg(m["motif"], m["accent"], m.get("muted", False))}'
+             f'</div></div>') if m.get("motif") else ""
     return f"""<!doctype html><html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -240,7 +265,7 @@ def page(m):
     <div class="line">{m['line']}</div>
   </div>
   <div class="foot">
-    <div class="motifrow"><div class="motif">{motif_svg(m['motif'], m['accent'], m.get('muted', False))}</div></div>
+    {motif}
     <div class="strip"><span class="tick"></span>Aaron Robbins · robbinsanalytics.com · {m['data']}</div>
   </div>
 </body></html>"""
@@ -275,6 +300,14 @@ def main():
             png = OUT / f"thumb-{m['slug']}.png"
             pg.screenshot(path=str(png))
             made.append(png.name)
+            print(f"  {png.name}")
+        for m in SUITE_PAGES:
+            html = OUT / f"_social-cascadia-{m['slug']}.html"
+            html.write_text(page(m), encoding="utf-8")
+            pg.goto(html.as_uri(), wait_until="networkidle")
+            pg.wait_for_timeout(1200)
+            png = OUT / f"social-cascadia-{m['slug']}.png"
+            pg.screenshot(path=str(png))
             print(f"  {png.name}")
         # did Source Serif 4 actually load, or did we silently fall back?
         pg.goto((OUT / "_dealdesk.html").as_uri(), wait_until="networkidle")
