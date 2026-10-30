@@ -29,8 +29,10 @@ Since the candidate workflow (`.github/workflows/candidate.yml`), the usual
 source is not the dispatch workflow at all: a pull request's candidate run
 writes every screenshot it compared to `--shots-dir` and uploads them, so a
 changed page's new baseline is the exact image that was compared, taken on the
-runner from the candidate. The dispatch workflow remains for a whole-set
-refresh, such as a runner-image move.
+runner from the candidate. A missing baseline fails even for a labelled page;
+its runner screenshot is included in the visual-diffs artifact for review and
+baseline-only follow-up. The dispatch workflow reads the live origin by
+default and remains for a whole-set refresh, such as a runner-image move.
 
 WHAT A FAILURE MEANS
 
@@ -281,10 +283,13 @@ def main():
                         (shots_dir / name).write_bytes(png)
 
                     if not target.exists():
-                        if slug in expect:
-                            expected.append((name, 1.0, "new page; baseline pending review"))
-                        else:
-                            missing.append(name)
+                        # A label describes an intended change; it cannot
+                        # authorize a merge with no baseline. Keep the runner
+                        # image in the diff artifact so the baseline-only
+                        # fast path can match the reviewed follow-up commit.
+                        diff_dir.mkdir(parents=True, exist_ok=True)
+                        (diff_dir / name).write_bytes(png)
+                        missing.append(name)
                         continue
 
                     ratio, note = compare(target.read_bytes(), png, diff_dir / name)
@@ -334,8 +339,10 @@ def main():
     if missing:
         sys.stderr.write(
             "\nNO BASELINE for %d image(s):\n    %s\n\n"
-            "Run the 'Generate visual baselines' workflow (workflow_dispatch),\n"
-            "download its artifact, and commit the images to %s.\n\n"
+            "Inspect these images in the candidate-screenshots artifact, then\n"
+            "commit only their runner screenshots to %s. A baseline-only\n"
+            "follow-up can use the candidate fast path. The manual baseline\n"
+            "workflow reads the live origin and cannot capture an unpublished page.\n\n"
             % (len(missing), "\n    ".join(missing),
                base_dir.relative_to(ROOT).as_posix())
         )
