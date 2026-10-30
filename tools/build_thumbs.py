@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Build Cascadia OG/social thumbnails to the v2.2 design system.
+"""Build portfolio thumbnails and four Cascadia suite social previews.
 
 1200x630 (the Open Graph standard, and what iMessage/Slack/LinkedIn crop to).
-Rendered through the same Chromium the charts are, so the type and the palette
-are identical rather than merely similar.
+Rendered through Chromium so the suite previews can use the site's hero type,
+palette, logo and lime summary card.
 
-The signature elements, from VIZ-PRINCIPLES.md:
+The portfolio thumbnail signature elements, from VIZ-PRINCIPLES.md:
   - Paper #FCFCFA surface, Basalt text, Slate moss secondary
   - Source Serif 4 carries the voice; the Segoe UI stack carries the data
   - the provenance strip's Evergreen tick, in the same position every time
@@ -151,26 +151,34 @@ MODULES = [
          accent="evergreen", motif="bars"),
 ]
 
-# The four-page Cascadia operating system is a suite, not another analytics
-# module. These cards share the current brand mark and the existing card
-# typography, but omit chart motifs because none represents these pages.
+# The four-page Cascadia operating system has its own page-hero visual language.
+# Keep this separate from the portfolio/module thumbnails above.
 SUITE_PAGES = [
-    dict(slug="about", data="Cascadia · Robbins Analytics", kicker="Cascadia",
-         title="About Cascadia",
-         line="An evolving operating system for delivering solutions and building knowledge.",
-         accent="evergreen", motif=None),
-    dict(slug="in-practice", data="Cascadia · Robbins Analytics", kicker="Cascadia",
-         title="In Practice",
-         line="Real portfolio solutions show how rules, evidence and human review shape AI-assisted work.",
-         accent="evergreen", motif=None),
-    dict(slug="how-it-learns", data="Cascadia · Robbins Analytics", kicker="Cascadia",
-         title="How It Learns",
-         line="Evidence and retrospectives make learning available to the next build.",
-         accent="evergreen", motif=None),
-    dict(slug="for-your-company", data="Cascadia · Robbins Analytics", kicker="Cascadia",
-         title="For Your Company",
-         line="A playbook for setting up the capabilities and delivering the first accepted solution.",
-         accent="evergreen", motif=None),
+    dict(slug="about", title="About Cascadia",
+         headline="Deliver solutions.<br>Carry <em>learning forward.</em>",
+         card_kicker="The operating system",
+         card_title="How does each solution strengthen the next?",
+         rows=[("Build", "Shared capabilities"), ("Learn", "Evidence to reuse")]),
+    dict(slug="in-practice", title="In Practice",
+         headline="AI assists the analysis.<br>Evidence <em>earns trust.</em>",
+         card_kicker="The operating boundary",
+         card_title="What makes a solution usable?",
+         rows=[("Develop", "AI assists"), ("Check", "Evidence is inspectable"),
+               ("Decide", "People remain accountable")]),
+    dict(slug="how-it-learns", title="How It Learns",
+         headline_size=55,
+         headline="The work delivers a solution.<br>What was learned<br><em>shapes the next.</em>",
+         card_kicker="The learning route",
+         card_title="Knowledge makes learning transferable.",
+         rows=[("See", "What happened"), ("Reflect", "What was learned"),
+               ("Decide", "What can travel")]),
+    dict(slug="for-your-company", title="For Your Company",
+         headline_size=55,
+         headline="From the first week<br>to the <em>first accepted solution.</em>",
+         card_kicker="The route into delivery",
+         card_title="When is work ready to take?",
+         rows=[("First", "Agree scope and owners"), ("Then", "Assess readiness"),
+               ("Deliver", "Open intake and acceptance")]),
 ]
 
 MOTIFS = {
@@ -271,6 +279,60 @@ def page(m):
 </body></html>"""
 
 
+def suite_page(m):
+    """Render the suite's actual hero type and lime summary-card vocabulary."""
+    rows = "".join(
+        f'<div class="row"><dt>{label}</dt><dd>{value}</dd></div>'
+        for label, value in m["rows"]
+    )
+    return f"""<!doctype html><html><head><meta charset="utf-8">
+<style>
+  @page {{ size: 1200px 630px; margin: 0 }}
+  * {{ box-sizing: border-box }}
+  html, body {{ width: 1200px; height: 630px; margin: 0; background: #efeee9 }}
+  body {{ font-family: "Segoe UI", Arial, sans-serif; color: #0f1f1e;
+          -webkit-font-smoothing: antialiased; overflow: hidden }}
+  .top {{ height: 146px; padding: 33px 64px 0; display: flex;
+          align-items: flex-start; justify-content: space-between }}
+  .identity {{ display: flex; align-items: center; gap: 13px }}
+  .brand svg {{ display: block; width: 76px; height: 68px }}
+  .brand-name {{ font-size: 27px; font-weight: 700; letter-spacing: -.035em }}
+  .brand-name span {{ font-family: Georgia, serif; font-style: italic;
+                      font-weight: 400; color: #3f8f85 }}
+  .page-name {{ padding-top: 25px; font-size: 18px; font-weight: 600;
+                letter-spacing: .15em; text-transform: uppercase; color: #12403c }}
+  .content {{ display: grid; grid-template-columns: 710px 350px;
+              gap: 28px; padding: 0 64px }}
+  .headline {{ align-self: center; min-width: 0; padding-bottom: 10px }}
+  h1 {{ margin: 0; font-size: {m.get('headline_size', 62)}px; line-height: 1.09; letter-spacing: -.04em;
+        font-weight: 700; color: #0f1f1e }}
+  h1 em {{ font-family: Georgia, serif; font-weight: 400;
+           letter-spacing: -.045em; color: #3f8f85 }}
+  .card {{ min-height: 365px; background: #d4f36b; border-radius: 25px;
+           padding: 29px 30px 26px }}
+  .card-kicker {{ margin: 0; font: 14px/1.3 Consolas, monospace;
+                  letter-spacing: .08em; text-transform: uppercase }}
+  .rule {{ height: 1px; background: #0f1f1e; margin: 17px 0 19px }}
+  .card h2 {{ margin: 0 0 22px; font-size: 25px; line-height: 1.2;
+              letter-spacing: -.025em; font-weight: 700 }}
+  dl {{ margin: 0 }}
+  .row {{ display: flex; justify-content: space-between; gap: 18px;
+          align-items: baseline; border-top: 1px solid #0f1f1e55;
+          padding: 14px 0 }}
+  dt {{ font: 13px/1.2 Consolas, monospace; text-transform: uppercase;
+        letter-spacing: .04em; white-space: nowrap }}
+  dd {{ margin: 0; text-align: right; font-size: 16px; line-height: 1.2;
+        font-weight: 700; max-width: 190px }}
+</style></head><body>
+  <div class="top"><div class="identity"><div class="brand">{_MARK_SVG.read_text(encoding="utf-8")}</div>
+    <div class="brand-name">Robbins <span>Analytics</span></div></div>
+    <div class="page-name">Cascadia / {m['title']}</div></div>
+  <div class="content"><div class="headline"><h1>{m['headline']}</h1></div>
+    <aside class="card"><p class="card-kicker">{m['card_kicker']}</p><div class="rule"></div>
+      <h2>{m['card_title']}</h2><dl>{rows}</dl></aside></div>
+</body></html>"""
+
+
 def main():
     global OUT
     ap = argparse.ArgumentParser(description="Build Cascadia OG thumbnails.")
@@ -303,7 +365,7 @@ def main():
             print(f"  {png.name}")
         for m in SUITE_PAGES:
             html = OUT / f"_social-cascadia-{m['slug']}.html"
-            html.write_text(page(m), encoding="utf-8")
+            html.write_text(suite_page(m), encoding="utf-8")
             pg.goto(html.as_uri(), wait_until="networkidle")
             pg.wait_for_timeout(1200)
             png = OUT / f"social-cascadia-{m['slug']}.png"
