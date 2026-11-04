@@ -91,6 +91,8 @@ def site_pages():
         pages.append("/projects/%s.html" % q.stem)
     pages.extend(SUITE)
     pages.extend(STUBS)
+    # Unlisted static proposal has no navigation entry to discover.
+    pages.append('/running-start/')
     return pages
 
 
