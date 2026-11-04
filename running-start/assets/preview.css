@@ -81,3 +81,33 @@
 
 .cwds .tailored-examples{list-style:disc;padding-left:20px;margin:12px 0 0}.cwds .tailored-examples li{display:list-item;margin:0 0 14px;padding-left:3px;text-wrap:pretty}.cwds .tailored-examples li:last-child{margin-bottom:0}.cwds .tailored-examples li::marker{color:var(--cwds-teal)}
 .cwds .outcome>p:last-child em{color:#d4f36b;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:500;font-size:1.08em}
+
+/* Page index and mobile section context: shared CWDS disclosure behavior. */
+.cwds .page-frame{max-width:1440px}
+.cwds .cwds-content{min-width:0}
+.cwds .cwds-index-panel nav>a{display:flex;align-items:baseline;gap:9px;line-height:1.4;padding:10px 9px;border-radius:7px}
+.cwds .cwds-index-panel nav>a>span{font:12px/1.6 var(--cwds-mono);flex:0 0 20px}
+.cwds .cwds-index-panel nav>a[data-sub]{font-size:13px;padding-left:38px}
+.cwds .cwds-index-panel nav>a[aria-current=location]{background:#dfeae4;color:#12403c;font-weight:700}
+.cwds .cwds-index-panel nav>a[hidden]{display:none}
+.cwds .cwds-index-toggle{gap:12px}
+.cwds .section-heading-bar{background:var(--cwds-paper)}
+.cwds [data-cwds-subsection]{scroll-margin-top:calc(var(--section-title-height,120px) + 16px)}
+@media(min-width:1280px){
+ .cwds .cwds-content{margin-left:208px}
+ .cwds.cwds-ready .cwds-index{left:max(32px,calc((100vw - 1440px)/2));right:auto;top:var(--index-top,129px);bottom:auto;width:176px;max-height:calc(100vh - var(--index-top,129px) - 28px);overflow:auto}
+ .cwds.cwds-ready .cwds-index-toggle{display:none}
+ .cwds.cwds-ready .cwds-index-panel{display:block;position:static;width:100%;max-height:none;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible}
+}
+@media(max-width:1279px){.cwds .cwds-content{margin-left:0}}
+@media(max-width:767px){
+ .cwds .section-grid{display:block}
+ .cwds .section-intro{display:contents}
+ .cwds .section-heading-bar{position:sticky;top:0;z-index:35;padding:14px 0 12px;margin:0 0 18px;border-bottom:1px solid var(--cwds-line)}
+ .cwds .section-heading-bar .cwds-label{font-size:11px;margin-bottom:8px}
+ .cwds .section-heading-bar h2{font-size:24px;line-height:1.2;margin:0;text-wrap:pretty}
+ .cwds .questions .cwds-intro{margin-bottom:22px}
+ .cwds .cwds-section{scroll-margin-top:0}
+ .cwds .outcome{margin-bottom:96px}
+}
+@media print{.cwds .cwds-content{margin-left:0}.cwds .section-heading-bar{position:static}}
