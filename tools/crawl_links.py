@@ -150,7 +150,8 @@ def main():
     origin = args.origin.rstrip("/")
     host = urllib.parse.urlsplit(origin).netloc
 
-    queue = deque([origin + "/"])
+    # Include the deliberately unlisted proposal without adding a public link.
+    queue = deque([origin + "/", origin + "/running-start/"])
     seen_pages = set()
     checked = {}          # url -> status
     internal_bad = []

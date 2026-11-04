@@ -18,6 +18,8 @@ project:
   # changed, 2026-08-02.
   resources:
     - assets/
+    # Unlisted proposal: static resource, excluded from Quarto navigation/search.
+    - running-start/
     # CNAME must be copied into _site on every build. The publish workflow runs
     # `quarto publish gh-pages`, which rebuilds the gh-pages branch from _site
     # and force-pushes it — so any CNAME file GitHub wrote to that branch is
