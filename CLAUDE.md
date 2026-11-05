@@ -129,8 +129,11 @@ not a mute, and this site's own HTML does not belong in it. The pages axe
 visits are derived from the tree by `site_pages()` in `tools/a11y_check.py`,
 not typed: the hand list it replaced had been missing five case studies.
 
-Visual regression compares seven pages at 390 / 414 / 768 / 1440 against
-baselines in `.github/visual-baselines/`. **Those baselines are only valid
+Visual regression compares the pages in `PAGES` at 390 / 414 / 768 / 1440
+against baselines in `.github/visual-baselines/`. Before opening a PR, run
+`tools/pr_visual_preflight.py` and follow `docs/PR-VISUAL-PREFLIGHT.md` to
+inventory affected routes, intended-change labels and missing baselines.
+**Those baselines are only valid
 because they were generated on the runner** — a Windows screenshot differs from
 a Linux one in font rendering alone. **The runner image and Playwright are
 pinned for the same reason**: `runs-on: ubuntu-24.04` and `playwright==1.64.0`
@@ -160,8 +163,7 @@ Aaron the local preview and the pull request link straight away, and keeps
 ownership of the candidate run while he looks. It does not end its turn to ask
 about routine steps. **Label every compared page the change is meant to
 alter** when opening the pull request: `visual-skip:<page>` with the slug from
-`PAGES` in `tools/visual_check.py` (index, about, cascadia, case-studies,
-finance, dealdesk, sibling-conflict), or `visual-skip:all` for a site-wide
+`PAGES` in `tools/visual_check.py`, or `visual-skip:all` for a site-wide
 change. A difference on a labelled page is reported with its diff image and
 does not fail the run, so an intended change gives a green first run and no
 email; every unlabelled page must still match, so an accidental effect on
