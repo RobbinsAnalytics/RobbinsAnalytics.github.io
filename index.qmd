@@ -91,7 +91,9 @@ listing:
      Portfolio as two of three items. One change of wording, Aaron's own:
      "let AI do the build" is now "direct AI to do the build". The Track
      Record is new copy built from about.qmd line 9. The motto moved to the
-     statement panel below. The availability line is unchanged. -->
+     statement panel below. The line under the hero (class hero-availability,
+     kept for the stylesheets) was an availability line until 2026-11-18; it
+     is now an identity line with no availability claim (Aaron, Option A). -->
 
 ::: {.fx-hero}
 ::: {.fx-hero__text}
@@ -130,7 +132,7 @@ AI Analytics Architect
 ```
 
 ::: {.hero-availability}
-Open to analytics manager, lead, or principal roles where reporting has outgrown trust, and to conversations about roles that don't exist yet. Seattle or remote.
+I build analytics for organizations where reporting has outgrown trust, and I'm always up for a conversation about the problems that don't have names yet. Based in Seattle.
 :::
 
 ::: {.fx-hero__actions}
