@@ -32,7 +32,8 @@ WHAT IT PROVES BEFORE ACCEPTING, ALL OF IT, OR NOTHING
 4. That run tested the same base commit of `main` as this one (recorded in its
    artifact as candidate-meta.json), so the merge it rendered is this merge
    minus the images.
-5. The pages it failed on are exactly the images this commit changes.
+5. The pages it failed on, including missing new-page baselines, are exactly
+   the images this commit changes.
 6. Each changed image is byte-identical to the screenshot that run took.
 
 If all six hold, the full run would render the same source and compare it
@@ -137,7 +138,8 @@ def decide(repo, before, head, base, skip_base_check=False, workdir=None):
     if steps.get(VISUAL) not in ("success", "failure"):
         raise NotEligible("run %d: the visual check did not run (%s)" % (prev["id"], steps.get(VISUAL)))
 
-    # Its artifacts: every screenshot it took, and a diff for every page it failed.
+    # Its artifacts: every screenshot it took, and a diff or new-page preview
+    # for every page it failed.
     tmp = Path(workdir or tempfile.mkdtemp(prefix="fastpath-"))
     shots, diffs = tmp / "shots", tmp / "diffs"
     run("gh", "run", "download", str(prev["id"]), "--repo", repo,

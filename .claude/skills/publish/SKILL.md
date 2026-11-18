@@ -130,6 +130,13 @@ characters, then a body if the change needs one.
 
 ## 5 · Push the branch, and open or update the pull request
 
+Before opening the pull request, run `tools/pr_visual_preflight.py` with the
+affected compared-page slugs and any intended visual changes. Follow
+`docs/PR-VISUAL-PREFLIGHT.md` for new or unmonitored routes. This inventory
+prevents late labels and identifies runner baselines that do not yet exist.
+The script does not infer affected pages from filenames; review shared styles
+and navigation effects explicitly.
+
 ```bash
 git push -u origin "$(git rev-parse --abbrev-ref HEAD)"
 gh pr view --json number,url,state 2>/dev/null \
@@ -139,10 +146,11 @@ gh pr view --json number,url,state 2>/dev/null \
 ```
 
 **Label the pages the change is meant to alter**: `visual-skip:<page>` for each
-compared page (index, about, cascadia, case-studies, finance, dealdesk,
-sibling-conflict), or `visual-skip:all` for a site-wide change; none for a
+compared page named in `tools/visual_check.py` `PAGES`, or `visual-skip:all`
+for a site-wide change; none for a
 change that alters no compared page. A difference on a labelled page is
-reported, not failed.
+reported, not failed. A missing baseline still fails and needs a reviewed
+runner screenshot committed on the branch before the PR can merge.
 
 The push starts the candidate workflow. The pull request body is written for
 Aaron: what changed and why, in his words, and anything he must look at
@@ -163,6 +171,11 @@ supersedes the last. Three red outcomes and what each means:
 - **Visual**: pixels moved on an **unlabelled** compared page. The change
   reached a page it was not meant to: download `visual-diffs-<sha>`, look, and
   fix it. Do not promote it, and do not add a label to make it pass.
+- **Missing new-page baseline**: the preflight should have identified this.
+  Inspect the `candidate-screenshots-<sha>` and `visual-diffs-<sha>` artifacts,
+  commit only the missing runner images as one baseline-only follow-up, and
+  let the fast path verify their identity. The manual baseline workflow reads
+  the live origin by default and cannot capture an unpublished page.
 
 **After a green first run that changed labelled pages** (the log lists them
 under "CHANGED AS INTENDED"), download `candidate-screenshots-<sha>`, copy
