@@ -20,6 +20,7 @@ project:
     - assets/
     # Unlisted proposal: static resource, excluded from Quarto navigation/search.
     - running-start/
+    - briefs/first-120-days/
     # Unlisted COS brief with its own assets and search metadata.
     - cascadia-operating-system/brief/
     # CNAME must be copied into _site on every build. The publish workflow runs
